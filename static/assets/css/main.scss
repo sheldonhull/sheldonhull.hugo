@@ -1,0 +1,534 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono|Source+Sans+Pro');
+/********************************************************************************************************************************************************************/
+/* ==========================================================================
+Dark skin
+========================================================================== */
+
+/* DARK THEME OVERRIDES - Sheldon */
+/*
+font overrides
+*/
+
+// $serif      : "Comic Sans", Georgia, Times, serif;
+// $sans-serif : "Comic Sans", -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+// $monospace  : "Fira Code Retina", Monaco, Consolas, "Lucida Console", monospace;
+
+
+// /* Colors */
+// $background-color: #18191b !default;
+// $text-color: #eaeaea !default;
+// $primary-color: #00adb5 !default;
+// $border-color: mix(#fff, $background-color, 20%) !default;
+// $code-background-color: mix(#000, $background-color, 15%) !default;
+// $code-background-color-dark: mix(#000, $background-color, 20%) !default;
+// $form-background-color: mix(#000, $background-color, 15%) !default;
+// $footer-background-color: mix(#000, $background-color, 30%) !default;
+// $link-color: mix($primary-color, $text-color, 40%) !default;
+// $link-color-hover: mix(#fff, $link-color, 25%) !default;
+// $link-color-visited: mix(#000, $link-color, 25%) !default;
+// $masthead-link-color: $text-color !default;
+// $masthead-link-color-hover: mix(#000, $text-color, 20%) !default;
+// $navicon-link-color-hover: mix(#000, $background-color, 30%) !default;
+
+// .author__urls.social-icons .svg-inline--fa,
+// .page__footer-follow .social-icons .svg-inline--fa {
+//   color: inherit;
+// }
+
+// .ais-search-box .ais-search-box--input {
+//   background-color: $form-background-color;
+// }
+
+// ::-webkit-scrollbar {
+//   background: #1d1f21;
+// }
+// Grayscale
+$cyan: #8abeb7;
+$blue: #81a2be;
+$purple: #b294bb;
+$green: #b5bd68;
+$red: #cc6666;
+$orange: #de935f;
+$light-orange: #f0c674;
+$very-light-gray: #c5c8c6;
+$light-gray: #e0e2e4;
+// $gray: #373b41; readibility
+$gray:  #e0e2e4;
+
+$lime-green: #41b644;
+$moderate-green: #82c057;
+$strong-cyan: #009dbe;
+$light-blue: #009bde;
+$light-purple: #776cc4;
+$light-yellow: #e8e2b7;
+$light-red: #db2b37;
+$dark-gray: #7f7f7f;
+$dark-pink: #b11888;
+$dark-gray-cyan: #81969a;
+$very-dark-gray: #333e48;
+$very-dark-gray-cyan: #2f393c;
+$very-dark:#22252e;
+
+$text-color: white;
+// $link-color: desaturate(lighten($light-blue, 25%), 20%);
+
+$theme-background: $very-dark;
+$theme-background-toolbar: lighten($very-dark, 8%);
+
+
+// /* Colors */
+$background-color: $theme-background;
+$text-color:  white;
+$primary-color: #00adb5 ;
+
+::-webkit-scrollbar {
+  background: #1d1f21;
+ }
+
+ .btn--inverse {
+  background-color: $dark-gray-cyan;
+ }
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+// TEXT COLORS
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+
+// .author__urls.social-icons .svg-inline--fa,
+// .page__footer-follow .social-icons .svg-inline--fa {
+//   color: inherit;
+// }
+
+// .ais-search-box .ais-search-box--input {
+//   background-color: $form-background-color;
+// }
+
+
+
+
+/* main partials */
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";  /* skin */
+@import "minimal-mistakes"; /* main partials */
+
+
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.page__content {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:0.9em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+highlighter-rouge, code, pre, highlight  {
+    font-family: 'Fira Mono', monospace!important;
+    font-size:0.625rem;
+}
+
+/*tags page*/
+/* Great Styled TagList from https: //justin.kelly.org.au/jekyll-tags-page/ */
+ul.posts {
+    list-style-type: none;
+    margin-bottom: 2rem;
+    padding: 0;
+}
+
+ul.posts li span {
+    color: silver;
+}
+
+.tag-box {
+    list-style: none;
+    margin: 0;
+    padding: 4px 0;
+    overflow: hidden;
+}
+
+.tag-box.inline li {
+    float: left;
+    font-size: 14px;
+    font-size: 0.875rem;
+    line-height: 2.5;
+}
+
+.tag-box a {
+    padding: 4px 6px;
+    margin: 2px;
+    background-color: #e6e6e6;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.tag-box a span {
+    vertical-align: super;
+    font-size: 10px;
+    font-size: 0.625rem;
+}
+
+/* START CUSTOM GIST STYLE */
+
+/* Gist Custom Syntax Highlighting CSS
+--------------------------------------------- */
+body .gist .gist-file , .gist:visited{
+  /* border: none; */
+  border-color:#293134;
+  border-bottom: none;
+  background: #293134;
+  color: #A0A8B3;
+  text-decoration: none;
+}
+
+body .gist .gist-data {
+  background: #293134;
+  border-radius: 4px 4px 0 0;
+  color: #A0A8B3;
+  font-size: 0.625rem;
+  line-height: 1.4;
+  // padding: 16px 16px 0;
+}
+
+body .gist .gist-data .blob-wrapper {
+  max-width: 100%;
+  padding-bottom: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+body .gist .highlight {
+  background: #293134;
+  max-width: 800px;
+  overflow-x: scroll;
+  border: none;
+}
+
+body .gist .highlight td, body .gist .highlight tbody {
+  border: none;
+}
+
+body .gist .blob-num,
+body .gist .blob-code-inner,
+body .gist .pl-ent,
+body .gist .pl-s1,
+body .gist .pl-s1 .pl-s2,
+body .gist .pl-smi,
+body .gist .pl-smp,
+body .gist .pl-stj,
+body .gist .pl-vo,
+body .gist .pl-vpf {
+  color: #e0e2e4;
+}
+
+body .gist .pl-c,
+body .gist .pl-c span {
+  color: #66747b;
+  font-style: italic;
+}
+
+body .gist .pl-mb {
+  color: #ec7600;
+  font-weight: 700;
+}
+
+body .gist .pl-mh .pl-en {
+  color: #66747b;
+  font-weight: 700;
+}
+
+body .gist .pl-mi {
+  color: #93c763;
+  font-style: italic;
+}
+
+body .gist .pl-sc {
+  color: #96989a;
+}
+
+body .gist .pl-st {
+  color: #da4236;
+}
+
+body .gist .pl-c1 > .pl-c1 {
+  color: #678cb1;
+}
+
+body .gist .pl-c1,
+body .gist .pl-sr .pl-cce {
+  color: #ffcd22;
+}
+
+body .gist .pl-e,
+body .gist .pl-k,
+body .gist .pl-mdh,
+body .gist .pl-mdr,
+body .gist .pl-ml,
+body .gist .pl-mm,
+body .gist .pl-mo,
+body .gist .pl-mp,
+body .gist .pl-mr,
+body .gist .pl-ms,
+body .gist .pl-s1 .pl-v,
+body .gist .pl-s3 {
+  color: #93c763;
+}
+
+body .gist .pl-en,
+body .gist .pl-v {
+  color: #678cb1;
+}
+
+body .gist .pl-mh,
+body .gist .pl-mq {
+  color: #66747b;
+}
+
+body .gist .pl-pds,
+body .gist .pl-s,
+body .gist .pl-s1 .pl-pse .pl-s2,
+body .gist .pl-sv {
+  color: #ec7600;
+}
+
+body .gist .pl-sr,
+body .gist .pl-sr .pl-sra,
+body .gist .pl-sr .pl-sre,
+body .gist .pl-src {
+  color: #d39745;
+}
+
+body .gist .pl-mi1,
+body .gist .pl-mdht {
+  color: #e0e2e4;
+  background: rgba(0, 64, 0, 0.5);
+}
+
+body .gist .pl-md,
+body .gist .pl-mdhf,
+body .gist .pl-id,
+body .gist .pl-ii {
+  color: #e0e2e4;
+  background: rgba(64, 0, 0, 0.5);
+}
+
+body .gist .gist-meta {
+  background: #ccc;
+  border-radius: 0 0 4px 4px;
+  font-size: 14px;
+  padding: 6px 16px;
+}
+
+body .gist .gist-meta a {
+  color: #E96B2C;
+}
+
+body .gist .gist-meta a:hover {
+  text-decoration: underline;
+}
+// SHELDON: added to make footer links not orange
+div.gist-meta a {
+  color:#ccc!important;
+
+}
+/* */
+/* copy code */
+pre .copy-to-clipboard {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background-color: #4d5257;
+  color: #ccc;
+  border-radius: 2px;
+  width: 80px;
+  height: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 6px;
+  font-size: 14px;
+  opacity: 0.25
+}
+
+.copy-active, pre .copy-to-clipboard:hover  {
+/* todo this isn't right... */
+opacity: 1 !important;
+}
+
+.copy-to-clipboard:hover {
+cursor: pointer;
+}
+.block-code-code pre {
+position: relative;
+}
+/* end copy code */
+
+
+
+/* Custom search provider highlighting */
+.custom_highlight {
+    color:#619bac;
+}
+
+// PREMONITION
+.premonition {
+  $default-color: $light-blue; // #5bc0de;
+  $default-light-color: #e3edf2;
+  $info-color: $lime-green; //#50af51;
+  $info-light-color: #f3f8f3;
+  $warning-color: #f0ad4e;
+  $warning-light-color: #fcf8f2;
+  $error-color: $red;// #d9534f;
+  $error-light-color: #fdf7f7;
+  $content-color: rgba(0,0,0,0.5);
+
+    display: grid;
+    grid-template-columns: 43px auto;
+    padding-top: 13px;
+    padding-bottom: 6px;
+    margin: 30px 0 30px 0;
+    background-color: $default-light-color;
+    border-left: 4px solid $default-color;
+    color: $default-color;
+
+    code {
+      background-color: #fff;
+      color: $default-color;
+    }
+
+    .header {
+      font-weight: 700;
+      font-size: 15px;
+      color: $default-color;
+    }
+
+    .fa {
+      font-size: 18px;
+      opacity: .3;
+      padding-top: 2px;
+      padding-left: 20px;
+    }
+
+    .content {
+      color: $content-color;
+      padding-right: 40px;
+    }
+
+    @mixin box-type($c, $lc) {
+      background-color: $lc;
+      color: $c;
+      border-color: $c;
+
+      a {
+        color: $c;
+        text-decoration: underline;
+      }
+      code {
+        color: $c;
+      }
+      .header {
+        color: $c;
+      }
+    }
+
+    &.info { @include box-type($info-color, $info-light-color); }
+    &.warning { @include box-type($warning-color, $warning-light-color); }
+    &.error { @include box-type($error-color, $error-light-color); }
+  }
+// PREMONITION END
+.premonition {
+    display: grid;
+    grid-template-columns: 43px auto;
+    padding-top: 13px;
+    padding-bottom: 6px;
+    margin: 30px 0 30px 0;
+    background-color: #e3edf2;
+    border-left: 4px solid #5bc0de;
+    color: #5bc0de;
+  }
+
+  .premonition code {
+    background-color: #fff;
+    color: #5bc0de;
+  }
+
+  .premonition .header {
+    font-weight: 700;
+    font-size: 15px;
+    color: #5bc0de;
+  }
+
+  .premonition .fa {
+    font-size: 18px;
+    opacity: .3;
+    padding-top: 2px;
+    padding-left: 20px;
+  }
+
+  .premonition .content {
+    color: rgba(0, 0, 0, 0.5);
+    padding-right: 40px;
+  }
+
+  .premonition.info {
+    background-color: #f3f8f3;
+    color: #50af51;
+    border-color: #50af51;
+  }
+
+  .premonition.info a {
+    color: #50af51;
+    text-decoration: underline;
+  }
+
+  .premonition.info code {
+    color: #50af51;
+  }
+
+  .premonition.info .header {
+    color: #50af51;
+  }
+
+  .premonition.warning {
+    background-color: #fcf8f2;
+    color: #f0ad4e;
+    border-color: #f0ad4e;
+  }
+
+  .premonition.warning a {
+    color: #f0ad4e;
+    text-decoration: underline;
+  }
+
+  .premonition.warning code {
+    color: #f0ad4e;
+  }
+
+  .premonition.warning .header {
+    color: #f0ad4e;
+  }
+
+  .premonition.error {
+    background-color: #fdf7f7;
+    color: #d9534f;
+    border-color: #d9534f;
+  }
+
+  .premonition.error a {
+    color: #d9534f;
+    text-decoration: underline;
+  }
+
+  .premonition.error code {
+    color: #d9534f;
+  }
+
+  .premonition.error .header {
+    color: #d9534f;
+  }

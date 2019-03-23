@@ -1,0 +1,11 @@
+# netlify.toml
+# This file should be at the root of your project
+[build]
+  command = "jekyll build && jekyll algolia"
+  publish = "_site"
+  environment = { JEKYLL_ENV="production" }
+
+[context.deploy-preview.environment]
+  JEKYLL_ENV = "development"
+[context.deploy-preview]
+  command = "jekyll build --future"
