@@ -4,6 +4,7 @@ tags:
 - redgate
 - sql-server
 title: Red Gate SQL Clone (#1) - Initial Setup
+slug: red-gate-sql-clone-(-1)-initial-setup
 ---
 
 Note this was during earlier beta usage, so some of the UI and other features will have been updated more. I plan on writing more on this promising tool as  I get a chance to dive into it more, especially the powershell cmdlets for database cloning automation. In the meantime, I believe the permissions issue is still relevant, so I'll post this as a reminder in case someone is working through the initial setup.
