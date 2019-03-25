@@ -4,6 +4,7 @@ tags:
 - cool-tools
 - ramblings
 title: 'Dev Tools: XYplorer (review #1) - Catalog'
+slug: "dev-tools-x-yplorer-(review-1)-catalog"
 ---
 
 currently on version 14.60 I'm a big fan of finding tools that help automate and streamline things that should are routine actions.Surprisingly, I've found it incredibly challenging to move away from the default Windows Explorer for file management, as the familiarity it offers makes it somewhat tough to be patient with learning an alternative, especially if the alternative offers more complication. That's where I stood with XYPlorer for sometime. It is a developer's tool first and foremost. It is complicated, but with this complication comes an extremely robust set of features. I honestly think that I'll never really know all of them, as this is more than just a swiss knife for file management.
@@ -33,4 +34,3 @@ Opening the properties of a file allow one to futher edit the actions the applic
 Lots of functionality in the catalog to benefit from, but time is limited, I'm going to visit further in next post.
 
 _note: was given a license by developer to help me evaluate long term. This did not affect my review, as it wasn't solicited at all by XYPlorer developer._
-
