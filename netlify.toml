@@ -1,6 +1,7 @@
 [build]
-  command = "npm run build"
-  publish = "dist"
+  command = "hugo"
+  publish = "public"
 
 [context.deploy-preview]
-  command = "npm run build-preview"
+  command = "hugo --buildFuture --destination preview --verbose"
+  publish = "preview"
