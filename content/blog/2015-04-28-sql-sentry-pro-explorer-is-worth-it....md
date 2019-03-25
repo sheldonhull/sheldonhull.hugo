@@ -4,6 +4,7 @@ tags:
 - sql-server
 - performance-tuning
 title: SQL Sentry Pro Explorer is worth it...
+slug: sql-sentry-pro-explorer-is-worth-it
 ---
 
 > info "Updated: 2017-04-21"

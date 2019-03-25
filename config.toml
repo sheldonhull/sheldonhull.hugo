@@ -1,7 +1,12 @@
 baseurl = "https://www.sheldonhull.com"
 title = "sheldonhull.com"
+
+# Themes
+theme = "sam"
 #theme = "hugo-coder"
-theme = "cupper-hugo-theme"
+#theme = "cupper-hugo-theme"
+#theme = "hugo-theme-casper"
+
 languagecode = "en"
 defaultcontentlanguage = "en"
 
@@ -11,10 +16,13 @@ canonifyurls = true
 pygmentsstyle = "monokai"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
-disqusShortname = ""
-pluralizeListTitles = false
 
+pluralizeListTitles = false
 avatarurl = "assets/img/sheldon_120x120.jpg"
+
+# Analytics & Comments
+disqusShortname = ""
+googleAnalytics = ""
 
 
 [permalinks]
