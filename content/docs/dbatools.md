@@ -11,11 +11,6 @@ tags:
   - powershell
 ---
 
-{{% notice note %}}
-"2019-02-19"
-> Pending. Work in progress
-{{% /notice %}}
-
 
 ## Setup
 

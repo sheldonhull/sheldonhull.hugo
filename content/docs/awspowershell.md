@@ -7,9 +7,9 @@ date:  2019-02-19
 toc: true
 ---
 
-> note "2019-02-19"
-> Pending. Work in progress
-
+{{% notice note %}}
+Pending. Work in progress
+{{% /notice %}}
 
 ## Setup
 

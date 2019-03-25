@@ -7,3 +7,6 @@
 [submodule "themes/sam"]
 	path = themes/sam
 	url = https://github.com/sheldonhull/hugo-theme-sam.git
+[submodule "themes/hugo-material-docs"]
+	path = themes/hugo-material-docs
+	url = https://github.com/sheldonhull/hugo-material-docs.git
