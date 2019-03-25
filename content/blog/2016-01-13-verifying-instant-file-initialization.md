@@ -13,7 +13,7 @@ Paul Randal covers a [second approach](http://www.sqlskills.com/blogs/paul/follo
 
 Successfully added instant file initialization should mean when you review the log you will not have any MDF showing up in the error log for zeroing. I adapted the sql script for reading the error log in a more filtered manner from this post: [SQL Internals Useful Parameters for XP Reader (2014)](http://sqlserver-help.com/2014/12/10/sql-internals-useful-parameters-for-xp_readerrorlog/)
 
-{% gist f2dddfc8187f6676cd76 %}
+{{% gist f2dddfc8187f6676cd76 %}}
 
 
 ![successfully-verifying_v1khio](/assets/img/successfully-verifying_v1khio.png)

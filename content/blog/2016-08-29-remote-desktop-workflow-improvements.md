@@ -39,7 +39,7 @@ You can setup a synchronized session listing based on csv, activedirectory, spic
 setup a powershell script that would obtain EC2 instances and output into a csv file.
 I found pieces of the needed code from various sources and modified to work for me. It's not elegant, and much better ways are available I'm sure. This was helpful to me though and got the job done!
 
-{% gist f38807512bbbc14a5aab0680dccd4fba %}
+{{% gist f38807512bbbc14a5aab0680dccd4fba %}}
 
 
 ![Output Results from Powershell into CSV Source](/assets/img/output-results-from-powershell-into-csv-source.png)

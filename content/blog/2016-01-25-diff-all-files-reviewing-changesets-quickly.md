@@ -45,7 +45,7 @@ The only con for me with Araxis is no dark theme.... but I'll live.
 
 I saved this snippet from working through Araxis documentation for setting up their tool with Visual Studio.
 
-{% gist 8f46d34d2c3c83a4c18e5d70e92e5d3d %}
+{{% gist 8f46d34d2c3c83a4c18e5d70e92e5d3d %}}
 
 
 I also just ran across another site that had a nice resource list of configuration settings for different comparison tools.  [Diff All Tools - Visual Studio Extension](http://bit.ly/29nX1yF)

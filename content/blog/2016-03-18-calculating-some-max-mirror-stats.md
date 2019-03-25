@@ -10,4 +10,4 @@ The documentation was... well.... a bit confusing. I felt like my notes were fro
 This is my code snippet for calculating some basic numbers as I walked through the process. Seems much easier after I finished breaking down the steps.
 And yes, Expensive Edition had additional thread impact due to multi-threading after I asked about this. Feedback is welcome if you notice a logical error. Note that this is "theoretical". As I've discovered, thread count gets reduced with increase activity so the number mirrored database that can be mirrored with serious performance issues gets decreased with more activity on the server.
 
-{% gist 1335ab60accc21b95ece %}
+{{% gist 1335ab60accc21b95ece %}}

@@ -29,4 +29,4 @@ I forked the script from Brent's link above and modified to iterate through and 
 
 Note: I wrote on this a while back, totally missed that I had covered this. For an older perspective on this: [Stranger Danger... The need for trust with constraints]({% post_url 2015-08-13-stranger-danger...-the-need-for-trust-with-constraints %})
 
-{% gist 2454ce9134eac225ce264c64adb331a9 %}
+{{% gist 2454ce9134eac225ce264c64adb331a9 %}}

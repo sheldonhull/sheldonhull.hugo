@@ -21,7 +21,7 @@ I used the free version which provided great regex parsing functionality.
 
 Constructing the following query parsed the results easily, with no extract coding/import process required.
 
-{% gist b067b6d87cda11d70c608298cff8c0d4 %}
+{{% gist b067b6d87cda11d70c608298cff8c0d4 %}}
 
 ![Simple to use](/assets/img/simple-to-use.png)
 

@@ -22,4 +22,4 @@ There has been various forms of discussion on the adjustments of Fill Factor for
 Maybe this will help you get up to speed if you want to try out this great solution, but tweak a few defaults.
 The ease of installation across multiple instances makes this my current favorite solution, followed by the [fantastic Ola Hallengren solution](http://bit.ly/2e8d9qW).
 
-{% gist 2fee8ab97c0210918e8fb10719fca3f5 %}
+{{% gist 2fee8ab97c0210918e8fb10719fca3f5 %}}

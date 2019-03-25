@@ -11,4 +11,4 @@ I've found them helpful for running some longer running queries, as I can have m
 Another great option that is under more active development is [PoshRsJob](http://bit.ly/2gd0aW2). Be clear that this will have a higher learning curve to deal with as it doesn't handle some of the implicit import of external variables that PSParallel does. You'll have to work through more issues initially to understand correctly passing parameters and how the differents scope of runspaces impact updating shared variables (ie, things get deeper with synchronized hashtables and more :-) )
 Hope this helps get you started if you want to give parallel query execution a shot. Here's a function using PSParallel to get you started. Let me know if it helps
 
-{% gist 5bb1a8adea09276c4fd274b5b2900b6a %}
+{{% gist 5bb1a8adea09276c4fd274b5b2900b6a %}}

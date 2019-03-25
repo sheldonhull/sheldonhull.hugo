@@ -22,7 +22,7 @@ Instead, just as the author of Hebrews writes (Heb 10), we can come with bold co
 
 
 
-{% gist 03a51d7ea231974bb3ce10feb0d2ad6c %}
+{{% gist 03a51d7ea231974bb3ce10feb0d2ad6c %}}
 
 
 **_disclaimer_**

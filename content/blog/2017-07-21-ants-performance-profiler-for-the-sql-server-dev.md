@@ -59,7 +59,7 @@ RG Documentation shows great flexibility for the profiler being call from comman
 
 I generated some reports automatically by launching my executable via command line, profiling, and once this was completed, I was provided with a nice formatted HTML report for the calls. At the time of this article, I couldn't find any call for generating the SQL calls as their own report.
 
-{% gist 8055f44fd25af7d010ba22c6e54692e4 %}
+{{% gist 8055f44fd25af7d010ba22c6e54692e4 %}}
 
 
 ## TL;DR

@@ -25,7 +25,7 @@ I had a lot of issues with getting the GO enviroment setup in windows, this time
 
 Once downloaded, generate a new config file by running the first command and then the next to install as service. (I tried doing through NSSM originally and it failed to work with telegraf fyi)
 
-{% gist 583210cfb588d1958b5c2ba67515ec29 %}
+{{% gist 583210cfb588d1958b5c2ba67515ec29 %}}
 
 
 Once this service was setup and credentials entered, it's ready to run as a service in the background, sending whatever you've configured to the destination of choice.

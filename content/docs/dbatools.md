@@ -11,16 +11,11 @@ tags:
   - powershell
 ---
 
-> info "2019-02-19"
+{{% notice note %}}
+"2019-02-19"
 > Pending. Work in progress
-
-{{% notice note %}}
-Pending. Work in progress
 {{% /notice %}}
 
-{{% notice note %}}
-A notice disclaimer
-{{% /notice %}}
 
 ## Setup
 
@@ -29,4 +24,4 @@ install-module 'dbatools' -Scope CurrentUser
 ```
 
 ## Database Corruption
-{{% gist 92fb73704acfd0c7c1e67308e2dca1f4 %}}
+{{{% gist 92fb73704acfd0c7c1e67308e2dca1f4 %}}}
