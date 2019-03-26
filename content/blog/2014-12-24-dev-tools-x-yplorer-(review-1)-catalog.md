@@ -1,10 +1,10 @@
 ---
+title: 'Dev Tools: XYplorer (review #1) - Catalog'
+slug: "dev-tools-x-yplorer-(review-1)-catalog"
 date: "2014-12-24T00:00:00Z"
 tags:
 - cool-tools
 - ramblings
-title: 'Dev Tools: XYplorer (review #1) - Catalog'
-slug: "dev-tools-x-yplorer-(review-1)-catalog"
 ---
 
 currently on version 14.60 I'm a big fan of finding tools that help automate and streamline things that should are routine actions.Surprisingly, I've found it incredibly challenging to move away from the default Windows Explorer for file management, as the familiarity it offers makes it somewhat tough to be patient with learning an alternative, especially if the alternative offers more complication. That's where I stood with XYPlorer for sometime. It is a developer's tool first and foremost. It is complicated, but with this complication comes an extremely robust set of features. I honestly think that I'll never really know all of them, as this is more than just a swiss knife for file management.
