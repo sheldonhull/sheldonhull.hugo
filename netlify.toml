@@ -1,7 +1,13 @@
 [build]
-  command = "hugo"
+  command = """
+  git submodule update --init --recursive
+  hugo
+  """
   publish = "public"
 
 [context.deploy-preview]
-  command = "hugo --buildFuture --destination preview --verbose"
+  command = """
+  git submodule update --init --recursive
+  hugo --buildFuture --destination preview --verbose
+  """
   publish = "preview"
