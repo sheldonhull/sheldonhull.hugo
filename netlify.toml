@@ -1,6 +1,6 @@
 [build]
   #command = "git status --porcelain &&  git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo"
-  command = "hugo version && git status --porcelain &&  git submodule update --init --recursive && hugo"
+  command = "hugo version && git status --porcelain && git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo"
   publish = "public"
   HUGO_ENABLEGITINFO = "true"
 
