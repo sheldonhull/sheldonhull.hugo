@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="Bad Idea Jeans: Query Optimization Through Minification">
+<meta itemprop="description" content="SQL is pretty verbose compared to some languages. It&rsquo;s a pretty big disappointment that I have to type out select customer from dbo.customers where id = 2 instead of a much simpler syntax like dbo.Customers &#39; Customer like Powershell might offer. As I considered the disappointing verbosity of sql server, I considered that perhaps one way to reduce network traffic, save electricity, and aid the garrulous language known as sql might be to require all code running to be minified.">
+
+
+<meta itemprop="datePublished" content="2017-01-23T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-01-23T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="343">
+
+
+
+<meta itemprop="keywords" content="bad-idea,sql-server,tech," />
+<meta property="og:title" content="Bad Idea Jeans: Query Optimization Through Minification" />
+<meta property="og:description" content="SQL is pretty verbose compared to some languages. It&rsquo;s a pretty big disappointment that I have to type out select customer from dbo.customers where id = 2 instead of a much simpler syntax like dbo.Customers &#39; Customer like Powershell might offer. As I considered the disappointing verbosity of sql server, I considered that perhaps one way to reduce network traffic, save electricity, and aid the garrulous language known as sql might be to require all code running to be minified." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/2017-01-23-bad-idea-jeans-query-optimization-through-minification/" />
+<meta property="article:published_time" content="2017-01-23T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2017-01-23T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Bad Idea Jeans: Query Optimization Through Minification"/>
+<meta name="twitter:description" content="SQL is pretty verbose compared to some languages. It&rsquo;s a pretty big disappointment that I have to type out select customer from dbo.customers where id = 2 instead of a much simpler syntax like dbo.Customers &#39; Customer like Powershell might offer. As I considered the disappointing verbosity of sql server, I considered that perhaps one way to reduce network traffic, save electricity, and aid the garrulous language known as sql might be to require all code running to be minified."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>Bad Idea Jeans: Query Optimization Through Minification</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>Bad Idea Jeans: Query Optimization Through Minification</h1>
+		<div class="content">
+			<p>SQL is pretty verbose compared to some languages. It&rsquo;s a pretty big disappointment that I have to type out <code>select customer from dbo.customers where id = 2</code> instead of a much simpler syntax like <code>dbo.Customers ' Customer</code> like Powershell might offer. As I considered the disappointing verbosity of sql server, I considered that perhaps one way to reduce network traffic, save electricity, and aid the garrulous language known as sql might be to require all code running to be minified.Think about the potential savings in bandwidth and having to scroll. Anyone who complains about this should just realize there is a thing called word-wrap which will solve all the readability problems. No more need for Red Gate Sql Prompt&rsquo;s beautiful yet wasteful formatting options. (sorry RG). In fact, no more debates on readability of formatting standards at all!</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/SNAG_Program-0005.png" alt="Beautiful Minified Sql Code" /></p>
+
+<p>In a file size comparison on this small small query I found a full 1KB size savings.</p>
+
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Size</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>WITH-LINE-BREAKS.sql</td>
+<td>9 KB</td>
+</tr>
+
+<tr>
+<td>NO-LINE-BREAKS.sql</td>
+<td>8 KB</td>
+</tr>
+</tbody>
+</table>
+
+<p>If you extrapolate this over a larger query I found a 20% reduction.</p>
+
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Size</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>LONG-NO-LINE-BREAKS.sql</td>
+<td>129 KB</td>
+</tr>
+
+<tr>
+<td>LONG-WITH-LINE-BREAKS.sql</td>
+<td>160 KB</td>
+</tr>
+</tbody>
+</table>
+
+<p>With a heavy traffic OLTP system, this might reduce traffic IO tremendously and reduce server energy costs. I did consider trying to calculate the wattage savings this might entail, but I plead laziness. I also considered running wireshark to analyze packets to compare the size to validate what magic the compression and other parser functions perform on the sent query, but decided I had better uses for my time. &hellip;. Maybe the next brilliant idea would be to name all your tables consecutive numbers like dbo.1, dbo.2, dbo.3 and so on. Since these names are stored in a nvarchar format in system tables, it might optimize the storage and performance of the system tables&hellip;. So many good ideas, so little time&hellip;&hellip;</p>
+
+<p><em>this post was inspired by the wonderful contributions to bad ideas that Brent Ozar and his team of eccentric consultants donated to the community to cause mayhem for those stupid enough to try them out. Thanks Brent :-)</em></p>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

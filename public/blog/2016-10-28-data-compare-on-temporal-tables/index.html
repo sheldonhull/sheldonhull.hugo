@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="Data Compare on Temporal Tables">
+<meta itemprop="description" content="I hadn&rsquo;t seen much talk on doing data comparisons on temporal tables, as they are a new feature. I went through the exercise to compare current to historical to see how Red Gate &amp; Devart handled this. I&rsquo;m a part of the Friends of Red Gate program, so love checking out their latest updates, and I&rsquo;m also a regular tester on Devart which also provides fantastic tools. Both handled Temporal Tables with aplomb, so here&rsquo;s a quick walk through on how I did this.">
+
+
+<meta itemprop="datePublished" content="2016-10-28T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2016-10-28T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="652">
+
+
+
+<meta itemprop="keywords" content="cool-tools,redgate,sql-server," />
+<meta property="og:title" content="Data Compare on Temporal Tables" />
+<meta property="og:description" content="I hadn&rsquo;t seen much talk on doing data comparisons on temporal tables, as they are a new feature. I went through the exercise to compare current to historical to see how Red Gate &amp; Devart handled this. I&rsquo;m a part of the Friends of Red Gate program, so love checking out their latest updates, and I&rsquo;m also a regular tester on Devart which also provides fantastic tools. Both handled Temporal Tables with aplomb, so here&rsquo;s a quick walk through on how I did this." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/2016-10-28-data-compare-on-temporal-tables/" />
+<meta property="article:published_time" content="2016-10-28T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2016-10-28T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Data Compare on Temporal Tables"/>
+<meta name="twitter:description" content="I hadn&rsquo;t seen much talk on doing data comparisons on temporal tables, as they are a new feature. I went through the exercise to compare current to historical to see how Red Gate &amp; Devart handled this. I&rsquo;m a part of the Friends of Red Gate program, so love checking out their latest updates, and I&rsquo;m also a regular tester on Devart which also provides fantastic tools. Both handled Temporal Tables with aplomb, so here&rsquo;s a quick walk through on how I did this."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>Data Compare on Temporal Tables</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>Data Compare on Temporal Tables</h1>
+		<div class="content">
+			
+
+<p>I hadn&rsquo;t seen much talk on doing data comparisons on temporal tables, as they are a new feature. I went through the exercise to compare current to historical to see how Red Gate &amp; Devart handled this. I&rsquo;m a part of the Friends of Red Gate program, so love checking out their latest updates, and I&rsquo;m also a regular tester on Devart which also provides fantastic tools. Both handled Temporal Tables with aplomb, so here&rsquo;s a quick walk through on how I did this.</p>
+
+<h2 id="ssms-2016-view-of-temporal-table">SSMS 2016 View Of Temporal Table<a href="#ssms-2016-view-of-temporal-table" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>With the latest version of SSMS, you can see the temporal tables labeled and expanded underneath the source table.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/ssms-2016-view-of-temporal-table.png" alt="SSMS 2016 View Of Temporal Table" /></p>
+
+<h2 id="red-gate-sql-data-compare-12">Red Gate SQL Data Compare 12<a href="#red-gate-sql-data-compare-12" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>To begin the comparison process, you need to do some custom mapping, which requires navigating into the Tables &amp; Views settings in SQL Data Compare</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/red-gate-sql-data-compare-12-sm.png" alt="Red Gate SQL Data Compare 12" /></p>
+
+<h3 id="unmap-the-existing-options">Unmap the existing options<a href="#unmap-the-existing-options" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>To remap the Customers to Customers_Archive, we need to select this in the tables and choose to unmap the Customer and the Customer-Archive Tables from each other. This is 2 unmapping operations.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/unmap-the-existing-options-sm.png" alt="Unmap the existing options" /></p>
+
+<h3 id="setup-compare-key">Setup Compare Key<a href="#setup-compare-key" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>Go into the comparison settings on the table now and designate the key as the value to compare against. For the purpose of this example, I&rsquo;m just doing key, you can change this however you see fit for your comparison scenario.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/setup-compare-key.png" alt="Setup Compare Key" /></p>
+
+<h3 id="remove-any-columns-from-comparison-desired">Remove any columns from comparison desired<a href="#remove-any-columns-from-comparison-desired" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>In this example, I&rsquo;m removing the datetime2 columns being used, to instead focus on the other columns.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/remove-any-columns-from-comparison-desired.png" alt="Remove any columns from comparison desired" /></p>
+
+<h3 id="compare-results">Compare results<a href="#compare-results" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>If you run into no results coming back, look to turn off the setting in compare options for Checksum comparison, which helps improve the initial compare performance. With this on, I had no results coming back, but once I turned off, the comparison results came back correctly.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/compare-results.png" alt="Compare results" /></p>
+
+<h3 id="conflict-row">Conflict Row<a href="#conflict-row" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>This entry was matched in DbForge SQL Data Compare as a conflict due to matching the key in a non-unique manner. The approach the two tools take is a little different. In RG Data Compare</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/conflict-row.png" alt="Conflict Row" /></p>
+
+<h3 id="conflict-entry-only-in-destination">Conflict Entry Only In Destination<a href="#conflict-entry-only-in-destination" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>The entry identified as potential conflict  by DbForge is identified in the Only In Destination.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/conflict-entry-only-in-destination-sm.png" alt="Conflict Entry Only In Destination" /></p>
+
+<h3 id="diff-report">Diff Report<a href="#diff-report" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>Both tools report differences. RG&rsquo;s tool has focused on the diff report being simple CSV output. This is fine in the majority of cases, though I&rsquo;m hoping for additional XLSX and HTML diff reports similar to DbForge eventually. In the case of the CSV output, you could consume the information easily in Power-BI, Excel, or even&hellip; SQL Server :-) No screenshot on this as it&rsquo;s just a csv output.</p>
+
+<h2 id="devart-sql-data-compare">Devart SQL Data Compare<a href="#devart-sql-data-compare" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>Going into the mapping, you can see support for Customers and Customers_Archive, which is the temporal history table for this.
+In this case, I mapped the current table against the temporal table to compare the current against the change history.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/devart-sql-data-compare.png" alt="Devart SQL Data Compare" /></p>
+
+<h3 id="choose-the-key-column-to-compare-against">Choose the key column to compare against<a href="#choose-the-key-column-to-compare-against" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>As a simple example, I just provided the primary key. You could get creative with this though if you wanted to compare specific sets of changes.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/choose-the-key-column-to-compare-against.png" alt="Choose the key column to compare against" /></p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/84a38857-022c-4d68-8c00-1f79cfcac3b2-sm.png" alt="84a38857-022c-4d68-8c00-1f79cfcac3b2-sm" /></p>
+
+<h3 id="handling-conflicts-differently">Handling Conflicts differently<a href="#handling-conflicts-differently" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>Looks like the conflict is handled differently in the GUI than Red Gate, as this provides back a separate tab indicating a conflict. Their documentation indicates:
+Appears only if there are conflict records (records, having non-unique values of the custom comparison key).
+<a href="https://www.devart.com/dbforge/sql/datacompare/docs/data_comparison_document.htm?zoom_highlightsub=conflict">DbForge Data Compare for SQL server Documentation - Data Comparison Document</a></p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/handling-conflicts-differently-sm.png" alt="Handling Conflicts differently" /></p>
+
+<h3 id="diff-report-1">Diff Report<a href="#diff-report-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>The diff reports provided by DbForge Data Compare are very well designed, and have some fantastic output options for allowing review/audit of the rows.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/diff-report.png" alt="Diff Report" /></p>
+
+<h3 id="diff-report-details">Diff Report Details<a href="#diff-report-details" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>Here is a sample of a detail provided on the diff report. One feature I found incredibly helpful was the bold highlighting on the columns that had diffs detected. You can trim down the report output to only include the diff columns if you wish to further trim the information in the report.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/diff-report-details.png" alt="Diff Report Details" /></p>
+
+<p>Overall, good experience with both, and they both support a lot of flexibility with more specialized comparisons.</p>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

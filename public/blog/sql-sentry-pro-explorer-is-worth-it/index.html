@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="SQL Sentry Pro Explorer is worth it...">
+<meta itemprop="description" content="info &ldquo;Updated: 2017-04-21&rdquo; Another great bit of news from reviewing this older post I wrote&hellip; SQL Sentry Pro is now a free tool thanks to the generosity of the Sentry One team! It&rsquo;s a must have. Go download it for sure.
+info &ldquo;Updated: 2015-04-28&rdquo; I created a few autohotkey scripts and solved the problem of collapsing panes and a few other annoyances. This has improved my experience a little. - Also noted one major improvement that would help with tuning is aggregating the total IO, and stats, rather than only each individual statement.">
+
+
+<meta itemprop="datePublished" content="2015-04-28T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2015-04-28T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="434">
+
+
+
+<meta itemprop="keywords" content="sql-server,performance-tuning," />
+<meta property="og:title" content="SQL Sentry Pro Explorer is worth it..." />
+<meta property="og:description" content="info &ldquo;Updated: 2017-04-21&rdquo; Another great bit of news from reviewing this older post I wrote&hellip; SQL Sentry Pro is now a free tool thanks to the generosity of the Sentry One team! It&rsquo;s a must have. Go download it for sure.
+info &ldquo;Updated: 2015-04-28&rdquo; I created a few autohotkey scripts and solved the problem of collapsing panes and a few other annoyances. This has improved my experience a little. - Also noted one major improvement that would help with tuning is aggregating the total IO, and stats, rather than only each individual statement." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/sql-sentry-pro-explorer-is-worth-it/" />
+<meta property="article:published_time" content="2015-04-28T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2015-04-28T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SQL Sentry Pro Explorer is worth it..."/>
+<meta name="twitter:description" content="info &ldquo;Updated: 2017-04-21&rdquo; Another great bit of news from reviewing this older post I wrote&hellip; SQL Sentry Pro is now a free tool thanks to the generosity of the Sentry One team! It&rsquo;s a must have. Go download it for sure.
+info &ldquo;Updated: 2015-04-28&rdquo; I created a few autohotkey scripts and solved the problem of collapsing panes and a few other annoyances. This has improved my experience a little. - Also noted one major improvement that would help with tuning is aggregating the total IO, and stats, rather than only each individual statement."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>SQL Sentry Pro Explorer is worth it...</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>SQL Sentry Pro Explorer is worth it...</h1>
+		<div class="content">
+			<blockquote>
+<p>info &ldquo;Updated: 2017-04-21&rdquo;
+Another great bit of news from reviewing this older post I wrote&hellip; SQL Sentry Pro is now a free tool thanks to the generosity of the Sentry One team! It&rsquo;s a must have. Go download it for sure.</p>
+
+<p>info &ldquo;Updated: 2015-04-28&rdquo;
+I created a few autohotkey scripts and solved the problem of collapsing panes and a few other annoyances. This has improved my experience a little. - Also noted one major improvement that would help with tuning is aggregating the total IO, and stats, rather than only each individual statement. I&rsquo;ve found the need to compare two very different plans to see the total writes/reads variation and the impact on IO, but I&rsquo;ve having to utilize another tool for statistics IO parsing to run totals, and then come back to the SQL Sentry Plan explorer for other details. The SQL Sentry plan explorer tool could be improved by enhancing with totals/sums to better compare various runs of plans. I can make do without it, but it makes me have to do a lot of workarounds for now.</p>
+</blockquote>
+
+<p>I&rsquo;ll post more later, but after a full day of query tuning on a difficult view, I&rsquo;d definitely say the cost for PRO is worth it. I&rsquo;m a fan of sql sentry (free), and decided recently to push for a license at work on this tool. Turns out it was well worth it. The ability to measure variance in plans with small changes without cluttering up SSMS without 20 versions was incredibly helpful and time saving. There are a few quirks that really bother me, but not enough to negate the benefits of this tool. Perks - Save a continual session on troubleshooting a query - Evaluate Logical IO easily in the same view - Save comments on each plan version run to identify the changes you made and what impact it had Negatives - Not integrated with SSMS or preferred text editor so the text editor extremely sparse on features. - No ability to easily sum logical IO and COMPARE to another plan, really you have to open two tabs and eyeball them. That is the biggest frustration, no easy comparison side by side without opening the same session and eyeballing. - NO KEYBOARD SHORTCUTS. GEEZ is that frustrating as you are trying to power through some changes, copy cells/io, and more. Overall: Love the product. Hope they enhance the producivity and efficient aspect more as that&rsquo;s the only area I&rsquo;m seeing it&rsquo;s short in. Here are some screenshots from my work with it today. I additionally compared the final IO with <a href="http://statisticsparser.com/index.html#">http://statisticsparser.com/index.html#</a>
+<img src="https://www.sheldonhull.com/assets/img/Microsoft_SQL_Server_Management_Studio-2015-04-22_17_00_36_x9rdtc.png" alt="Image SQL Tuning Session 1" />
+<img src="https://www.sheldonhull.com/assets/img/SQL_Sentry_Plan_Explorer_PRO-2015-04-22_17_03_44_mgscfz.png" alt="Image SQL Tuning Session 2" />
+<img src="https://www.sheldonhull.com/assets/img/SQL_Sentry_Plan_Explorer_PRO-2015-04-22_17_05_06_gef52g.png" alt="Image SQL Tuning Session 3" />
+<img src="https://www.sheldonhull.com/assets/img/Statistics_Parser-2015-04-22_16_32_34-2015-04-22_17_08_21_CLEANED_ntkowe.png" alt="Image SQL Tuning Session 4" />
+<img src="https://www.sheldonhull.com/assets/img/new_version-2015-04-22_16_35_36-2015-04-22_17_08_48_CLEANED_zejqww.png" alt="Image SQL Tuning Session 5" /></p>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

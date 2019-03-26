@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development on sheldonhull.com</title>
+    <link>https://www.sheldonhull.com/tags/development/</link>
+    <description>Recent content in Development on sheldonhull.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.sheldonhull.com/tags/development/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>powershell</title>
+      <link>https://www.sheldonhull.com/docs/powershell/</link>
+      <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/docs/powershell/</guid>
+      <description>String Formatting    Type Example Output Notes     Formatting Switch &#39;select {0} from sys.tables&#39; -f &#39;name&#39; select name from sys.tables Same concept as .NET [string]::Format(). Token based replacement   .NET String Format [string]::Format(&#39;select {0} from sys.tables&#39;,&#39;name&#39;) select name from sys.tables Why would you do this? Because you want to showoff your .NET chops?    Math &amp;amp; Number Conversions    From To Example Output Notes     scientific notation Decimal 2.</description>
+    </item>
+    
+    <item>
+      <title>dbatools</title>
+      <link>https://www.sheldonhull.com/docs/dbatools/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/docs/dbatools/</guid>
+      <description>Setup install-module &amp;#39;dbatools&amp;#39; -Scope CurrentUser Database Corruption {}</description>
+    </item>
+    
+    <item>
+      <title>Migrating From Hipchat To Slack</title>
+      <link>https://www.sheldonhull.com/blog/2019-02-07-migrating-from-hipchat-to-slack/</link>
+      <pubDate>Thu, 07 Feb 2019 23:55:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2019-02-07-migrating-from-hipchat-to-slack/</guid>
+      <description>Last Minute Migration? If you are about to perform a last minute migration here&amp;rsquo;s a couple tips as you jump ship from Hipchat and move to Slack. Hipchat is sunsetting I believe on Feb 15th, so I figured I&amp;rsquo;d share what I do have in case it&amp;rsquo;s helpful, as it won&amp;rsquo;t stay tremendously relevant for long.
+Problem: Hipchat access will be removed and you need more time Export the hipchat content to a file and upload to your own s3 bucket.</description>
+    </item>
+    
+    <item>
+      <title>ManicTime - Timetracking Automation Done Right</title>
+      <link>https://www.sheldonhull.com/blog/2016-12-09-manictime-timetracking-automation-done-right/</link>
+      <pubDate>Fri, 09 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-12-09-manictime-timetracking-automation-done-right/</guid>
+      <description>Tracking time is always a beast. With the amount of context switching many developers do, it can be tough to remember how much time went to each project. With companies looking to track effort on sprints, hours on a client project, or (as in my case) just a dev wanting to better evaluate the productive use of time, this app fills some gaps that others don&amp;rsquo;t.For instance, I&amp;rsquo;ve tried tools such as Toggl, and similar.</description>
+    </item>
+    
+    <item>
+      <title>Powershell ISE: Updating Theme</title>
+      <link>https://www.sheldonhull.com/blog/2016-10-09-powershell-ise-updating-theme/</link>
+      <pubDate>Sun, 09 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-10-09-powershell-ise-updating-theme/</guid>
+      <description>For all the dark theme aficionados, or those who just want a better theme than the default, here&amp;rsquo;s a quick set of directions to update your ISE.1. Go to download a theme from Github &amp;gt; PowerShell_ISE_Themes 2. Unzip 3. Go to ISE &amp;gt; Tools &amp;gt; Options &amp;gt; Colors &amp;amp; Fonts &amp;gt; Manage Themes 4. Import selected theme 5. For consistency, adjust the background and forecolor of the console pane as well as the text background to match if you want to.</description>
+    </item>
+    
+    <item>
+      <title>TFS Work-Item Fancy Filtering</title>
+      <link>https://www.sheldonhull.com/blog/2016-03-18-tfs-work-item-fancy-filtering/</link>
+      <pubDate>Fri, 18 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-03-18-tfs-work-item-fancy-filtering/</guid>
+      <description>If you want to create a TFS query that would identify work items that have changed, but were not changed by the person working it, there is a nifty way to do this.The filtering field can be set to &amp;lt;&amp;gt; another field that is available, but the syntax/setup in Visual Studio is not intuitive. It&amp;rsquo;s in the dropdown list, but I&amp;rsquo;d never noticed it before!
+AND &amp;#39; Changed By &amp;#39; &amp;lt;&amp;gt; [Field] &amp;#39; Assigned to Note that you don&amp;rsquo;t include brackets on the assigned to field, and that the &amp;lt;&amp;gt; [Field] is not a placeholder for you to type the field name in, it&amp;rsquo;s actually the literal command for it to parse this correctly.</description>
+    </item>
+    
+  </channel>
+</rss>

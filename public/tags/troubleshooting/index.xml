@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Troubleshooting on sheldonhull.com</title>
+    <link>https://www.sheldonhull.com/tags/troubleshooting/</link>
+    <description>Recent content in Troubleshooting on sheldonhull.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 11 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.sheldonhull.com/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fixing VirtualBox Only Showing 32bit Windows OS Options</title>
+      <link>https://www.sheldonhull.com/blog/2017-08-11-fixing-virtual-box-only-showing-32bit-windows-os-options/</link>
+      <pubDate>Fri, 11 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-08-11-fixing-virtual-box-only-showing-32bit-windows-os-options/</guid>
+      <description>Original help was identified from this article Why is VirtualBox only showing 32 bit guest versions on my 64 bit host OS?
+In browsing through the comments, I saw mention that the root issue is that Hypervisor running interferes with Virtualboxes virtual management, so I disabled Hypervisor service, repaired the install, and rebooted. I also disabled automatic start for Hypervisor. This resolved the issue without requiring the uninstallation of the Hypervisor feature in Windows.</description>
+    </item>
+    
+  </channel>
+</rss>

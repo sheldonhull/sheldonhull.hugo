@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Regex on sheldonhull.com</title>
+    <link>https://www.sheldonhull.com/tags/regex/</link>
+    <description>Recent content in Regex on sheldonhull.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 11 Aug 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.sheldonhull.com/tags/regex/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Regex With SQL Server - SQLSharp</title>
+      <link>https://www.sheldonhull.com/blog/2016-08-11-regex-with-sql-server-sql-sharp/</link>
+      <pubDate>Thu, 11 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-08-11-regex-with-sql-server-sql-sharp/</guid>
+      <description>In the context of my developer machine, I had log files I wanted to parse through. I setup a log library to output the results on a test server to a sql table instead of text files. However, this meant that my &amp;ldquo;log viewers&amp;rdquo; that handled regex parsing weren&amp;rsquo;t in the picture at this point. I wanted to parse out some columns from a section of message text, and thought about CLR as a possible tool to help this.</description>
+    </item>
+    
+  </channel>
+</rss>

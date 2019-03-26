@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="On how to Googlify your SQL statements for future searching">
+<meta itemprop="description" content="For sake of future generations, let&rsquo;s begin to reduce typing and reuse code we&rsquo;ve built. I think we can all agree that TSQL statements are often repeated. Ideally, snippets should be created to reduce repeated typing and let us focus on logic and content. However, some statements may not really be &ldquo;snippet worthy&rdquo;, and just be quick adhoc queries. In the past, the solution for saving queries for reuse or reference in the future would be to just save in the projects folder manually.">
+
+
+<meta itemprop="datePublished" content="2013-05-22T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2013-05-22T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="654">
+
+
+
+<meta itemprop="keywords" content="sql-server,cool-tools," />
+<meta property="og:title" content="On how to Googlify your SQL statements for future searching" />
+<meta property="og:description" content="For sake of future generations, let&rsquo;s begin to reduce typing and reuse code we&rsquo;ve built. I think we can all agree that TSQL statements are often repeated. Ideally, snippets should be created to reduce repeated typing and let us focus on logic and content. However, some statements may not really be &ldquo;snippet worthy&rdquo;, and just be quick adhoc queries. In the past, the solution for saving queries for reuse or reference in the future would be to just save in the projects folder manually." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/2013-05-22-on-how-to-googlify-your-sql-statements-for-future-searching/" />
+<meta property="article:published_time" content="2013-05-22T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2013-05-22T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="On how to Googlify your SQL statements for future searching"/>
+<meta name="twitter:description" content="For sake of future generations, let&rsquo;s begin to reduce typing and reuse code we&rsquo;ve built. I think we can all agree that TSQL statements are often repeated. Ideally, snippets should be created to reduce repeated typing and let us focus on logic and content. However, some statements may not really be &ldquo;snippet worthy&rdquo;, and just be quick adhoc queries. In the past, the solution for saving queries for reuse or reference in the future would be to just save in the projects folder manually."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>On how to Googlify your SQL statements for future searching</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>On how to Googlify your SQL statements for future searching</h1>
+		<div class="content">
+			
+
+<p>For sake of future generations, let&rsquo;s begin to reduce typing and reuse code we&rsquo;ve built. I think we can all agree that TSQL statements are often repeated.
+Ideally, snippets should be created to reduce repeated typing and let us focus on logic and content. However, some statements may not really be &ldquo;snippet worthy&rdquo;, and just be quick adhoc queries.
+In the past, the solution for saving queries for reuse or reference in the future would be to just save in the projects folder manually. However, it is difficult to always make sure the file is saved, review previous version that may be want had overrode, or even review what statements you actually executed. <a href="http://www.ssmstoolspack.com/">SSMSToolsPack</a> has historically offered a great logging option. However, as an individual it was hard to justify the cost out of my own pocket. <a href="http://www.ssmsboost.com/">SSMSBoost</a> has provided a great solution! Note that this was recently added (April), and is a &ldquo;rough draft&rdquo; , with minimal interface options, yet provides an amazing solution that I&rsquo;ve found to offer a great solution.
+In addition to the other great features that SSMSBoost offers (which I&rsquo;ll write about in the future), SSMSBoost now offers 3 unique solutions to saving work.</p>
+
+<ol>
+<li><strong>Executed Statement</strong> Logging This feature saves all your executed statements (ie, when you hit execute) as a .sql file for future reference.  As of today, there is no GUI for managing this. Never fear, I have a great solution for you.</li>
+<li><strong>Editor History Logging</strong> This feature saves the current contents of your open query windows at predefined intervals, by default set to 60 seconds. According to their documentation, if no changes have been made to file, it will not save a new version. It will only add a new version once changes are detected to a file.
+<img src="https://www.sheldonhull.com/assets/img/ssmsBoost_findInHistory_wl9xgr.jpg" alt="ssmsBoost_findInHistory" />
+3.<strong>Tab History Logging</strong> If you crash SSMS, close SSMS without saving tabs, or have some unsavory Windows behavior that requires SSMS to be restarted, don&rsquo;t fear&hellip; your tabs are saved. When restarting you can select restore tabs and begin work again. I&rsquo;ve found this feature to be a lifesaver!
+<img src="https://www.sheldonhull.com/assets/img/ssmsBoostRecentTabs_bndhth.jpg" alt="ssmsBoostRecentTabs" /></li>
+</ol>
+
+<h2 id="searching-your-executed-and-editor-history">Searching Your Executed and Editor History<a href="#searching-your-executed-and-editor-history" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>Instructions I recommend for setup and searching your entire sql history nearly instantly.</p>
+
+<ol>
+<li>Install <a href="http://www.ssmsboost.com/">SSMSBoost</a> (free community edition if you can&rsquo;t support with professional version)</li>
+<li>Install <a href="http://docfetcher.sourceforge.net/en/index.html">DocFetcher </a>(open source full text search tool. Best I found for searching and previewing sql files without the complexity of using GREP or other similar tools)</li>
+<li>Download and run <a href="http://www.winhelponline.com/utils/previewconfig.zip">Preview Handler</a> from <a href="http://www.winhelponline.com/">WinHelp</a></li>
+<li>Run Preview Handler &gt; Find .SQL &gt; Preview as plain text</li>
+<li>Run SSMS &gt; Open Settings in SSMSBoost</li>
+<li>Configure settings as you see fit. I personally move my Editor History and Executed statement&rsquo;s location to my SSMS Folder, so that I can use something like Create Synchronicity to backup all my work daily.
+<img src="https://www.sheldonhull.com/assets/img/SSMSBoost_settings_kzsbzr.jpg" alt="SSMSBoost_settings" /></li>
+<li>Restart SSMS for settings to take effect.</li>
+<li>Start DocFetcher, go to settings in the top right hand corner.
+<img src="https://www.sheldonhull.com/assets/img/DocFetcher_1_startup_irjelx.jpg" alt="DocFetcher_1_startup" /></li>
+</ol>
+
+<p>Basic Settings I choose (If you aren&rsquo;t using <a href="http://ftp.gnome.org/pub/GNOME/sources/ttf-bitstream-vera/1.10/">Bitstream </a>font&hellip; you are missing out)
+<img src="https://www.sheldonhull.com/assets/img/DocFetcher_2_basicSettings_unugtr.jpg" alt="DocFetcher_2_basicSettings" /></p>
+
+<h2 id="docfetcher-advance-settings-tweaks-change">Docfetcher Advance settings tweaks Change:<a href="#docfetcher-advance-settings-tweaks-change" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<div class="highlight"><pre class="chroma">CurvyTabs = true HtmlExtensions = html;htm;xhtml;shtml;shtm;php;asp;jsp;sql InitialSorting = -8</pre></div>
+<ul>
+<li>Why? Curvy tabs&hellip; because curves are nice</li>
+<li>HTML Extensions, obvious</li>
+
+<li><p>Initial Sorting = -8 means that instead of sorting by &ldquo;match %&rdquo; which I didn&rsquo;t find helpful for me, to sort by modified date in desc order. This means I&rsquo;ll find the most most recent match for the text I&rsquo;m searching for at the top of my list.</p></li>
+
+<li><p>Setup your custom indexes. I setup separate indexes for executed statements and editor history so I could filter down what I cared about and eliminate near duplicate matches for the most part. Right click in blank space to create index.</p></li>
+</ul>
+
+<p>I setup as follows:
+<img src="https://www.sheldonhull.com/assets/img/DocFetcher_createIndex1_t0qhl5.jpg" alt="DocFetcher_createIndex1" />
+<br>
+<img src="https://www.sheldonhull.com/assets/img/DocFetcher_createIndex2_i121sx.jpg" alt="DocFetcher_createIndex2" /></p>
+
+<ol>
+<li>Now the DocFetcher daemon will run in the background, if you copied my settings, and update your indexes.  Searching requires no complex regex, and can be done easily with statements. I&rsquo;d caution on putting exact phrases in quotes, as it does detect wildcards.
+<img src="https://www.sheldonhull.com/assets/img/DocFetcher_previewSearch_m2g07n.jpg" alt="DocFetcher_previewSearch" /></li>
+</ol>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

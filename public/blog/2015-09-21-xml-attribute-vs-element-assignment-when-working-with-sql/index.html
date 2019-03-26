@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="XML Attribute VS Element Assignment when working with SQL">
+<meta itemprop="description" content="XML handling with aliases I find it interesting the difference in behavior with querying XML between column assignment, and quoted alias naming. It&rsquo;s a generally understood best practice to not use the deprecated syntax of column aliasing using a quoted name. For example:
+select [escapedWithBracketsIsGood] = case when raining then cats else dogs end ,NoEscapeNeededPerGoodNamingPractices = case when rains then pours else friday end ,case when writtenThisWay then ICringe else UseAssignmentWay end as NormalWayMostFolksDoIt ,&#39;BadNaming&#39; = case when food then eat else hungry end ,case when work then eat else JobLess end as &#39;VeryBadNaming&#39; You can see the difference in naming.">
+
+
+<meta itemprop="datePublished" content="2015-09-21T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2015-09-21T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="206">
+
+
+
+<meta itemprop="keywords" content="sql-server," />
+<meta property="og:title" content="XML Attribute VS Element Assignment when working with SQL" />
+<meta property="og:description" content="XML handling with aliases I find it interesting the difference in behavior with querying XML between column assignment, and quoted alias naming. It&rsquo;s a generally understood best practice to not use the deprecated syntax of column aliasing using a quoted name. For example:
+select [escapedWithBracketsIsGood] = case when raining then cats else dogs end ,NoEscapeNeededPerGoodNamingPractices = case when rains then pours else friday end ,case when writtenThisWay then ICringe else UseAssignmentWay end as NormalWayMostFolksDoIt ,&#39;BadNaming&#39; = case when food then eat else hungry end ,case when work then eat else JobLess end as &#39;VeryBadNaming&#39; You can see the difference in naming." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/2015-09-21-xml-attribute-vs-element-assignment-when-working-with-sql/" />
+<meta property="article:published_time" content="2015-09-21T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2015-09-21T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="XML Attribute VS Element Assignment when working with SQL"/>
+<meta name="twitter:description" content="XML handling with aliases I find it interesting the difference in behavior with querying XML between column assignment, and quoted alias naming. It&rsquo;s a generally understood best practice to not use the deprecated syntax of column aliasing using a quoted name. For example:
+select [escapedWithBracketsIsGood] = case when raining then cats else dogs end ,NoEscapeNeededPerGoodNamingPractices = case when rains then pours else friday end ,case when writtenThisWay then ICringe else UseAssignmentWay end as NormalWayMostFolksDoIt ,&#39;BadNaming&#39; = case when food then eat else hungry end ,case when work then eat else JobLess end as &#39;VeryBadNaming&#39; You can see the difference in naming."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>XML Attribute VS Element Assignment when working with SQL</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>XML Attribute VS Element Assignment when working with SQL</h1>
+		<div class="content">
+			
+
+<h2 id="xml-handling-with-aliases">XML handling with aliases<a href="#xml-handling-with-aliases" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>I find it interesting the difference in behavior with querying XML between column assignment, and quoted alias naming.
+It&rsquo;s a generally understood best practice to not use the deprecated syntax of column aliasing using a quoted name. For example:</p>
+<div class="highlight"><pre class="chroma">select
+    [escapedWithBracketsIsGood] = case when raining then cats else dogs end
+    ,NoEscapeNeededPerGoodNamingPractices = case when rains then pours else friday end
+    ,case when writtenThisWay then ICringe else UseAssignmentWay end as NormalWayMostFolksDoIt
+    ,&#39;BadNaming&#39; = case when food then eat else hungry end
+    ,case when work then eat else JobLess end as &#39;VeryBadNaming&#39;</pre></div>
+<p>You can see the difference in naming. The bottom too are deprecated syntax from older naming standards, and should be avoided typically. Aliasing is pretty straight forward and the variance in doing your alias pattern doesn&rsquo;t normally have an actual impact on the results or way of handling&hellip;
+<strong>Except when doing with XML apparently</strong></p>
+
+<script type="text/javascript" src="https://gist.github.com/aae7d80467d37b89dc15.js"></script>
+
+
+<p><img src="https://www.sheldonhull.com/assets/img/xml-handling-with-aliases_uxvcja.jpg" alt="Image of XML Difference" /></p>
+
+<h2 id="further-reading">Further reading<a href="#further-reading" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>MSDN covers in more detail and precision in the <a href="https://msdn.microsoft.com/en-us/library/bb510462.aspx">this page</a>
+The handling of XML is a newer area to me, as previously I&rsquo;ve avoided like the plague. However, in working w/apps sometimes creating XML configuration files might be useful so exploring this can helpful to understand how to manipulate and even obtain values from it.</p>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

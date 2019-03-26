@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Photography on sheldonhull.com</title>
+    <link>https://www.sheldonhull.com/tags/photography/</link>
+    <description>Recent content in Photography on sheldonhull.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.sheldonhull.com/tags/photography/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Welcome to the World Little Ella</title>
+      <link>https://www.sheldonhull.com/blog/2017-09-08-welcome-to-the-world-little-ella/</link>
+      <pubDate>Fri, 08 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-09-08-welcome-to-the-world-little-ella/</guid>
+      <description>Proud to announce Ella the newest addition to my family joined us today @ 6:19pm, weighing in at 6lbs and 11 ounces. Yes, that&amp;rsquo;s 6lbs of cuteness. :-) I&amp;rsquo;m incredibly blessed to have this third addition to my family, and look forward to treasuring every moment with her. God sure knows how to give an amazing gift!
+It was a rough 24 hours resulting in our first cesarean experience. This was a bit intense, but Sarah pulled through as a trooper, and we are now finished with post-operation recovery, and enjoying time with our new bundle of awesome.</description>
+    </item>
+    
+    <item>
+      <title>Red Gate Dependency Tracker - Making Databases Into Moving Art</title>
+      <link>https://www.sheldonhull.com/blog/2016-04-28-red-gate-dependency-tracker-making-databases-into-moving-art/</link>
+      <pubDate>Thu, 28 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-04-28-red-gate-dependency-tracker-making-databases-into-moving-art/</guid>
+      <description>data structures are art If anyone thinks that working with complex data structures is boring&amp;hellip; I don&amp;rsquo;t know what world they live in. The problem is often that sql tables and data structures are just script files and lists of tables in an object explorer.  However, once you crack open the visual aspect of database diagramming and data architecture, you can see some interesting patterns emerge.
+red gate dependency viewer tracker I&amp;rsquo;ve long enjoyed playing around with Red Gate Dependency Tracker.</description>
+    </item>
+    
+  </channel>
+</rss>

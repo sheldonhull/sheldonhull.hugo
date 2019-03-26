@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gear on sheldonhull.com</title>
+    <link>https://www.sheldonhull.com/tags/gear/</link>
+    <description>Recent content in Gear on sheldonhull.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 16 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.sheldonhull.com/tags/gear/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ultrawide Monitor - Samsung CF971 - First impressions</title>
+      <link>https://www.sheldonhull.com/blog/2017-08-16-ultrawide-monitor-samsung-cf971-first-impressions/</link>
+      <pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-08-16-ultrawide-monitor-samsung-cf971-first-impressions/</guid>
+      <description>As a developer, I&amp;rsquo;ve been a big fan of multiple monitors for a long time. I moved to a triple screen setup years ago, and up until recently, had no desire to try anything different.
+Well&amp;hellip; I&amp;rsquo;ve finally found the replacement. The holy grail of productivity, immersion, as well as usability. Ultrawides :-)
+Don&amp;rsquo;t you miss the extra screen? No. The width of the screen is plenty for 2 full Visual Studio environments, or 3 text editors side by side.</description>
+    </item>
+    
+  </channel>
+</rss>

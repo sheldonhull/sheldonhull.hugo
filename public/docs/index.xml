@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docs on sheldonhull.com</title>
+    <link>https://www.sheldonhull.com/docs/</link>
+    <description>Recent content in docs on sheldonhull.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.sheldonhull.com/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>powershell</title>
+      <link>https://www.sheldonhull.com/docs/powershell/</link>
+      <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/docs/powershell/</guid>
+      <description>String Formatting    Type Example Output Notes     Formatting Switch &#39;select {0} from sys.tables&#39; -f &#39;name&#39; select name from sys.tables Same concept as .NET [string]::Format(). Token based replacement   .NET String Format [string]::Format(&#39;select {0} from sys.tables&#39;,&#39;name&#39;) select name from sys.tables Why would you do this? Because you want to showoff your .NET chops?    Math &amp;amp; Number Conversions    From To Example Output Notes     scientific notation Decimal 2.</description>
+    </item>
+    
+    <item>
+      <title>dbatools</title>
+      <link>https://www.sheldonhull.com/docs/dbatools/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/docs/dbatools/</guid>
+      <description>Setup install-module &amp;#39;dbatools&amp;#39; -Scope CurrentUser Database Corruption {}</description>
+    </item>
+    
+    <item>
+      <title>AWSPowershell</title>
+      <link>https://www.sheldonhull.com/docs/awspowershell/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/docs/awspowershell/</guid>
+      <description> Pending. Work in progress
+Setup install-module &amp;#39;AWSPowershell&amp;#39; -Scope CurrentUser</description>
+    </item>
+    
+  </channel>
+</rss>

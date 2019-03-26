@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="Migrating From Hipchat To Slack">
+<meta itemprop="description" content="Last Minute Migration? If you are about to perform a last minute migration here&rsquo;s a couple tips as you jump ship from Hipchat and move to Slack. Hipchat is sunsetting I believe on Feb 15th, so I figured I&rsquo;d share what I do have in case it&rsquo;s helpful, as it won&rsquo;t stay tremendously relevant for long.
+Problem: Hipchat access will be removed and you need more time Export the hipchat content to a file and upload to your own s3 bucket.">
+
+
+<meta itemprop="datePublished" content="2019-02-07T23:55:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-02-07T23:55:00&#43;00:00" />
+<meta itemprop="wordCount" content="1087">
+
+
+
+<meta itemprop="keywords" content="tech,powershell,development," />
+<meta property="og:title" content="Migrating From Hipchat To Slack" />
+<meta property="og:description" content="Last Minute Migration? If you are about to perform a last minute migration here&rsquo;s a couple tips as you jump ship from Hipchat and move to Slack. Hipchat is sunsetting I believe on Feb 15th, so I figured I&rsquo;d share what I do have in case it&rsquo;s helpful, as it won&rsquo;t stay tremendously relevant for long.
+Problem: Hipchat access will be removed and you need more time Export the hipchat content to a file and upload to your own s3 bucket." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/2019-02-07-migrating-from-hipchat-to-slack/" />
+<meta property="article:published_time" content="2019-02-07T23:55:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-02-07T23:55:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Migrating From Hipchat To Slack"/>
+<meta name="twitter:description" content="Last Minute Migration? If you are about to perform a last minute migration here&rsquo;s a couple tips as you jump ship from Hipchat and move to Slack. Hipchat is sunsetting I believe on Feb 15th, so I figured I&rsquo;d share what I do have in case it&rsquo;s helpful, as it won&rsquo;t stay tremendously relevant for long.
+Problem: Hipchat access will be removed and you need more time Export the hipchat content to a file and upload to your own s3 bucket."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>Migrating From Hipchat To Slack</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>Migrating From Hipchat To Slack</h1>
+		<div class="content">
+			
+
+<h1 id="last-minute-migration">Last Minute Migration?<a href="#last-minute-migration" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<p>If you are about to perform a last minute migration here&rsquo;s a couple tips as you jump ship from Hipchat and move to Slack. Hipchat is sunsetting I believe on Feb 15th, so I figured I&rsquo;d share what I do have in case it&rsquo;s helpful, as it won&rsquo;t stay tremendously relevant for long.</p>
+
+<h2 id="problem-hipchat-access-will-be-removed-and-you-need-more-time">Problem: Hipchat access will be removed and you need more time<a href="#problem-hipchat-access-will-be-removed-and-you-need-more-time" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>Export the hipchat content to a file and upload to your own s3 bucket. That will ensure you have some time to work through the migration and reverse it and try again if you aren&rsquo;t happy with the results.</p>
+
+<h2 id="problem-you-want-to-do-an-initial-import-of-hipchat-content-and-then-update-with-deltas">Problem: You want to do an initial import of Hipchat content and then update with deltas.<a href="#problem-you-want-to-do-an-initial-import-of-hipchat-content-and-then-update-with-deltas" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>Don&rsquo;t even consider it. The slack import can&rsquo;t add delta content for private messages and private rooms. This means you&rsquo;d get a lot of duplicate rooms being created. It&rsquo;s better to do the migration import in one batch rather than try to incrementally pull in content. Don&rsquo;t go down this route, as I didn&rsquo;t discover this till later in the process resulting in a time-crunch.</p>
+
+<h2 id="problem-you-have-hipchat-users-that-have-email-address-that-have-been-migrated-to-a-new-domain-since-they-were-created">Problem: You have hipchat users that have email address that have been migrated to a new domain since they were created.<a href="#problem-you-have-hipchat-users-that-have-email-address-that-have-been-migrated-to-a-new-domain-since-they-were-created" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>You&rsquo;ve migrated to a new domain, but your Hipchat accounts all have the previous email which you&rsquo;ve setup as email aliases. You can&rsquo;t easily change in Hipchat due to the fact it&rsquo;s set a profile level, &ldquo;synced&rdquo; to the Atlassian account. I had no luck in working on changing this so I instead leveraged the Slack API to bulk update during migration (after all the accounts were created). I mapped the active directory user to the current user by parsing out the email aliases and reversing this. I also created an alternative approach for those that had no matching email alias, and iffy full name matching to use fuzzy matching based soley on last name in the email address.</p>
+
+<h1 id="improving-your-migration-experience">Improving Your Migration Experience<a href="#improving-your-migration-experience" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<h2 id="rename-your-hipchat-rooms-prior-to-migration-optional">Rename Your Hipchat Rooms Prior to Migration (optional)<a href="#rename-your-hipchat-rooms-prior-to-migration-optional" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>The Slack Migration tool is pretty good, but the auto renaming had some rename behavior that didn&rsquo;t align in a clean manner with what my naming convention was going to be. This means to simplify your migration, it&rsquo;s better to rename your Hipchat rooms prior to migration so all your rooms now create slack channels that don&rsquo;t have to be renamed again. Also, if you pull in a delta of content for public rooms, it can automatically match and incrementally add content (this doesn&rsquo;t work for private content).</p>
+
+<h2 id="getting-started-with-hipchat-cli">Getting Started with Hipchat CLI<a href="#getting-started-with-hipchat-cli" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>It&rsquo;s painful. Hipchat&rsquo;s going into the great beyond so don&rsquo;t expect support for it.</p>
+
+<blockquote>
+<p>warning &ldquo;Important&rdquo;
+API Key for personal won&rsquo;t access full list of rooms in the action <code>getRoomList</code> in the CLI. Instead, you&rsquo;ll need to obtain the room list using Add-On token which I found too complex for my one time migration. Instead, you can copy the raw html of the table list, and use a regex script to parse out the room name and number list and use this. You can still perform room rename, just not <code>sendmessage</code> action on the rooms using the API token.</p>
+</blockquote>
+
+<ol>
+<li>Install integration from marketplace to the entire account</li>
+<li>Download the CLI for running locally</li>
+<li>Create API Key. <strong>Important</strong>. This is a 40 character <em>personal</em> key, not the key you create as an admin in the administrators section. You need to go to your personal profile, and then create a key while selecting all permissions in the list to ensure full admin privileges.</li>
+<li>To get the raw HTML easily, simply try this Chrome extension for selecting the table and copying the raw html of the table. <a href="http://bit.ly/2S1XwRn">CopyTables</a></li>
+<li>Open the room listing in Hipchat. Using the extension select <code>Rows</code> as your selection criteria and then select <code>Next Table</code>. Copy the Raw html to an empty doc. Go to the next page (I had 3 pages to go through) and copy each full table contents to append to the raw html in your doc.</li>
+<li>Once you have obtained all the html rows, then run the following script to parse out the html content into a <code>[pscustomobject[]]</code> collection to work with in your script.</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="nv">$HtmlRaw</span> <span class="p">=</span> <span class="nb">Get-Content</span> <span class="n">-Path</span> <span class="s1">&#39;.\TableRowRawHtml.html&#39;</span>
+<span class="nv">$Matched</span> <span class="p">=</span> <span class="nb">Select-String</span> <span class="n">-InputObject</span> <span class="nv">$HtmlRaw</span> <span class="n">-Pattern</span> <span class="s1">&#39;((?&lt;=rooms/show/)\d*(?=&#34;))(.*?\n*?.*?)(?&lt;=[&gt;])(.*?(?=&lt;))&#39;</span> <span class="n">-AllMatches</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-ExpandProperty</span> <span class="n">Matches</span>
+
+<span class="nb">Write-PSFMessage</span> <span class="n">-Level</span> <span class="n">Important</span> <span class="n">-Message</span> <span class="s2">&#34;Total Match Count: </span><span class="p">$(@(</span><span class="nv">$Matched</span><span class="p">).</span><span class="n">Count</span><span class="p">)</span><span class="s2">&#34;</span>
+
+<span class="no">[pscustomobject[]]</span><span class="nv">$RoomListing</span> <span class="p">=</span> <span class="nv">$Matched</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="n">-Process</span> <span class="p">{</span>
+    <span class="nv">$m</span> <span class="p">=</span> <span class="nv">$_</span><span class="p">.</span><span class="n">Groups</span>
+    <span class="no">[pscustomobject]</span><span class="p">@{</span>
+            <span class="n">RoomId</span>           <span class="p">=</span> <span class="nv">$m</span><span class="p">[</span><span class="n">1</span><span class="p">].</span><span class="n">Value</span>
+            <span class="n">OriginalRoomName</span> <span class="p">=</span> <span class="no">[system.web.httputility]</span><span class="p">::</span><span class="n">HtmlDecode</span><span class="p">(</span><span class="nv">$m</span><span class="p">[</span><span class="n">3</span><span class="p">].</span><span class="n">Value</span><span class="p">)</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nb">Write-PSFMessage</span> <span class="n">-Level</span> <span class="n">Important</span> <span class="n">-Message</span> <span class="s2">&#34;Total Rooms Listed: </span><span class="p">$(@(</span><span class="nv">$RoomListing</span><span class="p">).</span><span class="n">Count</span><span class="p">)</span><span class="s2">&#34;</span></code></pre></div>
+<p>Now you&rsquo;ll at least have a listing of room id&rsquo;s and names to work with, even if it took a while to get to it. There are other ways to get the data, such as expanding the <code>column-format=999</code> but this timed out on me and this ended actually being the quickest way to proceed.</p>
+
+<h2 id="using-cli">Using CLI<a href="#using-cli" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>To get started, cache your credentials using the fantastic BetterCredentials module. To install you&rsquo;ll need to run <code>Install-Module BetterCredentials -Scope CurrentUser -AllowClobber -Force</code></p>
+
+<p>Then set your cached credentials so we don&rsquo;t need to hard code them into scripts. This will cache it in your Windows Credential manager.</p>
+<div class="highlight"><pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="nv">$cred</span> <span class="p">=</span> <span class="p">@{</span>
+    <span class="n">credential</span>   <span class="p">=</span> <span class="p">(</span><span class="no">[pscredential]</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;myHipchatEmail&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="s2">&#34;APITokenHere&#34;</span> <span class="p">|</span> <span class="nb">ConvertTo-SecureString</span> <span class="n">-AsPlainText</span> <span class="n">-Force</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="n">type</span>         <span class="p">=</span> <span class="s1">&#39;generic&#39;</span>
+    <span class="n">Persistence</span>  <span class="p">=</span> <span class="s1">&#39;localcomputer&#39;</span>
+    <span class="n">Target</span>       <span class="p">=</span> <span class="s1">&#39;hipchatapi&#39;</span>
+    <span class="n">description</span>  <span class="p">=</span> <span class="s1">&#39;BetterCredentials cached credential for hipchat api&#39;</span>
+<span class="p">}</span>
+<span class="n">BetterCredentials</span><span class="p">\</span><span class="nb">Set-Credential</span> <span class="nv">@cred</span></code></pre></div>
+<p>Initialize the working directory and default parameters for the CLI so you can easily run other commands without having to redo this over and over.</p>
+<div class="highlight"><pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="c">#----------------------------------------------------------------------------#</span>
+<span class="c">#                 set location for the java cli environment                  #</span>
+<span class="c">#----------------------------------------------------------------------------#</span>
+<span class="nv">$Dir</span> <span class="p">=</span> <span class="nb">Join-Path</span> <span class="s1">&#39;C:\PathToCli&#39;</span> <span class="s1">&#39;atlassian-cli-8.1.0-distribution\atlassian-cli-8.1.0&#39;</span>
+<span class="nb">Set-Location</span> <span class="nv">$Dir</span>
+<span class="nv">$Url</span> <span class="p">=</span> <span class="s1">&#39;https://TACOS.hipchat.com&#39;</span>
+
+<span class="c">#----------------------------------------------------------------------------#</span>
+<span class="c">#              configure default arguments for calling java cli              #</span>
+<span class="c">#----------------------------------------------------------------------------#</span>
+<span class="nv">$JavaCommand</span> <span class="p">=</span> <span class="s2">&#34;java -jar </span><span class="p">$(</span><span class="nb">Join-Path</span> <span class="nv">$dir</span> <span class="s1">&#39;lib/hipchat-cli-8.1.0.jar&#39;</span><span class="p">)</span><span class="s2"> --server $url --token $Password --autoWait --quiet&#34;</span></code></pre></div>
+<p>Now you can issue some simple commands to start manipulating the CLI.</p>
+<div class="highlight"><pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="c">#----------------------------------------------------------------------------#</span>
+<span class="c">#          Get Entire Room Listing -- Including Archived &amp; Private           #</span>
+<span class="c">#----------------------------------------------------------------------------#</span>
+<span class="nv">$Action</span> <span class="p">=</span> <span class="s1">&#39;--action getRoomList --includePrivate --includeArchived --outputFormat 1&#39;</span>
+<span class="nv">$result</span> <span class="p">=</span> <span class="nb">Invoke-Expression</span> <span class="n">-command</span> <span class="s2">&#34;$JavaCommand $Action&#34;</span>
+<span class="nv">$RoomList</span> <span class="p">=</span> <span class="nv">$result</span> <span class="p">|</span> <span class="nb">ConvertFrom-CSV</span>
+<span class="nv">$RoomList</span> <span class="p">|</span> <span class="nb">Export-CliXml</span> <span class="n">-Path</span> <span class="p">(</span><span class="nb">Join-Path</span> <span class="nv">$ScriptsDir</span> <span class="s1">&#39;CurrentRoomList.xml&#39;</span><span class="p">)</span> <span class="n">-Encoding</span> <span class="n">UTF8</span> <span class="n">-Force</span> <span class="c">#just so we have a copy saved to review</span></code></pre></div>
+<p>I just tweaked this snippet for other types of commands, but this should get you pretty much what you need to run interactive commands via CLI. I&rsquo;ve also written up some Slack functions and will likely share those soon as well as I&rsquo;ve found them helpful in automatically fixing email addresses, activating &amp; deactivating users, identifying active billed users, and other basic administrative focused actions.</p>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

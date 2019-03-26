@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="Calculating the next beginning of month and the current end of month">
+<meta itemprop="description" content="Handling dates is always a fun challenge in T-SQL! Finding the current end of month and next months beginning of month is straight forward, but I like to find new ways to do things that take less coding, and hate date conversions that require a lot of manipulation of characters and concatenation. This was what I came up with for avoiding character conversions and concatenation for finding the current BOM (beginning of month) and EOM (end of month) values.">
+
+
+<meta itemprop="datePublished" content="2013-05-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2013-05-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="158">
+
+
+
+<meta itemprop="keywords" content="sql-server," />
+<meta property="og:title" content="Calculating the next beginning of month and the current end of month" />
+<meta property="og:description" content="Handling dates is always a fun challenge in T-SQL! Finding the current end of month and next months beginning of month is straight forward, but I like to find new ways to do things that take less coding, and hate date conversions that require a lot of manipulation of characters and concatenation. This was what I came up with for avoiding character conversions and concatenation for finding the current BOM (beginning of month) and EOM (end of month) values." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/2013-05-01-calculating-the-next-beginning-of-month-and-the-current-end-of-month/" />
+<meta property="article:published_time" content="2013-05-01T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2013-05-01T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Calculating the next beginning of month and the current end of month"/>
+<meta name="twitter:description" content="Handling dates is always a fun challenge in T-SQL! Finding the current end of month and next months beginning of month is straight forward, but I like to find new ways to do things that take less coding, and hate date conversions that require a lot of manipulation of characters and concatenation. This was what I came up with for avoiding character conversions and concatenation for finding the current BOM (beginning of month) and EOM (end of month) values."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>Calculating the next beginning of month and the current end of month</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>Calculating the next beginning of month and the current end of month</h1>
+		<div class="content">
+			<p>Handling dates is always a fun challenge in T-SQL! Finding the current end of month and next months beginning of month is straight forward, but I like to find new ways to do things that take less coding, and hate date conversions that require a lot of manipulation of characters and concatenation. This was what I came up with for avoiding character conversions and concatenation for finding the current BOM (beginning of month) and EOM (end of month) values. Adjust according to your needs. Cheers!</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql">    <span class="c1">--use datediff from 0, ie default 1900 date, to calculate current months as int
+</span><span class="c1"></span>    <span class="k">declare</span> <span class="o">@</span><span class="n">ThisMonth</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">datediff</span><span class="p">(</span><span class="k">month</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="k">cast</span><span class="p">(</span><span class="n">getdate</span><span class="p">()</span> <span class="k">as</span> <span class="nb">date</span><span class="p">))</span>
+
+    <span class="c1">--add 1 to the current month to get the next month
+</span><span class="c1"></span>    <span class="k">declare</span> <span class="o">@</span><span class="n">NextBom</span> <span class="nb">date</span> <span class="o">=</span> <span class="n">dateadd</span><span class="p">(</span><span class="k">month</span><span class="p">,</span><span class="o">@</span><span class="n">ThisMonth</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1">-- subtract a day from the beginning of next month to get the current end of month, without worrying about 28, 30, or 31 days.
+</span><span class="c1"></span>    <span class="k">declare</span> <span class="o">@</span><span class="n">ThisEom</span> <span class="nb">date</span> <span class="o">=</span> <span class="n">dateadd</span><span class="p">(</span><span class="k">day</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">@</span><span class="n">NextBom</span><span class="p">)</span>
+    <span class="k">select</span> <span class="o">@</span><span class="n">ThisMonth</span> <span class="k">select</span> <span class="o">@</span><span class="n">NextBom</span> <span class="k">select</span> <span class="o">@</span><span class="n">ThisEom</span></code></pre></div>
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

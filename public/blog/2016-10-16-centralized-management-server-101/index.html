@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="Centralized Management Server 101">
+<meta itemprop="description" content="I&rsquo;ve used Central Management Server registered servers in SSMS for primarily one purpose, saving connections. :-) This is definitely not the intended usage. As I&rsquo;ve explored the benefits of using this a little more, I put a few notes together to help share the concepts I came across. I was brand new to this feature in SQL server, and found some of the functionality pretty powerful, especially if you are in an environment that has a lot of servers to manage and ensure consistent configuration among all of them.">
+
+
+<meta itemprop="datePublished" content="2016-10-16T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2016-10-16T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="975">
+
+
+
+<meta itemprop="keywords" content="sql-server," />
+<meta property="og:title" content="Centralized Management Server 101" />
+<meta property="og:description" content="I&rsquo;ve used Central Management Server registered servers in SSMS for primarily one purpose, saving connections. :-) This is definitely not the intended usage. As I&rsquo;ve explored the benefits of using this a little more, I put a few notes together to help share the concepts I came across. I was brand new to this feature in SQL server, and found some of the functionality pretty powerful, especially if you are in an environment that has a lot of servers to manage and ensure consistent configuration among all of them." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/2016-10-16-centralized-management-server-101/" />
+<meta property="article:published_time" content="2016-10-16T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2016-10-16T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Centralized Management Server 101"/>
+<meta name="twitter:description" content="I&rsquo;ve used Central Management Server registered servers in SSMS for primarily one purpose, saving connections. :-) This is definitely not the intended usage. As I&rsquo;ve explored the benefits of using this a little more, I put a few notes together to help share the concepts I came across. I was brand new to this feature in SQL server, and found some of the functionality pretty powerful, especially if you are in an environment that has a lot of servers to manage and ensure consistent configuration among all of them."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>Centralized Management Server 101</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>Centralized Management Server 101</h1>
+		<div class="content">
+			
+
+<p>I&rsquo;ve used Central Management Server registered servers in SSMS for primarily one purpose, saving connections. :-)  This is definitely not the intended usage. As I&rsquo;ve explored the benefits of using this a little more, I put a few notes together to help share the concepts I came across. I was brand new to this feature in SQL server, and found some of the functionality pretty powerful, especially if you are in an environment that has a lot of servers to manage and ensure consistent configuration among all of them.</p>
+
+<h2 id="moving-cms-entries-to-a-new-cms-server">Moving CMS Entries to a new CMS server<a href="#moving-cms-entries-to-a-new-cms-server" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>If you need to move your Central Management Server (CMS) entries to a new CMS, then use the export and import functionality located under the CMS &gt; Tasks context menu.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/moving-cms-entries-to-a-new-cms-server.png" alt="Moving CMS Entries to a new CMS server" /></p>
+
+<h2 id="run-queries-across-multiple-instances-at-once">Run queries across multiple instances at once<a href="#run-queries-across-multiple-instances-at-once" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>Right click on the CMS group and choose new query. This tab will now execute the same query in parallel across all the selected instances, allowing quick adjustments.
+One creative use of this is to register two databases in the server group, then click new query. They could be on the same server if you wish. Once you start a new query on this group you could run the same query on two separate databases with no extra effort.
+An alternative to using this is Red Gate&rsquo;s SQL Multiscript which offers a bit more customization in the behavior and project file saving for multi-server, multi-database query running.
+You can identify a multiserver query at the bottom identified by</p>
+
+<h3 id="highway-to-the-danger-zone">Highway to the danger zone<a href="#highway-to-the-danger-zone" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>It&rsquo;s easy to forget you are running a server group query. Use some type of visualization and don&rsquo;t leave the query window open longer than you need to, especially in a production environment. One hint can be setting up the Red Gate tab color if you have SQL Prompt. You can see the connection details on the tab are a little different, listed with the CMS server group name + database, such as the image below</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/highway-to-the-danger-zone.png" alt="Highway to the danger zone" /></p>
+
+<h2 id="create-a-policy">Create a policy<a href="#create-a-policy" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>In reviewing <a href="http://bit.ly/2dZe2Ck">technet article on Policy-Based Management </a></p>
+
+<h2 id="administration-functionality">Administration Functionality<a href="#administration-functionality" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>From the CSM context menu you can perform some nice functionality such as start, start, restart of SQL services, view error logs, and even pull up the SQL configuration manager for that instance! Take advantage of this to easily adjust settings across instances without having to log into remote machines.</p>
+
+<h2 id="policies">Policies<a href="#policies" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>There are a few different types of policy behaviors to know about. From MSDN article <a href="http://bit.ly/2dZg5pQ"><strong>Administer Servers by Using Policy-Based Management</strong></a> I found that there were a few ways the evaluation of a policy is handled.</p>
+
+<ol>
+<li>On Demand</li>
+<li>On Change: Prevent</li>
+<li>On Change: Log Only</li>
+<li>On Schedule
+One interesting comment from MSDN indicating that:
+&ldquo;IMPORTANT! If the nested triggers server configuration option is disabled, On change: prevent will not work correctly. Policy-Based Management relies on DDL triggers to detect and roll back DDL operations that do not comply with policies that use this evaluation mode. Removing the Policy-Based Management DDL triggers or disabling nest triggers, will cause this evaluation mode to fail or perform unexpectedly.&rdquo;</li>
+</ol>
+
+<h3 id="create-policy">Create Policy<a href="#create-policy" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>This suprised me a little. The policy functionality wasn&rsquo;t available in the CMS registered server tab. Instead, go to the server in Object Explorer and expand Management &gt; Policy Management &gt; Policies</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/create-policy.png" alt="Create Policy" /></p>
+
+<h3 id="creation-dialogue">creation dialogue<a href="#creation-dialogue" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>Add new condition, there is a large list of policies to evaluate. You can detailed information on them on MSDN here.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/creation-dialogue.png" alt="creation dialogue" /></p>
+
+<h3 id="configure-the-rules">Configure the rules<a href="#configure-the-rules" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>You&rsquo;ll see a huge list of <em>Facets to evaluate and then you can easily setup logic to evaluate this.</em></p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/configure-the-rules.png" alt="Configure the rules" /></p>
+
+<h3 id="description-details-on-policy">Description Details on Policy<a href="#description-details-on-policy" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>In this case, I linked back to my favorite resource for server configuration&hellip; the Ozar! Providing some detail back on this could be great for quickly providing details later back to someone reviewing the results.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/description-details-on-policy.png" alt="Description Details on Policy" /></p>
+
+<h3 id="all-your-hard-work">All your hard work<a href="#all-your-hard-work" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>For all this hard work, you&rsquo;ll get two fancy new icons in object explorer. With this work, I&rsquo;m thinking saving your policies for backup with scripts would be a great idea&hellip;. scripting this would be much faster than all these steps to check one setting. I wish the dialogue had been focused on setting up multiple conditions quickly instead of all that work for a single Fact to be evaluated.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/all-your-hard-work.png" alt="All your hard work" /></p>
+
+<h2 id="evaluate-policy-results">Evaluate Policy Results<a href="#evaluate-policy-results" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<h3 id="start-the-evaluation">Start the evaluation<a href="#start-the-evaluation" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p><img src="https://www.sheldonhull.com/assets/img/start-the-evaluation.png" alt="Start the evaluation" /></p>
+
+<h3 id="results-were-not-what-i-expected">Results were not what I expected<a href="#results-were-not-what-i-expected" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>My first run gave me a failure, despite to my eyes being the right match. I had to change my approach from being @FillFactor != 0 to being Policy should be @FillFactor = 0 and it would pass, else it would fall. I was thinking in reverse.
+<a href="https://msdn.microsoft.com/en-us/library/bb895209.aspx#Anchor_3">MSDN indicates t</a>o be aware that:
+IMPORTANT! The functions that you can use to create Policy-Based Management conditions do not always use Transact-SQL syntax. Make sure that you follow the example syntax. For example, when you use the DateAdd or DatePart functions, you must enclose the datepart argument in single quotes.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/results-were-not-what-i-expected.png" alt="Results were not what I expected" /></p>
+
+<h3 id="prebuilt-best-practice-rules">Prebuilt Best Practice Rules<a href="#prebuilt-best-practice-rules" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>Thankfully, I found that there were a lot policies already presetup by Microsoft. The default location I had for the 2016 installation was C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Policies\DatabaseEngine\1033 . You can navigate to these by right clicking on the Server Group you want to evaluate, and then  Evaluate Policies &gt; Choose Source &gt; Files &gt; SQL Server Best Practices folder &gt; Database Engine &gt; 1033 &gt; Rule to explore</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/prebuilt-best-practice-rules.png" alt="Prebuilt Best Practice Rules" /></p>
+
+<h2 id="some-final-thoughts">Some final thoughts<a href="#some-final-thoughts" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>I can see the value for enforcing policies across a vast number of servers, and monitoring for compliance. For my environment, primarily dealing with a lot of developer sandboxes, the effort this requires is a bit too much. For my scenario, I&rsquo;ll probably stick with some home grown queries, powershell SMO checks, and the awesome <a href="http://bit.ly/2dUNHBo">OmniCompare</a> tool that is getting better and better each iteration. A previous article I wrote discussed the functionality of this tool here: <a href="http://bit.ly/2dUNDS2">OmniCompare: A Free Tool to Compare SQL Server Instances</a></p>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

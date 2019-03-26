@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="OR pattern causing indexing scans in parameter based queries">
+<meta itemprop="description" content="#Tl;dr
+(time constraints prevented me from reworking significantly)
+An article on SQL-Server-pro was forwarded over to me to research by a friend who indicated that using a variable with an or pattern had historically caused table scans. This was a suprise to me as all previous queries with optional parameters I&rsquo;d used in the past seemed to use index seeks. I had to dig into this a little deeper to see if had been missing this in my past work and needed to find an alternative method for optional parameters.">
+
+
+<meta itemprop="datePublished" content="2014-12-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2014-12-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="672">
+
+
+
+<meta itemprop="keywords" content="sql-server," />
+<meta property="og:title" content="OR pattern causing indexing scans in parameter based queries" />
+<meta property="og:description" content="#Tl;dr
+(time constraints prevented me from reworking significantly)
+An article on SQL-Server-pro was forwarded over to me to research by a friend who indicated that using a variable with an or pattern had historically caused table scans. This was a suprise to me as all previous queries with optional parameters I&rsquo;d used in the past seemed to use index seeks. I had to dig into this a little deeper to see if had been missing this in my past work and needed to find an alternative method for optional parameters." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/2014-12-11-or-pattern-causing-indexing-scans-in-parameter-based-queries/" />
+<meta property="article:published_time" content="2014-12-11T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2014-12-11T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="OR pattern causing indexing scans in parameter based queries"/>
+<meta name="twitter:description" content="#Tl;dr
+(time constraints prevented me from reworking significantly)
+An article on SQL-Server-pro was forwarded over to me to research by a friend who indicated that using a variable with an or pattern had historically caused table scans. This was a suprise to me as all previous queries with optional parameters I&rsquo;d used in the past seemed to use index seeks. I had to dig into this a little deeper to see if had been missing this in my past work and needed to find an alternative method for optional parameters."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>OR pattern causing indexing scans in parameter based queries</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>OR pattern causing indexing scans in parameter based queries</h1>
+		<div class="content">
+			<p>#Tl;dr</p>
+
+<p><em>(time constraints prevented me from reworking significantly)</em></p>
+
+<p>An <a href="http://www.sql-server-pro.com/or-condition-performance.html">article on SQL-Server-pro</a> was forwarded over to me to research by a friend who indicated that using a variable with an or pattern had historically caused table scans. This was a suprise to me as all previous queries with optional parameters I&rsquo;d used in the past seemed to use index seeks. I had to dig into this a little deeper to see if had been missing this in my past work and needed to find an alternative method for optional parameters. Original test procedure copied from original <a href="http://www.sql-server-pro.com/or-condition-performance.html">article</a></p>
+
+<script type="text/javascript" src="https://gist.github.com/4f8446420776336f7478.js"></script>
+
+
+<p>The result from running the test1 procedure was to find a clustered index scan. SQL Server optimizer should be able to utilize the or conditions as long as an index covers the predicates, so I dug in deeper. When I ran a random query against a few tables I found this was creating table scans. Looking a little deeper I decided to evaluate the indexing on the tables to see if it was an issues with indexing, and not the pattern of using the OR against a variable.</p>
+
+<script type="text/javascript" src="https://gist.github.com/ef2d134cdd3b47dcdf84.js"></script>
+
+
+<p>Test 1: SCANS - except with option recompile Found index scans on all my versions of running this except when including option(recompile) inside the stored procedure statement text. This of course fixed the issue by allowing sql to build the plan based on the exact value passed in, however, this would be at the cost of increasing CPU and negating the benefits of having a cached plan ready.
+Test 2: Ran <code>exec sys.sp_updatestats</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">Updating [dbo].[or_test]     [PK__or_test__3213E83F7953A2B2], update is not necessary...     [idx_or_test_col1], update is not necessary...     [idx_or_test_col2], update is not necessary...     [ix_nc_CoveringIndex], update is not necessary...     0 index(es)/statistic(s) have been updated, 4 did not require update.</code></pre></div>
+<p>After researching for hours more, and reading many posts, I discovered I&rsquo;ve been missing this in previous work, probably due to query plan caching. When utilizing the variable from the stored procedure, the parameters are &ldquo;sniffed&rdquo;. This means the plan is not rebuilt for each execution, but instead first execution is cached with the values it utilized. Thereafter, the optimizer can reuse this plan. The difference is that if you provide a value you manually plug into your test such as &ldquo;declare @Value = &lsquo;FOO&rsquo; &rdquo; then the optimizer has an actual value to use for each of your manually run executions. This means that if you have properly indexed the column, it would be sargable.</p>
+
+<p>However, the stored procedure is not passing in the actual value after the first run, it is trying to save the CPU demand the optimizer will need, and instead use the cached plan. This is likely the cause of my missing this in the past, as all my execution testing was based on commenting out the stored proc header and running manual tests. In this case, I&rsquo;d correctly be seeing table seeks if indexed properly, because the optimizer was obtaining the actual values from my session. When executing the stored procedure externally, it looks to utilize parameter sniffing, which when working correctly is a <strong>good thing</strong> not a bug.</p>
+
+<p>However, when result sets can greatly vary, the problem of parameter sniffing can become a problem. In addition, if the OR statement is utilized as my original problem mentioned, the optimizer can decide that since parameter value is unknown at this time, that with an OR clause it would be better to run a table scan since all table results might be returned, rather than a seek.</p>
+
+<p>To bypass this, there are various approaches, but all are a compromise of some sort. The common approach to resolving if truly various selections may be made (in the case of SSRS reports for example) is to utilize option(recompile). This provide the actual value back to the compiler at run time, causing higher CPU usage, but also ensuring the usage of indexes and reducing scans when the columns are properly indexed. Again, this is one solution among several, which can include building dynamic query strings, logic blocks, and other methods.</p>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

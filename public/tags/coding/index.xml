@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Coding on sheldonhull.com</title>
+    <link>https://www.sheldonhull.com/tags/coding/</link>
+    <description>Recent content in Coding on sheldonhull.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Jan 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.sheldonhull.com/tags/coding/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Diff All Files - Reviewing Changesets Quickly</title>
+      <link>https://www.sheldonhull.com/blog/2016-01-25-diff-all-files-reviewing-changesets-quickly/</link>
+      <pubDate>Mon, 25 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-01-25-diff-all-files-reviewing-changesets-quickly/</guid>
+      <description>Diff all files  info &amp;ldquo;Updated: 2017-07-14&amp;rdquo; Still find this incredibly awesome! Developer just updated for Visual Studio 2017 after a lot of hard work. Github repo here for any issues. Big thanks to DeadlyDog for this great tool and putting in the effort to update for VS2017. deadlydog/VS.DiffAllFiles: Visual Studio Extension to make comparing files before and after committing them to Git and TFS faster and easier
+info &amp;ldquo;Updated: 2016-01-25&amp;rdquo; I started using the option to compare a single file at a time, since it picks up the syntax highlighting then.</description>
+    </item>
+    
+  </channel>
+</rss>

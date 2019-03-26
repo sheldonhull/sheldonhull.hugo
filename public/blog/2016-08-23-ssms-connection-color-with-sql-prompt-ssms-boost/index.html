@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="SSMS - Connection Color with SQL Prompt &amp; SSMSBoost">
+<meta itemprop="description" content="If you haven&rsquo;t explored the visual color coding of tabs based on pattern matches with SQL Prompt, I&rsquo;d suggest you check this out. Earlier iterations of Red Gate&rsquo;s SQL Prompt did not change tab color immediately when the connection was changed. Red Gate&rsquo;s tab color could get out of sync occasionally, so I stopped depending on it.
+Apparently this has been improved on and my testing now shows that the tab recoloring for connections is changing when the connection is updated immediately.">
+
+
+<meta itemprop="datePublished" content="2016-08-23T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2016-08-23T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="349">
+
+
+
+<meta itemprop="keywords" content="cool-tools,redgate,sql-server," />
+<meta property="og:title" content="SSMS - Connection Color with SQL Prompt &amp; SSMSBoost" />
+<meta property="og:description" content="If you haven&rsquo;t explored the visual color coding of tabs based on pattern matches with SQL Prompt, I&rsquo;d suggest you check this out. Earlier iterations of Red Gate&rsquo;s SQL Prompt did not change tab color immediately when the connection was changed. Red Gate&rsquo;s tab color could get out of sync occasionally, so I stopped depending on it.
+Apparently this has been improved on and my testing now shows that the tab recoloring for connections is changing when the connection is updated immediately." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/2016-08-23-ssms-connection-color-with-sql-prompt-ssms-boost/" />
+<meta property="article:published_time" content="2016-08-23T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2016-08-23T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SSMS - Connection Color with SQL Prompt &amp; SSMSBoost"/>
+<meta name="twitter:description" content="If you haven&rsquo;t explored the visual color coding of tabs based on pattern matches with SQL Prompt, I&rsquo;d suggest you check this out. Earlier iterations of Red Gate&rsquo;s SQL Prompt did not change tab color immediately when the connection was changed. Red Gate&rsquo;s tab color could get out of sync occasionally, so I stopped depending on it.
+Apparently this has been improved on and my testing now shows that the tab recoloring for connections is changing when the connection is updated immediately."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>SSMS - Connection Color with SQL Prompt &amp; SSMSBoost</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>SSMS - Connection Color with SQL Prompt &amp; SSMSBoost</h1>
+		<div class="content">
+			
+
+<p>If you haven&rsquo;t explored the visual color coding of tabs based on pattern matches with SQL Prompt, I&rsquo;d suggest you check this out. Earlier iterations of Red Gate&rsquo;s SQL Prompt did not change tab color immediately when the connection was changed. Red Gate&rsquo;s tab color could get out of sync occasionally, so I stopped depending on it.</p>
+
+<p>Apparently this has been improved on and my testing now shows that the tab recoloring for connections is changing when the connection is updated immediately. This is a great visual indicator of what your query window is connected to.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/2016-05-04_12-06-49.png" alt="Recolor Tab with SQL Prompt" /></p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/2016-05-04_12-07-34.png" alt="Manage connections tab color matching" /></p>
+
+<p>I&rsquo;m still a fan of SSMSBoost combined with SQLPrompt, but I&rsquo;m finding myself needing less addins as SQLPrompt has been enhanced. The ease of configuration and setup is a major factor as well.
+SSMSboost Preferred connections are great for when needing to quickly context switch between different connections in the same window (and sync with object explorer)</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/2016-05-04_12-10-31.png" alt="SSMSBoost Edit preferred connections" /></p>
+
+<p>Resulting textbox overlay</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/2016-05-04_12-12-54.png" alt="ssmsboost textbox overlay" /></p>
+
+<h3 id="possible-improvements-for-sqlprompt">possible improvements for SQLPrompt<a href="#possible-improvements-for-sqlprompt" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ol>
+<li>I think that SQLPrompt would have some great productivity enhancements by implementing something similar to SSMSBoost preferred connections. <a href="http://bit.ly/2bisJyr">Here is a UserVoice item on it. Add your vote</a></li>
+<li>SQLPrompt enhancements to synchronize object explorer connections based on the current query window would be another great option. <a href="http://bit.ly/2birZJZ">I created a user voice item on this here.</a></li>
+</ol>
+
+<p>Overall, I&rsquo;m finding myself depending on SQLPrompt more. As a member in the Friend of Redgate program, I&rsquo;ve had access to try some of the new beta versions and find the team extremely responsive.</p>
+
+<p><em>Disclaimer: as a Friend of Redgate, I&rsquo;m provided with app for usage, this doesn&rsquo;t impact my review process.</em></p>
+
+<blockquote>
+<p>####
+<a href="http://www.ssmsboost.com/">
+SSMSBoost add-in - productivity tools for SSMS 2008 / 2012 / 2014 (Sql Server Management Studio)</a></p>
+
+<p>Productivity SSMS add-in packed with useful tolls: scripting, sessions, connection management. Plug-in works with SSMS 2008 and SSMS 2012 SQL Server Management Studio: SSMS add-in with useful tools for SQL Server developers
+<script data-preserve-html-node="true" async=" src="platform.js" charset="UTF-8"></script></p>
+
+<p>####
+<a href="http://www.red-gate.com/products/sql-development/sql-prompt/">Code Completion And SQL Formatting In SSMS &lsquo; SQL Prompt</a></p>
+
+<p>Write and format SQL with SQL Prompt&rsquo;s IntelliSense-style code completion, customizable code formatting, snippets, and tab history for SSMS. Try it free
+<script data-preserve-html-node="true" async=" src="platform.js" charset="UTF-8"></script></p>
+</blockquote>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

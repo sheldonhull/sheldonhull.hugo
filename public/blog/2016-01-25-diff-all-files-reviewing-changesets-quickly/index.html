@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="Diff All Files - Reviewing Changesets Quickly">
+<meta itemprop="description" content="Diff all files  info &ldquo;Updated: 2017-07-14&rdquo; Still find this incredibly awesome! Developer just updated for Visual Studio 2017 after a lot of hard work. Github repo here for any issues. Big thanks to DeadlyDog for this great tool and putting in the effort to update for VS2017. deadlydog/VS.DiffAllFiles: Visual Studio Extension to make comparing files before and after committing them to Git and TFS faster and easier
+info &ldquo;Updated: 2016-01-25&rdquo; I started using the option to compare a single file at a time, since it picks up the syntax highlighting then.">
+
+
+<meta itemprop="datePublished" content="2016-01-25T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2016-01-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="769">
+
+
+
+<meta itemprop="keywords" content="coding,cool-tools,sql-server," />
+<meta property="og:title" content="Diff All Files - Reviewing Changesets Quickly" />
+<meta property="og:description" content="Diff all files  info &ldquo;Updated: 2017-07-14&rdquo; Still find this incredibly awesome! Developer just updated for Visual Studio 2017 after a lot of hard work. Github repo here for any issues. Big thanks to DeadlyDog for this great tool and putting in the effort to update for VS2017. deadlydog/VS.DiffAllFiles: Visual Studio Extension to make comparing files before and after committing them to Git and TFS faster and easier
+info &ldquo;Updated: 2016-01-25&rdquo; I started using the option to compare a single file at a time, since it picks up the syntax highlighting then." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/2016-01-25-diff-all-files-reviewing-changesets-quickly/" />
+<meta property="article:published_time" content="2016-01-25T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2016-01-25T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Diff All Files - Reviewing Changesets Quickly"/>
+<meta name="twitter:description" content="Diff all files  info &ldquo;Updated: 2017-07-14&rdquo; Still find this incredibly awesome! Developer just updated for Visual Studio 2017 after a lot of hard work. Github repo here for any issues. Big thanks to DeadlyDog for this great tool and putting in the effort to update for VS2017. deadlydog/VS.DiffAllFiles: Visual Studio Extension to make comparing files before and after committing them to Git and TFS faster and easier
+info &ldquo;Updated: 2016-01-25&rdquo; I started using the option to compare a single file at a time, since it picks up the syntax highlighting then."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>Diff All Files - Reviewing Changesets Quickly</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>Diff All Files - Reviewing Changesets Quickly</h1>
+		<div class="content">
+			
+
+<h1 id="diff-all-files">Diff all files<a href="#diff-all-files" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<blockquote>
+<p>info &ldquo;Updated: 2017-07-14&rdquo;
+Still find this incredibly awesome! Developer just updated for Visual Studio 2017 after a lot of hard work. Github repo here for any issues. Big thanks to DeadlyDog for this great tool and putting in the effort to update for VS2017. <a href="http://bit.ly/2vkXGI9">deadlydog/VS.DiffAllFiles: Visual Studio Extension to make comparing files before and after committing them to Git and TFS faster and easier</a></p>
+
+<p>info &ldquo;Updated: 2016-01-25&rdquo;
+I started using the option to compare a single file at a time, since it picks up the syntax highlighting then. The other way (merge files into one) can&rsquo;t handle syntax highlighting with the various files types all mixed into the same window. Diff All Files extension handles this beautifully with proceeding one by one and automatically opening the next file to compare or allowing you to hit next to close and reopen with the next file to compare. I still enjoy using this due to the &ldquo;context&rdquo; lines that reduce the noise to just the actual section being changed.</p>
+</blockquote>
+
+<p>If you need to do code comparison on a lot of files in Visual Studio, I ran across an extension <a href="http://bit.ly/29nXEbe">Diff All Files</a> that is really helpful for merging down the individual file changes into more consumable format.</p>
+
+<p>In the changeset view you can select diff all files and whatever settings you&rsquo;ve setup in the Tools &gt; Options &gt; Diff all Files settings will then feed through automatically.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/2016-07-06_9-31-56_diff_all_files_setupoptions.png" alt="2016-07-06_9-31-56_diff_all_files_setupoptions" /></p>
+
+<p>You then click on diff all files in the changeset viewer</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/diff_all_files_animation.gif" alt="diff_all_files_animation" /></p>
+
+<p>All the non-excluded items will then be merged into a single file, if this option was selected, or separate windows. Personally, I&rsquo;ve found the merged view really helpful to have one single pane to scroll through.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/2016-07-06_9-32-02_diff_all_files_settings.png" alt="2016-07-06_9-32-02_diff_all_files_settings" /></p>
+
+<h2 id="third-party-comparison-perks">Third Party Comparison Perks<a href="#third-party-comparison-perks" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>To go a step beyond this you could use a third party comparison tool. My preferred option is Araxis Merge (disclaimer: they provided me with a license for evaluation, which doesn&rsquo;t impact my assessment). I really like the fact it merges down similarities into a concise comparison. This tool gives you the option to provide only the different lines, with a X number of lines before and ahead for context. This could reduce thousands of lines of code to just a few hundred that have variances. Win! Highly recommend you check them out, as if you are doing open source they have a free license for that. If you do a lot of code comparisons, some of the additional functionality in their app might be worth it, otherwise the built in viewer in TFS is pretty good.</p>
+
+<p>In my test comparison, I reduced 3245 lines of code in the comparison window to 25 lines, which was the actual changes + 10 lines above/below for each change to have context. This resulted in only a few hundred lines to scroll through. Made my life easier!
+The only con for me with Araxis is no dark theme&hellip;. but I&rsquo;ll live.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/2016-07-06_11-56-21_araxis_merge_gui.png" alt="araxis_merge_gui" /></p>
+
+<h2 id="configuring-third-party-tools">configuring third party tools<a href="#configuring-third-party-tools" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p><img src="https://www.sheldonhull.com/assets/img/2016-07-06_10-23-24_configure_external_diff_tool.png" alt="configure_external_diff_tool" /></p>
+
+<p>I saved this snippet from working through Araxis documentation for setting up their tool with Visual Studio.</p>
+
+<script type="text/javascript" src="https://gist.github.com/8f46d34d2c3c83a4c18e5d70e92e5d3d.js"></script>
+
+
+<p>I also just ran across another site that had a nice resource list of configuration settings for different comparison tools.  <a href="http://bit.ly/29nX1yF">Diff All Tools - Visual Studio Extension</a></p>
+
+<h2 id="other-comparison-tools">Other comparison tools<a href="#other-comparison-tools" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>Third party tools can be great for some extra perks like File versioning, comparing folders, and more. You can get by without them, of course, but if you do a lot of change review consider some of the options. A few others I&rsquo;ve reviewed (if pro/paid they provided license for me to evaluate)</p>
+
+<ul>
+<li><a href="http://bit.ly/29nXlgM">Delta Walker (pro)</a>: Great UI, does image similarities comparison tool. Didn&rsquo;t seem to have a &ldquo;show only changed lines with context&rdquo; like Araxis at the time I reviewed. Mac app!</li>
+<li><a href="http://bit.ly/29nXQaq">Devart Code Compare (pro/free)</a>: I love most programs Devart puts out. This is a good comparison app. Wasn&rsquo;t my preferred option, and at times struggled with large files, but overall was good in comparison accuracy.</li>
+<li><a href="https://sourcegear.com/diffmerge/">DiffMerge</a>: Brief overview, solid tool, just didn&rsquo;t have specific improvements I needed (focused on changeset/sql comparison)</li>
+<li><a href="http://bit.ly/29nXj8G">Beyond Compare</a>: didn&rsquo;t dive into this extensively. They have a devoted following with a lot of loyalty, so check them out if you want to evaluate their software.</li>
+<li>Built in TFS diff - great for a built in tool, I just wanted to have some enhancements in what to ignore and summarize.</li>
+<li><a href="http://documentation.red-gate.com/display/SC11/Setting+data+sources#Settingdatasources-Selectingaversionfromsourcecontrol">SQL Compare</a>: my favorite for reviewing changsets that are directly in TFS. I wish they&rsquo;d add a module for just pulling up the diff view without having to open SQL Compare to setup a comparison though. Sounds like a good user voice feedback item :-)</li>
+</ul>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

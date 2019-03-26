@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="Parallel Powershell for Running SQL">
+<meta itemprop="description" content="This is just a quick look. I plan on diving into this in the future more, as I&rsquo;m still working through some of the changes being made in the main parallel modules I utilize for SQL server. In the meantime, if you are looking for a quick way to leverage some parallel query running, take a look at PSParallel. I&rsquo;ve avoided Powershell Jobs/Workflow due to limitations they have and the performance penalty I&rsquo;ve seen is associated with them.">
+
+
+<meta itemprop="datePublished" content="2016-11-16T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2016-11-16T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="219">
+
+
+
+<meta itemprop="keywords" content="powershell,sql-server," />
+<meta property="og:title" content="Parallel Powershell for Running SQL" />
+<meta property="og:description" content="This is just a quick look. I plan on diving into this in the future more, as I&rsquo;m still working through some of the changes being made in the main parallel modules I utilize for SQL server. In the meantime, if you are looking for a quick way to leverage some parallel query running, take a look at PSParallel. I&rsquo;ve avoided Powershell Jobs/Workflow due to limitations they have and the performance penalty I&rsquo;ve seen is associated with them." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/2016-11-16-parallel-powershell-for-running-sql/" />
+<meta property="article:published_time" content="2016-11-16T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2016-11-16T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Parallel Powershell for Running SQL"/>
+<meta name="twitter:description" content="This is just a quick look. I plan on diving into this in the future more, as I&rsquo;m still working through some of the changes being made in the main parallel modules I utilize for SQL server. In the meantime, if you are looking for a quick way to leverage some parallel query running, take a look at PSParallel. I&rsquo;ve avoided Powershell Jobs/Workflow due to limitations they have and the performance penalty I&rsquo;ve seen is associated with them."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>Parallel Powershell for Running SQL</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>Parallel Powershell for Running SQL</h1>
+		<div class="content">
+			<p>This is just a quick look. I plan on diving into this in the future more, as I&rsquo;m still working through some of the changes being made in the main parallel modules I utilize for SQL server. In the meantime, if you are looking for a quick way to leverage some parallel query running, take a look at <a href="http://bit.ly/2gcXl7H">PSParallel</a>. I&rsquo;ve avoided Powershell Jobs/Workflow due to limitations they have and the performance penalty I&rsquo;ve seen is associated with them.For my choice, I&rsquo;ve explored PSParallel &amp; PoshRSJob.
+I&rsquo;ve found them helpful for running some longer running queries, as I can have multiple threads running across server/database of my choice, with no query windows open in SSMS.
+Another great option that is under more active development is <a href="http://bit.ly/2gd0aW2">PoshRsJob</a>. Be clear that this will have a higher learning curve to deal with as it doesn&rsquo;t handle some of the implicit import of external variables that PSParallel does. You&rsquo;ll have to work through more issues initially to understand correctly passing parameters and how the differents scope of runspaces impact updating shared variables (ie, things get deeper with synchronized hashtables and more :-) )
+Hope this helps get you started if you want to give parallel query execution a shot. Here&rsquo;s a function using PSParallel to get you started. Let me know if it helps</p>
+
+<script type="text/javascript" src="https://gist.github.com/5bb1a8adea09276c4fd274b5b2900b6a.js"></script>
+
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

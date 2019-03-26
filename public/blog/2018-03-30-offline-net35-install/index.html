@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="SQL .NET Requirements">
+<meta itemprop="description" content="SQL Server Install Requirements SQL Server Installation requirements indicate .NET 3.5, 4.0, or 4.6 depending on the version. This is not including SSMS. At this point you shouldn&rsquo;t use SSMS from any SQL ISO. Just install SQL Management Studio directly. See for more details on this - Improvements with SSMS 2016 - Update SSMS With PS1
+From a quick review here&rsquo;s what you have regarding .NET requirements for the database engine.">
+
+
+<meta itemprop="datePublished" content="2018-03-30T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-03-30T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="484">
+
+
+
+<meta itemprop="keywords" content="sql-server,tech," />
+<meta property="og:title" content="SQL .NET Requirements" />
+<meta property="og:description" content="SQL Server Install Requirements SQL Server Installation requirements indicate .NET 3.5, 4.0, or 4.6 depending on the version. This is not including SSMS. At this point you shouldn&rsquo;t use SSMS from any SQL ISO. Just install SQL Management Studio directly. See for more details on this - Improvements with SSMS 2016 - Update SSMS With PS1
+From a quick review here&rsquo;s what you have regarding .NET requirements for the database engine." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/2018-03-30-offline-net35-install/" />
+<meta property="article:published_time" content="2018-03-30T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-03-30T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SQL .NET Requirements"/>
+<meta name="twitter:description" content="SQL Server Install Requirements SQL Server Installation requirements indicate .NET 3.5, 4.0, or 4.6 depending on the version. This is not including SSMS. At this point you shouldn&rsquo;t use SSMS from any SQL ISO. Just install SQL Management Studio directly. See for more details on this - Improvements with SSMS 2016 - Update SSMS With PS1
+From a quick review here&rsquo;s what you have regarding .NET requirements for the database engine."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>SQL .NET Requirements</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>SQL .NET Requirements</h1>
+		<div class="content">
+			
+
+<h2 id="sql-server-install-requirements">SQL Server Install Requirements<a href="#sql-server-install-requirements" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>SQL Server Installation requirements indicate .NET 3.5, 4.0, or 4.6 depending on the version. This is not including SSMS. At this point you shouldn&rsquo;t use SSMS from any SQL ISO. Just install SQL Management Studio directly. See  for more details on this
+- <a href="{% post_url 2016-07-12-improvements-with-ssms-2016 %}">Improvements with SSMS 2016</a>
+- <a href="{% post_url 2017-07-03-update-ssms-with-ps1 %}">Update SSMS With PS1</a></p>
+
+<p>From a quick review here&rsquo;s what you have regarding .NET requirements for the database engine.</p>
+
+<table>
+<thead>
+<tr>
+<th>SQL Version</th>
+<th>.NET Required</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><a href="http://bit.ly/2IdFXsv">&gt;= SQL 2016 RC1 (SQL 2017 included)</a></td>
+<td>.NET 4.6</td>
+</tr>
+
+<tr>
+<td><a href="http://bit.ly/2uxROj5">SQL 2014</a></td>
+<td>.NET 3.5 (manual install required)<br />.NET 4.0 (automatic)</td>
+</tr>
+
+<tr>
+<td><a href="http://bit.ly/2uyUmgH">SQL 2012</a></td>
+<td>.NET 3.5 (manual install required)<br />.NET 4.0 (automatic)</td>
+</tr>
+</tbody>
+</table>
+
+<p>Specifically noted in <a href="https://msdn.microsoft.com/library/ms143506.aspx#Anchor_1">SQL 2012-2014 documentation</a> is:</p>
+
+<blockquote>
+<p>.NET 3.5 SP1 is a requirement for SQL Server 2014 when you select Database Engine, Reporting Services, Master Data Services, Data Quality Services, Replication, or SQL Server Management Studio, and it is no longer installed by SQL Server Setup.</p>
+</blockquote>
+
+<h2 id="when-net-3-5-install-just-won-t-cooperate">When .NET 3.5 Install Just Won&rsquo;t Cooperate<a href="#when-net-3-5-install-just-won-t-cooperate" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>If you need to install SQL Server that requires .NET 3.5 things can get a little tricky. This is a core feature with windows, so typically it&rsquo;s just a matter of going to Features and enabling, both in Windows 10 and Windows Server.</p>
+
+<p>However, if you have a tighter GPO impacting your windows update settings, then you probably need to get this whitelisted. If you are on a time-crunch or unable to get the blocking of .NET 3.5 fixed, then you can also resolve the situation by using a manual offline install of .NET 3.5. Even the setup package Microsoft offers has online functionality and thereby typically fails in those situations.</p>
+
+<h2 id="offline-approach">Offline Approach<a href="#offline-approach" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>Surprisingly, I had to dig quite a bit to find a solution, as the .NET 3.5 installers I downloaded still attempted online connections, resulting in installation failure.</p>
+
+<p>Turns out that to get an offline install correctly working you need a folder from the Windows install image (ISO) located at <code>sources\sxs</code>.</p>
+
+<p>Since I wouldn&rsquo;t want to provide this directly here&rsquo;s the basic steps you take.</p>
+
+<h3 id="get-netfx3-cab">Get NetFx3 Cab<a href="#get-netfx3-cab" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ol>
+<li>Download ISO of Windows 10 (I&rsquo;m guessing the version won&rsquo;t really matter as you just want the contents in one folder)</li>
+<li>Mount ISO</li>
+<li>Navigate to: <code>MountedISO &gt; sources</code> and copy the <code>sxs</code> directory to your location. It should contain <code>microsoft-windows-netfx3-ondemand-package.cab</code>. This is the big difference, as the other methods provide an MSI, not the cab file.</li>
+</ol>
+
+<h3 id="create-package">Create Package<a href="#create-package" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>Next to create a reusable package</p>
+
+<ol>
+<li><p>Create a directory: <code>Install35Offline</code></p></li>
+
+<li><p>Copy SXS directory to this</p></li>
+
+<li><p>Create 2 files. Gist below to save you some time.</p>
+
+<ol>
+<li>Install35Offline.ps1</li>
+<li>Install35Offline.bat</li>
+</ol></li>
+</ol>
+
+<script type="text/javascript" src="https://gist.github.com/954303c02bf1a5e05b45628dada83f9a.js"></script>
+
+
+<p>Hopefully this will save you some effort, as it took me a little to figure out how to wrap it all up to make it easy to run.</p>
+
+<p>Packing this up in an internal chocolately package would be a helpful way to fix for any developers needing the help of their local dba wizard, and might even earn you some dev karma.</p>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

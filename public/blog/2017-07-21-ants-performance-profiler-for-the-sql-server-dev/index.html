@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="ANTS Performance Profiler for the SQL Server Dev">
+<meta itemprop="description" content="There are a few .NET tools that until recently I haven&rsquo;t had the chance to work with as much, specifically ANTS Memory Profiler and ANTS Performance Profiler. The memory profiler is more useful for someone focused on memory leaks which a SQL Dev isn&rsquo;t as focused on for performance tuning. However, there are major benefits for diving into SQL Performance tuning with ANTS Performance profiler. I think I&rsquo;d say this tool makes the epic category of my #cooltools kit and will be added to my COOL TOOLS page here for SQL performance tuning.">
+
+
+<meta itemprop="datePublished" content="2017-07-21T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-07-21T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1251">
+
+
+
+<meta itemprop="keywords" content="sql-server,cool-tools,performance-tuning,redgate,powershell,tech," />
+<meta property="og:title" content="ANTS Performance Profiler for the SQL Server Dev" />
+<meta property="og:description" content="There are a few .NET tools that until recently I haven&rsquo;t had the chance to work with as much, specifically ANTS Memory Profiler and ANTS Performance Profiler. The memory profiler is more useful for someone focused on memory leaks which a SQL Dev isn&rsquo;t as focused on for performance tuning. However, there are major benefits for diving into SQL Performance tuning with ANTS Performance profiler. I think I&rsquo;d say this tool makes the epic category of my #cooltools kit and will be added to my COOL TOOLS page here for SQL performance tuning." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/2017-07-21-ants-performance-profiler-for-the-sql-server-dev/" />
+<meta property="article:published_time" content="2017-07-21T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2017-07-21T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ANTS Performance Profiler for the SQL Server Dev"/>
+<meta name="twitter:description" content="There are a few .NET tools that until recently I haven&rsquo;t had the chance to work with as much, specifically ANTS Memory Profiler and ANTS Performance Profiler. The memory profiler is more useful for someone focused on memory leaks which a SQL Dev isn&rsquo;t as focused on for performance tuning. However, there are major benefits for diving into SQL Performance tuning with ANTS Performance profiler. I think I&rsquo;d say this tool makes the epic category of my #cooltools kit and will be added to my COOL TOOLS page here for SQL performance tuning."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>ANTS Performance Profiler for the SQL Server Dev</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>ANTS Performance Profiler for the SQL Server Dev</h1>
+		<div class="content">
+			
+
+<p>There are a few .NET tools that until recently I haven&rsquo;t had the chance to work with as much, specifically ANTS Memory Profiler and ANTS Performance Profiler. The memory profiler is more useful for someone focused on memory leaks which a SQL Dev isn&rsquo;t as focused on for performance tuning. However, there are major benefits for diving into SQL Performance tuning with ANTS Performance profiler. I think I&rsquo;d say this tool makes the <em>epic</em> category of my #cooltools kit and will be added to my <strong><a href="{{ &quot;/cool-tools/&quot; | relative_url }}">COOL TOOLS</a></strong> page here for SQL performance tuning.</p>
+
+<p>One of the most challenging processes for profiling activity is really identifying the single largest pain point. Trying to line up timings with the SQL plans and the application side by side is a big timesaver, and Red Gate improved ANTS Performance profiler to include the executed SQL with execution plans, making it a single stop to profile and get some useful information.</p>
+
+<p>There are other ways to get useful information, such as running Brent Ozar&rsquo;s First Responder kit queries, Glenn Berry&rsquo;s diagnostic queries, Query Store, and more. These tend to focus on server performance. As someone working in software development, there is something to be said for the simplicity of running the application and profiling the .NET and SQL performance in one captured &amp; filtered result set. It&rsquo;s a pretty quick way to immediately reduce noise and view a complete performance picture of the application.</p>
+
+<p>For performance profiling, Visual Studio has an option called Performance Profiler. I found my initial look at it to be positive, just really noisy.</p>
+
+<p><em>Disclaimer: As a member of the Friends of Red Gate program, I get to try out all the cool Red Gate tools. Lucky me! This doesn&rsquo;t bias my reviews as I just like great tools that help me work with SQL server. This is one of them!</em></p>
+
+<h2 id="profiling-net-app">Profiling .NET App<a href="#profiling-net-app" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p><img src="https://www.sheldonhull.com/assets/img/profiling-net-app.png" alt="Setting up your profiling session" /> Setting up your profiling session</p>
+
+<p>At the time of this articles publishing, there is no 2017 Visual studio extension which makes this process a few clicks less. For now, it still is simple. All you do is go to the bin/debug folder and select the executable you want to profile. Attaching to the .NET excecutable is required for my purpose, as attaching to an <em>existing process doesn&rsquo;t give you the ability to get all the SQL calls</em> which we definitely want.</p>
+
+<h2 id="timeline-bookmarks">Timeline &amp; Bookmarks<a href="#timeline-bookmarks" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p><img src="https://www.sheldonhull.com/assets/img/timeline-bookmarks.png" alt="timeline-bookmarks" /></p>
+
+<p>During the profiling you can perform actions with the application and create bookmarks of points in time as you are performing these actions to make it easier to compare and review results later.</p>
+
+<h2 id="reviewing-results">Reviewing Results<a href="#reviewing-results" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p><img src="https://www.sheldonhull.com/assets/img/review-results.png" alt="Call Tree View" /> Call Tree View</p>
+
+<p>This is based on the call tree. It shows code calls, and is a great way to be the database guy that says&hellip; &ldquo;hey SQL server isn&rsquo;t slow, it&rsquo;s your code&rdquo; :-)</p>
+
+<h2 id="database-calls">Database Calls<a href="#database-calls" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p><img src="https://www.sheldonhull.com/assets/img/database-calls.png" alt="Database Calls" /> Database Calls</p>
+
+<p>The database calls are my favorite part of this tool. This integration is very powerful and lets you immediately trim down to the calls made with timings and associated executed sql text. RG even went and helped us out by providing an execution plan viewer! When I first saw this I fell in love. Having had no previous experience with Entity framework of other ORMs, I found the insight into the performance and behavior of the application to be tremendously helpful the first time I launched this.</p>
+
+<h2 id="exporting-html-report">Exporting HTML Report<a href="#exporting-html-report" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p><img src="https://www.sheldonhull.com/assets/img/ants-html-exported-report.pngants-html-exported-report.png" alt="HTML Exported Report" /> HTML Exported Report</p>
+
+<p>A benefit for summarizing some action for others to consume is the ability to select the entire timeline, or narrow to a slide of time, and export the results as a HTML report.</p>
+
+<p>This was pretty helpful as it could easily provide a way to identify immediate pain points in a daily performance testing process and focus effort on the highest cost application actions, as well as database calls.</p>
+
+<h2 id="automation-in-profiling">Automation in Profiling<a href="#automation-in-profiling" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>RG Documentation shows great flexibility for the profiler being call from command line. I see a lot of potential benefit here if you want to launch a few actions systematically from your application and establish a normal performance baseline and review this report for new performance issues that seem to be arising.</p>
+
+<p>I generated some reports automatically by launching my executable via command line, profiling, and once this was completed, I was provided with a nice formatted HTML report for the calls. At the time of this article, I couldn&rsquo;t find any call for generating the SQL calls as their own report.</p>
+
+<script type="text/javascript" src="https://gist.github.com/8055f44fd25af7d010ba22c6e54692e4.js"></script>
+
+
+<h2 id="tl-dr">TL;DR<a href="#tl-dr" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p><strong>Pros</strong></p>
+
+<ol>
+<li>Incredibly powerful way to truly get a picture into an application&rsquo;s activity and the true pain points in performance it is experiencing. It truly helps answer the question very quickly of what is the area that needs the most attention.</li>
+<li>Very streamlined way to get a summary of the SQL activity an application is generating and the associated statements and execution plans for further analysis.</li>
+</ol>
+
+<p><strong>Cons</strong></p>
+
+<ol>
+<li>At times, with larger amounts of profiled data the application could feel unresponsive. Maybe separating some of the panes activity into asynchronous loads with progress indicators would make this feel better.</li>
+</ol>
+
+<p>** Neutral/Wishlist **</p>
+
+<ol>
+<li>More an observation than complaint, but I sure would like to see some active work being released on this with more functionality and SQL performance tuning focus. Seems to be stable and in maintenance mode rather than major enhancements being released. For those involved in software development, this tool is a powerful utility and I&rsquo;d love to see more improvements being released on it. RedGate&hellip; hint hint? :-)</li>
+<li>I&rsquo;d like to see even more automation focus, with the option of preset Powershell cmdlets, and team foundation server task integration to help identify changes in performance patterns when scaled up. Leveraging this to help baseline application performance overall and report and develop trends against this might help catch issues that crop up more quickly.</li>
+</ol>
+
+<h2 id="additional-info-on-more-profiling-focused-apps">additional info on more profiling focused apps<a href="#additional-info-on-more-profiling-focused-apps" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>Since the material is related, I thought I&rsquo;d mention a few tools I&rsquo;ve used to help profile activity, that is not focused on a wholistic performance analysis, and more about activity.</p>
+
+<ol>
+<li>For more &ldquo;profiling&rdquo; and less performance analysis my favorite SQL profiling tool Devart&rsquo;s <a href="https://www.devart.com/dbforge/sql/event-profiler/">DbForge Sql Profiler</a> uses extended events and while amazing, isn&rsquo;t as focused a tool for app and SQL performance analysis. If you haven&rsquo;t checked that tool (free!) out I highly recommend it vs running profiler. It uses extended events and provides a nice experience in profiling and reviewing results. Super easy to use and very flexible for filtering/sorting/exporting. The only issues I have with it are the filtering setup is annoying, but tolerable to work with, and no execution plans that I&rsquo;ve been able to find built in, unlike running extended events in SSMS directly. Hopefully, Devart will recognize what an awesome tool they&rsquo;ve made and continue to push it forward.</li>
+<li>For just getting Entity framework and other ADO.net calls you can use intellitrace with the option for ADO.NET tracing enabled. I found this nice, but a little clunky to use compared to Linq Insight or other options mentioned. It&rsquo;s included with visual studio so if only using periodically then this would be ok to work with.</li>
+<li>For a cleaner implementation of Entity Framework Profiling than the Intellitrace route use <a href="http://bit.ly/2vo2Zaj">Devarts dbForge Linq Insight</a> (I love this tool for cleaner profiling of ADO.NET activity when you aren&rsquo;t focused on overall performance of the application) and are working in Visual studio.</li>
+</ol>
+
+<p>If all else fails&hellip; you can always succumb to dark side and just use SQL Profiler or worse yet&hellip;SSMS activity monitor :-)</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/xevents-vs-profiler.jpg" alt="Image courtesy of Gratisography.com CC0" /> Image courtesy of Gratisography.com CC0</p>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

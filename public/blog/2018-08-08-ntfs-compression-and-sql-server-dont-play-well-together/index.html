@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="NTFS Compression and SQL Server Do Not Play Well Together">
+<meta itemprop="description" content="Wanted to be proactive and move a database that was in the default path on C:\ to a secondary drive as it was growing pretty heavily.
+What I didn&rsquo;t realize was the adventure that would ensure.
+Lesson 1 Don&rsquo;t move a SQL Server database to a volume that someone has set NTFS Compression on at the drive level.
+Lesson 2 Copy the database next time, instead of moving. Would have eased my anxious dba mind since I didn&rsquo;t have a backup.">
+
+
+<meta itemprop="datePublished" content="2018-08-08T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-08-08T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="371">
+
+
+
+<meta itemprop="keywords" content="tech,sql-server,powershell," />
+<meta property="og:title" content="NTFS Compression and SQL Server Do Not Play Well Together" />
+<meta property="og:description" content="Wanted to be proactive and move a database that was in the default path on C:\ to a secondary drive as it was growing pretty heavily.
+What I didn&rsquo;t realize was the adventure that would ensure.
+Lesson 1 Don&rsquo;t move a SQL Server database to a volume that someone has set NTFS Compression on at the drive level.
+Lesson 2 Copy the database next time, instead of moving. Would have eased my anxious dba mind since I didn&rsquo;t have a backup." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/2018-08-08-ntfs-compression-and-sql-server-dont-play-well-together/" />
+<meta property="article:published_time" content="2018-08-08T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-08-08T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="NTFS Compression and SQL Server Do Not Play Well Together"/>
+<meta name="twitter:description" content="Wanted to be proactive and move a database that was in the default path on C:\ to a secondary drive as it was growing pretty heavily.
+What I didn&rsquo;t realize was the adventure that would ensure.
+Lesson 1 Don&rsquo;t move a SQL Server database to a volume that someone has set NTFS Compression on at the drive level.
+Lesson 2 Copy the database next time, instead of moving. Would have eased my anxious dba mind since I didn&rsquo;t have a backup."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>NTFS Compression and SQL Server Do Not Play Well Together</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>NTFS Compression and SQL Server Do Not Play Well Together</h1>
+		<div class="content">
+			
+
+<p>Wanted to be proactive and move a database that was in the default path on <code>C:\</code> to a secondary drive as it was growing pretty heavily.</p>
+
+<p>What I didn&rsquo;t realize was the adventure that would ensure.</p>
+
+<h2 id="lesson-1">Lesson 1<a href="#lesson-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>Don&rsquo;t move a SQL Server database to a volume that someone has set NTFS Compression on at the drive level.</p>
+
+<h2 id="lesson-2">Lesson 2<a href="#lesson-2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>Copy the database next time, instead of moving. Would have eased my anxious dba mind since I didn&rsquo;t have a backup. <em>before you judge me.. it was a dev oriented enviroment, not production&hellip; disclaimer finished</em></p>
+
+<h2 id="the-nasty-errors-and-warnings-ensue">The Nasty Errors and Warnings Ensue<a href="#the-nasty-errors-and-warnings-ensue" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>First, you&rsquo;ll get an error message if you try to mount the database and it has been compressed. Since I&rsquo;d never done this before I didn&rsquo;t realize the mess I was getting into. It will tell you that you can&rsquo;t mount the database without marking as read-only as it&rsquo;s a compressed file.</p>
+
+<p>Ok&hellip; so just go to <code>file explorer &gt; properties &gt; advanced &gt; uncheck compress</code> &hellip; right?</p>
+
+<p>Nope&hellip;</p>
+<div class="highlight"><pre class="chroma"><code class="language-cmd" data-lang="cmd">Changing File Attributes &#39;E:\DATA\FancyTacos.mdf&#39; The requested operation could not be completed due to a file system limitation`</code></pre></div>
+<p>I found that message about as helpful as the favorite .NET error message <code>object reference not found</code> that is of course so easy to immediately fix.</p>
+
+<h2 id="the-fix">The Fix<a href="#the-fix" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<ul>
+<li>Pull up volume properties. Uncheck compress drive
+OR</li>
+<li>If you really want this compression, then make sure to uncompress the folders containing SQL Server files and apply.</li>
+</ul>
+
+<p>Since I wasn&rsquo;t able to fix this large of a file by toggling the file (it was 100gb+), I figured to keep it simple and try copying the database back to the original drive, unmark the archive attribute, then copy back to the drive I had removed compression on and see if this worked. While it sounded like a typical &ldquo;IT Crowd&rdquo; fix (have you tried turning it on and off again) I figured I&rsquo;d give it a shot.</p>
+
+<p>&hellip; It worked. Amazingly enough it just worked.</p>
+
+<p>Here&rsquo;s a helpful script to get you on your way in case it takes a while. Use at your own risk, and please&hellip; always have backups! #DontBlameMeIfYouDidntBackThingsUp #CowsayChangedMyLife</p>
+
+<script type="text/javascript" src="https://gist.github.com/c13eec8bbd570f762fd3834b19464465.js"></script>
+
+
+<p>and finally to remount the database after copying it back to your drive &hellip;</p>
+
+<script type="text/javascript" src="https://gist.github.com/274861a17a7db002bddd55861b781719.js"></script>
+
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

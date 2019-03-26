@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Build Tasks on sheldonhull.com</title>
+    <link>https://www.sheldonhull.com/tags/build-tasks/</link>
+    <description>Recent content in Build Tasks on sheldonhull.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Mar 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.sheldonhull.com/tags/build-tasks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TFS Custom Task - Service Actions (for TFS 2015 Update 2.1 or before)</title>
+      <link>https://www.sheldonhull.com/blog/2017-03-07-tfs-custom-task-service-actions-for-tfs-2015-update-2.1-or-before/</link>
+      <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-03-07-tfs-custom-task-service-actions-for-tfs-2015-update-2.1-or-before/</guid>
+      <description>Apparently, boolean values for custom VSTS tasks for versions prior to TFS 2015 Update 3) require some special handling as they don&amp;rsquo;t pass the checkbox values as actual powershell $true or $false. Instead the task passes this information along as true or false. To properly handle this you&amp;rsquo;ll need to pass in the value as a string then convert to boolean.
+I found a great start on working on this solution in a blog post by Rene which has more detail, so check it out.</description>
+    </item>
+    
+  </channel>
+</rss>

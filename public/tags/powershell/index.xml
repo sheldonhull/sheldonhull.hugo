@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Powershell on sheldonhull.com</title>
+    <link>https://www.sheldonhull.com/tags/powershell/</link>
+    <description>Recent content in Powershell on sheldonhull.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.sheldonhull.com/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>powershell</title>
+      <link>https://www.sheldonhull.com/docs/powershell/</link>
+      <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/docs/powershell/</guid>
+      <description>String Formatting    Type Example Output Notes     Formatting Switch &#39;select {0} from sys.tables&#39; -f &#39;name&#39; select name from sys.tables Same concept as .NET [string]::Format(). Token based replacement   .NET String Format [string]::Format(&#39;select {0} from sys.tables&#39;,&#39;name&#39;) select name from sys.tables Why would you do this? Because you want to showoff your .NET chops?    Math &amp;amp; Number Conversions    From To Example Output Notes     scientific notation Decimal 2.</description>
+    </item>
+    
+    <item>
+      <title>Debugging Type Binding in PowerShell</title>
+      <link>https://www.sheldonhull.com/blog/2019-03-11-debugging-type-binding-in-powershell/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2019-03-11-debugging-type-binding-in-powershell/</guid>
+      <description>Some effort I spent in researching Type Binding in Stack Overflow to help answer a question by Chris Oldwood helped me solidify my understanding of the best way to debug more complicated scenarios such as this in PowerShell.
+ Why does this PowerShell function&amp;rsquo;s default argument change value based on the use of . or &amp;amp; to invoke a command within it? 
+ Spent some digging into this and this is what I&amp;rsquo;ve observed.</description>
+    </item>
+    
+    <item>
+      <title>dbatools</title>
+      <link>https://www.sheldonhull.com/docs/dbatools/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/docs/dbatools/</guid>
+      <description>Setup install-module &amp;#39;dbatools&amp;#39; -Scope CurrentUser Database Corruption {}</description>
+    </item>
+    
+    <item>
+      <title>Migrating From Hipchat To Slack</title>
+      <link>https://www.sheldonhull.com/blog/2019-02-07-migrating-from-hipchat-to-slack/</link>
+      <pubDate>Thu, 07 Feb 2019 23:55:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2019-02-07-migrating-from-hipchat-to-slack/</guid>
+      <description>Last Minute Migration? If you are about to perform a last minute migration here&amp;rsquo;s a couple tips as you jump ship from Hipchat and move to Slack. Hipchat is sunsetting I believe on Feb 15th, so I figured I&amp;rsquo;d share what I do have in case it&amp;rsquo;s helpful, as it won&amp;rsquo;t stay tremendously relevant for long.
+Problem: Hipchat access will be removed and you need more time Export the hipchat content to a file and upload to your own s3 bucket.</description>
+    </item>
+    
+    <item>
+      <title>NTFS Compression and SQL Server Do Not Play Well Together</title>
+      <link>https://www.sheldonhull.com/blog/2018-08-08-ntfs-compression-and-sql-server-dont-play-well-together/</link>
+      <pubDate>Wed, 08 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2018-08-08-ntfs-compression-and-sql-server-dont-play-well-together/</guid>
+      <description>Wanted to be proactive and move a database that was in the default path on C:\ to a secondary drive as it was growing pretty heavily.
+What I didn&amp;rsquo;t realize was the adventure that would ensure.
+Lesson 1 Don&amp;rsquo;t move a SQL Server database to a volume that someone has set NTFS Compression on at the drive level.
+Lesson 2 Copy the database next time, instead of moving. Would have eased my anxious dba mind since I didn&amp;rsquo;t have a backup.</description>
+    </item>
+    
+    <item>
+      <title>Deleting a Directory That Has a Trailing Space Shouldn&#39;t Be This Hard</title>
+      <link>https://www.sheldonhull.com/blog/2018-07-23-deleting-a-directory-that-has-a-trailing-space-shouldn-t-be-this-hard/</link>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2018-07-23-deleting-a-directory-that-has-a-trailing-space-shouldn-t-be-this-hard/</guid>
+      <description>It shouldn&amp;rsquo;t be this hard. This is a consumate #windowsmoment
+If you occasionally use something like Robocopy, or other command line tool, it can be possible to create a directory with a trailing slash. For instance
+robocopy &amp;#34;C:\test\Taco&amp;#34; &amp;#34;C:\Burritos\are\delicious &amp;#34; This trailing space would be actually used by Robocopy to initialize a directory that has a trailing space in the name. This can appear as a duplicator in explorer, until you try to rename and notice a trailing slash.</description>
+    </item>
+    
+    <item>
+      <title>Exploring SQL Server With Powershell And SMO Basics</title>
+      <link>https://www.sheldonhull.com/blog/2017-08-09-exploring-sql-server-with-powershell-and-smo-basics/</link>
+      <pubDate>Wed, 09 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-08-09-exploring-sql-server-with-powershell-and-smo-basics/</guid>
+      <description>SqlServer Powershell Cmdlets 2017 - Initialize Look Diving into the Sql Server Management Objects library can be a pretty interesting process. You get to work with database objects as in a new way, and begin manipulating and execute code in a much different approach than purely using T-SQL. Powershell offers a unique way to interact with prebuilt cmdlets, and you can explore leveraging .NET in powershell as well to have a powerful toolkit of options.</description>
+    </item>
+    
+    <item>
+      <title>Capturing Perfmon Counters With Telegraf</title>
+      <link>https://www.sheldonhull.com/blog/2017-08-08-capturing-perfmon-counters-with-telegraf/</link>
+      <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-08-08-capturing-perfmon-counters-with-telegraf/</guid>
+      <description>Other Posts in Series  Running InfluxDb As A Service in Windows Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev InfluxDB And Annotations Capturing Perfmon Counters With Telegraf  Setting up Telegraf to Capture Metrics I had a lot of issues with getting the GO enviroment setup in windows, this time and previous times. For using telegraf, I&amp;rsquo;d honestly recommend just leveraging the compiled binary provided.
+Once downloaded, generate a new config file by running the first command and then the next to install as service.</description>
+    </item>
+    
+    <item>
+      <title>InfluxDB and Annotations</title>
+      <link>https://www.sheldonhull.com/blog/2017-08-07-influx-db-and-annotations/</link>
+      <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-08-07-influx-db-and-annotations/</guid>
+      <description>Other Posts in Series  Running InfluxDb As A Service in Windows Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev InfluxDB And Annotations Capturing Perfmon Counters With Telegraf  This post assumes you&amp;rsquo;ve already setup InfluxDB and have Grafana running.
+Inserting annotations Annotations are not a special type of resource, instead it&amp;rsquo;s just another metric that you query with a feature in Grafana to display on other metrics.</description>
+    </item>
+    
+    <item>
+      <title>ANTS Performance Profiler for the SQL Server Dev</title>
+      <link>https://www.sheldonhull.com/blog/2017-07-21-ants-performance-profiler-for-the-sql-server-dev/</link>
+      <pubDate>Fri, 21 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-07-21-ants-performance-profiler-for-the-sql-server-dev/</guid>
+      <description>There are a few .NET tools that until recently I haven&amp;rsquo;t had the chance to work with as much, specifically ANTS Memory Profiler and ANTS Performance Profiler. The memory profiler is more useful for someone focused on memory leaks which a SQL Dev isn&amp;rsquo;t as focused on for performance tuning. However, there are major benefits for diving into SQL Performance tuning with ANTS Performance profiler. I think I&amp;rsquo;d say this tool makes the epic category of my #cooltools kit and will be added to my COOL TOOLS page here for SQL performance tuning.</description>
+    </item>
+    
+    <item>
+      <title>Update SSMS With PS1</title>
+      <link>https://www.sheldonhull.com/blog/2017-07-03-update-ssms-with-ps1/</link>
+      <pubDate>Mon, 03 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-07-03-update-ssms-with-ps1/</guid>
+      <description>Update &amp;ldquo;Updated: 2018-03-29&amp;rdquo; Use Chocolatey. This page keeps changing it&amp;rsquo;s structure, so the regex to parse for Ketarin and this PS1 script keep breaking. Updated to latest version as of 2018-03-29, but recommend checking out the Chocolately Package created for SSMS for this by flcdrg as chocolately is a much nicer way to keep up to date and more likely long-term to succeed than my gist :-) To use chocolatey (after setup), you only have to use choco upgrade sql-server-management-studio which is much easier to remember than using this gist.</description>
+    </item>
+    
+    <item>
+      <title>Add User To Admin Group on Machine</title>
+      <link>https://www.sheldonhull.com/blog/2017-06-07-add-user-to-admin-group-on-machine/</link>
+      <pubDate>Wed, 07 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-06-07-add-user-to-admin-group-on-machine/</guid>
+      <description>In setting up some build machines for development, it&amp;rsquo;s tedious to go and add several users to the admin group. Here&amp;rsquo;s a snippet to expedite that task and help you setup more quickly.
+</description>
+    </item>
+    
+    <item>
+      <title>Powershell Module Improvements for SQL Server in 2017</title>
+      <link>https://www.sheldonhull.com/blog/2017-05-31-powershell-module-improvements-for-sql-server-in-2017/</link>
+      <pubDate>Wed, 31 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-05-31-powershell-module-improvements-for-sql-server-in-2017/</guid>
+      <description>info &amp;ldquo;Updated: 2018-03-19&amp;rdquo; I don&amp;rsquo;t use these much, if any now. Check out dbatools which is a much better module with a full range of features to save you a ton of time.
+ simple setup A major improvement that seems to have quietly slipped into the sql developers world is an improved SQLServer powershell module. The improved module is finally available in the powershell gallery, allowing a super quick setup on a server.</description>
+    </item>
+    
+    <item>
+      <title>Running InfluxDB as a service in Windows</title>
+      <link>https://www.sheldonhull.com/blog/2017-05-24-running-influx-db-as-a-service-in-windows/</link>
+      <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-05-24-running-influx-db-as-a-service-in-windows/</guid>
+      <description>Other Posts in Series  Running InfluxDb As A Service in Windows Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev InfluxDB And Annotations Capturing Perfmon Counters With Telegraf  Run as a Service As part of the process to setup some metrics collections for sql-server based on perfmon counters I&amp;rsquo;ve been utilizing InfluxDB. Part of getting started on this is ensuring InfluxDB runs as a service instead of requiring me to launch the exe manually.</description>
+    </item>
+    
+    <item>
+      <title>Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev</title>
+      <link>https://www.sheldonhull.com/blog/2017-05-17-setting-up-influx-db-chronograf-and-grafana-for-the-sql-server-dev/</link>
+      <pubDate>Wed, 17 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-05-17-setting-up-influx-db-chronograf-and-grafana-for-the-sql-server-dev/</guid>
+      <description>Other Posts in Series  Running InfluxDb As A Service in Windows Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev InfluxDB And Annotations Capturing Perfmon Counters With Telegraf  There are some beautiful ways to visualize time series data with the tools I&amp;rsquo;m going to go over. This post is purely focused on the initial setup and saving you some time there. In a future post, I&amp;rsquo;ll show how some of these tools can help you visualize your server performance in a powerful way, including taking metrics from multiple types of servers that be working with SQL Server, and combining the metrics when appropriate to give a full picture of performance.</description>
+    </item>
+    
+    <item>
+      <title>Automate Windows Updates for Development</title>
+      <link>https://www.sheldonhull.com/blog/2017-05-10-automate-windows-updates-for-development/</link>
+      <pubDate>Wed, 10 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-05-10-automate-windows-updates-for-development/</guid>
+      <description>I&amp;rsquo;ve run into the case where I wanted updates continually applied, while the machine still was part of the GPO that didn&amp;rsquo;t automatically install updates. For this developer and test oriented machine I wanted every update applied.
+I utilized a great module for this and created a script to setup the task and logging to make this an easy task.
+If you experience an issue with the WindowsUpdate Vs Microsoft update as the configured update provider, then you can just change the switch in the script for -MicrosoftUpdate to -WindowsUpdate</description>
+    </item>
+    
+    <item>
+      <title>TFS Custom Task - Service Actions (for TFS 2015 Update 2.1 or before)</title>
+      <link>https://www.sheldonhull.com/blog/2017-03-07-tfs-custom-task-service-actions-for-tfs-2015-update-2.1-or-before/</link>
+      <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-03-07-tfs-custom-task-service-actions-for-tfs-2015-update-2.1-or-before/</guid>
+      <description>Apparently, boolean values for custom VSTS tasks for versions prior to TFS 2015 Update 3) require some special handling as they don&amp;rsquo;t pass the checkbox values as actual powershell $true or $false. Instead the task passes this information along as true or false. To properly handle this you&amp;rsquo;ll need to pass in the value as a string then convert to boolean.
+I found a great start on working on this solution in a blog post by Rene which has more detail, so check it out.</description>
+    </item>
+    
+    <item>
+      <title>Quick Way to Run Powershell Tasks in Parallel</title>
+      <link>https://www.sheldonhull.com/blog/2017-02-18-quick-way-to-run-powershell-tasks-in-parallel/</link>
+      <pubDate>Sat, 18 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-02-18-quick-way-to-run-powershell-tasks-in-parallel/</guid>
+      <description>Running tasks in parallel can be a bit difficult in powershell. However, there are a few projects out there that optimize the performance and provide a better experience of running tasks in parallel with less effort.#cool uses A few cool uses of this might be running parallel sql queries across multiple servers or databases while maintaining a throttled limit to avoid saturation of the target environment. Additionally, long running queries might benefit in running in parallel if running on multiple objects in the same database or in different databases.</description>
+    </item>
+    
+    <item>
+      <title>Dynamically Set Powershell Variables from json</title>
+      <link>https://www.sheldonhull.com/blog/2016-12-05-dynamically-set-powershell-variables-from-json/</link>
+      <pubDate>Mon, 05 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-12-05-dynamically-set-powershell-variables-from-json/</guid>
+      <description>&lt;p&gt;I created this small snippet to allow a list of values from a json file be turned into variables to work with. For working with a fixed list of configuration values, this might be helpful to reduce some coding effort.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Scan folder of dlls to identify x86 or x64 compiled assemblies</title>
+      <link>https://www.sheldonhull.com/blog/2016-11-22-scan-folder-of-dlls-to-identify-x86-or-x64-compiled-assemblies/</link>
+      <pubDate>Tue, 22 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-11-22-scan-folder-of-dlls-to-identify-x86-or-x64-compiled-assemblies/</guid>
+      <description>Point this at a directory of dlls and you can get some of the loaded assembly details to quickly identify what type of processor architecture they were compiled for.I did this as I wanted to explore a large directory of dlls and see if I had mixed assemblies of x32 and x64 together from a visual studio build. Some dlls with invalid assembly header information were found, and this skips those as warnings.</description>
+    </item>
+    
+    <item>
+      <title>Attaching Database Using SMO &amp; Powershell</title>
+      <link>https://www.sheldonhull.com/blog/2016-11-18-attaching-database-using-smo-and-powershell/</link>
+      <pubDate>Fri, 18 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-11-18-attaching-database-using-smo-and-powershell/</guid>
+      <description>Steve Jones wrote a great article on using this automation here titled The Demo Setup-Attaching Databases with Powershell. I threw together a completed script and modified it for my functionality here. MSDN documentation on the functionality is located here Server.AttachDatabase Method (String, StringCollection, String, AttachOptions)I see some definitive room for improvement with some future work on this to display percentage complete and so on, but did not implement at this time.</description>
+    </item>
+    
+    <item>
+      <title>Parallel Powershell for Running SQL</title>
+      <link>https://www.sheldonhull.com/blog/2016-11-16-parallel-powershell-for-running-sql/</link>
+      <pubDate>Wed, 16 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-11-16-parallel-powershell-for-running-sql/</guid>
+      <description>This is just a quick look. I plan on diving into this in the future more, as I&amp;rsquo;m still working through some of the changes being made in the main parallel modules I utilize for SQL server. In the meantime, if you are looking for a quick way to leverage some parallel query running, take a look at PSParallel. I&amp;rsquo;ve avoided Powershell Jobs/Workflow due to limitations they have and the performance penalty I&amp;rsquo;ve seen is associated with them.</description>
+    </item>
+    
+    <item>
+      <title>Easy SQL Maintenance with Minionware</title>
+      <link>https://www.sheldonhull.com/blog/2016-10-18-easy-sql-maintenance-with-minionware/</link>
+      <pubDate>Tue, 18 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-10-18-easy-sql-maintenance-with-minionware/</guid>
+      <description>info &amp;ldquo;Updated 2017-01-25&amp;rdquo; While I think the minionware solution is pretty awesome, I think it takes more work for the value, and can be a bit confusing to correctly setup, vs the Ola Hallengren solution, esp since you can install this quickly with dbatools now. I&amp;rsquo;d lean towards Ola Hallengren for simple implementations, and consider MinionWare&amp;rsquo;s option if you are looking at the their flexibility in the table based configuration.</description>
+    </item>
+    
+    <item>
+      <title>Powershell ISE: Updating Theme</title>
+      <link>https://www.sheldonhull.com/blog/2016-10-09-powershell-ise-updating-theme/</link>
+      <pubDate>Sun, 09 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-10-09-powershell-ise-updating-theme/</guid>
+      <description>For all the dark theme aficionados, or those who just want a better theme than the default, here&amp;rsquo;s a quick set of directions to update your ISE.1. Go to download a theme from Github &amp;gt; PowerShell_ISE_Themes 2. Unzip 3. Go to ISE &amp;gt; Tools &amp;gt; Options &amp;gt; Colors &amp;amp; Fonts &amp;gt; Manage Themes 4. Import selected theme 5. For consistency, adjust the background and forecolor of the console pane as well as the text background to match if you want to.</description>
+    </item>
+    
+    <item>
+      <title>Cool Tools: Powershell ISE-Steroids</title>
+      <link>https://www.sheldonhull.com/blog/2016-04-14-cool-tools-powershell-ise-steroids/</link>
+      <pubDate>Thu, 14 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-04-14-cool-tools-powershell-ise-steroids/</guid>
+      <description>Disclaimer: I have been provided with a free license because I am reviewing. This doesn&amp;rsquo;t impact my assessment of the tool. I have a passion for finding tools that help developers, and even more specifically SQL DBA/Developers improve their workflow and development. I don&amp;rsquo;t recommend tools without actually using them and seeing if I&amp;rsquo;d end up adding to my roster of essentials!
+Cool Tool: ISE Steroids
+Expanding Powershell ISE Powershell ISE is simple.</description>
+    </item>
+    
+  </channel>
+</rss>

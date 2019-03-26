@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="Utilizing the power of table parameters to reduce IO, improve performance, decrease pollution, and achieve world peace...">
+<meta itemprop="description" content="I was dealing with a challenging dynamic sql procedure that allowed a .NET app to pass in a list of columns and a view name, and it would generate a select statement from this view. Due to requirements at the time, I needed the flexibility of the &ldquo;MAIN&rdquo; proc which generated a dynamic select statement, while overriding certain requested views by executing a stored proc instead of the dynamic sql.">
+
+
+<meta itemprop="datePublished" content="2015-04-30T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2015-04-30T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="548">
+
+
+
+<meta itemprop="keywords" content="sql-server,deep-dive," />
+<meta property="og:title" content="Utilizing the power of table parameters to reduce IO, improve performance, decrease pollution, and achieve world peace..." />
+<meta property="og:description" content="I was dealing with a challenging dynamic sql procedure that allowed a .NET app to pass in a list of columns and a view name, and it would generate a select statement from this view. Due to requirements at the time, I needed the flexibility of the &ldquo;MAIN&rdquo; proc which generated a dynamic select statement, while overriding certain requested views by executing a stored proc instead of the dynamic sql." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/utilizing-the-power-of-table-parameters-to-reduce-io-improve-performance-decrease-pollution-and-achieve-world-peace/" />
+<meta property="article:published_time" content="2015-04-30T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2015-04-30T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Utilizing the power of table parameters to reduce IO, improve performance, decrease pollution, and achieve world peace..."/>
+<meta name="twitter:description" content="I was dealing with a challenging dynamic sql procedure that allowed a .NET app to pass in a list of columns and a view name, and it would generate a select statement from this view. Due to requirements at the time, I needed the flexibility of the &ldquo;MAIN&rdquo; proc which generated a dynamic select statement, while overriding certain requested views by executing a stored proc instead of the dynamic sql."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>Utilizing the power of table parameters to reduce IO, improve performance, decrease pollution, and achieve world peace...</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>Utilizing the power of table parameters to reduce IO, improve performance, decrease pollution, and achieve world peace...</h1>
+		<div class="content">
+			<p>I was dealing with a challenging dynamic sql procedure that allowed a .NET app to pass in a list of columns and a view name, and it would generate a select statement from this view. Due to requirements at the time, I needed the flexibility of the &ldquo;MAIN&rdquo; proc which generated a dynamic select statement, while overriding certain requested views by executing a stored proc instead of the dynamic sql.</p>
+
+<p>During this, I started looking into the string parsing being completed for a comma delimited list of numbers to lookup (the primary key). I figured I&rsquo;d explore the benefits of the user defined table and pass through the list of ids from the .NET application with a table parameter instead of using comma delimited list. <a href="http://www.sommarskog.se/arrays-in-sql-2008.html#Performance_Considerations">Some great material</a></p>
+
+<p>I came across indicated the overhead might be a little more client side, but that the benefits to cardinality estimation and providing SQL Server a table to work with can far outweigh the initial startup cost when dealing with lots of results to join against. The main area I wanted to address first, that I couldn&rsquo;t find any clear documentation on was the memory footprint. I saw mention on various sources that a TVP can have a lower memory footprint in SQL Server&rsquo;s execution due to the fact as intermediate storage it can be pointed at by reference, rather than creating a new copy each time, like when working with parsing into another variable using comma delimited lists.</p>
+
+<p>I get that passing the stored proc a table variable means it&rsquo;s working with provided object, but what about the portability of this object? In my case, there are at least 2 levels being worked. The MAIN proc and the CHILD proc. The child proc needs access to the same list of ids. The dynamic statement in the MAIN proc also needs the list of ids. Currently it was creating the list of ids by inserting into a table parameter the delimited list of values.</p>
+
+<p>Could I instead consider passing the actual table parameter around since it&rsquo;s by a readonly object and hopefully keep referring to it, instead of having separate copies being created each time. This could reduce the IO requirements and tempdb activity by having a single TVP being used by the MAIN and CHILD procs.
+<img src="https://www.sheldonhull.com/assets/img/SQL_Sentry_Plan_Explorer_PRO-2015-04-30_09_56_17_xkvtbz.png" alt="TVP Testing 2" />
+<img src="https://www.sheldonhull.com/assets/img/SQL_Sentry_Plan_Explorer_PRO-2015-04-30_09_52_10_bxzrlg.png" alt="TVP Testing 3" />
+<img src="https://www.sheldonhull.com/assets/img/SQL_Sentry_Plan_Explorer_PRO-2015-04-30_09_58_30_j7k6u3.png" alt="TVP Testing 4" />
+<img src="https://www.sheldonhull.com/assets/img/SQL_Sentry_Plan_Explorer_PRO-2015-04-30_09_52_10_bxzrlg.png" alt="TVP Testing 5" />
+Summarized IO:
+<img src="https://www.sheldonhull.com/assets/img/-2015-04-30_09_06_36_s37z0t.png" alt="TVP Testing 1" />
+The footprint is reduced when dealing with IO from the child statement, because it keeps pointing to the same in memory object. I also validated this further by examining a more complex version of the same query that compares the comma delimited list against executing a nested stored procedure, which in turn has dynamic sql that needs the table parameter passed to it. The results of the review show successfully that it keeps pointing to the same temp object!
+<img src="https://www.sheldonhull.com/assets/img/Miscellaneous_Files_-_Testing_New_Stored_Proc_with_Debug.sql_--2015-04-30_10_06_40_ojiues.png" alt="TVP Test 6" /></p>
+
+<p>In summary, the table valued parameter can end up being pretty powerful when dealing with passing a list of values that may need to be referenced by several actions or passed to nested procs (not that this is the best practice anyway). Disclaimer: this is working with the constraints of what I have to release soon, so not saying that nested procs with dynamic sql in both MAIN and CHILD are a great practice, but sometimes you gotta do what you gotta do!</p>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

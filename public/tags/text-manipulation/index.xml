@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Text Manipulation on sheldonhull.com</title>
+    <link>https://www.sheldonhull.com/tags/text-manipulation/</link>
+    <description>Recent content in Text Manipulation on sheldonhull.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Jun 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.sheldonhull.com/tags/text-manipulation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>External Tool VSCODE called from SQL Management Studio</title>
+      <link>https://www.sheldonhull.com/blog/2017-06-26-edit-in-vscode/</link>
+      <pubDate>Mon, 26 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-06-26-edit-in-vscode/</guid>
+      <description>Previous Related Post: Split personality text editing in SSMS with Sublime Text 3
+In this prior post I wrote about how to call Sublime Text 3 from SSMS to allow improved text manipulation to be quickly called from an active query window in SQL Management Studio. Vscode is a newer editor from Microsoft, and the argument calls took a little work to get working. Here is what I found for having your SQL file open in vscode via call from SSMS (I imagine also works in Visual Studio 2017 this way as well).</description>
+    </item>
+    
+  </channel>
+</rss>

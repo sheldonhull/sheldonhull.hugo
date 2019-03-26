@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="Exploring SQL Server With Powershell And SMO Basics">
+<meta itemprop="description" content="SqlServer Powershell Cmdlets 2017 - Initialize Look Diving into the Sql Server Management Objects library can be a pretty interesting process. You get to work with database objects as in a new way, and begin manipulating and execute code in a much different approach than purely using T-SQL. Powershell offers a unique way to interact with prebuilt cmdlets, and you can explore leveraging .NET in powershell as well to have a powerful toolkit of options.">
+
+
+<meta itemprop="datePublished" content="2017-08-09T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-08-09T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1250">
+
+
+
+<meta itemprop="keywords" content="sql-server,powershell,smo,tech," />
+<meta property="og:title" content="Exploring SQL Server With Powershell And SMO Basics" />
+<meta property="og:description" content="SqlServer Powershell Cmdlets 2017 - Initialize Look Diving into the Sql Server Management Objects library can be a pretty interesting process. You get to work with database objects as in a new way, and begin manipulating and execute code in a much different approach than purely using T-SQL. Powershell offers a unique way to interact with prebuilt cmdlets, and you can explore leveraging .NET in powershell as well to have a powerful toolkit of options." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/2017-08-09-exploring-sql-server-with-powershell-and-smo-basics/" />
+<meta property="article:published_time" content="2017-08-09T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2017-08-09T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Exploring SQL Server With Powershell And SMO Basics"/>
+<meta name="twitter:description" content="SqlServer Powershell Cmdlets 2017 - Initialize Look Diving into the Sql Server Management Objects library can be a pretty interesting process. You get to work with database objects as in a new way, and begin manipulating and execute code in a much different approach than purely using T-SQL. Powershell offers a unique way to interact with prebuilt cmdlets, and you can explore leveraging .NET in powershell as well to have a powerful toolkit of options."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>Exploring SQL Server With Powershell And SMO Basics</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>Exploring SQL Server With Powershell And SMO Basics</h1>
+		<div class="content">
+			
+
+<h1 id="sqlserver-powershell-cmdlets-2017-initialize-look">SqlServer Powershell Cmdlets 2017 - Initialize Look<a href="#sqlserver-powershell-cmdlets-2017-initialize-look" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<p>Diving into the Sql Server Management Objects library can be a pretty interesting process. You get to work with database objects as in a new way, and begin manipulating and execute code in a much different approach than purely using T-SQL. Powershell offers a unique way to interact with prebuilt cmdlets, and you can explore leveraging .NET in powershell as well to have a powerful toolkit of options.</p>
+
+<p>This post is a not focused on a full walk-through, but instead to communicate some of the exploration I&rsquo;ve done, to help if you are beginning to explore more database automation and management.</p>
+
+<p>I plan on doing some basic walk-throughs for the powershell newbie in the future, so if you are confused about anything powershell related feel free to post a comment and I&rsquo;ll add it to my list of stuff to walk through.</p>
+
+<h2 id="cmdlets-vs-net-approach">cmdlets vs .NET approach<a href="#cmdlets-vs-net-approach" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>What I&rsquo;ve found interesting is there are really 2 main approaches to interacting with SQL Server. You can directly invoke the SMO dlls and access the methods, properties, and extensibility this offers. This requires more .NET knowledge as you would be directly working with the SMO namespace, in a way that is almost the same as what you code in C#. The other approach is to leverage cmdlets. The cmdlets try to abstract away a lot of the complexities that working directly with the SMO namespace for ease of use and automation, and to simplify the process for those not as comfortable with coding in C# or directly leverage the SMO namespace in C#</p>
+
+<p>If purely focused on automation and little experience working with .NET then <strong>cmdlet&rsquo;s</strong> will be by far the way to go. There is a serious learning curve in working with .NET directly vs prebuilt cmdlets. If desiring to expand your .NET knowledge, as well find that the prebuilt cmdlets don&rsquo;t offer the behavior you are trying to achieve, then exploring the SMO namespace for directly invoking the methods and accessing properties can be valuable. The learning curve is more intense, so just be prepared for that if you are new to working with .NET directly in Powershell.</p>
+
+<h2 id="dbatools-io-other-sources">dbatools.io &amp; other sources<a href="#dbatools-io-other-sources" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>When possible, I personally am going to recommend to leverage a package like dbatools instead of rolling your own. Dbatools.io is a powerful project that I&rsquo;ve recently begun to explore more. This well rounded package gives you a powerful powershell set of commands that can help you set server properties, obtain default paths, backup, restore, migrate entire sets of databases to a new location and more. To code all of this from scratch would be a massive project. I&rsquo;d recommend considering dbatools.io and just getting involved in that project if you have something to contribute. I found it really helpful to quickly setup some default server options without having to configure manually myself.</p>
+
+<h2 id="exploring-sql-path-provider">Exploring SQL Path Provider<a href="#exploring-sql-path-provider" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p><img src="https://www.sheldonhull.com/assets/img/exploring-sql-path-provider.pngexploring-sql-path-provider?format=original" alt="" /></p>
+
+<p>Trying to find the path initially can be challenging. However, by opening SSMS up, right clicking, and launching the powershell window you&rsquo;ll be able to easily find the correct path to get the server level object.</p>
+
+<p>This allows you to leverage default methods in powershell like Get-ChildItem for iterating through objects. It treats the navigated SQL server path basically as a &ldquo;file structure&rdquo; allowing some interesting actions to be performed. One of these is a different approach to killing connections to a particular database.</p>
+
+<p>I found this great pointer by reading <a href="http://www.midnightdba.com/DBARant/killing-spids-in-powershell/">Killing SPIDS in Powershell</a> from MidnightDBA</p>
+
+<p>Review that article for scripts focused on the termination of running spids.</p>
+
+<p>For an adhoc purpose the scripts MidnightDba provided are excellent and would allow quickly executing a kill script on connections from ssms &gt; powershell prompt.</p>
+<div class="highlight"><pre class="chroma">import-module -name sqlserver -disablenamechecking -verbose:$false -debug:$false
+ CD SQLSERVER:\SQL\$ServerName -Verbose:$false -Debug:$false
+ dir &#39; ?{$_.Name -eq &#34;$DatabaseName&#34;} &#39; %{$_.KillAllProcesses($DatabaseName)}</pre></div>
+<p>I approach this with a different method in one final script using just the SMO server method KillAllProcesses. For some tasks I&rsquo;ve found it really helpful to have a simple 1 line kill statement thanks to MidnightDba&rsquo;s pointer with the statements similar to the one above.</p>
+
+<p>Using Microsoft&rsquo;s documented method shows another example of how to use to restart the service. This was one modified approach I took. I prefer not to use this type of approach as working with <code>get-childitem</code> with server objects to me as a little unintuitive.</p>
+<div class="highlight"><pre class="chroma"><span class="p">&lt;</span><span class="err">#</span>
+        <span class="p">.</span><span class="nx">LINK</span> <span class="nx">https</span><span class="p">:</span><span class="c1">//docs.microsoft.com/en-us/sql/database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services#PowerShellProcedure
+</span><span class="c1"></span>
+<span class="err">#</span><span class="p">&gt;</span>
+<span class="err">$</span><span class="nx">ErrorActionPreference</span> <span class="p">=</span> <span class="err">&#39;</span><span class="k">continue</span><span class="err">&#39;</span>
+<span class="p">[</span><span class="kt">bool</span><span class="p">]</span><span class="err">$</span><span class="nx">Matched</span> <span class="p">=</span> <span class="p">(</span><span class="nx">get</span><span class="o">-</span><span class="nx">module</span> <span class="o">-</span><span class="nx">name</span> <span class="nx">SqlServer</span> <span class="o">-</span><span class="nx">listavailable</span> <span class="err">&#39;</span> <span class="nx">measure</span><span class="o">-</span><span class="nx">object</span><span class="p">).</span><span class="nx">count</span>
+<span class="k">if</span><span class="p">(</span><span class="err">$</span><span class="nx">Matched</span> <span class="o">-</span><span class="nx">eq</span> <span class="err">$</span><span class="kc">false</span><span class="p">)</span> <span class="p">{</span> <span class="nx">install</span><span class="o">-</span><span class="kn">package</span> <span class="nx">SqlServer</span> <span class="o">-</span><span class="nx">scope</span> <span class="nx">CurrentUser</span> <span class="o">-</span><span class="nx">verbose</span><span class="p">:</span><span class="err">$</span><span class="kc">false</span> <span class="o">-</span><span class="nx">Force</span><span class="p">}</span>
+
+<span class="p">[</span><span class="nx">datetime</span><span class="p">]</span><span class="err">$</span><span class="nx">StepTimer</span> <span class="p">=</span> <span class="p">[</span><span class="nx">datetime</span><span class="p">]::</span><span class="nx">Now</span>
+
+<span class="err">$</span><span class="nx">private</span><span class="p">:</span><span class="nx">ServerName</span> <span class="p">=</span> <span class="err">$</span><span class="nx">env</span><span class="p">:</span><span class="nx">ServerName</span>
+<span class="kn">import</span><span class="o">-</span><span class="nx">module</span> <span class="o">-</span><span class="nx">name</span> <span class="nx">sqlserver</span> <span class="o">-</span><span class="nx">disablenamechecking</span> <span class="o">-</span><span class="nx">verbose</span><span class="p">:</span><span class="err">$</span><span class="kc">false</span> <span class="o">-</span><span class="nx">debug</span><span class="p">:</span><span class="err">$</span><span class="kc">false</span>
+
+<span class="err">#</span> <span class="nx">Get</span> <span class="nx">a</span> <span class="nx">reference</span> <span class="nx">to</span> <span class="nx">the</span> <span class="nx">ManagedComputer</span> <span class="nx">class</span><span class="p">.</span>
+<span class="nx">CD</span> <span class="nx">SQLSERVER</span><span class="p">:</span><span class="err">\</span><span class="nx">SQL</span><span class="err">\$</span><span class="nx">private</span><span class="p">:</span><span class="nx">ServerName</span> <span class="o">-</span><span class="nx">Verbose</span><span class="p">:</span><span class="err">$</span><span class="kc">false</span> <span class="o">-</span><span class="nx">Debug</span><span class="p">:</span><span class="err">$</span><span class="kc">false</span>
+<span class="err">$</span><span class="nx">Wmi</span> <span class="p">=</span> <span class="p">(</span><span class="nx">get</span><span class="o">-</span><span class="nx">item</span> <span class="o">-</span><span class="nx">debug</span><span class="p">:</span><span class="err">$</span><span class="kc">false</span> <span class="o">-</span><span class="nx">verbose</span><span class="p">:</span><span class="err">$</span><span class="kc">false</span> <span class="p">.).</span><span class="nx">ManagedComputer</span>
+<span class="err">$</span><span class="nx">DfltInstance</span> <span class="p">=</span> <span class="err">$</span><span class="nx">Wmi</span><span class="p">.</span><span class="nx">Services</span><span class="p">[</span><span class="err">&#39;</span><span class="nx">MSSQLSERVER</span><span class="err">&#39;</span><span class="p">]</span>
+
+<span class="err">#</span><span class="nx">Display</span> <span class="nx">the</span> <span class="nx">state</span> <span class="nx">of</span> <span class="nx">the</span> <span class="nx">service</span><span class="p">.</span>
+<span class="nx">write</span><span class="o">-</span><span class="nx">host</span> <span class="s">&#34;Stopping Instance: $($DfltInstance.ServiceState.value__)&#34;</span>
+<span class="err">$</span><span class="nx">DfltInstance</span><span class="p">.</span><span class="nf">Stop</span><span class="p">()</span>
+
+<span class="nf">while</span><span class="p">(</span><span class="err">$</span><span class="nx">DfltInstance</span><span class="p">.</span><span class="nx">ServiceState</span><span class="p">.</span><span class="nx">value__</span> <span class="o">-</span><span class="nx">ne</span> <span class="mi">1</span><span class="p">)</span> <span class="err">#</span><span class="mi">1</span> <span class="nx">stopped</span>
+<span class="p">{</span>
+    <span class="nx">Start</span><span class="o">-</span><span class="nx">Sleep</span> <span class="o">-</span><span class="nx">seconds</span> <span class="mi">5</span>
+    <span class="err">$</span><span class="nx">DfltInstance</span><span class="p">.</span><span class="nf">Refresh</span><span class="p">()</span>
+    <span class="nx">write</span><span class="o">-</span><span class="nx">host</span> <span class="s">&#34;... state: $($DfltInstance.ServiceState)&#34;</span>
+<span class="p">}</span>
+<span class="err">##</span> <span class="nx">Start</span> <span class="nx">the</span> <span class="nx">service</span><span class="p">.</span>
+<span class="err">$</span><span class="nx">DfltInstance</span><span class="p">.</span><span class="nf">Refresh</span><span class="p">()</span>
+<span class="nx">write</span><span class="o">-</span><span class="nx">host</span> <span class="s">&#34;Current Service State: $($DfltInstance.ServiceState)&#34;</span>
+<span class="nx">write</span><span class="o">-</span><span class="nx">host</span> <span class="s">&#34;Initiating Service Start&#34;</span>
+<span class="err">$</span><span class="nx">DfltInstance</span><span class="p">.</span><span class="nf">Start</span><span class="p">()</span>
+
+<span class="nf">while</span><span class="p">(</span><span class="err">$</span><span class="nx">DfltInstance</span><span class="p">.</span><span class="nx">ServiceState</span><span class="p">.</span><span class="nx">value__</span> <span class="o">-</span><span class="nx">ne</span> <span class="mi">4</span><span class="p">)</span> <span class="err">#</span><span class="mi">4</span> <span class="nx">running</span>
+<span class="p">{</span>
+    <span class="nx">Start</span><span class="o">-</span><span class="nx">Sleep</span> <span class="o">-</span><span class="nx">seconds</span> <span class="mi">5</span>
+    <span class="err">$</span><span class="nx">DfltInstance</span><span class="p">.</span><span class="nf">Start</span><span class="p">()</span>
+    <span class="err">$</span><span class="nx">DfltInstance</span><span class="p">.</span><span class="nf">Refresh</span><span class="p">()</span>
+    <span class="nx">write</span><span class="o">-</span><span class="nx">host</span> <span class="s">&#34;... state: $($DfltInstance.ServiceState)&#34;</span>
+<span class="p">}</span>
+<span class="nx">write</span><span class="o">-</span><span class="nf">host</span><span class="p">(</span> <span class="s">&#34;{0:hh\:mm\:ss\.fff} {1}: finished&#34;</span> <span class="o">-</span><span class="nx">f</span> <span class="p">[</span><span class="nx">timespan</span><span class="p">]::</span><span class="nf">FromMilliseconds</span><span class="p">(((</span><span class="nx">Get</span><span class="o">-</span><span class="nx">Date</span><span class="p">)</span><span class="o">-</span><span class="err">$</span><span class="nx">StepTimer</span><span class="p">).</span><span class="nx">TotalMilliseconds</span><span class="p">),</span><span class="err">&#39;</span><span class="nx">SQL</span> <span class="nx">Service</span> <span class="nx">Restart</span><span class="err">&#39;</span><span class="p">)</span></pre></div>
+<h2 id="database-as-an-object">Database as an Object<a href="#database-as-an-object" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>Getting the database as an object proved to be easy though, if a little confusing to navigate initially.</p>
+<div class="highlight"><pre class="chroma">$s = SqlServer\Get-SqlDatabase -ServerInstance $ServerInstance -Verbose</pre></div>
+<p>Once the object is obtained, you can begin scripting objects, change database properties and more very easily.</p>
+
+<p>I found this method an interesting alternative to invoking using .NET accelerators as it was a quick way to easily get a database level object to work with. However, some of the limitations of not having the server level object immediately available made me end up preferring the .NET accelerator version which could look like this.</p>
+<div class="highlight"><pre class="chroma">param(
+         $ServerName = &#39;localhost&#39;
+         ,$DatabaseName = &#39;tempdb&#39;
+ )
+ $s = [Microsoft.SqlServer.Management.Smo.Server]::New($ServerName)
+ $d = [Microsoft.SqlServer.Management.Smo.Database]::New($s, $DatabaseName)
+ $s.EnumProcesses() &#39; format-table -AutoSize
+ $d.EnumObjects() &#39; Out-GridView</pre></div>
+<p>Interestingly, to actually access the many of the database properties you actually would call it via reference to the server object with SMO calls instead of the cmdlet. Trying $d.PrimaryFilePath doesn&rsquo;t work as I believe it&rsquo;s initiating the instance of a new database object for creation instead of referencing the initialization of a new object to an existing database. I found documentation a bit challenging to immediately sift through to get an answer, so YMMV. Someone coming from a .NET focused background might find the process a little more clear, but for me it did take some work to correctly identify the behavior.</p>
+<div class="highlight"><pre class="chroma">#doesn&#39;t work. Probably trying to initialize new object for creating a db
+ $d = [Microsoft.SqlServer.Management.Smo.Database]::New($s, $db)
+ $d.PrimaryFilePath
+
+ #works to access current existing object
+ $s.Databases[$db].PrimaryFilePath</pre></div>
+<h3 id="exploring-properties">Exploring Properties<a href="#exploring-properties" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>If you want to explore properties of an object, try using the ever faithful get-member</p>
+
+<p>Depending on the type of object, you can additionally explore them with GetEnumerator, GetProperties, etc. You&rsquo;ll find intellisense helpful as you explore more.</p>
+
+<p>For instance, here&rsquo;s a walkthrough on the various ways you might explore the object and find you need to dig into it to get the full detail of what you have access to.</p>
+
+<script type="text/javascript" src="https://gist.github.com/e3ed8534b1565c67d6d59163b0921d59.js"></script>
+
+
+<h2 id="comparing-restoring-a-database-with-cmdlet-vs-smo">Comparing Restoring a Database with Cmdlet vs SMO<a href="#comparing-restoring-a-database-with-cmdlet-vs-smo" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<h3 id="using-dbatools-cmdlet">using dbatools cmdlet<a href="#using-dbatools-cmdlet" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>An example of how simple using dbatools cmdlet can make restoring a database copy</p>
+
+<script type="text/javascript" src="https://gist.github.com/7314ffa3fc830f36a2eda8ee7e27f7c4.js"></script>
+
+
+<h3 id="rolling-your-own-wheel">rolling your own wheel<a href="#rolling-your-own-wheel" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>Now compare this to the complexity of running your own invocation of the SMO namespace and requires a lot more coding. Since dbatools wraps up a lot of the functionality, I&rsquo;ve actually migrated to leveraging this toolkit for these dba related tasks instead of trying to reinvent the wheel.</p>
+
+<script type="text/javascript" src="https://gist.github.com/08fe28dd236a239f25821378268ef8e5.js"></script>
+
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

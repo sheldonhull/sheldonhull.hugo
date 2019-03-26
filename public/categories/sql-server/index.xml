@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sql Server on sheldonhull.com</title>
+    <link>https://www.sheldonhull.com/categories/sql-server/</link>
+    <description>Recent content in Sql Server on sheldonhull.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.sheldonhull.com/categories/sql-server/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Exploring SQL Server With Powershell And SMO Basics</title>
+      <link>https://www.sheldonhull.com/blog/2017-08-09-exploring-sql-server-with-powershell-and-smo-basics/</link>
+      <pubDate>Wed, 09 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-08-09-exploring-sql-server-with-powershell-and-smo-basics/</guid>
+      <description>SqlServer Powershell Cmdlets 2017 - Initialize Look Diving into the Sql Server Management Objects library can be a pretty interesting process. You get to work with database objects as in a new way, and begin manipulating and execute code in a much different approach than purely using T-SQL. Powershell offers a unique way to interact with prebuilt cmdlets, and you can explore leveraging .NET in powershell as well to have a powerful toolkit of options.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Performance Tuning on sheldonhull.com</title>
+    <link>https://www.sheldonhull.com/tags/performance-tuning/</link>
+    <description>Recent content in Performance Tuning on sheldonhull.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 07 Feb 2019 00:07:21 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.sheldonhull.com/tags/performance-tuning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SQL Server Database Experimentation Assistant - How to Run a Capture</title>
+      <link>https://www.sheldonhull.com/blog/2019-02-07-sql-server-database-experimentation-assistance-how-to-run-a-capture/</link>
+      <pubDate>Thu, 07 Feb 2019 00:07:21 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2019-02-07-sql-server-database-experimentation-assistance-how-to-run-a-capture/</guid>
+      <description>DEA Very basic look at the setup as I couldn&amp;rsquo;t find much documentation on this when I last tried this out in 2018. Maybe it will help you get started a little more quickly. I&amp;rsquo;ve not had a chance to leverage the actual comparisons across a large workload. When I originally wrote up the basics on this last year I found my needs required more customized load testing approaches.</description>
+    </item>
+    
+    <item>
+      <title>ANTS Performance Profiler for the SQL Server Dev</title>
+      <link>https://www.sheldonhull.com/blog/2017-07-21-ants-performance-profiler-for-the-sql-server-dev/</link>
+      <pubDate>Fri, 21 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-07-21-ants-performance-profiler-for-the-sql-server-dev/</guid>
+      <description>There are a few .NET tools that until recently I haven&amp;rsquo;t had the chance to work with as much, specifically ANTS Memory Profiler and ANTS Performance Profiler. The memory profiler is more useful for someone focused on memory leaks which a SQL Dev isn&amp;rsquo;t as focused on for performance tuning. However, there are major benefits for diving into SQL Performance tuning with ANTS Performance profiler. I think I&amp;rsquo;d say this tool makes the epic category of my #cooltools kit and will be added to my COOL TOOLS page here for SQL performance tuning.</description>
+    </item>
+    
+    <item>
+      <title>Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev</title>
+      <link>https://www.sheldonhull.com/blog/2017-05-17-setting-up-influx-db-chronograf-and-grafana-for-the-sql-server-dev/</link>
+      <pubDate>Wed, 17 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-05-17-setting-up-influx-db-chronograf-and-grafana-for-the-sql-server-dev/</guid>
+      <description>Other Posts in Series  Running InfluxDb As A Service in Windows Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev InfluxDB And Annotations Capturing Perfmon Counters With Telegraf  There are some beautiful ways to visualize time series data with the tools I&amp;rsquo;m going to go over. This post is purely focused on the initial setup and saving you some time there. In a future post, I&amp;rsquo;ll show how some of these tools can help you visualize your server performance in a powerful way, including taking metrics from multiple types of servers that be working with SQL Server, and combining the metrics when appropriate to give a full picture of performance.</description>
+    </item>
+    
+    <item>
+      <title>SQL Sentry Pro Explorer is worth it...</title>
+      <link>https://www.sheldonhull.com/blog/sql-sentry-pro-explorer-is-worth-it/</link>
+      <pubDate>Tue, 28 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/sql-sentry-pro-explorer-is-worth-it/</guid>
+      <description>info &amp;ldquo;Updated: 2017-04-21&amp;rdquo; Another great bit of news from reviewing this older post I wrote&amp;hellip; SQL Sentry Pro is now a free tool thanks to the generosity of the Sentry One team! It&amp;rsquo;s a must have. Go download it for sure.
+info &amp;ldquo;Updated: 2015-04-28&amp;rdquo; I created a few autohotkey scripts and solved the problem of collapsing panes and a few other annoyances. This has improved my experience a little. - Also noted one major improvement that would help with tuning is aggregating the total IO, and stats, rather than only each individual statement.</description>
+    </item>
+    
+  </channel>
+</rss>

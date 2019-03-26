@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="Remote Desktop Workflow Improvements">
+<meta itemprop="description" content="Remote server management is a fact of life for folks involved with sql server. Since we work so often with remote machines I looked into a few tools that provided a better workflow than the default Microsoft tools. This one came out as the winner by far.
+A better remote desktop manager First off, if you are using RDC&hellip;. why? At least move up to RDCMan, a microsoft tool that allows for much quick context switching between machines, inherited password settings for a group of servers, and more.">
+
+
+<meta itemprop="datePublished" content="2016-08-29T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2016-08-29T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1110">
+
+
+
+<meta itemprop="keywords" content="cool-tools,sql-server,ramblings," />
+<meta property="og:title" content="Remote Desktop Workflow Improvements" />
+<meta property="og:description" content="Remote server management is a fact of life for folks involved with sql server. Since we work so often with remote machines I looked into a few tools that provided a better workflow than the default Microsoft tools. This one came out as the winner by far.
+A better remote desktop manager First off, if you are using RDC&hellip;. why? At least move up to RDCMan, a microsoft tool that allows for much quick context switching between machines, inherited password settings for a group of servers, and more." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/2016-08-29-remote-desktop-workflow-improvements/" />
+<meta property="article:published_time" content="2016-08-29T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2016-08-29T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Remote Desktop Workflow Improvements"/>
+<meta name="twitter:description" content="Remote server management is a fact of life for folks involved with sql server. Since we work so often with remote machines I looked into a few tools that provided a better workflow than the default Microsoft tools. This one came out as the winner by far.
+A better remote desktop manager First off, if you are using RDC&hellip;. why? At least move up to RDCMan, a microsoft tool that allows for much quick context switching between machines, inherited password settings for a group of servers, and more."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>Remote Desktop Workflow Improvements</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="toc-btn" class="hdr-btn desktop-only-ib" title="Table of Contents"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3" y2="6"></line><line x1="3" y1="12" x2="3" y2="12"></line><line x1="3" y1="18" x2="3" y2="18"></line></svg></button><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>Remote Desktop Workflow Improvements</h1>
+		<div class="content">
+			
+
+<p>Remote server management is a fact of life for folks involved with sql server. Since we work so often with remote machines I looked into a few tools that provided a better workflow than the default Microsoft tools. This one came out as the winner by far.</p>
+
+<h2 id="a-better-remote-desktop-manager">A better remote desktop manager<a href="#a-better-remote-desktop-manager" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>First off, if you are using RDC&hellip;. why? At least move up to RDCMan, a microsoft tool that allows for much quick context switching between machines, inherited password settings for a group of servers, and more.
+Next, if you are using RDCMan&hellip; and perhaps you work with a lot of remote machines, perhaps there is an even better option? There are some great alternatives out there, and in my experience, with a little learning curve, the one I&rsquo;ve worked on with Devolutions is fantastic!
+Link to app: <a href="http://bit.ly/1Pey0Qs">Devolutions Remote Desktop Manager </a></p>
+
+<h2 id="devolutions-remote-desktop-manager">Devolutions Remote Desktop Manager<a href="#devolutions-remote-desktop-manager" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p><em>Disclaimer: I have been provided with a free license because I mentioned I might review the product. This doesn&rsquo;t impact my assessment of the tool.</em>
+I&rsquo;m a big fan of this app after having used it for months to get a feel for it. I&rsquo;ve found it helpful when working with remote desktop machines, as well as some basic credential management. For folks dealing with lots of remote machines, I think this tool is well worth the investment and it has my stamp for one of my top essential tools in my cool-tools toolkit.
+There is a free version that is less powerful, but a still a good upgrade from the standard RDM from microsoft. <a href="http://bit.ly/1Pexsdy">The free version comparison is located HERE</a></p>
+
+<h2 id="synchronizer-some-potentially-powerful-automation-here-for-managing-connections-to-remote-machines">Synchronizer&hellip; some potentially powerful automation here for managing connections to remote machines<a href="#synchronizer-some-potentially-powerful-automation-here-for-managing-connections-to-remote-machines" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>Having to deal with a lot of remote machines, especially ones that change IP addresses periodically can be annoying for a DBA trying to remotely connect again. Devolutions Remote Desktop Manager (RDM) has some really cool functionality that can help automate refreshing these lists from a variety of sources.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/synchronizer-some-potentially-powerful-automation-here-for-managing-connections-to-remote-machines.png" alt="Synchronizer... some potentially powerful automation here for managing connections to remote machines" /></p>
+
+<h2 id="synchronized-session-listing">Synchronized Session Listing<a href="#synchronized-session-listing" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>You can setup a synchronized session listing based on csv, activedirectory, spiceworks, and more. Eventually, I believe they&rsquo;ll have an amazon ec2 synchronizer as well. In the meantime, with some powershell magic we can create a synchronized listing of remote machines to work with, no longer having to update ip&rsquo;s manually in a Amazon EC2 system.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/synchronized-session-listing.png" alt="Synchronized Session Listing" /></p>
+
+<h2 id="output-results-from-powershell-into-csv-source">Output Results from Powershell into CSV Source<a href="#output-results-from-powershell-into-csv-source" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>setup a powershell script that would obtain EC2 instances and output into a csv file.
+I found pieces of the needed code from various sources and modified to work for me. It&rsquo;s not elegant, and much better ways are available I&rsquo;m sure. This was helpful to me though and got the job done!</p>
+
+<script type="text/javascript" src="https://gist.github.com/f38807512bbbc14a5aab0680dccd4fba.js"></script>
+
+
+<p><img src="https://www.sheldonhull.com/assets/img/output-results-from-powershell-into-csv-source.png" alt="Output Results from Powershell into CSV Source" /></p>
+
+<h2 id="automatically-keeping-things-up-to-date">Automatically keeping things up to date<a href="#automatically-keeping-things-up-to-date" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>Synchronizing automatically gives us the flexibility to have a scheduled script to run the powershell command to get a new list of machines, and have the synchronized list run automatically maintain the latest connection information. In my case, I setup the powershell script to run every X hours so my connection information was always up to date.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/automatically-keeping-things-up-to-date.png" alt="Automatically keeping things up to date" /></p>
+
+<h2 id="organized-results">organized results<a href="#organized-results" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>Thanks to the synchronizer, I know have two folders with separated instances for production and QA, allowing me to quickly access with minimal effort!
+This would allow me to set credentials as well, to reduce the effort in logging in for each of the sets of instances</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/organized-results.png" alt="organized results" /></p>
+
+<h2 id="other-cool-stuff">Other Cool Stuff<a href="#other-cool-stuff" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<h3 id="multiple-monitor-support">Multiple Monitor Support<a href="#multiple-monitor-support" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>Microsoft remote desktop connections have support for multiple monitors by spanning display. I tested this out with an unconventional setup. I have 3 24inch monitors, with 1 landscape in the middle surrounded by 2 in portrait mode. It had some problems with this as it&rsquo;s trying to create a spanned clone, however, if I had a typical setup, I think this would work fine, (such as a dual screen setup with the same orientation).</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/multiple-monitor-support.png" alt="Multiple Monitor Support" /></p>
+
+<h3 id="continual-updates">Continual Updates<a href="#continual-updates" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>I&rsquo;m continually getting updates on this product. In any inquiries on their forum, I&rsquo;ve seen helpful responses from staff within the day, with great support help (such as powershell tips on accomplishing what I needed with synchronizers)</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/continual-updates.png" alt="Continual Updates" /></p>
+
+<h3 id="better-local-password-management">Better Local Password Management<a href="#better-local-password-management" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>I&rsquo;m a big fan of Lastpass, but as I use it for personal password management, I wanted to keep my work related passwords entirely separate. Devolutions RDM offers some nice password management options and credential inheritance setup.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/better-local-password-management.png" alt="Better Local Password Management" /></p>
+
+<h3 id="jump">Jump<a href="#jump" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>If you have a scenario where you need to remote into one machine and then remote from that machine to another, things can get very confusing with copying/pasting/navigating. RDM solves this by having a &ldquo;RDM Jump Agent&rdquo;, basically a service that allows you to set a remote desktop connection as a &ldquo;jump point&rdquo; and then connect through that connection to the next destination, while using one remote desktop window in the app. For those scenarios, I found it incredibly helpful.  Best scenario&hellip; just avoid having to jump in the first place :-)</p>
+
+<h3 id="handles-remote-desktop-connections-the-kitchen-sink">Handles Remote Desktop Connections + The Kitchen Sink<a href="#handles-remote-desktop-connections-the-kitchen-sink" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<ul>
+<li>Handles a breadth of different types of remote connections, such as Chrome remote desktop manager, Hyper V, remote command line, powershell sessions, Amazon S3, Amazon AWS console, Citrix ICA/HDX, and more.</li>
+<li>Can wrap up the trick of running SSMS (Sql Management Studio) with &ldquo;RunAs&rdquo; as a different domain and user, allowing locally run SSMS to be connected to AWS, or other environments.</li>
+</ul>
+
+<p><img src="https://www.sheldonhull.com/assets/img/handles-remote-desktop-connections---the-kitchen-sink.png" alt="Handles Remote Desktop Connections + The Kitchen Sink" /></p>
+
+<h3 id="other-odds-and-ends">Other Odds and Ends<a href="#other-odds-and-ends" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>Lots of features, so I&rsquo;m just covering some of the highlights that are of interest to me.</p>
+
+<ul>
+<li>Quickly ping and get status</li>
+<li>View event logs from remote machine loaded in your local event viewer</li>
+<li>List services</li>
+<li>Run powershell script remotely with RDM-Agent (executes the script as if running locally, and could do this in parallel with other instances)</li>
+</ul>
+
+<p><img src="https://www.sheldonhull.com/assets/img/other-odds-and-ends.png" alt="Other Odds and Ends" /></p>
+
+<h2 id="summary">Summary<a href="#summary" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>I review quite a few apps, but this one is really difficult to review in detail as it covers such a range of functionality I&rsquo;ve never even touched. The only con to the app I&rsquo;d say is it can have a bit of a higher learning curve than using the plain old Remote Desktop Manager from windows due to the breadth of functionality it covers. However, once using this app, and discovering little pieces of functionality here and there, this is in my permanent &ldquo;essential tools&rdquo; toolkit.</p>
+
+<h3 id="free-version">Free version<a href="#free-version" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+
+<p>They have a free version that will suffice for many people. The pro version has more enterprise level focus, so give the free one a shot if you are looking for a basic improvement to your RDM workflow</p>
+
+<blockquote>
+<p>####
+<a href="http://remotedesktopmanager.com">Remote Desktop Manager - Remote connection and password management software</a></p>
+
+<p>Remote Desktop Manager is an all-in-one remote connections, passwords and credentials management platform for IT teams trusted by over 270,000 users in over 120 countries.
+<script data-preserve-html-node="true" async=" src="platform.js" charset="UTF-8"></script></p>
+</blockquote>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

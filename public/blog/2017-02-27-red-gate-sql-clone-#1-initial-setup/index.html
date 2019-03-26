@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+
+<title>
+Red Gate SQL Clone (#1) - Initial Setup - sheldonhull.com
+</title>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://www.sheldonhull.com/css/main.min.573698245a664a08c16c71afa84a4fcfe69a7cabd8e36cff0b396ac22708e696.css" integrity="sha256-VzaYJFpmSgjBbHGvqEpPz&#43;aafKvY42z/CzlqwicI5pY=" crossorigin="anonymous" media="screen">
+
+
+
+ 
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact+Gothic">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Red Gate SQL Clone (#1) - Initial Setup"/>
+<meta name="twitter:description" content="Note this was during earlier beta usage, so some of the UI and other features will have been updated more. I plan on writing more on this promising tool as I get a chance to dive into it more, especially the powershell cmdlets for database cloning automation. In the meantime, I believe the permissions issue is still relevant, so I&rsquo;ll post this as a reminder in case someone is working through the initial setup."/>
+
+<meta property="og:title" content="Red Gate SQL Clone (#1) - Initial Setup" />
+<meta property="og:description" content="Note this was during earlier beta usage, so some of the UI and other features will have been updated more. I plan on writing more on this promising tool as I get a chance to dive into it more, especially the powershell cmdlets for database cloning automation. In the meantime, I believe the permissions issue is still relevant, so I&rsquo;ll post this as a reminder in case someone is working through the initial setup." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/2017-02-27-red-gate-sql-clone-#1-initial-setup/" />
+<meta property="article:published_time" content="2017-02-27T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2017-02-27T00:00:00&#43;00:00"/>
+
+
+    
+
+    
+    
+    
+    <title>
+        
+        Red Gate SQL Clone (#1) - Initial Setup
+        
+    </title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="section" id="title">Red Gate SQL Clone (#1) - Initial Setup</div>
+
+        <div class="section" id="content">
+
+<p>Note this was during earlier beta usage, so some of the UI and other features will have been updated more. I plan on writing more on this promising tool as  I get a chance to dive into it more, especially the powershell cmdlets for database cloning automation. In the meantime, I believe the permissions issue is still relevant, so I&rsquo;ll post this as a reminder in case someone is working through the initial setup.</p>
+
+<p>It seems like a real promising toolkit for testing and reducing storage requirements for testing database automated deployment pipelines.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/2016-08-15_10-19-34.png" alt="Clone Setup Getting Started" /></p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/2016-08-15_10-11-17.png" alt="Clone Setup Creating Clone" /></p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/2016-08-15_10-19-04.png" alt="Add to local admin on machine" /></p>
+
+<h2 id="error-starting-service">Error starting service</h2>
+
+<blockquote>
+<p>The Redgate SQL Clone service on Local Computer started and then stopped. Some services stop automatically if they are not in use by other services or programs.</p>
+</blockquote>
+
+<p>I wasn&rsquo;t using for a while due to error message I couldn&rsquo;t figure out. I then read through the help documentation again and found that the permissions required for the service account should be a <strong>local admin</strong>. Once I added the service account to local admins, it correctly allowed the service to start.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/2016-08-15_10-17-17.png" alt="Error if you don" /></p>
+</div>
+
+        
+        
+        
+
+        <div class="section footer"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ssrs on sheldonhull.com</title>
+    <link>https://www.sheldonhull.com/tags/ssrs/</link>
+    <description>Recent content in Ssrs on sheldonhull.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Mar 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.sheldonhull.com/tags/ssrs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Previewing the new SSRS 2016 portal</title>
+      <link>https://www.sheldonhull.com/blog/2016-03-18-previewing-the-new-ssrs-2016-portal/</link>
+      <pubDate>Fri, 18 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-03-18-previewing-the-new-ssrs-2016-portal/</guid>
+      <description>Ran into an issue with the &amp;ldquo;Preview New Reporting Portal&amp;rdquo; link on a fresh install of 2016 giving me a not found error.
+Changing the virtual directory in the Report URL tab for SSRS configuration fixed this invalid link. In my case, I changed /Report to /Reporting. Thanks to Adam on Stack Overflow for providing the solution and saving me a lot of time!</description>
+    </item>
+    
+  </channel>
+</rss>

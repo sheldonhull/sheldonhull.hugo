@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="Running very large scripts is not a strong area for SSMS">
+<meta itemprop="description" content="out of memory, argggh! Am I the only one that has experienced the various out of memory issues with SSMS? Not according to google!
+lovingly crafted in the forges of.. well &hellip; dbforge I&rsquo;ve a huge fan of Devarts products. I&rsquo;ve done a review in the past on their SQL Complete addin, which is the single most used tool in my SQL arsenal. It vanquishes nasty unformatted code into a standard lined up format I can easily read.">
+
+
+<meta itemprop="datePublished" content="2015-08-05T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2015-08-05T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="368">
+
+
+
+<meta itemprop="keywords" content="sql-server," />
+<meta property="og:title" content="Running very large scripts is not a strong area for SSMS" />
+<meta property="og:description" content="out of memory, argggh! Am I the only one that has experienced the various out of memory issues with SSMS? Not according to google!
+lovingly crafted in the forges of.. well &hellip; dbforge I&rsquo;ve a huge fan of Devarts products. I&rsquo;ve done a review in the past on their SQL Complete addin, which is the single most used tool in my SQL arsenal. It vanquishes nasty unformatted code into a standard lined up format I can easily read." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/2015-08-05-running-very-large-scripts-is-not-a-strong-area-for-ssms/" />
+<meta property="article:published_time" content="2015-08-05T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2015-08-05T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Running very large scripts is not a strong area for SSMS"/>
+<meta name="twitter:description" content="out of memory, argggh! Am I the only one that has experienced the various out of memory issues with SSMS? Not according to google!
+lovingly crafted in the forges of.. well &hellip; dbforge I&rsquo;ve a huge fan of Devarts products. I&rsquo;ve done a review in the past on their SQL Complete addin, which is the single most used tool in my SQL arsenal. It vanquishes nasty unformatted code into a standard lined up format I can easily read."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>Running very large scripts is not a strong area for SSMS</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>Running very large scripts is not a strong area for SSMS</h1>
+		<div class="content">
+			
+
+<h2 id="out-of-memory-argggh">out of memory, argggh!<a href="#out-of-memory-argggh" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>Am I the only one that has experienced the various out of memory issues with SSMS? Not according to google!</p>
+
+<h2 id="lovingly-crafted-in-the-forges-of-well-dbforge">lovingly crafted in the forges of.. well &hellip; dbforge<a href="#lovingly-crafted-in-the-forges-of-well-dbforge" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>I&rsquo;ve a huge fan of Devarts products. I&rsquo;ve done a review in the past on their SQL Complete addin, which is the single most used tool in my SQL arsenal. It vanquishes nasty unformatted code into a standard lined up format I can easily read. The 100&rsquo;s of options to customize the formatting make it the most customizable formatter I&rsquo;ve found for SQL code.
+This SQL Complete however, is a plugin for SSMS. It is native in their alternative to Sql Server Management Studio, dbForge Studio. Highly recommend checking this out. It&rsquo;s affordable, especially if you compare against other products that offer less&hellip;. and they have a <em>dark theme</em> muaaah!</p>
+
+<h2 id="execute-script-that-is-far-too-large">execute script that is far too large<a href="#execute-script-that-is-far-too-large" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>I&rsquo;ll post up more detail when time permits on some of the other features, but one noticeably cool feature is the &ldquo;execute large script&rdquo; option.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/2015.08.05_11h38m13s_016__f6xet0.jpg" alt="MyDescription" /></p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/2015.08.05_11h38m43s_022__w7anoj.jpg" alt="MyDescription" />
+You can see the progress and the update in the output log, but the entire script isn&rsquo;t slowing down your GUI. In fact, you can just putter along and keep coding.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/2015.08.05_11h41m18s_000_Collage_cpwuis.jpg" alt="MyDescription" />
+Other options to accomplish the same thing include executing via SQLCMD, powershell, or breaking things up into smaller files. This just happened to be a pretty convenient option!</p>
+
+<h2 id="have-i-switched">Have I switched?<a href="#have-i-switched" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+
+<p>I haven&rsquo;t switched to using it as my primary development environment because of 2 reasons. Extensions&hellip; I do have quite a few that work in SSMS like SSMS Tools, SSMS Toolpack, and some Red Gate functionality. I lose that by switching over to dbForge Studio. Also, some of the keyboard shortcuts like delete line and others I&rsquo;m so used to aren&rsquo;t in there. Regretably, they don&rsquo;t support importing a color scheme from visual studio, so you lose out on sites like <a href="https://studiostyl.es/">https://studiostyl.es/</a>
+Other than a few minor quibbles like that I&rsquo;m pretty happy with it. They&rsquo;ve done a great job and the skinning of the app is great, giving you the option of dark or light themes.</p>
+
+<p><em>Devart apps provided to me for my evaluation, but are not biasing my recommendation.</em></p>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

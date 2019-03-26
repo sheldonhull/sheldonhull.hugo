@@ -1,0 +1,1049 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://www.sheldonhull.com/docs/powershell/</loc>
+    <lastmod>2019-03-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2019-03-11-debugging-type-binding-in-powershell/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/docs/dbatools/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/docs/awspowershell/</loc>
+    <lastmod>2019-02-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/docs/</loc>
+    <lastmod>2019-02-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2019-02-07-migrating-from-hipchat-to-slack/</loc>
+    <lastmod>2019-02-07T23:55:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2019-02-07-sql-server-database-experimentation-assistance-how-to-run-a-capture/</loc>
+    <lastmod>2019-02-07T00:07:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2018-08-19-dedupe-google-drive-with-rclone/</loc>
+    <lastmod>2018-08-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2018-08-08-ntfs-compression-and-sql-server-dont-play-well-together/</loc>
+    <lastmod>2018-08-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2018-07-23-deleting-a-directory-that-has-a-trailing-space-shouldn-t-be-this-hard/</loc>
+    <lastmod>2018-07-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2018-03-30-offline-net35-install/</loc>
+    <lastmod>2018-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2018-03-29-git-cracking/</loc>
+    <lastmod>2018-03-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2018-03-18-migration-to-jekyll/</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-12-31-time-with-family-thanksgiving/</loc>
+    <lastmod>2017-12-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-11-10-delight-in-the-little-moments/</loc>
+    <lastmod>2017-11-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-09-08-welcome-to-the-world-little-ella/</loc>
+    <lastmod>2017-09-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-09-03-recovery-is-a-marathon-not-a-sprint-hurricane-harvey/</loc>
+    <lastmod>2017-09-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-08-29-a-not-so-waterlogged-texan-tuesday/</loc>
+    <lastmod>2017-08-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-08-29-a-waterlogged-texan-reporting-in-from-northpoint-tomball/</loc>
+    <lastmod>2017-08-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-08-16-ultrawide-monitor-samsung-cf971-first-impressions/</loc>
+    <lastmod>2017-08-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-08-11-fixing-virtual-box-only-showing-32bit-windows-os-options/</loc>
+    <lastmod>2017-08-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-08-09-exploring-sql-server-with-powershell-and-smo-basics/</loc>
+    <lastmod>2017-08-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-08-08-capturing-perfmon-counters-with-telegraf/</loc>
+    <lastmod>2017-08-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-08-07-dataedo-first-look/</loc>
+    <lastmod>2017-08-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-08-07-influx-db-and-annotations/</loc>
+    <lastmod>2017-08-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-08-05-spotify-vs-google-play/</loc>
+    <lastmod>2017-08-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-07-21-ants-performance-profiler-for-the-sql-server-dev/</loc>
+    <lastmod>2017-07-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-07-03-update-ssms-with-ps1/</loc>
+    <lastmod>2017-07-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/</loc>
+    <lastmod>2017-06-26T18:27:58+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-06-26-edit-in-vscode/</loc>
+    <lastmod>2017-06-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-06-07-add-user-to-admin-group-on-machine/</loc>
+    <lastmod>2017-06-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-06-07-best-practices-defining-explicit-length-for-varchar-nvarchar/</loc>
+    <lastmod>2017-06-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-05-31-powershell-module-improvements-for-sql-server-in-2017/</loc>
+    <lastmod>2017-05-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-05-24-running-influx-db-as-a-service-in-windows/</loc>
+    <lastmod>2017-05-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-05-17-setting-up-influx-db-chronograf-and-grafana-for-the-sql-server-dev/</loc>
+    <lastmod>2017-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-05-10-automate-windows-updates-for-development/</loc>
+    <lastmod>2017-05-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-05-08-programming-fonts-for-the-newb/</loc>
+    <lastmod>2017-05-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-03-07-tfs-custom-task-service-actions-for-tfs-2015-update-2.1-or-before/</loc>
+    <lastmod>2017-03-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/red-gate-sql-clone-1-initial-setup/</loc>
+    <lastmod>2017-02-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-02-24-life-hack-when-you-need-a-mouse-pad/</loc>
+    <lastmod>2017-02-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-02-18-quick-way-to-run-powershell-tasks-in-parallel/</loc>
+    <lastmod>2017-02-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-02-18-redgate-sql-data-compare-devart-db-forge-data-compare/</loc>
+    <lastmod>2017-02-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-02-18-ssms-2016-object-explorer-read-uncommitted/</loc>
+    <lastmod>2017-02-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-02-18-track-creation-of-databases/</loc>
+    <lastmod>2017-02-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2017-01-23-bad-idea-jeans-query-optimization-through-minification/</loc>
+    <lastmod>2017-01-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-12-09-manictime-timetracking-automation-done-right/</loc>
+    <lastmod>2016-12-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-12-05-dynamically-set-powershell-variables-from-json/</loc>
+    <lastmod>2016-12-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-12-03-the-traditional-birthday-song-is-terrible/</loc>
+    <lastmod>2016-12-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-11-22-scan-folder-of-dlls-to-identify-x86-or-x64-compiled-assemblies/</loc>
+    <lastmod>2016-11-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-11-18-attaching-database-using-smo-and-powershell/</loc>
+    <lastmod>2016-11-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-11-16-parallel-powershell-for-running-sql/</loc>
+    <lastmod>2016-11-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-11-01-get-backup-history-for-all-databases-in-server/</loc>
+    <lastmod>2016-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-10-29-pizzicato-pizza/</loc>
+    <lastmod>2016-10-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-10-28-data-compare-on-temporal-tables/</loc>
+    <lastmod>2016-10-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-10-22-fixing-untrusted-foreign-key-or-check-constraint/</loc>
+    <lastmod>2016-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-10-20-an-internet-with-less-ads-adguard/</loc>
+    <lastmod>2016-10-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-10-18-easy-sql-maintenance-with-minionware/</loc>
+    <lastmod>2016-10-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-10-17-cannot-generate-sspi-context/</loc>
+    <lastmod>2016-10-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-10-16-centralized-management-server-101/</loc>
+    <lastmod>2016-10-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-10-11-daw-dive-02-bfd3-drumming-for-the-rest-of-us/</loc>
+    <lastmod>2016-10-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-10-10-migrating-database-collation-the-red-gate-way/</loc>
+    <lastmod>2016-10-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-10-09-fixing-non-deterministic-error-when-creating-indexed-view/</loc>
+    <lastmod>2016-10-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-10-09-powershell-ise-updating-theme/</loc>
+    <lastmod>2016-10-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-10-09-syncovery-arq-syncing-backup/</loc>
+    <lastmod>2016-10-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-09-21-sql-2016-configuration-manager-not-showing-in-start-menu/</loc>
+    <lastmod>2016-09-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-09-20-daw-dive-1-getting-started-studio-one-3/</loc>
+    <lastmod>2016-09-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-09-19-setting-dbcc-1222-on-startup/</loc>
+    <lastmod>2016-09-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-09-17-ableton-live-lemur-setup-from-a-windows-user/</loc>
+    <lastmod>2016-09-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-09-14-lack-for-nothing/</loc>
+    <lastmod>2016-09-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-08-29-remote-desktop-workflow-improvements/</loc>
+    <lastmod>2016-08-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-08-23-ssms-connection-color-with-sql-prompt-ssms-boost/</loc>
+    <lastmod>2016-08-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-08-19-sql-2016-brief-overview-on-some-new-features/</loc>
+    <lastmod>2016-08-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-08-18-install-ready-roll-via-command-line/</loc>
+    <lastmod>2016-08-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-08-15-does-sp-rename-on-a-column-preserve-the-ms-description/</loc>
+    <lastmod>2016-08-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-08-11-regex-with-sql-server-sql-sharp/</loc>
+    <lastmod>2016-08-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-07-12-improvements-with-ssms-2016/</loc>
+    <lastmod>2016-07-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-07-01-glasswire-giveaway-included-networking-monitoring-even-a-caveman-could-use/</loc>
+    <lastmod>2016-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-06-26-sql-compare-12-initial-look/</loc>
+    <lastmod>2016-06-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-06-17-ssms-tools-pack-a-handy-tool-for-generating-crud/</loc>
+    <lastmod>2016-06-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-06-14-omni-compare-a-free-tool-to-compare-sql-instances/</loc>
+    <lastmod>2016-06-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-05-16-continual-deployment-of-visual-studio-sql-proj/</loc>
+    <lastmod>2016-05-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-05-15-the-mysterious-black-box-of-r-for-the-sql-server-guy/</loc>
+    <lastmod>2016-05-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-04-28-red-gate-dependency-tracker-making-databases-into-moving-art/</loc>
+    <lastmod>2016-04-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-04-27-automating-ssms-2016-updates-install/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-04-27-google-search-only-results-from-the-last-year/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-04-14-cool-tools-powershell-ise-steroids/</loc>
+    <lastmod>2016-04-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-04-01-failed-to-initialize-sql-agent-log...-not-worthy/</loc>
+    <lastmod>2016-04-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-03-18-calculating-some-max-mirror-stats/</loc>
+    <lastmod>2016-03-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-03-18-failover-all-databases-to-other-server/</loc>
+    <lastmod>2016-03-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-03-18-previewing-the-new-ssrs-2016-portal/</loc>
+    <lastmod>2016-03-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-03-18-sql-2012-sp3-and-entity-framework-conflict/</loc>
+    <lastmod>2016-03-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-03-18-tfs-work-item-fancy-filtering/</loc>
+    <lastmod>2016-03-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-01-29-easy-way-to-test-log-shipping-or-availability-groups-setup/</loc>
+    <lastmod>2016-01-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-01-25-diff-all-files-reviewing-changesets-quickly/</loc>
+    <lastmod>2016-01-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-01-20-seeker-servant-fantastic-music-with-incredible-dynamics/</loc>
+    <lastmod>2016-01-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-01-20-transaction-logging-recovery-part-3/</loc>
+    <lastmod>2016-01-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-01-13-verifying-instant-file-initialization/</loc>
+    <lastmod>2016-01-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-01-08-transaction-logging-recovery-part-2/</loc>
+    <lastmod>2016-01-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2016-01-05-transaction-logging-recovery-101/</loc>
+    <lastmod>2016-01-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-12-15-model-needs-exclusive-lock/</loc>
+    <lastmod>2015-12-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-12-09-documenting-your-database-with-diagrams/</loc>
+    <lastmod>2015-12-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-10-14-best-tools-for-taking-notes-in-development/</loc>
+    <lastmod>2015-10-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/dynamic-sql-quotename/</loc>
+    <lastmod>2015-09-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-09-21-xml-attribute-vs-element-assignment-when-working-with-sql/</loc>
+    <lastmod>2015-09-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-09-14-split-personality-text-eiting-in-ssms-with-sublime-text-3/</loc>
+    <lastmod>2015-09-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-09-10-multi-cursor-editing-sql-feels-like-the-movie-inception-just-became-real/</loc>
+    <lastmod>2015-09-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-08-27-brentozars-training-chocolate-cowboy-hats-included/</loc>
+    <lastmod>2015-08-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-08-18-monitoring-sql-server-on-a-budget/</loc>
+    <lastmod>2015-08-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-08-13-stranger-danger...-the-need-for-trust-with-constraints/</loc>
+    <lastmod>2015-08-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-08-12-red-gate-sql-source-control-v4-offers-schema-locks/</loc>
+    <lastmod>2015-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-08-10-using-qure-profiler-to-benchmark-tuning-progress/</loc>
+    <lastmod>2015-08-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-08-07-set-noexec-is-my-new-friend/</loc>
+    <lastmod>2015-08-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-08-05-running-very-large-scripts-is-not-a-strong-area-for-ssms/</loc>
+    <lastmod>2015-08-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-07-28-database-stuck-in-single-user-mode-due-to-botched-restore/</loc>
+    <lastmod>2015-07-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-07-13-what-was-i-thinking-deleting-myself-from-localdb/</loc>
+    <lastmod>2015-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-06-24-some-simple-examples-of-querying-xml-with-sql/</loc>
+    <lastmod>2015-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-05-22-enabling-instant-file-initialization/</loc>
+    <lastmod>2015-05-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-05-04-upgrade-from-sql-2014-evaluation-to-developer-edition/</loc>
+    <lastmod>2015-05-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/utilizing-the-power-of-table-parameters-to-reduce-io-improve-performance-decrease-pollution-and-achieve-world-peace/</loc>
+    <lastmod>2015-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-04-28-restoring-a-database-that-doesnt-exist/</loc>
+    <lastmod>2015-04-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/sql-sentry-pro-explorer-is-worth-it/</loc>
+    <lastmod>2015-04-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-01-21-statistics-parsing/</loc>
+    <lastmod>2015-01-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2015-01-16-dev-tools-farr2-launching-groups-of-files-or-apps-at-once/</loc>
+    <lastmod>2015-01-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/dev-tools-file-search/</loc>
+    <lastmod>2015-01-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/scope-of-global-temp-tables/</loc>
+    <lastmod>2015-01-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/dev-tools-x-yplorer-review-1-catalog/</loc>
+    <lastmod>2014-12-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2014-12-11-or-pattern-causing-indexing-scans-in-parameter-based-queries/</loc>
+    <lastmod>2014-12-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2014-12-02-get-information-on-current-traces-running/</loc>
+    <lastmod>2014-12-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2014-08-12-generate-random-date-with-starting-point/</loc>
+    <lastmod>2014-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2014-08-11-snippet-alert-useful-dates-eom-bom-etc/</loc>
+    <lastmod>2014-08-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2014-05-19-eliminate-overlapping-dates/</loc>
+    <lastmod>2014-05-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2014-05-19-finding-groups-consecutive-months/</loc>
+    <lastmod>2014-05-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2014-02-11-scalar-functions-can-be-the-hidden-boogie-man/</loc>
+    <lastmod>2014-02-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/renaming-all-references-inside-stored-procedures-and-functions-can-be-migraine-worthy-without-a-little-help/</loc>
+    <lastmod>2013-08-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2013-07-24-shortcut-to-reference-examples-syntax-and-definitions-straight-from-ssms/</loc>
+    <lastmod>2013-07-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2013-07-18-check-constraints-can-help-enforce-the-all-or-nothing-approach-when-it-comes-to-column-updates/</loc>
+    <lastmod>2013-07-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2013-07-16-ssms-2012-extender-for-the-times-you-want-some-organization-to-the-random-pile-of-objects-gathering-in-the-dusty-confines-of-that-database/</loc>
+    <lastmod>2013-07-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2013-05-31-tsql-snippet-for-viewing-basic-info-on-database-principals-and-their-permissions/</loc>
+    <lastmod>2013-05-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2013-05-30-a-moment-of-void-in-the-cranium-reveals-a-recursive-computed-column-with-an-esoteric-message/</loc>
+    <lastmod>2013-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2013-05-22-on-how-to-googlify-your-sql-statements-for-future-searching/</loc>
+    <lastmod>2013-05-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2013-05-22-view-computed-columns-in-database/</loc>
+    <lastmod>2013-05-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2013-05-21-get-synonym-definitions-for-all-databases-in-server/</loc>
+    <lastmod>2013-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2013-05-01-calculating-the-next-beginning-of-month-and-the-current-end-of-month/</loc>
+    <lastmod>2013-05-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2013-04-30-installing-ssms-2012-all-by-its-lonesome/</loc>
+    <lastmod>2013-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2013-04-23-snippet-designate-a-certain-time-of-the-day-in-getdate/</loc>
+    <lastmod>2013-04-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2013-04-22-native-ssms-a-second-class-citizen-no-longer/</loc>
+    <lastmod>2013-04-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2013-04-18-dynamic-sql-and-a-char-crash/</loc>
+    <lastmod>2013-04-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/2013-04-17-how-to-default-ssrs-date-parameters-to-the-first-and-last-day-of-the-the-previous-month/</loc>
+    <lastmod>2013-04-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/forestry/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/automation/</loc>
+    <lastmod>2016-11-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/bad-idea/</loc>
+    <lastmod>2017-01-23T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/build-tasks/</loc>
+    <lastmod>2017-03-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/coding/</loc>
+    <lastmod>2016-01-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/configuration/</loc>
+    <lastmod>2017-05-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/cool-tool/</loc>
+    <lastmod>2016-08-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/cool-tools/</loc>
+    <lastmod>2018-03-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/daw/</loc>
+    <lastmod>2016-10-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/deep-dive/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/development/</loc>
+    <lastmod>2019-03-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/entity-framework/</loc>
+    <lastmod>2016-03-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/family/</loc>
+    <lastmod>2017-12-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/categories/family/</loc>
+    <lastmod>2017-12-31T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/flood/</loc>
+    <lastmod>2017-09-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/follower-of-jesus/</loc>
+    <lastmod>2017-11-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/gear/</loc>
+    <lastmod>2017-08-16T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/git/</loc>
+    <lastmod>2018-03-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/grafana/</loc>
+    <lastmod>2017-08-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/influxdb/</loc>
+    <lastmod>2017-08-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/jekyll/</loc>
+    <lastmod>2018-03-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/lifehack/</loc>
+    <lastmod>2017-02-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/monitoring/</loc>
+    <lastmod>2017-08-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/music/</loc>
+    <lastmod>2017-08-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/mysteries/</loc>
+    <lastmod>2016-10-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/performance-tuning/</loc>
+    <lastmod>2019-02-07T00:07:21+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/photography/</loc>
+    <lastmod>2017-09-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/powershell/</loc>
+    <lastmod>2019-03-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/categories/powershell/</loc>
+    <lastmod>2017-08-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/rambling/</loc>
+    <lastmod>2016-12-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/ramblings/</loc>
+    <lastmod>2018-08-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/redgate/</loc>
+    <lastmod>2017-07-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/regex/</loc>
+    <lastmod>2016-08-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/smo/</loc>
+    <lastmod>2017-08-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/sql-configuration/</loc>
+    <lastmod>2016-09-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/sql-server/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/categories/sql-server/</loc>
+    <lastmod>2017-08-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/ssrs/</loc>
+    <lastmod>2016-03-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/</loc>
+    <lastmod>2016-11-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/tech/</loc>
+    <lastmod>2019-02-07T23:55:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/text-manipulation/</loc>
+    <lastmod>2017-06-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/tfs/</loc>
+    <lastmod>2017-03-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/time-series/</loc>
+    <lastmod>2017-08-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/troubleshooting/</loc>
+    <lastmod>2017-08-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/videography/</loc>
+    <lastmod>2017-11-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/virtualization/</loc>
+    <lastmod>2017-08-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/vscode/</loc>
+    <lastmod>2017-06-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/tags/worship/</loc>
+    <lastmod>2016-09-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/blog/</loc>
+    <lastmod>2019-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.sheldonhull.com/gallery/</loc>
+  </url>
+  
+</urlset>

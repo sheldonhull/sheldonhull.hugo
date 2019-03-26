@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta itemprop="name" content="Powershell Module Improvements for SQL Server in 2017">
+<meta itemprop="description" content="info &ldquo;Updated: 2018-03-19&rdquo; I don&rsquo;t use these much, if any now. Check out dbatools which is a much better module with a full range of features to save you a ton of time.
+ simple setup A major improvement that seems to have quietly slipped into the sql developers world is an improved SQLServer powershell module. The improved module is finally available in the powershell gallery, allowing a super quick setup on a server.">
+
+
+<meta itemprop="datePublished" content="2017-05-31T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-05-31T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="388">
+
+
+
+<meta itemprop="keywords" content="powershell,sql-server,tech," />
+<meta property="og:title" content="Powershell Module Improvements for SQL Server in 2017" />
+<meta property="og:description" content="info &ldquo;Updated: 2018-03-19&rdquo; I don&rsquo;t use these much, if any now. Check out dbatools which is a much better module with a full range of features to save you a ton of time.
+ simple setup A major improvement that seems to have quietly slipped into the sql developers world is an improved SQLServer powershell module. The improved module is finally available in the powershell gallery, allowing a super quick setup on a server." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.sheldonhull.com/blog/2017-05-31-powershell-module-improvements-for-sql-server-in-2017/" />
+<meta property="article:published_time" content="2017-05-31T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2017-05-31T00:00:00&#43;00:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Powershell Module Improvements for SQL Server in 2017"/>
+<meta name="twitter:description" content="info &ldquo;Updated: 2018-03-19&rdquo; I don&rsquo;t use these much, if any now. Check out dbatools which is a much better module with a full range of features to save you a ton of time.
+ simple setup A major improvement that seems to have quietly slipped into the sql developers world is an improved SQLServer powershell module. The improved module is finally available in the powershell gallery, allowing a super quick setup on a server."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="https://www.sheldonhull.com/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="https://www.sheldonhull.com/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="https://www.sheldonhull.com/favicon-16x16.png">
+	<link rel="manifest" href="https://www.sheldonhull.com/site.webmanifest">
+	<link rel="mask-icon" href="https://www.sheldonhull.com/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="https://www.sheldonhull.com/favicon.ico">
+
+	<title>Powershell Module Improvements for SQL Server in 2017</title>
+	<link rel="stylesheet" href="https://www.sheldonhull.com/css/style.min.31706917653d2b9e8410abd431f30ec4359a88a94fc87a63654779d87329edec.css" integrity="sha256-MXBpF2U9K56EEKvUMfMOxDWaiKlPyHpjZUd52HMp7ew=">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://www.sheldonhull.com">sheldonhull.com</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					<a href="https://www.sheldonhull.com/blog/">Blog</a>
+					<a href="https://www.sheldonhull.com/docs/">Docs</a>
+					<a href="https://www.sheldonhull.com/tags/">Tags</a>
+					<a href="https://www.sheldonhull.com/about/">About</a>
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://www.sheldonhull.com/blog/">Blog</a></li>
+			<li><a href="https://www.sheldonhull.com/docs/">Docs</a></li>
+			<li><a href="https://www.sheldonhull.com/tags/">Tags</a></li>
+			<li><a href="https://www.sheldonhull.com/about/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>Powershell Module Improvements for SQL Server in 2017</h1>
+		<div class="content">
+			
+
+<blockquote>
+<p>info &ldquo;Updated: 2018-03-19&rdquo;
+I don&rsquo;t use these much, if any now. Check out dbatools which is a much better module with a full range of features to save you a ton of time.</p>
+</blockquote>
+
+<h1 id="simple-setup">simple setup<a href="#simple-setup" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<p>A major improvement that seems to have quietly slipped into the sql developers world is an improved SQLServer powershell module. The improved module is finally available in the powershell gallery, allowing a super quick setup on a server. No more installing SSMS to get them!</p>
+
+<p>This is very promising, and great if you want to leverage some of the functionality on various build servers, or other machines that might not have SSMS installed.</p>
+
+<p><a href="http://bit.ly/2pOwVtj">Powershell Gallery - SqlServer</a></p>
+
+<h1 id="new-cmdlets">new cmdlets<a href="#new-cmdlets" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<p>In reviewing, I ran across a few new cmdlet&rsquo;s as well. For instance, you could easily right click on a table and output the results into a powershell object, json, csv, gridview, or anything else you want. This is great flexibility.</p>
+
+<p><img src="https://www.sheldonhull.com/assets/img/exploring-sql-path-provider.png" alt="exploring-sql-path-provider" /></p>
+
+<p>In versions of SQL Server (as of 2012 or earlier) I believe the version SQL Server was utilizing was out of date with the installed version. For instance, on Windows Server 2012 with Powershell ISE reporting PsVersion of 4.0, Sql Server reported version 2.0 being utilized.</p>
+
+<p>In 2014 instances I had, the powershell invoked from SSMS shows the matching up to date version, which gives much better capability and functionality.</p>
+
+<h1 id="simple-benefits-for-the-inquiring-mind">simple benefits for the inquiring mind<a href="#simple-benefits-for-the-inquiring-mind" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+
+<p>If you are not familar with the potentional benefits from being able to quickly invoke a powershell prompt and use SQL server cmdlets (prebuilt functionality that is easily called), I can give you a few use cases.</p>
+
+<p>If you were asked to run a query, then export the results to a spreadsheet, it would be relatively simple as a cut and paste. However, if you needed to loop through every table in the database, and put each one to it&rsquo;s own excel workbook, powershell would allow you to quickly loop, convert the datatable returned into an excel worksheet, and either append into new worksheets, or create completely seperate new files. For automation possibilities, you&rsquo;ve got a tremendous amount of potentional time savings if you can get comfortable with powershell.</p>
+
+<p>In my case, I&rsquo;ve found Powershell to be a great tool to help me understand more of the .NET framework as I use various cmdlets or .NET accelerators.</p>
+
+		</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2019 <a href="https://www.sheldonhull.com"></a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://www.sheldonhull.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+	<script src="https://www.sheldonhull.com/js/main.min.784417f5847151f848c339cf0acb13a06cbb648b1483435a28ed4556c4ead69b.js" integrity="sha256-eEQX9YRxUfhIwznPCssToGy7ZIsUg0NaKO1FVsTq1ps="></script>
+
+</body>
+
+</html>

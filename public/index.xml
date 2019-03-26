@@ -1,0 +1,1446 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on sheldonhull.com</title>
+    <link>https://www.sheldonhull.com/</link>
+    <description>Recent content in Home on sheldonhull.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Jun 2017 18:27:58 +0100</lastBuildDate>
+    
+	<atom:link href="https://www.sheldonhull.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>powershell</title>
+      <link>https://www.sheldonhull.com/docs/powershell/</link>
+      <pubDate>Tue, 19 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/docs/powershell/</guid>
+      <description>String Formatting    Type Example Output Notes     Formatting Switch &#39;select {0} from sys.tables&#39; -f &#39;name&#39; select name from sys.tables Same concept as .NET [string]::Format(). Token based replacement   .NET String Format [string]::Format(&#39;select {0} from sys.tables&#39;,&#39;name&#39;) select name from sys.tables Why would you do this? Because you want to showoff your .NET chops?    Math &amp;amp; Number Conversions    From To Example Output Notes     scientific notation Decimal 2.</description>
+    </item>
+    
+    <item>
+      <title>Debugging Type Binding in PowerShell</title>
+      <link>https://www.sheldonhull.com/blog/2019-03-11-debugging-type-binding-in-powershell/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2019-03-11-debugging-type-binding-in-powershell/</guid>
+      <description>Some effort I spent in researching Type Binding in Stack Overflow to help answer a question by Chris Oldwood helped me solidify my understanding of the best way to debug more complicated scenarios such as this in PowerShell.
+ Why does this PowerShell function&amp;rsquo;s default argument change value based on the use of . or &amp;amp; to invoke a command within it? 
+ Spent some digging into this and this is what I&amp;rsquo;ve observed.</description>
+    </item>
+    
+    <item>
+      <title>dbatools</title>
+      <link>https://www.sheldonhull.com/docs/dbatools/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/docs/dbatools/</guid>
+      <description>Setup install-module &amp;#39;dbatools&amp;#39; -Scope CurrentUser Database Corruption {}</description>
+    </item>
+    
+    <item>
+      <title>AWSPowershell</title>
+      <link>https://www.sheldonhull.com/docs/awspowershell/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/docs/awspowershell/</guid>
+      <description> Pending. Work in progress
+Setup install-module &amp;#39;AWSPowershell&amp;#39; -Scope CurrentUser</description>
+    </item>
+    
+    <item>
+      <title>Migrating From Hipchat To Slack</title>
+      <link>https://www.sheldonhull.com/blog/2019-02-07-migrating-from-hipchat-to-slack/</link>
+      <pubDate>Thu, 07 Feb 2019 23:55:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2019-02-07-migrating-from-hipchat-to-slack/</guid>
+      <description>Last Minute Migration? If you are about to perform a last minute migration here&amp;rsquo;s a couple tips as you jump ship from Hipchat and move to Slack. Hipchat is sunsetting I believe on Feb 15th, so I figured I&amp;rsquo;d share what I do have in case it&amp;rsquo;s helpful, as it won&amp;rsquo;t stay tremendously relevant for long.
+Problem: Hipchat access will be removed and you need more time Export the hipchat content to a file and upload to your own s3 bucket.</description>
+    </item>
+    
+    <item>
+      <title>SQL Server Database Experimentation Assistant - How to Run a Capture</title>
+      <link>https://www.sheldonhull.com/blog/2019-02-07-sql-server-database-experimentation-assistance-how-to-run-a-capture/</link>
+      <pubDate>Thu, 07 Feb 2019 00:07:21 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2019-02-07-sql-server-database-experimentation-assistance-how-to-run-a-capture/</guid>
+      <description>DEA Very basic look at the setup as I couldn&amp;rsquo;t find much documentation on this when I last tried this out in 2018. Maybe it will help you get started a little more quickly. I&amp;rsquo;ve not had a chance to leverage the actual comparisons across a large workload. When I originally wrote up the basics on this last year I found my needs required more customized load testing approaches.</description>
+    </item>
+    
+    <item>
+      <title>Dedupe Google Drive with RClone</title>
+      <link>https://www.sheldonhull.com/blog/2018-08-19-dedupe-google-drive-with-rclone/</link>
+      <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2018-08-19-dedupe-google-drive-with-rclone/</guid>
+      <description>An issue with duplicates I migrated from Amazon Cloud Drive to a paid Google Drive account. To facilate this move, I used a paid service called MultCloud. For me, Comcast prevents unlimited data, so it would have been challenging to manage 1.5TB of video and photography files movement by downloading then reuploading to Google Drive.
+I ran into issues due to hitting rate limiting with Multcloud. As a result, I had to work through their awkard user interface to relaunch those jobs, which still had failures.</description>
+    </item>
+    
+    <item>
+      <title>NTFS Compression and SQL Server Do Not Play Well Together</title>
+      <link>https://www.sheldonhull.com/blog/2018-08-08-ntfs-compression-and-sql-server-dont-play-well-together/</link>
+      <pubDate>Wed, 08 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2018-08-08-ntfs-compression-and-sql-server-dont-play-well-together/</guid>
+      <description>Wanted to be proactive and move a database that was in the default path on C:\ to a secondary drive as it was growing pretty heavily.
+What I didn&amp;rsquo;t realize was the adventure that would ensure.
+Lesson 1 Don&amp;rsquo;t move a SQL Server database to a volume that someone has set NTFS Compression on at the drive level.
+Lesson 2 Copy the database next time, instead of moving. Would have eased my anxious dba mind since I didn&amp;rsquo;t have a backup.</description>
+    </item>
+    
+    <item>
+      <title>Deleting a Directory That Has a Trailing Space Shouldn&#39;t Be This Hard</title>
+      <link>https://www.sheldonhull.com/blog/2018-07-23-deleting-a-directory-that-has-a-trailing-space-shouldn-t-be-this-hard/</link>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2018-07-23-deleting-a-directory-that-has-a-trailing-space-shouldn-t-be-this-hard/</guid>
+      <description>It shouldn&amp;rsquo;t be this hard. This is a consumate #windowsmoment
+If you occasionally use something like Robocopy, or other command line tool, it can be possible to create a directory with a trailing slash. For instance
+robocopy &amp;#34;C:\test\Taco&amp;#34; &amp;#34;C:\Burritos\are\delicious &amp;#34; This trailing space would be actually used by Robocopy to initialize a directory that has a trailing space in the name. This can appear as a duplicator in explorer, until you try to rename and notice a trailing slash.</description>
+    </item>
+    
+    <item>
+      <title>SQL .NET Requirements</title>
+      <link>https://www.sheldonhull.com/blog/2018-03-30-offline-net35-install/</link>
+      <pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2018-03-30-offline-net35-install/</guid>
+      <description>SQL Server Install Requirements SQL Server Installation requirements indicate .NET 3.5, 4.0, or 4.6 depending on the version. This is not including SSMS. At this point you shouldn&amp;rsquo;t use SSMS from any SQL ISO. Just install SQL Management Studio directly. See for more details on this - Improvements with SSMS 2016 - Update SSMS With PS1
+From a quick review here&amp;rsquo;s what you have regarding .NET requirements for the database engine.</description>
+    </item>
+    
+    <item>
+      <title>Git Cracking</title>
+      <link>https://www.sheldonhull.com/blog/2018-03-29-git-cracking/</link>
+      <pubDate>Thu, 29 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2018-03-29-git-cracking/</guid>
+      <description>info &amp;ldquo;Resources&amp;rdquo; - GitKraken - Source Tree - Posh-Git - Cmder
+ Git Some Pain Having come from a Team Foundation Server background, I found Git to be a bit confusing. The problem is primarily the big difference in a distributed version control system vs non-distributed. In addition to that complexity the terminology is not exactly intuitive. A lot of phrases like PULL have different results depending on what step you are in.</description>
+    </item>
+    
+    <item>
+      <title>Migration To Jekyll</title>
+      <link>https://www.sheldonhull.com/blog/2018-03-18-migration-to-jekyll/</link>
+      <pubDate>Sun, 18 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2018-03-18-migration-to-jekyll/</guid>
+      <description>I&amp;rsquo;ve been in the process of migrating my site to it&amp;rsquo;s final home (as far as my inner geek can be satisfied staying with one platform)&amp;hellip; Jekyll.
+Jekyll Jekyll is a static website generator that takes plain markdown files and runs through through files that are basically templates for the end html content, allowing flexibility in content generation. The result ends up being a static website with beautifully generated typography, search, pagination, and other great features for a blogging engine.</description>
+    </item>
+    
+    <item>
+      <title>Time With Family - Thanksgiving</title>
+      <link>https://www.sheldonhull.com/blog/2017-12-31-time-with-family-thanksgiving/</link>
+      <pubDate>Sun, 31 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-12-31-time-with-family-thanksgiving/</guid>
+      <description>I&amp;rsquo;ve made it my personal quest as a creative who has a passion for videography to try and capture simple moments during my life with family. There are plenty of epic indie films, and I can&amp;rsquo;t commit this type of time with a day job, family, and other interests. I think this is a good start. Thanks to Robert &amp;amp; Steph for their hospitality and making this a special thanksgiving. Was a wonderful time with family</description>
+    </item>
+    
+    <item>
+      <title>Delight in the Little Moments</title>
+      <link>https://www.sheldonhull.com/blog/2017-11-10-delight-in-the-little-moments/</link>
+      <pubDate>Fri, 10 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-11-10-delight-in-the-little-moments/</guid>
+      <description>This last Easter I had some fun with the kids at their grandparents. Remember the days of spinning until you were nauseous? Was fun to watch the kids enjoying this so I took a few clips, nothing fancy, just a snapshot of enjoying the little moments in life.
+Thinking I&amp;rsquo;ll try this approach for a while. Small 2 minute videos that aren&amp;rsquo;t refined a lot are easy for me to produce.</description>
+    </item>
+    
+    <item>
+      <title>Welcome to the World Little Ella</title>
+      <link>https://www.sheldonhull.com/blog/2017-09-08-welcome-to-the-world-little-ella/</link>
+      <pubDate>Fri, 08 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-09-08-welcome-to-the-world-little-ella/</guid>
+      <description>Proud to announce Ella the newest addition to my family joined us today @ 6:19pm, weighing in at 6lbs and 11 ounces. Yes, that&amp;rsquo;s 6lbs of cuteness. :-) I&amp;rsquo;m incredibly blessed to have this third addition to my family, and look forward to treasuring every moment with her. God sure knows how to give an amazing gift!
+It was a rough 24 hours resulting in our first cesarean experience. This was a bit intense, but Sarah pulled through as a trooper, and we are now finished with post-operation recovery, and enjoying time with our new bundle of awesome.</description>
+    </item>
+    
+    <item>
+      <title>Recovery is a Marathon, Not a Sprint - Hurricane Harvey</title>
+      <link>https://www.sheldonhull.com/blog/2017-09-03-recovery-is-a-marathon-not-a-sprint-hurricane-harvey/</link>
+      <pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-09-03-recovery-is-a-marathon-not-a-sprint-hurricane-harvey/</guid>
+      <description>It&amp;rsquo;s important to remember that the road to recovery is not an instant process. Right now we have a ton of volunteers and people working to help those in need. I&amp;rsquo;m reminding myself, as much as any readers here, the process to recovery for people most impacted is not a single week of effort event. In some cases, entire homes were lost and without flood insurance, the financial devastation can be profound.</description>
+    </item>
+    
+    <item>
+      <title>A Not-So Waterlogged Texan - Tuesday</title>
+      <link>https://www.sheldonhull.com/blog/2017-08-29-a-not-so-waterlogged-texan-tuesday/</link>
+      <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-08-29-a-not-so-waterlogged-texan-tuesday/</guid>
+      <description>info &amp;ldquo;Updated: 2017-08 1:30pm Wednesday&amp;rdquo; Better than expected, we are looking to be back in our house Thursday. Apparently some SUV&amp;rsquo;s are just starting to gain access. Don&amp;rsquo;t want to risk it so giving it a little extra time. That&amp;rsquo;s much better than I expected at beginning of this whole situation! Relief efforts mentioned at bottom are underway at nwvineyard.com so if you are looking to help the Tomball/Northwest Houston area that&amp;rsquo;s one place to help or find out how to help.</description>
+    </item>
+    
+    <item>
+      <title>A Waterlogged Texan Reporting In from Northpoint Tomball</title>
+      <link>https://www.sheldonhull.com/blog/2017-08-29-a-waterlogged-texan-reporting-in-from-northpoint-tomball/</link>
+      <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-08-29-a-waterlogged-texan-reporting-in-from-northpoint-tomball/</guid>
+      <description>Waterlogged What a crazy weekend. Choose to evacuate the family as water was slowly creeping up closer to the house. I was ready today when I made it back to the house to see the water in the house, but to my astonishment it was only half-way up the driveway. Turning down the road 1 house away, many houses did not fare so well, and water looks to have made it in many homes.</description>
+    </item>
+    
+    <item>
+      <title>Ultrawide Monitor - Samsung CF971 - First impressions</title>
+      <link>https://www.sheldonhull.com/blog/2017-08-16-ultrawide-monitor-samsung-cf971-first-impressions/</link>
+      <pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-08-16-ultrawide-monitor-samsung-cf971-first-impressions/</guid>
+      <description>As a developer, I&amp;rsquo;ve been a big fan of multiple monitors for a long time. I moved to a triple screen setup years ago, and up until recently, had no desire to try anything different.
+Well&amp;hellip; I&amp;rsquo;ve finally found the replacement. The holy grail of productivity, immersion, as well as usability. Ultrawides :-)
+Don&amp;rsquo;t you miss the extra screen? No. The width of the screen is plenty for 2 full Visual Studio environments, or 3 text editors side by side.</description>
+    </item>
+    
+    <item>
+      <title>Fixing VirtualBox Only Showing 32bit Windows OS Options</title>
+      <link>https://www.sheldonhull.com/blog/2017-08-11-fixing-virtual-box-only-showing-32bit-windows-os-options/</link>
+      <pubDate>Fri, 11 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-08-11-fixing-virtual-box-only-showing-32bit-windows-os-options/</guid>
+      <description>Original help was identified from this article Why is VirtualBox only showing 32 bit guest versions on my 64 bit host OS?
+In browsing through the comments, I saw mention that the root issue is that Hypervisor running interferes with Virtualboxes virtual management, so I disabled Hypervisor service, repaired the install, and rebooted. I also disabled automatic start for Hypervisor. This resolved the issue without requiring the uninstallation of the Hypervisor feature in Windows.</description>
+    </item>
+    
+    <item>
+      <title>Exploring SQL Server With Powershell And SMO Basics</title>
+      <link>https://www.sheldonhull.com/blog/2017-08-09-exploring-sql-server-with-powershell-and-smo-basics/</link>
+      <pubDate>Wed, 09 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-08-09-exploring-sql-server-with-powershell-and-smo-basics/</guid>
+      <description>SqlServer Powershell Cmdlets 2017 - Initialize Look Diving into the Sql Server Management Objects library can be a pretty interesting process. You get to work with database objects as in a new way, and begin manipulating and execute code in a much different approach than purely using T-SQL. Powershell offers a unique way to interact with prebuilt cmdlets, and you can explore leveraging .NET in powershell as well to have a powerful toolkit of options.</description>
+    </item>
+    
+    <item>
+      <title>Capturing Perfmon Counters With Telegraf</title>
+      <link>https://www.sheldonhull.com/blog/2017-08-08-capturing-perfmon-counters-with-telegraf/</link>
+      <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-08-08-capturing-perfmon-counters-with-telegraf/</guid>
+      <description>Other Posts in Series  Running InfluxDb As A Service in Windows Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev InfluxDB And Annotations Capturing Perfmon Counters With Telegraf  Setting up Telegraf to Capture Metrics I had a lot of issues with getting the GO enviroment setup in windows, this time and previous times. For using telegraf, I&amp;rsquo;d honestly recommend just leveraging the compiled binary provided.
+Once downloaded, generate a new config file by running the first command and then the next to install as service.</description>
+    </item>
+    
+    <item>
+      <title>Dataedo - First Look</title>
+      <link>https://www.sheldonhull.com/blog/2017-08-07-dataedo-first-look/</link>
+      <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-08-07-dataedo-first-look/</guid>
+      <description>info &amp;ldquo;update 2019-02-22&amp;rdquo; Image links broken. Since their product is continually improving, I&amp;rsquo;m going to just link to their product here instead so you can review their latest demo content there. Dataedo. Overall, I&amp;rsquo;ve enjoyed the product and think it has been improved over time. There are SQL scripts for bulk updating certain values on their website that can help improve building a project for an existing database as well.</description>
+    </item>
+    
+    <item>
+      <title>InfluxDB and Annotations</title>
+      <link>https://www.sheldonhull.com/blog/2017-08-07-influx-db-and-annotations/</link>
+      <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-08-07-influx-db-and-annotations/</guid>
+      <description>Other Posts in Series  Running InfluxDb As A Service in Windows Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev InfluxDB And Annotations Capturing Perfmon Counters With Telegraf  This post assumes you&amp;rsquo;ve already setup InfluxDB and have Grafana running.
+Inserting annotations Annotations are not a special type of resource, instead it&amp;rsquo;s just another metric that you query with a feature in Grafana to display on other metrics.</description>
+    </item>
+    
+    <item>
+      <title>Spotify vs Google Play</title>
+      <link>https://www.sheldonhull.com/blog/2017-08-05-spotify-vs-google-play/</link>
+      <pubDate>Sat, 05 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-08-05-spotify-vs-google-play/</guid>
+      <description>I&amp;rsquo;ve recently switched over to Spotify for the nth time to explore the Spotiverse world and compare as a long time Google Play Music user. This is a big deal for me, as I was a first adopter of Google Play and have used it before All Access, and subscribed immediately to All Access once it was released. As a ravenous music consumer, I&amp;rsquo;ve preferred the subscription model for instant, on demand access.</description>
+    </item>
+    
+    <item>
+      <title>ANTS Performance Profiler for the SQL Server Dev</title>
+      <link>https://www.sheldonhull.com/blog/2017-07-21-ants-performance-profiler-for-the-sql-server-dev/</link>
+      <pubDate>Fri, 21 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-07-21-ants-performance-profiler-for-the-sql-server-dev/</guid>
+      <description>There are a few .NET tools that until recently I haven&amp;rsquo;t had the chance to work with as much, specifically ANTS Memory Profiler and ANTS Performance Profiler. The memory profiler is more useful for someone focused on memory leaks which a SQL Dev isn&amp;rsquo;t as focused on for performance tuning. However, there are major benefits for diving into SQL Performance tuning with ANTS Performance profiler. I think I&amp;rsquo;d say this tool makes the epic category of my #cooltools kit and will be added to my COOL TOOLS page here for SQL performance tuning.</description>
+    </item>
+    
+    <item>
+      <title>Update SSMS With PS1</title>
+      <link>https://www.sheldonhull.com/blog/2017-07-03-update-ssms-with-ps1/</link>
+      <pubDate>Mon, 03 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-07-03-update-ssms-with-ps1/</guid>
+      <description>Update &amp;ldquo;Updated: 2018-03-29&amp;rdquo; Use Chocolatey. This page keeps changing it&amp;rsquo;s structure, so the regex to parse for Ketarin and this PS1 script keep breaking. Updated to latest version as of 2018-03-29, but recommend checking out the Chocolately Package created for SSMS for this by flcdrg as chocolately is a much nicer way to keep up to date and more likely long-term to succeed than my gist :-) To use chocolatey (after setup), you only have to use choco upgrade sql-server-management-studio which is much easier to remember than using this gist.</description>
+    </item>
+    
+    <item>
+      <title>External Tool VSCODE called from SQL Management Studio</title>
+      <link>https://www.sheldonhull.com/blog/2017-06-26-edit-in-vscode/</link>
+      <pubDate>Mon, 26 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-06-26-edit-in-vscode/</guid>
+      <description>Previous Related Post: Split personality text editing in SSMS with Sublime Text 3
+In this prior post I wrote about how to call Sublime Text 3 from SSMS to allow improved text manipulation to be quickly called from an active query window in SQL Management Studio. Vscode is a newer editor from Microsoft, and the argument calls took a little work to get working. Here is what I found for having your SQL file open in vscode via call from SSMS (I imagine also works in Visual Studio 2017 this way as well).</description>
+    </item>
+    
+    <item>
+      <title>Add User To Admin Group on Machine</title>
+      <link>https://www.sheldonhull.com/blog/2017-06-07-add-user-to-admin-group-on-machine/</link>
+      <pubDate>Wed, 07 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-06-07-add-user-to-admin-group-on-machine/</guid>
+      <description>In setting up some build machines for development, it&amp;rsquo;s tedious to go and add several users to the admin group. Here&amp;rsquo;s a snippet to expedite that task and help you setup more quickly.
+</description>
+    </item>
+    
+    <item>
+      <title>Best Practices: Defining Explicit Length for Varchar/Nvarchar</title>
+      <link>https://www.sheldonhull.com/blog/2017-06-07-best-practices-defining-explicit-length-for-varchar-nvarchar/</link>
+      <pubDate>Wed, 07 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-06-07-best-practices-defining-explicit-length-for-varchar-nvarchar/</guid>
+      <description>SA0080 : Do not use VARCHAR or NVARCHAR data types without specifying length. Level: Warning
+ When using varchar/nvarchar it should be explicitly defined. This can be a very nasty bug to track down as often nothing will be thrown if not checked in an application. Instead, ensure your script explicitly defines the smallest length that fits your requirements. The reason I rate this as a very dangerous practice, is that no error is thrown.</description>
+    </item>
+    
+    <item>
+      <title>Powershell Module Improvements for SQL Server in 2017</title>
+      <link>https://www.sheldonhull.com/blog/2017-05-31-powershell-module-improvements-for-sql-server-in-2017/</link>
+      <pubDate>Wed, 31 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-05-31-powershell-module-improvements-for-sql-server-in-2017/</guid>
+      <description>info &amp;ldquo;Updated: 2018-03-19&amp;rdquo; I don&amp;rsquo;t use these much, if any now. Check out dbatools which is a much better module with a full range of features to save you a ton of time.
+ simple setup A major improvement that seems to have quietly slipped into the sql developers world is an improved SQLServer powershell module. The improved module is finally available in the powershell gallery, allowing a super quick setup on a server.</description>
+    </item>
+    
+    <item>
+      <title>Running InfluxDB as a service in Windows</title>
+      <link>https://www.sheldonhull.com/blog/2017-05-24-running-influx-db-as-a-service-in-windows/</link>
+      <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-05-24-running-influx-db-as-a-service-in-windows/</guid>
+      <description>Other Posts in Series  Running InfluxDb As A Service in Windows Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev InfluxDB And Annotations Capturing Perfmon Counters With Telegraf  Run as a Service As part of the process to setup some metrics collections for sql-server based on perfmon counters I&amp;rsquo;ve been utilizing InfluxDB. Part of getting started on this is ensuring InfluxDB runs as a service instead of requiring me to launch the exe manually.</description>
+    </item>
+    
+    <item>
+      <title>Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev</title>
+      <link>https://www.sheldonhull.com/blog/2017-05-17-setting-up-influx-db-chronograf-and-grafana-for-the-sql-server-dev/</link>
+      <pubDate>Wed, 17 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-05-17-setting-up-influx-db-chronograf-and-grafana-for-the-sql-server-dev/</guid>
+      <description>Other Posts in Series  Running InfluxDb As A Service in Windows Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev InfluxDB And Annotations Capturing Perfmon Counters With Telegraf  There are some beautiful ways to visualize time series data with the tools I&amp;rsquo;m going to go over. This post is purely focused on the initial setup and saving you some time there. In a future post, I&amp;rsquo;ll show how some of these tools can help you visualize your server performance in a powerful way, including taking metrics from multiple types of servers that be working with SQL Server, and combining the metrics when appropriate to give a full picture of performance.</description>
+    </item>
+    
+    <item>
+      <title>Automate Windows Updates for Development</title>
+      <link>https://www.sheldonhull.com/blog/2017-05-10-automate-windows-updates-for-development/</link>
+      <pubDate>Wed, 10 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-05-10-automate-windows-updates-for-development/</guid>
+      <description>I&amp;rsquo;ve run into the case where I wanted updates continually applied, while the machine still was part of the GPO that didn&amp;rsquo;t automatically install updates. For this developer and test oriented machine I wanted every update applied.
+I utilized a great module for this and created a script to setup the task and logging to make this an easy task.
+If you experience an issue with the WindowsUpdate Vs Microsoft update as the configured update provider, then you can just change the switch in the script for -MicrosoftUpdate to -WindowsUpdate</description>
+    </item>
+    
+    <item>
+      <title>Programming Fonts For The Newb</title>
+      <link>https://www.sheldonhull.com/blog/2017-05-08-programming-fonts-for-the-newb/</link>
+      <pubDate>Mon, 08 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-05-08-programming-fonts-for-the-newb/</guid>
+      <description>the camps Once you get into coding fonts, you&amp;rsquo;ll find that there are two primary camps.
+ Don&amp;rsquo;t give a crap about it. &amp;ldquo;I&amp;rsquo;ll use defaults for everything and probably wouldn&amp;rsquo;t care if I was coding in Arial&amp;rdquo;. If this is you, then this post is definitely not for you. Please continue to enjoy Comic Sans with my pity. :-) Font aficionados &amp;ldquo;Your world will change forever once you use this specific font!</description>
+    </item>
+    
+    <item>
+      <title>TFS Custom Task - Service Actions (for TFS 2015 Update 2.1 or before)</title>
+      <link>https://www.sheldonhull.com/blog/2017-03-07-tfs-custom-task-service-actions-for-tfs-2015-update-2.1-or-before/</link>
+      <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-03-07-tfs-custom-task-service-actions-for-tfs-2015-update-2.1-or-before/</guid>
+      <description>Apparently, boolean values for custom VSTS tasks for versions prior to TFS 2015 Update 3) require some special handling as they don&amp;rsquo;t pass the checkbox values as actual powershell $true or $false. Instead the task passes this information along as true or false. To properly handle this you&amp;rsquo;ll need to pass in the value as a string then convert to boolean.
+I found a great start on working on this solution in a blog post by Rene which has more detail, so check it out.</description>
+    </item>
+    
+    <item>
+      <title>Red Gate SQL Clone (#1) - Initial Setup</title>
+      <link>https://www.sheldonhull.com/blog/red-gate-sql-clone-1-initial-setup/</link>
+      <pubDate>Mon, 27 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/red-gate-sql-clone-1-initial-setup/</guid>
+      <description>Note this was during earlier beta usage, so some of the UI and other features will have been updated more. I plan on writing more on this promising tool as I get a chance to dive into it more, especially the powershell cmdlets for database cloning automation. In the meantime, I believe the permissions issue is still relevant, so I&amp;rsquo;ll post this as a reminder in case someone is working through the initial setup.</description>
+    </item>
+    
+    <item>
+      <title>Life Hack: When you need a mouse pad</title>
+      <link>https://www.sheldonhull.com/blog/2017-02-24-life-hack-when-you-need-a-mouse-pad/</link>
+      <pubDate>Fri, 24 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-02-24-life-hack-when-you-need-a-mouse-pad/</guid>
+      <description>My Logitech Master mouse went on the fritz&amp;hellip; Requiring me to use my trusty Microsoft mouse. This is an optical based mouse based mouse that started driving me insane with the lack of precision. This exhibited random skips and overall lack of agreeability. I ran across some posts mentioning optical mice have issues with certain surfaces making it hard to detect precise movements and suggested using a surface with a pattern or irregularity, even a piece of paper being scribbled on.</description>
+    </item>
+    
+    <item>
+      <title>Quick Way to Run Powershell Tasks in Parallel</title>
+      <link>https://www.sheldonhull.com/blog/2017-02-18-quick-way-to-run-powershell-tasks-in-parallel/</link>
+      <pubDate>Sat, 18 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-02-18-quick-way-to-run-powershell-tasks-in-parallel/</guid>
+      <description>Running tasks in parallel can be a bit difficult in powershell. However, there are a few projects out there that optimize the performance and provide a better experience of running tasks in parallel with less effort.#cool uses A few cool uses of this might be running parallel sql queries across multiple servers or databases while maintaining a throttled limit to avoid saturation of the target environment. Additionally, long running queries might benefit in running in parallel if running on multiple objects in the same database or in different databases.</description>
+    </item>
+    
+    <item>
+      <title>Redgate SQL Data Compare &amp; Devart DBForge Data Compare</title>
+      <link>https://www.sheldonhull.com/blog/2017-02-18-redgate-sql-data-compare-devart-db-forge-data-compare/</link>
+      <pubDate>Sat, 18 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-02-18-redgate-sql-data-compare-devart-db-forge-data-compare/</guid>
+      <description>I&amp;rsquo;m a big fan of Redgate, as I&amp;rsquo;m in the Friend of Redgate program. However, I do also utilize some other toolkits. One competitor that I find has some , but I do dabble with some other toolkits (I know heresy :-) . One of the competitors that I find has some brilliant features, but many time lacks the refinement and ease of use of Redgate is Devart tools. The tools they offer are often really nice, and continually updated based on feedback.</description>
+    </item>
+    
+    <item>
+      <title>SSMS 2016 - Object Explorer Read Uncommitted</title>
+      <link>https://www.sheldonhull.com/blog/2017-02-18-ssms-2016-object-explorer-read-uncommitted/</link>
+      <pubDate>Sat, 18 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-02-18-ssms-2016-object-explorer-read-uncommitted/</guid>
+      <description>I ran through some directions from others, including the very helpful post from SqlVariant, but I had issues locating the correct keys. For my Windows 10 machine, running SSMS 2016, I found the registry keys related to the object explorer located in a different path.
+I found matches for read committed/uncommitted string at: HKCU\SOFTWARE\Microsoft\VisualStudio\14.0\SSDT\SQLEditorUserSettings
+Running the following powershell command: get-itemproperty -path &#39;Registry::HKCU\SOFTWARE\Microsoft\VisualStudio\14.0\SSDT\SQLEditorUserSettings&#39; &#39; select SetTransactionIsolationLevel &#39; format-list</description>
+    </item>
+    
+    <item>
+      <title>Track Creation of Databases</title>
+      <link>https://www.sheldonhull.com/blog/2017-02-18-track-creation-of-databases/</link>
+      <pubDate>Sat, 18 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-02-18-track-creation-of-databases/</guid>
+      <description>Sys.Databases has some create information, but I was looking for a way to track aging, last access, and if databases got dropped. In a development environment, I was hoping this might help me gauge which development databases were actually being used or not.
+ /******************************************************* run check on each constraint to evaluate if errors *******************************************************/ if object_id(&amp;#39;tempdb..##CheckMe&amp;#39;) is not null drop table ##CheckMe; select temp_k = identity(int, 1, 1) ,X.* into ##CheckMe from (select type_of_check = &amp;#39;FK&amp;#39; ,&amp;#39;[&amp;#39; + s.</description>
+    </item>
+    
+    <item>
+      <title>Bad Idea Jeans: Query Optimization Through Minification</title>
+      <link>https://www.sheldonhull.com/blog/2017-01-23-bad-idea-jeans-query-optimization-through-minification/</link>
+      <pubDate>Mon, 23 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2017-01-23-bad-idea-jeans-query-optimization-through-minification/</guid>
+      <description>SQL is pretty verbose compared to some languages. It&amp;rsquo;s a pretty big disappointment that I have to type out select customer from dbo.customers where id = 2 instead of a much simpler syntax like dbo.Customers &#39; Customer like Powershell might offer. As I considered the disappointing verbosity of sql server, I considered that perhaps one way to reduce network traffic, save electricity, and aid the garrulous language known as sql might be to require all code running to be minified.</description>
+    </item>
+    
+    <item>
+      <title>ManicTime - Timetracking Automation Done Right</title>
+      <link>https://www.sheldonhull.com/blog/2016-12-09-manictime-timetracking-automation-done-right/</link>
+      <pubDate>Fri, 09 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-12-09-manictime-timetracking-automation-done-right/</guid>
+      <description>Tracking time is always a beast. With the amount of context switching many developers do, it can be tough to remember how much time went to each project. With companies looking to track effort on sprints, hours on a client project, or (as in my case) just a dev wanting to better evaluate the productive use of time, this app fills some gaps that others don&amp;rsquo;t.For instance, I&amp;rsquo;ve tried tools such as Toggl, and similar.</description>
+    </item>
+    
+    <item>
+      <title>Dynamically Set Powershell Variables from json</title>
+      <link>https://www.sheldonhull.com/blog/2016-12-05-dynamically-set-powershell-variables-from-json/</link>
+      <pubDate>Mon, 05 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-12-05-dynamically-set-powershell-variables-from-json/</guid>
+      <description>&lt;p&gt;I created this small snippet to allow a list of values from a json file be turned into variables to work with. For working with a fixed list of configuration values, this might be helpful to reduce some coding effort.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The Traditional Birthday Song Is Terrible</title>
+      <link>https://www.sheldonhull.com/blog/2016-12-03-the-traditional-birthday-song-is-terrible/</link>
+      <pubDate>Sat, 03 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-12-03-the-traditional-birthday-song-is-terrible/</guid>
+      <description>The traditional birthday song is terrible.It&amp;rsquo;s never really changed. It&amp;rsquo;s like singing a dirge. It&amp;rsquo;s really really hard for people to sing anywhere close to on key. We all sing it because we have to, but there is this feeling of regret, like &amp;ldquo;I&amp;rsquo;ll do it for you, but just because I love you&amp;rdquo;. It is followed by &amp;ldquo;Many mourns&amp;rdquo; by the closest available family clown. Apparently, the roots were back in the 19th century, and wikipedia says:</description>
+    </item>
+    
+    <item>
+      <title>Scan folder of dlls to identify x86 or x64 compiled assemblies</title>
+      <link>https://www.sheldonhull.com/blog/2016-11-22-scan-folder-of-dlls-to-identify-x86-or-x64-compiled-assemblies/</link>
+      <pubDate>Tue, 22 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-11-22-scan-folder-of-dlls-to-identify-x86-or-x64-compiled-assemblies/</guid>
+      <description>Point this at a directory of dlls and you can get some of the loaded assembly details to quickly identify what type of processor architecture they were compiled for.I did this as I wanted to explore a large directory of dlls and see if I had mixed assemblies of x32 and x64 together from a visual studio build. Some dlls with invalid assembly header information were found, and this skips those as warnings.</description>
+    </item>
+    
+    <item>
+      <title>Attaching Database Using SMO &amp; Powershell</title>
+      <link>https://www.sheldonhull.com/blog/2016-11-18-attaching-database-using-smo-and-powershell/</link>
+      <pubDate>Fri, 18 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-11-18-attaching-database-using-smo-and-powershell/</guid>
+      <description>Steve Jones wrote a great article on using this automation here titled The Demo Setup-Attaching Databases with Powershell. I threw together a completed script and modified it for my functionality here. MSDN documentation on the functionality is located here Server.AttachDatabase Method (String, StringCollection, String, AttachOptions)I see some definitive room for improvement with some future work on this to display percentage complete and so on, but did not implement at this time.</description>
+    </item>
+    
+    <item>
+      <title>Parallel Powershell for Running SQL</title>
+      <link>https://www.sheldonhull.com/blog/2016-11-16-parallel-powershell-for-running-sql/</link>
+      <pubDate>Wed, 16 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-11-16-parallel-powershell-for-running-sql/</guid>
+      <description>This is just a quick look. I plan on diving into this in the future more, as I&amp;rsquo;m still working through some of the changes being made in the main parallel modules I utilize for SQL server. In the meantime, if you are looking for a quick way to leverage some parallel query running, take a look at PSParallel. I&amp;rsquo;ve avoided Powershell Jobs/Workflow due to limitations they have and the performance penalty I&amp;rsquo;ve seen is associated with them.</description>
+    </item>
+    
+    <item>
+      <title>Get Backup History for All Databases in Server</title>
+      <link>https://www.sheldonhull.com/blog/2016-11-01-get-backup-history-for-all-databases-in-server/</link>
+      <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-11-01-get-backup-history-for-all-databases-in-server/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s a quick snippet to get a listing of the database backups that last occurred on a server. Most solutions provided a single backup listing, but not the brief summary of the last backup details I was looking for.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Pizzicato Pizza</title>
+      <link>https://www.sheldonhull.com/blog/2016-10-29-pizzicato-pizza/</link>
+      <pubDate>Sat, 29 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-10-29-pizzicato-pizza/</guid>
+      <description>Had a blast making this song. Unfortunately, creating video of slow motion pizza cutting was going to be a bit awkward to do, as I didn&amp;rsquo;t feel like asking a pizza place to let me stand behind the counter and video pizza assembly. :-)Best listened to with headphones, not a phone speaker :-)  This was an experimentation with several new tools for me.
+song creation I first used Presonus Studio One 3 to record some basic track parts like the guitar.</description>
+    </item>
+    
+    <item>
+      <title>Data Compare on Temporal Tables</title>
+      <link>https://www.sheldonhull.com/blog/2016-10-28-data-compare-on-temporal-tables/</link>
+      <pubDate>Fri, 28 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-10-28-data-compare-on-temporal-tables/</guid>
+      <description>I hadn&amp;rsquo;t seen much talk on doing data comparisons on temporal tables, as they are a new feature. I went through the exercise to compare current to historical to see how Red Gate &amp;amp; Devart handled this. I&amp;rsquo;m a part of the Friends of Red Gate program, so love checking out their latest updates, and I&amp;rsquo;m also a regular tester on Devart which also provides fantastic tools. Both handled Temporal Tables with aplomb, so here&amp;rsquo;s a quick walk through on how I did this.</description>
+    </item>
+    
+    <item>
+      <title>Fixing Untrusted Foreign Key or Check Constraint</title>
+      <link>https://www.sheldonhull.com/blog/2016-10-22-fixing-untrusted-foreign-key-or-check-constraint/</link>
+      <pubDate>Sat, 22 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-10-22-fixing-untrusted-foreign-key-or-check-constraint/</guid>
+      <description>Untrusted constraints can be found when you alter/drop foreign key relationships and then add them back without the proper syntax.If you are deploying data through several tables, you might want to disable foreign keys on those tables during the deployment to ensure that all the required relationships have a chance to insert their data before validation.
+Once you complete the update, you should run a check statement to ensure the Foreign Key is trusted.</description>
+    </item>
+    
+    <item>
+      <title>An Internet With Less Ads - Adguard</title>
+      <link>https://www.sheldonhull.com/blog/2016-10-20-an-internet-with-less-ads-adguard/</link>
+      <pubDate>Thu, 20 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-10-20-an-internet-with-less-ads-adguard/</guid>
+      <description>Ads&amp;hellip;I know they employ people, make the world go round, gave us google&amp;hellip;. but seriously I hate almost all ads. If my ranking in google search drops to the end because of this post&amp;hellip; well&amp;hellip;. I&amp;rsquo;m ok with that.
+Adguard I&amp;rsquo;ve been using this for over a year as a beta tester (they provided license for me to test and use latest versions). I had a perfect case to demo the craziness of some sites with ads vs using Adguard the other day and figured I&amp;rsquo;d share it if you&amp;hellip; like me&amp;hellip; hate the clutter they provide on many sites.</description>
+    </item>
+    
+    <item>
+      <title>Easy SQL Maintenance with Minionware</title>
+      <link>https://www.sheldonhull.com/blog/2016-10-18-easy-sql-maintenance-with-minionware/</link>
+      <pubDate>Tue, 18 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-10-18-easy-sql-maintenance-with-minionware/</guid>
+      <description>info &amp;ldquo;Updated 2017-01-25&amp;rdquo; While I think the minionware solution is pretty awesome, I think it takes more work for the value, and can be a bit confusing to correctly setup, vs the Ola Hallengren solution, esp since you can install this quickly with dbatools now. I&amp;rsquo;d lean towards Ola Hallengren for simple implementations, and consider MinionWare&amp;rsquo;s option if you are looking at the their flexibility in the table based configuration.</description>
+    </item>
+    
+    <item>
+      <title>Cannot Generate SSPI Context</title>
+      <link>https://www.sheldonhull.com/blog/2016-10-17-cannot-generate-sspi-context/</link>
+      <pubDate>Mon, 17 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-10-17-cannot-generate-sspi-context/</guid>
+      <description>Troubleshooting I ran into an error: The target principal name is incorrect. Cannot generate SSPI context. (Microsoft SQL Server, Error: 0)
+I evaluated the sql server configuration manager protocols for sql server and saw that named pipes was disabled. I tried ensuring that this wasn&amp;rsquo;t causing the issue, but enabling but it didn&amp;rsquo;t fix. Thankfully, Andrew on StackOverflow had the answer here:
+ First thing you should do is go into the logs (Management\SQL Server Logs) and see if SQL Server successfully registered the Service Principal Name (SPN).</description>
+    </item>
+    
+    <item>
+      <title>Centralized Management Server 101</title>
+      <link>https://www.sheldonhull.com/blog/2016-10-16-centralized-management-server-101/</link>
+      <pubDate>Sun, 16 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-10-16-centralized-management-server-101/</guid>
+      <description>I&amp;rsquo;ve used Central Management Server registered servers in SSMS for primarily one purpose, saving connections. :-) This is definitely not the intended usage. As I&amp;rsquo;ve explored the benefits of using this a little more, I put a few notes together to help share the concepts I came across. I was brand new to this feature in SQL server, and found some of the functionality pretty powerful, especially if you are in an environment that has a lot of servers to manage and ensure consistent configuration among all of them.</description>
+    </item>
+    
+    <item>
+      <title>DAW Dive 02 - BFD3 - Drumming for the Rest of Us</title>
+      <link>https://www.sheldonhull.com/blog/2016-10-11-daw-dive-02-bfd3-drumming-for-the-rest-of-us/</link>
+      <pubDate>Tue, 11 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-10-11-daw-dive-02-bfd3-drumming-for-the-rest-of-us/</guid>
+      <description>Creating tracks at home can be very intensive in time, so I&amp;rsquo;m always looking for a better way to bring a larger sound to a track with less effort. One of the big gaps for me has been the drum parts. I&amp;rsquo;ve evaluated a few options, and finally dived into BFD3 for this latest project that is a post-rock style track. This was my first time diving into BFD3 for a full song, so I had a bit to learn.</description>
+    </item>
+    
+    <item>
+      <title>Migrating Database Collation - The Red Gate Way</title>
+      <link>https://www.sheldonhull.com/blog/2016-10-10-migrating-database-collation-the-red-gate-way/</link>
+      <pubDate>Mon, 10 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-10-10-migrating-database-collation-the-red-gate-way/</guid>
+      <description>I had some cross database comparisons that I wanted to simplify, but ensuring the collation matched. The amount of objects that I would have had to drop and recreate was a bit daunting, so I looked for a way to migrate the database to a different collation.Using the Red Gate toolkit, I was able to achieve this pretty quickly. There are other methods with copying data built in to SSMS that could do some of these steps, but the seamless approach was really nice with the SQL Toolbelt.</description>
+    </item>
+    
+    <item>
+      <title>Fixing non-deterministic error when creating indexed view</title>
+      <link>https://www.sheldonhull.com/blog/2016-10-09-fixing-non-deterministic-error-when-creating-indexed-view/</link>
+      <pubDate>Sun, 09 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-10-09-fixing-non-deterministic-error-when-creating-indexed-view/</guid>
+      <description>I discovered a bit of info on working with float values, while creating a hash value that contained a float value, and a date value.
+create unique clustered index ix_clustered_ViewK_Catfood_K Msg 1901, Level 16, State 1, Line 1517 Cannot create index or statistics &amp;#39;ix_clustered_ViewK_Catfood_K&amp;#39; on view &amp;#39;compareCatfood&amp;#39; because key column &amp;#39;ViewK&amp;#39; is imprecise, computed and not persisted. Consider removing reference to column in view index or statistics key or changing column to be precise.</description>
+    </item>
+    
+    <item>
+      <title>Powershell ISE: Updating Theme</title>
+      <link>https://www.sheldonhull.com/blog/2016-10-09-powershell-ise-updating-theme/</link>
+      <pubDate>Sun, 09 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-10-09-powershell-ise-updating-theme/</guid>
+      <description>For all the dark theme aficionados, or those who just want a better theme than the default, here&amp;rsquo;s a quick set of directions to update your ISE.1. Go to download a theme from Github &amp;gt; PowerShell_ISE_Themes 2. Unzip 3. Go to ISE &amp;gt; Tools &amp;gt; Options &amp;gt; Colors &amp;amp; Fonts &amp;gt; Manage Themes 4. Import selected theme 5. For consistency, adjust the background and forecolor of the console pane as well as the text background to match if you want to.</description>
+    </item>
+    
+    <item>
+      <title>Syncovery &amp; Arq - Syncing &amp; Backup</title>
+      <link>https://www.sheldonhull.com/blog/2016-10-09-syncovery-arq-syncing-backup/</link>
+      <pubDate>Sun, 09 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-10-09-syncovery-arq-syncing-backup/</guid>
+      <description>Syncovery &amp;amp; Arq 5I&amp;rsquo;ve tried a lot of file sync/backup utilities. The primary definition to get right is that there are two main functions people try to achieve with this type of software.
+ File Syncing: Syncing Files Between Cloud and Local File Backup: Preserving Files, sometimes with versioning, in order to protect against loss. These two approaches require a diffferent solution many times, as focusing on file syncing means you are more at risk, as handing conflicting sync scenarios might cause loss.</description>
+    </item>
+    
+    <item>
+      <title>SQL 2016 - Configuration Manager Not Showing in Start Menu</title>
+      <link>https://www.sheldonhull.com/blog/2016-09-21-sql-2016-configuration-manager-not-showing-in-start-menu/</link>
+      <pubDate>Wed, 21 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-09-21-sql-2016-configuration-manager-not-showing-in-start-menu/</guid>
+      <description>Didn&amp;rsquo;t see SQL 2016 Configuration manager in the start menu. Ran a quick search to see if this was a common issue and found an article: Quick Trick Where is SQL Server for SQL 2012I looked and found the SQL Configuration Manager for 2016 in the same location: C:\Windows\System32\SQLServerManager13.msc
+As I&amp;rsquo;m running windows 10, the location for the start menu entries were located here: C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft SQL Server 2016
+Create a shortcut for SQLServerManager13.</description>
+    </item>
+    
+    <item>
+      <title>DAW Dive 1 - Getting Started - Studio One 3</title>
+      <link>https://www.sheldonhull.com/blog/2016-09-20-daw-dive-1-getting-started-studio-one-3/</link>
+      <pubDate>Tue, 20 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-09-20-daw-dive-1-getting-started-studio-one-3/</guid>
+      <description>I&amp;rsquo;m a geek, software nerd, and a musician. As I&amp;rsquo;ve been stagnating lately in my musical progression I decided to dive into trying to produce some recordings of some of my music, hoping to spice up the old brain.I have a lot to learn. It&amp;rsquo;s pretty humbling, but despite being a musician and a developer with some decent tinkering ability, I&amp;rsquo;ve found getting into recording and production a bit challenging on certain things.</description>
+    </item>
+    
+    <item>
+      <title>Setting DBCC 1222 on startup</title>
+      <link>https://www.sheldonhull.com/blog/2016-09-19-setting-dbcc-1222-on-startup/</link>
+      <pubDate>Mon, 19 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-09-19-setting-dbcc-1222-on-startup/</guid>
+      <description>The following command is run to gain details on deadlocks.
+DBCC TRACEON (1222,-1) However, once the SQL instance is restarted this flag is set back to disabled.
+To enable it on the instance upon startup:
+ Open SQL Configuration Manager Services &amp;gt; Sql Service Instance &amp;gt; Properties &amp;gt; Startup Parameters Add the following statement: -T1222 Confirm the change by navigating to Advanced &amp;gt; Startup Parameters. This should be grayed out and display the new value that was added at the end with a delimited semicolon.</description>
+    </item>
+    
+    <item>
+      <title>Ableton Live &amp; Lemur Setup (From a Windows User)</title>
+      <link>https://www.sheldonhull.com/blog/2016-09-17-ableton-live-lemur-setup-from-a-windows-user/</link>
+      <pubDate>Sat, 17 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-09-17-ableton-live-lemur-setup-from-a-windows-user/</guid>
+      <description>Had a chance to look at this program thanks to the generosity of the developer. They had a promotion that ended prematurely and they sent me a license as a goodwill gesture. Pretty fantastic service, and thanks to them for this.The documentation was a little sparse for the Windows setup, so I ran into some complications getting it to work.
+I have used TouchOSC, and had some difficulty with configuring it for windows.</description>
+    </item>
+    
+    <item>
+      <title>Lack for Nothing</title>
+      <link>https://www.sheldonhull.com/blog/2016-09-14-lack-for-nothing/</link>
+      <pubDate>Wed, 14 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-09-14-lack-for-nothing/</guid>
+      <description>The message of this song is one that that has been driving itself home as more and more important to me. We are not viewed in our frailty as we come before God to worship Him. We are not judged and condemned. He doesn&amp;rsquo;t look and tell us to come back when we are in a better place. Instead, just as the author of Hebrews writes (Heb 10), we can come with bold confidence, knowing that the way has been made for us in Christ, with us being viewed through the &amp;ldquo;curtain&amp;rdquo; of Christ.</description>
+    </item>
+    
+    <item>
+      <title>Remote Desktop Workflow Improvements</title>
+      <link>https://www.sheldonhull.com/blog/2016-08-29-remote-desktop-workflow-improvements/</link>
+      <pubDate>Mon, 29 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-08-29-remote-desktop-workflow-improvements/</guid>
+      <description>Remote server management is a fact of life for folks involved with sql server. Since we work so often with remote machines I looked into a few tools that provided a better workflow than the default Microsoft tools. This one came out as the winner by far.
+A better remote desktop manager First off, if you are using RDC&amp;hellip;. why? At least move up to RDCMan, a microsoft tool that allows for much quick context switching between machines, inherited password settings for a group of servers, and more.</description>
+    </item>
+    
+    <item>
+      <title>SSMS - Connection Color with SQL Prompt &amp; SSMSBoost</title>
+      <link>https://www.sheldonhull.com/blog/2016-08-23-ssms-connection-color-with-sql-prompt-ssms-boost/</link>
+      <pubDate>Tue, 23 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-08-23-ssms-connection-color-with-sql-prompt-ssms-boost/</guid>
+      <description>If you haven&amp;rsquo;t explored the visual color coding of tabs based on pattern matches with SQL Prompt, I&amp;rsquo;d suggest you check this out. Earlier iterations of Red Gate&amp;rsquo;s SQL Prompt did not change tab color immediately when the connection was changed. Red Gate&amp;rsquo;s tab color could get out of sync occasionally, so I stopped depending on it.
+Apparently this has been improved on and my testing now shows that the tab recoloring for connections is changing when the connection is updated immediately.</description>
+    </item>
+    
+    <item>
+      <title>SQL 2016 - Brief Overview on some new features</title>
+      <link>https://www.sheldonhull.com/blog/2016-08-19-sql-2016-brief-overview-on-some-new-features/</link>
+      <pubDate>Fri, 19 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-08-19-sql-2016-brief-overview-on-some-new-features/</guid>
+      <description>These are notes taken from the Houston SQL Pass User group from July. This presentation was given by John Cook, (Data Platform Solution Architect Microsoft) who did a great job with limited time on providing some great details on the new functionality with SQL 2016. To follow him, take a look at sqlblog.com where he posts or follow him on twitter. Thanks to him for the overview.
+ #### JohnPaulCook (@JohnPaulCook) on Twitter</description>
+    </item>
+    
+    <item>
+      <title>Install ReadyRoll via Command Line</title>
+      <link>https://www.sheldonhull.com/blog/2016-08-18-install-ready-roll-via-command-line/</link>
+      <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-08-18-install-ready-roll-via-command-line/</guid>
+      <description>command line install options ReadyRoll has some great features, including the ability to use without cost on a build server. If you want to ease setup on multiple build servers you could create a simple command line install step against the EXE.
+future changes ReadyRoll was recently acquired by Redgate, so the installer options may change in the future to be more inline with the standard Redgate installer. For now, this is a way to automate an install/updates.</description>
+    </item>
+    
+    <item>
+      <title>Does sp_rename on a column preserve the ms_description?</title>
+      <link>https://www.sheldonhull.com/blog/2016-08-15-does-sp-rename-on-a-column-preserve-the-ms-description/</link>
+      <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-08-15-does-sp-rename-on-a-column-preserve-the-ms-description/</guid>
+      <description>Did some checking as couldn&amp;rsquo;t find help in the MSDN documentation. My test on SQL 2016 shows that since the column_id isn&amp;rsquo;t changing, the existing mapping of the description for the column is preserved.
+I know it&amp;rsquo;s probably pretty obvious, but I had someone ask me, so figured proving the mapping for ms_description is maintained would be a good thing to walk through. Score another point for Microsoft, for design practices</description>
+    </item>
+    
+    <item>
+      <title>Regex With SQL Server - SQLSharp</title>
+      <link>https://www.sheldonhull.com/blog/2016-08-11-regex-with-sql-server-sql-sharp/</link>
+      <pubDate>Thu, 11 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-08-11-regex-with-sql-server-sql-sharp/</guid>
+      <description>In the context of my developer machine, I had log files I wanted to parse through. I setup a log library to output the results on a test server to a sql table instead of text files. However, this meant that my &amp;ldquo;log viewers&amp;rdquo; that handled regex parsing weren&amp;rsquo;t in the picture at this point. I wanted to parse out some columns from a section of message text, and thought about CLR as a possible tool to help this.</description>
+    </item>
+    
+    <item>
+      <title>Improvements with SSMS 2016</title>
+      <link>https://www.sheldonhull.com/blog/2016-07-12-improvements-with-ssms-2016/</link>
+      <pubDate>Tue, 12 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-07-12-improvements-with-ssms-2016/</guid>
+      <description>info &amp;ldquo;Updated: 2019-01-24&amp;rdquo; Improved options to install through Chocolatey package. Use command choco upgrade sql-server-management-studio and you&amp;rsquo;ll simplify the installation process greatly. Also for servers, consider Azure Data Studio as much smaller download and might provide what you need to do basic management without a length install and download.
+info &amp;ldquo;Updated: 2018-03-30&amp;rdquo; Use SSMS 2017 when possible now. It has continued to be improved. Current download page for SSMS 2017 If you want a shortcut to install, check out this post: Update SSMS With PS1</description>
+    </item>
+    
+    <item>
+      <title>Glasswire: (Giveaway Included) Networking Monitoring even a caveman could use</title>
+      <link>https://www.sheldonhull.com/blog/2016-07-01-glasswire-giveaway-included-networking-monitoring-even-a-caveman-could-use/</link>
+      <pubDate>Fri, 01 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-07-01-glasswire-giveaway-included-networking-monitoring-even-a-caveman-could-use/</guid>
+      <description>Giveaway details at the bottom for those interestedDealing with development &amp;amp; sql servers, I like to know what type of network traffic is happening on my machine. What is the overhead of monitoring on network bandwidth, what is communicating across servers or even externally?
+What is phoning home? You can create perfmon counters, but realistically sometimes I just want a easy quick overview of network traffic with minimal overhead. I have been using a utility I came across called Glasswire, and found this tremendously helpful.</description>
+    </item>
+    
+    <item>
+      <title>SQL Compare 12: Initial Look</title>
+      <link>https://www.sheldonhull.com/blog/2016-06-26-sql-compare-12-initial-look/</link>
+      <pubDate>Sun, 26 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-06-26-sql-compare-12-initial-look/</guid>
+      <description>I know there have been a few other folks going into more detail on SQL Compare 12 (beta), but I thought I&amp;rsquo;d share just a few looks at the new design. Looks pretty slick, and I like where the design is going. Just a quick look, as I&amp;rsquo;m sure there will be more to cover when it&amp;rsquo;s finally released. Until then&amp;hellip;.
+Some GUI Improvements Very clean. Not too drastic of a change to mess with current workflows.</description>
+    </item>
+    
+    <item>
+      <title>SSMS Tools Pack - A Handy Tool for generating CRUD</title>
+      <link>https://www.sheldonhull.com/blog/2016-06-17-ssms-tools-pack-a-handy-tool-for-generating-crud/</link>
+      <pubDate>Fri, 17 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-06-17-ssms-tools-pack-a-handy-tool-for-generating-crud/</guid>
+      <description>So I&amp;rsquo;ve had this tool around for a while, but never found much usage out of it to be honest. I didn&amp;rsquo;t end up writing a review as I had other tools that did text replacements, and history/session saving. I&amp;rsquo;ve always considered this tools implementation of SQL History/Tabs saver the best period, even over Red Gate Tab History, SSMSBoost, etc. However, recommending the tool solely based on it&amp;rsquo;s fantastic history saver wasn&amp;rsquo;t really something I was going to do.</description>
+    </item>
+    
+    <item>
+      <title>OmniCompare: A free tool to compare SQL Instances</title>
+      <link>https://www.sheldonhull.com/blog/2016-06-14-omni-compare-a-free-tool-to-compare-sql-instances/</link>
+      <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-06-14-omni-compare-a-free-tool-to-compare-sql-instances/</guid>
+      <description>comparing instances When working with a variety of instances, you can often deal with variances in configuration that might impact the performance. Without digging into each instance you wouldn&amp;rsquo;t know immediately that this had happened. There are fantastic tools, like Brent Ozar&amp;rsquo;s SP_Blitz, but this doesn&amp;rsquo;t focus on every single configuration value and cross instance comparison. To supplement great material like that a tool like OmniCompare is great.
+side by side comparison I am definitely adding to my list of great sql tools.</description>
+    </item>
+    
+    <item>
+      <title>Continual Deployment of Visual Studio SqlProj</title>
+      <link>https://www.sheldonhull.com/blog/2016-05-16-continual-deployment-of-visual-studio-sql-proj/</link>
+      <pubDate>Mon, 16 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-05-16-continual-deployment-of-visual-studio-sql-proj/</guid>
+      <description>Unveil the inner workings of the esoteric build system&amp;hellip; As a data professional, I&amp;rsquo;ve never worked extensively with msbuild or other pipelines. I&amp;rsquo;d been mostly focused on just running schema comparisons and publishing. However, I&amp;rsquo;ve had the needed to try and deploy a database project from visual studio automatically, and this is my process through it.
+There are benefits for those who don&amp;rsquo;t necessarily want to run this against production, but instead for those who want to continually deploy check-ins and run tests, documentation, or other tasks against the deployed schema.</description>
+    </item>
+    
+    <item>
+      <title>The Mysterious Black Box of R - For the SQL Server Guy</title>
+      <link>https://www.sheldonhull.com/blog/2016-05-15-the-mysterious-black-box-of-r-for-the-sql-server-guy/</link>
+      <pubDate>Sun, 15 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-05-15-the-mysterious-black-box-of-r-for-the-sql-server-guy/</guid>
+      <description>Took a class from Jamey Johnston @ SQLSaturday #516 in Houston. Lots of great information covered. Follow him for a much more detailed perspective on R. Jamey Johnston on Twitter @StatCowboy. Did a basic walkthrough of running an R query, and figured I&amp;rsquo;d share it as it had been a mysterious black box before this. Thanks to Jamey for inspiring me to look at the mysterious magic that is R&amp;hellip;.</description>
+    </item>
+    
+    <item>
+      <title>Red Gate Dependency Tracker - Making Databases Into Moving Art</title>
+      <link>https://www.sheldonhull.com/blog/2016-04-28-red-gate-dependency-tracker-making-databases-into-moving-art/</link>
+      <pubDate>Thu, 28 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-04-28-red-gate-dependency-tracker-making-databases-into-moving-art/</guid>
+      <description>data structures are art If anyone thinks that working with complex data structures is boring&amp;hellip; I don&amp;rsquo;t know what world they live in. The problem is often that sql tables and data structures are just script files and lists of tables in an object explorer.  However, once you crack open the visual aspect of database diagramming and data architecture, you can see some interesting patterns emerge.
+red gate dependency viewer tracker I&amp;rsquo;ve long enjoyed playing around with Red Gate Dependency Tracker.</description>
+    </item>
+    
+    <item>
+      <title>Automating SSMS 2016 Updates &amp; Install</title>
+      <link>https://www.sheldonhull.com/blog/2016-04-27-automating-ssms-2016-updates-install/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-04-27-automating-ssms-2016-updates-install/</guid>
+      <description>info &amp;ldquo;update 2016-04-27 11:20 - Red Gate SQL Toolkit&amp;rdquo; This also is a great help for folks using Red Gate SQL Toolkits. It can help ensure all items are up to date. When a new bundle installer is identified, it would download the new one and you could then trigger the updates of each of the apps you desire, without having to keep run the download later through Red Gate&amp;rsquo;s tool.</description>
+    </item>
+    
+    <item>
+      <title>Google Search Only Results from the last year</title>
+      <link>https://www.sheldonhull.com/blog/2016-04-27-google-search-only-results-from-the-last-year/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-04-27-google-search-only-results-from-the-last-year/</guid>
+      <description>Tech changes quick. Reading google postings from something in 2009 is not my first choice.I found an option after digging through some google discussion posts on how to setup the default search in chrome (also applies to other browsers) to automatically apply the advanced filter option for &amp;ldquo;results in last year&amp;rdquo;.
+ Go to chrome settings menu  Navigate to manage search engines  Enter the new search engine option .</description>
+    </item>
+    
+    <item>
+      <title>Cool Tools: Powershell ISE-Steroids</title>
+      <link>https://www.sheldonhull.com/blog/2016-04-14-cool-tools-powershell-ise-steroids/</link>
+      <pubDate>Thu, 14 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-04-14-cool-tools-powershell-ise-steroids/</guid>
+      <description>Disclaimer: I have been provided with a free license because I am reviewing. This doesn&amp;rsquo;t impact my assessment of the tool. I have a passion for finding tools that help developers, and even more specifically SQL DBA/Developers improve their workflow and development. I don&amp;rsquo;t recommend tools without actually using them and seeing if I&amp;rsquo;d end up adding to my roster of essentials!
+Cool Tool: ISE Steroids
+Expanding Powershell ISE Powershell ISE is simple.</description>
+    </item>
+    
+    <item>
+      <title>Failed to Initialize SQL Agent Log... not worthy</title>
+      <link>https://www.sheldonhull.com/blog/2016-04-01-failed-to-initialize-sql-agent-log...-not-worthy/</link>
+      <pubDate>Fri, 01 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-04-01-failed-to-initialize-sql-agent-log...-not-worthy/</guid>
+      <description>Moving system databases in SQL Server takes a bit of practice. I got that again, along with a dose of SQL humility (so tasty!), today after messing up some cleanup with sql agent server log files.
+Failed to initialize SQL Agent log (reason: Access is denied). I was creating a sql template when this came about. SQL Server Agent wouldn&amp;rsquo;t start back up despite all the system databases having very little issues with my somewhat brilliant sql commands.</description>
+    </item>
+    
+    <item>
+      <title>Calculating Some Max Mirror Stats</title>
+      <link>https://www.sheldonhull.com/blog/2016-03-18-calculating-some-max-mirror-stats/</link>
+      <pubDate>Fri, 18 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-03-18-calculating-some-max-mirror-stats/</guid>
+      <description>This turned out to be quite a challenge. I couldn&amp;rsquo;t find anything that made this very clean and straight forward to calculate, and in my case I was trying to gauge how many mirroring databases I could run on a server.In my scenario, I wasn&amp;rsquo;t running Expensive Edition (@BrentO coined this wonderful phrase), so was looking for the best way to assess numbers by doing mirroring on a large number of databases, in my case &amp;gt; 300 eventually.</description>
+    </item>
+    
+    <item>
+      <title>Failover all databases to other server</title>
+      <link>https://www.sheldonhull.com/blog/2016-03-18-failover-all-databases-to-other-server/</link>
+      <pubDate>Fri, 18 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-03-18-failover-all-databases-to-other-server/</guid>
+      <description>Quick snippet I threw together to help with failing over synchronized databases to the other server in bulk. No way I want to click that darn Fail-over button repeatedly. This scripts the statements to print (i commented out the exec portion) so that you can preview the results and run manually.Note that it&amp;rsquo;s also useful to have a way to do this as leaving databases running on the mirror server for an indefinite period can violate licensing terms on the secondary server when it&amp;rsquo;s a fail-over server and not meant to be the primary.</description>
+    </item>
+    
+    <item>
+      <title>Previewing the new SSRS 2016 portal</title>
+      <link>https://www.sheldonhull.com/blog/2016-03-18-previewing-the-new-ssrs-2016-portal/</link>
+      <pubDate>Fri, 18 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-03-18-previewing-the-new-ssrs-2016-portal/</guid>
+      <description>Ran into an issue with the &amp;ldquo;Preview New Reporting Portal&amp;rdquo; link on a fresh install of 2016 giving me a not found error.
+Changing the virtual directory in the Report URL tab for SSRS configuration fixed this invalid link. In my case, I changed /Report to /Reporting. Thanks to Adam on Stack Overflow for providing the solution and saving me a lot of time!</description>
+    </item>
+    
+    <item>
+      <title>SQL 2012 SP3 and entity framework conflict</title>
+      <link>https://www.sheldonhull.com/blog/2016-03-18-sql-2012-sp3-and-entity-framework-conflict/</link>
+      <pubDate>Fri, 18 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-03-18-sql-2012-sp3-and-entity-framework-conflict/</guid>
+      <description>the problem An issue with SQL Server 2012 SP3 was identified that impacted EF4/5 due to additional datatypes in the dll.
+System.EntryPointNotFoundException: Unable to find an entry point named &amp;#39;SetClrFeatureSwitchMap&amp;#39; in DLL &amp;#39;SqlServerSpatial110.dll&amp;#39; diagnosing To easily identify the available dll versions of sql server, I ran a quick adhoc bat file.
+The output returns a simple text file like this:
+A post in technet mentioned that the DLL shipped with SP3 could cause these conflicts and if the uninstall didn&amp;rsquo;t clean up the GAC correctly, problems could occur with Entity Framework calls.</description>
+    </item>
+    
+    <item>
+      <title>TFS Work-Item Fancy Filtering</title>
+      <link>https://www.sheldonhull.com/blog/2016-03-18-tfs-work-item-fancy-filtering/</link>
+      <pubDate>Fri, 18 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-03-18-tfs-work-item-fancy-filtering/</guid>
+      <description>If you want to create a TFS query that would identify work items that have changed, but were not changed by the person working it, there is a nifty way to do this.The filtering field can be set to &amp;lt;&amp;gt; another field that is available, but the syntax/setup in Visual Studio is not intuitive. It&amp;rsquo;s in the dropdown list, but I&amp;rsquo;d never noticed it before!
+AND &amp;#39; Changed By &amp;#39; &amp;lt;&amp;gt; [Field] &amp;#39; Assigned to Note that you don&amp;rsquo;t include brackets on the assigned to field, and that the &amp;lt;&amp;gt; [Field] is not a placeholder for you to type the field name in, it&amp;rsquo;s actually the literal command for it to parse this correctly.</description>
+    </item>
+    
+    <item>
+      <title>Easy way to test log shipping or availability groups setup</title>
+      <link>https://www.sheldonhull.com/blog/2016-01-29-easy-way-to-test-log-shipping-or-availability-groups-setup/</link>
+      <pubDate>Fri, 29 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-01-29-easy-way-to-test-log-shipping-or-availability-groups-setup/</guid>
+      <description>Have been working through the fantastic training resources from Brent Ozar&amp;rsquo;s Everything Bundle and on the recommended resources they mention after all the training on log shipping and availability groups that you can use a lab environment from TechNet to actually get going on familiarizing yourself with the technology more.
+This is great! Of course, it&amp;rsquo;s not the full deal, but this gives a tangible way to get moving on familiarizing yourself with this complex technology.</description>
+    </item>
+    
+    <item>
+      <title>Diff All Files - Reviewing Changesets Quickly</title>
+      <link>https://www.sheldonhull.com/blog/2016-01-25-diff-all-files-reviewing-changesets-quickly/</link>
+      <pubDate>Mon, 25 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-01-25-diff-all-files-reviewing-changesets-quickly/</guid>
+      <description>Diff all files  info &amp;ldquo;Updated: 2017-07-14&amp;rdquo; Still find this incredibly awesome! Developer just updated for Visual Studio 2017 after a lot of hard work. Github repo here for any issues. Big thanks to DeadlyDog for this great tool and putting in the effort to update for VS2017. deadlydog/VS.DiffAllFiles: Visual Studio Extension to make comparing files before and after committing them to Git and TFS faster and easier
+info &amp;ldquo;Updated: 2016-01-25&amp;rdquo; I started using the option to compare a single file at a time, since it picks up the syntax highlighting then.</description>
+    </item>
+    
+    <item>
+      <title>Seeker &amp; Servant: Fantastic Music with incredible dynamics</title>
+      <link>https://www.sheldonhull.com/blog/2016-01-20-seeker-servant-fantastic-music-with-incredible-dynamics/</link>
+      <pubDate>Wed, 20 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-01-20-seeker-servant-fantastic-music-with-incredible-dynamics/</guid>
+      <description>Just recently discovered this artist after being exposed to an article from Worship Leader magazine. Fantastic dynamics. The dynamics and beautiful harmonies are pretty darn close to what I&amp;rsquo;d love experimenting with if I had a group of folks playing those instruments. Interestingly, the vocal harmonies are very simple, but I found very beautiful. It&amp;rsquo;s compromised of a tenor and a baritone range, and is a fresh change stuff like Shane and Shane which both have incredibly high ranges.</description>
+    </item>
+    
+    <item>
+      <title>Transaction Logging &amp; Recovery (part 3)</title>
+      <link>https://www.sheldonhull.com/blog/2016-01-20-transaction-logging-recovery-part-3/</link>
+      <pubDate>Wed, 20 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-01-20-transaction-logging-recovery-part-3/</guid>
+      <description>Continuation of some notes regarding the excellent content by Paul Randal in Pluralsight: SQL Server: Logging, Recovery, and the Transaction Log. Please consider supporting his excellent material by using Pluralsight and subscribing to his blog. He&amp;rsquo;s contributed a vast amount to the SQL server community through SQLSkills This is my absorbing of key elements that I never had worked through
+Jackalopes Are Real&amp;hellip;.so are Virtual Log Files Ever seen a picture of a jackalope?</description>
+    </item>
+    
+    <item>
+      <title>Verifying Instant File Initialization</title>
+      <link>https://www.sheldonhull.com/blog/2016-01-13-verifying-instant-file-initialization/</link>
+      <pubDate>Wed, 13 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-01-13-verifying-instant-file-initialization/</guid>
+      <description>Ran into a few issues verifying instant file initialization. I was trying to ensure that file initialization was enabled, but found out that running the xp_cmd to execute whoami /priv could be inaccurate when I&amp;rsquo;m not running it from the account that has the privileges. This means that if my sql service account has different permissions than I do, I could get the incorrect reading on if it is enabled.</description>
+    </item>
+    
+    <item>
+      <title>Transaction Logging &amp; Recovery (part 2)</title>
+      <link>https://www.sheldonhull.com/blog/2016-01-08-transaction-logging-recovery-part-2/</link>
+      <pubDate>Fri, 08 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-01-08-transaction-logging-recovery-part-2/</guid>
+      <description>&amp;hellip; Continuation of some notes regarding the excellent content by Paul Randal in Pluralsight: SQL Server: Logging, Recovery, and the Transaction Log. Please consider supporting his excellent material by using Pluralsight and subscribing to his blog. He&amp;rsquo;s contributed a vast amount to the SQL server community through SQLSkills
+Transaction Log File  The initial size of the log file is the larger of 0.58 MB or 25% of the total data files specified in the create database statement.</description>
+    </item>
+    
+    <item>
+      <title>Transaction Logging &amp; Recovery (101)</title>
+      <link>https://www.sheldonhull.com/blog/2016-01-05-transaction-logging-recovery-101/</link>
+      <pubDate>Tue, 05 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2016-01-05-transaction-logging-recovery-101/</guid>
+      <description>Logging &amp;amp; Recovery Notes from SQL Server Logging, Recovery, and the Transaction Log (pluralsight) Paul Randal Going to share some key points I&amp;rsquo;ve found helpful from taking the course by Paul Randal at pluralsight. I&amp;rsquo;ve found his knowledge and in detail presentation extremely helpful, and a great way to expand my expertise. Highly recommend pluralsight.com as well as anything by Paul Randal (just be prepared to have your brain turned to mush&amp;hellip; he&amp;rsquo;s definitely not writing &amp;ldquo;how to write a select statement&amp;rdquo; articles</description>
+    </item>
+    
+    <item>
+      <title>Model needs exclusive lock</title>
+      <link>https://www.sheldonhull.com/blog/2015-12-15-model-needs-exclusive-lock/</link>
+      <pubDate>Tue, 15 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-12-15-model-needs-exclusive-lock/</guid>
+      <description>Ran into an issue where a developer was trying to create a database and was denied due to no ability to obtain exclusive lock on model. After verifying with other blogs, I found that creating a database required exclusive lock to use model as a template for the new database creation.
+In my case I had connected with SSMS directly to model for some queries instead of master. In this case, SQL Complete (Devarts&amp;rsquo;s excellent alternative to SQL Prompt) was querying the schema had this open session was blocking usage of model to create a new database.</description>
+    </item>
+    
+    <item>
+      <title>Documenting Your Database with Diagrams</title>
+      <link>https://www.sheldonhull.com/blog/2015-12-09-documenting-your-database-with-diagrams/</link>
+      <pubDate>Wed, 09 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-12-09-documenting-your-database-with-diagrams/</guid>
+      <description>Don&amp;rsquo;t get too excited. I know you love documentation, and just can&amp;rsquo;t wait to spend some time digging in to document your database thoroughly. I imagine you probably want to build visio charts manually, or draw whiteboard diagrams by hand and take pictures.
+For the rest of us that are lazy, a tool to help document your database is a great idea. I&amp;rsquo;m a big fan of SQL Doc by Red Gate, and ApexSQL Doc .</description>
+    </item>
+    
+    <item>
+      <title>Best Tools for Taking Notes In Development</title>
+      <link>https://www.sheldonhull.com/blog/2015-10-14-best-tools-for-taking-notes-in-development/</link>
+      <pubDate>Wed, 14 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-10-14-best-tools-for-taking-notes-in-development/</guid>
+      <description>info &amp;ldquo;Updated: 2016-04-08&amp;rdquo; Been working through some issues with Clarify app on my personal computer, something I messed up. @trevordevore with @clarifyapp has worked step by step through it with me providing some great personal assistance. In addition, he&amp;rsquo;s given me some tips about my research in merging in a php script to automatically upload my images to cloudinary for hosting. I just finished producing some documentation with Clarify 2, and I have to say it&amp;rsquo;s one of the best tools I can think of for producing a stellar documentation without requiring the user to spend time doing much formatting.</description>
+    </item>
+    
+    <item>
+      <title>Dynamic SQL &amp; Quotename</title>
+      <link>https://www.sheldonhull.com/dynamic-sql-quotename/</link>
+      <pubDate>Wed, 23 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/dynamic-sql-quotename/</guid>
+      <description>Not quite fineprint, but sure feels like it! Quotename can be a pretty cool function to simplify your dynamic sql, as it can ease some of the escaping of strings. However, I normally use it for table/column names, and so hadn&amp;rsquo;t ran into a &amp;ldquo;gotcha&amp;rdquo; of this function until today. It&amp;rsquo;s limited to 128 characters, and if you pass in greater than 128 characters will yield a null. Yep&amp;hellip; you could be trying to track down that error for a null string somewhere in your concatenation for a while&amp;hellip; only to find out this silent error is occurring.</description>
+    </item>
+    
+    <item>
+      <title>XML Attribute VS Element Assignment when working with SQL</title>
+      <link>https://www.sheldonhull.com/blog/2015-09-21-xml-attribute-vs-element-assignment-when-working-with-sql/</link>
+      <pubDate>Mon, 21 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-09-21-xml-attribute-vs-element-assignment-when-working-with-sql/</guid>
+      <description>XML handling with aliases I find it interesting the difference in behavior with querying XML between column assignment, and quoted alias naming. It&amp;rsquo;s a generally understood best practice to not use the deprecated syntax of column aliasing using a quoted name. For example:
+select [escapedWithBracketsIsGood] = case when raining then cats else dogs end ,NoEscapeNeededPerGoodNamingPractices = case when rains then pours else friday end ,case when writtenThisWay then ICringe else UseAssignmentWay end as NormalWayMostFolksDoIt ,&amp;#39;BadNaming&amp;#39; = case when food then eat else hungry end ,case when work then eat else JobLess end as &amp;#39;VeryBadNaming&amp;#39; You can see the difference in naming.</description>
+    </item>
+    
+    <item>
+      <title>Split personality text editing in SSMS with Sublime Text 3</title>
+      <link>https://www.sheldonhull.com/blog/2015-09-14-split-personality-text-eiting-in-ssms-with-sublime-text-3/</link>
+      <pubDate>Mon, 14 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-09-14-split-personality-text-eiting-in-ssms-with-sublime-text-3/</guid>
+      <description>My preview post showed a demonstration of the multi-cursor editing power of Sublime Text 3 when speeding up your coding with SQL server.There is a pretty straight forward way to setup sublime (or one of your preferred text editors) to open the same file you are editing in SQL Management Studio without much hassle. I find this helpful when the type of editing might benefit from some of the fantastic functionality in Sublime.</description>
+    </item>
+    
+    <item>
+      <title>Multi-Cursor Editing SQL feels like the movie Inception just became real</title>
+      <link>https://www.sheldonhull.com/blog/2015-09-10-multi-cursor-editing-sql-feels-like-the-movie-inception-just-became-real/</link>
+      <pubDate>Thu, 10 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-09-10-multi-cursor-editing-sql-feels-like-the-movie-inception-just-became-real/</guid>
+      <description>Yes&amp;hellip; multicursor editing is epic No&amp;hellip; SSMS doesn&amp;rsquo;t support multi-cursor editing the way it should. Yes&amp;hellip; you can do some basic editing with multiple lines using alt-shift No&amp;hellip; it doesn&amp;rsquo;t come close to what you can do with Sublime. Cool thing is you can open text in Sublime synced w/SSMS cursor position and switch between the two with a shortcut. That will be a post for another day, I&amp;rsquo;m just telling you now to get your appetite going.</description>
+    </item>
+    
+    <item>
+      <title>Brentozar&#39;s Training: Chocolate &amp; Cowboy Hats Included</title>
+      <link>https://www.sheldonhull.com/blog/2015-08-27-brentozars-training-chocolate-cowboy-hats-included/</link>
+      <pubDate>Thu, 27 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-08-27-brentozars-training-chocolate-cowboy-hats-included/</guid>
+      <description>It was entertaining to listen to a technical wizard fighting the obsession with waiting to eat chocolate with 3k viewers watching. Kendra wore about 4-5 cowboy hats in an effort to help those of us who wear many hats feel welcome&amp;hellip;. Now that&amp;rsquo;s the kinda of training I enjoy! No pretense, just honest real, and insightful training with enjoyable humor included for free
+Highly recommend attending the webex presentations occurring today and tomorrow with Brent Ozar and his amazing team.</description>
+    </item>
+    
+    <item>
+      <title>Monitoring SQL Server on a budget</title>
+      <link>https://www.sheldonhull.com/blog/2015-08-18-monitoring-sql-server-on-a-budget/</link>
+      <pubDate>Tue, 18 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-08-18-monitoring-sql-server-on-a-budget/</guid>
+      <description>Cheap ain&amp;rsquo;t easy There&amp;rsquo;s a lot of tools out there, and very few that are polished, have a good UI, and some reasonable functionality to help monitoring, that don&amp;rsquo;t cost an arm and a leg. One such tool I&amp;rsquo;ve recently begun to appreciate is MiniDBA . I was generously provided with a license to evaluate this and continue testing, and have recently had an actual chance to start using it more in my environment.</description>
+    </item>
+    
+    <item>
+      <title>Stranger Danger... The need for trust with constraints</title>
+      <link>https://www.sheldonhull.com/blog/2015-08-13-stranger-danger...-the-need-for-trust-with-constraints/</link>
+      <pubDate>Thu, 13 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-08-13-stranger-danger...-the-need-for-trust-with-constraints/</guid>
+      <description>I ran into an issue with errors with an database upgrade running into a violation of a foreign key constraint. Don&amp;rsquo;t know how it happened. Figured that while I&amp;rsquo;m at it, I&amp;rsquo;d go ahead and evaluate every single check constraint in the database to see if I could identify any other violations, because they shouldn&amp;rsquo;t be happening.
+improve the execution plan by checking the data In my reading, I found out that checking the constraints can enable the constraint to be marked as trusted.</description>
+    </item>
+    
+    <item>
+      <title>Red Gate SQL Source Control v4 offers schema locks</title>
+      <link>https://www.sheldonhull.com/blog/2015-08-12-red-gate-sql-source-control-v4-offers-schema-locks/</link>
+      <pubDate>Wed, 12 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-08-12-red-gate-sql-source-control-v4-offers-schema-locks/</guid>
+      <description>Red Gate Documentation Update Looks like the rapid release channel now has a great feature for locking database objects that you are working on. Having worked in a shared environment before, this could have been a major help. It&amp;rsquo;s like the poor man&amp;rsquo;s version of checking an object out in visual studio except on database objects! With multiple developers working in a shared environment, this might help reduce conflicting multiple changes on the same object.</description>
+    </item>
+    
+    <item>
+      <title>Using Qure Profiler To Benchmark Tuning Progress</title>
+      <link>https://www.sheldonhull.com/blog/2015-08-10-using-qure-profiler-to-benchmark-tuning-progress/</link>
+      <pubDate>Mon, 10 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-08-10-using-qure-profiler-to-benchmark-tuning-progress/</guid>
+      <description>Qure Analyzer Benchmark Testing  info &amp;ldquo;Update&amp;rdquo; Wouldn&amp;rsquo;t recommend tool at this time. Development seemed to cease, resulting in me not being able to use with later versions of SQL Server. When I came back recently to check on it, the app was sold and it was with a new company. Didn&amp;rsquo;t see to have progressed much based on a quick look and not really interested in it at this point.</description>
+    </item>
+    
+    <item>
+      <title>SET NOEXEC is my new friend</title>
+      <link>https://www.sheldonhull.com/blog/2015-08-07-set-noexec-is-my-new-friend/</link>
+      <pubDate>Fri, 07 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-08-07-set-noexec-is-my-new-friend/</guid>
+      <description>Have never really played around with the option: SET NOEXEC ON Turns out this can be a helpful way to validate larger batch scripts before actually making changes, to ensure compilation happens. If you choose, you can verify syntax by &amp;ldquo;parsing&amp;rdquo; in SSMS. However, this doesn&amp;rsquo;t compile. Compilation checks more than your syntax. It actually validates the objects referenced exist.
+ The execution of statements in SQL Server has two phases: compilation and execution.</description>
+    </item>
+    
+    <item>
+      <title>Running very large scripts is not a strong area for SSMS</title>
+      <link>https://www.sheldonhull.com/blog/2015-08-05-running-very-large-scripts-is-not-a-strong-area-for-ssms/</link>
+      <pubDate>Wed, 05 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-08-05-running-very-large-scripts-is-not-a-strong-area-for-ssms/</guid>
+      <description>out of memory, argggh! Am I the only one that has experienced the various out of memory issues with SSMS? Not according to google!
+lovingly crafted in the forges of.. well &amp;hellip; dbforge I&amp;rsquo;ve a huge fan of Devarts products. I&amp;rsquo;ve done a review in the past on their SQL Complete addin, which is the single most used tool in my SQL arsenal. It vanquishes nasty unformatted code into a standard lined up format I can easily read.</description>
+    </item>
+    
+    <item>
+      <title>Database Stuck in Single-User Mode Due to Botched Restore</title>
+      <link>https://www.sheldonhull.com/blog/2015-07-28-database-stuck-in-single-user-mode-due-to-botched-restore/</link>
+      <pubDate>Tue, 28 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-07-28-database-stuck-in-single-user-mode-due-to-botched-restore/</guid>
+      <description>Working in a development environment, I botched up a restore. After this restore attempt to overwrite my database with the previous version, I had it stuck in single-user mode.
+SSMS provided me with helpful messages such as this: Changes to the state or options of database &#39;PoorDb&#39; cannot be made at this time. The database is in single-user mode, and a user is currently connected to it. Additionally, I was told I was the deadlock victim when attempting to set the user mode back to multi-user.</description>
+    </item>
+    
+    <item>
+      <title>What was I thinking? Deleting myself from localdb?</title>
+      <link>https://www.sheldonhull.com/blog/2015-07-13-what-was-i-thinking-deleting-myself-from-localdb/</link>
+      <pubDate>Mon, 13 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-07-13-what-was-i-thinking-deleting-myself-from-localdb/</guid>
+      <description>Was testing a batch file to add a user to a localdb instance. Assumed that my user as admin on the machine wouldn&amp;rsquo;t have an issue inserting myself back&amp;hellip;. didn&amp;rsquo;t think that one through too carefully. Executing any type of SQLCMD against it denied me. SSMS denied me. No SA had been setup on it, so I couldn&amp;rsquo;t login as SA either. Looked for various solutions, and ended up uninstalling and reinstalling (localdb)v11.</description>
+    </item>
+    
+    <item>
+      <title>Some simple examples of querying xml with sql</title>
+      <link>https://www.sheldonhull.com/blog/2015-06-24-some-simple-examples-of-querying-xml-with-sql/</link>
+      <pubDate>Wed, 24 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-06-24-some-simple-examples-of-querying-xml-with-sql/</guid>
+      <description>XML is a beast if you&amp;rsquo;ve never tackled it. Here are some simple examples of what I discovered as I experimented and walked through obtaining values out of a XML column.
+</description>
+    </item>
+    
+    <item>
+      <title>Enabling Instant File Initialization</title>
+      <link>https://www.sheldonhull.com/blog/2015-05-22-enabling-instant-file-initialization/</link>
+      <pubDate>Fri, 22 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-05-22-enabling-instant-file-initialization/</guid>
+      <description>Found a couple good walkthroughs on enabling instant file initialization. However, I&amp;rsquo;m becoming more familar with the nuances of various setups and found it confusing in trying to map the correct user/group to enable this option. In my case, I had the SQL Service running under NT SERVICE/MSSSQLSERVER and as such this logic wasn&amp;rsquo;t showing up when trying to find groups/users to add to the necessary permissions. Lo and behold&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Upgrade from SQL 2014 Evaluation to Developer Edition</title>
+      <link>https://www.sheldonhull.com/blog/2015-05-04-upgrade-from-sql-2014-evaluation-to-developer-edition/</link>
+      <pubDate>Mon, 04 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-05-04-upgrade-from-sql-2014-evaluation-to-developer-edition/</guid>
+      <description>Couldn&amp;rsquo;t find documentation showing that upgrade from SQL 2014 evaluation version was possible to developer edition. I just successfully converted an evaluation version to developer edition.
+ Obtain the key for the developer edition (in my case I had to download the .ISO from MSDN downloads, and go through the installation wizard to get it) Run the installation center app for SQL Server 2014 Select edition upgrade Plug in your new serial from the developer edition.</description>
+    </item>
+    
+    <item>
+      <title>Utilizing the power of table parameters to reduce IO, improve performance, decrease pollution, and achieve world peace...</title>
+      <link>https://www.sheldonhull.com/blog/utilizing-the-power-of-table-parameters-to-reduce-io-improve-performance-decrease-pollution-and-achieve-world-peace/</link>
+      <pubDate>Thu, 30 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/utilizing-the-power-of-table-parameters-to-reduce-io-improve-performance-decrease-pollution-and-achieve-world-peace/</guid>
+      <description>I was dealing with a challenging dynamic sql procedure that allowed a .NET app to pass in a list of columns and a view name, and it would generate a select statement from this view. Due to requirements at the time, I needed the flexibility of the &amp;ldquo;MAIN&amp;rdquo; proc which generated a dynamic select statement, while overriding certain requested views by executing a stored proc instead of the dynamic sql.</description>
+    </item>
+    
+    <item>
+      <title>Restoring a database that doesn&#39;t exist</title>
+      <link>https://www.sheldonhull.com/blog/2015-04-28-restoring-a-database-that-doesnt-exist/</link>
+      <pubDate>Tue, 28 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-04-28-restoring-a-database-that-doesnt-exist/</guid>
+      <description>When restoring a database that doesn&amp;rsquo;t exist, say for instance when a client sends a database to you, you can&amp;rsquo;t use the option to restore database, because there is no database matching to restore. To get around this you need to use the Restore Files and Filegroups option and then restore the database. Another option I found interesting was the support for loading database hosted on a fileshare. Brentozar has an article on hosting databases on a NAS that I found interesting.</description>
+    </item>
+    
+    <item>
+      <title>SQL Sentry Pro Explorer is worth it...</title>
+      <link>https://www.sheldonhull.com/blog/sql-sentry-pro-explorer-is-worth-it/</link>
+      <pubDate>Tue, 28 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/sql-sentry-pro-explorer-is-worth-it/</guid>
+      <description>info &amp;ldquo;Updated: 2017-04-21&amp;rdquo; Another great bit of news from reviewing this older post I wrote&amp;hellip; SQL Sentry Pro is now a free tool thanks to the generosity of the Sentry One team! It&amp;rsquo;s a must have. Go download it for sure.
+info &amp;ldquo;Updated: 2015-04-28&amp;rdquo; I created a few autohotkey scripts and solved the problem of collapsing panes and a few other annoyances. This has improved my experience a little. - Also noted one major improvement that would help with tuning is aggregating the total IO, and stats, rather than only each individual statement.</description>
+    </item>
+    
+    <item>
+      <title>Statistics Parsing</title>
+      <link>https://www.sheldonhull.com/blog/2015-01-21-statistics-parsing/</link>
+      <pubDate>Wed, 21 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-01-21-statistics-parsing/</guid>
+      <description>Never really enjoyed reading through the statistics IO results, as it makes it hard to easily guage total impact when you have a long list of tables. A friend referred me to: http://www.statisticsparser.com/ This site is great! However, I really don&amp;rsquo;t like manually copying and pasting the results each time. I threw together a quick autohotkey script that will detect your clipboard change event, look for &amp;ldquo;scan count&amp;rdquo; keyword, and then open a &amp;ldquo;chrome app&amp;rdquo;, paste the results and submit.</description>
+    </item>
+    
+    <item>
+      <title>Dev Tools: FARR2 Launching groups of files or apps at once</title>
+      <link>https://www.sheldonhull.com/blog/2015-01-16-dev-tools-farr2-launching-groups-of-files-or-apps-at-once/</link>
+      <pubDate>Fri, 16 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2015-01-16-dev-tools-farr2-launching-groups-of-files-or-apps-at-once/</guid>
+      <description>There are probably a common number of apps you pull up when you pull up your system. For example, I pull up my Trello board, outlook, XYplorer, Sublime text 3, Sql server management studio, and ketarin (app updater). Found that you can easily setup a simply alias and launch a group of apps or files at anytime by simply typing the keyword.
+This could easily launch a favorite group of files by adding to your startup or project list as you go.</description>
+    </item>
+    
+    <item>
+      <title>Dev Tools: The File Searcher/Launcher to rule them all</title>
+      <link>https://www.sheldonhull.com/blog/dev-tools-file-search/</link>
+      <pubDate>Tue, 13 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/dev-tools-file-search/</guid>
+      <description>Why does this not have more recognition? In the experimentation of various file management and launching apps, I&amp;rsquo;ve tried several (Launchy, Listary, etc), but none have offered the speed and customization of Find and Run Robot. This app is a life saver for the power user! Here is an example of how you can have a hotkey to immediately launch a customized google search. The group alias gives you extensibility to filter the text you are typing to identify this alias of &amp;ldquo;Google Me&amp;rdquo; as the result to use since we typed ?</description>
+    </item>
+    
+    <item>
+      <title>Case of the Mondays... causing me to randomly redefine the Scope of Global temp tables</title>
+      <link>https://www.sheldonhull.com/blog/scope-of-global-temp-tables/</link>
+      <pubDate>Mon, 05 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/scope-of-global-temp-tables/</guid>
+      <description>Today, I was reminded that global temp tables scope lasts for the session, and doesn&amp;rsquo;t last beyond that. The difference is the scope of the global temp allows access by other users and sessions while it exists, and is not limited in scope to just the calling session. For some reason I can&amp;rsquo;t remember, I had thought the global temp table lasted a bit longer. Remembering this solved the frustration of wondering why my adhoc comparison report was empty&amp;hellip;.</description>
+    </item>
+    
+    <item>
+      <title>Dev Tools: XYplorer (review #1) - Catalog</title>
+      <link>https://www.sheldonhull.com/blog/dev-tools-x-yplorer-review-1-catalog/</link>
+      <pubDate>Wed, 24 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/dev-tools-x-yplorer-review-1-catalog/</guid>
+      <description>currently on version 14.60 I&amp;rsquo;m a big fan of finding tools that help automate and streamline things that should are routine actions.Surprisingly, I&amp;rsquo;ve found it incredibly challenging to move away from the default Windows Explorer for file management, as the familiarity it offers makes it somewhat tough to be patient with learning an alternative, especially if the alternative offers more complication. That&amp;rsquo;s where I stood with XYPlorer for sometime. It is a developer&amp;rsquo;s tool first and foremost.</description>
+    </item>
+    
+    <item>
+      <title>OR pattern causing indexing scans in parameter based queries</title>
+      <link>https://www.sheldonhull.com/blog/2014-12-11-or-pattern-causing-indexing-scans-in-parameter-based-queries/</link>
+      <pubDate>Thu, 11 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2014-12-11-or-pattern-causing-indexing-scans-in-parameter-based-queries/</guid>
+      <description>#Tl;dr
+(time constraints prevented me from reworking significantly)
+An article on SQL-Server-pro was forwarded over to me to research by a friend who indicated that using a variable with an or pattern had historically caused table scans. This was a suprise to me as all previous queries with optional parameters I&amp;rsquo;d used in the past seemed to use index seeks. I had to dig into this a little deeper to see if had been missing this in my past work and needed to find an alternative method for optional parameters.</description>
+    </item>
+    
+    <item>
+      <title>Get Information on Current Traces Running</title>
+      <link>https://www.sheldonhull.com/blog/2014-12-02-get-information-on-current-traces-running/</link>
+      <pubDate>Tue, 02 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2014-12-02-get-information-on-current-traces-running/</guid>
+      <description>This is just a quick informational query to save as a snippet to get some quick information on running traces, and provide the stop and close snippet quickly if you want to stop a server side trace you created.
+</description>
+    </item>
+    
+    <item>
+      <title>Generate Random Date With Starting Point</title>
+      <link>https://www.sheldonhull.com/blog/2014-08-12-generate-random-date-with-starting-point/</link>
+      <pubDate>Tue, 12 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2014-08-12-generate-random-date-with-starting-point/</guid>
+      <description>If you want to create sample random samples when dealing with date calculations to test your results, you can easily create a start and end point of randomly created dates. This is a snippet I&amp;rsquo;ve saved for reuse:
+DATEADD(day, (ABS(CHECKSUM(NEWID())) % $Days Seed Value$), &#39;$MinDate$&#39;)
+This should let you set the starting point (Min Date) and choose how far you want to go up from there as a the seed value.</description>
+    </item>
+    
+    <item>
+      <title>Snippet Alert: Useful dates (eom, bom, etc)</title>
+      <link>https://www.sheldonhull.com/blog/2014-08-11-snippet-alert-useful-dates-eom-bom-etc/</link>
+      <pubDate>Mon, 11 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2014-08-11-snippet-alert-useful-dates-eom-bom-etc/</guid>
+      <description>Common date values you may need to reference that you may not want to write from scratch each time. Hope this helps someone else!</description>
+    </item>
+    
+    <item>
+      <title>Eliminate Overlapping Dates</title>
+      <link>https://www.sheldonhull.com/blog/2014-05-19-eliminate-overlapping-dates/</link>
+      <pubDate>Mon, 19 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2014-05-19-eliminate-overlapping-dates/</guid>
+      <description>I was looking for an efficient way to eliminate overlapping days when provided with a historical table that provided events that could overlap. In my case, I had dates show the range of a process. However, the multiple start and end dates could overlap, and even run concurrently. To eliminate double counting the days the process truly was in play I needed a way to find eliminate the overlap, and eliminate duplicate days when running in parallel.</description>
+    </item>
+    
+    <item>
+      <title>Finding Groups - Consecutive Months</title>
+      <link>https://www.sheldonhull.com/blog/2014-05-19-finding-groups-consecutive-months/</link>
+      <pubDate>Mon, 19 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2014-05-19-finding-groups-consecutive-months/</guid>
+      <description>A step by step explanation on one way to get a consecutive period of months, which could easily be adapted to days, years, or other values. I&amp;rsquo;ll continue on this track and post a tutorial on eliminating overlapping dates soon.
+</description>
+    </item>
+    
+    <item>
+      <title>Scalar functions can be the hidden boogie man</title>
+      <link>https://www.sheldonhull.com/blog/2014-02-11-scalar-functions-can-be-the-hidden-boogie-man/</link>
+      <pubDate>Tue, 11 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2014-02-11-scalar-functions-can-be-the-hidden-boogie-man/</guid>
+      <description>Ran across a comment the other day that scalar functions prohibit parallelism for a query when included. I thought it would be worth taking a look, but didn&amp;rsquo;t take it 100% seriously. Came across the same indication today when reviewing MVP deep dives, so I put it to the test.Turns out even a simple select with a dateadd in a scalar format was affected enough with that one action to drop 5% on the execution plan.</description>
+    </item>
+    
+    <item>
+      <title>Renaming all references inside stored procedures and functions can be migraine worthy without a little help...</title>
+      <link>https://www.sheldonhull.com/blog/renaming-all-references-inside-stored-procedures-and-functions-can-be-migraine-worthy-without-a-little-help/</link>
+      <pubDate>Tue, 13 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/renaming-all-references-inside-stored-procedures-and-functions-can-be-migraine-worthy-without-a-little-help/</guid>
+      <description>info &amp;ldquo;Updated: 2016-03-18&amp;rdquo; Cleaned up formatting. This is older code limited to procs and functions. I&amp;rsquo;m sure there is a better way to do this now, but leaving here as it might help someone else in the meantime.
+ If you run across migrating or copying a database structure for some purpose, yet need to change the database references or some other string value inside all the procedures and functions to point to the newly named object, you are in for a lot of work!</description>
+    </item>
+    
+    <item>
+      <title>Shortcut to reference examples, syntax, and definitions straight from SSMS</title>
+      <link>https://www.sheldonhull.com/blog/2013-07-24-shortcut-to-reference-examples-syntax-and-definitions-straight-from-ssms/</link>
+      <pubDate>Wed, 24 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2013-07-24-shortcut-to-reference-examples-syntax-and-definitions-straight-from-ssms/</guid>
+      <description>I&amp;rsquo;ve never really used the F1 key for help files with most applications. I was surprised at the usefulness in SSMS I discovered today that uses scripting to actually get you MSDN articles relevant to your current selection in the query editor.
+If you have a keyword selected and want to view details, definition, and examples on it, you can highlight the phrase or select the word, press F1, and SSMS will pull up the appropriate MSDN article.</description>
+    </item>
+    
+    <item>
+      <title>Check Constraints can help enforce the all or nothing approach when it comes to column updates</title>
+      <link>https://www.sheldonhull.com/blog/2013-07-18-check-constraints-can-help-enforce-the-all-or-nothing-approach-when-it-comes-to-column-updates/</link>
+      <pubDate>Thu, 18 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2013-07-18-check-constraints-can-help-enforce-the-all-or-nothing-approach-when-it-comes-to-column-updates/</guid>
+      <description>If you have a set of columns inside your table that you want to allow nulls in, however if one of the columns is updated force all columns in the set to be updated, use a check constraint. In my case, I had 3 columns for delete info, which were nullable. However, if one value was updated in there, I want all three of the delete columns to require updating. I created the script below to generate the creation and removal of these constraints on a list of tables:</description>
+    </item>
+    
+    <item>
+      <title>SSMS 2012 Extender for the times you want some organization to the random pile of objects gathering in the dusty confines of that database</title>
+      <link>https://www.sheldonhull.com/blog/2013-07-16-ssms-2012-extender-for-the-times-you-want-some-organization-to-the-random-pile-of-objects-gathering-in-the-dusty-confines-of-that-database/</link>
+      <pubDate>Tue, 16 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2013-07-16-ssms-2012-extender-for-the-times-you-want-some-organization-to-the-random-pile-of-objects-gathering-in-the-dusty-confines-of-that-database/</guid>
+      <description>When dealing with large amounts of objects in a database, navigation can be tedious with SSMS object explorer. This extender organizes the objects into groups based on schema, helping a developer easily navigate to the appropriate object. The current version didn&amp;rsquo;t work for views, but the other objects were grouped effectively. Highly recommend!
+SSMS 2012 Extender</description>
+    </item>
+    
+    <item>
+      <title>TSQL Snippet for viewing basic info on database principals and their permissions</title>
+      <link>https://www.sheldonhull.com/blog/2013-05-31-tsql-snippet-for-viewing-basic-info-on-database-principals-and-their-permissions/</link>
+      <pubDate>Fri, 31 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2013-05-31-tsql-snippet-for-viewing-basic-info-on-database-principals-and-their-permissions/</guid>
+      <description>Quick snippet I put together for reviewing basic info on database users/principals, permissions, and members if the principal is a role.:
+/******************************************************* Some Basic Info on Database principals, permissions, explicit permissions, and if role, who is in this role currently *******************************************************/ ;with roleMembers as ( select drm.role_principal_id ,dp.principal_id ,dp.name from sys.database_role_members drm inner join sys.database_principals dp on drm.member_principal_id = dp.principal_id ) select db_name() ,dp.name ,stuff(( select distinct &amp;#39;, &amp;#39; + p.</description>
+    </item>
+    
+    <item>
+      <title>A moment of void in the cranium reveals a recursive computed column with an esoteric message</title>
+      <link>https://www.sheldonhull.com/blog/2013-05-30-a-moment-of-void-in-the-cranium-reveals-a-recursive-computed-column-with-an-esoteric-message/</link>
+      <pubDate>Thu, 30 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2013-05-30-a-moment-of-void-in-the-cranium-reveals-a-recursive-computed-column-with-an-esoteric-message/</guid>
+      <description>Msg 402, Level 16, State 1, Line 67 The data types varchar and void type are incompatible in the add operator.
+I came across this error today when I accidentally used a computed column in a temp table, that referenced itself. This very unhelpful message was caused by referring to the computed column itself in the computed column definition, ie typo. Beware!</description>
+    </item>
+    
+    <item>
+      <title>On how to Googlify your SQL statements for future searching</title>
+      <link>https://www.sheldonhull.com/blog/2013-05-22-on-how-to-googlify-your-sql-statements-for-future-searching/</link>
+      <pubDate>Wed, 22 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2013-05-22-on-how-to-googlify-your-sql-statements-for-future-searching/</guid>
+      <description>For sake of future generations, let&amp;rsquo;s begin to reduce typing and reuse code we&amp;rsquo;ve built. I think we can all agree that TSQL statements are often repeated. Ideally, snippets should be created to reduce repeated typing and let us focus on logic and content. However, some statements may not really be &amp;ldquo;snippet worthy&amp;rdquo;, and just be quick adhoc queries. In the past, the solution for saving queries for reuse or reference in the future would be to just save in the projects folder manually.</description>
+    </item>
+    
+    <item>
+      <title>View computed columns in database</title>
+      <link>https://www.sheldonhull.com/blog/2013-05-22-view-computed-columns-in-database/</link>
+      <pubDate>Wed, 22 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2013-05-22-view-computed-columns-in-database/</guid>
+      <description>Snippet to quickly view computed column information. You can also view this by doing a &amp;ldquo;create table&amp;rdquo; script. This however, was a little cleaner to read and view for me.
+select database_name = db_name() ,object_schema_name = object_schema_name( object_id ) ,object_name = object_name( object_id ) ,full_object_name = object_schema_name( object_id ) + &amp;#39;.&amp;#39; + object_name( object_id ) ,column_name = name ,cc.is_persisted ,cc.Definition from sys.computed_columns cc order by full_object_name asc</description>
+    </item>
+    
+    <item>
+      <title>Get synonym definitions for all databases in server</title>
+      <link>https://www.sheldonhull.com/blog/2013-05-21-get-synonym-definitions-for-all-databases-in-server/</link>
+      <pubDate>Tue, 21 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2013-05-21-get-synonym-definitions-for-all-databases-in-server/</guid>
+      <description>If you want to audit your enviroment to look at all your synonyms and see where they are pointing, you can use exec sys.sp_MSforeachdb to loop through databases, and even filter. It will save some coding. However, my research indicates it is probably a bad practice to rely on this undocumented function as it may have issues not forseen and fully tested.
+Additionally, support may drop for it in the future.</description>
+    </item>
+    
+    <item>
+      <title>Calculating the next beginning of month and the current end of month</title>
+      <link>https://www.sheldonhull.com/blog/2013-05-01-calculating-the-next-beginning-of-month-and-the-current-end-of-month/</link>
+      <pubDate>Wed, 01 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2013-05-01-calculating-the-next-beginning-of-month-and-the-current-end-of-month/</guid>
+      <description>Handling dates is always a fun challenge in T-SQL! Finding the current end of month and next months beginning of month is straight forward, but I like to find new ways to do things that take less coding, and hate date conversions that require a lot of manipulation of characters and concatenation. This was what I came up with for avoiding character conversions and concatenation for finding the current BOM (beginning of month) and EOM (end of month) values.</description>
+    </item>
+    
+    <item>
+      <title>Installing SSMS 2012 all by it&#39;s lonesome</title>
+      <link>https://www.sheldonhull.com/blog/2013-04-30-installing-ssms-2012-all-by-its-lonesome/</link>
+      <pubDate>Tue, 30 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2013-04-30-installing-ssms-2012-all-by-its-lonesome/</guid>
+      <description>SQL Server Management Studio (SSMS) is not offered as a standalone download on MSDN. Installation requires the user to download the sql server installation package and choose to install only this single feature. For developers, SQL Developer edition is a great choice.
+Here&amp;rsquo;s some screenshots to give you a guide on installing SSMS by itself when working with the full installer.
+ info &amp;ldquo;Updated: 2017-02&amp;rdquo; This doesn&amp;rsquo;t apply for future SSMS versions as they began (I believe with 2014) to package SSMS outside of the database engine installer, allowing continual iterations and improvements for SSMS outside of being included as part of SQL server patching (finally!</description>
+    </item>
+    
+    <item>
+      <title>snippet designate a certain time of the day in getdate()</title>
+      <link>https://www.sheldonhull.com/blog/2013-04-23-snippet-designate-a-certain-time-of-the-day-in-getdate/</link>
+      <pubDate>Tue, 23 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2013-04-23-snippet-designate-a-certain-time-of-the-day-in-getdate/</guid>
+      <description>Snippet to designate a certain time of the day to evaluate in the current day. If you need to limit a result to the current date after a particular time, strip the time out of the date, and concatenate the current time together with it, and then convert back to datetime2.
+select convert(datetime2(0),cast(cast(getdate() as date) as varchar(10)) + &amp;#39; 09:00 &amp;#39;)</description>
+    </item>
+    
+    <item>
+      <title>Native SSMS a second class citizen no longer...</title>
+      <link>https://www.sheldonhull.com/blog/2013-04-22-native-ssms-a-second-class-citizen-no-longer/</link>
+      <pubDate>Mon, 22 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2013-04-22-native-ssms-a-second-class-citizen-no-longer/</guid>
+      <description>Intellisense can be a boon to adding quick development. Quick hints on scope specific variables, syntax suggestions, function descriptions and more provide a valuable tool to productive coding.Coding in SQL Server Management Studio (SSMS) has greatly improved over the version releases, but it still lags behind the power of Visual Studio&amp;rsquo;s intellisense, template insertions with &amp;ldquo;fill in the blank&amp;rdquo; functionality .
+Additionally, the lack of automatic indentation means that lining up sub-queries and levels of logic can be annoyingly time consuming&amp;hellip; especially when not everyone on a team following the exact same coding standards.</description>
+    </item>
+    
+    <item>
+      <title>dynamic sql and a char crash</title>
+      <link>https://www.sheldonhull.com/blog/2013-04-18-dynamic-sql-and-a-char-crash/</link>
+      <pubDate>Thu, 18 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2013-04-18-dynamic-sql-and-a-char-crash/</guid>
+      <description>Dynamic SQL can be helpful, but a pain to debug. I spent hours today working on figuring out why my simple date comparison in dynamic SQL wasn&amp;rsquo;t working. Found out that the remote database I was connecting to had a char date instead of a datetime. I found the comparison of CHARDATE &amp;gt; VARCHARDATE failed to error out, but also failed to give a proper result set. Changing the look-up to ensure both dates were converted to date fixed the issue.</description>
+    </item>
+    
+    <item>
+      <title>How to default SSRS date parameters to the first and last day of the the previous month</title>
+      <link>https://www.sheldonhull.com/blog/2013-04-17-how-to-default-ssrs-date-parameters-to-the-first-and-last-day-of-the-the-previous-month/</link>
+      <pubDate>Wed, 17 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/blog/2013-04-17-how-to-default-ssrs-date-parameters-to-the-first-and-last-day-of-the-the-previous-month/</guid>
+      <description>Populating default dates in SSRS can be helpful to save the user from having to constantly input the date range they normally would use. When a report is pulled for last month&amp;rsquo;s information, defaulting the date fields for the user can help streamline their usage of the report, instead of them manually selecting with the date-picker control in SSRS. The formula&amp;rsquo;s I used were:
+Beginning of Current Month (EOM) DateSerial(Year(Date.Now), Month(Date.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.sheldonhull.com/forestry/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/forestry/</guid>
+      <description> var env = {siteId: &#34;ke635awpuqlung&#34;,local: false};</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://www.sheldonhull.com/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.sheldonhull.com/about/</guid>
+      <description>Core Values I live as a follower of Christ, desiring to impact the world around with with who He is. I&amp;rsquo;m an unashamed disciple and though I&amp;rsquo;ve got plenty I mess up, following Him is my joy. I&amp;rsquo;m passionate about worship, and worship through music, playing guitar.
+Family I&amp;rsquo;ve been blessed with 3 kids and a wonderful wife Sarah who has brought beauty into my world and to my life.</description>
+    </item>
+    
+  </channel>
+</rss>
