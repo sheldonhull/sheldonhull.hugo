@@ -1,11 +1,7 @@
 [build]
-  command = """git submodule update --init --recursive
-  hugo
-  """
+  command = "git status --porcelain &&  git submodule update --init --recursive && GIT_COMMIT_SHA=`git rev-parse --verify HEAD && GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD` && hugo"
   publish = "public"
 
 [context.deploy-preview]
-  command = """git submodule update --init --recursive
-  hugo --buildFuture --destination preview --verbose
-  """
+  command = "git status --porcelain && git submodule update --init --recursive && GIT_COMMIT_SHA=`git rev-parse --verify HEAD && GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD` && hugo --buildFuture --destination preview --verbose"
   publish = "preview"
