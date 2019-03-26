@@ -1,6 +1,8 @@
 [build]
-  command = "git status --porcelain &&  git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo"
+  #command = "git status --porcelain &&  git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo"
+  command = "git status --porcelain &&  git submodule update --init --recursive && hugo"
   publish = "public"
+  HUGO_ENABLEGITINFO = "true"
 
 [context.deploy-preview]
   command = "git status --porcelain && git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo --buildFuture --destination preview --verbose"
