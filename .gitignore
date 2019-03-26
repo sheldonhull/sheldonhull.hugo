@@ -38,4 +38,4 @@ testem.log
 
 
 /public/
-/resources/
+#resources/

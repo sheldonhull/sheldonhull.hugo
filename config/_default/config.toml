@@ -25,7 +25,6 @@ pygmentsstyle = "monokai"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 pygmentsUseClasses = true
-
 pluralizeListTitles = false
 
 
@@ -34,26 +33,25 @@ disqusShortname = ""
 googleAnalytics = ""
 
 
+# # START HERMIT
+# [taxonomies]
+#   tag = "tags"
+#   # Categories are disabled by default.
 
-# START HERMIT
-[taxonomies]
-  tag = "tags"
-  # Categories are disabled by default.
-
-[params]
-  avatarurl = "/images/sheldon_120x120.jpg"
+# [params]
+#   avatarurl = "/images/sheldon_120x120.jpg"
 
 
-  dateform        = "Jan 2, 2006"
-  dateformShort   = "Jan 2"
-  dateformNum     = "2006-01-02"
-  dateformNumTime = "2006-01-02 15:04 -0700"
+#   dateform        = "Jan 2, 2006"
+#   dateformShort   = "Jan 2"
+#   dateformNum     = "2006-01-02"
+#   dateformNumTime = "2006-01-02 15:04 -0700"
 
-  # Metadata mostly used in document's head
-  # description = ""
-  # images = [""]
-  themeColor = "#494f5c"
-# START HERMIT
+#   # Metadata mostly used in document's head
+#   # description = ""
+#   # images = [""]
+#   themeColor = "#494f5c"
+# # START HERMIT
 
 [permalinks]
 posts = "/blog/:title/"
@@ -63,6 +61,7 @@ posts = "/blog/:title/"
 [Params]
   commit = "https://github.com/sheldonhull/sheldonhull.hugo/master/"
   custom_css = ["css/style.css"]
+      inverted = true
 
 # [menu]
 # [[menu.nav]]

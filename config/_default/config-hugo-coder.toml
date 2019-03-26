@@ -1,0 +1,90 @@
+baseurl = "http://www.example.com"
+title = "johndoe"
+
+theme = "hugo-coder"
+
+languagecode = "en"
+defaultcontentlanguage = "en"
+
+paginate = 20
+canonifyurls = true
+
+pygmentsstyle = "b2"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+disqusShortname = "yourdiscussshortname"
+
+[params]
+    author = "John Doe"
+    description = "John Doe's personal website"
+    keywords = "blog,developer,personal"
+    info = "Full Stack DevOps and Magician"
+    avatarurl = "images/avatar.jpg"
+    footercontent = "Enter a text here."
+
+    dateformat = "January 2, 2006"
+
+    hideCredits = false
+    hideCopyright = false
+
+    # Git Commit in Footer, uncomment the line below to enable it.
+    commit = "https://github.com/luizdepra/hugo-coder/tree/"
+
+    rtl = false
+
+    # Use inverted colors
+    inverted = true
+
+    # Series see also post count
+    maxSeeAlsoItems = 5
+
+    # Custom CSS
+    custom_css = []
+
+[taxonomies]
+  series = "series"
+
+[[params.social]]
+    name = "Github"
+    icon = "fab fa-github"
+    weight = 1
+    url = "https://github.com/johndoe/"
+[[params.social]]
+    name = "Gitlab"
+    icon = "fab fa-gitlab"
+    weight = 2
+    url = "https://gitlab.com/johndoe/"
+[[params.social]]
+    name = "Twitter"
+    icon = "fab fa-twitter"
+    weight = 3
+    url = "https://twitter.com/johndoe/"
+[[params.social]]
+    name = "LinkedIn"
+    icon = "fab fa-linkedin"
+    weight = 4
+    url = "https://www.linkedin.com/in/johndoe/"
+[[params.social]]
+    name = "Medium"
+    icon = "fab fa-medium"
+    weight = 5
+    url = "https://medium.com/@johndoe"
+
+# [menu]
+#     # for themes that only have main nav
+#     [[menu.main]]
+#     name = "Blog"
+#     weight = 1
+#     url  = "/blog/"
+#     [[menu.main]]
+#     name = "Tags"
+#     weight = 1
+#     url  = "/tags/"
+#     [[menu.main]]
+#     name = "Docs"
+#     weight = 1
+#     url  = "/docs/"
+#     [[menu.main]]
+#     name = "About"
+#     weight = 2
+#     url = "/about/"
