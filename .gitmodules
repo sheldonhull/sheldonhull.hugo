@@ -10,11 +10,9 @@
 [submodule "themes/hugo-material-docs"]
 	path = themes/hugo-material-docs
 	url = https://github.com/sheldonhull/hugo-material-docs.git
-[submodule ".\\themes\\beautifulhugo"]
-	path = .\\themes\\beautifulhugo
-	url = https://github.com/sheldonhull/beautifulhugo.git
-[submodule ".\\themes\\hermit"]
-	path = .\\themes\\hermit
-	url = https://github.com/sheldonhull/hermit.git
 [submodule "themes/beautifulhugo"]
+	path = themes/beautifulhugo
 	url = https://github.com/sheldonhull/beautifulhugo.git
+[submodule "themes/hermit"]
+	path = themes/hermit
+	url = https://github.com/sheldonhull/hermit.git
