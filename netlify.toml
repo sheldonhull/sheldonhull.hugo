@@ -1,9 +1,28 @@
+###############################
+# PUBLISH/PUBLIC
+###############################
+
 [build]
   #command = "git status --porcelain &&  git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo"
-  command = "hugo version && git status --porcelain && git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo -b $DEPLOY_PRIME_URL"
+  command = "HUGO_BASEURL=$DEPLOY_PRIME_URL && hugo version && git status --porcelain && git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo" # -b $DEPLOY_PRIME_URL
   publish = "public"
   HUGO_ENABLEGITINFO = "true"
 
+###############################
+# DEPLOY PREVIEWS
+###############################
 [context.deploy-preview]
-  command = "hugo version && git status --porcelain && git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo --buildFuture --destination preview -b $DEPLOY_PRIME_URL --verbose"
+  command = "HUGO_BASEURL=$DEPLOY_PRIME_URL && hugo version && git status --porcelain && git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo --buildFuture --destination preview --verbose" #-b $DEPLOY_PRIME_URL
   publish = "preview"
+
+[context.deploy-preview.environment]
+  HUGO_GOOGLEANALYTICS = "dev"
+
+###############################
+# BRANCH
+###############################
+[context.branch-deploy]
+  command = "HUGO_BASEURL=$DEPLOY_PRIME_URL && hugo version && git status --porcelain && git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo --buildFuture --buildDrafts --destination preview --verbose" #-b $DEPLOY_PRIME_URL
+
+[context.branch-deploy.environment]
+  HUGO_GOOGLEANALYTICS = "dev"
