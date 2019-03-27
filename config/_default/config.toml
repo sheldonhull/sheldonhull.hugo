@@ -1,4 +1,4 @@
-#baseurl = "https://www.sheldonhull.com"
+baseurl = "" #https://www.sheldonhull.com
 title = "sheldonhull.com"
 #theme = "hermit"
 
