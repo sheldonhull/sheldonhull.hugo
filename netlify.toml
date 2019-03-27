@@ -16,7 +16,7 @@ GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
 GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
 echo "GIT_COMMIT_SHA       = $GIT_COMMIT_SHA"
 echo "GIT_COMMIT_SHA_SHORT = $GIT_COMMIT_SHA_SHORT"
-hugo
+hugo -b $DEPLOY_PRIME_URL
 """ # -b $DEPLOY_PRIME_URL
   publish = "public"
   HUGO_ENABLEGITINFO = "true"
@@ -25,7 +25,19 @@ hugo
 # DEPLOY PREVIEWS
 ###############################
 [context.deploy-preview]
-  command = "HUGO_BASEURL=$DEPLOY_PRIME_URL && hugo version && git status --porcelain && git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo --buildFuture --destination preview --verbose" #-b $DEPLOY_PRIME_URL
+  command = """
+echo "DEPLOY_PRIME_URL = $DEPLOY_PRIME_URL"
+HUGO_BASEURL=$DEPLOY_PRIME_URL
+echo "HUGO_BASEURL = $HUGO_BASEURL"
+hugo version
+git status --porcelain
+git submodule update --init --recursive
+GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
+GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
+echo "GIT_COMMIT_SHA       = $GIT_COMMIT_SHA"
+echo "GIT_COMMIT_SHA_SHORT = $GIT_COMMIT_SHA_SHORT"
+hugo --buildFuture --destination preview -b $DEPLOY_PRIME_URL --verbose
+"""
   publish = "preview"
 
 [context.deploy-preview.environment]
@@ -35,7 +47,20 @@ hugo
 # BRANCH
 ###############################
 [context.branch-deploy]
-  command = "HUGO_BASEURL=$DEPLOY_PRIME_URL && hugo version && git status --porcelain && git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo --buildFuture --buildDrafts --destination preview --verbose" #-b $DEPLOY_PRIME_URL
+  publish = "preview"
+  command = """
+echo "DEPLOY_PRIME_URL = $DEPLOY_PRIME_URL"
+HUGO_BASEURL=$DEPLOY_PRIME_URL
+echo "HUGO_BASEURL = $HUGO_BASEURL"
 
+hugo version
+git status --porcelain
+git submodule update --init --recursive
+GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
+GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
+echo "GIT_COMMIT_SHA       = $GIT_COMMIT_SHA"
+echo "GIT_COMMIT_SHA_SHORT = $GIT_COMMIT_SHA_SHORT"
+hugo --buildFuture --buildDrafts --destination preview -b $DEPLOY_PRIME_URL --verbose
+"""
 [context.branch-deploy.environment]
   HUGO_GOOGLEANALYTICS = "dev"
