@@ -1,12 +1,13 @@
 #baseurl = "https://www.sheldonhull.com"
 title = "sheldonhull.com"
+#theme = "hermit"
 
 # Themes
 #theme = "sam"
 #theme = "hermit"
-#theme = "beautifulhugo"
+theme = "beautifulhugo"
 #theme = "hugo-material-docs"
-theme = "hugo-coder"
+#theme = "hugo-coder"
 #theme = "cupper-hugo-theme"
 #theme = "hugo-theme-casper"
 
@@ -19,7 +20,7 @@ metadataformat = "yaml"
 
 paginate = 20
 canonifyurls = true
-
+rssLimit = 10  # Maximum number of items in the RSS feed.
 
 pygmentsstyle = "monokai"
 pygmentscodefences = true
@@ -56,74 +57,43 @@ googleAnalytics = ""
 [permalinks]
 posts = "/blog/:title/"
 
-#Beautiful hugo// others that support commit hash
-#Prior to running hugo, run this   GIT_COMMIT_SHA=`git rev-parse --verify HEAD` GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
-[Params]
-  commit = "https://github.com/sheldonhull/sheldonhull.hugo/master/"
-  custom_css = ["css/style.css"]
-      inverted = true
-
-# [menu]
-# [[menu.nav]]
-# name = "Home"
-# url = "/"
-# weight = 1
-# [[menu.nav]]
-# name = "Blog"
-# url = "/blog/"
-# weight = 2
-# [[menu.nav]]
-# name = "Tags"
-# url = "/tags/"
-# weight = 3
-# [[menu.nav]]
-# name = "Docs"
-# url = "/docs/"
-# weight = 4
-# [[menu.nav]]
-# name = "About"
-# url = "/about/"
-# weight = 5
-# [[menu.nav]]
-# name = "RSS"
-# url = "/index.xml"
-# weight = 6
-
-# # for hermit
-
-# [menu]
-
-#   [[menu.main]]
-#     name = "blog"
-#     url = "blog/"
-#     weight = 10
-
-#   [[menu.main]]
-#     name = "About"
-#     url = "about/"
-#     weight = 20
-
 
 
 [menu]
-    # for themes that only have main nav
+    # Menu links
+    [[menu.main]]
+        name = "Blog"
+        weight = 1
+        url  = "/blog/"
+    [[menu.main]]
+        name = "About"
+        weight = 4
+        url = "/about/"
+    [[menu.main]]
+        name = "docs"
+        identifier="docs"
+        #url = "/docs/"
+        weight = 4
+
+    [[menu.main]]
+        name = "Tags"
+        url = "/tags/"
+        weight = 2
+
 [[menu.main]]
-  name = "Blog"
-  weight = 1
-  url  = "/blog/"
-  [[menu.main]]
-  name = "Tags"
-  weight = 1
-  url  = "/tags/"
+   parent = "docs"
+   name = "awspowershell"
+   url = "docs/awspowershell"
+   weight = 3
+
 [[menu.main]]
-  name = "Docs"
-  weight = 1
-  url  = "/docs/"
+   parent = "docs"
+   name = "dbatools"
+   url = "docs/dbatools"
+   weight = 2
+
 [[menu.main]]
-  name = "About"
-  weight = 2
-  url = "/about/"
-# [[menu.main]]
-#   name = "Home"
-#   weight = 1
-#   url  = "/"
+   parent = "docs"
+   name = "powershell"
+   url = "docs/powershell"
+   weight = 1

@@ -1,0 +1,137 @@
+# baseurl = "https://username.github.io"
+# DefaultContentLanguage = "en"
+# #DefaultContentLanguage = "ja"
+# title = "Beautiful Hugo"
+# theme = "beautifulhugo"
+# metaDataFormat = "yaml"
+# pygmentsStyle = "trac"
+# pygmentsUseClasses = true
+# pygmentsCodeFences = true
+# pygmentsCodefencesGuessSyntax = true
+# #pygmentsUseClassic = true
+# #pygmentOptions = "linenos=inline"
+# #disqusShortname = "XXX"
+# #googleAnalytics = "XXX"
+  info = "DevOps // SQL & Automation"
+    description = "reticulating splines"
+    keywords = "blog,developer,personal"
+    avatarurl = "images/sheldon_120x120.jpg"
+
+    favicon_32 = "/img/favicon-32x32.png"
+    favicon_16 = "/img/favicon-16x16.png"
+
+    #footercontent = "thanks for visiting"
+
+    hidecredits = true
+    hidecopyright = true
+
+[Author]
+  name = "Sheldon Hull"
+  website = "https://www.sheldonhull.com"
+  email = ""
+  facebook = ""
+  googleplus = "" # or xxxxxxxxxxxxxxxxxxxxx
+  github = "sheldonhull"
+  gitlab = ""
+  bitbucket = ""
+  twitter = "sheldon.hull"
+  reddit = ""
+  linkedin = ""
+  xing = ""
+  stackoverflow = "users/68698/sheldonh"
+  snapchat = ""
+  instagram = ""
+  youtube = "" # or channel/channelname
+  soundcloud = ""
+  spotify = ""
+  bandcamp = ""
+  itchio = ""
+  vk = ""
+  paypal = ""
+  telegram = ""
+  500px = ""
+
+
+[Params]
+#  homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
+  subtitle = "Build a beautiful and simple website in minutes"
+  logo = "images/sheldon_120x120.jpg" # Expecting square dimensions
+  favicon = "img/favicon.ico"
+  dateFormat = "January 2, 2006"
+  commit = true
+  rss = true
+  comments = false
+  readingTime = true
+  wordCount = true
+  useHLJS = true
+  socialShare = true
+  delayDisqus = true
+  showRelatedPosts = true
+
+# Social links
+[[params.social]]
+    name = "Github"
+    icon = "fab fa-github fa-2x"
+    weight = 1
+    url = "https://github.com/sheldonhull/"
+[[params.social]]
+    name = "Twitter"
+    icon = "fab fa-twitter fa-2x"
+    weight = 3
+    url = "https://twitter.com/sheldon.hull/"
+[[params.social]]
+    name = "YouTube"
+    icon = "fab fa-youtube fa-2x"
+    weight = 2
+    url = "https://www.youtube.com/channel/UCp7hPP_Rb6_wK5eghTBYKJg"
+#  gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
+
+#[[Params.bigimg]]
+#  src = "img/triangle.jpg"
+#  desc = "Triangle"
+#[[Params.bigimg]]
+#  src = "img/sphere.jpg"
+#  desc = "Sphere"
+#  # position: see values of CSS background-position.
+#  position = "center top"
+#[[Params.bigimg]]
+#  src = "img/hexagon.jpg"
+#  desc = "Hexagon"
+
+[menu]
+    # Menu links
+    [[menu.main]]
+        name = "Blog"
+        weight = 1
+        url  = "/blog/"
+    [[menu.main]]
+        name = "About"
+        weight = 4
+        url = "/about/"
+    [[menu.main]]
+        name = "docs"
+        url = "/docs/"
+        weight = 2
+
+    [[menu.main]]
+        name = "Tags"
+        url = "tags"
+        weight = 3
+
+#[[menu.main]]
+#    parent = "samples"
+#    name = "Big Image Sample"
+#    url = "post/2017-03-07-bigimg-sample"
+#    weight = 1
+
+#[[menu.main]]
+#    parent = "samples"
+#    name = "Math Sample"
+#    url = "post/2017-03-05-math-sample"
+#    weight = 2
+
+#[[menu.main]]
+#    parent = "samples"
+#    name = "Code Sample"
+#    url = "post/2016-03-08-code-sample"
+#    weight = 3
