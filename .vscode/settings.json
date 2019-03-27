@@ -2,7 +2,6 @@
     "workbench.colorCustomizations": {
         "terminal.background": "#282828",
         "terminal.ansiBlue": "#83a598",
-        "activityBarBadge.background": "#616161",
         "list.activeSelectionForeground": "#616161",
         "list.inactiveSelectionForeground": "#616161",
         "list.highlightForeground": "#616161",
@@ -21,8 +20,9 @@
         "breadcrumb.activeSelectionForeground": "#616161",
         "menu.selectionForeground": "#616161",
         "menubar.selectionForeground": "#616161",
-        "activityBar.background": "#5C1007",
-        "titleBar.activeBackground": "#81170A",
-        "titleBar.activeForeground": "#FFFCFB"
+        "titleBar.activeBackground": "#2d0803",
+        "titleBar.inactiveBackground": "#2d080399",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveForeground": "#e7e7e799"
     }
 }
