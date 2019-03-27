@@ -66,34 +66,33 @@ posts = "/blog/:title/"
         weight = 1
         url  = "/blog/"
     [[menu.main]]
-        name = "About"
-        weight = 4
-        url = "/about/"
+        name = "Tags"
+        url = "/tags/"
+        weight = 2
     [[menu.main]]
         name = "docs"
         identifier="docs"
         #url = "/docs/"
-        weight = 4
-
+        weight = 3
     [[menu.main]]
-        name = "Tags"
-        url = "/tags/"
+        name = "About"
+        weight = 4
+        url = "/about/"
+
+        [[menu.main]]
+        parent = "docs"
+        name = "powershell"
+        url = "docs/powershell"
+        weight = 1
+
+        [[menu.main]]
+        parent = "docs"
+        name = "awspowershell"
+        url = "docs/awspowershell"
         weight = 2
 
-[[menu.main]]
-   parent = "docs"
-   name = "awspowershell"
-   url = "docs/awspowershell"
-   weight = 3
-
-[[menu.main]]
-   parent = "docs"
-   name = "dbatools"
-   url = "docs/dbatools"
-   weight = 2
-
-[[menu.main]]
-   parent = "docs"
-   name = "powershell"
-   url = "docs/powershell"
-   weight = 1
+        [[menu.main]]
+        parent = "docs"
+        name = "dbatools"
+        url = "docs/dbatools"
+        weight = 3

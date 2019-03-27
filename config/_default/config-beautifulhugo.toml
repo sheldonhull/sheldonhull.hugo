@@ -98,25 +98,24 @@
 #  src = "img/hexagon.jpg"
 #  desc = "Hexagon"
 
-[menu]
-    # Menu links
-    [[menu.main]]
-        name = "Blog"
-        weight = 1
-        url  = "/blog/"
-    [[menu.main]]
-        name = "About"
-        weight = 4
-        url = "/about/"
-    [[menu.main]]
-        name = "docs"
-        url = "/docs/"
-        weight = 2
-
-    [[menu.main]]
-        name = "Tags"
-        url = "tags"
-        weight = 3
+# [menu]
+#     # Menu links
+#     [[menu.main]]
+#         name = "Blog"
+#         weight = 1
+#         url  = "/blog/"
+#     [[menu.main]]
+#         name = "docs"
+#         url = "/docs/"
+#         weight = 2
+#     [[menu.main]]
+#         name = "About"
+#         weight = 4
+#         url = "/about/"
+#     [[menu.main]]
+#         name = "Tags"
+#         url = "tags"
+#         weight = 3
 
 #[[menu.main]]
 #    parent = "samples"
