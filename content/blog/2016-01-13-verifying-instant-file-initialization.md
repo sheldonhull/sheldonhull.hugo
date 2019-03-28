@@ -16,4 +16,4 @@ Successfully added instant file initialization should mean when you review the l
 {{% gist f2dddfc8187f6676cd76 %}}
 
 
-![successfully-verifying_v1khio](/assets/img/successfully-verifying_v1khio.png)
+![successfully-verifying_v1khio](/images/successfully-verifying_v1khio.png)

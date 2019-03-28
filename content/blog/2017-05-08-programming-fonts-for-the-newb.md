@@ -2,17 +2,17 @@
 date: "2017-05-08T00:00:00Z"
 gallery:
 - alt: fira-code-mono
-  image_path: /assets/img/fira-code-mono.png
+  image_path: /images/fira-code-mono.png
   title: Image of fira-code-mono
-  url: /assets/img/fira-code-mono.png
+  url: /images/fira-code-mono.png
 - alt: source-code-pro
-  image_path: /assets/img/source-code-pro.png
+  image_path: /images/source-code-pro.png
   title: Image of source-code-pro
-  url: /assets/img/source-code-pro.png
+  url: /images/source-code-pro.png
 - alt: bitstream-vera-sans-mono
-  image_path: /assets/img/bitstream-vera-sans-mono.png
+  image_path: /images/bitstream-vera-sans-mono.png
   title: Image of bitstream-vera-sans-mono
-  url: /assets/img/bitstream-vera-sans-mono.png
+  url: /images/bitstream-vera-sans-mono.png
 last_modified_at: "2018-03-30"
 tags:
 - tech

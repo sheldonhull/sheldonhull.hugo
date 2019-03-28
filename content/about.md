@@ -8,11 +8,11 @@ layout: single
 # header:
 #   overlay_color: "#000"
 #   overlay_filter: "0.5"
-#   overlay_image: /assets/img/NightHouse.jpg
+#   overlay_image: /images/NightHouse.jpg
 #   caption: "Night Photography - Sheldon Hull"
 sidebar:
   - title: "About"
-    image: /assets/img/about-me-200.jpg
+    image: /images/about-me-200.jpg
     image_alt: "image"
     text: "This is me, with a little too much coffee..."
 author_profile: false
@@ -28,8 +28,7 @@ I live as a follower of Christ, desiring to impact the world around with with wh
 I've been blessed with 3 kids and a wonderful wife Sarah who has brought beauty into my world and to my life. I'm thankful for the richness of family and experiencing this journey.
 
 ## Work
-
-[Download Resume](/assets/files/material-dark.pdf){: .btn .btn--info}
+{{<button href="/files/material-dark.pdf" theme="success">}} Download Resume {{< /button >}}
 
 I specialize in working with SQL Server to help speed things up, and develop solutions focused on Sql Server. I have a passion for automation, streamlining, implementing a healthy Database Lifecycle Management (DLM) process. I've additionally dived into PowerShell to help automate many of the tasks for testing and deploying SQL databases, as well as some projects with C#. I've been excited to be part of the #sqlfamily and connect with various members online that have helped provide such a rich experience for the community to draw on and learn from. AWS is a big part of my work, and I've run performance related testing, configuration, and other stuff up in the magical land of the cloud.
 

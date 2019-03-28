@@ -37,28 +37,28 @@ So, would I recommend? If you are looking to solve some file syncing options bet
 This provides an overview of all activity. Even though it's not necessarily a styled gui, and has a lot of detail, I think it's well designed for the information it's providing. Having tried some other apps I think I found the majority of what I needed pretty quickly here.
 I had a huge backup to Amazon Cloud Drive of my entire lightroom catalog (600-800GB) and Syncovery handled the majority of this backup with no issues. I have run into some issues as you can see.
 
-![Profile Overview](/assets/img/profile-overview.png)
+![Profile Overview](/images/profile-overview.png)
 
 ### Profile Settings
 
 I won't go into every option, read their documentation for the full details.
 At a high level, some of the powerful options I appreciated where the exact mirror vs smart tracking. Smart Tracking looks try and resolve the conflicts that can happen when syncing on several machines by choosing which version wins.
 
-![Profile Settings](/assets/img/profile-settings.png)
+![Profile Settings](/images/profile-settings.png)
 
 ### Running backup in attended mode
 
 Shows the current progress. I have used some backup apps that froze when running large backups in the past. So far, I've had good experinces with Syncovery's stability.
 
-![Compare screen](/assets/img/2016-09-30_21-34-32_syncovery_compare_screen)
+![Compare screen](/images/2016-09-30_21-34-32_syncovery_compare_screen)
 
-![Running backup in attended mode](/assets/img/running-backup-in-attended-mode.png)
+![Running backup in attended mode](/images/running-backup-in-attended-mode.png)
 
 ### Detailed Logs
 
 The app provides the output via powershell console, or in your native editor. Since I prefer Sublime Text 3, this was perfectly fine with me. Nice detailed logs give me a chance to figure out any issues.
 
-![Detailed Logs](/assets/img/detailed-logs.png)
+![Detailed Logs](/images/detailed-logs.png)
 
 ### A few other thoughts
 
@@ -80,19 +80,19 @@ _Disclaimer: Arq also provided me with a license to evaluate._
 
 This tool is focused on file backup, so the options are going to be much different in focus. However, the approach reminds me a lot of the "Apple" approach with simplifying things.
 
-![Arq approaches things differently](/assets/img/arq-approaches-things-differently.png)
+![Arq approaches things differently](/images/arq-approaches-things-differently.png)
 
 ### Filtering Backup Selection
 
 This is pretty straight forward. However, I was happy to see the folder filter options actually provide Regex matching as well for power users.
 
-![Filtering Backup Selection](/assets/img/filtering-backup-selection.png)
+![Filtering Backup Selection](/images/filtering-backup-selection.png)
 
 ### Advanced Options
 
 Again, the options are much more limited... and less daunting
 
-![Advanced Options](/assets/img/advanced-options.png)
+![Advanced Options](/images/advanced-options.png)
 
 ### Arq approaches as encrypted backup
 
@@ -103,7 +103,7 @@ One big different to note is that if you are focused on backing up files like ph
 This probably is just me, but I've had some issues with Arq 5 on Windows 10. They could probably use some better error messages, as this error detail wasn't very user friendly.
 When I reached out to support in the past, I got an answer in 2 days, so their support has been responsive.
 
-![Windows User](/assets/img/windows-user.png)
+![Windows User](/images/windows-user.png)
 
 ## What Would I Recommend?
 

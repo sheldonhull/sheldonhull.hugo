@@ -1,7 +1,6 @@
 baseurl = "" #https://www.sheldonhull.com
 title = "sheldonhull.com"
 #theme = "hermit"
-
 # Themes
 #theme = "sam"
 theme = "hermit"
@@ -33,6 +32,13 @@ pluralizeListTitles = false
 disqusShortname = ""
 googleAnalytics = ""
 
+  # Add custom css
+  custom_css = ["css/custom.css","css/ticks.css","css/notice.css"]
+
+[taxonomies]
+  tag = "tags"
+  # Categories are disabled by default.
+
 
 # # START HERMIT
 # [taxonomies]
@@ -53,7 +59,9 @@ googleAnalytics = ""
 #   # images = [""]
 #   themeColor = "#494f5c"
 # # START HERMIT
-
+[outputs]
+  home = ["HTML", "AMP", "RSS"]
+  page = ["HTML"]
 [permalinks]
 posts = "/blog/:title/"
 
@@ -71,28 +79,28 @@ posts = "/blog/:title/"
         weight = 2
     [[menu.main]]
         name = "docs"
-        identifier="docs"
-        #url = "/docs/"
+#        identifier="docs"
+        url = "/docs/"
         weight = 3
     [[menu.main]]
         name = "About"
         weight = 4
         url = "/about/"
 
-        [[menu.main]]
-        parent = "docs"
-        name = "powershell"
-        url = "docs/powershell"
-        weight = 1
+        # [[menu.main]]
+        # parent = "docs"
+        # name = "powershell"
+        # url = "docs/powershell"
+        # weight = 1
 
-        [[menu.main]]
-        parent = "docs"
-        name = "awspowershell"
-        url = "docs/awspowershell"
-        weight = 2
+        # [[menu.main]]
+        # parent = "docs"
+        # name = "awspowershell"
+        # url = "docs/awspowershell"
+        # weight = 2
 
-        [[menu.main]]
-        parent = "docs"
-        name = "dbatools"
-        url = "docs/dbatools"
-        weight = 3
+        # [[menu.main]]
+        # parent = "docs"
+        # name = "dbatools"
+        # url = "docs/dbatools"
+        # weight = 3

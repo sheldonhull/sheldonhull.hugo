@@ -1,4 +1,4 @@
-baseURL = "https://example.com"
+baseURL = ""
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Hugo Hermit"
@@ -20,9 +20,6 @@ enableEmoji = true  # Shorth and emojis in content files - https://gohugo.io/fun
   # noreferrerLinks = true
   # nofollowLinks = true
 
-[taxonomies]
-  tag = "tags"
-  # Categories are disabled by default.
 
 [params]
   dateform        = "Jan 2, 2006"
@@ -33,9 +30,9 @@ enableEmoji = true  # Shorth and emojis in content files - https://gohugo.io/fun
   # Metadata mostly used in document's head
   # description = ""
   # images = [""]
-  themeColor = "#494f5c"
+  themeColor = "#22252e" # "#494f5c"
 
-  homeSubtitle = "A minimal and fast theme for Hugo."
+  homeSubtitle = "DevOps // SQL & Automation"
   footerCopyright = ' &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
   # bgImg = ""  # Homepage background-image URL
 
@@ -45,11 +42,14 @@ enableEmoji = true  # Shorth and emojis in content files - https://gohugo.io/fun
   # Toggling this option needs to rebuild SCSS, requires Hugo extended version
   justifyContent = false  # Set "text-align: justify" to `.content`.
 
-  # Add custom css
-  custom_css = ["css/custom.css","css/ticks.css","css/notice.css"]
-
   # Social Icons
   # Check https://github.com/Track3/hermit#social-icons for more info.
+
+  # SHELDON: My addition
+  commit = true
+  since = "2013"
+
+
   [[params.social]]
     name = "twitter"
     url = "https://twitter.com/sheldon.hull"

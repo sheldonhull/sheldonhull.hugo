@@ -34,7 +34,7 @@ For example, in the task.json file you'll have:
 
 This boolean value provides a checkbox on the custom task window.
 
-![](/assets/img/tfs-custom-build-task-with-boolean.pngtfs-custom-build-task-with-boolean?format=original)
+![](/images/tfs-custom-build-task-with-boolean.pngtfs-custom-build-task-with-boolean?format=original)
 
 To properly work with the boolean value, you have to bring it in as a script then convert it to a boolean value.
 

@@ -32,7 +32,7 @@ When possible, I personally am going to recommend to leverage a package like dba
 
 ## Exploring SQL Path Provider
 
-![](/assets/img/exploring-sql-path-provider.pngexploring-sql-path-provider?format=original)
+![](/images/exploring-sql-path-provider.pngexploring-sql-path-provider?format=original)
 
 Trying to find the path initially can be challenging. However, by opening SSMS up, right clicking, and launching the powershell window you'll be able to easily find the correct path to get the server level object.
 

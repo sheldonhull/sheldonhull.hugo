@@ -35,21 +35,21 @@ This review is performed on the full version. An express version is also offered
 
 Improvements to the SSMS Coding environment are shown. A shortcut to refresh the cache of intellisense, formatting options, a command to execute the currently selected statement, outline the structure of the document, snippet management, and feedback. I'll review only the portions that seem to have the greatest impact, as most of it is self explanatory.
 
-![SQLCompleteMainMenuDropDown](/assets/img/SQLCompleteMainMenuDropDown.jpg)
+![SQLCompleteMainMenuDropDown](/images/SQLCompleteMainMenuDropDown.jpg)
 
 Of particular note is the "automatically trigger after" option. For users that want intellisense to help out only after a long pause and not constantly change while typing, this option is helpful. Setting a longer time on the ms will keep the box from showing up unless a command is pressed to initiate the intellisense showing up (Default: Control-Space).
 
 The highlight occurrences option is a great feature added by Devart. When a particular object is selected in the query editor window, other occurrences are highlighted for easy viewing.
 
-![SQLCompleteOptionsGeneral_vmf6ip](/assets/img/SQLCompleteOptionsGeneral_vmf6ip.jpg)
+![SQLCompleteOptionsGeneral_vmf6ip](/images/SQLCompleteOptionsGeneral_vmf6ip.jpg)
 
-![SQLCompleteHighlightedOccurrences_rdk7hk](/assets/img/SQLCompleteHighlightedOccurrences_rdk7hk.jpg)
+![SQLCompleteHighlightedOccurrences_rdk7hk](/images/SQLCompleteHighlightedOccurrences_rdk7hk.jpg)
 
 Automatic alias generation is another boon to the developer. SQL Complete is will automatically generate an alias for you upon object selection from intellisense. This also means that column selections later on will be correctly assign the alias, reducing typing.
 select * from company c -- this alias was auto generated when selected
 
 
-![SQLCompleteOptionsAdvanced_inycqx](/assets/img/SQLCompleteOptionsAdvanced_inycqx.jpg)
+![SQLCompleteOptionsAdvanced_inycqx](/images/SQLCompleteOptionsAdvanced_inycqx.jpg)
 
 ## Seamless Shortcuts provide SSMS Satisfaction
 
@@ -60,30 +60,30 @@ Dragging the column names from object explorer results in a list of columns deli
 SQL Complete fills this gap. Pressing tab allows expansion of columns in a stacked list, with alias's already assigned correctly. The column select appends to the same line, but with the automatic formatting tool, the finished list is easily stacked vertically with the press of the format shortcut. These are simple examples, but I've found to extremely helpful when working with complex queries involving numerous tables. Expanding all the columns available or selecting, with correct alias generation is a major improvement to the SSMS development environment
 
 
-![SQLCompleteTabToExpand_yylpqd](/assets/img/SQLCompleteTabToExpand_yylpqd.jpg)
+![SQLCompleteTabToExpand_yylpqd](/images/SQLCompleteTabToExpand_yylpqd.jpg)
 
-![SQLCompleteTabbedExpanded_xqzeg2](/assets/img/SQLCompleteTabbedExpanded_xqzeg2.jpg)
+![SQLCompleteTabbedExpanded_xqzeg2](/images/SQLCompleteTabbedExpanded_xqzeg2.jpg)
 
-![SQLCompleteColumnSelector_yfmgrl](/assets/img/SQLCompleteColumnSelector_yfmgrl.jpg)
+![SQLCompleteColumnSelector_yfmgrl](/images/SQLCompleteColumnSelector_yfmgrl.jpg)
 
 Insert statements are "auto completed" helping provide quick statement generation, this is a lifesaver!
 
 
-![SCCompleteInsertColumnSelector_jwqie9](/assets/img/SCCompleteInsertColumnSelector_jwqie9.jpg)
+![SCCompleteInsertColumnSelector_jwqie9](/images/SCCompleteInsertColumnSelector_jwqie9.jpg)
 
-![SCAutoGenerateInsertCompleted_llmscx](/assets/img/SCAutoGenerateInsertCompleted_llmscx.jpg)
+![SCAutoGenerateInsertCompleted_llmscx](/images/SCAutoGenerateInsertCompleted_llmscx.jpg)
 
 Prompts also help developers know the table structure of objects/views, stored procedure parameters, and function usage. Might save some folks MSDN googling just to remind themselves about the correct function usage!
 
 
-![SCTableInfoPrompt_uzpbwk](/assets/img/SCTableInfoPrompt_uzpbwk.jpg)
+![SCTableInfoPrompt_uzpbwk](/images/SCTableInfoPrompt_uzpbwk.jpg)
 
-![SCFunctionInfo_kigj4r](/assets/img/SCFunctionInfo_kigj4r.jpg)
+![SCFunctionInfo_kigj4r](/images/SCFunctionInfo_kigj4r.jpg)
 
 Compare this to the native function prompt:
 
 
-![NativeIntellisenseFunctionPrompt_fpi1hn](/assets/img/NativeIntellisenseFunctionPrompt_fpi1hn.jpg)
+![NativeIntellisenseFunctionPrompt_fpi1hn](/images/NativeIntellisenseFunctionPrompt_fpi1hn.jpg)
 
 ## Snippet Templates are made a reality
 
@@ -92,16 +92,16 @@ Compare this to the native function prompt:
 Snippets are brought to us with SQL Complete with an amazing thought to detail. Not only are the snippets brought into our editor window, but are also displayed in intellisense, with"fields" provided to navigate to to "fill in the blanks." Variables for customization are offered and the sky is the limit here!
 
 
-![W620_qqkamh](/assets/img/SCSnippetManager-W620_qqkamh.jpg)
+![W620_qqkamh](/images/SCSnippetManager-W620_qqkamh.jpg)
 
-![W620_vknnlx](/assets/img/SCSnippetIndex-W620_vknnlx.jpg)
+![W620_vknnlx](/images/SCSnippetIndex-W620_vknnlx.jpg)
 
 Below I demonstrate a cursor snippet. The only keystrokes I used to complete this action were:
 
 cu + Tab @MyCustom + Tab + custom_name_i_entered_in_one_place
 Total Keystrokes = 48 (10.9% Cost ) Total keystrokes without addin (and no mistakes) = 440 (89.1% cost) Would you keep an execution plan version that was 89% higher cost... 392 keystrokes later?
 
-![CursorSnippet_pimadx](/assets/img/CursorSnippet_pimadx.jpg)
+![CursorSnippet_pimadx](/images/CursorSnippet_pimadx.jpg)
 
 ## Formatting made painless
 
@@ -110,44 +110,44 @@ Formatting SQL code manually can be a pain. There are online tools offered with 
 The level of customization is intense. A few screenshots are provided, but I will not go into all the levels of customization, instead I'll provide you with some MSDN code samples that SQL Complete beautified. Running the format can be done on a selection or an entire document. Settings can be saved so a team could easily share a formatting standard. This would prevent each person from having to configure all their settings manually, a major plus in setup for any team!
 
 
-![SQLCompleteOptionsFormattingGeneral_tqna9q](/assets/img/SQLCompleteOptionsFormattingGeneral_tqna9q.jpg)
+![SQLCompleteOptionsFormattingGeneral_tqna9q](/images/SQLCompleteOptionsFormattingGeneral_tqna9q.jpg)
 
 
-![SQLCompleteOptionsProfiles_dt4tge](/assets/img/SQLCompleteOptionsProfiles_dt4tge.jpg)
+![SQLCompleteOptionsProfiles_dt4tge](/images/SQLCompleteOptionsProfiles_dt4tge.jpg)
 
 ## Ugly Duckling SQL turned into the beautified SQL you'd be proud of
 
 
-![W620_vstmxq](/assets/img/SCFormatExampleCaseAlignment-W620_vstmxq.jpg)
+![W620_vstmxq](/images/SCFormatExampleCaseAlignment-W620_vstmxq.jpg)
 
 
-![W620_xjl8xy](/assets/img/SCFormatExampleCommented-W620_xjl8xy.jpg)
+![W620_xjl8xy](/images/SCFormatExampleCommented-W620_xjl8xy.jpg)
 
 Here are some examples of the formatting tool at work in order from a simple query to a complex recursive CTE. I believe this tool handles it beautifully!
 
 BEFORE
 
-![SCFormat2SimpleBefore_xadxgx](/assets/img/SCFormat2SimpleBefore_xadxgx.jpg)
+![SCFormat2SimpleBefore_xadxgx](/images/SCFormat2SimpleBefore_xadxgx.jpg)
 
 AFTER
 
-![SCFormat2SimpleAfter_pfanu0](/assets/img/SCFormat2SimpleAfter_pfanu0.jpg)
+![SCFormat2SimpleAfter_pfanu0](/images/SCFormat2SimpleAfter_pfanu0.jpg)
 
 BEFORE
 
-![SCFormat1Before_sngzy2](/assets/img/SCFormat1Before_sngzy2.jpg)
+![SCFormat1Before_sngzy2](/images/SCFormat1Before_sngzy2.jpg)
 
 After: *line breaks handled with union's
 
-![ScFormat1After_fil4zn](/assets/img/ScFormat1After_fil4zn.jpg)
+![ScFormat1After_fil4zn](/images/ScFormat1After_fil4zn.jpg)
 
 **BEFORE**: Complex CTE
 
-![SCFormatComplexCTEBefore_g613ip](/assets/img/SCFormatComplexCTEBefore_g613ip.jpg)
+![SCFormatComplexCTEBefore_g613ip](/images/SCFormatComplexCTEBefore_g613ip.jpg)
 
 **AFTER **
 
-![SCFormatComplexCTEAfter_b1jzrb](/assets/img/SCFormatComplexCTEAfter_b1jzrb.jpg)
+![SCFormatComplexCTEAfter_b1jzrb](/images/SCFormatComplexCTEAfter_b1jzrb.jpg)
 
 ## Final Thoughts
 

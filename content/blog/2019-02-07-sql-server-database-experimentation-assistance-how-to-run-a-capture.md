@@ -20,7 +20,7 @@ Very basic look at the setup as I couldn't find much documentation on this when 
 
 Added the DRCReplay.exe and the controller services by pulling up the feature setup and adding existing features to existing SQL instance installed.
 
-![Add Feature](/assets/img/1516994454775.png)
+![Add Feature](/images/1516994454775.png)
 
 Pointed the controller directory to a new directory I created
 
@@ -39,7 +39,7 @@ dbatools\backup-dbadatabase -sqlinstance localhost -database $Dbname -CopyOnly -
 
 Initialized application application activity, and then recorded in DEA. The result was now in the capture section.
 
-![DEA Captures](/assets/img/1516995207757.png)
+![DEA Captures](/images/1516995207757.png)
 
 Restoring after trace was recorded in DEA was simple with the following command from Dbatools
 
@@ -49,4 +49,4 @@ restore-dbadatabase -SqlInstance localhost -Path "<BackupFilePath>" -DatabaseNam
 
 After this restore, initiating the replay was achieved by going to the replay tab.
 
-![DEA Replay](/assets/img/1516995297608.png)
+![DEA Replay](/images/1516995297608.png)

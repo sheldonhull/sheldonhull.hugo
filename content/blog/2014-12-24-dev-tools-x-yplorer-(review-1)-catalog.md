@@ -20,15 +20,15 @@ This is almost like stepping from a text editor for editing code to a full blown
 > The catalog houses many categories.
 > Each of these categories can provide various functionality beyond just linking to favorites.
 
-![XYPlorer_Catalog_1](/assets/img/XYPlorer_Catalog_1_ivnxvh.png)
+![XYPlorer_Catalog_1](/images/XYPlorer_Catalog_1_ivnxvh.png)
 
 Here you can see applications listed directly. They provide functionality to open the app, open a file you drag onto it with the app (bypassing need to use "open with" dialogue)
 
-![XYPlorer_Catalog_2](/assets/img/XYPlorer_Catalog_2_ylgmef.png)
+![XYPlorer_Catalog_2](/images/XYPlorer_Catalog_2_ylgmef.png)
 
 Opening the properties of a file allow one to futher edit the actions the application performs.
 
-![XYPlorer_Catalog_3](/assets/img/XYPlorer_Catalog_3_-_sublime_properties_n9fnlb.png)
+![XYPlorer_Catalog_3](/images/XYPlorer_Catalog_3_-_sublime_properties_n9fnlb.png)
  .... to be continued.
 
 Lots of functionality in the catalog to benefit from, but time is limited, I'm going to visit further in next post.

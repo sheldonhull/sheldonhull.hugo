@@ -22,7 +22,7 @@ toc: true
 
 There are some beautiful ways to visualize time series data with the tools I'm going to go over. This post is purely focused on the initial setup and saving you some time there. In a future post, I'll show how some of these tools can help you visualize your server performance in a powerful way, including taking metrics from multiple types of servers that be working with SQL Server, and combining the metrics when appropriate to give a full picture of performance.
 
-![A beautiful way to visualize performance across a variety of machines](/assets/img/grafana_visualization.png) A beautiful way to visualize performance across a variety of machines
+![A beautiful way to visualize performance across a variety of machines](/images/grafana_visualization.png) A beautiful way to visualize performance across a variety of machines
 
 It's pretty epic to combine information across a variety of sources and be able to relate the metrics to the "big picture" that individual machine monitoring might fail to shed light on.
 
@@ -48,7 +48,7 @@ Initializing the new database was simple as documented: `create database statty`
 
 Also, if you get an error with access to the file, try running as admin.
 
-![Influx+Command+Line+Error+on+writing+history+file](/assets/img/Influx+Command+Line+Error+on+writing+history+file.png)
+![Influx+Command+Line+Error+on+writing+history+file](/images/Influx+Command+Line+Error+on+writing+history+file.png)
 
 ## More Enviromental Variable Fun
 
@@ -92,11 +92,11 @@ One these metrics began to run, I ran Chronograf. This is Influx's alternative t
 {{% gist 958094675f6ab53897616755dd130144 %}}
 
 
-![](/assets/img/Initial+Screen+After+Opening+Localhost+when+running+the+Chronograf.exe)
+![](/images/Initial+Screen+After+Opening+Localhost+when+running+the+Chronograf.exe)
 
 Upon loading and opening up the instance monitor, I found immediately that I was able to get some metrics from the defaults.
 
-![Defaults+-+Nice+Start](/assets/img/Defaults+-+Nice+Start.png)
+![Defaults+-+Nice+Start](/images/Defaults+-+Nice+Start.png)
 
 ## Get Grafana
 

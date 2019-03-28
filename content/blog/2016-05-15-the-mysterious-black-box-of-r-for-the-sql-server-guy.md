@@ -46,24 +46,24 @@ GO
 GO
 ```
 
-![Running Select from View](/assets/img/running-select-from-view.png)
+![Running Select from View](/images/running-select-from-view.png)
 
 ## viewing the results of basic query in r studio
 
-![viewing the results of basic query in r studio](/assets/img/viewing-the-results-of-basic-query-in-r-studio.png)
+![viewing the results of basic query in r studio](/images/viewing-the-results-of-basic-query-in-r-studio.png)
 
 ## running R script in PowerBi
 
-![running R script in PowerBi](/assets/img/running-r-script-in-powerbi.png)
+![running R script in PowerBi](/images/running-r-script-in-powerbi.png)
 
 ## execute r script
 
-![execute r script](/assets/img/execute-r-script.png)
+![execute r script](/images/execute-r-script.png)
 
 ## results preview
 
-![results preview](/assets/img/results-preview.png)
+![results preview](/images/results-preview.png)
 
 ## Visualized in Power Bi
 
-![Visualized in Power Bi](/assets/img/visualized-in-power-bi.png)
+![Visualized in Power Bi](/images/visualized-in-power-bi.png)

@@ -2,49 +2,49 @@
 date: "2017-08-16T00:00:00Z"
 gallery:
 - alt: 20170708+1304+2352134.jpg
-  image_path: /assets/img/20170708+1304+2352134.jpg
+  image_path: /images/20170708+1304+2352134.jpg
   title: None
-  url: /assets/img/20170708+1304+2352134.jpg
+  url: /images/20170708+1304+2352134.jpg
 - alt: 20170708+1429+2352140.jpg
-  image_path: /assets/img/20170708+1429+2352140.jpg
+  image_path: /images/20170708+1429+2352140.jpg
   title: None
-  url: /assets/img/20170708+1429+2352140.jpg
+  url: /images/20170708+1429+2352140.jpg
 - alt: 20170708+1445+2352144.jpg
-  image_path: /assets/img/20170708+1445+2352144.jpg
+  image_path: /images/20170708+1445+2352144.jpg
   title: None
-  url: /assets/img/20170708+1445+2352144.jpg
+  url: /images/20170708+1445+2352144.jpg
 - alt: 20170708+1446+2352147.jpg
-  image_path: /assets/img/20170708+1446+2352147.jpg
+  image_path: /images/20170708+1446+2352147.jpg
   title: None
-  url: /assets/img/20170708+1446+2352147.jpg
+  url: /images/20170708+1446+2352147.jpg
 - alt: 2017-07-08_14-52-53.png
-  image_path: /assets/img/2017-07-08_14-52-53.png
+  image_path: /images/2017-07-08_14-52-53.png
   title: None
-  url: /assets/img/2017-07-08_14-52-53.png
+  url: /images/2017-07-08_14-52-53.png
 - alt: 2017-07-08_16-34-48.png
-  image_path: /assets/img/2017-07-08_16-34-48.png
+  image_path: /images/2017-07-08_16-34-48.png
   title: None
-  url: /assets/img/2017-07-08_16-34-48.png
+  url: /images/2017-07-08_16-34-48.png
 - alt: 2017-07-08_14-51-59.png
-  image_path: /assets/img/2017-07-08_14-51-59.png
+  image_path: /images/2017-07-08_14-51-59.png
   title: None
-  url: /assets/img/2017-07-08_14-51-59.png
+  url: /images/2017-07-08_14-51-59.png
 - alt: 2017-07-08_16-04-20.png
-  image_path: /assets/img/2017-07-08_16-04-20.png
+  image_path: /images/2017-07-08_16-04-20.png
   title: None
-  url: /assets/img/2017-07-08_16-04-20.png
+  url: /images/2017-07-08_16-04-20.png
 - alt: 2017-07-08_15-16-31.png
-  image_path: /assets/img/2017-07-08_15-16-31.png
+  image_path: /images/2017-07-08_15-16-31.png
   title: None
-  url: /assets/img/2017-07-08_15-16-31.png
+  url: /images/2017-07-08_15-16-31.png
 - alt: 2017-07-08_16-03-25.png
-  image_path: /assets/img/2017-07-08_16-03-25.png
+  image_path: /images/2017-07-08_16-03-25.png
   title: None
-  url: /assets/img/2017-07-08_16-03-25.png
+  url: /images/2017-07-08_16-03-25.png
 - alt: 2017-07-20_12-45-12.png
-  image_path: /assets/img/2017-07-20_12-45-12.png
+  image_path: /images/2017-07-20_12-45-12.png
   title: None
-  url: /assets/img/2017-07-20_12-45-12.png
+  url: /images/2017-07-20_12-45-12.png
 tags:
 - gear
 - ramblings

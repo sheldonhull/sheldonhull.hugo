@@ -15,7 +15,7 @@ For all the **dark theme aficionados**, or those who just want a better theme th
 5. For consistency, adjust the `background` and `forecolor` of the `console pane` as well as the `text background` to match if you want to. In my case I took the RGB values from the theme on the `script pane background` and applied to the `console pane` below it.
 6. If you want the background for the error, warning, and other output streams to match, update the RGB background as well.
 
-![ISE Color Options](/assets/img/2016-07-13_10-07-40.png)
+![ISE Color Options](/images/2016-07-13_10-07-40.png)
 Your eyes will now thank you, especially if you are jumping from Visual Studio dark theme to ISE with it's previously glaring white screen.
 
-![Powershell Themed](/assets/img/2016-07-13_10-02-58_powershell_ise_themed.png)
+![Powershell Themed](/images/2016-07-13_10-02-58_powershell_ise_themed.png)

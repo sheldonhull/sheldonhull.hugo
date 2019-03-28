@@ -16,4 +16,4 @@ Lo and beheld, a fantastic website provided the [World's original cheapest Mouse
 After feeling like an idiot, I printed, taped to my desk and the magical precision returned. Life hack!
 
 
-![Worlds cheapest optical mousepad](/assets/img/Cheapest+mousepad.jpgCheapest+mousepad?format=original)
+![Worlds cheapest optical mousepad](/images/Cheapest+mousepad.jpgCheapest+mousepad?format=original)

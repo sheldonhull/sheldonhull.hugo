@@ -14,29 +14,29 @@ Here's some screenshots to give you a guide on installing SSMS by itself when wo
 
 
 
-![install_ssms2012_1](/assets/img/install_ssms2012_1_rqpqhb.jpg)
+![install_ssms2012_1](/images/install_ssms2012_1_rqpqhb.jpg)
 <hr>
-![install_ssms2012_2](/assets/img/install_ssms2012_2_lfdg7r.jpg)
+![install_ssms2012_2](/images/install_ssms2012_2_lfdg7r.jpg)
 <hr>
-![install_ssms2012_3](/assets/img/install_ssms2012_3_kgwicg.jpg)
+![install_ssms2012_3](/images/install_ssms2012_3_kgwicg.jpg)
 <hr>
-![install_ssms2012_4](/assets/img/install_ssms2012_4_bzeogj.jpg)
+![install_ssms2012_4](/images/install_ssms2012_4_bzeogj.jpg)
 <hr>
-![install_ssms2012_5](/assets/img/install_ssms2012_5_k4eerh.jpg)
+![install_ssms2012_5](/images/install_ssms2012_5_k4eerh.jpg)
 <hr>
-![install_ssms2012_6](/assets/img/install_ssms2012_6_vh0g86.jpg)
+![install_ssms2012_6](/images/install_ssms2012_6_vh0g86.jpg)
 <hr>
-![install_ssms2012_7](/assets/img/install_ssms2012_7_jopmb4.jpg)
+![install_ssms2012_7](/images/install_ssms2012_7_jopmb4.jpg)
 <hr>
-![install_ssms2012_8](/assets/img/install_ssms2012_8_zik298.jpg)
+![install_ssms2012_8](/images/install_ssms2012_8_zik298.jpg)
 <hr>
-![install_ssms2012_9](/assets/img/install_ssms2012_9_rwdycz.jpg)
+![install_ssms2012_9](/images/install_ssms2012_9_rwdycz.jpg)
 <hr>
-![install_ssms2012_10](/assets/img/install_ssms2012_10_zjlgi4.jpg)
+![install_ssms2012_10](/images/install_ssms2012_10_zjlgi4.jpg)
 <hr>
-![install_ssms2012_11](/assets/img/install_ssms2012_11_o1rlzd.jpg)
+![install_ssms2012_11](/images/install_ssms2012_11_o1rlzd.jpg)
 <hr>
-![install_ssms2012_12](/assets/img/install_ssms2012_12_thktia.jpg)
+![install_ssms2012_12](/images/install_ssms2012_12_thktia.jpg)
 <hr>
-![install_ssms2012_13](/assets/img/install_ssms2012_13_zdlukh.jpg)
+![install_ssms2012_13](/images/install_ssms2012_13_zdlukh.jpg)
 <hr>

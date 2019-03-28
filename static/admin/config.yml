@@ -5,13 +5,13 @@ backend:
 
 display_url: https://www.sheldonhull.com
 media_folder: "assets/img" # Folder where user uploaded files should go
-logo_url: https://d33wubrfki0l68.cloudfront.net/21446a9fe6768fbc72d304626343179b74759ac8/95052/assets/img/sheldon_400x400.jpg
+logo_url: https://d33wubrfki0l68.cloudfront.net/21446a9fe6768fbc72d304626343179b74759ac8/95052/images/sheldon_400x400.jpg
 
 publish_mode: editorial_workflow
 collections: # A list of collections the CMS should be able to edit
   - name: "post" # Used in routes, ie.: /admin/collections/:slug/edit
     label: "Post" # Used in the UI, ie.: "New Post"
-    folder: "_posts" # The path to the folder where the documents are stored
+    folder: "content/blog" # The path to the folder where the documents are stored
     format: yaml-frontmatter
     extension: md
     create: true # Allow users to create new documents in this collection

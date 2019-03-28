@@ -17,58 +17,58 @@ First, I know there are some great stored procs/scripts that people have written
 
 ## create CRUD from context menu for entire database
 
-![create CRUD from context menu for entire database](/assets/img/create-crud-from-context-menu-for-entire-database.png)
+![create CRUD from context menu for entire database](/images/create-crud-from-context-menu-for-entire-database.png)
 
 ## general options
 
-![general options](/assets/img/general-options.png)
+![general options](/images/general-options.png)
 
 ## replacement text options
 
 This has some potential to be very helpful! You could generate the user, date and time, and more to generate some comment headers and more.
 
-![replacement text options](/assets/img/replacement-text-options.png)
+![replacement text options](/images/replacement-text-options.png)
 
 ## replacement text example
 
-![replacement text example](/assets/img/replacement-text-example.png)
+![replacement text example](/images/replacement-text-example.png)
 
 ##select template
 
-![select template](/assets/img/select-template.png)
+![select template](/images/select-template.png)
 
 ## insert template
 
 I prefer a begin try and error catch output syntax. I was able to encapsulate the CRUD generator statements with the syntax I preferred, and no longer had to manually manipulate each file to get it where i wanted it. This was a lot of time saved!
 
-![insert template](/assets/img/insert-template.png)
+![insert template](/images/insert-template.png)
 
 ## update template
 
-![update template](/assets/img/update-template.png)
+![update template](/images/update-template.png)
 
 ## warning - case sensitive parameters
 
 Make sure to keep the case correct on the variables. This is case sensitive.
 
-![warning - case sensitive parameters](/assets/img/warning---case-sensitive-parameters.png)
+![warning - case sensitive parameters](/images/warning---case-sensitive-parameters.png)
 
 ## saving you a lot of work...
 
 Once you've clicked the generate CRUD the magic happens.
 The results were a large list of prebuilt stored procedures for doing all the CRUD operations needed, with no extra work required. Win!
 
-![saving you a lot of work...](/assets/img/saving-you-a-lot-of-work.png)
+![saving you a lot of work...](/images/saving-you-a-lot-of-work.png)
 
 ## Other
 
 Searching the history of previously executed queries, versions of files edited, and sessions of tabs is all excellently handled in the SQL History Search extension. My favorite part is the useful status messages such as
 
-![Other](/assets/img/other.png)
+![Other](/images/other.png)
 
 ## History of Execution
 
-![History of Execution](/assets/img/history-of-execution.png)
+![History of Execution](/images/history-of-execution.png)
 
 ## updates
 
