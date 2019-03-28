@@ -52,7 +52,9 @@ googleAnalytics = ""
 #   # images = [""]
 #   themeColor = "#494f5c"
 # # START HERMIT
-
+[outputs]
+  home = ["HTML", "AMP", "RSS"]
+  page = ["HTML"]
 [permalinks]
 posts = "/blog/:title/"
 

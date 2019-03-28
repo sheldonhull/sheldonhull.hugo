@@ -64,3 +64,28 @@ hugo --buildFuture --buildDrafts --destination preview -b $DEPLOY_PRIME_URL --ve
 """
 [context.branch-deploy.environment]
   HUGO_GOOGLEANALYTICS = "dev"
+
+
+# Redirects to keep jekyll based urls that some use like:
+#xmlUrl="https://www.sheldonhull.com/tags/tech/feed.xml"  should still be working, since hugo generates with index.xml
+
+[[redirects]]
+  from = "/feed.xml"
+  to = "/index.xml"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/feed/"
+  to = "/index.xml"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/feed/"
+  to = "/index.xml"
+  status = 200
+  force = true
+[[redirects]]
+  from = "/feed"
+  to = "/index.xml"
+  status = 200
+  force = true
