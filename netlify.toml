@@ -24,7 +24,7 @@ hugo --verbose --verboseLog
 
 [build.environment]
   HUGO_ENABLEGITINFO = "true"
-  HUGO_BASEURL = "$DEPLOY_PRIME_URL"
+  HUGO_BASEURL = "https://www.sheldonhull.com/"
   HUGO_MINIFY = "true"
 
 ###############################
