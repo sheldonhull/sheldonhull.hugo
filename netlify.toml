@@ -25,6 +25,7 @@ hugo --verbose
 [build.environment]
   HUGO_ENABLEGITINFO = "true"
   HUGO_BASEURL = "$DEPLOY_PRIME_URL"
+
 ###############################
 # DEPLOY PREVIEWS
 ###############################
@@ -47,6 +48,7 @@ publish = "preview"
 [context.deploy-preview.environment]
   HUGO_GOOGLEANALYTICS = "dev"
   HUGO_BASEURL = "$DEPLOY_PRIME_URL"
+  HUGO_ENABLEGITINFO = "true"
 
 ###############################
 # BRANCH
@@ -70,6 +72,7 @@ hugo --buildFuture --buildDrafts --destination preview--verbose
 [context.branch-deploy.environment]
   HUGO_GOOGLEANALYTICS = "dev"
   HUGO_BASEURL = "$DEPLOY_PRIME_URL"
+  HUGO_ENABLEGITINFO = "true"
 
 
 # Redirects to keep jekyll based urls that some use like:
