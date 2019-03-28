@@ -4,8 +4,8 @@ title = "sheldonhull.com"
 
 # Themes
 #theme = "sam"
-#theme = "hermit"
-theme = "beautifulhugo"
+theme = "hermit"
+#theme = "beautifulhugo"
 #theme = "hugo-material-docs"
 #theme = "hugo-coder"
 #theme = "cupper-hugo-theme"

@@ -16,15 +16,20 @@ GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
 GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
 echo "GIT_COMMIT_SHA       = $GIT_COMMIT_SHA"
 echo "GIT_COMMIT_SHA_SHORT = $GIT_COMMIT_SHA_SHORT"
-hugo -b $DEPLOY_PRIME_URL
+hugo
 """ # -b $DEPLOY_PRIME_URL
   publish = "public"
-  HUGO_ENABLEGITINFO = "true"
 
+
+
+[build.environment]
+  HUGO_ENABLEGITINFO = "true"
+  #HUGO_BASEURL = "$DEPLOY_PRIME_URL"
 ###############################
 # DEPLOY PREVIEWS
 ###############################
 [context.deploy-preview]
+  HUGO_BASEURL = "$DEPLOY_PRIME_URL"
   command = """
 echo "DEPLOY_PRIME_URL = $DEPLOY_PRIME_URL"
 HUGO_BASEURL=$DEPLOY_PRIME_URL
@@ -38,10 +43,11 @@ echo "GIT_COMMIT_SHA       = $GIT_COMMIT_SHA"
 echo "GIT_COMMIT_SHA_SHORT = $GIT_COMMIT_SHA_SHORT"
 hugo --buildFuture --destination preview -b $DEPLOY_PRIME_URL --verbose
 """
-  publish = "preview"
+publish = "preview"
 
 [context.deploy-preview.environment]
   HUGO_GOOGLEANALYTICS = "dev"
+  HUGO_BASEURL = "$DEPLOY_PRIME_URL"
 
 ###############################
 # BRANCH
@@ -64,3 +70,4 @@ hugo --buildFuture --buildDrafts --destination preview -b $DEPLOY_PRIME_URL --ve
 """
 [context.branch-deploy.environment]
   HUGO_GOOGLEANALYTICS = "dev"
+  HUGO_BASEURL = "$DEPLOY_PRIME_URL"
