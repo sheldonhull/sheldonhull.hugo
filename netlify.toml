@@ -16,7 +16,7 @@ GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
 GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
 echo "GIT_COMMIT_SHA       = $GIT_COMMIT_SHA"
 echo "GIT_COMMIT_SHA_SHORT = $GIT_COMMIT_SHA_SHORT"
-hugo -b $DEPLOY_PRIME_URL --verbose
+hugo --verbose
 """ # -b $DEPLOY_PRIME_URL
   publish = "public"
 
@@ -24,7 +24,7 @@ hugo -b $DEPLOY_PRIME_URL --verbose
 
 [build.environment]
   HUGO_ENABLEGITINFO = "true"
-  #HUGO_BASEURL = "$DEPLOY_PRIME_URL"
+  HUGO_BASEURL = "$DEPLOY_PRIME_URL"
 ###############################
 # DEPLOY PREVIEWS
 ###############################
@@ -40,13 +40,13 @@ GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
 GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
 echo "GIT_COMMIT_SHA       = $GIT_COMMIT_SHA"
 echo "GIT_COMMIT_SHA_SHORT = $GIT_COMMIT_SHA_SHORT"
-hugo --buildFuture --destination preview -b $DEPLOY_PRIME_URL --verbose
+hugo --buildFuture --destination preview --verbose
 """
 publish = "preview"
 
 [context.deploy-preview.environment]
   HUGO_GOOGLEANALYTICS = "dev"
-  #HUGO_BASEURL = "$DEPLOY_PRIME_URL"
+  HUGO_BASEURL = "$DEPLOY_PRIME_URL"
 
 ###############################
 # BRANCH
@@ -65,11 +65,11 @@ GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
 GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
 echo "GIT_COMMIT_SHA       = $GIT_COMMIT_SHA"
 echo "GIT_COMMIT_SHA_SHORT = $GIT_COMMIT_SHA_SHORT"
-hugo --buildFuture --buildDrafts --destination preview -b $DEPLOY_PRIME_URL --verbose
+hugo --buildFuture --buildDrafts --destination preview--verbose
 """
 [context.branch-deploy.environment]
   HUGO_GOOGLEANALYTICS = "dev"
-  #HUGO_BASEURL = "$DEPLOY_PRIME_URL"
+  HUGO_BASEURL = "$DEPLOY_PRIME_URL"
 
 
 # Redirects to keep jekyll based urls that some use like:

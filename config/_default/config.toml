@@ -18,7 +18,7 @@ defaultContentLanguage = "en"
 metadataformat = "yaml"
 
 paginate = 20
-canonifyurls = true
+canonifyurls = false
 rssLimit = 10  # Maximum number of items in the RSS feed.
 
 pygmentsstyle = "monokai"
