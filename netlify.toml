@@ -16,7 +16,7 @@ GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
 GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
 echo "GIT_COMMIT_SHA       = $GIT_COMMIT_SHA"
 echo "GIT_COMMIT_SHA_SHORT = $GIT_COMMIT_SHA_SHORT"
-hugo --verbose
+hugo --verbose --verboseLog
 """ # -b $DEPLOY_PRIME_URL
   publish = "public"
 
@@ -25,6 +25,7 @@ hugo --verbose
 [build.environment]
   HUGO_ENABLEGITINFO = "true"
   HUGO_BASEURL = "$DEPLOY_PRIME_URL"
+  HUGO_MINIFY = "true"
 
 ###############################
 # DEPLOY PREVIEWS
@@ -90,6 +91,11 @@ hugo --buildFuture --buildDrafts --destination preview--verbose
   force = true
 [[redirects]]
   from = "/feed"
+  to = "/index.xml"
+  status = 200
+  force = true
+[[redirects]]
+  from = "*/feed.xml"
   to = "/index.xml"
   status = 200
   force = true
