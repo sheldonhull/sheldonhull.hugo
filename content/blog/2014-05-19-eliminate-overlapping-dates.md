@@ -9,6 +9,6 @@ I was looking for an efficient way to eliminate overlapping days when provided w
 
 Itzik provided an excellent solution, though I had to take time to digest. The only problem I ran into, was his solution was focused on a single user and dates. For my purposes, I need to evaluate an account _and_ further break it down by overlap on a particular process. Grateful for SQL MVP's contributions to the community as this was a brain bender!
 
-![Example of Problem and Solution with Overlapping Dates](/assets/img/Eliminate_Overlapping_Dates_ogww1m.png)
+![Example of Problem and Solution with Overlapping Dates](/images/Eliminate_Overlapping_Dates_ogww1m.png)
 
 {{% gist 8c7235ecb75bb91833e1 %}}

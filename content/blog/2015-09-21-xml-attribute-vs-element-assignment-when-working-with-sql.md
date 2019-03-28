@@ -24,7 +24,7 @@ You can see the difference in naming. The bottom too are deprecated syntax from 
 {{% gist aae7d80467d37b89dc15 %}}
 
 
-![Image of XML Difference](/assets/img/xml-handling-with-aliases_uxvcja.jpg)
+![Image of XML Difference](/images/xml-handling-with-aliases_uxvcja.jpg)
 
 ## Further reading
 

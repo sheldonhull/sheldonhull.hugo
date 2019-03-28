@@ -15,7 +15,7 @@ I ran across [SQL#](http://bit.ly/29Gi6AD) and installed. The install was very s
 
 I used the free version which provided great regex parsing functionality.
 
-![SQLSharp (SQL#)](/assets/img/sqlsharp--sql--.png)
+![SQLSharp (SQL#)](/images/sqlsharp--sql--.png)
 
 ## Simple to use
 
@@ -23,14 +23,14 @@ Constructing the following query parsed the results easily, with no extract codi
 
 {{% gist b067b6d87cda11d70c608298cff8c0d4 %}}
 
-![Simple to use](/assets/img/simple-to-use.png)
+![Simple to use](/images/simple-to-use.png)
 
 ## Performance
 
 This was just an isolated 1000 record test, so nothing exhaustive. I compared it to a table function that parsing strings (could probably be optimized more). For the purpose of running a simple log parsing search on 1000 rows it did pretty good!
 For better work on parsing of strings, there are detailed postings out there by [Aaron Bertrand](http://bit.ly/29GFZbi), [Jeff Moden](http://bit.ly/29GIbQ0), and others. My scope was specifically focused on the benefit for a dba/developer doing adhoc-type work with Regex parsing, not splitting delimited strings. The focus of most of the articles I found was more on parsing delimited string. However, I'm linking to them so if you are researching, you can be pointed towards so much more in-depth research on a related topic.
 
-![Performance](/assets/img/performance.png)
+![Performance](/images/performance.png)
 
 ## Thoughts
 

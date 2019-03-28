@@ -38,7 +38,7 @@ This tool has some amazing functionality, but unfortunately was very tedious and
 Even though very unintuitive, I did like the customization options for layout and the arrangement. The problem was none of the changes performed in realtime, thereby making it an annoying guesswork game. Not a huge fan. Also, very difficult to easily identify tables that had related tables to add with a click, so not easy to navigate all the tables and related tables in an intuitive way.
 Not a big fan of having to tweak 10 settings via 10 trips to a right click context menu. Their presentation workflow needs some major improvements.
 
-![](/assets/img/visual-paradigm_e6bwlj_soeslm.jpg)
+![](/images/visual-paradigm_e6bwlj_soeslm.jpg)
 
 ## DBVisualizer
 
@@ -47,7 +47,7 @@ By far the best auto arranging layout tool I found. Amazing. It uses yEd as the 
 I'm pretty much sold that this is bar none the best auto-laid out representation of tables I've ever seen with any tool. I'll be keeping the free DbVisualizer as a tool for reviewing adhoc data models for sure!
 The negative for documentation purposes is that none of these graphs are saved, so it's good for adhoc or one time, but not to regenerate.
 
-![](/assets/img/dbvisualizer_ye4k4t.jpg)
+![](/images/dbvisualizer_ye4k4t.jpg)
 
 ## Aquasoft Data Studio
 
@@ -56,7 +56,7 @@ I did reach out to company on this option, and they said:
 _"You can't show the PK and FK without the entity. So, you can't show them be themselves."_
 The lack of any extra options to submit feedback, or anything as a potential buyer put me off to this product for now.
 
-![](/assets/img/aquasoft-data-studio_plr7hu.jpg)
+![](/images/aquasoft-data-studio_plr7hu.jpg)
 
 ## Other tools that were way too complex and pricey to fit documentation needs
 
@@ -80,4 +80,4 @@ Some things that could use improvement:
 4.  Improved autoarrangement - Allow preset option of only showing FK/PK ( i have an autohotkey script I built to do this, contact me if you want it, helped simplify)
 5.  Allow optional layouts like Tree, Hierarchical
 
-![](/assets/img/final-winner-dbschema_tyy0py.jpg)
+![](/images/final-winner-dbschema_tyy0py.jpg)

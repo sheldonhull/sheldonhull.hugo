@@ -10,7 +10,7 @@ title: Recovery is a Marathon, Not a Sprint - Hurricane Harvey
 
 It's important to remember that the road to recovery is not an instant process. Right now we have a ton of volunteers and people working to help those in need. I'm reminding myself, as much as any readers here, the process to recovery for people most impacted is not a single week of effort event. In some cases, entire homes were lost and without flood insurance, the financial devastation can be profound.
 
-![Flood Impact](/assets/img/Flood+impact.jpg)
+![Flood Impact](/images/Flood+impact.jpg)
 
 I'm proud to be part of the Vineyard Church association which is sending an equipped response team to the area to send volunteers and various professionals to aid in recovery. This will definitely help increase the impact we have as people have to go back to work and available time is reduced.
 

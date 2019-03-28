@@ -11,18 +11,18 @@ If you haven't explored the visual color coding of tabs based on pattern matches
 
 Apparently this has been improved on and my testing now shows that the tab recoloring for connections is changing when the connection is updated immediately. This is a great visual indicator of what your query window is connected to.
 
-![Recolor Tab with SQL Prompt](/assets/img/2016-05-04_12-06-49.png)
+![Recolor Tab with SQL Prompt](/images/2016-05-04_12-06-49.png)
 
-![Manage connections tab color matching](/assets/img/2016-05-04_12-07-34.png)
+![Manage connections tab color matching](/images/2016-05-04_12-07-34.png)
 
 I'm still a fan of SSMSBoost combined with SQLPrompt, but I'm finding myself needing less addins as SQLPrompt has been enhanced. The ease of configuration and setup is a major factor as well.
 SSMSboost Preferred connections are great for when needing to quickly context switch between different connections in the same window (and sync with object explorer)
 
-![SSMSBoost Edit preferred connections](/assets/img/2016-05-04_12-10-31.png)
+![SSMSBoost Edit preferred connections](/images/2016-05-04_12-10-31.png)
 
 Resulting textbox overlay
 
-![ssmsboost textbox overlay](/assets/img/2016-05-04_12-12-54.png)
+![ssmsboost textbox overlay](/images/2016-05-04_12-12-54.png)
 
 ### possible improvements for SQLPrompt
 

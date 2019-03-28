@@ -14,7 +14,7 @@ title: Easy SQL Maintenance with Minionware
 
 Here's my personal tweaked settings for deploying [Minionware's fantastic Reindex & Backup jobs.](http://bit.ly/2e8aE8g) In the development environment, I wanted to have some scheduled jobs running to provide a safety net, as well ensure updated statistics, but there were a few default settings I wanted to adjust. In particular, I tweaked the default fill factor back to 0/100. I also installed all the objects to a new "minion" database instead of in master, as I'm beginning to be a fan of isolating these type of maintenance jobs with logging to their own isolated database to easy portability. I also adjusted the default retain days on backups to 30.
 
-![powershell setup of backup](/assets/img/2016-10-10_10-02-32.png)
+![powershell setup of backup](/images/2016-10-10_10-02-32.png)
 
 You can use this template as a guide to help you adjust the default backup settings to fit your environment a little better.
 There has been various forms of discussion on the adjustments of Fill Factor for example on the defaults. For more detailed explanation, see Brentozar.com post [An Introduction to Fillfactor in SQL Server](http://bit.ly/2e8c2rq). For my usage, I wanted to leave the fill factors as default, so the install scripts flips these back to my desired settings. I also run the sp_config command to ensure backup compression is enabled to save some space.

@@ -12,7 +12,7 @@
 # #pygmentOptions = "linenos=inline"
 # #disqusShortname = "XXX"
 # #googleAnalytics = "XXX"
-  info = "DevOps // SQL & Automation"
+    info = "DevOps // SQL & Automation"
     description = "reticulating splines"
     keywords = "blog,developer,personal"
     avatarurl = "images/sheldon_120x120.jpg"

@@ -41,31 +41,31 @@ _Necessity is the mother of experimentation._
 
 Evaluated runs on the largest current grouping. This was 1232 base accounts. I would later evaluate with larger batch sizes, but started simple.
 
-![](/assets/img/initial-performance-evaluation-run-batch-level-analysis-1_edaoeu.jpg)
+![](/images/initial-performance-evaluation-run-batch-level-analysis-1_edaoeu.jpg)
 
 ### Actual Execution Details with Qure Profiler
 
 Tested Again With QURE Profiler set to minimum batch info. I also ran DBCC free proc  cache to attempt to better ensure the plan was correctly rebuilt for the new counts, and that it was a fresh start in the comparison as far as impact on the disk IO.
 
-![](/assets/img/actual-execution-details-with-qure-profiler_bj5jhb.jpg)
+![](/images/actual-execution-details-with-qure-profiler_bj5jhb.jpg)
 
 ### Comparing 100 to larger batch sizes in the base account request
 
 This final comparison shows 42% improvement by using 500 rows at a time. This seemed to be a good compromise at this point to increase batch sizes, while still maintaining lower logical reads. Next step was to test against a larger database to evaluate scalability.
 
-![](/assets/img/comparing-100-to-larger-batch-sizes-in-the-base-account-request_e7yqhr.jpg)
+![](/images/comparing-100-to-larger-batch-sizes-in-the-base-account-request_e7yqhr.jpg)
 
 ### Actual Execution Results on Larger database
 
 Evaluating against a database with about 500GB of data, I found the best execution time seemed to be the base account count (tongue twister) seems to be the 1000 batch size at this time. It is returning the results in the shortest duration and the lowest impact on reads. FREE PROC CACHE COMPLETED ON EACH STEP
 
-![](/assets/img/actual-execution-results-on-larger-database_c2o6vi.jpg)
+![](/images/actual-execution-results-on-larger-database_c2o6vi.jpg)
 
 ### Qure Profiler workload comparison
 
 Set the baseline as the 100 batch size (which is the current way of processing the request). Qure provided an extremely powerful side by side comparison of both of the workloads. The best value is still the 1000 batch size, showing that the logical reads at point.
 
-![](/assets/img/qure-profiler-workload-comparison_mvzznw.jpg)
+![](/images/qure-profiler-workload-comparison_mvzznw.jpg)
 
 ### Comparing to the original methodology of a huge view with 20+ joins
 
@@ -76,7 +76,7 @@ _*When comparing new (1000) simplified procs vs 100 on original views it showed:
 - **77% less cpu impact**
 - **81% less logical read impact**
 
-![](/assets/img/comparing-to-the-original-methodology-of-a-huge-view-with-20-joins_viwzll.jpg)
+![](/images/comparing-to-the-original-methodology-of-a-huge-view-with-20-joins_viwzll.jpg)
 
 ### Additional functionality I haven't even touched on
 

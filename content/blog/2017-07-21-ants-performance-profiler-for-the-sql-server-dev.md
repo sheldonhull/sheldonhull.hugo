@@ -23,31 +23,31 @@ _Disclaimer: As a member of the Friends of Red Gate program, I get to try out al
 
 ## Profiling .NET App
 
-![Setting up your profiling session](/assets/img/profiling-net-app.png) Setting up your profiling session
+![Setting up your profiling session](/images/profiling-net-app.png) Setting up your profiling session
 
 At the time of this articles publishing, there is no 2017 Visual studio extension which makes this process a few clicks less. For now, it still is simple. All you do is go to the bin/debug folder and select the executable you want to profile. Attaching to the .NET excecutable is required for my purpose, as attaching to an _existing process doesn't give you the ability to get all the SQL calls_ which we definitely want.
 
 ## Timeline & Bookmarks
 
-![timeline-bookmarks](/assets/img/timeline-bookmarks.png)
+![timeline-bookmarks](/images/timeline-bookmarks.png)
 
 During the profiling you can perform actions with the application and create bookmarks of points in time as you are performing these actions to make it easier to compare and review results later.
 
 ## Reviewing Results
 
-![Call Tree View](/assets/img/review-results.png) Call Tree View
+![Call Tree View](/images/review-results.png) Call Tree View
 
 This is based on the call tree. It shows code calls, and is a great way to be the database guy that says... "hey SQL server isn't slow, it's your code" :-)
 
 ## Database Calls
 
-![Database Calls](/assets/img/database-calls.png) Database Calls
+![Database Calls](/images/database-calls.png) Database Calls
 
 The database calls are my favorite part of this tool. This integration is very powerful and lets you immediately trim down to the calls made with timings and associated executed sql text. RG even went and helped us out by providing an execution plan viewer! When I first saw this I fell in love. Having had no previous experience with Entity framework of other ORMs, I found the insight into the performance and behavior of the application to be tremendously helpful the first time I launched this.
 
 ## Exporting HTML Report
 
-![HTML Exported Report](/assets/img/ants-html-exported-report.pngants-html-exported-report.png) HTML Exported Report
+![HTML Exported Report](/images/ants-html-exported-report.pngants-html-exported-report.png) HTML Exported Report
 
 A benefit for summarizing some action for others to consume is the ability to select the entire timeline, or narrow to a slide of time, and export the results as a HTML report.
 
@@ -88,4 +88,4 @@ Since the material is related, I thought I'd mention a few tools I've used to he
 
 If all else fails... you can always succumb to dark side and just use SQL Profiler or worse yet...SSMS activity monitor :-)
 
-![Image courtesy of Gratisography.com CC0](/assets/img/xevents-vs-profiler.jpg) Image courtesy of Gratisography.com CC0
+![Image courtesy of Gratisography.com CC0](/images/xevents-vs-profiler.jpg) Image courtesy of Gratisography.com CC0

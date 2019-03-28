@@ -18,12 +18,12 @@ This SQL Complete however, is a plugin for SSMS. It is native in their alternati
 
 I'll post up more detail when time permits on some of the other features, but one noticeably cool feature is the "execute large script" option.
 
-![MyDescription](/assets/img/2015.08.05_11h38m13s_016__f6xet0.jpg)
+![MyDescription](/images/2015.08.05_11h38m13s_016__f6xet0.jpg)
 
-![MyDescription](/assets/img/2015.08.05_11h38m43s_022__w7anoj.jpg)
+![MyDescription](/images/2015.08.05_11h38m43s_022__w7anoj.jpg)
 You can see the progress and the update in the output log, but the entire script isn't slowing down your GUI. In fact, you can just putter along and keep coding.
 
-![MyDescription](/assets/img/2015.08.05_11h41m18s_000_Collage_cpwuis.jpg)
+![MyDescription](/images/2015.08.05_11h41m18s_000_Collage_cpwuis.jpg)
 Other options to accomplish the same thing include executing via SQLCMD, powershell, or breaking things up into smaller files. This just happened to be a pretty convenient option!
 
 ## Have I switched?

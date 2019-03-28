@@ -1,11 +1,10 @@
 baseurl = "" #https://www.sheldonhull.com
 title = "sheldonhull.com"
 #theme = "hermit"
-
 # Themes
 #theme = "sam"
-#theme = "hermit"
-theme = "beautifulhugo"
+theme = "hermit"
+#theme = "beautifulhugo"
 #theme = "hugo-material-docs"
 #theme = "hugo-coder"
 #theme = "cupper-hugo-theme"
@@ -71,28 +70,28 @@ posts = "/blog/:title/"
         weight = 2
     [[menu.main]]
         name = "docs"
-        identifier="docs"
-        #url = "/docs/"
+#        identifier="docs"
+        url = "/docs/"
         weight = 3
     [[menu.main]]
         name = "About"
         weight = 4
         url = "/about/"
 
-        [[menu.main]]
-        parent = "docs"
-        name = "powershell"
-        url = "docs/powershell"
-        weight = 1
+        # [[menu.main]]
+        # parent = "docs"
+        # name = "powershell"
+        # url = "docs/powershell"
+        # weight = 1
 
-        [[menu.main]]
-        parent = "docs"
-        name = "awspowershell"
-        url = "docs/awspowershell"
-        weight = 2
+        # [[menu.main]]
+        # parent = "docs"
+        # name = "awspowershell"
+        # url = "docs/awspowershell"
+        # weight = 2
 
-        [[menu.main]]
-        parent = "docs"
-        name = "dbatools"
-        url = "docs/dbatools"
-        weight = 3
+        # [[menu.main]]
+        # parent = "docs"
+        # name = "dbatools"
+        # url = "docs/dbatools"
+        # weight = 3

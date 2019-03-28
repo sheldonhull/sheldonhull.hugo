@@ -20,15 +20,15 @@ If you need to do code comparison on a lot of files in Visual Studio, I ran acro
 
 In the changeset view you can select diff all files and whatever settings you've setup in the Tools > Options > Diff all Files settings will then feed through automatically.
 
-![2016-07-06_9-31-56_diff_all_files_setupoptions](/assets/img/2016-07-06_9-31-56_diff_all_files_setupoptions.png)
+![2016-07-06_9-31-56_diff_all_files_setupoptions](/images/2016-07-06_9-31-56_diff_all_files_setupoptions.png)
 
 You then click on diff all files in the changeset viewer
 
-![diff_all_files_animation](/assets/img/diff_all_files_animation.gif)
+![diff_all_files_animation](/images/diff_all_files_animation.gif)
 
 All the non-excluded items will then be merged into a single file, if this option was selected, or separate windows. Personally, I've found the merged view really helpful to have one single pane to scroll through.
 
-![2016-07-06_9-32-02_diff_all_files_settings](/assets/img/2016-07-06_9-32-02_diff_all_files_settings.png)
+![2016-07-06_9-32-02_diff_all_files_settings](/images/2016-07-06_9-32-02_diff_all_files_settings.png)
 
 ## Third Party Comparison Perks
 
@@ -37,11 +37,11 @@ To go a step beyond this you could use a third party comparison tool. My preferr
 In my test comparison, I reduced 3245 lines of code in the comparison window to 25 lines, which was the actual changes + 10 lines above/below for each change to have context. This resulted in only a few hundred lines to scroll through. Made my life easier!
 The only con for me with Araxis is no dark theme.... but I'll live.
 
-![araxis_merge_gui](/assets/img/2016-07-06_11-56-21_araxis_merge_gui.png)
+![araxis_merge_gui](/images/2016-07-06_11-56-21_araxis_merge_gui.png)
 
 ## configuring third party tools
 
-![configure_external_diff_tool](/assets/img/2016-07-06_10-23-24_configure_external_diff_tool.png)
+![configure_external_diff_tool](/images/2016-07-06_10-23-24_configure_external_diff_tool.png)
 
 I saved this snippet from working through Araxis documentation for setting up their tool with Visual Studio.
 

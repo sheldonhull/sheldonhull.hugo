@@ -20,17 +20,17 @@ Almost through it!
 
 Message from neighbor reports that everything seems high and dry still after the rains last night, so pretty sure my house, along with a few of the houses high enough on our street are not going to have water enter. If the water keeps going down, I'm hoping to have the family back in the house Friday or Saturday.
 
-![](/assets/img/Sarah+caught+a+shot+of+me+as+I+was+examining+the+water+progress+Sunday.jpg)
+![](/images/Sarah+caught+a+shot+of+me+as+I+was+examining+the+water+progress+Sunday.jpg)
 
 There will definitely be people in our neighborhood that will be dealing with repairs and issues as the video I posted previously shows.
 
 Walked over to the church today from our friends house. Figured I'd get some work done, and was doubtful of my ability to concentrate with my kiddos getting stir crazy. The walk was supposed to be 37 mins... an hour later I arrived. Gave me some extra time to pray at least :-)
 
-![a+longer+walk+than+intended...+but+i'm+a+guy](/assets/img/a+longer+walk+than+intended...+but+i'm+a+guy.png)
+![a+longer+walk+than+intended...+but+i'm+a+guy](/images/a+longer+walk+than+intended...+but+i'm+a+guy.png)
 
 Projections for the area are never certain, but seems to point to being clear of anything that would cause water to get into the house.
 
-![](/assets/img/Gettysburg+-+That's+what+google+maps+calls+this+spot.jpg)
+![](/images/Gettysburg+-+That's+what+google+maps+calls+this+spot.jpg)
 
 For those interested in helping out in the area, my church is participating in relief efforts and starting to gather resources to help those in the community. Randy (the lead pastor at nwvineyard.com) will make sure that any donations made are used to impact the local area as this is a core passion of our small church plant.
 

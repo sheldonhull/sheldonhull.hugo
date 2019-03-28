@@ -39,13 +39,13 @@ My personal use case has been to ensure load testing start/end times and other s
 
 Warning: I did experience performance degradation with Grafana and many annotations on a timeline. I found just disabling the annotations kept this from occurring, so you only pull them when youd them.
 
-![inserting+annotation+shows+on+graph](/assets/img/inserting+annotation+shows+on+graph.png)
+![inserting+annotation+shows+on+graph](/images/inserting+annotation+shows+on+graph.png)
 
 ## Adding Annotations to Grafana
 
 Now that you have the results being inserted into InfluxDB, you can query these in Grafana as annonations to overlay your graphs.
 
-![Adding+Annotation+To+Grafana+to+pull+from+InfluxDB](/assets/img/Adding+Annotation+To+Grafana+to+pull+from+InfluxDB.png)
+![Adding+Annotation+To+Grafana+to+pull+from+InfluxDB](/images/Adding+Annotation+To+Grafana+to+pull+from+InfluxDB.png)
 
 ## Potential Uses
 

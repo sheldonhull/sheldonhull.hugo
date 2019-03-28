@@ -12,7 +12,7 @@ My preview post showed a demonstration of the multi-cursor editing power of Subl
 
 Go to `Tools > External Tools`
 
-![external tool menu](/assets/img/external-tool-menu2_ggiuan.jpg)
+![external tool menu](/images/external-tool-menu2_ggiuan.jpg)
 
 ## Setup Sublime Commands to Open
 
@@ -44,11 +44,11 @@ _Limitation: Unsaved temporary files from SSMS are empty when you navigate to th
 **Important:**
 One thing I personally experienced that wasn't consistent was the handling of unsaved files. If the file is SqlQuery as a temp file that hasn't been saved, then this opening didn't work for me. Once I had the file named/saved, it worked perfectly, even bringing the cursor position in Sublime to match what was currently in SSMS.
 
-![](/assets/img/setup-sublime-commands-to-open2_h4au3z.jpg)
+![](/images/setup-sublime-commands-to-open2_h4au3z.jpg)
 
 ## Refresh File3
 
 `Tools > Options > Environment > Documents`
 You can setup the auto-refresh to be in the background if you wish, or manually select the refresh from SSMS when it detects the change. If the auto-refresh happens while you are editing sometimes it caused me to have redo some work (or control-z) in Sublime, but for the most part it's pretty seamless.
 
-![](/assets/img/refresh-file2_hxke35.jpg)
+![](/images/refresh-file2_hxke35.jpg)
