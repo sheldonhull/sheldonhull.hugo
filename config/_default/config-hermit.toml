@@ -20,9 +20,6 @@ enableEmoji = true  # Shorth and emojis in content files - https://gohugo.io/fun
   # noreferrerLinks = true
   # nofollowLinks = true
 
-[taxonomies]
-  tag = "tags"
-  # Categories are disabled by default.
 
 [params]
   dateform        = "Jan 2, 2006"

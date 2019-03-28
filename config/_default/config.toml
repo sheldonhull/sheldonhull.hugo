@@ -33,6 +33,11 @@ disqusShortname = ""
 googleAnalytics = ""
 
 
+[taxonomies]
+  tag = "tags"
+  # Categories are disabled by default.
+
+
 # # START HERMIT
 # [taxonomies]
 #   tag = "tags"
