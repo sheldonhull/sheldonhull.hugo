@@ -52,7 +52,7 @@ enableEmoji = true  # Shorth and emojis in content files - https://gohugo.io/fun
 
   [[params.social]]
     name = "twitter"
-    url = "https://twitter.com/sheldon.hull"
+    url = "https://twitter.com/sheldon_hull"
 
   [[params.social]]
     name = "github"

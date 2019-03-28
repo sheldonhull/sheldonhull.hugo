@@ -29,11 +29,11 @@ pluralizeListTitles = false
 
 
 # Analytics & Comments
-disqusShortname = ""
-googleAnalytics = ""
+disqusShortname = "sheldonhull"
+googleAnalytics = "UA-40198001-3"
 
   # Add custom css
-  custom_css = ["css/custom.css","css/ticks.css","css/notice.css"]
+  custom_css = ["/css/custom.css","/css/ticks.css","/css/notice.css"]
 
 [taxonomies]
   tag = "tags"
