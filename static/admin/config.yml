@@ -11,7 +11,7 @@ publish_mode: editorial_workflow
 collections: # A list of collections the CMS should be able to edit
   - name: "post" # Used in routes, ie.: /admin/collections/:slug/edit
     label: "Post" # Used in the UI, ie.: "New Post"
-    folder: "_posts" # The path to the folder where the documents are stored
+    folder: "content/blog" # The path to the folder where the documents are stored
     format: yaml-frontmatter
     extension: md
     create: true # Allow users to create new documents in this collection
