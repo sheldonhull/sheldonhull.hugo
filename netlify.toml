@@ -6,7 +6,7 @@
   #command = "git status --porcelain &&  git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo"
   command = """
 echo "DEPLOY_PRIME_URL = $DEPLOY_PRIME_URL"
-HUGO_BASEURL=$DEPLOY_PRIME_URL
+#HUGO_BASEURL=$DEPLOY_PRIME_URL
 echo "HUGO_BASEURL = $HUGO_BASEURL"
 
 hugo version
