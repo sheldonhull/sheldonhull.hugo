@@ -1,0 +1,5 @@
+# Basic Redirects to allow easier feed access and non breaking links to rss subscribers
+
+/feed.xml    /index.xml   200
+/feed        /index.xml   200
+/rss         /index.xml   200
