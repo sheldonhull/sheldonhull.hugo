@@ -16,10 +16,10 @@ I'm proud to be part of the Vineyard Church association which is sending an equi
 
 
 
-{% raw %}
+
 <iframe src="https://www.youtube.com/embed/FqizN37Tws4?wmode=opaque&enablejsapi=1" height="480" width="854" scrolling="no" frameborder="0" allowfullscreen="yes">
 </iframe>
-{% endraw %}
+
 
 
 ## continued help

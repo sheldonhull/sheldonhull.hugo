@@ -17,10 +17,10 @@ What a crazy weekend. Choose to evacuate the family as water was slowly creeping
 
 It has been a stressful time, and still not finished, but what a remarkable time to see people coming together. From a neighbor walking my family in a small boat to the front to ease the way for the kids and pregant wife in 4 ft of dirty water to the evacuation boats running all day to help get people out. I saw first responders from a surfer walking a raft in his wetsuit to Kemah volunteer firefighters walking the roads to check on people and confirm everyone wanting evacuation was taken care of.
 
-{% raw %}
+
 <iframe src="https://www.youtube.com/embed/ze5enLNWnqU?wmode=opaque&enablejsapi=1" height="480" width="640" scrolling="no" frameborder="0" allowfullscreen="yes">
 </iframe>
-{% endraw %}
+
 
 
 Our area was not as devastated as downtown and other areas that have been on the news, but for us it was still a pretty nerveracking experience.
@@ -33,7 +33,6 @@ If we make it through tonight we should be fine with no water damage, but this s
 
 Prayers out there for those in worse situations from this storm. It's been a bit numbing to see just the little pieces I've seen in the last 2 days. The financial impact (no flood insurance for many in this storm, including us, as we are outside any normal flood areas) is going to be tough, along with the stress and rebuilding that will be required.
 
-{% raw %}
+
 <iframe src="https://www.youtube.com/embed/6jVehJxi-0o?wmode=opaque&enablejsapi=1" height="480" width="854" scrolling="no" frameborder="0" allowfullscreen="yes">
 </iframe>
-{% endraw %}

@@ -42,10 +42,14 @@ enableEmoji = true  # Shorth and emojis in content files - https://gohugo.io/fun
   # Toggling this option needs to rebuild SCSS, requires Hugo extended version
   justifyContent = false  # Set "text-align: justify" to `.content`.
 
-  # Add custom css
-  custom_css = ["css/custom.css","css/ticks.css","css/notice.css"]
   # Social Icons
   # Check https://github.com/Track3/hermit#social-icons for more info.
+
+  # SHELDON: My addition
+  commit = true
+  since = "2013"
+
+
   [[params.social]]
     name = "twitter"
     url = "https://twitter.com/sheldon.hull"
