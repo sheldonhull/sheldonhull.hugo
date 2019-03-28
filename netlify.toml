@@ -80,11 +80,6 @@ hugo --buildFuture --buildDrafts --destination preview -b $DEPLOY_PRIME_URL --ve
   status = 200
   force = true
 [[redirects]]
-  from = "/feed/"
-  to = "/index.xml"
-  status = 200
-  force = true
-[[redirects]]
   from = "/feed"
   to = "/index.xml"
   status = 200
