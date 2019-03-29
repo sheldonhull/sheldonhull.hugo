@@ -7,7 +7,7 @@ defaultContentLanguage: "en"
 metadataformat: "yaml"
 
 paginate: 20
-canonifyurls: false
+canonifyurls: true
 pluralizeListTitles: false
 rssLimit: 10  # Maximum number of items in the RSS feed.
 
