@@ -74,7 +74,7 @@ menu:
     - name: "Tags"
       url: "/tags/"
       weight: 2
-    - name: "docs"
+    - name: "Docs"
       url: "/docs/"
       weight: 3
     - name: "About"
