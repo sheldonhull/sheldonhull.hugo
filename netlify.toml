@@ -6,14 +6,14 @@
   #command = "git status --porcelain &&  git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo"
   command = """
 echo "DEPLOY_PRIME_URL = $DEPLOY_PRIME_URL"
-#HUGO_BASEURL=$DEPLOY_PRIME_URL
+# HUGO_BASEURL=$DEPLOY_PRIME_URL #not setting, as no branch naming for production deploy
 echo "HUGO_BASEURL = $HUGO_BASEURL"
 
-hugo version
+echo `hugo version`
 git status --porcelain
 git submodule update --init --recursive
-GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
-GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
+export GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
+export GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
 echo "GIT_COMMIT_SHA       = $GIT_COMMIT_SHA"
 echo "GIT_COMMIT_SHA_SHORT = $GIT_COMMIT_SHA_SHORT"
 hugo --verbose --verboseLog
@@ -38,8 +38,8 @@ echo "HUGO_BASEURL = $HUGO_BASEURL"
 hugo version
 git status --porcelain
 git submodule update --init --recursive
-GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
-GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
+export GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
+export GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
 echo "GIT_COMMIT_SHA       = $GIT_COMMIT_SHA"
 echo "GIT_COMMIT_SHA_SHORT = $GIT_COMMIT_SHA_SHORT"
 hugo --buildFuture --destination preview --verbose
@@ -64,8 +64,8 @@ echo "HUGO_BASEURL = $HUGO_BASEURL"
 hugo version
 git status --porcelain
 git submodule update --init --recursive
-GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
-GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
+export GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
+export GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
 echo "GIT_COMMIT_SHA       = $GIT_COMMIT_SHA"
 echo "GIT_COMMIT_SHA_SHORT = $GIT_COMMIT_SHA_SHORT"
 hugo --buildFuture --buildDrafts --destination preview--verbose

@@ -134,3 +134,42 @@
 #    name = "Code Sample"
 #    url = "post/2016-03-08-code-sample"
 #    weight = 3
+
+
+[menu]
+    # Menu links
+    [[menu.main]]
+        name = "Blog"
+        weight = 1
+        url  = "/blog/"
+    [[menu.main]]
+        name = "Tags"
+        url = "/tags/"
+        weight = 2
+    [[menu.main]]
+        name = "docs"
+        identifier="docs"
+#        url = "/docs/"
+        weight = 3
+    [[menu.main]]
+        name = "About"
+        weight = 4
+        url = "/about/"
+
+    [[menu.main]]
+    parent = "docs"
+    name = "powershell"
+    url = "docs/powershell"
+    weight = 1
+
+    [[menu.main]]
+    parent = "docs"
+    name = "awspowershell"
+    url = "docs/awspowershell"
+    weight = 2
+
+    [[menu.main]]
+    parent = "docs"
+    name = "dbatools"
+    url = "docs/dbatools"
+    weight = 3

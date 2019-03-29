@@ -2,3 +2,25 @@ body {
     font-family:"Source Sans Pro"!important;
     background-color:#22252e !important;
 }
+
+
+pre,
+code,
+pre tt {
+  font-family: "Fira Code Retina";
+}
+
+
+
+
+/* Disqus Comments */
+#disqus-container {
+  text-align: center;
+}
+#disqus-button {
+  width: 100%;
+  padding: 0.25em 0.75em;
+}
+#disqus-comments {
+  display: none;
+}
