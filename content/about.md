@@ -23,7 +23,7 @@ author_profile: false
 
 I live as a follower of Christ, desiring to impact the world around with with who He is. I'm an unashamed disciple and though I've got plenty I mess up, following Him is my joy. I'm passionate about worship, and worship through music, playing guitar.
 
-
+{{% figure src="/images/about-me-200.jpg" alt="Me" class="right" %}}
 ## Family
 I've been blessed with 3 kids and a wonderful wife Sarah who has brought beauty into my world and to my life. I'm thankful for the richness of family and experiencing this journey.
 
@@ -40,11 +40,7 @@ My passions extend beyond technology into the creative realm as well. I've enjoy
 
 
 ### Music - On Desk
-{% raw %}
 <iframe src="https://open.spotify.com/embed/user/g00p3k/playlist/4wrFiI6chFbzEx4fAb9ztX" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-{% endraw %}
 
 If you want to check out some new music, this is my up to date "on deck" playlist of music I rock out to.
-{% raw %}
 <iframe src="https://open.spotify.com/embed/user/g00p3k/playlist/6iTEfldMfbgbuUwzSdib4X" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-{% endraw %}
