@@ -36,7 +36,7 @@ taxonomies:
   # Categories are disabled by default.
 
 outputs:
-  home: ["HTML", "AMP", "RSS"]
+  home: ["HTML", "RSS"]
   page: ["HTML"]
 
 permalinks:
