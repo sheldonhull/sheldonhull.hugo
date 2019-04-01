@@ -84,11 +84,15 @@ menu:
       url: "/about/"
 
 params:
+  font:
+    text: "Source Sans Pro"
+    code: "Fira Code"
   dateform       : "Jan 2, 2006"
   dateformShort  : "Jan 2"
   dateformNum    : "2006-01-02"
   dateformNumTime: "2006-01-02 15:04 -0700"
 
+  comments: true
 
   # Metadata mostly used in document's head
   themeColor: "#22252e" # "#494f5c"

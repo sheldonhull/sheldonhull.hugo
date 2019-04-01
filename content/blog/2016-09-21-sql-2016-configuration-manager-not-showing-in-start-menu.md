@@ -1,7 +1,6 @@
 ---
 date: "2016-09-21T00:00:00Z"
-tags:
-- sql-server
+tags: ["sql-server"]
 title: SQL 2016 - Configuration Manager Not Showing in Start Menu
 ---
 
@@ -13,6 +12,6 @@ As I'm running windows 10, the location for the start menu entries were located 
 
 Create a shortcut for SQLServerManager13.msc in the start menu folder and you'll be good to go!
 
-![](/images/2016-09-19_11-07-47_NewStartMenuEntryShowing)
+![NewStartMenuEntryShowing](/images/2016-09-19_11-07-47_NewStartMenuEntryShowing)
 
 Thanks to @marnixwolf for providing that previous walkthrough that helped me resolve this so quickly.

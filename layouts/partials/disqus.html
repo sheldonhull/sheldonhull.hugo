@@ -8,7 +8,7 @@
         <p><em>Disqus comments are disabled.</em></p>
         <script type="application/javascript">
           function showComments() {
-            {{ partial "disqus-js-common.js" . | safeJS }}
+            {{ partial "js/disqus-js-common.js" . | safeJS }}
           }
         </script>
       {{ else }}
@@ -16,8 +16,8 @@
         </div>
         <script type="application/javascript">
           function showComments() {
-            {{ partial "disqus-js-main.js" . | safeJS }}
-            {{ partial "disqus-js-common.js" . | safeJS }}
+            {{ partial "js/disqus-js-main.js" . | safeJS }}
+            {{ partial "js/disqus-js-common.js" . | safeJS }}
           }
         </script>
       {{ end }}
