@@ -1,3 +1,4 @@
+@import "functions.scss";
 @import "predefined.scss";
 @import "normalize.scss";
 @import "syntax.scss";
@@ -5,7 +6,6 @@
 
 @import "notice.scss";
 @import "shortcodes.scss";
-@import "custom_variables.scss";
 @import "applause-button.scss";
 
 /* Webkit Scrollbar Customize */
@@ -24,7 +24,7 @@
 }
 
 html {
-  background: $light-grey;
+  background: $theme;
   line-height: 1.6;
   letter-spacing: .06em;
   scroll-behavior: smooth;
