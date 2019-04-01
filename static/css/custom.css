@@ -20,7 +20,9 @@ pre tt {
   font-family: 'Fira Mono', monospace!important;
   font-size:0.625rem;
 }
-
+code {
+    background-color:#212224;
+}
 
 
 

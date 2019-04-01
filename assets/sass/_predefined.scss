@@ -1,5 +1,6 @@
+// Colors
+//
 
-@import "notice.scss";
 
 // Colors
 //
@@ -14,3 +15,22 @@ $midnightblue: #2c3e50 !default;
 //
 $fonts: "Source Sans Pro","Trebuchet MS", Verdana, "Verdana Ref", "Segoe UI", Candara, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif !default;
 $code-fonts: "Fira Code Retina",Consolas, "Andale Mono WT", "Andale Mono", Menlo, Monaco, "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, "YaHei Consolas Hybrid", monospace, "Segoe UI Emoji", "PingFang SC", "Microsoft YaHei" !default;
+
+// Mixins
+//
+@mixin dimmed {
+  opacity: .6;
+}
+
+@mixin aTag {
+  a {
+    word-wrap: break-word;
+    border: none;
+    box-shadow: inset 0 -4px 0 $theme;
+    transition-property: background-color;
+
+    &:hover {
+      background-color: $theme;
+    }
+  }
+}
