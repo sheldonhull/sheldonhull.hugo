@@ -6,6 +6,8 @@ languageCode: "en-us"
 defaultContentLanguage: "en"
 metadataformat: "yaml"
 
+enableGitInfo: true
+
 paginate: 20
 canonifyurls: true
 pluralizeListTitles: false
