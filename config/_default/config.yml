@@ -117,7 +117,7 @@ params:
   since: "2013"
 
   # Add custom css
-  custom_css: ["css/custom.css","css/ticks.css","css/notice.css"]
+  custom_css: ["css/custom.css","css/ticks.css","css/notice.css","css/applause-button.js"]
 
   social:
     - name: "twitter"

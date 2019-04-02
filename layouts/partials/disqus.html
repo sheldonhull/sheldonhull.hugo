@@ -1,14 +1,14 @@
 <div id="disqus-container">
-  {{ with .Site.DisqusShortname }}
+  {{ with .Site.disqusShortname }}
     <button id="disqus-button" onclick="showComments()">Show comments</button>
     <div id="disqus-comments">
-      {{ $isDummyName := eq . .Site.DisqusShortname }}
+      {{ $isDummyName := eq . .Site.disqusShortname }}
       {{ $isServer := $.Site.IsServer }}
       {{ if or $isDummyName $isServer }}
         <p><em>Disqus comments are disabled.</em></p>
         <script type="application/javascript">
           function showComments() {
-            {{ partial "js/disqus-js-common.js" . | safeJS }}
+            {{ partial "disqus-js-common.js" . | safeJS }}
           }
         </script>
       {{ else }}
@@ -16,8 +16,8 @@
         </div>
         <script type="application/javascript">
           function showComments() {
-            {{ partial "js/disqus-js-main.js" . | safeJS }}
-            {{ partial "js/disqus-js-common.js" . | safeJS }}
+            {{ partial "disqus-js-main.js" . | safeJS }}
+            {{ partial "disqus-js-common.js" . | safeJS }}
           }
         </script>
       {{ end }}
