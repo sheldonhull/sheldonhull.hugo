@@ -68,7 +68,7 @@ export GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
 export GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
 echo "GIT_COMMIT_SHA       = $GIT_COMMIT_SHA"
 echo "GIT_COMMIT_SHA_SHORT = $GIT_COMMIT_SHA_SHORT"
-hugo --buildFuture --buildDrafts --destination preview--verbose
+hugo --buildFuture --buildDrafts --destination preview --verbose
 """
 [context.branch-deploy.environment]
   HUGO_GOOGLEANALYTICS = "dev"
