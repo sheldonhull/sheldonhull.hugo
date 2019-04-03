@@ -2,8 +2,8 @@
 baseurl: "" #https://www.sheldonhull.com
 title: "sheldonhull.com"
 theme: "hermit"
-languageCode: "en-us"
-defaultContentLanguage: "en"
+#languageCode: "en-us"
+#defaultContentLanguage: "en"
 metadataformat: "yaml"
 
 enableGitInfo: true

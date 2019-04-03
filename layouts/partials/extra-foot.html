@@ -1,0 +1,4 @@
+{{ $script := resources.Get "js/disqus-js-common.js" | minify | fingerprint -}}
+<script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}></script>
+{{ $script := resources.Get "js/disqus-js-main.js" | minify | fingerprint -}}
+<script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}></script>
