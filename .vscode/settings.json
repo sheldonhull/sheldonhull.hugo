@@ -20,9 +20,17 @@
         "breadcrumb.activeSelectionForeground": "#616161",
         "menu.selectionForeground": "#616161",
         "menubar.selectionForeground": "#616161",
+        "activityBar.background": "#5d1006",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#087815",
+        "activityBarBadge.foreground": "#e7e7e7",
         "titleBar.activeBackground": "#2d0803",
         "titleBar.inactiveBackground": "#2d080399",
         "titleBar.activeForeground": "#e7e7e7",
-        "titleBar.inactiveForeground": "#e7e7e799"
+        "titleBar.inactiveForeground": "#e7e7e799",
+        "statusBar.background": "#2d0803",
+        "statusBarItem.hoverBackground": "#5d1006",
+        "statusBar.foreground": "#e7e7e7"
     }
 }

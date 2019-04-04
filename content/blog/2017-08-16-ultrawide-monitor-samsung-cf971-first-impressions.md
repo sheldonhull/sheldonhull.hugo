@@ -1,55 +1,11 @@
 ---
 date: "2017-08-16T00:00:00Z"
-gallery:
-- alt: 20170708+1304+2352134.jpg
-  image_path: /images/20170708+1304+2352134.jpg
-  title: None
-  url: /images/20170708+1304+2352134.jpg
-- alt: 20170708+1429+2352140.jpg
-  image_path: /images/20170708+1429+2352140.jpg
-  title: None
-  url: /images/20170708+1429+2352140.jpg
-- alt: 20170708+1445+2352144.jpg
-  image_path: /images/20170708+1445+2352144.jpg
-  title: None
-  url: /images/20170708+1445+2352144.jpg
-- alt: 20170708+1446+2352147.jpg
-  image_path: /images/20170708+1446+2352147.jpg
-  title: None
-  url: /images/20170708+1446+2352147.jpg
-- alt: 2017-07-08_14-52-53.png
-  image_path: /images/2017-07-08_14-52-53.png
-  title: None
-  url: /images/2017-07-08_14-52-53.png
-- alt: 2017-07-08_16-34-48.png
-  image_path: /images/2017-07-08_16-34-48.png
-  title: None
-  url: /images/2017-07-08_16-34-48.png
-- alt: 2017-07-08_14-51-59.png
-  image_path: /images/2017-07-08_14-51-59.png
-  title: None
-  url: /images/2017-07-08_14-51-59.png
-- alt: 2017-07-08_16-04-20.png
-  image_path: /images/2017-07-08_16-04-20.png
-  title: None
-  url: /images/2017-07-08_16-04-20.png
-- alt: 2017-07-08_15-16-31.png
-  image_path: /images/2017-07-08_15-16-31.png
-  title: None
-  url: /images/2017-07-08_15-16-31.png
-- alt: 2017-07-08_16-03-25.png
-  image_path: /images/2017-07-08_16-03-25.png
-  title: None
-  url: /images/2017-07-08_16-03-25.png
-- alt: 2017-07-20_12-45-12.png
-  image_path: /images/2017-07-20_12-45-12.png
-  title: None
-  url: /images/2017-07-20_12-45-12.png
 tags:
 - gear
 - ramblings
 - tech
 title: Ultrawide Monitor - Samsung CF971 - First impressions
+excerpt: ""
 ---
 
 As a developer, I've been a big fan of multiple monitors for a long time. I moved to a triple screen setup years ago, and up until recently, had no desire to try anything different.
@@ -84,4 +40,14 @@ I plan on moving to this screen in the future for development as well. I include
 
 Me too. No regrets. The SVA panel beautiful. No complaints whatsoever, and no regrets about leaving behind my IPS display for this.
 
-{% include gallery caption="Ultrawide" %}
+{{% fancybox "20170708+1304+2352134.jpg" %}}
+{{% fancybox "20170708+1429+2352140.jpg" %}}
+{{% fancybox "20170708+1445+2352144.jpg" %}}
+{{% fancybox "20170708+1446+2352147.jpg" %}}
+{{% fancybox "2017-07-08_14-52-53.png" %}}
+{{% fancybox "2017-07-08_16-34-48.png" %}}
+{{% fancybox "2017-07-08_14-51-59.png" %}}
+{{% fancybox "2017-07-08_16-04-20.png" %}}
+{{% fancybox "2017-07-08_15-16-31.png" %}}
+{{% fancybox "2017-07-08_16-03-25.png" %}}
+{{% fancybox "2017-07-20_12-45-12.png" %}}
