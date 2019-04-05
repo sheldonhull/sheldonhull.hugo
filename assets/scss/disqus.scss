@@ -1,11 +1,14 @@
 /* Disqus Comments */
 #disqus-container {
-    text-align: center;
+  text-align: center;
 }
-#disqus-button {
-    width: 100%;
-    padding: 0.25em 0.75em;
+#show-comments {
+  width: 100%;
+  padding: 0.25em 0.75em;
+  background-color: #3e5a47;
+  color: #000;
+  border:none;
 }
 #disqus-comments {
-    display: none;
+  display: none;
 }

@@ -40,14 +40,18 @@ I plan on moving to this screen in the future for development as well. I include
 
 Me too. No regrets. The SVA panel beautiful. No complaints whatsoever, and no regrets about leaving behind my IPS display for this.
 
-{{% fancybox "20170708+1304+2352134.jpg" %}}
-{{% fancybox "20170708+1429+2352140.jpg" %}}
-{{% fancybox "20170708+1445+2352144.jpg" %}}
-{{% fancybox "20170708+1446+2352147.jpg" %}}
-{{% fancybox "2017-07-08_14-52-53.png" %}}
-{{% fancybox "2017-07-08_16-34-48.png" %}}
-{{% fancybox "2017-07-08_14-51-59.png" %}}
-{{% fancybox "2017-07-08_16-04-20.png" %}}
-{{% fancybox "2017-07-08_15-16-31.png" %}}
-{{% fancybox "2017-07-08_16-03-25.png" %}}
-{{% fancybox "2017-07-20_12-45-12.png" %}}
+{{% fancybox-gallery
+"gallery1"
+"20170708+1304+2352134.jpg"
+"20170708+1429+2352140.jpg"
+"20170708+1445+2352144.jpg"
+"20170708+1446+2352147.jpg"
+
+"2017-07-08_14-52-53.png"
+"2017-07-08_16-34-48.png"
+"2017-07-08_14-51-59.png"
+"2017-07-08_16-04-20.png"
+"2017-07-08_15-16-31.png"
+"2017-07-08_16-03-25.png"
+"2017-07-20_12-45-12.png"
+%}}

@@ -21,7 +21,8 @@ pygmentsUseClasses: true
 enableEmoji: true  # Shorth and emojis in content files - https://gohugo.io/functions/emojify/
 
 # Analytics & Comments
-disqusShortname: "sheldonhull"
+DisqusShortname: "sheldonhull"
+DelayDisqus: true
 googleAnalytics: "UA-40198001-3"
 
 

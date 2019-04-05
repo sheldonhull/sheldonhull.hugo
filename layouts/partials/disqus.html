@@ -1,27 +1,43 @@
-<div id="disqus-container">
-  {{ with .Site.DisqusShortname }}
-    <button id="disqus-button" onclick="showComments()">Show comments</button>
-    <div id="disqus-comments">
+{{ if (.Site.DisqusShortname) }}
+
+  <div id="disqus-container">
+    <div id="">
       {{ $isDummyName := eq . "sheldonhull" }}
       {{ $isServer := $.Site.IsServer }}
       {{ if or $isDummyName $isServer }}
-        <p><em>Disqus comments are disabled.</em></p>
-        <script type="application/javascript">
-          function showComments() {
-            {{ partial "disqus-js-common.js" . | safeJS }}
-          }
-        </script>
-      {{ else }}
-        <div id="disqus_thread">
-        </div>
-        <script type="application/javascript">
-          function showComments() {
-            {{ partial "disqus-js-main.js" . | safeJS }}
-            {{ partial "disqus-js-common.js" . | safeJS }}
-          }
-        </script>
-      {{ end }}
-      <noscript>Enable JavaScript to view Disqus comments.</noscript>
-    </div>
-  {{ end }}
+        <p>
+          <em>Disqus comments are disabled.</em>
+        </p>
+      </div>
+    {{ end }}
+  {{ else }}
+  <button id="show-comments" type="button" onclick="showComments()">Show
+      <span class="disqus-comment-count" data-disqus-url="{{ trim .Permalink " /" }}">comments</span></button>
+    <script id="dsq-count-scr" src="//{{ .Site.DisqusShortname }}.disqus.com/count.js" async="async"></script>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      function showComments() {
+        var disqus_shortname = '{{ .Site.DisqusShortname }}';
+        var disqus_config = function () {
+          this.page.url = '{{ trim .Permalink "/" }}';
+        };
+        (function () {
+          var disqus = document.createElement('script');
+          disqus.type = 'text/javascript';
+          disqus.async = true;
+          disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
+        })();
+        $(this).hide();
+      }
+    </script>
+    <noscript>
+      <p>
+        <em>Disqus comments are disabled.</em>
+      </p>
+    </noscript>
+
+  </div>
+{{ end }}
+
 </div>
