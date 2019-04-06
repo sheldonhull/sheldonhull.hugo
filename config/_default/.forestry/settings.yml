@@ -5,7 +5,7 @@ admin_path: static/forestry
 webhook_url: 
 sections:
 - type: directory
-  path: Content
+  path: content
   label: Pages
   create: all
   match: "**/*"
