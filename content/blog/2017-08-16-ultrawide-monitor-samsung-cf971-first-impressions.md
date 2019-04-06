@@ -46,7 +46,6 @@ Me too. No regrets. The SVA panel beautiful. No complaints whatsoever, and no re
 "20170708+1429+2352140.jpg"
 "20170708+1445+2352144.jpg"
 "20170708+1446+2352147.jpg"
-
 "2017-07-08_14-52-53.png"
 "2017-07-08_16-34-48.png"
 "2017-07-08_14-51-59.png"
