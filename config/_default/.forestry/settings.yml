@@ -9,7 +9,7 @@ sections:
   label: Pages
   create: all
   match: "**/*"
-  exclude: "**/blog/*"
+  exclude: blog/*
 - type: directory
   path: content
   label: Blog
