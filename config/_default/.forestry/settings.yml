@@ -5,8 +5,14 @@ admin_path: static/forestry
 webhook_url: 
 sections:
 - type: directory
-  path: content
+  path: Content
   label: Pages
+  create: all
+  match: "**/*"
+  exclude: Blog/*
+- type: directory
+  path: content
+  label: Blog
   create: documents
   match: blog/*
 upload_dir: config/_default/static/uploads
