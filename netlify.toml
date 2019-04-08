@@ -16,7 +16,7 @@ export GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
 export GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
 echo "GIT_COMMIT_SHA       = $GIT_COMMIT_SHA"
 echo "GIT_COMMIT_SHA_SHORT = $GIT_COMMIT_SHA_SHORT"
-hugo --verbose --verboseLog --minify --destination $HUGE_DESTINATION
+hugo --verbose --verboseLog --minify --destination $HUGO_DESTINATION
 """ # -b $DEPLOY_PRIME_URL
   publish = "_site"
 
