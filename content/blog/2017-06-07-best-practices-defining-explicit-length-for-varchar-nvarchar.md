@@ -3,7 +3,8 @@ date: "2017-06-07T00:00:00Z"
 tags:
 - sql-server
 - tech
-title: 'Best Practices: Defining Explicit Length for Varchar/Nvarchar'
+title: "Best Practices: Defining Explicit Length for Varchar/Nvarchar"
+slug: "Best Practices: Defining Explicit Length for Varchar/Nvarchar"
 ---
 
 > SA0080 : Do not use VARCHAR or NVARCHAR data types without specifying length. Level: Warning

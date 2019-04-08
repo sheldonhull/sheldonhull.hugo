@@ -7,7 +7,8 @@ published: true
 tags:
 - tech
 - ramblings
-title: Dedupe Google Drive with RClone
+title: "Dedupe Google Drive with RClone"
+slug: "Dedupe Google Drive with RClone"
 ---
 
 ## An issue with duplicates

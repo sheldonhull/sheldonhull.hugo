@@ -2,7 +2,8 @@
 date: "2015-08-05T00:00:00Z"
 tags:
 - sql-server
-title: Running very large scripts is not a strong area for SSMS
+title: "Running very large scripts is not a strong area for SSMS"
+slug: "Running very large scripts is not a strong area for SSMS"
 ---
 
 ## out of memory, argggh!

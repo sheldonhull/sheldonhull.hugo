@@ -5,7 +5,8 @@ published: true
 tags:
 - sql-server
 - cool-tools
-title: Native SSMS a second class citizen no longer...
+title: "Native SSMS a second class citizen no longer..."
+slug: "Native SSMS a second class citizen no longer..."
 toc: true
 ---
 

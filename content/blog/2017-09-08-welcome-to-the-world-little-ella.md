@@ -5,7 +5,8 @@ tags:
 - photography
 - follower-of-Jesus
 - ramblings
-title: Welcome to the World Little Ella
+title: "Welcome to the World Little Ella"
+slug: "Welcome to the World Little Ella"
 ---
 
 Proud to announce Ella the newest addition to my family joined us today @ 6:19pm, weighing in at 6lbs and 11 ounces. Yes, that's 6lbs of cuteness. :-) I'm incredibly blessed to have this third addition to my family, and look forward to treasuring every moment with her. God sure knows how to give an amazing gift!

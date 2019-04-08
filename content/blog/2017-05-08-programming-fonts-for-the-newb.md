@@ -3,20 +3,24 @@ date: "2017-05-08T00:00:00Z"
 gallery:
 - alt: fira-code-mono
   image_path: /images/fira-code-mono.png
-  title: Image of fira-code-mono
+title: "Image of fira-code-mono"
+slug: "Image of fira-code-mono"
   url: /images/fira-code-mono.png
 - alt: source-code-pro
   image_path: /images/source-code-pro.png
-  title: Image of source-code-pro
+title: "Image of source-code-pro"
+slug: "Image of source-code-pro"
   url: /images/source-code-pro.png
 - alt: bitstream-vera-sans-mono
   image_path: /images/bitstream-vera-sans-mono.png
-  title: Image of bitstream-vera-sans-mono
+title: "Image of bitstream-vera-sans-mono"
+slug: "Image of bitstream-vera-sans-mono"
   url: /images/bitstream-vera-sans-mono.png
 last_modified_at: "2018-03-30"
 tags:
 - tech
-title: Programming Fonts For The Newb
+title: "Programming Fonts For The Newb"
+slug: "Programming Fonts For The Newb"
 ---
 
 ## the camps

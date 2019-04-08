@@ -5,7 +5,8 @@ last_modified_at: "2019-02-21"
 tags:
 - powershell
 - sql-server
-title: Easy SQL Maintenance with Minionware
+title: "Easy SQL Maintenance with Minionware"
+slug: "Easy SQL Maintenance with Minionware"
 ---
 
 > info "Updated 2017-01-25"

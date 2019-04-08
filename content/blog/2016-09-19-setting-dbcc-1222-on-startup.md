@@ -3,7 +3,8 @@ date: "2016-09-19T00:00:00Z"
 tags:
 - sql-configuration
 - sql-server
-title: Setting DBCC 1222 on startup
+title: "Setting DBCC 1222 on startup"
+slug: "Setting DBCC 1222 on startup"
 ---
 
 The following command is run to gain details on deadlocks.

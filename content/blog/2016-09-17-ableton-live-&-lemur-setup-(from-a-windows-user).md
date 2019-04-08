@@ -4,7 +4,8 @@ tags:
 - music
 - ramblings
 - cool-tools
-title: Ableton Live & Lemur Setup (From a Windows User)
+title: "Ableton Live & Lemur Setup (From a Windows User)"
+slug: "Ableton Live & Lemur Setup (From a Windows User)"
 ---
 
 Had a chance to look at this program thanks to the generosity of the developer. They had a promotion that ended prematurely and they sent me a license as a goodwill gesture. Pretty fantastic service, and thanks to them for this.The documentation was a little sparse for the Windows setup, so I ran into some complications getting it to work.

@@ -4,7 +4,8 @@ tags:
 - sql-server
 - redgate
 - cool-tools
-title: Red Gate SQL Source Control v4 offers schema locks
+title: "Red Gate SQL Source Control v4 offers schema locks"
+slug: "Red Gate SQL Source Control v4 offers schema locks"
 ---
 
 [Red Gate Documentation Update](http://documentation.red-gate.com/display/SOC4/SQL+Source+Control+4.0+Frequent+Updates+release+notes)

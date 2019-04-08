@@ -3,7 +3,8 @@ date: "2017-08-05T00:00:00Z"
 tags:
 - music
 - ramblings
-title: Spotify vs Google Play
+title: "Spotify vs Google Play"
+slug: "Spotify vs Google Play"
 ---
 
 I've recently switched over to Spotify for the nth time to explore the Spotiverse world and compare as a long time Google Play Music user. This is a big deal for me, as I was a first adopter of Google Play and have used it before All Access, and subscribed immediately to All Access once it was released. As a ravenous music consumer, I've preferred the subscription model for instant, on demand access.
@@ -36,4 +37,3 @@ This seems speak to the mentality today that algorithms and user behavior drive 
 ## honorable mention Pandora
 
 Overall, the winner for me is Spotify. However, if Pandora's new service wasn't so darn limited in selection, inconsistent with on demand availability, and implemented on desktop as well as mobile I'd recommend them. As it stands, I can't recommend it at this time.
-

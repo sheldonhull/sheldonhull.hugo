@@ -7,7 +7,8 @@ published: true
 tags:
 - tech
 - powershell
-title: Deleting a Directory That Has a Trailing Space Shouldn't Be This Hard
+title: "Deleting a Directory That Has a Trailing Space Shouldn't Be This Hard"
+slug: "Deleting a Directory That Has a Trailing Space Shouldn't Be This Hard"
 ---
 
 It shouldn't be this hard. This is a consumate #windowsmoment

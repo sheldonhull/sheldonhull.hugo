@@ -5,7 +5,8 @@ tags:
 - automation
 - cool-tools
 - sql-server
-title: Automating SSMS 2016 Updates & Install
+title: "Automating SSMS 2016 Updates & Install"
+slug: "Automating SSMS 2016 Updates & Install"
 ---
 
 > info "update 2016-04-27 11:20 - Red Gate SQL Toolkit"

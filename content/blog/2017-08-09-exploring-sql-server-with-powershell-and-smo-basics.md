@@ -9,7 +9,8 @@ tags:
 - powershell
 - smo
 - tech
-title: Exploring SQL Server With Powershell And SMO Basics
+title: "Exploring SQL Server With Powershell And SMO Basics"
+slug: "Exploring SQL Server With Powershell And SMO Basics"
 ---
 
 # SqlServer Powershell Cmdlets 2017 - Initialize Look

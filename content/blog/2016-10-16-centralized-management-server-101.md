@@ -2,7 +2,8 @@
 date: "2016-10-16T00:00:00Z"
 tags:
 - sql-server
-title: Centralized Management Server 101
+title: "Centralized Management Server 101"
+slug: "Centralized Management Server 101"
 toc: true
 ---
 

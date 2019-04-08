@@ -3,7 +3,8 @@ date: "2017-08-29T00:00:00Z"
 tags:
 - ramblings
 - flood
-title: A Not-So Waterlogged Texan - Tuesday
+title: "A Not-So Waterlogged Texan - Tuesday"
+slug: "A Not-So Waterlogged Texan - Tuesday"
 ---
 
 > info "Updated: 2017-08 1:30pm Wednesday"

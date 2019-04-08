@@ -7,7 +7,8 @@ tags:
 - videography
 - family
 - follower-of-Jesus
-title: Delight in the Little Moments
+title: "Delight in the Little Moments"
+slug: "Delight in the Little Moments"
 ---
 
 This last Easter I had some fun with the kids at their grandparents. Remember the days of spinning until you were nauseous? Was fun to watch the kids enjoying this so I took a few clips, nothing fancy, just a snapshot of enjoying the little moments in life.

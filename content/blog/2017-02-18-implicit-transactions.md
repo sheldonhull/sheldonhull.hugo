@@ -3,7 +3,8 @@ date: "2017-02-18T00:00:00Z"
 published: false
 tags:
 - sql-server
-title: Implicit Transactions
+title: "Implicit Transactions"
+slug: "Implicit Transactions"
 ---
 
 Never messed around with this setting in the server configuration, so I was unfamilar with the impact it would have.If I ran a statement with something like the following:

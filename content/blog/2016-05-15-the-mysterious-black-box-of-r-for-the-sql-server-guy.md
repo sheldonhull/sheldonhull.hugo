@@ -2,7 +2,8 @@
 date: "2016-05-15T00:00:00Z"
 tags:
 - sql-server
-title: The Mysterious Black Box of R - For the SQL Server Guy
+title: "The Mysterious Black Box of R - For the SQL Server Guy"
+slug: "The Mysterious Black Box of R - For the SQL Server Guy"
 ---
 
 Took a class from Jamey Johnston @ SQLSaturday #516 in Houston. Lots of great information covered. Follow him for a much more detailed perspective on R. [Jamey Johnston  on Twitter @StatCowboy. ](http://bit.ly/1TgtXHr)Did a basic walkthrough of running an R query, and figured I'd share it as it had been a mysterious black box before this. Thanks to Jamey for inspiring me to look at the mysterious magic that is R....

@@ -8,7 +8,8 @@ tags:
 - tech
 - powershell
 - cool-tools
-title: Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev
+title: "Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev"
+slug: "Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev"
 toc: true
 ---
 

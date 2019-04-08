@@ -3,7 +3,8 @@ date: "2016-10-20T00:00:00Z"
 tags:
 - ramblings
 - cool-tools
-title: An Internet With Less Ads - Adguard
+title: "An Internet With Less Ads - Adguard"
+slug: "An Internet With Less Ads - Adguard"
 ---
 
 # Ads...I know they employ people, make the world go round, gave us google.... but seriously I hate almost all ads.

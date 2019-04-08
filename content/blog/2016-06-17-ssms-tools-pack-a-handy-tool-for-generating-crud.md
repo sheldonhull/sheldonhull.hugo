@@ -3,7 +3,8 @@ date: "2016-06-17T00:00:00Z"
 tags:
 - cool-tools
 - sql-server
-title: SSMS Tools Pack - A Handy Tool for generating CRUD
+title: "SSMS Tools Pack - A Handy Tool for generating CRUD"
+slug: "SSMS Tools Pack - A Handy Tool for generating CRUD"
 ---
 
 So I've had this tool around for a while, but never found much usage out of it to be honest. I didn't end up writing a review as I had other tools that did text replacements, and history/session saving. I've always considered this tools implementation of SQL History/Tabs saver the best period, even over Red Gate Tab History, SSMSBoost, etc. However, recommending the tool solely based on it's fantastic history saver wasn't really something I was going to do.However, having to generate some CRUD procs lately I found a new reason to appreciate this tool. I dusted it off, updated to the latest, and looked for the CRUD option I remember it having. Sure enough I ended up saving myself a lot of time and generated procs that were all standard with what I wanted to create. This gets my hearty approval to avoid tedious grunt work on creating procs. Since the tool throws in a great history/session saver to avoid losing work, it's even more of a recommended tool!

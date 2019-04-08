@@ -2,7 +2,8 @@
 date: "2015-09-23T00:00:00Z"
 tags:
 - sql-server
-title: Dynamic SQL & Quotename
+title: "Dynamic SQL & Quotename"
+slug: "Dynamic SQL & Quotename"
 url: dynamic-sql-quotename
 ---
 

@@ -3,7 +3,8 @@ date: "2013-07-16T00:00:00Z"
 tags:
 - sql-server
 - cool-tools
-title: SSMS 2012 Extender for the times you want some organization to the random pile
+title: "SSMS 2012 Extender for the times you want some organization to the random pile"
+slug: "SSMS 2012 Extender for the times you want some organization to the random pile"
   of objects gathering in the dusty confines of that database
 ---
 

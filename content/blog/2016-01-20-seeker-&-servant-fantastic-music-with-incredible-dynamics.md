@@ -3,7 +3,8 @@ date: "2016-01-20T00:00:00Z"
 tags:
 - ramblings
 - music
-title: 'Seeker & Servant: Fantastic Music with incredible dynamics'
+title: "Seeker & Servant: Fantastic Music with incredible dynamics"
+slug: "Seeker & Servant: Fantastic Music with incredible dynamics"
 ---
 
 Just recently discovered this artist after being exposed to an article from Worship Leader magazine. Fantastic dynamics. The dynamics and beautiful harmonies are pretty darn close to what I'd love experimenting with if I had a group of folks playing those instruments. Interestingly, the vocal harmonies are very simple, but I found very beautiful. It's compromised of a tenor and a baritone range, and is a fresh change stuff like Shane and Shane which both have incredibly high ranges. I found it very approachable to enjoy singing with. The power of the musical dynamics and beautiful lyrics was a major win. I'll be following them closely.

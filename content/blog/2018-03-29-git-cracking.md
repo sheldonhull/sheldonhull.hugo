@@ -9,7 +9,8 @@ tags:
 - cool-tools
 - tech
 - git
-title: Git Cracking
+title: "Git Cracking"
+slug: "Git Cracking"
 toc: true
 ---
 

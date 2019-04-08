@@ -5,7 +5,8 @@ tags:
 - cool-tools
 - photography
 - sql-server
-title: Red Gate Dependency Tracker - Making Databases Into Moving Art
+title: "Red Gate Dependency Tracker - Making Databases Into Moving Art"
+slug: "Red Gate Dependency Tracker - Making Databases Into Moving Art"
 ---
 
 ## data structures are art

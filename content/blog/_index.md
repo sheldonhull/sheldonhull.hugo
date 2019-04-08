@@ -1,3 +1,4 @@
 ---
-title: blog
+title: "blog"
+slug: "blog"
 ---

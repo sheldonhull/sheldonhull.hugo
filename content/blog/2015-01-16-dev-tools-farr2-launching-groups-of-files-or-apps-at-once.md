@@ -2,7 +2,8 @@
 date: "2015-01-16T00:00:00Z"
 tags:
 - cool-tools
-title: 'Dev Tools: FARR2 Launching groups of files or apps at once'
+title: "Dev Tools: FARR2 Launching groups of files or apps at once"
+slug: "Dev Tools: FARR2 Launching groups of files or apps at once"
 ---
 
 There are probably a common number of apps you pull up when you pull up your system. For example, I pull up my Trello board, outlook, XYplorer, Sublime text 3, Sql server management studio, and ketarin (app updater). Found that you can easily setup a simply alias and launch a group of apps or files at anytime by simply typing the keyword.

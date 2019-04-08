@@ -3,7 +3,8 @@ date: "2016-01-05T00:00:00Z"
 last_modified_at: "2019-02-09"
 tags:
 - sql-server
-title: Transaction Logging & Recovery (101)
+title: "Transaction Logging & Recovery (101)"
+slug: "Transaction Logging & Recovery (101)"
 toc: true
 ---
 

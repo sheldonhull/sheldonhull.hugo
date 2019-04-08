@@ -8,7 +8,8 @@ tags:
 - tech
 - powershell
 - development
-title: Migrating From Hipchat To Slack
+title: "Migrating From Hipchat To Slack"
+slug: "Migrating From Hipchat To Slack"
 toc: true
 typora-copy-images-to: ..\assets\img
 typora-root-url: ..\assets\img

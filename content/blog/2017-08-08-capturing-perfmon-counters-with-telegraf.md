@@ -8,7 +8,8 @@ tags:
 - influxdb
 - cool-tools
 - powershell
-title: Capturing Perfmon Counters With Telegraf
+title: "Capturing Perfmon Counters With Telegraf"
+slug: "Capturing Perfmon Counters With Telegraf"
 ---
 
 ## Other Posts in Series

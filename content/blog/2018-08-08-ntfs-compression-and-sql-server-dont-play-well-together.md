@@ -9,7 +9,8 @@ tags:
 - tech
 - sql-server
 - powershell
-title: NTFS Compression and SQL Server Do Not Play Well Together
+title: "NTFS Compression and SQL Server Do Not Play Well Together"
+slug: "NTFS Compression and SQL Server Do Not Play Well Together"
 ---
 
 Wanted to be proactive and move a database that was in the default path on `C:\` to a secondary drive as it was growing pretty heavily.

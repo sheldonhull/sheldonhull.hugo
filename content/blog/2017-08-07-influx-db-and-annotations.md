@@ -8,7 +8,8 @@ tags:
 - monitoring
 - sql-server
 - cool-tools
-title: InfluxDB and Annotations
+title: "InfluxDB and Annotations"
+slug: "InfluxDB and Annotations"
 toc: true
 ---
 
