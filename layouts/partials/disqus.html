@@ -1,5 +1,5 @@
 <div id="disqus-container">
-    {{ with .Site.disqusShortname }}
+    {{ with .Site.DisqusShortname }}
       <button id="disqus-button" type="button" onclick="showComments()">Show
           <span class="disqus-comment-count" >comments</span></button>
       <div id="disqus-comments">
@@ -17,7 +17,7 @@
              }
           </script>
         {{ else }}
-         <script id="dsq-count-scr" src="//{{ .Site.disqusShortname }}.disqus.com/count.js" async="async"></script>
+         <script id="dsq-count-scr" src="//{{ . }}.disqus.com/count.js" async="async"></script>
           <div id="disqus_thread">
           </div>
           <script type="application/javascript">
