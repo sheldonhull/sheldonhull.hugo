@@ -1,24 +1,9 @@
 ---
 date: "2017-05-08T00:00:00Z"
 gallery:
-- alt: fira-code-mono
-  image_path: /images/fira-code-mono.png
-title: "Image of fira-code-mono"
-slug: "programming-fonts-for-the-newb"
-  url: /images/fira-code-mono.png
-- alt: source-code-pro
-  image_path: /images/source-code-pro.png
-title: "Image of source-code-pro"
-slug: "programming-fonts-for-the-newb"
-  url: /images/source-code-pro.png
-- alt: bitstream-vera-sans-mono
-  image_path: /images/bitstream-vera-sans-mono.png
-title: "Image of bitstream-vera-sans-mono"
-slug: "programming-fonts-for-the-newb"
-  url: /images/bitstream-vera-sans-mono.png
 last_modified_at: "2018-03-30"
 tags:
-- tech
+    - tech
 title: "Programming Fonts For The Newb"
 slug: "programming-fonts-for-the-newb"
 ---
@@ -73,9 +58,10 @@ As you dive into the world of exploring fonts, here's a couple things I'd look f
 1.  Characters that can hide problems are easily identified such as a period, or dash, most monospaced fonts are great for this, but some have smaller symbols that might make them a little less readable.
 2.  Resizes well for your target zoom. I've tried some fonts that don't seem to look right once you change your zoom level or the size of the font. I looked up some details on this and apparently some fonts are bitmapped, and some vector images. If you are using bitmapped fonts, then the target size is ideal, while adjusting zoom level can cause blurriness or fuzzy quality as it's not going to rescale like a vector based font would. This isn't bad if you are ok with the normal font size levels.
 
+{{% fancybox "fira-code-mono.png" %}}
+{{% fancybox "source-code-pro.png" %}}
+{{% fancybox "bitstream-vera-sans-mono.png" %}}
 
-
-{% include gallery caption="A few examples of 3 main fonts I've used and how they look for a sql script." %}
 
 
 So far my personal favorite is Fira Code, so check that one out if you are looking for something interesting to try.
@@ -84,4 +70,3 @@ So far my personal favorite is Fira Code, so check that one out if you are looki
 ## resource links
 
 [FiraCode Github](http://bit.ly/2fpxcSQ)
-

@@ -15,42 +15,27 @@ It was a rough 24 hours resulting in our first cesarean experience. This was a b
 
 <!-- {% include gallery caption="Welcome to the World Little Ella" %} -->
 
-![Ella_18](/images/Ella_18.jpg)
-
-![Ella_17](/images/Ella_17.jpg)
-
-![Ella_16](/images/Ella_16.jpg)
-
-![Ella_15](/images/Ella_15.jpg)
-
-![Ella_14](/images/Ella_14.jpg)
-
-![Ella_12](/images/Ella_12.jpg)
-
-![Ella_13](/images/Ella_13.jpg)
-
-![Ella_11](/images/Ella_11.jpg)
-
-![Ella_10](/images/Ella_10.jpg)
-
-![Ella_9](/images/Ella_9.jpg)
-
-![Ella_8](/images/Ella_8.jpg)
-
-![Ella_7](/images/Ella_7.jpg)
-
-![Ella_6](/images/Ella_6.jpg)
-
-![Ella_4](/images/Ella_4.jpg)
-
-![Ella_5](/images/Ella_5.jpg)
-
-![Ella_2](/images/Ella_2.jpg)
-
-![Ella_3](/images/Ella_3.jpg)
-
-![Ella_1](/images/Ella_1.jpg)
-
+{{% fancybox-gallery
+    "gallery1"
+    "Ella_18.jpg"
+    "Ella_17.jpg"
+    "Ella_16.jpg"
+    "Ella_15.jpg"
+    "Ella_14.jpg"
+    "Ella_12.jpg"
+    "Ella_13.jpg"
+    "Ella_11.jpg"
+    "Ella_10.jpg"
+    "Ella_9.jpg"
+    "Ella_8.jpg"
+    "Ella_7.jpg"
+    "Ella_6.jpg"
+    "Ella_4.jpg"
+    "Ella_5.jpg"
+    "Ella_2.jpg"
+    "Ella_3.jpg"
+    "Ella_1.jpg"
+%}}
 
 
 Thanks for all the prayers!
@@ -63,4 +48,3 @@ Thanks to their care I have a healthy baby girl, healthy wife, and some beautifu
 
 <iframe src="https://www.youtube.com/embed/vB1EqN-WfkI?wmode=opaque&enablejsapi=1" height="480" width="854" scrolling="no" frameborder="0" allowfullscreen="yes">
 </iframe>
-
