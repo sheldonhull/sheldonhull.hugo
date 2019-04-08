@@ -19,7 +19,7 @@
 </style>
 
 <div class="gallery">
-    {{ $path := print "content\\" .Page.Dir (.Get "src") }}
+    {{ $path := print "content/" .Page.Dir (.Get "src") }}
     {{ $url  := print .Page.URL (.Get "src") }}
     {{ range (readDir $path)  }}
         {{- $src := print $url "/" .Name }}
