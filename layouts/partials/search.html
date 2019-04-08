@@ -1,0 +1,56 @@
+{{ define "main" }}
+  <div id="search-box"><!-- SearchBox widget will appear here --></div>
+  <!-- include algolia logo -->
+  <img src="https://www.algolia.com/static_assets/images/pricing/pricing_new/algolia-powered-by-14773f38.svg"></img>
+
+  <div id="hits" class="my-4">
+    <!-- Hits widget will appear here -->
+  </div>
+
+  <div id="pagination">
+    <!-- Pagination widget will appear here -->
+  </div>
+{{ end }}
+
+{{ define "addstyles" }}
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.1/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.1/dist/instantsearch-theme-algolia.min.css">
+<style>
+mark {
+  padding: 0;
+}
+</style>
+{{ end }}
+
+{{ define "addscripts" }}
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.7.1"></script>
+<script>
+
+// initialize instantsearch
+const search = instantsearch({
+  appId: '***',
+  apiKey: '***',
+  indexName: '???',
+  urlSync: true
+});
+
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#search-box',
+    placeholder: 'Search'
+  })
+);
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#hits',
+    templates: {
+      empty: 'No results',
+      item: '<div><h3>{{ safeHTML "{{{ _highlightResult.title.value }}}" }}</h3></div>'
+    }
+  })
+);
+
+search.start();
+</script>
+{{ end }}

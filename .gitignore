@@ -38,3 +38,5 @@ testem.log
 
 
 /public/
+/_site/
+.env
