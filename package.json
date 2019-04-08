@@ -6,7 +6,8 @@
   "dependencies": {
     "atomic-algolia": "^0.3.17",
     "hugo-lunr": "0.0.4",
-    "lunr": "^2.3.6"
+    "lunr": "^2.3.6",
+    "vanilla-lazyload": "^11.0.6"
   },
   "devDependencies": {},
   "scripts": {
