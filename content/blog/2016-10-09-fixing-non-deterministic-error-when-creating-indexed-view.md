@@ -3,7 +3,7 @@ date: "2016-10-09T00:00:00Z"
 tags:
 - sql-server
 title: "Fixing non-deterministic error when creating indexed view"
-slug: "Fixing non-deterministic error when creating indexed view"
+slug: "fixing-non-deterministic-error-when-creating-indexed-view"
 ---
 
 I discovered a bit of info on working with float values, while creating a hash value that contained a float value, and a date value.
@@ -31,3 +31,4 @@ Stack Overflow to the rescue... The issue is with float values.
     + isnull(cast  (t2.Fooey as nvarchar(max)),''') + N'''
 
 If you can resolve these issues then you are on your way to resolving the other thousand restrictions on indexed views.... :-)  Good luck!
+

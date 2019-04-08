@@ -4,7 +4,7 @@ tags:
 - ramblings
 - cool-tools
 title: "An Internet With Less Ads - Adguard"
-slug: "An Internet With Less Ads - Adguard"
+slug: "an-internet-with-less-ads-adguard"
 ---
 
 # Ads...I know they employ people, make the world go round, gave us google.... but seriously I hate almost all ads.
@@ -49,3 +49,4 @@ There are options to allow some "acceptable" ads. Not interested in this persona
 
 Only con I've come across with this is custom filtering options are a bit confusing for a non-technical user. Hopefully this will improve in the future to offer a much easier ad editing experience like some other similar toolkits. Lastly, a better notification of potentially blocking issues would be nice. I've come across a few sites that Adguard has blocked on various scripts or other "needed" actions that prevent the site from working. Disabling temporarily is acceptable for me, as this is quick with the chrome extension (pause for 30 secs). I'd say a better notification system, if even possible, on potentially site disrupting scripts/cookies blocked would be great enhancement.
 Overall, highly recommend this cross platform solution if you are looking for a better way to browse... with less ads!
+

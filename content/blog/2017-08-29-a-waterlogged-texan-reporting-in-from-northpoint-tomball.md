@@ -7,7 +7,7 @@ tags:
 - family
 - follower-of-Jesus
 title: "A Waterlogged Texan Reporting In from Northpoint Tomball"
-slug: "A Waterlogged Texan Reporting In from Northpoint Tomball"
+slug: "a-waterlogged-texan-reporting-in-from-northpoint-tomball"
 ---
 
 ## Waterlogged
@@ -37,3 +37,4 @@ Prayers out there for those in worse situations from this storm. It's been a bit
 
 <iframe src="https://www.youtube.com/embed/6jVehJxi-0o?wmode=opaque&enablejsapi=1" height="480" width="854" scrolling="no" frameborder="0" allowfullscreen="yes">
 </iframe>
+

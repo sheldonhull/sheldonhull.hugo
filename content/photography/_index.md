@@ -1,6 +1,6 @@
 ---
 title : "gallery"
-slug: "gallery"
+slug: "_index"
 type: "gallery"
 url: "/gallery/"
 ---

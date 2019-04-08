@@ -6,7 +6,7 @@ tags:
 - redgate
 - sql-server
 title: "Install ReadyRoll via Command Line"
-slug: "Install ReadyRoll via Command Line"
+slug: "install-ready-roll-via-command-line"
 ---
 
 #### command line install options
@@ -30,3 +30,4 @@ I personally use Ketarin to help me manage automatically updating apps like SQL 
 - For automated setup and install use the following code with Ketarin
 
 {{% gist bfde8f5846555183e3abd4e7575bc2a9 %}}
+

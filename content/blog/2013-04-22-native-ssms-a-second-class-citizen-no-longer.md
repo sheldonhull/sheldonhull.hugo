@@ -6,7 +6,7 @@ tags:
 - sql-server
 - cool-tools
 title: "Native SSMS a second class citizen no longer..."
-slug: "Native SSMS a second class citizen no longer..."
+slug: "native-ssms-a-second-class-citizen-no-longer"
 toc: true
 ---
 
@@ -159,3 +159,4 @@ Once you utilize a tool like this, you'll find that the improvements help you fo
 ## Disclaimer
 
 I do not work for Devart or any competing product. I reviewed this program since I've been sold on the value of it, and wanted to participate in their High Five program which helps developers that like their products share with others, and be eligible for discount/reward if a review of their product is completed. I believe the tool to be useful, and has improved my experience with SSMS. I hope other SQL developers can benefit, especially those who were unaware of the availability of such a great addin.
+

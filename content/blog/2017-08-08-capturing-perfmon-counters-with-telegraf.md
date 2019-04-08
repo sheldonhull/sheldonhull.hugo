@@ -9,7 +9,7 @@ tags:
 - cool-tools
 - powershell
 title: "Capturing Perfmon Counters With Telegraf"
-slug: "Capturing Perfmon Counters With Telegraf"
+slug: "capturing-perfmon-counters-with-telegraf"
 ---
 
 ## Other Posts in Series
@@ -32,3 +32,4 @@ Once downloaded, generate a new config file by running the first command and the
 Once this service was setup and credentials entered, it's ready to run as a service in the background, sending whatever you've configured to the destination of choice.
 
 In my test in Amazon Web Services, using EC2 with Windows Server 2016, I had no issues once EC2 issues were resolved to allow the services to start sending their metrics and show me the load being experienced across all in Grafana.
+

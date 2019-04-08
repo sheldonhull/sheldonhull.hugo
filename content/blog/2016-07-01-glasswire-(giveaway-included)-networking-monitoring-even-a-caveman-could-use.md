@@ -4,7 +4,7 @@ tags:
 - cool-tools
 - sql-server
 title: "Glasswire: (Giveaway Included) Networking Monitoring even a caveman could"
-slug: "Glasswire: (Giveaway Included) Networking Monitoring even a caveman could"
+slug: "glasswire-(giveaway-included)-networking-monitoring-even-a-caveman-could-use"
   use'
 toc: true
 ---
@@ -92,3 +92,4 @@ Drawing will occur end of July and winner name will be posted here and notified 
 
 Congrats to Tim! I'll be sending you the license details.
 Hope you enjoy and thanks to Glasswire for sponsoring this. Give the free version a shot, even if you aren't planning on going pro. It's a great tool for anyone to increase transparency on what's really happening with their system.
+

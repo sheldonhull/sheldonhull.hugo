@@ -3,7 +3,7 @@ date: "2013-07-24T00:00:00Z"
 tags:
 - sql-server
 title: "Shortcut to reference examples, syntax, and definitions straight from SSMS"
-slug: "Shortcut to reference examples, syntax, and definitions straight from SSMS"
+slug: "shortcut-to-reference-examples,-syntax,-and-definitions-straight-from-ssms"
 ---
 
 I've never really used the F1 key for help files with most applications. I was surprised at the usefulness in SSMS I discovered today that uses scripting to actually get you MSDN articles relevant to your current selection in the query editor.
@@ -14,3 +14,4 @@ If you have a keyword selected and want to view details, definition, and example
 ![f1_shortcut_query](/images/f1_shortcut_query_kfowoy.png)
 
 ![f1_shortcut_results](/images/f1_shortcut_results_cayikt.png)
+

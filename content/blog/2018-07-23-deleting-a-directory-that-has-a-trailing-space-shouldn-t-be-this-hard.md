@@ -8,7 +8,7 @@ tags:
 - tech
 - powershell
 title: "Deleting a Directory That Has a Trailing Space Shouldn't Be This Hard"
-slug: "Deleting a Directory That Has a Trailing Space Shouldn't Be This Hard"
+slug: "deleting-a-directory-that-has-a-trailing-space-shouldn-t-be-this-hard"
 ---
 
 It shouldn't be this hard. This is a consumate #windowsmoment
@@ -54,3 +54,4 @@ GCI C:\Temp | Where-Object { $_.FullName -match 'taco'} | Remove-Item
 So for me, I wanted to confirm that PowerShell was truly unable to resolve the issue without resorting to cmd.exe for this. Turns out it can, but you need to pass the matched object in, not expect it to match the filepath directly.
 
 Now to go eat some tacos....
+

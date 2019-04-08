@@ -5,7 +5,7 @@ tags:
 - tech
 - jekyll
 title: "Migration To Jekyll"
-slug: "Migration To Jekyll"
+slug: "migration-to-jekyll"
 toc: true
 ---
 
@@ -60,3 +60,4 @@ I then tested out another several algorithms. I had come across references to th
 For my rough purposes the Fuzzy match was the best fit, as most of the title was the same, just typically missing the end, or slight variance in the delimiter.
 
 I had other manual cleanup to do, but still, it was an interesting experiment. Gave me an appreciation for a consistent url naming schema, as migration to a new engine can be made very painful by changes in the naming of the posts. After some more digging, I decided to not worry about older post urls and mostly just focused on migrating any comments. I think the most interesting part of this was learning a little about the various string matching algorithm's out there... It's got my inner data geek interested in learning more on this.
+

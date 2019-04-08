@@ -3,7 +3,7 @@ date: "2013-07-18T00:00:00Z"
 tags:
 - sql-server
 title: "Check Constraints can help enforce the all or nothing approach when it comes"
-slug: "Check Constraints can help enforce the all or nothing approach when it comes"
+slug: "check-constraints-can-help-enforce-the-all-or-nothing-approach-when-it-comes-to-column-updates"
   to column updates
 ---
 

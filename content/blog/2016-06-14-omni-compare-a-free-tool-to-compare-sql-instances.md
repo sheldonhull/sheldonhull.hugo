@@ -4,7 +4,7 @@ tags:
 - cool-tools
 - sql-server
 title: "OmniCompare: A free tool to compare SQL Instances"
-slug: "OmniCompare: A free tool to compare SQL Instances"
+slug: "omni-compare-a-free-tool-to-compare-sql-instances"
 toc: true
 ---
 
@@ -49,3 +49,4 @@ Simple and quick to add a server, as well as tag them so you can easily compare 
 Makes it very easy to immediately just view configuration scoped differences between each
 
 ![Configuration Differences](/images/configuration-differences.png)
+

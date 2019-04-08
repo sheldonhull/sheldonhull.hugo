@@ -3,7 +3,7 @@ date: "2013-05-01T00:00:00Z"
 tags:
 - sql-server
 title: "Calculating the next beginning of month and the current end of month"
-slug: "Calculating the next beginning of month and the current end of month"
+slug: "calculating-the-next-beginning-of-month-and-the-current-end-of-month"
 ---
 
 Handling dates is always a fun challenge in T-SQL! Finding the current end of month and next months beginning of month is straight forward, but I like to find new ways to do things that take less coding, and hate date conversions that require a lot of manipulation of characters and concatenation. This was what I came up with for avoiding character conversions and concatenation for finding the current BOM (beginning of month) and EOM (end of month) values. Adjust according to your needs. Cheers!

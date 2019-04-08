@@ -5,7 +5,7 @@ tags:
 - sql-server
 - cool-tools
 title: "On how to Googlify your SQL statements for future searching"
-slug: "On how to Googlify your SQL statements for future searching"
+slug: "on-how-to-googlify-your-sql-statements-for-future-searching"
 toc: true
 ---
 
@@ -54,3 +54,4 @@ I setup as follows:
 
 1.  Now the DocFetcher daemon will run in the background, if you copied my settings, and update your indexes.  Searching requires no complex regex, and can be done easily with statements. I'd caution on putting exact phrases in quotes, as it does detect wildcards.
 ![DocFetcher_previewSearch](/images/DocFetcher_previewSearch_m2g07n.jpg)
+

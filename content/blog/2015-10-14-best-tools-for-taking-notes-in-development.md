@@ -4,7 +4,7 @@ tags:
 - sql-server
 - cool-tools
 title: "Best Tools for Taking Notes In Development"
-slug: "Best Tools for Taking Notes In Development"
+slug: "best-tools-for-taking-notes-in-development"
 toc: true
 ---
 
@@ -159,3 +159,4 @@ However, I'd say it still has a hurdle of usability, and is not intuitive compar
 ### conclusion
 
 Quality tools can help the development workflow. I personally think a tremendous amount of value comes from utilizing images for varied capturing of work in addition to typed notes, as you can gain a lot of information this way. Hopefully, my suggestions might help spark a few new ideas for great tools to help with your workflow.
+

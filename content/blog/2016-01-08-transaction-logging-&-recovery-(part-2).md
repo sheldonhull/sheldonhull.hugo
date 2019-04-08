@@ -4,7 +4,7 @@ last_modified_at: "2019-02-09"
 tags:
 - sql-server
 title: "Transaction Logging & Recovery (part 2)"
-slug: "Transaction Logging & Recovery (part 2)"
+slug: "transaction-logging-&-recovery-(part-2)"
 toc: true
 ---
 
@@ -34,3 +34,4 @@ toc: true
 > [MSDN Troubleshooting a Full Transaction Log](https://msdn.microsoft.com/en-us/library/ms175495.aspx?f=255&MSPPError=-2147217396)
 
 *   My past experience was running into this challenge when performing a huge amount of bulk transactions. I ran the space out on a drive because the log files continued to grow with no backups on the log file running. The solution in my particular situation was to take a full backup, change the database recovery to Bulk-logged or SIMPLE, perform the massive changes, then get right back to full-recovery with backup. This helped ensure the log file growth didn't keep escalating (in my case it was the appropriate action, but normally you want to design the size of the transactions to be smaller, and the backup strategy to be continual so you don't run into this issue)
+

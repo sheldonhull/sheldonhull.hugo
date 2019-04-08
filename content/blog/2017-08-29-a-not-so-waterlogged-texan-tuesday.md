@@ -4,7 +4,7 @@ tags:
 - ramblings
 - flood
 title: "A Not-So Waterlogged Texan - Tuesday"
-slug: "A Not-So Waterlogged Texan - Tuesday"
+slug: "a-not-so-waterlogged-texan-tuesday"
 ---
 
 > info "Updated: 2017-08 1:30pm Wednesday"
@@ -36,3 +36,4 @@ Projections for the area are never certain, but seems to point to being clear of
 For those interested in helping out in the area, my church is participating in relief efforts and starting to gather resources to help those in the community. Randy (the lead pastor at nwvineyard.com) will make sure that any donations made are used to impact the local area as this is a core passion of our small church plant.
 
 ... ** video no longer available on facebook - sorry **
+

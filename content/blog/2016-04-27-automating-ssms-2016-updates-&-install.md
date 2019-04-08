@@ -6,7 +6,7 @@ tags:
 - cool-tools
 - sql-server
 title: "Automating SSMS 2016 Updates & Install"
-slug: "Automating SSMS 2016 Updates & Install"
+slug: "automating-ssms-2016-updates-&-install"
 ---
 
 > info "update 2016-04-27 11:20 - Red Gate SQL Toolkit"
@@ -72,3 +72,4 @@ If you setup Ketarin, to make the app portable, copy the jobs.db from appdata fo
 
 
 ![red gate sql toolbelt updated automatically with Ketarin](/images/2016-04-27_11-22-24.png)
+

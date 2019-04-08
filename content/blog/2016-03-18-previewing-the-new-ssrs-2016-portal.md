@@ -4,7 +4,7 @@ tags:
 - sql-server
 - ssrs
 title: "Previewing the new SSRS 2016 portal"
-slug: "Previewing the new SSRS 2016 portal"
+slug: "previewing-the-new-ssrs-2016-portal"
 ---
 
 Ran into an issue with the "Preview New Reporting Portal" link on a fresh install of 2016 giving me a not found error.
@@ -13,3 +13,4 @@ Ran into an issue with the "Preview New Reporting Portal" link on a fresh instal
 
 Changing the virtual directory in the Report URL tab for SSRS configuration fixed this invalid link. In my case, I changed /Report to /Reporting.
 Thanks to [Adam on Stack Overflow](http://stackoverflow.com/questions/34410218/access-ssrs-2016-new-reporting-portal) for providing the solution and saving me a lot of time!
+

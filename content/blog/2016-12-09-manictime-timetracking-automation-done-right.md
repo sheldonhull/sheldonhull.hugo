@@ -5,7 +5,7 @@ tags:
 - ramblings
 - cool-tools
 title: "ManicTime - Timetracking Automation Done Right"
-slug: "ManicTime - Timetracking Automation Done Right"
+slug: "manictime-timetracking-automation-done-right"
 toc: true
 ---
 
@@ -110,3 +110,4 @@ Fantastic app with a unique approach.
 Cost is a little high, but it's an independent app so supporting the development can be a good thing as a really specialized tool. Not sure they'd be able to continue development if it was a lifetime purchase (those seem to have gone away over time). As a good office tool for better tracking and reporting on time (for instance if working with clients), then I believe it might just pay for itself.
 I'd like to see a smoother integration with the server components to being a better cloud tracking mechanism, allowing android, pc, mac, all to provide a solid reporting mechanism for families on the go. The app seems more focused on enterprise/business tracking though, so this might not be implemented.
 I'll continue using and finding great value in helping track my time with the least amount of work. For those looking for a solution, give it a shot. They have a [lite version](http://bit.ly/2e9vhke) available as well with less features, so you can take a swing at it.
+

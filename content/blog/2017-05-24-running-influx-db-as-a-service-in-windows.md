@@ -8,7 +8,7 @@ tags:
 - tech
 - sql-server
 title: "Running InfluxDB as a service in Windows"
-slug: "Running InfluxDB as a service in Windows"
+slug: "running-influx-db-as-a-service-in-windows"
 toc: true
 ---
 
@@ -53,3 +53,4 @@ This resulted in the following output:
     C:\tools\nssm.exe set InfluxDB Type SERVICE_WIN32_OWN_PROCESS
 
 Pretty awesome! It's a nice change to have something perfectly the first time with no issues.
+

@@ -3,7 +3,7 @@ date: "2016-10-16T00:00:00Z"
 tags:
 - sql-server
 title: "Centralized Management Server 101"
-slug: "Centralized Management Server 101"
+slug: "centralized-management-server-101"
 toc: true
 ---
 
@@ -100,3 +100,4 @@ Thankfully, I found that there were a lot policies already presetup by Microsoft
 ## Some final thoughts
 
 I can see the value for enforcing policies across a vast number of servers, and monitoring for compliance. For my environment, primarily dealing with a lot of developer sandboxes, the effort this requires is a bit too much. For my scenario, I'll probably stick with some home grown queries, powershell SMO checks, and the awesome [OmniCompare](http://bit.ly/2dUNHBo) tool that is getting better and better each iteration. A previous article I wrote discussed the functionality of this tool here: [OmniCompare: A Free Tool to Compare SQL Server Instances](http://bit.ly/2dUNDS2)
+

@@ -4,7 +4,7 @@ tags:
 - redgate
 - sql-server
 title: "Red Gate SQL Clone (1) - Initial Setup"
-slug: "red-gate-sql-clone-(-1)-initial-setup"
+slug: "red-gate-sql-clone-1-initial-setup"
 ---
 
 Note this was during earlier beta usage, so some of the UI and other features will have been updated more. I plan on writing more on this promising tool as  I get a chance to dive into it more, especially the powershell cmdlets for database cloning automation. In the meantime, I believe the permissions issue is still relevant, so I'll post this as a reminder in case someone is working through the initial setup.
@@ -24,3 +24,4 @@ It seems like a real promising toolkit for testing and reducing storage requirem
 I wasn't using for a while due to error message I couldn't figure out. I then read through the help documentation again and found that the permissions required for the service account should be a **local admin**. Once I added the service account to local admins, it correctly allowed the service to start.
 
 ![Error if you don](/images/2016-08-15_10-17-17.png)
+

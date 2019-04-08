@@ -10,7 +10,7 @@ tags:
 - sql-server
 - powershell
 title: "NTFS Compression and SQL Server Do Not Play Well Together"
-slug: "NTFS Compression and SQL Server Do Not Play Well Together"
+slug: "ntfs-compression-and-sql-server-dont-play-well-together"
 ---
 
 Wanted to be proactive and move a database that was in the default path on `C:\` to a secondary drive as it was growing pretty heavily.
@@ -52,3 +52,4 @@ Here's a helpful script to get you on your way in case it takes a while. Use at 
 and finally to remount the database after copying it back to your drive ...
 
 {{% gist 274861a17a7db002bddd55861b781719 %}}
+

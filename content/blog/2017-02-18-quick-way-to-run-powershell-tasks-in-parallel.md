@@ -4,7 +4,7 @@ tags:
 - powershell
 - sql-server
 title: "Quick Way to Run Powershell Tasks in Parallel"
-slug: "Quick Way to Run Powershell Tasks in Parallel"
+slug: "quick-way-to-run-powershell-tasks-in-parallel"
 ---
 
 Running tasks in parallel can be a bit difficult in powershell. However, there are a few projects out there that optimize the performance and provide a better experience of running tasks in parallel with less effort.#cool uses
@@ -100,3 +100,4 @@ Write-host ('INVOKE-PARALLEL: Total time to process: {0}' -f [timespan]::fromsec
 
 Note that this simple code example might have had some issues with counts due to locking with the synchronized hash table usage. Based on a few searches, it looks like you need to implement a lock on the hash table which ensures that particular thread is able to safely update. I didn't find clear proof that the synchronized hash table was working or failing, but it's something to be aware of. There are some active efforts on improving in PoshRSJob github issues.
 Hopefully you'll have a few new ideas on working with Parallel tasks in powershell now, and think about leveraging it for some tedious tasks that might benefit with SQL server or other administrative jobs.
+

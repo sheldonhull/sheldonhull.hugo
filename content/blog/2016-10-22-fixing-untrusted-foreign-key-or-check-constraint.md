@@ -3,7 +3,7 @@ date: "2016-10-22T00:00:00Z"
 tags:
 - sql-server
 title: "Fixing Untrusted Foreign Key or Check Constraint"
-slug: "Fixing Untrusted Foreign Key or Check Constraint"
+slug: "fixing-untrusted-foreign-key-or-check-constraint"
 ---
 
 Untrusted constraints can be found when you alter/drop foreign key relationships and then add them back without the proper syntax.If you are deploying data through several tables, you might want to disable foreign keys on those tables during the deployment to ensure that all the required relationships have a chance to insert their data before validation.
@@ -31,3 +31,4 @@ I forked the script from Brent's link above and modified to iterate through and 
 Note: I wrote on this a while back, totally missed that I had covered this. For an older perspective on this: [Stranger Danger... The need for trust with constraints]({% post_url 2015-08-13-stranger-danger...-the-need-for-trust-with-constraints %})
 
 {{% gist 2454ce9134eac225ce264c64adb331a9 %}}
+

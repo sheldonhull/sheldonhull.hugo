@@ -3,7 +3,7 @@ date: "2013-04-30T00:00:00Z"
 tags:
 - sql-server
 title: "Installing SSMS 2012 all by it's lonesome"
-slug: "Installing SSMS 2012 all by it's lonesome"
+slug: "installing-ssms-2012-all-by-it's-lonesome"
 ---
 
 SQL Server Management Studio (SSMS) is not offered as a standalone download on MSDN. Installation requires the user to download the sql server installation package and choose to install only this single feature. For developers, SQL Developer edition is a great choice.
@@ -41,3 +41,4 @@ Here's some screenshots to give you a guide on installing SSMS by itself when wo
 <hr>
 ![install_ssms2012_13](/images/install_ssms2012_13_zdlukh.jpg)
 <hr>
+

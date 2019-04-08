@@ -4,7 +4,7 @@ tags:
 - entity-framework
 - sql-server
 title: "SQL 2012 SP3 and entity framework conflict"
-slug: "SQL 2012 SP3 and entity framework conflict"
+slug: "sql-2012-sp3-and-entity-framework-conflict"
 ---
 
 ## the problem
@@ -34,3 +34,4 @@ Stack Overflow, the golden mecca of programming knowledge, saved the day with a 
 > [EF Cannot Update Database](http://stackoverflow.com/a/34431276/68698)
 > This forces the EntityFramework to use the version 10 of the SqlServer.Types.dll, which doesn't have the Geometry type apparently. - KdBoer
 > When the fix was applied to map the application config to the older version of the Microsoft.SqlServer.Types.dll (in this case 10). Apparently the 2012 SP3 provided some additional functionality in the dll and this had a conflict with Entity Framework 4 for my situation (and according to online posts EF5 also had some issues)
+

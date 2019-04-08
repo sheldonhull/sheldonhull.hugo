@@ -5,7 +5,7 @@ tags:
 - ramblings
 - tech
 title: "Ultrawide Monitor - Samsung CF971 - First impressions"
-slug: "Ultrawide Monitor - Samsung CF971 - First impressions"
+slug: "ultrawide-monitor-samsung-cf971-first-impressions"
 excerpt: ""
 ---
 

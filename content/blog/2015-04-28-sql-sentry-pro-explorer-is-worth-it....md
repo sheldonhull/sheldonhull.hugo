@@ -19,3 +19,4 @@ I'll post more later, but after a full day of query tuning on a difficult view, 
 ![Image SQL Tuning Session 3](/images/SQL_Sentry_Plan_Explorer_PRO-2015-04-22_17_05_06_gef52g.png)
 ![Image SQL Tuning Session 4](/images/Statistics_Parser-2015-04-22_16_32_34-2015-04-22_17_08_21_CLEANED_ntkowe.png)
 ![Image SQL Tuning Session 5](/images/new_version-2015-04-22_16_35_36-2015-04-22_17_08_48_CLEANED_zejqww.png)
+
