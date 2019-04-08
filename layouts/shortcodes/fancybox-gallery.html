@@ -8,7 +8,7 @@
 
 <!-- begin loop through $images -->
 {{range $images}}
-<a data-fancybox="{{index $meta 0 }}" href="/images/{{ . }}" data-caption="{{index $meta 1}}"><img src="/images/{{ . }}"></a>
+<a data-fancybox="{{index $meta 0 }}" href="/images/{{ . }}" data-caption="{{index $meta 1}}"><img src="/images/{{ . }}" alt=""></a>
 <!-- end loop through $images -->
 {{end}}
 </p>
