@@ -16,7 +16,7 @@ export GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
 export GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
 echo "GIT_COMMIT_SHA       = $GIT_COMMIT_SHA"
 echo "GIT_COMMIT_SHA_SHORT = $GIT_COMMIT_SHA_SHORT"
-hugo --verbose --verboseLog --minify
+hugo --verbose --verboseLog --minify --destination $HUGE_DESTINATION
 """ # -b $DEPLOY_PRIME_URL
   publish = "_site"
 
@@ -43,7 +43,7 @@ export GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
 export GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
 echo "GIT_COMMIT_SHA       = $GIT_COMMIT_SHA"
 echo "GIT_COMMIT_SHA_SHORT = $GIT_COMMIT_SHA_SHORT"
-hugo --buildFuture --destination preview --verbose --minify
+hugo --buildFuture --verbose --minify
 """
 publish = "_site"
 
@@ -70,7 +70,7 @@ export GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
 export GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
 echo "GIT_COMMIT_SHA       = $GIT_COMMIT_SHA"
 echo "GIT_COMMIT_SHA_SHORT = $GIT_COMMIT_SHA_SHORT"
-hugo --buildFuture --buildDrafts --destination preview --verbose --minify
+hugo --buildFuture --buildDrafts --verbose --minify
 """
 [context.branch-deploy.environment]
   HUGO_GOOGLEANALYTICS = "dev"
