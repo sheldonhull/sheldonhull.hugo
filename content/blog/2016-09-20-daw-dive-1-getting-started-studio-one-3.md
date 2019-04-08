@@ -5,7 +5,7 @@ tags:
 - ramblings
 - cool-tools
 title: "DAW Dive 1 - Getting Started - Studio One 3"
-slug: "DAW Dive 1 - Getting Started - Studio One 3"
+slug: "daw-dive-1-getting-started-studio-one-3"
 ---
 
 I'm a geek, software nerd, and a musician. As I've been stagnating lately in my musical progression I decided to dive into trying to produce some recordings of some of my music, hoping to spice up the old brain.I have a lot to learn. It's pretty humbling, but despite being a musician and a developer with some decent tinkering ability, I've found getting into recording and production a bit challenging on certain things. If you come from a background in which you understand terms such as pre/post, bus, gain structure, compression ration, and other terms then your learning curve will be much easier. For me, my extent of dealing with these terms was focused on guitar pedal settings and an analogue mixing board.
@@ -67,3 +67,4 @@ I've plan on showing how to convert guitar riffs into a cello, quantizing notes 
 So far, the biggest thing I'm missing is a drum generator such as EzDrummer
 2. I had planned on doing a review of this, but my trial ran out and I haven't heard from them if they do any licenses for press reviews. Addictive drummer seems ok, but the trial is so limited, I'm really not able to leverage, and the single few tracks I was able to try didn't hit what I needed (demo removes all cymbals). EzDrummer 2 was pretty darn good in helping me create some believable tracks. Superior Drummer also seems promising but I couldn't find any trial for it.
 If Presonus had something equivalent to EzDrummer 2 to generate believable drum tracks and rhythms based on building the drums that would be awesome. As it is, it seems to focus on some drum samples and loops, but not a full built engine like EzDrummer 2 offers. If I end up hearing back from Toontracks on their products and obtain copies, I'll be sure to post up more details at that point for the aspiring non drumming arrangers among us.
+

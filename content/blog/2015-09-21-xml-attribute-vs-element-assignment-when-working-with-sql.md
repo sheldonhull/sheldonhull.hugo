@@ -3,7 +3,7 @@ date: "2015-09-21T00:00:00Z"
 tags:
 - sql-server
 title: "XML Attribute VS Element Assignment when working with SQL"
-slug: "XML Attribute VS Element Assignment when working with SQL"
+slug: "xml-attribute-vs-element-assignment-when-working-with-sql"
 ---
 
 ## XML handling with aliases
@@ -31,3 +31,4 @@ You can see the difference in naming. The bottom too are deprecated syntax from 
 
 MSDN covers in more detail and precision in the [this page](https://msdn.microsoft.com/en-us/library/bb510462.aspx)
 The handling of XML is a newer area to me, as previously I've avoided like the plague. However, in working w/apps sometimes creating XML configuration files might be useful so exploring this can helpful to understand how to manipulate and even obtain values from it.
+

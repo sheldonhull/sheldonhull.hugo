@@ -6,7 +6,7 @@ tags:
 - powershell
 - sql-server
 title: "Easy SQL Maintenance with Minionware"
-slug: "Easy SQL Maintenance with Minionware"
+slug: "easy-sql-maintenance-with-minionware"
 ---
 
 > info "Updated 2017-01-25"
@@ -24,3 +24,4 @@ Maybe this will help you get up to speed if you want to try out this great solut
 The ease of installation across multiple instances makes this my current favorite solution, followed by the [fantastic Ola Hallengren solution](http://bit.ly/2e8d9qW).
 
 {{% gist 2fee8ab97c0210918e8fb10719fca3f5 %}}
+

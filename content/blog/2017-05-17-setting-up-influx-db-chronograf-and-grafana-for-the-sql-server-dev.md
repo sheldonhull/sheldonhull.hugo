@@ -9,7 +9,7 @@ tags:
 - powershell
 - cool-tools
 title: "Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev"
-slug: "Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev"
+slug: "setting-up-influx-db-chronograf-and-grafana-for-the-sql-server-dev"
 toc: true
 ---
 
@@ -113,3 +113,4 @@ Once you open the localhost page, if you don't see datasources in the left hand 
 ## summary
 
 This is just a quick guide on getting started as I found a lot of little bumps in the road since the projects are written in `GO` and not an easily run .NET project. Getting through this will hopefully give you a way to get started. I'll blog a bit more soon on visualization of the metrics captured, some custom annotations to help make metrics come alive with real-time event notifications (like "load test started" and "build ended" etc). It's a really promising solution for those who want some really nice flexibility in using perfmon and related metrics to visualize Windows and SQL Server performance.
+

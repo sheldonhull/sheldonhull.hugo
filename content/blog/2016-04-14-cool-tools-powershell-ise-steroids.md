@@ -5,7 +5,7 @@ tags:
 - powershell
 - sql-server
 title: "Cool Tools: Powershell ISE-Steroids"
-slug: "Cool Tools: Powershell ISE-Steroids"
+slug: "cool-tools-powershell-ise-steroids"
 ---
 
 Disclaimer: I have been provided with a free license because I am reviewing. This doesn't impact my assessment of the tool. I have a passion for finding tools that help developers, and even more specifically SQL DBA/Developers improve their workflow and development. I don't recommend tools without actually using them and seeing if I'd end up adding to my roster of essentials!
@@ -82,3 +82,4 @@ In this case there is a shortcut to pull up a compare and you can open up the co
 ## thoughts
 
 If you are working with powershell then something like ISE Steroids can provide some smart help, ensuring better script quality, and hopefully saving some time. It's a recommended tool for my #cooltools list.
+

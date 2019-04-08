@@ -7,7 +7,7 @@ tags:
 - powershell
 - deep-dive
 title: "Debugging Type Binding in PowerShell"
-slug: "Debugging Type Binding in PowerShell"
+slug: "debugging-type-binding-in-powershell"
 toc: false
 typora-copy-images-to: ..\assets\img
 typora-root-url: ..\assets\img
@@ -124,3 +124,4 @@ That said, this was a challenging investigation that I had to take a swing at, w
 After posting my answer, I found another [answer](https://stackoverflow.com/a/51354791/68698) that seemed relevant, and also backs up the mentioning of not using `[NullString]` normally, as its usage in PowerShell is not really what it was designed for.
 
 _Stackoverflow specific content republished under CC-BY-SA_
+

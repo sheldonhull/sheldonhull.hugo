@@ -8,7 +8,7 @@ tags:
 - tech
 - cool-tools
 title: "External Tool VSCODE called from SQL Management Studio"
-slug: "External Tool VSCODE called from SQL Management Studio"
+slug: "edit-in-vscode"
 ---
 
 Previous Related Post:
@@ -25,3 +25,4 @@ Arguments: --reuse-window --goto $(ItemPath):$(CurLine):$(CurCol)
 ```
 
 Please note unsaved files such as "SQLQuery11.sql" that haven't been explictly saved are not accessible to this, so it will just open an empty file. I have not found any workaround for that, as I believe the tmp files are cached in one of the .DAT files. I've not had luck finding the Autorecover or temp files with the actual contents until saved.
+

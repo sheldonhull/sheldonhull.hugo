@@ -3,7 +3,7 @@ date: "2015-09-10T00:00:00Z"
 tags:
 - sql-server
 title: "Multi-Cursor Editing SQL feels like the movie Inception just became real"
-slug: "Multi-Cursor Editing SQL feels like the movie Inception just became real"
+slug: "multi-cursor-editing-sql-feels-like-the-movie-inception-just-became-real"
 ---
 
 *   Yes... multicursor editing is epic
@@ -19,3 +19,4 @@ I apologize in advance for the video quality. I plan on recording a better one i
 
 
 ![Multi-cursor editing #2](/images/Sublime-Multi-Cursor-Editing-Example-21.gif)
+

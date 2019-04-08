@@ -5,7 +5,7 @@ tags:
 - tech
 - ramblings
 title: "Life Hack: When you need a mouse pad"
-slug: "Life Hack: When you need a mouse pad"
+slug: "life-hack-when-you-need-a-mouse-pad"
 ---
 
 My Logitech Master mouse went on the fritz... Requiring me to use my trusty Microsoft mouse. This is an optical based mouse based mouse that started driving me insane with the lack of precision. This exhibited random skips and overall lack of agreeability. I ran across some posts mentioning optical mice have issues with certain surfaces making it hard to detect precise movements and suggested using a surface with a pattern or irregularity, even a piece of paper being scribbled on. I was using a white desk, very little pattern to work with. The MX Master worked perfectly, but it had spoiled me.
@@ -18,3 +18,4 @@ After feeling like an idiot, I printed, taped to my desk and the magical precisi
 
 
 ![Worlds cheapest optical mousepad](/images/Cheapest+mousepad.jpgCheapest+mousepad?format=original)
+

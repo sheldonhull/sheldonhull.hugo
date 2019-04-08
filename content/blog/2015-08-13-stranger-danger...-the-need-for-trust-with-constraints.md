@@ -3,7 +3,7 @@ date: "2015-08-13T00:00:00Z"
 tags:
 - sql-server
 title: "Stranger Danger... The need for trust with constraints"
-slug: "Stranger Danger... The need for trust with constraints"
+slug: "stranger-danger-the-need-for-trust-with-constraints"
 ---
 
 I ran into an issue with errors with an database upgrade running into a violation of a foreign key constraint. Don't know how it happened. Figured that while I'm at it, I'd go ahead and evaluate every single check constraint in the database to see if I could identify any other violations, because they shouldn't be happening.
@@ -26,3 +26,4 @@ Anyway, commendation aside, the explanation from sp_blitz was fantastic at summa
 I appreciate the script as a starting point (see link above). I adapted to run this individually on each check constraint and log the errors that occurred. This runs though all FK and CHECK constraints in the database you are in, and then checks the data behind the constraint to ensure it is noted as trusted.
 
 {{% gist 2454ce9134eac225ce264c64adb331a9 %}}
+

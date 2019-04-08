@@ -5,7 +5,7 @@ tags:
 - cool-tools
 - sql-server
 title: "Diff All Files - Reviewing Changesets Quickly"
-slug: "Diff All Files - Reviewing Changesets Quickly"
+slug: "diff-all-files-reviewing-changesets-quickly"
 toc: true
 ---
 
@@ -61,3 +61,4 @@ Third party tools can be great for some extra perks like File versioning, compar
 - [Beyond Compare](http://bit.ly/29nXj8G): didn't dive into this extensively. They have a devoted following with a lot of loyalty, so check them out if you want to evaluate their software.
 - Built in TFS diff - great for a built in tool, I just wanted to have some enhancements in what to ignore and summarize.
 - [SQL Compare](http://documentation.red-gate.com/display/SC11/Setting+data+sources#Settingdatasources-Selectingaversionfromsourcecontrol): my favorite for reviewing changsets that are directly in TFS. I wish they'd add a module for just pulling up the diff view without having to open SQL Compare to setup a comparison though. Sounds like a good user voice feedback item :-)
+

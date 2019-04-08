@@ -1,4 +1,4 @@
 ---
 title: "blog"
-slug: "blog"
+slug: "_index"
 ---

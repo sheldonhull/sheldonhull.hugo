@@ -3,7 +3,7 @@ date: "2016-04-01T00:00:00Z"
 tags:
 - sql-server
 title: "Failed to Initialize SQL Agent Log... not worthy"
-slug: "Failed to Initialize SQL Agent Log... not worthy"
+slug: "failed-to-initialize-sql-agent-log-not-worthy"
 ---
 
 Moving system databases in SQL Server takes a bit of practice. I got that again, along with a dose of SQL humility (so tasty!), today after messing up some cleanup with sql agent server log files.
@@ -34,3 +34,4 @@ I apparently missed the order of operations with SQL Server Agent, and so it was
 I also updated the WorkDirectoryEntry to ensure it matched new paths.
 
 Thanks to this [article](https://blogs.msdn.microsoft.com/sqlserverfaq/2009/06/12/unable-to-start-sql-server-agent/) I was saved some headache. I also learned to read directions more carefully :-)
+

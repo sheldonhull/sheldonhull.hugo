@@ -9,7 +9,7 @@ tags:
 - sql-server
 - cool-tools
 title: "InfluxDB and Annotations"
-slug: "InfluxDB and Annotations"
+slug: "influx-db-and-annotations"
 toc: true
 ---
 
@@ -57,3 +57,4 @@ I could see a whole lot of uses for this!
 *   Specific Database Related Maintenance like Ola Hallengren's index optimize or database integrity check
 
 Monitoring always loses it's value when you have a limited picture of what is happening. Triggering relevant details for stuff that might help analyze activity might be the key to immediately gaining an understanding on what is causing a spike of activity, or of better evaluating the timeline of a load test.
+

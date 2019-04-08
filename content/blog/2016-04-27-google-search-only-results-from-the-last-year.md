@@ -4,7 +4,7 @@ tags:
 - ramblings
 - tech
 title: "Google Search Only Results from the last year"
-slug: "Google Search Only Results from the last year"
+slug: "google-search-only-results-from-the-last-year"
 ---
 
 Tech changes quick. Reading google postings from something in 2009 is not my first choice.I found an option after digging through some google discussion posts on how to setup the default search in chrome (also applies to other browsers) to automatically apply the advanced filter option for "results in last year".
@@ -27,3 +27,4 @@ Here is the snippet that sets the new default.
 
 5.  Review the great results of your hard work :-)
 ![Results of search are now automatically filtered](/images/2016-04-27_10-57-01.png)
+

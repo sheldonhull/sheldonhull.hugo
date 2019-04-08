@@ -6,7 +6,7 @@ tags:
 - cool-tools
 - tech
 title: "Dataedo - First Look"
-slug: "Dataedo - First Look"
+slug: "dataedo-first-look"
 ---
 
 > info "update 2019-02-22"
@@ -62,3 +62,4 @@ During the export process you also have the option of saving the export command 
 ## end comments
 
 Well done Dataedo team :-) Looking forward to the continued improvements. I've found visualization of database structures is very helpful to design, and a new toolkit out like yours promises to provide even more great tools to use to do this.
+

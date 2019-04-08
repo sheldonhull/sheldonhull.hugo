@@ -6,7 +6,7 @@ tags:
 - ramblings
 - music
 title: "The Traditional Birthday Song Is Terrible"
-slug: "The Traditional Birthday Song Is Terrible"
+slug: "the-traditional-birthday-song-is-terrible"
 ---
 
 The traditional birthday song is terrible.It's never really changed.
@@ -34,3 +34,4 @@ New lyrics:
     Hey hey hey, It's your birthday day
     Sing Loud, Sing Proud, It's Your Birthday
     - Creative Commons Zero CC0, so do whatever you want with this bit of musical genius
+

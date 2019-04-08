@@ -8,7 +8,7 @@ tags:
 - tech
 - performance-tuning
 title: "SQL Server Database Experimentation Assistant - How to Run a Capture"
-slug: "SQL Server Database Experimentation Assistant - How to Run a Capture"
+slug: "sql-server-database-experimentation-assistance-how-to-run-a-capture"
 toc: false
 typora-copy-images-to: ..\assets\img
 typora-root-url: ..\assets\img
@@ -51,3 +51,4 @@ restore-dbadatabase -SqlInstance localhost -Path "<BackupFilePath>" -DatabaseNam
 After this restore, initiating the replay was achieved by going to the replay tab.
 
 ![DEA Replay](/images/1516995297608.png)
+

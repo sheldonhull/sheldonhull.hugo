@@ -3,7 +3,7 @@ date: "2015-07-28T00:00:00Z"
 tags:
 - sql-server
 title: "Database Stuck in Single-User Mode Due to Botched Restore"
-slug: "Database Stuck in Single-User Mode Due to Botched Restore"
+slug: "database-stuck-in-single-user-mode-due-to-botched-restore"
 ---
 
 Working in a development environment, I botched up a restore. After this restore attempt to overwrite my database with the previous version, I had it stuck in single-user mode.
@@ -29,3 +29,4 @@ I'm going to just blame it on the darn SSMS GUI. Seems like a convenient scapego
 
 Successful pushed out my changes with the following script:
 {{% gist a3db2c337d8e5d4f67a7 %}}
+

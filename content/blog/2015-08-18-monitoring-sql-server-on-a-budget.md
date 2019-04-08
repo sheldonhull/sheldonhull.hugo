@@ -3,7 +3,7 @@ date: "2015-08-18T00:00:00Z"
 tags:
 - sql-server
 title: "Monitoring SQL Server on a budget"
-slug: "Monitoring SQL Server on a budget"
+slug: "monitoring-sql-server-on-a-budget"
 toc: true
 ---
 
@@ -54,3 +54,4 @@ The key of course for a great monitoring tool is not just a bunch of text data t
 I'd say for the price, the value is pretty good for a team looking for a simple tool with a few visual ways of looking at the performance, while still giving some active connection monitoring. Again, there's a lot of other options out there for monitoring, even the built in functionality. But for value, this is a pretty good option, as it seems to focus on simplicity, usability, and not being a $1000+ per server license.
 
 ![](/images/visual-monitoring_jt48ii.jpg)
+

@@ -23,3 +23,4 @@ tags:
 | From                | To      | Example           | Output              | Notes                                     |
 |---------------------|---------|-------------------|---------------------|-------------------------------------------|
 | scientific notation | Decimal | 2.19095E+08 / 1MB | 208.945274353027 MB | Native PowerShell, supports 1MB, 1KB, 1GB |
+

@@ -10,7 +10,7 @@ tags:
 - tech
 - git
 title: "Git Cracking"
-slug: "Git Cracking"
+slug: "git-cracking"
 toc: true
 ---
 
@@ -76,3 +76,4 @@ Overall impression is positive. I'd say it's a nice solution to help with unders
 Source Tree from Atlassian is a pretty solid product as well that I've used. Unfortunatelym I've had stability issues with it lately, and it lacks the most important feature required for all good code tools... a dark theme :-)... on Windows at least as of now. No success getting dark theme traction except on Mac. -1 demerits for this omission! Overall it has promise, but it tends towards so many options it can be daunting. I'd lean towards the implementation by GitKraken being much cleaner, designed for simplicity and flexibility.
 
 *Disclaimer: I like to review developer software from time to time, and occcasionally recieve a copy to continue using. This does not impact my reviews whatsoever, as I only use the stuff I find helpful that might be worth sharing. Good software makes the world go round!*
+

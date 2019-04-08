@@ -4,7 +4,7 @@ tags:
 - sql-server
 - cool-tools
 title: "Split personality text editing in SSMS with Sublime Text 3"
-slug: "Split personality text editing in SSMS with Sublime Text 3"
+slug: "split-personality-text-eiting-in-ssms-with-sublime-text-3"
 ---
 
 My preview post showed a demonstration of the multi-cursor editing power of Sublime Text 3 when speeding up your coding with SQL server.There is a pretty straight forward way to setup sublime (or one of your preferred text editors) to open the same file you are editing in SQL Management Studio without much hassle. I find this helpful when the type of editing might benefit from some of the fantastic functionality in Sublime.
@@ -53,3 +53,4 @@ One thing I personally experienced that wasn't consistent was the handling of un
 You can setup the auto-refresh to be in the background if you wish, or manually select the refresh from SSMS when it detects the change. If the auto-refresh happens while you are editing sometimes it caused me to have redo some work (or control-z) in Sublime, but for the most part it's pretty seamless.
 
 ![](/images/refresh-file2_hxke35.jpg)
+

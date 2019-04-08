@@ -3,7 +3,7 @@ date: "2014-12-11T00:00:00Z"
 tags:
 - sql-server
 title: "OR pattern causing indexing scans in parameter based queries"
-slug: "OR pattern causing indexing scans in parameter based queries"
+slug: "or-pattern-causing-indexing-scans-in-parameter-based-queries"
 ---
 
 #Tl;dr
@@ -34,3 +34,4 @@ However, the stored procedure is not passing in the actual value after the first
 However, when result sets can greatly vary, the problem of parameter sniffing can become a problem. In addition, if the OR statement is utilized as my original problem mentioned, the optimizer can decide that since parameter value is unknown at this time, that with an OR clause it would be better to run a table scan since all table results might be returned, rather than a seek.
 
 To bypass this, there are various approaches, but all are a compromise of some sort. The common approach to resolving if truly various selections may be made (in the case of SSRS reports for example) is to utilize option(recompile). This provide the actual value back to the compiler at run time, causing higher CPU usage, but also ensuring the usage of indexes and reducing scans when the columns are properly indexed. Again, this is one solution among several, which can include building dynamic query strings, logic blocks, and other methods.
+

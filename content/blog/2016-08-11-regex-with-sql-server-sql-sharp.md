@@ -5,7 +5,7 @@ tags:
 - sql-server
 - cool-tools
 title: "Regex With SQL Server - SQLSharp"
-slug: "Regex With SQL Server - SQLSharp"
+slug: "regex-with-sql-server-sql-sharp"
 toc: true
 ---
 
@@ -37,3 +37,4 @@ For better work on parsing of strings, there are detailed postings out there by 
 
 The scope of my review is not covering the proper security setup for CLR with production, CLR performance at high scale, or anything that detailed. This was primarily focused on a first look at it. As much as I love creative SQL solutions, there are certain things that fit better in code, not SQL. (heresy?) I believe Regex/advanced string parsing can often be better handled in the application, powershell, or other code with access to regex libraries.
 In the case of string parsing for complex patterns that are difficult to match with LIKE pattern matching, this might be a good resource to help someone write a few SQL statements to parse out some log files, adhoc ETL text manipulation, or other text querying on their machine without having to add additional work on importing and setup.
+

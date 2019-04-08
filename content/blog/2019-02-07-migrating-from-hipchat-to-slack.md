@@ -9,7 +9,7 @@ tags:
 - powershell
 - development
 title: "Migrating From Hipchat To Slack"
-slug: "Migrating From Hipchat To Slack"
+slug: "migrating-from-hipchat-to-slack"
 toc: true
 typora-copy-images-to: ..\assets\img
 typora-root-url: ..\assets\img
@@ -110,3 +110,4 @@ $RoomList | Export-CliXml -Path (Join-Path $ScriptsDir 'CurrentRoomList.xml') -E
 ```
 
 I just tweaked this snippet for other types of commands, but this should get you pretty much what you need to run interactive commands via CLI. I've also written up some Slack functions and will likely share those soon as well as I've found them helpful in automatically fixing email addresses, activating & deactivating users, identifying active billed users, and other basic administrative focused actions.
+

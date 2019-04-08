@@ -4,7 +4,7 @@ last_modified_at: "2018-03-24"
 tags:
 - sql-server
 title: "Using Qure Profiler To Benchmark Tuning Progress"
-slug: "Using Qure Profiler To Benchmark Tuning Progress"
+slug: "using-qure-profiler-to-benchmark-tuning-progress"
 toc: true
 ---
 
@@ -99,3 +99,4 @@ I didn't run into any significant issues that impacted my ability to use it. I d
 ## What could they improve?
 
 1.  Offer comparison report option that wouldn't require as many screenshots, and instead summarize the selected items in a pane that you could copy to image. This would be slick!
+

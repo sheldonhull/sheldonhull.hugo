@@ -5,7 +5,7 @@ tags:
 - sql-server
 - ramblings
 title: "Remote Desktop Workflow Improvements"
-slug: "Remote Desktop Workflow Improvements"
+slug: "remote-desktop-workflow-improvements"
 toc: true
 ---
 
@@ -113,3 +113,4 @@ They have a free version that will suffice for many people. The pro version has 
 >
 > Remote Desktop Manager is an all-in-one remote connections, passwords and credentials management platform for IT teams trusted by over 270,000 users in over 120 countries.
 <script data-preserve-html-node="true" async=" src="platform.js" charset="UTF-8"></script>
+

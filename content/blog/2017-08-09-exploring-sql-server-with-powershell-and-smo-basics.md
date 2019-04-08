@@ -10,7 +10,7 @@ tags:
 - smo
 - tech
 title: "Exploring SQL Server With Powershell And SMO Basics"
-slug: "Exploring SQL Server With Powershell And SMO Basics"
+slug: "exploring-sql-server-with-powershell-and-smo-basics"
 ---
 
 # SqlServer Powershell Cmdlets 2017 - Initialize Look
@@ -149,3 +149,4 @@ An example of how simple using dbatools cmdlet can make restoring a database cop
 Now compare this to the complexity of running your own invocation of the SMO namespace and requires a lot more coding. Since dbatools wraps up a lot of the functionality, I've actually migrated to leveraging this toolkit for these dba related tasks instead of trying to reinvent the wheel.
 
 {{% gist 08fe28dd236a239f25821378268ef8e5 %}}
+

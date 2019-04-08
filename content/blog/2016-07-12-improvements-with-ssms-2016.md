@@ -7,7 +7,7 @@ last_modified_at: "2018-03-30"
 tags:
 - sql-server
 title: "Improvements with SSMS 2016"
-slug: "Improvements with SSMS 2016"
+slug: "improvements-with-ssms-2016"
 ---
 
 > info "Updated: 2019-01-24"
@@ -46,3 +46,4 @@ The properties pane also has an overhaul with some really useful comparison info
 
 Really liking the improvements I've seen. There are a lot of things about SSMS I'd like to see improved, and with a regular release cycle the future for SSMS looks promising!
 I'll be really happy once the Visual Studio dark theme has made it's way over... I swear everything just runs faster with a dark theme ;-)
+

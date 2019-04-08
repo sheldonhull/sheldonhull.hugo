@@ -5,7 +5,7 @@ tags:
 - redgate
 - sql-server
 title: "Data Compare on Temporal Tables"
-slug: "Data Compare on Temporal Tables"
+slug: "data-compare-on-temporal-tables"
 ---
 
 I hadn't seen much talk on doing data comparisons on temporal tables, as they are a new feature. I went through the exercise to compare current to historical to see how Red Gate & Devart handled this. I'm a part of the Friends of Red Gate program, so love checking out their latest updates, and I'm also a regular tester on Devart which also provides fantastic tools. Both handled Temporal Tables with aplomb, so here's a quick walk through on how I did this.
@@ -98,3 +98,4 @@ Here is a sample of a detail provided on the diff report. One feature I found in
 ![Diff Report Details](/images/diff-report-details.png)
 
 Overall, good experience with both, and they both support a lot of flexibility with more specialized comparisons.
+

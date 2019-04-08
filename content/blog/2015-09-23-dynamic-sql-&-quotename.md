@@ -3,7 +3,7 @@ date: "2015-09-23T00:00:00Z"
 tags:
 - sql-server
 title: "Dynamic SQL & Quotename"
-slug: "Dynamic SQL & Quotename"
+slug: "dynamic-sql-&-quotename"
 url: dynamic-sql-quotename
 ---
 
@@ -16,3 +16,4 @@ Yep... you could be trying to track down that error for a null string somewhere 
 I'd like to thank [NoSqlSolution](http://nosqlsolution.blogspot.com/2012/07/problems-with-quotename.html) for mentioning this and helping me go back to the other window I had open and rereading it.... I guess sometimes it pays to read the darn BOL.
 
 ![not-quite-fineprint-but-sure-feels-like-it-_w3xtwg](/images/not-quite-fineprint-but-sure-feels-like-it-_w3xtwg.png)
+

@@ -3,7 +3,7 @@ date: "2013-05-21T00:00:00Z"
 tags:
 - sql-server
 title: "Get synonym definitions for all databases in server"
-slug: "Get synonym definitions for all databases in server"
+slug: "get-synonym-definitions-for-all-databases-in-server"
 ---
 
 If you want to audit your enviroment to look at all your synonyms and see where they are pointing, you can use `exec sys.sp_MSforeachdb` to loop through databases, and even filter. It will save some coding. However, [my research indicates it is probably a bad practice to rely on this undocumented function as it may have issues not forseen and fully tested](http://shaunjstuart.com/archive/2012/10/its-time-to-retire-sp_msforeachdb/).

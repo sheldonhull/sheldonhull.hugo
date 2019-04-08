@@ -6,7 +6,7 @@ tags:
 - worship
 - follower-of-Jesus
 title: "Lack for Nothing"
-slug: "Lack for Nothing"
+slug: "lack-for-nothing"
 ---
 
 The message of this song is one that that has been driving itself home as more and more important to me.
@@ -29,3 +29,4 @@ Instead, just as the author of Hebrews writes (Heb 10), we can come with bold co
 **_disclaimer_**
 >   This is my first full production attempt with Ableton. I used Ableton Live Lite, with EzDrummer 2 to help generate some drums. Due to running out of time (and patience :-) I just wrapped this up instead of worrying about fine tuning every little piece. I've got some errant vocal parts, guitar parts, and all, but hope you can just look past this. I ran out of time and .... and patience to keep reworking.
 >   I actually am working on a series to help fellow worship leaders and musicians just getting into recording learn more about utilizing VSTs, DAW's (like Ableton, Studio One 3), and more. It's bit confusing getting started, so hopefully as I share a little of my journey it might save you some work if you are wanting to try your hand at some creativity.
+
