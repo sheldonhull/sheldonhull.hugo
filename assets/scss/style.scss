@@ -645,7 +645,8 @@ hr.post-end {
   position: fixed;
   left: 50%;
   top: 0;
-  display: none;
+  /* display: none;  */
+  display:block;
 }
 
 .toc-title {
