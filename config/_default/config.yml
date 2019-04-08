@@ -51,7 +51,8 @@ outputFormats:
     notAlternative: true
 
 permalinks:
-  posts: "/blog/:title/"
+  posts: "/:slug/"
+
 Author:
   name: "Sheldon Hull"
   website: "https://www.sheldonhull.com"

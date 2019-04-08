@@ -1,22 +1,123 @@
-$intro-transition: 10;
+// #search-overlay {
+//   margin-top: 25px;
+//   margin-right:25px;
+//   width: 250px;
+//   z-index: 10;
+//   position: absolute;
+//   right: 0;
+//   top: 0;
+//   color: $text;
 
-.search-content-inner-wrap {
+// }
+// .search-input {
+//     background-color: $dark-grey;
+//     color: $text ;
+//     border:0px;
+// }
+.search-trigger {
   margin-top: 25px;
-  margin-right:25px;
+  margin-right: 25px;
   width: 250px;
   z-index: 10;
   position: absolute;
   right: 0;
   top: 0;
+}
+#search-overlay {
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  display: none;
+  background: $theme;
+  overflow-y: scroll;
+}
+.search-input-line {
+  /* margin-bottom: 5px; */
+  margin: 0 auto;
+  display:block;
+}
+#search-input {
+  margin: 0 auto;
+  display:block;
+  width: 50%;
+  font-size: 40px;
+  padding: 5px 5px;
+  border: 1px solid #d0d0d0;
+  outline: none;
+  background: $theme;
+}
+#search-input:focus {
+  -webkit-box-shadow: 0px 0px 4px 0px $midnightblue;
+  box-shadow: 0px 0px 4px 0px $midnightblue;
+}
+.search-title {
+  font-weight: 400;
+  letter-spacing: 0;
+  font-size: 20px;
+  color: #222;
+  text-align: center;
+}
+.search-help {
+  text-align: right;
+  margin-top: 0;
+}
+.search-help .key {
+  background: $theme;
+  border: 1px solid $light-grey;
+  border-radius: 2px;
+  padding: 1px;
+}
+#search-results {
+  margin-top: 40px;
+}
+#search-results ul li {
+  list-style-type: none;
+  margin: 0;
+}
+#search-results ul li a {
+  padding-top: 10px;
+  padding-bottom: 10px;
   color: $text;
-
+  display: block;
+  /* font: 700 19px/1.7 "Helvetica Neue", helvetica, Arial, sans-serif; */
 }
-.search-input {
-    background-color: $dark-grey;
-    color: $text ;
-    border:0px;
+#search-results ul li a:focus,
+#search-results ul li a:hover {
+  color: #5694f1;
 }
-
+.icon-cancel-circled:before {
+  content: "\e801";
+}
+.icon-search:before {
+  content: "\e802";
+}
+#search-close {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 40px;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .search-help {
+    display: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  #search-close {
+    right: 30px;
+  }
+}
+@media screen and (max-width: 540px) {
+  #search-close {
+    right: 10px;
+  }
+}
 // /* ==========================================================================
 //    SEARCH
 //    ========================================================================== */

@@ -6,7 +6,7 @@
     {
       "label": "serve",
       "type": "shell",
-      "command": "hugo serve -b localhost:1313 --debug --enableGitInfo -d _site",
+      "command": "hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site",
       "group": {
         "isDefault": true,
         "kind": "build"
@@ -17,6 +17,11 @@
       "type": "shell",
       "command": "npm run algolia",
       "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "type": "npm",
+      "script": "lunr",
       "problemMatcher": []
     }
   ]
