@@ -2,7 +2,8 @@
 date: "2015-09-10T00:00:00Z"
 tags:
 - sql-server
-title: Multi-Cursor Editing SQL feels like the movie Inception just became real
+title: "Multi-Cursor Editing SQL feels like the movie Inception just became real"
+slug: "Multi-Cursor Editing SQL feels like the movie Inception just became real"
 ---
 
 *   Yes... multicursor editing is epic

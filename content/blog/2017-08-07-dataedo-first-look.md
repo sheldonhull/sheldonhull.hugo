@@ -5,7 +5,8 @@ tags:
 - sql-server
 - cool-tools
 - tech
-title: Dataedo - First Look
+title: "Dataedo - First Look"
+slug: "Dataedo - First Look"
 ---
 
 > info "update 2019-02-22"

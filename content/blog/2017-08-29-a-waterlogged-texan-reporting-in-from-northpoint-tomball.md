@@ -6,7 +6,8 @@ tags:
 - ramblings
 - family
 - follower-of-Jesus
-title: A Waterlogged Texan Reporting In from Northpoint Tomball
+title: "A Waterlogged Texan Reporting In from Northpoint Tomball"
+slug: "A Waterlogged Texan Reporting In from Northpoint Tomball"
 ---
 
 ## Waterlogged

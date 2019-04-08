@@ -2,7 +2,8 @@
 date: "2017-02-18T00:00:00Z"
 tags:
 - sql-server
-title: Track Creation of Databases
+title: "Track Creation of Databases"
+slug: "Track Creation of Databases"
 ---
 
 Sys.Databases has some create information, but I was looking for a way to track aging, last access, and if databases got dropped. In a development environment, I was hoping this might help me gauge which development databases were actually being used or not.

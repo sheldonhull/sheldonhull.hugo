@@ -6,7 +6,8 @@ last_modified_at: "2019-03-12"
 tags:
 - powershell
 - deep-dive
-title: Debugging Type Binding in PowerShell
+title: "Debugging Type Binding in PowerShell"
+slug: "Debugging Type Binding in PowerShell"
 toc: false
 typora-copy-images-to: ..\assets\img
 typora-root-url: ..\assets\img

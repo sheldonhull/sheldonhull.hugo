@@ -3,7 +3,7 @@ date: "2015-04-30T00:00:00Z"
 tags:
 - sql-server
 - deep-dive
-title: Utilizing the power of table parameters to reduce IO, improve performance, decrease pollution, and achieve world peace...
+title: "Utilizing the power of table parameters to reduce IO, improve performance, decrease pollution, and achieve world peace..."
 slug: utilizing-the-power-of-table-parameters-to-reduce-io,-improve-performance,-decrease-pollution,-and-achieve-world-peace
 ---
 

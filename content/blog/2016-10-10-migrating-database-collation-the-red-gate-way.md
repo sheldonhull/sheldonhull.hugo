@@ -4,7 +4,8 @@ tags:
 - redgate
 - sql-server
 - cool-tools
-title: Migrating Database Collation - The Red Gate Way
+title: "Migrating Database Collation - The Red Gate Way"
+slug: "Migrating Database Collation - The Red Gate Way"
 ---
 
 I had some cross database comparisons that I wanted to simplify, but ensuring the collation matched. The amount of objects that I would have had to drop and recreate was a bit daunting, so I looked for a way to migrate the database to a different collation.Using the Red Gate toolkit, I was able to achieve this pretty quickly. There are other methods with copying data built in to SSMS that could do some of these steps, but the seamless approach was really nice with the SQL Toolbelt.

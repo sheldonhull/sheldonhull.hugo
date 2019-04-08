@@ -7,7 +7,8 @@ tags:
 - sql-server
 - tech
 - performance-tuning
-title: SQL Server Database Experimentation Assistant - How to Run a Capture
+title: "SQL Server Database Experimentation Assistant - How to Run a Capture"
+slug: "SQL Server Database Experimentation Assistant - How to Run a Capture"
 toc: false
 typora-copy-images-to: ..\assets\img
 typora-root-url: ..\assets\img

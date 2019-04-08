@@ -3,7 +3,8 @@ date: "2016-06-14T00:00:00Z"
 tags:
 - cool-tools
 - sql-server
-title: 'OmniCompare: A free tool to compare SQL Instances'
+title: "OmniCompare: A free tool to compare SQL Instances"
+slug: "OmniCompare: A free tool to compare SQL Instances"
 toc: true
 ---
 

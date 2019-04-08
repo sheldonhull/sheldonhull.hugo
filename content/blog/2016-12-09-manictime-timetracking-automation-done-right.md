@@ -4,7 +4,8 @@ tags:
 - development
 - ramblings
 - cool-tools
-title: ManicTime - Timetracking Automation Done Right
+title: "ManicTime - Timetracking Automation Done Right"
+slug: "ManicTime - Timetracking Automation Done Right"
 toc: true
 ---
 

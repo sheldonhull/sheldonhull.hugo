@@ -3,7 +3,7 @@ date: "2017-02-27T00:00:00Z"
 tags:
 - redgate
 - sql-server
-title: Red Gate SQL Clone (1) - Initial Setup
+title: "Red Gate SQL Clone (1) - Initial Setup"
 slug: "red-gate-sql-clone-(-1)-initial-setup"
 ---
 

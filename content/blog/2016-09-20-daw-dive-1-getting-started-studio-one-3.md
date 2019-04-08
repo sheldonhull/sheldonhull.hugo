@@ -4,7 +4,8 @@ tags:
 - music
 - ramblings
 - cool-tools
-title: DAW Dive 1 - Getting Started - Studio One 3
+title: "DAW Dive 1 - Getting Started - Studio One 3"
+slug: "DAW Dive 1 - Getting Started - Studio One 3"
 ---
 
 I'm a geek, software nerd, and a musician. As I've been stagnating lately in my musical progression I decided to dive into trying to produce some recordings of some of my music, hoping to spice up the old brain.I have a lot to learn. It's pretty humbling, but despite being a musician and a developer with some decent tinkering ability, I've found getting into recording and production a bit challenging on certain things. If you come from a background in which you understand terms such as pre/post, bus, gain structure, compression ration, and other terms then your learning curve will be much easier. For me, my extent of dealing with these terms was focused on guitar pedal settings and an analogue mixing board.

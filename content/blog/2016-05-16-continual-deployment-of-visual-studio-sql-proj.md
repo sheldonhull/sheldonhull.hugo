@@ -3,7 +3,8 @@ date: "2016-05-16T00:00:00Z"
 tags:
 - sql-server
 - cool-tools
-title: Continual Deployment of Visual Studio SqlProj
+title: "Continual Deployment of Visual Studio SqlProj"
+slug: "Continual Deployment of Visual Studio SqlProj"
 ---
 
 ## Unveil the inner workings of the esoteric build system...

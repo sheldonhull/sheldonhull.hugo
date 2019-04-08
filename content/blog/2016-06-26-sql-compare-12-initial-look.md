@@ -3,7 +3,8 @@ date: "2016-06-26T00:00:00Z"
 tags:
 - cool-tools
 - sql-server
-title: 'SQL Compare 12: Initial Look'
+title: "SQL Compare 12: Initial Look"
+slug: "SQL Compare 12: Initial Look"
 toc: true
 ---
 

@@ -7,7 +7,8 @@ tags:
 - vscode
 - tech
 - cool-tools
-title: External Tool VSCODE called from SQL Management Studio
+title: "External Tool VSCODE called from SQL Management Studio"
+slug: "External Tool VSCODE called from SQL Management Studio"
 ---
 
 Previous Related Post:

@@ -3,7 +3,7 @@ date: "2015-04-28T00:00:00Z"
 tags:
 - sql-server
 - performance-tuning
-title: SQL Sentry Pro Explorer is worth it...
+title: "SQL Sentry Pro Explorer is worth it..."
 slug: sql-sentry-pro-explorer-is-worth-it
 ---
 

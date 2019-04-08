@@ -6,7 +6,8 @@ excerpt: Improves to SSMS (Sql Server Management Studio) continue. Use the lates
 last_modified_at: "2018-03-30"
 tags:
 - sql-server
-title: Improvements with SSMS 2016
+title: "Improvements with SSMS 2016"
+slug: "Improvements with SSMS 2016"
 ---
 
 > info "Updated: 2019-01-24"

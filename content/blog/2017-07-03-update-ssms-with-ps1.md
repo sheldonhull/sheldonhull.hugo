@@ -8,7 +8,8 @@ tags:
 - powershell
 - cool-tools
 - tech
-title: Update SSMS With PS1
+title: "Update SSMS With PS1"
+slug: "Update SSMS With PS1"
 ---
 
 > Update "Updated: 2018-03-29"

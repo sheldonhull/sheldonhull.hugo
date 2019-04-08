@@ -4,7 +4,8 @@ tags:
 - powershell
 - sql-server
 - tech
-title: Powershell Module Improvements for SQL Server in 2017
+title: "Powershell Module Improvements for SQL Server in 2017"
+slug: "Powershell Module Improvements for SQL Server in 2017"
 ---
 
 > info "Updated: 2018-03-19"

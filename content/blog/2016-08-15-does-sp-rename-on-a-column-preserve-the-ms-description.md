@@ -2,7 +2,8 @@
 date: "2016-08-15T00:00:00Z"
 tags:
 - sql-server
-title: Does sp_rename on a column preserve the ms_description?
+title: "Does sp_rename on a column preserve the ms_description?"
+slug: "Does sp_rename on a column preserve the ms_description?"
 ---
 
 Did some checking as couldn't find help in the MSDN documentation. My test on SQL 2016 shows that since the `column_id` isn't changing, the existing mapping of the description for the column is preserved.

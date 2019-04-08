@@ -2,7 +2,8 @@
 date: "2016-10-09T00:00:00Z"
 tags:
 - sql-server
-title: Fixing non-deterministic error when creating indexed view
+title: "Fixing non-deterministic error when creating indexed view"
+slug: "Fixing non-deterministic error when creating indexed view"
 ---
 
 I discovered a bit of info on working with float values, while creating a hash value that contained a float value, and a date value.

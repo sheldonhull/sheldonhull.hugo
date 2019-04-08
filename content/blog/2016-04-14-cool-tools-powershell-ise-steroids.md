@@ -4,7 +4,8 @@ tags:
 - cool-tools
 - powershell
 - sql-server
-title: 'Cool Tools: Powershell ISE-Steroids'
+title: "Cool Tools: Powershell ISE-Steroids"
+slug: "Cool Tools: Powershell ISE-Steroids"
 ---
 
 Disclaimer: I have been provided with a free license because I am reviewing. This doesn't impact my assessment of the tool. I have a passion for finding tools that help developers, and even more specifically SQL DBA/Developers improve their workflow and development. I don't recommend tools without actually using them and seeing if I'd end up adding to my roster of essentials!

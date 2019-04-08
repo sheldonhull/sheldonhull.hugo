@@ -4,7 +4,8 @@ tags:
 - cool-tools
 - sql-server
 - ramblings
-title: Remote Desktop Workflow Improvements
+title: "Remote Desktop Workflow Improvements"
+slug: "Remote Desktop Workflow Improvements"
 toc: true
 ---
 

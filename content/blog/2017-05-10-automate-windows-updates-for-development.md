@@ -4,7 +4,8 @@ tags:
 - powershell
 - tech
 - sql-server
-title: Automate Windows Updates for Development
+title: "Automate Windows Updates for Development"
+slug: "Automate Windows Updates for Development"
 ---
 
 I've run into the case where I wanted updates continually applied, while the machine still was part of the GPO that didn't automatically install updates. For this developer and test oriented machine I wanted every update applied.

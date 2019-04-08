@@ -2,7 +2,8 @@
 date: "2017-02-18T00:00:00Z"
 tags:
 - sql-server
-title: Redgate SQL Data Compare & Devart DBForge Data Compare
+title: "Redgate SQL Data Compare & Devart DBForge Data Compare"
+slug: "Redgate SQL Data Compare & Devart DBForge Data Compare"
 ---
 
 I'm a big fan of Redgate, as I'm in the [Friend of Redgate](http://www.red-gate.com/community/friends-of-rg) program. However, I do also utilize some other toolkits. One competitor that I find has some , but I do dabble with some other toolkits (I know heresy :-) . One of the competitors that I find has some brilliant features, but many time lacks the refinement and ease of use of Redgate is Devart tools. The tools they offer are often really nice, and continually updated based on feedback. As a general rule, I'd say the Devart tools feel less "refined" in some areas, but then offer some really nice usability features that RG hasn't yet implemented. Both have their place in my toolbelt depending on the need.Having just completed some very large data comparisons on views, generating over 15GB of network traffic in last few days, I've been really impressed with the usability and output from Devart DbForge Data Compare. The performance seems great.

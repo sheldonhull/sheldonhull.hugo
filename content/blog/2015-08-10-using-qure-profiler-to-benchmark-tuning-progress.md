@@ -3,7 +3,8 @@ date: "2015-08-10T00:00:00Z"
 last_modified_at: "2018-03-24"
 tags:
 - sql-server
-title: Using Qure Profiler To Benchmark Tuning Progress
+title: "Using Qure Profiler To Benchmark Tuning Progress"
+slug: "Using Qure Profiler To Benchmark Tuning Progress"
 toc: true
 ---
 

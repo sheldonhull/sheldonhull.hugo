@@ -3,7 +3,8 @@ date: "2015-12-09T00:00:00Z"
 tags:
 - sql-server
 - cool-tools
-title: Documenting Your Database with Diagrams
+title: "Documenting Your Database with Diagrams"
+slug: "Documenting Your Database with Diagrams"
 toc: true
 ---
 

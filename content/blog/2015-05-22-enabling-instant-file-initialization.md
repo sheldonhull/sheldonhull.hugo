@@ -2,7 +2,8 @@
 date: "2015-05-22T00:00:00Z"
 tags:
 - sql-server
-title: Enabling Instant File Initialization
+title: "Enabling Instant File Initialization"
+slug: "Enabling Instant File Initialization"
 ---
 
 Found a couple good walkthroughs on enabling instant file initialization. However, I'm becoming more familar with the nuances of various setups and found it confusing in trying to map the correct user/group to enable this option. In my case, I had the SQL Service running under NT SERVICE/MSSSQLSERVER and as such this logic wasn't showing up when trying to find groups/users to add to the necessary permissions. Lo and behold...

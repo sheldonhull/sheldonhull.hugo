@@ -2,7 +2,8 @@
 date: "2013-05-22T00:00:00Z"
 tags:
 - sql-server
-title: View computed columns in database
+title: "View computed columns in database"
+slug: "View computed columns in database"
 ---
 
 Snippet to quickly view computed column information. You can also view this by doing a "create table" script. This however, was a little cleaner to read and view for me.

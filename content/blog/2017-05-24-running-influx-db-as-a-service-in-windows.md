@@ -7,7 +7,8 @@ tags:
 - configuration
 - tech
 - sql-server
-title: Running InfluxDB as a service in Windows
+title: "Running InfluxDB as a service in Windows"
+slug: "Running InfluxDB as a service in Windows"
 toc: true
 ---
 

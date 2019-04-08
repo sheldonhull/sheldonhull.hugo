@@ -2,7 +2,8 @@
 date: "2014-08-11T00:00:00Z"
 tags:
 - sql-server
-title: 'Snippet Alert: Useful dates (eom, bom, etc)'
+title: "Snippet Alert: Useful dates (eom, bom, etc)"
+slug: "Snippet Alert: Useful dates (eom, bom, etc)"
 ---
 
 Common date values you may need to reference that you may not want to write from scratch each time.

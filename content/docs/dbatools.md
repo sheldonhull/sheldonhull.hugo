@@ -1,5 +1,6 @@
 ---
-title: dbatools
+title: "dbatools"
+slug: "dbatools"
 date: '2019-03-11'
 last_modified_at: '2019-03-11'
 toc: true

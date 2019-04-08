@@ -2,7 +2,8 @@
 date: "2014-05-19T00:00:00Z"
 tags:
 - sql-server
-title: Eliminate Overlapping Dates
+title: "Eliminate Overlapping Dates"
+slug: "Eliminate Overlapping Dates"
 ---
 
 I was looking for an efficient way to eliminate overlapping days when provided with a historical table that provided events that could overlap. In my case, I had dates show the range of a process. However, the multiple start and end dates could overlap, and even run concurrently. To eliminate double counting the days the process truly was in play I needed a way to find eliminate the overlap, and eliminate duplicate days when running in parallel. I researched ways to complete this and found the solution through this post. [Solutions to Packing Date and Time Intervals Puzzle ](http://sqlmag.com/blog/solutions-packing-date-and-time-intervals-puzzle)

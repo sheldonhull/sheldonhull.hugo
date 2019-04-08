@@ -2,7 +2,8 @@
 date: "2015-07-13T00:00:00Z"
 tags:
 - sql-server
-title: What was I thinking? Deleting myself from localdb?
+title: "What was I thinking? Deleting myself from localdb?"
+slug: "What was I thinking? Deleting myself from localdb?"
 ---
 
 Was testing a batch file to add a user to a localdb instance. Assumed that my user as admin on the machine wouldn't have an issue inserting myself back.... didn't think that one through too carefully. Executing any type of SQLCMD against it denied me. SSMS denied me. No SA had been setup on it, so I couldn't login as SA either. Looked for various solutions, and ended up uninstalling and reinstalling (localdb)v11.0 so that I'd stop having myself denied permissions.

@@ -5,7 +5,8 @@ tags:
 - cool-tool
 - redgate
 - sql-server
-title: Install ReadyRoll via Command Line
+title: "Install ReadyRoll via Command Line"
+slug: "Install ReadyRoll via Command Line"
 ---
 
 #### command line install options

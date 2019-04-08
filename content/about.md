@@ -1,7 +1,8 @@
 ---
 permalink: "/about/"
 layout: single
-title: About
+title: "About"
+slug: "About"
 excerpt: about me
 last_modified_at: 2019-02-21 00:00:00 +0000
 sidebar:
@@ -26,7 +27,7 @@ I've been blessed with 3 kids and a wonderful wife Sarah who has brought beauty 
 
 {{<button href="/files/material-dark.pdf" theme="success">}} Download Resume {{< /button >}}
 
-I specialize in working with SQL Server to help speed things up, and develop solutions focused on SQL Server. I have a passion for automation, streamlining, implementing a healthy Database Lifecycle Management (DLM) process. I've additionally dived into PowerShell to help automate many of the tasks for testing and deploying SQL databases, as well as some projects with C#. I've been excited to be part of the #sqlfamily and connect with various members online that have helped provide such a rich experience for the community to draw on and learn from. AWS is a big part of my work, and I've run performance related testing, configuration, and other stuff up in the magical land of the cloud. I've worked a little with Azure as well. 
+I specialize in working with SQL Server to help speed things up, and develop solutions focused on SQL Server. I have a passion for automation, streamlining, implementing a healthy Database Lifecycle Management (DLM) process. I've additionally dived into PowerShell to help automate many of the tasks for testing and deploying SQL databases, as well as some projects with C#. I've been excited to be part of the #sqlfamily and connect with various members online that have helped provide such a rich experience for the community to draw on and learn from. AWS is a big part of my work, and I've run performance related testing, configuration, and other stuff up in the magical land of the cloud. I've worked a little with Azure as well.
 
 I'm allergic to red-tape, excessive emails, meetings for the sake of meetings, and busy work for the sake of busy work. I like to bring real value and see the company and client's work impacted for the better thanks to my efforts. Saving folks some money and time is always a win!
 

@@ -4,7 +4,8 @@ last_modified_at: "2019-02-21"
 tags:
 - tech
 - jekyll
-title: Migration To Jekyll
+title: "Migration To Jekyll"
+slug: "Migration To Jekyll"
 toc: true
 ---
 

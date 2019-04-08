@@ -3,7 +3,8 @@ date: "2016-10-17T00:00:00Z"
 tags:
 - sql-server
 - mysteries
-title: Cannot Generate SSPI Context
+title: "Cannot Generate SSPI Context"
+slug: "Cannot Generate SSPI Context"
 ---
 
 ## Troubleshooting

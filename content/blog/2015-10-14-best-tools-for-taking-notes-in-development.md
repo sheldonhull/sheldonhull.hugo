@@ -3,7 +3,8 @@ date: "2015-10-14T00:00:00Z"
 tags:
 - sql-server
 - cool-tools
-title: Best Tools for Taking Notes In Development
+title: "Best Tools for Taking Notes In Development"
+slug: "Best Tools for Taking Notes In Development"
 toc: true
 ---
 

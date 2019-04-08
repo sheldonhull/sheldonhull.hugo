@@ -2,7 +2,8 @@
 date: "2015-04-28T00:00:00Z"
 tags:
 - sql-server
-title: Restoring a database that doesn't exist
+title: "Restoring a database that doesn't exist"
+slug: "Restoring a database that doesn't exist"
 ---
 
 When restoring a database that doesn't exist, say for instance when a client sends a database to you, you can't use the option to restore database, because there is no database matching to restore. To get around this you need to use the Restore Files and Filegroups option and then restore the database.

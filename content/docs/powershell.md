@@ -1,5 +1,6 @@
 ---
-title: powershell
+title: "powershell"
+slug: "powershell"
 date: '2019-03-19'
 last_modified_at: '2019-03-19'
 toc: true

@@ -6,7 +6,8 @@ published: true
 tags:
 - sql-server
 - tech
-title: SQL .NET Requirements
+title: "SQL .NET Requirements"
+slug: "SQL .NET Requirements"
 toc: true
 ---
 

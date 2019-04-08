@@ -2,7 +2,8 @@
 date: "2015-09-21T00:00:00Z"
 tags:
 - sql-server
-title: XML Attribute VS Element Assignment when working with SQL
+title: "XML Attribute VS Element Assignment when working with SQL"
+slug: "XML Attribute VS Element Assignment when working with SQL"
 ---
 
 ## XML handling with aliases

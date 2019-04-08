@@ -3,7 +3,8 @@ date: "2016-07-01T00:00:00Z"
 tags:
 - cool-tools
 - sql-server
-title: 'Glasswire: (Giveaway Included) Networking Monitoring even a caveman could
+title: "Glasswire: (Giveaway Included) Networking Monitoring even a caveman could"
+slug: "Glasswire: (Giveaway Included) Networking Monitoring even a caveman could"
   use'
 toc: true
 ---

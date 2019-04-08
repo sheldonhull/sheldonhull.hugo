@@ -2,7 +2,8 @@
 date: "2016-01-13T00:00:00Z"
 tags:
 - sql-server
-title: Verifying Instant File Initialization
+title: "Verifying Instant File Initialization"
+slug: "Verifying Instant File Initialization"
 ---
 
 Ran into a few issues verifying instant file initialization. I was trying to ensure that file initialization was enabled, but found out that running the xp_cmd to execute whoami /priv could be inaccurate when I'm not running it from the account that has the privileges. This means that if my sql service account has different permissions than I do, I could get the incorrect reading on if it is enabled.

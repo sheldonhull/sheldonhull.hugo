@@ -4,7 +4,8 @@ excerpt: On using SSMSBoost to improve your SSMS workflow
 tags:
 - sql-server
 - cool-tools
-title: On how to Googlify your SQL statements for future searching
+title: "On how to Googlify your SQL statements for future searching"
+slug: "On how to Googlify your SQL statements for future searching"
 toc: true
 ---
 

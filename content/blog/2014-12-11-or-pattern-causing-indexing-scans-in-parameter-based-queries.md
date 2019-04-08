@@ -2,7 +2,8 @@
 date: "2014-12-11T00:00:00Z"
 tags:
 - sql-server
-title: OR pattern causing indexing scans in parameter based queries
+title: "OR pattern causing indexing scans in parameter based queries"
+slug: "OR pattern causing indexing scans in parameter based queries"
 ---
 
 #Tl;dr

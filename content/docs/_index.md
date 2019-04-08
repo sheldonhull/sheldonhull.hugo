@@ -1,5 +1,6 @@
 ---
-title: "docs"
+title : "docs"
+slug: "docs"
 permalink: /docs/
 excerpt: "Resources listed here for your review"
 last_modified_at: 2019-02-19
