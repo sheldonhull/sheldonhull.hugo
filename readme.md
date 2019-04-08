@@ -19,3 +19,11 @@ to publish dev changes with interesting name... that doesn't have much value but
 ```powershell
 git add . ; git commit -m "commit-$(invoke-generate '[adjective]-[noun]')"; git push
 ```
+
+
+# Algolia
+Tutorial here:
+[search-with-algolia-in-hugo](https://forestry.io/blog/search-with-algolia-in-hugo/)
+```
+npm atomic algolia
+```

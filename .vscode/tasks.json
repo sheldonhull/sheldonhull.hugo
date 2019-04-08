@@ -6,11 +6,18 @@
     {
       "label": "serve",
       "type": "shell",
-      "command": "hugo serve -b localhost:1313 --debug --enableGitInfo",
+      "command": "hugo serve -b localhost:1313 --debug --enableGitInfo -d _site",
       "group": {
         "isDefault": true,
         "kind": "build"
       }
+    },
+    {
+      "label": "algolia update",
+      "type": "shell",
+      "command": "npm run algolia",
+      "group": "build",
+      "problemMatcher": []
     }
   ]
 }

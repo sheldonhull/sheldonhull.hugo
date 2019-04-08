@@ -6,31 +6,3 @@
   <!-- {{ $script := resources.Get "js/jquery.fancybox.min.js" | minify | fingerprint -}} -->
   <!-- <script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}></script> -->
 {{ end }}
-
-{{ if and .Site.Params.delayDisqus .Site.DisqusShortname }}
-<!-- Delayed Disqus -->
-<script type="text/javascript">
-
-  $('#show-comments').on('click', function(){
-    var disqus_shortname = '{{ .Site.DisqusShortname }}';
-
-    (function() {
-      var disqus = document.createElement('script');
-      disqus.type = 'text/javascript';
-      disqus.async = true;
-      disqus.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(disqus);
-    })();
-
-    $(this).hide();
-    });
-</script>
-<script id="dsq-count-scr" src="//{{ .Site.DisqusShortname }}.disqus.com/count.js" async></script>
-<!-- End Delayed Disqus -->
-{{ end }}
-
-<!-- <script   src="https://code.jquery.com/jquery-3.3.1.slim.min.js"   integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script> -->
-<!-- {{ $script := resources.Get "js/disqus-js-common.js" | minify | fingerprint -}} -->
-<!-- <script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}></script> -->
-<!-- {{ $script := resources.Get "js/disqus-js-main.js" | minify | fingerprint -}} -->
-<!-- <script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}></script> -->

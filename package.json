@@ -1,0 +1,25 @@
+{
+  "name": "sheldonhull.hugo",
+  "version": "1.0.0",
+  "description": "To Update submodules and download",
+  "main": "index.js",
+  "dependencies": {
+    "atomic-algolia": "^0.3.17"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "algolia": "atomic-algolia"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sheldonhull/sheldonhull.hugo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sheldonhull/sheldonhull.hugo/issues"
+  },
+  "homepage": "https://github.com/sheldonhull/sheldonhull.hugo#readme"
+}

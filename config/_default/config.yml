@@ -34,13 +34,21 @@ blackfriday:
   nofollowLinks: true
 
 
+
 taxonomies:
   tag: "tags"
   # Categories are disabled by default.
 
 outputs:
-  home: ["HTML", "RSS"]
+  home: ["HTML", "RSS","Algolia"]
   page: ["HTML"]
+
+outputFormats:
+  Algolia:
+    baseName: "algolia"
+    isPlainText: true
+    mediaType: "application/json"
+    notAlternative: true
 
 permalinks:
   posts: "/blog/:title/"
@@ -95,6 +103,11 @@ params:
 
   comments: true
 
+  algolia:
+    vars: ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
+    params: ["tags"] #,"categories"
+
+
   # Metadata mostly used in document's head
   themeColor: "#22252e" # "#494f5c"
 
@@ -118,7 +131,7 @@ params:
   since: "2013"
 
   # Add custom css
-  custom_css: ["css/custom.css","css/ticks.css","css/notice.css","css/applause-button.js"]
+  custom_css: ["css/custom.css","css/ticks.css","css/notice.css"] #,"https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.css"
 
   social:
     - name: "twitter"
