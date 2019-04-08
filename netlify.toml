@@ -26,6 +26,7 @@ hugo --verbose --verboseLog --minify
   HUGO_ENABLEGITINFO = "true"
   HUGO_BASEURL = "https://www.sheldonhull.com/"
   HUGO_MINIFY = "true"
+  HUGO_DESTINATION = "_site"
 
 ###############################
 # DEPLOY PREVIEWS
@@ -50,6 +51,7 @@ publish = "_site"
   HUGO_GOOGLEANALYTICS = "dev"
   HUGO_BASEURL = "$DEPLOY_PRIME_URL"
   HUGO_ENABLEGITINFO = "true"
+  HUGO_DESTINATION = "_site"
 
 ###############################
 # BRANCH
@@ -74,7 +76,7 @@ hugo --buildFuture --buildDrafts --destination preview --verbose --minify
   HUGO_GOOGLEANALYTICS = "dev"
   HUGO_BASEURL = "$DEPLOY_PRIME_URL"
   HUGO_ENABLEGITINFO = "true"
-
+  HUGO_DESTINATION = "_site"
 
 # Redirects to keep jekyll based urls that some use like:
 #xmlUrl="https://www.sheldonhull.com/tags/tech/feed.xml"  should still be working, since hugo generates with index.xml
