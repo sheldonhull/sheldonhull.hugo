@@ -1,9 +1,9 @@
-<!-- {{ if or ( .HasShortcode "fancybox" ) ( .HasShortcode "fancybox-gallery" ) }} -->
+{{ if or ( .HasShortcode "fancybox" ) ( .HasShortcode "fancybox-gallery" ) }}
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-  <!-- {{ $script := resources.Get "js/jquery.fancybox.min.js" | minify | fingerprint -}} -->
-  <!-- <script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}></script> -->
-<!-- {{ end }} -->
+  {{ $script := resources.Get "js/jquery.fancybox.min.js" | minify | fingerprint -}}
+  <script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}></script>
+{{ end }}
 <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
