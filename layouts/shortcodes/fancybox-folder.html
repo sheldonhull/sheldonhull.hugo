@@ -22,7 +22,7 @@
     {{ $path := print "content/" .Page.Dir (.Get "src") }}
     {{ $url  := print .Page.URL (.Get "src") }}
     {{ range (readDir $path)  }}
-        {{- $src := print $url "/" .Name }}
+        {{- $src := print .Name }}
         <a data-fancybox="gallery" href="{{ $src }}">
             <img src="{{ $src }}">
         </a>
