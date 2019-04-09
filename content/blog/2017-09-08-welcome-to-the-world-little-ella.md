@@ -47,5 +47,4 @@ Shout out to Willowbrook Women's Center for their consideration and stellar care
 Thanks to their care I have a healthy baby girl, healthy wife, and some beautiful moments despite the complication of the delivery.
 
 
-<iframe src="https://www.youtube.com/embed/vB1EqN-WfkI?wmode=opaque&enablejsapi=1" height="480" width="854" scrolling="no" frameborder="0" allowfullscreen="yes">
-</iframe>
+{{% youtube vB1EqN-WfkI %}}
