@@ -1,7 +1,7 @@
 ---
 date: "2015-08-13T00:00:00Z"
 tags:
-- sql-server
+  - sql-server
 title: "Stranger Danger... The need for trust with constraints"
 slug: "stranger-danger-the-need-for-trust-with-constraints"
 ---
