@@ -1,7 +1,7 @@
 <div id="disqus-container">
     {{ with .Site.DisqusShortname }}
       <button id="disqus-button" type="button" onclick="showComments()">Show
-          <span class="disqus-comment-count" >comments</span></button>
+          <span class="disqus-comment-count" data-disqus-url="{{ $.Page.Permalink}}"> comments</span></button>
       <div id="disqus-comments">
         {{ $isDummyName := eq . "yourdiscussshortname" }}
         {{ $isServer := $.Site.IsServer }}

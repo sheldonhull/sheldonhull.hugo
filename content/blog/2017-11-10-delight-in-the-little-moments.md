@@ -15,5 +15,4 @@ This last Easter I had some fun with the kids at their grandparents. Remember th
 
 Thinking I'll try this approach for a while. Small 2 minute videos that aren't refined a lot are easy for me to produce. I typically only do a couple a year because I tend to work on them extensively, but maybe just like blogging, consistency and simplicity can be the key to keeping the momentum going.
 
-<iframe src="https://www.youtube.com/embed/H6hf6rna6gk?wmode=opaque&enablejsapi=1" height="480" width="854" scrolling="no" frameborder="0" allowfullscreen="yes"></iframe>
-
+{{% youtube H6hf6rna6gk %}}

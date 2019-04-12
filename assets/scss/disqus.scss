@@ -3,10 +3,10 @@
   text-align: center;
 }
 #disqus-button {
-  width: 100%;
+  width: 75%;
   padding: 0.25em 0.75em;
   background-color: #3e5a47;
-  color: #000;
+  color: $text;
   border:none;
 }
  #disabled-comments {
