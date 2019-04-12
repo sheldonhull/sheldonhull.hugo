@@ -89,8 +89,11 @@ menu:
     - name: "Docs"
       url: "/docs/"
       weight: 3
-    - name: "About"
+    - name: "Creative"
+      url: "/creative/"
       weight: 4
+    - name: "About"
+      weight: 5
       url: "/about/"
 
 params:

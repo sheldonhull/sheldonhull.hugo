@@ -16,7 +16,8 @@ It was a rough 24 hours resulting in our first cesarean experience. This was a b
 <!-- {% include gallery caption="Welcome to the World Little Ella" %} -->
 
 {{% fancybox-gallery
-    "gallery1"
+    "GalleryElla"
+    "Welcoming Ella"
     "Ella_18.jpg"
     "Ella_17.jpg"
     "Ella_16.jpg"

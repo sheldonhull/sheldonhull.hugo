@@ -18,6 +18,7 @@ collections: # A list of collections the CMS should be able to edit
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields: # The fields each document in this collection have
       - {label: "Title", name: "title", widget: "string", tagname: "h1", required: true}
+      - {label: "slug", name: "slug", widget: "string", tagname: "h1", required: true}
       # MAIN AUTHORING AREA
       - {label: "Publish Date", name: "date", widget: "date", format: "YYYY-MM-DD", required: true}
       - {label: "Last Modified Date", name: "last_modified_at", widget: "date", format: "YYYY-MM-DD",required: true}
@@ -38,8 +39,8 @@ collections: # A list of collections the CMS should be able to edit
         multiple: true
         required: true
         allow_add: true
-      - {label: "typora-root-url", name: "typora-root-url", widget: "hidden", default: "..\\assets\\img", required: true, hint: "Use ..\\assets\\img"}
-      - {label: "typora-copy-images-to", name: "typora-copy-images-to", widget: "hidden", default: "..\\assets\\img", required: true, hint: "Use ..\\assets\\img"}
+      - {label: "typora-root-url", name: "typora-root-url", widget: "hidden", default: "..\\static\\images", required: true, hint: "Use ..\\static\\images"}
+      - {label: "typora-copy-images-to", name: "typora-copy-images-to", widget: "hidden", default: "..\\static\\images", required: true, hint: "Use ..\\static\\images"}
   - name: "docs" # Used in routes, ie.: /admin/collections/:slug/edit
     label: "docs" # Used in the UI, ie.: "New Post"
     folder: "_docs" # The path to the folder where the documents are stored
@@ -49,11 +50,11 @@ collections: # A list of collections the CMS should be able to edit
     slug: "{{slug}}"
     fields: # The fields each document in this collection have
       - {label: "Title", name: "title", widget: "string", tagname: "h1", required: true}
+      - {label: "slug", name: "slug", widget: "string", tagname: "h1", required: true}
       - {label: "Publish Date", name: "date", widget: "date", format: "YYYY-MM-DD", required: true}
       - {label: "Last Modified Date", name: "last_modified_at", widget: "date", format: "YYYY-MM-DD",required: true}
       # MAIN AUTHORING AREA
       - {label: "Body", name: "body", widget: "markdown", required: true}
-
 
         # Additional string fields to set manually in YAML
       - {label: "toc", name: "toc", widget: "boolean", default: true}
@@ -63,7 +64,6 @@ collections: # A list of collections the CMS should be able to edit
         widget: 'image'
         required: false
         tagname: ''
-      - {label: "permalink", name: "permalink", widget: "string", required: true, default: "/docs/{{title}}/"}
       - label: "Tags"
         name: "tags"
         widget: "select"
@@ -72,38 +72,5 @@ collections: # A list of collections the CMS should be able to edit
         multiple: true
         required: true
         allow_add: true
-      - {label: "typora-root-url", name: "typora-root-url", widget: "hidden", default: "..\\assets\\img", required: true, hint: "Use ..\\assets\\img"}
-      - {label: "typora-copy-images-to", name: "typora-copy-images-to", widget: "hidden", default: "..\\assets\\img", required: true, hint: "Use ..\\assets\\img"}
-  - name: "portfolio" # Used in routes, ie.: /admin/collections/:slug/edit
-    label: "Portfolio" # Used in the UI, ie.: "New Post"
-    folder: "_portfolio" # The path to the folder where the documents are stored
-    format: yaml-frontmatter
-    extension: md
-    create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}"
-    fields: # The fields each document in this collection have
-      - {label: "Title", name: "title", widget: "string", tagname: "h1", required: true}
-      - {label: "Publish Date", name: "date", widget: "date", format: "YYYY-MM-DD", required: true}
-      - {label: "Last Modified Date", name: "last_modified_at", widget: "date", format: "YYYY-MM-DD",required: true}
-
-      # MAIN AUTHORING AREA
-      - {label: "Body", name: "body", widget: "markdown", required: true}
-
-      - {label: "toc", name: "toc", widget: "boolean", default: true}
-      - {label: "permalink", name: "permalink", widget: "string", required: true, default: "/{{title}}/"}
-      - {label: "Excerpt", name: "excerpt", widget: "string", required: true}
-      - label: 'Cover Image'
-        name: 'image'
-        widget: 'image'
-        required: false
-        tagname: ''
-      - label: "Tags"
-        name: "tags"
-        widget: "select"
-        default: "tech"
-        options: ["development","sql-server","tech","ramblings",powershell,"cool-tools","performance-tuning","deep-dive","AWS","devops","redgate","tfs","photography","music","follower-of-Jesus","worship","videography","azure"]
-        multiple: true
-        required: true
-        allow_add: true
-      - {label: "typora-root-url", name: "typora-root-url", widget: "hidden", default: "..\\assets\\img", required: true, hint: "Use ..\\assets\\img"}
-      - {label: "typora-copy-images-to", name: "typora-copy-images-to", widget: "hidden", default: "..\\assets\\img", required: true, hint: "Use ..\\assets\\img"}
+      - {label: "typora-root-url", name: "typora-root-url", widget: "hidden", default: "..\\static\\images", required: true, hint: "Use ..\\static\\images"}
+      - {label: "typora-copy-images-to", name: "typora-copy-images-to", widget: "hidden", default: "..\\static\\images", required: true, hint: "Use ..\\static\\images"}
