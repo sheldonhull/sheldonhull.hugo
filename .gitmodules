@@ -16,3 +16,6 @@
 [submodule "themes/hermit"]
 	path = themes/hermit
 	url = https://github.com/sheldonhull/hermit.git
+[submodule "themes/internet-weblog"]
+	path = themes/internet-weblog
+	url = https://github.com/jnjosh/internet-weblog.git
