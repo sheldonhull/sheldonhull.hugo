@@ -1,0 +1,27 @@
+
+/* Articles */
+
+.microblog {
+    background-color: #3B3E48 ;
+    margin: 40px auto;
+    padding: 10px;
+    max-width: 780px;
+  }
+
+.microblog > p, .post > p, .page > p {
+    color: $text;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 0;
+    text-align: justify;
+  }
+
+// .microblog > a {
+//     font-size: 12px;
+//     color: #888888;
+//     margin: 0;
+//   }
+
+//   .microblog p > a {
+//     text-decoration: underline;
+//   }

@@ -23,7 +23,7 @@
 {{ with .Page.Resources.ByType "image" }}
     {{ range . }}
         {{ $img := . }}
-        <a data-fancybox="{{ $galleryname}}" href="{{ ($img.Resize "320x").RelPermalink }}" data-srcset="
+        <a data-fancybox="{{ $galleryname }}" href="{{ ($img.Resize "320x").RelPermalink }}" data-srcset="
             {{- ($img.Resize "100x").RelPermalink }} 100w,
             {{- ($img.Resize "320x").RelPermalink }} 320w,
             {{- ($img.Resize "600x").RelPermalink }} 600w,

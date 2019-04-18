@@ -83,6 +83,9 @@ menu:
     - name: "Blog"
       weight: 1
       url : "/blog/"
+    - name: "Micro.Blog"
+      weight: 1
+      url : "/microblog/"
     - name: "Tags"
       url: "/tags/"
       weight: 2

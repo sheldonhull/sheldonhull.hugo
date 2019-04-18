@@ -1,0 +1,32 @@
+{{ define "head" }}
+	{{ if .Params.featuredImg -}}
+	<style>.bg-img {background-image: url('{{.Params.featuredImg}}');}</style>
+	{{- else if .Params.images -}}
+		{{- range first 1 .Params.images -}}
+		<style>.bg-img {background-image: url('{{. | absURL}}');}</style>
+		{{- end -}}
+	{{- end -}}
+{{ end }}
+
+{{ define "header" }}
+{{ partial "header.html" . }}
+{{ end }}
+
+{{ define "main" }}
+	{{- if (or .Params.images .Params.featuredImg) }}
+	<div class="bg-img"></div>
+	{{- end }}
+	<main class="site-main section-inner animated fadeIn faster">
+    <!-- <main class="content"> -->
+      <article class="microblog">
+        {{ .Content }}
+        <a href='{{ .Permalink }}'><aside class="dates">→ {{ .Date.Format "2006/01/02 3:04 PM" }}</aside></a>
+      </article>
+     <!-- </main> -->
+
+	</main>
+{{ end }}
+
+{{ define "footer" }}
+{{ partialCached "footer.html" . }}
+{{ end }}

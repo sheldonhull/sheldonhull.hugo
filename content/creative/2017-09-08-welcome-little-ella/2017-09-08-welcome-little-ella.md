@@ -3,7 +3,7 @@
 type: "gallery"
 resources:
 - name: Ella-:counter
-  src: images/*.jpg
+  src: "*.jpg"
 excerpt: "Photos"
 ---
 
