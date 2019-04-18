@@ -17,6 +17,7 @@ collections: # A list of collections the CMS should be able to edit
     extension: md
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{hour}}{{minute}}"
+    identifier_field: date
     fields: # The fields each document in this collection have
       # MAIN AUTHORING AREA
       - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm", required: true}
@@ -36,6 +37,7 @@ collections: # A list of collections the CMS should be able to edit
     extension: md
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    identifier_field: slug
     fields: # The fields each document in this collection have
       - {label: "Title", name: "title", widget: "string", tagname: "h1", required: true}
       - {label: "slug", name: "slug", widget: "string", tagname: "h1", required: true}
@@ -68,6 +70,7 @@ collections: # A list of collections the CMS should be able to edit
     extension: md
     create: true # Allow users to create new documents in this collection
     slug: "{{slug}}"
+    identifier_field: slug
     fields: # The fields each document in this collection have
       - {label: "Title", name: "title", widget: "string", tagname: "h1", required: true}
       - {label: "slug", name: "slug", widget: "string", tagname: "h1", required: true}
