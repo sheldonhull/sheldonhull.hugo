@@ -17,7 +17,7 @@ collections: # A list of collections the CMS should be able to edit
     extension: md
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{hour}}{{minute}}"
-    #identifier_field: date
+    identifier_field: date
     fields: # The fields each document in this collection have
       # MAIN AUTHORING AREA
       - {label: "Publish Date", name: "date", widget: "datetime", dateFormat: "YYYY-MM-DD", timeFormat: "HH:mm", required: true}
