@@ -25,7 +25,7 @@ collections: # A list of collections the CMS should be able to edit
         name: "tags"
         widget: "select"
         default: "tech"
-        options: ["development","sql-server","tech","ramblings",powershell,"cool-tools","performance-tuning","deep-dive","AWS","devops","redgate","tfs","photography","music","follower-of-Jesus","worship","videography","azure"]
+        options: ["til","development","sql-server","tech","ramblings",powershell,"cool-tools","performance-tuning","deep-dive","AWS","devops","redgate","tfs","photography","music","follower-of-Jesus","worship","videography","azure"]
         multiple: true
         required: true
         allow_add: true
@@ -55,7 +55,7 @@ collections: # A list of collections the CMS should be able to edit
         name: "tags"
         widget: "select"
         default: "tech"
-        options: ["development","sql-server","tech","ramblings",powershell,"cool-tools","performance-tuning","deep-dive","AWS","devops","redgate","tfs","photography","music","follower-of-Jesus","worship","videography","azure"]
+        options: ["til","development","sql-server","tech","ramblings",powershell,"cool-tools","performance-tuning","deep-dive","AWS","devops","redgate","tfs","photography","music","follower-of-Jesus","worship","videography","azure"]
         multiple: true
         required: true
         allow_add: true
@@ -88,7 +88,7 @@ collections: # A list of collections the CMS should be able to edit
         name: "tags"
         widget: "select"
         default: "tech"
-        options: ["development","sql-server","tech","ramblings",powershell,"cool-tools","performance-tuning","deep-dive","AWS","devops","redgate","tfs","photography","music","follower-of-Jesus","worship","videography","azure"]
+        options: ["til","development","sql-server","tech","ramblings",powershell,"cool-tools","performance-tuning","deep-dive","AWS","devops","redgate","tfs","photography","music","follower-of-Jesus","worship","videography","azure"]
         multiple: true
         required: true
         allow_add: true
