@@ -1,6 +1,5 @@
 {{ $type := .Get "type" }}
 {{ $class := "fa fa-notice"}}
-{{ .Get "type" }}
 {{ with (eq $type "info") }}
   {{ $class := "fas fa-exclamation-circle" }}
 {{ end }}
