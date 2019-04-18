@@ -6,11 +6,31 @@ backend:
 display_url: https://www.sheldonhull.com
 media_folder: "assets/img" # Folder where user uploaded files should go
 logo_url: https://d33wubrfki0l68.cloudfront.net/21446a9fe6768fbc72d304626343179b74759ac8/95052/images/sheldon_400x400.jpg
-
+editor:
+    preview: false
 publish_mode: editorial_workflow
 collections: # A list of collections the CMS should be able to edit
-  - name: "post" # Used in routes, ie.: /admin/collections/:slug/edit
-    label: "Post" # Used in the UI, ie.: "New Post"
+  - name: "microblog" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "micro.blog" # Used in the UI, ie.: "New Post"
+    folder: "content/microblog" # The path to the folder where the documents are stored
+    format: yaml-frontmatter
+    extension: md
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{hour}}{{minute}}"
+    fields: # The fields each document in this collection have
+      # MAIN AUTHORING AREA
+      - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm", required: true}
+      - {label: "Body", name: "body", widget: "markdown", required: true}
+      - label: "Tags"
+        name: "tags"
+        widget: "select"
+        default: "tech"
+        options: ["development","sql-server","tech","ramblings",powershell,"cool-tools","performance-tuning","deep-dive","AWS","devops","redgate","tfs","photography","music","follower-of-Jesus","worship","videography","azure"]
+        multiple: true
+        required: true
+        allow_add: true
+  - name: "blog" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "blog" # Used in the UI, ie.: "New Post"
     folder: "content/blog" # The path to the folder where the documents are stored
     format: yaml-frontmatter
     extension: md
@@ -20,8 +40,8 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Title", name: "title", widget: "string", tagname: "h1", required: true}
       - {label: "slug", name: "slug", widget: "string", tagname: "h1", required: true}
       # MAIN AUTHORING AREA
-      - {label: "Publish Date", name: "date", widget: "date", format: "YYYY-MM-DD", required: true}
-      - {label: "Last Modified Date", name: "last_modified_at", widget: "date", format: "YYYY-MM-DD",required: true}
+      - {label: "Publish Date", name: "date", widget: "date", format: "YYYY-MM-DD HH:mm", required: true}
+      - {label: "Last Modified Date", name: "last_modified_at", widget: "date", format: "YYYY-MM-DD HH:mm",required: true}
       - {label: "Body", name: "body", widget: "markdown", required: true}
         # Additional string fields to set manually in YAML
       - {label: "toc", name: "toc", widget: "boolean", default: true}
@@ -43,7 +63,7 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "typora-copy-images-to", name: "typora-copy-images-to", widget: "hidden", default: "..\\static\\images", required: true, hint: "Use ..\\static\\images"}
   - name: "docs" # Used in routes, ie.: /admin/collections/:slug/edit
     label: "docs" # Used in the UI, ie.: "New Post"
-    folder: "_docs" # The path to the folder where the documents are stored
+    folder: "contet/docs" # The path to the folder where the documents are stored
     format: yaml-frontmatter
     extension: md
     create: true # Allow users to create new documents in this collection
@@ -51,8 +71,8 @@ collections: # A list of collections the CMS should be able to edit
     fields: # The fields each document in this collection have
       - {label: "Title", name: "title", widget: "string", tagname: "h1", required: true}
       - {label: "slug", name: "slug", widget: "string", tagname: "h1", required: true}
-      - {label: "Publish Date", name: "date", widget: "date", format: "YYYY-MM-DD", required: true}
-      - {label: "Last Modified Date", name: "last_modified_at", widget: "date", format: "YYYY-MM-DD",required: true}
+      - {label: "Publish Date", name: "date", widget: "date", format: "YYYY-MM-DD HH:mm", required: true}
+      - {label: "Last Modified Date", name: "last_modified_at", widget: "date", format: "YYYY-MM-DD HH:mm",required: true}
       # MAIN AUTHORING AREA
       - {label: "Body", name: "body", widget: "markdown", required: true}
 
