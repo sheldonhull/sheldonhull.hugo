@@ -13,7 +13,7 @@
     {{ with .OutputFormats.Get "RSS" }}
         {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{ end }}
-    {{ range .Pages }}
+    {{ range first .Site.rssLimit (where .Data.Pages "Section" "blog") }}
     <item>
 <title>{{ .Title }}</title>
 <link>{{ .Permalink }}</link>
@@ -23,5 +23,5 @@
 <description>{{ .Content | html }}</description><!-- .Content For Full -->
 </item>
     {{ end }}
-  </channel>
+</channel>
 </rss>
