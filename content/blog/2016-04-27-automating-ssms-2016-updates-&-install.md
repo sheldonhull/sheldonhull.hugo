@@ -9,8 +9,9 @@ title: "Automating SSMS 2016 Updates & Install"
 slug: "automating-ssms-2016-updates-&-install"
 ---
 
-> info "update 2016-04-27 11:20 - Red Gate SQL Toolkit"
-> This also is a great help for folks using Red Gate SQL Toolkits. It can help ensure all items are up to date. When a new bundle installer is identified, it would download the new one and you could then trigger the updates of each of the apps you desire, without having to keep run the download later through Red Gate's tool.
+{{% premonition type="info" title="update 2016-04-27 11:20 - Red Gate SQL Toolkit" %}}
+This also is a great help for folks using Red Gate SQL Toolkits. It can help ensure all items are up to date. When a new bundle installer is identified, it would download the new one and you could then trigger the updates of each of the apps you desire, without having to keep run the download later through Red Gate's tool.
+{{% /premonition %}}
 
 
 Figured I'd share a way to automate the SSMS 2016 updates until it gets it's own fancy self updater. I love staying up to date, but with Power BI, SSMS, and others updating monthly or more and not having any automation for keeping up to date, this is something I find a waste of time that I'd rather automate.
@@ -72,4 +73,3 @@ If you setup Ketarin, to make the app portable, copy the jobs.db from appdata fo
 
 
 ![red gate sql toolbelt updated automatically with Ketarin](/images/2016-04-27_11-22-24.png)
-

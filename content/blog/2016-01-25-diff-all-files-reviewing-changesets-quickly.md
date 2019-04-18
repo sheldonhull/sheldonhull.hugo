@@ -11,11 +11,13 @@ toc: true
 
 # Diff all files
 
-> info "Updated: 2017-07-14"
-> Still find this incredibly awesome! Developer just updated for Visual Studio 2017 after a lot of hard work. Github repo here for any issues. Big thanks to DeadlyDog for this great tool and putting in the effort to update for VS2017. [deadlydog/VS.DiffAllFiles: Visual Studio Extension to make comparing files before and after committing them to Git and TFS faster and easier](http://bit.ly/2vkXGI9)
+{{% premonition type="info" title="Updated: 2017-07-14" %}}
+Still find this incredibly awesome! Developer just updated for Visual Studio 2017 after a lot of hard work. Github repo here for any issues. Big thanks to DeadlyDog for this great tool and putting in the effort to update for VS2017. [deadlydog/VS.DiffAllFiles: Visual Studio Extension to make comparing files before and after committing them to Git and TFS faster and easier](http://bit.ly/2vkXGI9)
+{{% /premonition %}}
 
-> info "Updated: 2016-01-25"
-> I started using the option to compare a single file at a time, since it picks up the syntax highlighting then. The other way (merge files into one) can't handle syntax highlighting with the various files types all mixed into the same window. Diff All Files extension handles this beautifully with proceeding one by one and automatically opening the next file to compare or allowing you to hit next to close and reopen with the next file to compare. I still enjoy using this due to the "context" lines that reduce the noise to just the actual section being changed.
+{{% premonition type="info" title="Updated: 2016-01-25" %}}
+I started using the option to compare a single file at a time, since it picks up the syntax highlighting then. The other way (merge files into one) can't handle syntax highlighting with the various files types all mixed into the same window. Diff All Files extension handles this beautifully with proceeding one by one and automatically opening the next file to compare or allowing you to hit next to close and reopen with the next file to compare. I still enjoy using this due to the "context" lines that reduce the noise to just the actual section being changed.
+{{% /premonition %}}
 
 If you need to do code comparison on a lot of files in Visual Studio, I ran across an extension [Diff All Files](http://bit.ly/29nXEbe) that is really helpful for merging down the individual file changes into more consumable format.
 
@@ -61,4 +63,3 @@ Third party tools can be great for some extra perks like File versioning, compar
 - [Beyond Compare](http://bit.ly/29nXj8G): didn't dive into this extensively. They have a devoted following with a lot of loyalty, so check them out if you want to evaluate their software.
 - Built in TFS diff - great for a built in tool, I just wanted to have some enhancements in what to ignore and summarize.
 - [SQL Compare](http://documentation.red-gate.com/display/SC11/Setting+data+sources#Settingdatasources-Selectingaversionfromsourcecontrol): my favorite for reviewing changsets that are directly in TFS. I wish they'd add a module for just pulling up the diff view without having to open SQL Compare to setup a comparison though. Sounds like a good user voice feedback item :-)
-

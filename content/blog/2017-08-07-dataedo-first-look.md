@@ -9,9 +9,12 @@ title: "Dataedo - First Look"
 slug: "dataedo-first-look"
 ---
 
-> info "update 2019-02-22"
-> Image links broken. Since their product is continually improving, I'm going to just link to their product here instead so you can review their latest demo content there. [Dataedo](http://bit.ly/2U1OkgV).
-> Overall, I've enjoyed the product and think it has been improved over time. There are SQL scripts for bulk updating certain values on their website that can help improve building a project for an existing database as well.
+{{% premonition type="info" title="update 2019-02-22" %}}
+Image links broken. Since their product is continually improving, I'm going to just link to their product here instead so you can review their latest demo content there. [Dataedo](http://bit.ly/2U1OkgV).
+
+Overall, I've enjoyed the product and think it has been improved over time. There are SQL scripts for bulk updating certain values on their website that can help improve building a project for an existing database as well.
+{{% /premonition %}}
+
 
 ## Diagramming and Documentation
 
@@ -62,4 +65,3 @@ During the export process you also have the option of saving the export command 
 ## end comments
 
 Well done Dataedo team :-) Looking forward to the continued improvements. I've found visualization of database structures is very helpful to design, and a new toolkit out like yours promises to provide even more great tools to use to do this.
-

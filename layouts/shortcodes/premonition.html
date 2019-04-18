@@ -1,0 +1,21 @@
+{{ $type := .Get "type" }}
+{{ $class := "fa fa-notice"}}
+{{ .Get "type" }}
+{{ with (eq $type "info") }}
+  {{ $class := "fas fa-exclamation-circle" }}
+{{ end }}
+{{ with (eq $type "warning") }}
+  {{ $class := "fas fa-exclamation-circle" }}
+{{ end }}
+{{ with (eq $type "info") }}
+  {{ $class := "fas fa-exclamation-circle" }}
+{{- end -}}
+
+<div class="premonition {{ $type }}"><div class="{{ $class }}"></div>
+    <div class="content">
+    {{ if .Get "title" }}
+    <p class="header">{{ .Get "title"}}</p>
+    {{- end }}
+{{ .Inner }}
+    </div>
+</div>

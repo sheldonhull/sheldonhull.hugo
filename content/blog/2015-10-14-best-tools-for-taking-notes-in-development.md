@@ -8,8 +8,9 @@ slug: "best-tools-for-taking-notes-in-development"
 toc: true
 ---
 
-> info "Updated: 2016-04-08"
-> Been working through some issues with Clarify app on my personal computer, something I messed up. @trevordevore with @clarifyapp has worked step by step through it with me providing some great personal assistance. In addition, he's given me some tips about my research in merging in a php script to automatically upload my images to cloudinary for hosting. I just finished producing some documentation with Clarify 2, and I have to say it's one of the best tools I can think of for producing a stellar documentation without requiring the user to spend time doing much formatting. I think the points in this post still remain, I wish they'd continue to expand it a little more. Maybe an extension that replicates a library of screenshots like Snagit, or something else for quick ad hoc annotation and pasting would be welcome. Overall, these are minor concerns with the great results the app already produces.
+{{% premonition type="info" title="Updated: 2016-04-08" %}}
+Been working through some issues with Clarify app on my personal computer, something I messed up. @trevordevore with @clarifyapp has worked step by step through it with me providing some great personal assistance. In addition, he's given me some tips about my research in merging in a php script to automatically upload my images to cloudinary for hosting. I just finished producing some documentation with Clarify 2, and I have to say it's one of the best tools I can think of for producing a stellar documentation without requiring the user to spend time doing much formatting. I think the points in this post still remain, I wish they'd continue to expand it a little more. Maybe an extension that replicates a library of screenshots like Snagit, or something else for quick ad hoc annotation and pasting would be welcome. Overall, these are minor concerns with the great results the app already produces.
+{{% /premonition %}}
 
 Developers have a lot to juggle.
 
@@ -159,4 +160,3 @@ However, I'd say it still has a hurdle of usability, and is not intuitive compar
 ### conclusion
 
 Quality tools can help the development workflow. I personally think a tremendous amount of value comes from utilizing images for varied capturing of work in addition to typed notes, as you can gain a lot of information this way. Hopefully, my suggestions might help spark a few new ideas for great tools to help with your workflow.
-

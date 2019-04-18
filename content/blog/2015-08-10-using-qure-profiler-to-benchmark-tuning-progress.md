@@ -10,10 +10,10 @@ toc: true
 
 # Qure Analyzer Benchmark Testing
 
-> info "Update"
-> Wouldn't recommend tool at this time. Development seemed to cease, resulting in me not being able to use with later versions of SQL Server. When I came back recently to check on it, the app was sold and it was with a new company. Didn't see to have progressed much based on a quick look and not really interested in it at this point. Instead, other solutions like the new DEA (Database Experimentation Assistant from Microsoft) would be where I'd spend more effort.
+{{% premonition type="warning" title="Updated 2018-03-18" %}}
+Wouldn't recommend tool at this time. Development seemed to cease, resulting in me not being able to use with later versions of SQL Server. When I came back recently to check on it, the app was sold and it was with a new company. Didn't see to have progressed much based on a quick look and not really interested in it at this point. Instead, other solutions like the new DEA (Database Experimentation Assistant from Microsoft) would be where I'd spend more effort.
+{{% /premonition %}}
 
-> warning "Updated: 2018-03-18"
 
 ## the problem of monster views
 
@@ -99,4 +99,3 @@ I didn't run into any significant issues that impacted my ability to use it. I d
 ## What could they improve?
 
 1.  Offer comparison report option that wouldn't require as many screenshots, and instead summarize the selected items in a pane that you could copy to image. This would be slick!
-

@@ -44,8 +44,9 @@ Started up the local influxdb binary.
 
 Initializing the new database was simple as documented: `create database statty`
 
-> warning "Case Sensitivity"
-> InfluxDB is case sensitive. Make sure to check your case if something isn't working, such as use "DatabaseName" instead of use "databasename"
+{{% premonition type="warning" title="Case Sensitivity" %}}
+InfluxDB is case sensitive. Make sure to check your case if something isn't working, such as use "DatabaseName" instead of use "databasename"
+{{% /premonition %}}
 
 Also, if you get an error with access to the file, try running as admin.
 
@@ -113,4 +114,3 @@ Once you open the localhost page, if you don't see datasources in the left hand 
 ## summary
 
 This is just a quick guide on getting started as I found a lot of little bumps in the road since the projects are written in `GO` and not an easily run .NET project. Getting through this will hopefully give you a way to get started. I'll blog a bit more soon on visualization of the metrics captured, some custom annotations to help make metrics come alive with real-time event notifications (like "load test started" and "build ended" etc). It's a really promising solution for those who want some really nice flexibility in using perfmon and related metrics to visualize Windows and SQL Server performance.
-

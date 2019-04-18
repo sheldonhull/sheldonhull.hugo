@@ -35,8 +35,9 @@ The Slack Migration tool is pretty good, but the auto renaming had some rename b
 ## Getting Started with Hipchat CLI
 It's painful. Hipchat's going into the great beyond so don't expect support for it.
 
-> warning "Important"
-> API Key for personal won't access full list of rooms in the action `getRoomList` in the CLI. Instead, you'll need to obtain the room list using Add-On token which I found too complex for my one time migration. Instead, you can copy the raw html of the table list, and use a regex script to parse out the room name and number list and use this. You can still perform room rename, just not `sendmessage` action on the rooms using the API token.
+{{% premonition type="warning" title="Important" %}}
+API Key for personal won't access full list of rooms in the action `getRoomList` in the CLI. Instead, you'll need to obtain the room list using Add-On token which I found too complex for my one time migration. Instead, you can copy the raw html of the table list, and use a regex script to parse out the room name and number list and use this. You can still perform room rename, just not `sendmessage` action on the rooms using the API token.
+{{% /premonition %}}
 
 1.  Install integration from marketplace to the entire account
 2.  Download the CLI for running locally
@@ -110,4 +111,3 @@ $RoomList | Export-CliXml -Path (Join-Path $ScriptsDir 'CurrentRoomList.xml') -E
 ```
 
 I just tweaked this snippet for other types of commands, but this should get you pretty much what you need to run interactive commands via CLI. I've also written up some Slack functions and will likely share those soon as well as I've found them helpful in automatically fixing email addresses, activating & deactivating users, identifying active billed users, and other basic administrative focused actions.
-
