@@ -32,6 +32,11 @@
     {{ end }}
   {{ else }}
     {{ .Content }}
-    <a href='{{ .Permalink }}'><aside class="dates">→ {{ .Date.Format "2006/01/02 3:04 PM" }}</aside></a>
+    <a href='{{ .Permalink }}'><aside class="dates"><i class="fas fa-calendar"></i>&nbsp;{{ .Date.Format "2006/01/02 3:04 PM" }}</aside></a>
+				{{- with .Params.tags -}}
+					{{- range . -}}
+						<i class="fas fa-hashtag fa-xs"></i><a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{.}}</a>&nbsp;
+					{{- end -}}
+				{{- end -}}
   {{ end }}
 </article>
