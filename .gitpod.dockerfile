@@ -6,11 +6,11 @@ USER root
 
 ENV VERSION 0.55.2
 # Install custom tools, runtime, etc.
-RUN apt-get update && apt-get install -y \
-    snap \
-    && apt-get clean && rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*apt-get install hugo
-RUN snap install git
-RUN snap install go --classic
+#RUN apt-get update && apt-get install -y \
+#    snap \
+#    && apt-get clean && rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*apt-get install hugo
+#RUN snap install git
+#RUN snap install go --classic
 
 
 # openssl \
