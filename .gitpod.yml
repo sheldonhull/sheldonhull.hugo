@@ -1,0 +1,10 @@
+image:
+  file: .gitpod.dockerfile
+
+tasks:
+- init: hugo
+  command: hugo serve --watch
+# Ports to expose on workspace startup (optional)
+ports:
+- port: 8000
+  onOpen: open-preview
