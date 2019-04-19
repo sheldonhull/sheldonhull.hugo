@@ -4,6 +4,9 @@ FROM gitpod/workspace-full:latest
 
 USER root
 
+
+
+ENV VERSION 0.55.2
 # Install custom tools, runtime, etc.
 RUN apt-get update && apt-get install -y \
     git \
@@ -13,14 +16,11 @@ RUN apt-get update && apt-get install -y \
     g++ \
     curl \
     && apt-get clean && rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*apt-get install hugo
-
-
-USER gitpod
-ENV VERSION 0.55.2
 RUN curl -L https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_Linux-64bit.tar.gz | tar -xz  \
     && cp hugo /usr/bin/hugo \
     && hugo version
 
+USER gitpod
 # Apply user-specific settings
 # RUN apt-get install hugo
 RUN hugo version
