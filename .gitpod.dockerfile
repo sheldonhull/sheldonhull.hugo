@@ -1,5 +1,7 @@
 # Great blog example: https://www.gitpod.io/blog/docker-in-gitpod/
+# To examine the base container definition: https://hub.docker.com/r/gitpod/workspace-full/dockerfile
 
+# has go, git, and lots of other things already ready
 FROM gitpod/workspace-full:latest
 USER root
 
