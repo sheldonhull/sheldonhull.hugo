@@ -7,9 +7,12 @@ USER root
 ENV VERSION 0.55.2
 # Install custom tools, runtime, etc.
 RUN apt-get update && apt-get install -y \
-    git \
-    golang-go \
+    snap \
     && apt-get clean && rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*apt-get install hugo
+RUN snap install git
+RUN snap install go --classic
+
+
 # openssl \
 #     py-pygments \
 #     libc6-compat \
