@@ -53,6 +53,14 @@ outputFormats:
 permalinks:
   posts: "/:slug/"
 
+# Defaults for front matter when something isn't included to make front matter simply to work with
+frontmatter:
+  date: ["date", "publishDate", "lastmod"]
+  lastmod: [":git", "lastmod", "date", "publishDate",":fileModTime"]
+  publishDate: ["publishDate", "date"]
+  expiryDate: ["expiryDate"]
+  title: ["title","date"]
+
 Author:
   name: "Sheldon Hull"
   website: "https://www.sheldonhull.com"
