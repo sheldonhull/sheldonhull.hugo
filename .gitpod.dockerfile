@@ -8,19 +8,24 @@ ENV VERSION 0.55.2
 # Install custom tools, runtime, etc.
 RUN apt-get update && apt-get install -y \
     git \
-    openssl \
-    py-pygments \
-    libc6-compat \
-    g++ \
-    curl \
+    golang-go \
     && apt-get clean && rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*apt-get install hugo
-
+# openssl \
+#     py-pygments \
+#     libc6-compat \
+#     g++ \
+#     curl \
 USER gitpod
+RUN mkdir $HOME/src \
+    cd $HOME/src \
+    git clone https://github.com/gohugoio/hugo.git \
+    cd hugo \
+    go install --tags extended
 
 # Apply user-specific settings
-RUN curl -L https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_Linux-64bit.tar.gz | tar -xz  \
-    && cp hugo /usr/bin/hugo \
-    && hugo version
+#RUN curl -L https://github.com/gohugoio/hugo/releases/download/v${VERSION}/hugo_extended_${VERSION}_Linux-64bit.tar.gz | tar -xz  \
+#    && cp hugo /usr/bin/hugo \
+#    && hugo version
 
 # RUN apt-get install hugo
 RUN hugo version
