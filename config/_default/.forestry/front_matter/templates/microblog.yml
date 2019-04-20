@@ -9,8 +9,8 @@ fields:
   config:
     display_utc: false
     required: true
-    time_format: HH:mmZ
-    date_format: YYYY-MM-DD
+    time_format: ''
+    date_format: YYYY-MM-DDTHH:mm:ssZ
   default: now
   description: microblog uses date as the title
 - type: datetime
