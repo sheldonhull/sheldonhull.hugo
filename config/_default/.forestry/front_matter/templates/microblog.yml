@@ -9,6 +9,8 @@ fields:
   config:
     display_utc: true
     required: true
+    time_format: hh:mm:ssZ
+    date_format: YYYY/MM/DD
   default: now
   description: microblog uses date as the title
 - type: datetime
@@ -18,6 +20,8 @@ fields:
   config:
     display_utc: true
     required: true
+    date_format: YYYY/MM/DD
+    time_format: hh:mm:ssZ
   default: now
 - type: list
   name: tags
