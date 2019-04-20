@@ -19,7 +19,7 @@ sections:
   path: content/blog
   label: Blog
   create: documents
-  match: "**/*.md"
+  match: "**/*"
 upload_dir: static/images
 public_path: images
 front_matter_path: ''
