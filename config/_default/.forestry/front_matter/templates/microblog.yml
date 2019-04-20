@@ -9,7 +9,7 @@ fields:
   config:
     display_utc: false
     required: true
-    time_format: "+-HH:mm"
+    time_format: HH:mm Z
     date_format: YYYY-MM-DD
   default: now
   description: microblog uses date as the title
@@ -21,7 +21,7 @@ fields:
     display_utc: false
     required: true
     date_format: YYYY-MM-DD
-    time_format: "+-HH:mm"
+    time_format: HH:mm Z
   default: now
 - type: list
   name: tags
