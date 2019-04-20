@@ -7,7 +7,7 @@ fields:
   label: title
   hidden: true
   config:
-    display_utc: true
+    display_utc: false
     required: true
     time_format: hh:mm:ssZ
     date_format: YYYY/MM/DD
@@ -18,7 +18,7 @@ fields:
   label: date
   hidden: false
   config:
-    display_utc: true
+    display_utc: false
     required: true
     date_format: YYYY/MM/DD
     time_format: hh:mm:ssZ
