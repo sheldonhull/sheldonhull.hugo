@@ -3,11 +3,31 @@ label: microblog
 hide_body: false
 fields:
 - type: datetime
+  name: title
+  label: title
+  hidden: true
+  config:
+    display_utc: true
+    required: true
+  default: now
+  description: microblog uses date as the title
+- type: datetime
   name: date
   label: date
+  hidden: false
+  config:
+    display_utc: true
+    required: true
+  default: now
 - type: list
   name: tags
   label: tags
-- type: datetime
-  name: title
-  label: title
+  config:
+    use_select: true
+    source:
+      type: simple
+      section: ''
+      path: ''
+    options:
+    - til
+    - tech
