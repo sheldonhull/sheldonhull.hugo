@@ -35,3 +35,12 @@ fields:
     options:
     - til
     - tech
+- name: body
+  type: textarea
+  default: ''
+  config:
+    required: true
+    wysiwyg: true
+    schema:
+      format: markdown
+  label: body
