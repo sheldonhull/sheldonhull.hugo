@@ -5,12 +5,26 @@ fields:
 - type: datetime
   name: date
   label: date
-- type: list
-  name: tags
-  label: tags
+  config:
+    date_format: YYYY-MM-DD
+    time_format: HH:mm:ssZ
+    required: true
+  default: now
 - type: text
   name: title
   label: title
+  config:
+    required: true
 - type: text
   name: slug
   label: slug
+  config:
+    required: true
+- name: excerpt
+  type: text
+  config:
+    required: true
+  label: excerpt
+- type: list
+  name: tags
+  label: tags
