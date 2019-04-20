@@ -5,7 +5,7 @@ admin_path: static/forestry
 webhook_url: 
 sections:
 - type: directory
-  path: content/microblog
+  path: content
   label: microblog
   create: documents
   match: "**/*"
