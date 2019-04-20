@@ -10,7 +10,7 @@ fields:
     display_utc: false
     required: true
     time_format: hh:mm:ssZ
-    date_format: YYYY/MM/DD
+    date_format: YYYY-MM-DD
   default: now
   description: microblog uses date as the title
 - type: datetime
@@ -20,7 +20,7 @@ fields:
   config:
     display_utc: false
     required: true
-    date_format: YYYY/MM/DD
+    date_format: YYYY-MM-DD
     time_format: hh:mm:ssZ
   default: now
 - type: list
