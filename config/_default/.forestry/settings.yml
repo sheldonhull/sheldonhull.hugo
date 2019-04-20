@@ -16,10 +16,10 @@ sections:
   match: "**/*"
   exclude: blog/*
 - type: directory
-  path: content
+  path: content/blog
   label: Blog
   create: documents
-  match: blog/*
+  match: "**/*.md"
 upload_dir: static/images
 public_path: images
 front_matter_path: ''
