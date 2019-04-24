@@ -28,3 +28,5 @@ fields:
 - type: list
   name: tags
   label: tags
+pages:
+- content/blog/infrastructure-as-code.md
