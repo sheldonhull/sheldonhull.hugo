@@ -29,4 +29,5 @@ fields:
   name: tags
   label: tags
 pages:
+- content/blog/terraform-for-dummies.md
 - content/blog/infrastructure-as-code.md
