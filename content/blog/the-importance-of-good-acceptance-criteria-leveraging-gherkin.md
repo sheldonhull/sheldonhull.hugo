@@ -148,11 +148,11 @@ So all that writing.... what benefit? Is it going to save time?
 
 With PowerShell, I'd write something similar to below to basically match a called step to a code block here.
 
-{{% warning %}}
+{{% premonition type="warning" title="Warning" %}}
 
 Case sensitive name as of 2019-04-16 for keywords. Therefore to match steps, use \`Before\` not \`before\` or it won't match.
 
-{{% /warning %}}
+{{% /premonition %}}
 
 \`\`\`powershell
 
