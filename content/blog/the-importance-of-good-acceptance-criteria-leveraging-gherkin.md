@@ -15,7 +15,7 @@ draft: true
 ---
 The target for this post can be developers, or operations team. In my context, this is from the experience of being Scrum Master for a dedicated DevOps team that began the process of migrating from a more reactionary approach to preplanning, sprints, and building out a healthy backlog.
 
-\## Cradle To Grave
+## Cradle To Grave
 
 At the beginning of my tech career, I worked at a place that the word "spec" or "requirement" was considered unreasonable. In moving towards to implementation of any new project, as a developer, I was expected to gather the requirements, build the solution, ensure quality and testing, and deploy to production.
 
@@ -66,12 +66,12 @@ What I've discovered is that to actual validate DevOps oriented work is complete
 
 Consider an alternative approach to helping solve this issue, and expanding your ability to automate the tedious testing and validation of changes made.
 
-\`\`\`  
+```
 Scenario  
 Given (environment state)  
 When (something is done)  
 Then (expected result)  
-\`\`\`
+```
 
 ## How Can This Apply to Operational Tasks?
 
@@ -81,7 +81,7 @@ Let's say you wanted to deploy a logging agent against a server. This is a simpl
 
 An example feature file with Gherkin might look like this:
 
-\`\`\`gherkin  
+```gherkin  
 @class  
 Feature: I can generate configuration files for Sumologic collection dynamically
 
@@ -111,11 +111,11 @@ Then the created json file contents match
 }  
 """
 
-\`\`\`
+```
 
 Another one that shows Scenario Outlines which give the ability for me to loop the test for all the different variations I want to define in a table and confirm all of them, while only writing one Scenario Outline.
 
-\`\`\`gherkin  
+```gherkin  
 @install  
 Feature: I can install sumologic on my machine
 
@@ -138,13 +138,13 @@ Examples: Source Variations
 | SingleFolder | C:\\temp\\foobar | 1 |  
 | MultipleFolders | C:\\temp\\foobar,C:\\temp\\foobar2 | 2 |  
 | SingleFolder_with_filter | C:\\temp\\foobar\\_.log | 1 |  
-\`\`\`
+```
 
 This provides us with a way to validate and test our chocolatey scripts successful installation and configuration.
 
 ## Leveraging Automation To Scale your Test
 
-So all that writing.... what benefit? Is it going to save time?
+So all that writing...what benefit? Is it going to save time?
 
 With PowerShell, I'd write something similar to below to basically match a called step to a code block here.
 
@@ -154,11 +154,11 @@ Case sensitive name as of 2019-04-16 for keywords. Therefore to match steps, use
 
 {{% /premonition %}}
 
-\`\`\`powershell
+```powershell
 
 # Uses PSFramework as greatly simplifies any variable scoping or general configuration work, making this type of test easily reusable
 
-\#this is incomplete, just to give some practical examples of how I might use to repeat a test like this.
+#this is incomplete, just to give some practical examples of how I might use to repeat a test like this.
 
 Before Each Scenario {
 
@@ -213,13 +213,13 @@ And 'the service should show up' {
 And 'the service should be running' {  
 @(Get-Service 'Sumo*' | Where-Object Status -eq 'Running').Count | Should -Be 0  
 }  
-\`\`\`
+```
 
 Now that I wrote as basic test, I could simply run
 
-\`\`\`powershell  
+```powershell  
 Invoke-Gherkin -Path InstallSumoLogic.steps.ps1  
-\`\`\`
+```
 
 This would run all the steps from a feature file and ensure I'm able to repeat these tests after any change to confirm they work.
 
