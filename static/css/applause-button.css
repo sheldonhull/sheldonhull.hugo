@@ -1,6 +1,7 @@
 applause-button {
     position: relative;
     cursor: pointer;
+    display:block;
   }
   applause-button .style-root {
     position: absolute;

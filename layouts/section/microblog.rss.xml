@@ -11,8 +11,8 @@
     {{ range .Data.Pages }}
       {{ if ne .Type "page" }}
       <item>
-      	{{ if (not (isset .Site.Params "rssmicroblogtitles" )) | or (eq .Site.Params.rssmicroblogtitles true )}}
-          <title>{{ .Title }}</title>
+        {{ if (not (isset $.Site.Params "rssmicroblogtitles" )) | or (eq .Site.Params.rssmicroblogtitles true )}}
+          <title>{{ .Content  | safeHTML | truncate 10 }}</title>
         {{ end }}
         <link>{{ .Permalink }}</link>
         <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>

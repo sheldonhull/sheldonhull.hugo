@@ -6,7 +6,7 @@
     {
       "label": "serve",
       "type": "shell",
-      "command": "hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site", //
+      "command": "hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc", //
       "group": {
         "isDefault": true,
         "kind": "build"

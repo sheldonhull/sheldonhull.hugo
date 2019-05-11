@@ -40,8 +40,11 @@ taxonomies:
   # Categories are disabled by default.
 
 outputs:
-  home: ["HTML", "RSS","Algolia"]
+  home: ["HTML","RSS"] #,"RSS","Algolia"
   page: ["HTML"]
+  section: ["HTML","RSS"]
+  microblog: ["RSS"]
+
 
 outputFormats:
   Algolia:
@@ -49,7 +52,9 @@ outputFormats:
     isPlainText: true
     mediaType: "application/json"
     notAlternative: true
-
+  # RSS:
+  #   mediatype: "application/rss"
+  #   baseName: "feed"
 permalinks:
   posts: "/:slug/"
 
@@ -108,6 +113,9 @@ menu:
       url: "/about/"
 
 params:
+  RSSSection: ["blog","microblog"]
+  rssmicroblogtitles: true
+  RSSEnabled: true
   font:
     text: "Source Sans Pro"
     code: "Fira Code"

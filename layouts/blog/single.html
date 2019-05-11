@@ -42,7 +42,9 @@
 					{{- with .GitInfo }}
 					{{- .AbbreviatedHash -}}
 					{{- end -}}
-				</a> @ {{ dateFormat .Site.Params.dateformNum .GitInfo.AuthorDate.Local }}</p>
+					{{- if .GitInfo.AuthorDate.Local -}}
+					</a> @ {{ dateFormat .Site.Params.dateformNum .GitInfo.AuthorDate.Local }}</p>
+					{{- end -}}
 				{{- end }}
 				<!-- <a href="http://www.feedio.co/@sheldon_hull"><img src="http://cdn.feedio.co/widgets/buttons/subscribe-arrow-red.png" alt="Follow Sheldon Hull on Feedio"></a> -->
 				<applause-button style="width: 58px; height: 58px;"/>
