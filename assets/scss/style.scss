@@ -13,7 +13,7 @@
 @import "search-form.scss";
 @import "premonition.scss";
 @import "microblog.scss";
-
+@import "hermit-custom.scss";
 /* Webkit Scrollbar Customize */
 ::-webkit-scrollbar {
   width: 8px;
@@ -501,6 +501,7 @@ hr.post-end {
   margin-left: 0;
   border-style: solid;
   border-bottom-width: 4px;
+  display:block;
 }
 
 .content {
@@ -619,6 +620,13 @@ hr.post-end {
 }
 
 .post-info {
+  /* EDITS: SHELDON HULL */
+  width:100%;
+  height:100%;
+  display:inline-block;
+  /* EDITS: SHELDON HULL */
+
+
   font-size: .8rem;
   line-height: normal;
   @include dimmed;

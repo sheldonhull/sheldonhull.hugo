@@ -1,3 +1,11 @@
+
+applause-button {
+  position: relative;
+  cursor: pointer;
+  margin-top:30px;
+
+}
+
 @mixin animate-once($name) {
   animation-name: $name;
   animation-duration: 0.5s;
@@ -23,6 +31,7 @@
 applause-button {
   position: relative;
   cursor:pointer;
+
 
   .style-root {
     @include position-fill();
@@ -191,10 +200,4 @@ applause-button {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-applause-button {
-  position: relative;
-  cursor: pointer;
-  margin-top:30px;
 }
