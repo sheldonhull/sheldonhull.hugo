@@ -27,7 +27,7 @@ fields:
   name: tags
   label: tags
   config:
-    use_select: true
+    use_select: false
     source:
       type: simple
       section: ''
@@ -36,6 +36,8 @@ fields:
     - til
     - tech
 pages:
+- content/microblog/2019-05-17t15-59-50-05-00.md
+- content/microblog/2019-05-17t15-57-32-05-00.md
 - content/microblog/2019-05-16t11-15-28-05-00.md
 - content/microblog/2019-04-20t03-48-12-00-00.md
 - content/microblog/2019-04-25t00-39-35-05-00.md
