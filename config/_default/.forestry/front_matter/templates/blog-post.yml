@@ -29,7 +29,8 @@ fields:
   name: tags
   label: tags
 pages:
-- content/blog/the-importance-of-good-acceptance-criteria-leveraging-gherkin.md
-- content/blog/generating-diagrams-programmatically.md
+- content/blog/getting-started-with-linux-on-your-windows-machine.md
 - content/blog/terraform-for-dummies.md
+- content/blog/generating-diagrams-programmatically.md
+- content/blog/the-importance-of-good-acceptance-criteria-leveraging-gherkin.md
 - content/blog/infrastructure-as-code.md
