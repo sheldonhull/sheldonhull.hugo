@@ -126,6 +126,8 @@ params:
 
   comments: true
 
+  # Show Table of Contents By Default
+  toc: true
   algolia:
     vars: ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
     params: ["tags"] #,"categories"
