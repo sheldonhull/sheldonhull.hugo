@@ -26,12 +26,14 @@ function registerSearchHandler(e, r, n, o, t, c) {
   Array.prototype.slice.call(document.querySelectorAll(n)).forEach(function (n) {
     n.onclick = function (n) {
       n.preventDefault(),
-      showSearchPage(e, r, o, t, c);
+     showSearchPage(e, r, o, t, c);
     };
   });
 }
 
+
 function showSearchPage(e, r, n, o, t) {
+  document.getElementById('searchButton').style.display = "none";
   (document.querySelector(n).style.display = "block"),
   e.error
     ? renderSearchError(t)
@@ -48,7 +50,9 @@ function showSearchPage(e, r, n, o, t) {
       hideSearchPage(n, o, t);
     }), (document.onkeyup = function (e) {
       isKeyEscapeKeyPress(e) && (e.preventDefault(), hideSearchPage(n, o, t));
+
     }));
+
 }
 
 function isKeyEscapeKeyPress(e) {
@@ -57,12 +61,15 @@ function isKeyEscapeKeyPress(e) {
     : 27 == e.keyCode;
 }
 
+
+
 function hideSearchPage(e, r, n) {
   (document.querySelector(e).style.display = "none"),
   (document.querySelector(r).oninput = null),
   (document.querySelector(r).value = ""),
   renderSearchResults(null, n, null),
   (document.onkeyup = null);
+  document.getElementById('searchButton').style.display = "inline-block";
 }
 
 function renderSearchError(e) {

@@ -14,6 +14,17 @@
 //     color: $text ;
 //     border:0px;
 // }
+
+// #searchButton {
+//   display:inline-block;
+// }
+// #searchButton.visible {
+//   display:none;
+// }
+.wrapper  {
+  display:inline-block;
+  width:100%;
+}
 .search-trigger {
   margin-top: 25px;
   margin-right: 25px;
@@ -23,6 +34,7 @@
   right: 0;
   top: 0;
 }
+
 #search-overlay {
   left: 0;
   top: 0;
@@ -39,7 +51,8 @@
 .search-input-line {
   /* margin-bottom: 5px; */
   margin: 0 auto;
-  display:block;
+  display:inline-block;
+  width:60%;
 }
 #search-input {
   margin: 0 auto;
@@ -65,6 +78,7 @@
 .search-help {
   text-align: right;
   margin-top: 0;
+  display:inline-block;
 }
 .search-help .key {
   background: $theme;
@@ -96,10 +110,15 @@
 .icon-search:before {
   content: "\e802";
 }
+
 #search-close {
+  margin-top: 25px;
+  margin-right: 25px;
+  width: 250px;
+  z-index: 10;
   position: absolute;
-  right: 20px;
-  top: 15px;
+  right: 0;
+  top: 0;
   font-size: 40px;
   cursor: pointer;
 }
