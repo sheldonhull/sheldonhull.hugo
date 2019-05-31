@@ -1,19 +1,19 @@
 ---
-date: "2018-03-29T00:00:00Z"
+date: 2018-03-29T00:00:00Z
 excerpt: Git can be an interesting learning curve if you are coming from TFS (Team
   Foundation Server). However, there are some great things about using Git if you
   can wrap you head around the terminology
-last_modified_at: "2018-03-29"
+last_modified_at: 2018-03-29
 published: true
 tags:
 - cool-tools
 - tech
 - git
-title: "Git Cracking"
-slug: "git-cracking"
+title: Git Cracking
+slug: git-cracking
 toc: true
----
 
+---
 {{% premonition type="info" title="Resources" %}}
 - [GitKraken](http://bit.ly/2J6a4mW)
 - [Source Tree](http://bit.ly/2pPQeUU)
@@ -30,6 +30,7 @@ Having come from a Team Foundation Server background, I found Git to be a bit co
 Here's my version of "Here's Your Sign" For Newbie Git Users That Are Coming from TFS Background
 
 You Must a TFS'er using Git when...
+
 - You commit changes, and refresh the TFS Source Control Server website trying to see your changes... but nothing ... ever... changes.
 - You pull changes to get things locally, but then get confused about why you are submitting a `pull request` to give someone else changes?
 - You want to use a GUI
