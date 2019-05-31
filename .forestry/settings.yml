@@ -2,7 +2,7 @@
 new_page_extension: md
 auto_deploy: false
 admin_path: "/static/admin"
-webhook_url:
+webhook_url: 
 sections:
 - type: directory
   path: content/microblog
@@ -25,7 +25,6 @@ public_path: images
 front_matter_path: ''
 use_front_matter_path: false
 file_template: ":filename:"
-instant_preview: true
 build:
   preview_command: hugo -E -F -D -enableGitinfo -b $DEPLOY_URL -d public
   publish_command: hugo -d public
