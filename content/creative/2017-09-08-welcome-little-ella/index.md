@@ -1,9 +1,10 @@
 ---
+title: Welcome Little Ella
 #slug: "2017-09-08-welcome-little-ella"
 type: "gallery"
 resources:
 - name: Ella-:counter
-  src: "*.jpg"
+  src: "image/*.jpg"
 excerpt: "Photos"
 ---
 

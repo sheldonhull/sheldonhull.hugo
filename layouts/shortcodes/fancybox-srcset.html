@@ -16,6 +16,7 @@
         object-fit: cover;
         flex-grow: 1;
     }
+
 </style>
 
 <div class="gallery">
@@ -28,7 +29,7 @@
             {{- ($img.Resize "320x").RelPermalink }} 320w,
             {{- ($img.Resize "600x").RelPermalink }} 600w,
             {{- ($img.Resize "1200x").RelPermalink }} 1200x">
-                <img src="{{ ($img.Resize "320x").RelPermalink }}" />
+                <img onload="fadeIn(this)"  src="{{ ($img.Resize "320x").RelPermalink }}" />
             </a>
     {{ end }}
 {{ end }}
