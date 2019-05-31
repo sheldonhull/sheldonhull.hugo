@@ -12,6 +12,8 @@ tags:
 - powershell
 
 ---
+# Powershell
+
 ## Requirements
 - Assuming you have minimum of Powershell 5.1. If you don't, you should be on that at the minimum. Just install chocolatey, and then run `choco upgrade powershell powershell-core -y --source chocolatey` and you should have both 5.1 and core ready to go if your Windows version supports it. If you are on Windows 7 as a developer, there is no :taco: for you, just get upgraded already.
 - Anything manipulating system might need admin, so run as admin in prompt.
