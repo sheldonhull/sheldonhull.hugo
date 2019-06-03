@@ -20,6 +20,8 @@ Leveraging aws system manager sessions can help with aws development, by elimina
 This leverages IAM Credentials, allowing consistent security management in alignment with other IAM policies, instead of having to manage another security setting like remote management would require, potentially reducing the security explore footprint.
 
 * Quickly access an instance that normally would require an additional hop, and then evaluate
+* Restart remote service without having to hop into it (or issue SSM prebuilt command docs)
+* Interact in other ways that are more adhoc in nature, and don't have prebuilt SSM Documents ready to go.
 
 ## Browser
 
