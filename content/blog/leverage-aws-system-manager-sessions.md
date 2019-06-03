@@ -27,13 +27,13 @@ This leverages IAM Credentials, allowing consistent security management in align
 
 This is a great option for leveraging AWS Systems Manager web console. When you select start a session you'll be presented with the tagged instances by name that you can quickly select and start a remote session with. 
 
-![](images/SNAG-0000- 2019-06-03-112313.png)
+![](images/SNAG-0000- 2019-06-03-112313.png "Select Instances to Start Session Against")
 
-![](images/SNAG-0000- 2019-06-03-112325.png)
+![](images/SNAG-0000- 2019-06-03-112325.png "Start Session")
 
 Once you've started the session you'll enter into a remote prompt. 
 
-![](images/SNAG-0000- 2019-06-03-112309.png)
+![](images/SNAG-0000- 2019-06-03-112309.png "Interactive PowerShell Prompt on Remote Instance")
 
 ## Local Interactive Setup
 
