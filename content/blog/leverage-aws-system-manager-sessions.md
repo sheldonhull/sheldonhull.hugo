@@ -1,5 +1,5 @@
 ---
-date: 2019-06-03T16:38:48+00:00
+date: 2019-06-10T05:06:00+00:00
 title: Leverage AWS System Manager Sessions
 slug: leveraging-aws-system-manager-sessions
 excerpt: leveraging aws system manager sessions can help with aws development, by
@@ -10,7 +10,6 @@ tags:
 - tech
 - aws
 - devops
-draft: true
 
 ---
 # Use Case
