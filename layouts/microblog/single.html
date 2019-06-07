@@ -18,6 +18,7 @@
     {{- end }}
     <main class="site-main section-inner animated fadeIn faster">
       <article class="microblog">
+        <div class="content">
         {{ .Content }}
         <a href='{{ .Permalink }}'><aside class="dates"><i class="fas fa-calendar"></i>&nbsp;{{ .Date.Format "2006/01/02 3:04 PM" }}</aside></a>
                 {{- with .Params.tags -}}
@@ -25,6 +26,7 @@
                         <i class="fas fa-hashtag fa-xs"></i><a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{.}}</a>&nbsp;
                     {{- end -}}
                 {{- end -}}
+        </div>
       </article>
     </main>
 {{ end }}
