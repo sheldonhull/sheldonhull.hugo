@@ -8,12 +8,11 @@ tags:
 - azuredevops
 - devops
 - powershell
-draft: true
 
 ---
-## Bump Version
+## Bump Nuspec Version
 
-Bumping the version of the nuspec file requires a little tweaking and I got some help from the slack powershell community to ensure I handled the xml parsing correctly. This was the result. If you are running a chocolatey package build or equivalent nuspec build via an agent and want a way to ensure the latest build updates the build version incrementally this should help. 
+Bumping the version of the nuspec file requires a little tweaking and I got some help from the slack powershell community to ensure I handled the xml parsing correctly. This was the result. If you are running a chocolatey package build or equivalent nuspec build via an agent and want a way to ensure the latest build updates the build version incrementally this should help.
 
 This snippet should help give you a way to bump a nuspec file version programmatically.
 
