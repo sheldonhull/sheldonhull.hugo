@@ -129,3 +129,16 @@ $cred = Find-Credential 'azure-tacobear-api'
 $UserName = $cred.GetNetworkCredential().UserName   #Note that this could be an access key if you wanted.
 $AccessKey = $cred.GetNetworkCredential().Password
 ```
+
+
+## Load Functions from a Folder
+
+Prefer to use modules, but for quick adhoc work, you can organize your work in a folder and use a subfolder called functions. I find this better than trying to create one large script file with multiple functions in it.
+
+```powershell
+$FunctionsFolder = Join-Path $toolsDir 'functions'
+Get-ChildItem -Path $FunctionsFolder -Filter *.ps1 | ForEach-Object {
+    Write-PSFMessage -Level Verbose -Message "Loading: $($_.FullName)"
+    . "$($_.FullName)"
+}
+```
