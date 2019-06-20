@@ -130,6 +130,27 @@ $UserName = $cred.GetNetworkCredential().UserName   #Note that this could be an 
 $AccessKey = $cred.GetNetworkCredential().Password
 ```
 
+### Using Basic Authorization With REST
+
+When leveraging some api methods you need to encode the header with basic authentication to allow authenticated requests. This is how you can do that in a script without having to embed the credentials directly, leveraging `BetterCredentials` as well.
+
+```powershell
+#seems to work for both version 5.1 and 6.1
+param(
+    $Uri = ''   
+)
+
+Import-Module BetterCredentials
+$cred = Find-Credential 'mycredentialname'
+$AccessId = $cred.GetNetworkCredential().UserName
+$AccessKey = $cred.GetNetworkCredential().Password
+$Headers = @{
+    Authorization = 'Basic ' + [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes( ('{0}:{1}' -f $AccessId, $AccessKey) ))
+}
+$results = Invoke-RestMethod -Uri $Uri -Header $Headers
+$results
+
+```
 
 ## Load Functions from a Folder
 
