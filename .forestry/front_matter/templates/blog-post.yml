@@ -29,6 +29,7 @@ fields:
   name: tags
   label: tags
 pages:
+- content/blog/aws-ssm-powershell-script-automation.md
 - content/blog/bump-nuspec-file-version-with-powershell.md
 - content/blog/leverage-aws-system-manager-sessions.md
 - content/blog/terraform-for-dummies.md
