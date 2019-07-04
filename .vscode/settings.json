@@ -32,5 +32,11 @@
         "statusBar.background": "#2d0803",
         "statusBarItem.hoverBackground": "#5d1006",
         "statusBar.foreground": "#e7e7e7"
+    },
+    "markdownTablePrettify.showWindowMessages": false,
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
+
+
 }
