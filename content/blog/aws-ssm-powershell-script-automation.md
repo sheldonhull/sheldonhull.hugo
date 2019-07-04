@@ -10,7 +10,6 @@ tags:
   - powershell
   - devops
   - aws
-draft: true
 ---
 
 ## SSM Overview
