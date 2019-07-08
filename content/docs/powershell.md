@@ -4,36 +4,49 @@ slug: powershell
 date: 2019-03-19
 last_modified_at: 2019-03-19
 toc: true
-excerpt: A cheatsheet for some interesting PowerShell related concepts that might
+excerpt:
+  A cheatsheet for some interesting PowerShell related concepts that might
   benefit others looking for some tips and tricks
 permalink: "/docs/powershell"
 tags:
-- development
-- powershell
-
+  - development
+  - powershell
 ---
+
 ## Requirements
+
 - Assuming you have minimum of Powershell 5.1. If you don't, you should be on that at the minimum. Just install chocolatey, and then run `choco upgrade powershell powershell-core -y --source chocolatey` and you should have both 5.1 and core ready to go if your Windows version supports it. If you are on Windows 7 as a developer, there is no :taco: for you, just get upgraded already.
 - Anything manipulating system might need admin, so run as admin in prompt.
 - `Install-Module PSFramework` // I use this module for better logging and overall improvements in my quality of life. It's high quality, used by big projects like DbaTools and developed by a Powershell MVP with lots of testing. Forget regular `Write-Verbose` commands and just use the `Write-PSFMessage -Level Verbose -Message 'TacoBear'` instead.
+
+### PSFramework
+
+I use [PSFramework](http://bit.ly/2LHNpkE) on all my instances, as it's fantastic expansion to some core areas with PowerShell. This great module (along with other ancillary supporting ones like `PSModuleDevelopment` are well tested and usable for solving some issues in a much more elegant and robust manner than what is natively offered.
+
+A few key elements it can help with are:
+
+- Improving Configuration and variable handling without complex scope issues
+- Improving overall logging and troubleshooting
+- Improving object manipulation
+- Runspace usability enhancements
+- Scripted properties
 
 ## Development (Optional)
 
 1. Install VSCode (Users)
 2. `choco upgrade vscode-powershell -y` or install in extension panel in VSCode. If you are using ISE primarily.... move on already.
 
-
 ## String Formatting
 
-| Type | Example | Output | Notes |
-| --- | --- | --- | --- |
-| Formatting Switch | 'select {0} from sys.tables' -f 'name' | select name from sys.tables | Same concept as .NET \[string\]::Format(). Token based replacement |
+| Type               | Example                                                 | Output                      | Notes                                                               |
+| ------------------ | ------------------------------------------------------- | --------------------------- | ------------------------------------------------------------------- |
+| Formatting Switch  | 'select {0} from sys.tables' -f 'name'                  | select name from sys.tables | Same concept as .NET \[string\]::Format(). Token based replacement  |
 | .NET String Format | \[string\]::Format('select {0} from sys.tables','name') | select name from sys.tables | Why would you do this? Because you want to showoff your .NET chops? |
 
 ## Math & Number Conversions
 
-| From | To | Example | Output | Notes |
-| --- | --- | --- | --- | --- |
+| From                | To      | Example           | Output              | Notes                                     |
+| ------------------- | ------- | ----------------- | ------------------- | ----------------------------------------- |
 | scientific notation | Decimal | 2.19095E+08 / 1MB | 208.945274353027 MB | Native PowerShell, supports 1MB, 1KB, 1GB |
 
 ## Date & Time Conversion
@@ -59,7 +72,7 @@ $UnixTimeInMilliseconds = [Math]::Floor( ((get-date $MyDateValue) - $UnixStartTi
 ### Setup for BetterCredentials
 
 First, don't store anything as plain text in your files. That's a no no.
-Secondly, try using [BetterCredentials](https://github.com/Jaykul/BetterCredentials "BetterCredentials Github Repo"). This allows you to use Windows Credential Manager to store your credentials and then easily pull them back in for usage later in other scripts you run. I've found it a great way to manage my local credentials to simplify my script running. 
+Secondly, try using [BetterCredentials](https://github.com/Jaykul/BetterCredentials "BetterCredentials Github Repo"). This allows you to use Windows Credential Manager to store your credentials and then easily pull them back in for usage later in other scripts you run. I've found it a great way to manage my local credentials to simplify my script running.
 
 ```powershell
 Install-Module BetterCredentials -Force -AllowClobber
@@ -69,12 +82,13 @@ Install-Module BetterCredentials -Force -AllowClobber
 Personally, I use `BetterCredential\Get-Credential` which is `module\function` syntax if I'm not certain I've imported first. The reason is auto-discovery of module functions in PowerShell might use the default `Get-Credentials` that BetterCredentials overloads if you don't import first. BetterCredentials overrides the default cmdlets to improve for using CredentialManager, so make sure you import it, not assume it will be correctly imported by just referring to the function you are calling.
 {{% /premonition %}}
 
-### Creating a Credential 
+### Creating a Credential
+
 Then to create credentials try using this handy little filter/function
 
 ```
 <#
-.Description 
+.Description
 	Quick helper function for passing in credentials to create. Why filter? Planned on using with pipeline. Right now just using arguments in examples below.
 #>
 filter CredentialCreator
@@ -99,18 +113,19 @@ filter CredentialCreator
 }
 ```
 
-Example on using this quick function (if you don't want to use my quick helper, then just use code in the function as an example). 
+Example on using this quick function (if you don't want to use my quick helper, then just use code in the function as an example).
 
-```powershell 
-#----------------------------------------------------------------------------# 
-#                   Example On Using to Create Credentials                   # 
-#----------------------------------------------------------------------------# 
+```powershell
+#----------------------------------------------------------------------------#
+#                   Example On Using to Create Credentials                   #
+#----------------------------------------------------------------------------#
 $pass = Read-Host 'Enter Network Pass'
 CredentialCreator -UserName "$ENV:USERDOMAIN\$ENV:UserName" -Pass $pass -Target "$ENV:USERDOMAIN\$ENV:UserName"
 CredentialCreator -UserName "TacoBear" -Pass 'TacoBearEatsThings' -Target "azure-tacobear-api"
 ```
- 
+
 ### Clearing all credentials in credential repo
+
 ```powershell
 Find-Credential * | Remove-Credential
 ```
@@ -118,6 +133,7 @@ Find-Credential * | Remove-Credential
 ### Using Credentials in a Script
 
 Using with credential object
+
 ```powershell
 Do-Something -Credential (Find-Credential 'azure-tacobear-api')
 ```
@@ -137,7 +153,7 @@ When leveraging some api methods you need to encode the header with basic authen
 ```powershell
 #seems to work for both version 5.1 and 6.1
 param(
-    $Uri = ''   
+    $Uri = ''
 )
 
 Import-Module BetterCredentials
@@ -161,5 +177,81 @@ $FunctionsFolder = Join-Path $toolsDir 'functions'
 Get-ChildItem -Path $FunctionsFolder -Filter *.ps1 | ForEach-Object {
     Write-PSFMessage -Level Verbose -Message "Loading: $($_.FullName)"
     . "$($_.FullName)"
+}
+```
+
+### Expanding Nested Objects
+
+One thing that I've had challenges with is expanding nested objects with AWSPowershell, as a lot of the types aren't formatted for easy usage without expansion.
+For example, when expanding the basic results of `Get-EC2Instance` you can try to parse out the state, but it won't behave as expected.
+
+For example, if you run:
+
+```powershell
+(Get-EC2Instance -Filter $ec2Filter).Instances | Select-Object InstanceId, State
+```
+
+| InstanceId | State                          |
+| ---------- | ------------------------------ |
+| i-taco1    | Amazon.EC2.Model.InstanceState |
+| i-taco2    | Amazon.EC2.Model.InstanceState |
+| i-taco3    | Amazon.EC2.Model.InstanceState |
+
+Trying to expand gets you the state, but now you don't have the original object alongside it.
+
+| Code | Name    |
+| ---- | ------- |
+| 16   | running |
+| 16   | running |
+| 16   | running |
+
+PSFramework makes this easy to work with by simply referencing the object properties for parsing in the `Select-PSFObject` statement.
+
+```powershell
+(Get-EC2Instance -Filter $ec2Filter).Instances | Select-PSFObject InstanceId, 'State.Code as StateCode', 'State.Name as StateName'
+```
+
+The result is exactly you'd you need to work with
+
+| InstanceId | StateCode | StateName |
+| ---------- | --------- | --------- |
+| i-taco1    | 16        | running   |
+| i-taco2    | 16        | running   |
+| i-taco3    | 16        | running   |
+
+### Get / Set Accessors in PowerShell
+
+In C# you use get/set accessors to have more control over your properties. In PowerShell, thanks to PSFramework, you can simplify object pipelines by using `Select-PSFObject` to do the equivalent and have a scripted property that handles a script block to provide a scripted property on your object.
+
+For example, in leveraging AWS Profiles, I wanted to get a region name mapped to a specific profile as a default region. You can do this in a couple steps using `ForEach-Object` and leverage `[pscustomobject]`, or you can simplify it greatly by running `Select-PSFObject` like this:
+
+```powershell
+Get-AWSCredentials -ListProfileDetail  |  Select-PSFObject -Property ProfileName -ScriptProperty @{
+    region = @{
+        get = {
+            switch ($this.ProfileName)
+            {
+                'taco1' {'us-east-1'}
+                'taco2' {'us-east-1'}
+                'taco3' {'us-east-1'}
+                'taco4' {'eu-west-1'}
+                'taco5' {'us-west-2'}
+                'taco6' {'us-east-1'}
+                default {'us-east-1'}
+            }
+        }
+    }
+}
+```
+
+Another good example might be the desire to parse out the final key section from S3, to determine what the file name would actually be for easier filtering or searching. In this case, a simple script property could parse out the name, and then return the last item in the array using Powershell's shortcut of `$array[-1]` to get the last item.
+
+```powershell
+Get-S3Object -BucketName 'tacoland' | Select-PSFObject -ScriptProperty @{
+    BaseName = @{
+        get  = {
+            (($this.Name  -split '/')[-1])
+        }
+    }
 }
 ```
