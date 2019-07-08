@@ -36,7 +36,7 @@
     "markdownTablePrettify.showWindowMessages": false,
     "[markdown]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
-
+    },
+    "branchwarnings.protectedBranches": [""] // no protected branches on this blog repo, as I edit and work with master directly for CI
 
 }
