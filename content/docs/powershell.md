@@ -180,6 +180,8 @@ Get-ChildItem -Path $FunctionsFolder -Filter *.ps1 | ForEach-Object {
 }
 ```
 
+## Select Object Manipulation
+
 ### Expanding Nested Objects
 
 One thing that I've had challenges with is expanding nested objects with AWSPowershell, as a lot of the types aren't formatted for easy usage without expansion.
