@@ -13,11 +13,11 @@ tags:
 ---
 ## Synchronization
 
-Moving data between two cloud providers can be painful, and require more provider scripting if doing api calls. For this, you can benefit from a tool that abstracts the calls into a seamless synchronization tool. 
+Moving data between two cloud providers can be painful, and require more provider scripting if doing api calls. For this, you can benefit from a tool that abstracts the calls into a seamless synchronization tool.
 
-I've used RClone before when needing to deduplicate several terabytes of data in my own Google Drive, so I figured I'd see if it could help me sync up 25GB of json files from Azure to S3. 
+I've used RClone before when needing to deduplicate several terabytes of data in my own Google Drive, so I figured I'd see if it could help me sync up 25GB of json files from Azure to S3.
 
-Very happy to report it worked perfectly, and with only a couple minutes of refamilarizing myself with the tool setup. 
+Very happy to report it worked perfectly, and with only a couple minutes of refamilarizing myself with the tool setup.
 
 
 ## Install RClone
@@ -32,7 +32,7 @@ choco upgrade rclone -y
 
 Go through `rclone config` dialogue and setup your cloud provider. In my case, I setup Azure as a provider to connect to blob storage, and then AWS with s3.
 
-{{% premonition type="info" title="Cloud to Cloud%}}
+{{% premonition type="info" title="Cloud to Cloud" %}}
 Providers that support cloud to cloud based calls without copying locally are provided in the section for [Optional Features](http://bit.ly/2LEOSrR) where you can view the operations that support calls
 {{% /premonition %}}
 
