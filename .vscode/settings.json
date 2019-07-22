@@ -10,7 +10,6 @@
         "textLink.foreground": "#616161",
         "progressBar.background": "#616161",
         "pickerGroup.foreground": "#616161",
-        "tab.activeBorder": "#616161",
         "notificationLink.foreground": "#616161",
         "editorWidget.resizeBorder": "#616161",
         "editorWidget.border": "#616161",
@@ -20,23 +19,27 @@
         "breadcrumb.activeSelectionForeground": "#616161",
         "menu.selectionForeground": "#616161",
         "menubar.selectionForeground": "#616161",
-        "activityBar.background": "#5d1006",
-        "activityBar.foreground": "#e7e7e7",
-        "activityBar.inactiveForeground": "#e7e7e799",
-        "activityBarBadge.background": "#087815",
+        "activityBar.background": "#3ed37a",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#9463db",
         "activityBarBadge.foreground": "#e7e7e7",
-        "titleBar.activeBackground": "#2d0803",
-        "titleBar.inactiveBackground": "#2d080399",
-        "titleBar.activeForeground": "#e7e7e7",
-        "titleBar.inactiveForeground": "#e7e7e799",
-        "statusBar.background": "#2d0803",
-        "statusBarItem.hoverBackground": "#5d1006",
-        "statusBar.foreground": "#e7e7e7"
+        "titleBar.activeBackground": "#29b561",
+        "titleBar.inactiveBackground": "#29b56199",
+        "titleBar.activeForeground": "#15202b",
+        "titleBar.inactiveForeground": "#15202b99",
+        "statusBar.background": "#29b561",
+        "statusBarItem.hoverBackground": "#208b4b",
+        "statusBar.foreground": "#15202b",
+        "tab.activeBorder": "#3ed37a"
     },
     "markdownTablePrettify.showWindowMessages": false,
     "[markdown]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "branchwarnings.protectedBranches": [""] // no protected branches on this blog repo, as I edit and work with master directly for CI
+    "branchwarnings.protectedBranches": [
+        ""
+    ],
+    "peacock.color": "#29b561" // no protected branches on this blog repo, as I edit and work with master directly for CI
 
 }
