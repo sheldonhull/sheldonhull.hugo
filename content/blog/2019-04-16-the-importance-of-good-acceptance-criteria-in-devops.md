@@ -20,6 +20,7 @@ tags:
   - powershell
 typora-root-url: ..\assets\img
 typora-copy-images-to: ..\assets\img
+draft: true
 ---
 The target for this post can be developers, or operations team. In my context, this is from the experience of being Scrum Master for a dedicated DevOps team that began the process of migrating from a more reactionary approach to preplanning, sprints, and building out a healthy backlog. 
 
