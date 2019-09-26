@@ -29,12 +29,12 @@ fields:
   name: tags
   label: tags
 pages:
+- content/blog/terraform-for-dummies.md
+- content/blog/getting-started-with-linux-on-your-windows-machine.md
+- content/blog/infrastructure-as-code.md
+- content/blog/generating-diagrams-programmatically.md
 - content/blog/painless-synchronization-of-azure-blob-storage-with-aws-s3.md
 - content/blog/bump-nuspec-file-version-with-powershell.md
 - content/blog/aws-ssm-powershell-script-automation.md
 - content/blog/leverage-aws-system-manager-sessions.md
-- content/blog/terraform-for-dummies.md
-- content/blog/generating-diagrams-programmatically.md
 - content/blog/the-importance-of-good-acceptance-criteria-leveraging-gherkin.md
-- content/blog/infrastructure-as-code.md
-- content/blog/getting-started-with-linux-on-your-windows-machine.md
