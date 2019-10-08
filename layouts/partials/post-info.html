@@ -19,7 +19,7 @@
         <a href="{{ .Site.Params.gitUrl -}}{{ .GitInfo.Hash }}" target="_blank" rel="noopener">
         {{- plainify "updated " -}}
         {{- if .GitInfo.AuthorDate.Local -}}
-        {{ dateFormat .Site.Params.dateformNum .GitInfo.AuthorDate.Local }}</a></p>
+        {{ dateFormat .Site.Params.dateform .GitInfo.AuthorDate.Local }}</a></p>
         {{- end -}}
     {{- end }}
     <!-- <a href="http://www.feedio.co/@sheldon_hull"><img src="http://cdn.feedio.co/widgets/buttons/subscribe-arrow-red.png" alt="Follow Sheldon Hull on Feedio"></a> -->
