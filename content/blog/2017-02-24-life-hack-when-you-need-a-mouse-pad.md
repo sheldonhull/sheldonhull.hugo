@@ -15,7 +15,3 @@ After searching the office and failing to find a usable mousepad (seriously!)...
 Lo and beheld, a fantastic website provided the [World's original cheapest Mousepad](http://bit.ly/2lhDkuA). Well worth visiting despite its self disparaging remarks. Thank you for your contribution to the Internet's vast amalgamation of priceless documents.
 
 After feeling like an idiot, I printed, taped to my desk and the magical precision returned. Life hack!
-
-
-![Worlds cheapest optical mousepad](/images/Cheapest+mousepad.jpgCheapest+mousepad?format=original)
-
