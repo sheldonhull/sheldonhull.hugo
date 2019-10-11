@@ -15,7 +15,7 @@
     {
       "label": "algolia update",
       "type": "shell",
-      "command": "npm run algolia",
+      "command": "npm run algolia ${workspaceFolder}\\_site\\algolia.json",
       "group": "build",
       "problemMatcher": []
     },

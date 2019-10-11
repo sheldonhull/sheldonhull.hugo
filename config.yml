@@ -40,7 +40,7 @@ taxonomies:
   # Categories are disabled by default.
 
 outputs:
-  home: ["HTML","RSS"] #,"RSS","Algolia"
+  home: ["HTML","RSS","Algolia"] #,"RSS","Algolia"
   page: ["HTML"]
   section: ["HTML","RSS"]
   microblog: ["RSS"]
