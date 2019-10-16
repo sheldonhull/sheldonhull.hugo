@@ -9,6 +9,8 @@ sections:
   label: microblog
   create: documents
   match: "**/*"
+  templates:
+  - microblog
 - type: directory
   path: content
   label: Pages
@@ -20,6 +22,8 @@ sections:
   label: Blog
   create: documents
   match: "**/*"
+  templates:
+  - blog-post
 upload_dir: static/images
 public_path: images
 front_matter_path: ''
