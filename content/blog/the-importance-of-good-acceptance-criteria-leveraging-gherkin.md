@@ -1,5 +1,5 @@
 ---
-date: 2019-04-16T18:19:00-05:00
+date: 2019-04-16T23:19:00.000+00:00
 title: The Importance of Good Acceptance Criteria & Leveraging Gherkin
 slug: the-importance-of-good-acceptance-criteria-in-devops
 excerpt: Changing requirements set you up for failure. Planning ahead with truly defining
@@ -60,18 +60,16 @@ Cucumbers page describes why thinking through this stuff matters:
 
 ## Gherkin
 
-Gherkin is the syntax used to describe the tests. My understanding would be to compare Cucumber as "spoken word", and Gherkin as the "language" chosen to communicate. When you write the feature files to work with Cucumber, you write them in Gherkin. Gherkin is supported for automated testing in many scripting languages. In a Windows environment for example, you can actually use it to check tons of infrastructure things like services running, connectivity with a server, installation of an app and more using invocation via Pester.
+Gherkin is the syntax used to describe the tests. My understanding would be to compare Cucumber as "spoken word", and Gherkin as the "language" chosen to communicate. When you write the feature files to work with Cucumber, you write them in Gherkin. Gherkin is supported for automated testing in many scripting languages. In a Windows environment for example, you can actually use it to check many things like services running, connectivity with a server, installation of an app, and more using invocation via Pester.
 
 What I've discovered is that to actual validate DevOps oriented work is completed, you typically go through the equivalent of what a Cucumber test would have. This "checklist" of validations is often manually performed, lacking consistency and the ability to scale or repeat with minimal effort.
 
 Consider an alternative approach to helping solve this issue, and expanding your ability to automate the tedious testing and validation of changes made.
 
-```
-Scenario  
-Given (environment state)  
-When (something is done)  
-Then (expected result)  
-```
+    Scenario  
+    Given (environment state)  
+    When (something is done)  
+    Then (expected result)  
 
 ## How Can This Apply to Operational Tasks?
 
@@ -110,7 +108,6 @@ Then the created json file contents match
 \]  
 }  
 """
-
 ```
 
 Another one that shows Scenario Outlines which give the ability for me to loop the test for all the different variations I want to define in a table and confirm all of them, while only writing one Scenario Outline.
