@@ -1,16 +1,49 @@
-<div id="searchButton"><a href='#search-input' class='search-trigger'>{{ with .Site.Params.search }}{{ . }}{{ else }}Search <i class="fas fa-search" aria-hidden="true"></i>{{ end }}</a></div>
+<script src="{{ .Site.BaseURL }}js/liveSearch.js"></script>
 
-<script src="{{ .Site.BaseURL }}js/lunr.js"></script>
-<script src="{{ .Site.BaseURL }}js/search.js"></script>
+<script>
+/* Open when someone clicks on the span element */
+function openNav() {
+    document.getElementById("search-overlay").style.width = "100%";
+    document.getElementById("searchButton").style.display = "none";
+}
 
-<div id="search-overlay">
-    <a href='#search-input' class="search-trigger"><i class="fas fa-times" aria-hidden="true" id="search-close"></i></a>
-    <section class="wrapper">
-        <form>
-            <p class="search-title">Search</p>
-            <p class="search-input-line"><input type="text" maxlength="200" id="search-input" name="query" placeholder="Type to search" /></p>
-            <p class="search-help"><label for="search-query">Press <strong class="key">ESC</strong> to close</label></p>
-        </form>
-        <div id="search-results"></div>
-    </section>
-</div>
+/* Close when someone clicks on the "x" symbol inside the overlay */
+function closeNav() {
+    document.getElementById("search-overlay").style.width = "0%";
+    document.getElementById("searchButton").style.display = "block";
+
+}
+</script>
+<script>
+        window.addEventListener('keydown', function(e){
+            if((e.key=='Escape'||e.key=='Esc'||e.keyCode==27) ){ /*&& (e.target.nodeName=='BODY')*/
+                e.preventDefault();
+                document.getElementById("search-overlay").style.width = "0%";
+                document.getElementById("searchButton").style.display = "block";
+                return false;
+            }
+        }, true);
+</script>
+<!-- The overlay -->
+<!-- Use any element to open/show the overlay navigation menu -->
+<div id="searchButton" class="search-button active" onclick="openNav()"><a href='#search-input'
+        class='search-button'>{{ with .Site.Params.search }}{{ . }}{{ else }}Search <i class="fas fa-search"
+            aria-hidden="true"></i>{{ end }}</a></div>
+
+<div id="search-overlay" class="overlay">
+    <!-- Button to close the overlay navigation -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <!-- Overlay content -->
+    <div class="overlay-content">
+        <div class="container">
+                <input autocomplete=off id="search" class="search-input" type="search" placeholder="Type to Search">
+                <span class="search-bar"></span>
+                <span class="esc-note">press <strong>ESC</strong> to close</span>
+                <span><a href="https://www.algolia.com/"><i class="fab fa-algolia"></i></a></span>
+                <div id="results" class="search-results">
+                </div>
+            </div>
+    </div>
+
+  </div>
