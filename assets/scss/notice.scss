@@ -1,55 +1,77 @@
-div.notices {
-    margin: 2rem 0;
-    position: relative;
-}
-div.notices p {
-    padding: 15px;
-    display: block;
-    font-size: 1rem;
-    margin-top: 0rem;
-    margin-bottom: 0rem;
-    color: #666;
-}
-div.notices p:first-child:before {
-    position: absolute;
-    top: 2px;
-    color: #fff;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    content: "\f06a";
-    left: 10px;
-}
-div.notices p:first-child:after {
-    position: absolute;
-    top: 2px;
-    color: #fff;
-    left: 2rem;
-}
-div.notices.info p {
-    border-top: 30px solid #F0B37E;
-    background: #FFF2DB;
-}
-div.notices.info p:first-child:after {
-    content: 'Info';
-}
-div.notices.warning p {
-    border-top: 30px solid rgba(217, 83, 79, 0.8);
-    background: #FAE2E2;
-}
-div.notices.warning p:first-child:after {
-    content: 'Warning';
-}
-div.notices.note p {
-    border-top: 30px solid #6AB0DE;
-    background: #E7F2FA;
-}
-div.notices.note p:first-child:after {
-    content: 'Note';
-}
-div.notices.tip p {
-    border-top: 30px solid rgba(92, 184, 92, 0.8);
-    background: #E6F9E6;
-}
-div.notices.tip p:first-child:after {
-    content: 'Tip';
-}
+// TODO: this should be in header to my knowledge, not in my page itself
+
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+
+.mbh-notification-box {
+    .title {
+        float:left;
+        border-bottom: 4px !important;
+        border-color:$theme;
+    }
+
+    -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      border-radius: 3px;
+      color: #ffffff;
+      font-family: 'Open Sans', sans-serif;
+    margin-bottom: 25px;
+      padding: 10px 14px 10px 44px;
+      position: relative;
+      width: -moz-fit-content;
+      width: -webkit-fit-content;
+      width: fit-content;
+  }
+      .mbh-notification-box:before {
+          font-family: FontAwesome;
+          font-size: 21px;
+          left: 14px;
+          position: absolute;
+      }
+  .mbh-success {
+      background-color: #2ecc71;
+  }
+      .mbh-success:before {
+          content: "\f00c";
+          margin-left: -2px;
+      }
+  .mbh-failure {
+      background-color: #e74c3c;
+  }
+      .mbh-failure:before {
+          content: "\f00d";
+      }
+  .mbh-warning {
+      background-color: #e67e22;
+  }
+      .mbh-warning:before {
+          content: "\f12a";
+          margin-left: 5px;
+      }
+  .mbh-information {
+      background-color: #3498db;
+  }
+      .mbh-information:before {
+          content: "\f129";
+          margin-left: 4px;
+      }
+  .mbh-question {
+      background-color: #f1c40f;
+  }
+      .mbh-question:before {
+          content: "\f128";
+          margin-left: 2px;
+      }
+  .mbh-tip {
+      background-color: #16a085;
+  }
+      .mbh-tip:before {
+          content: "\f0eb";
+          margin-left: 2px;
+      }
+  .mbh-notice {
+      background-color: #bea474;
+  }
+      .mbh-notice:before {
+          content: "\f0a1";
+          margin-left: -1px;
+      }

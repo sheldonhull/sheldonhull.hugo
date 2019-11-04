@@ -1,20 +1,12 @@
+<!-- https://codepen.io/madebyhugh/pen/doYOgO -->
 {{ $type := .Get "type" }}
-{{ $class := "fa fa-notice"}}
-{{ with (eq $type "info") }}
-  {{ $class := "fas fa-exclamation-circle" }}
-{{ end }}
-{{ with (eq $type "warning") }}
-  {{ $class := "fas fa-exclamation-circle" }}
-{{ end }}
-{{ with (eq $type "info") }}
-  {{ $class := "fas fa-exclamation-circle" }}
-{{- end -}}
 
-<div class="premonition {{ $type }}"><div class="{{ $class }}"></div>
-    <div class="content">
-    {{ if .Get "title" }}
-    <p class="header">{{ .Get "title"}}</p>
-    {{- end }}
-{{ .Inner }}
-    </div>
+{{ $type := replace $type "info" "information" }}
+
+
+<div class="mbh-{{ $type }} mbh-notification-box">
+{{ if .Get "title" }}
+<p>{{- .Get "title" | markdownify -}}</p>
+{{- end -}}
+{{- .Inner | markdownify -}}
 </div>
