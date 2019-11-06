@@ -230,7 +230,7 @@ print(titanic.sample(n=20,random_state=1))
 
 This results in output like the image below
 
-![Notebook Output Sample for Titanic](/static/images/2019-11-05_20-50-29-notebook1.jpg)
+![Notebook Output Sample for Titanic](/images/2019-11-05_20-50-29-notebook1.jpg)
 
 To generate a more advanced visualization, you can run something to visualize with `plotly`.
 
@@ -247,7 +247,7 @@ fig = px.scatter(df, x="Petal.Width", y="Sepal.Width",title='Iris Data Example',
 fig.show()
 ```
 
-![Scatter Chart](/static/images/2019-11-05_21-23-36-notebook2.jpg)
+![Scatter Chart](/images/2019-11-05_21-23-36-notebook2.jpg)
 
 ## Wrap Up
 
