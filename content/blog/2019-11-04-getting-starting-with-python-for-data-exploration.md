@@ -1,18 +1,19 @@
 ---
-date: 2019-11-19T10:51:08-06:00
+date: 2019-11-19T16:51:08.000+00:00
 title: Getting Starting With Python For Data Exploration
 slug: getting-starting-with-python-for-data-exploration
-excerpt: To get started with running python queries with SQL Server is actually pretty easy. I waited far too long to tackle this, thinking it was much harder than it turned out to be.
+excerpt: To get started with running python queries with SQL Server is actually pretty
+  easy. I waited far too long to tackle this, thinking it was much harder than it
+  turned out to be.
 tags:
-  - devops
-  - sql-server
-  - python
-  - tech
-  - data-visualization
-draft: true
+- devops
+- sql-server
+- python
+- tech
+- data-visualization
 toc: true
----
 
+---
 ## Intro
 
 To get started with running python queries with SQL Server is actually pretty easy. I waited far too long to tackle this, thinking it was much harder than it turned out to be. Hopefully, this can be a good starting point for you as well.
@@ -27,21 +28,21 @@ First, can they? Yes. But just because there is a library someone created to giv
 
 To be very clear, I know there are possibilities, such as the newer Azure Data Studio powershell notebook feature, and likely other modules that can help with exploration. What I'm trying to be clear about is that those are all exceptions to the rule, whereas exploration in Python is a first class citizen from the start. (coming from a dedicated PowerShell addict :grin:)
 
-Traditionally, I've used Azure Data Studio or SQL Management Studio and run individually queries in a large sql script to explore and manpulate the data. However, once you start wanting to pivot, aggregate, sum, and do various other experimental actions, T-SQL can be over complicated to do this for that adhoc work. Just because you can do unpivot doesn't mean it's a smarter use of time than using a pivot table in Excel for adhoc work (as much as it pains me to say).
+Traditionally, I've used Azure Data Studio or SQL Management Studio and run individually queries in a large sql script to explore and manipulate the data. However, once you start wanting to pivot, aggregate, sum, and do various other experimental actions, T-SQL can be over complicated to do this for that adhoc work. Just because you can do unpivot doesn't mean it's a smarter use of time than using a pivot table in Excel for adhoc work (as much as it pains me to say).
 
 {{% premonition type="info" title="Azure Data Studio" %}}
 
-Azure datastudio is making great progress with their SQL Server based notebooks, which I highly recommend checking out. It's still in it's infancy, so while it's pretty useful for basics, if you want to stick with a scripted approach to explore, python will be superior. Just recently PowerShell based code cells are available too, I believe.
+Azure data studio is making great progress with SQL Server based notebooks, which I highly recommend checking out. It's still in its infancy. So while it's pretty useful for basics, if you want to stick with a scripted approach to explore, python will be superior. Just recently PowerShell based code cells are available too, I believe.
 
 {{% /premonition %}}
 
 However, even better than playing around with data in an Excel sheet, what if you wanted to stay in your programmatic script and start slicing and dicing the data coming back, molding into "tidy data" for what you want to analyze?
 
-PowerShell and .NET doesn't have the intuitive and experimental data exploration capabilities that have existed for a long time in the Python libraries. They are designed to run a visualized scatter chart to help identify patterns. This is the forte of Python's libaries, and has much more maturity than doing some homegrown solution work around.
+PowerShell and .NET don't have the intuitive and experimental data exploration capabilities that have existed for a long time in the Python libraries. They can easily manipulate, group, mold and visualize the data with minimal effort. This is the forte of Python's libraries, and has much more maturity than doing some homegrown solution work around.
 
-## Juypter Notebooks
+## Jupyter Notebooks
 
-I'm sticking with Visual Studio Code, so install the data science extension and then create a new notebook directly from the command pallet. Once you open this up you can start writing some markdown notes and then running queries and visualizing the results in one place.
+I'm sticking with Visual Studio Code, so install the python extension `ms-python.python` and then create a new notebook directly from the command pallet. Once you open this up you can start writing some markdown notes and then running queries and visualizing the results in one place.
 
 ## Python Plotly Library
 
@@ -51,13 +52,18 @@ The standard libraries are pretty good. I wanted something that also created gra
 
 In addition to working with `plotly` I leveraged `pandas`. I think from my initial working with it, that this library will be a staple for my adhoc data work for a long time. It basically provides a nice easy way to work with `Dataframes`, which is kinda of like working with a .NET `datatable`, albeit, many extensibility, exporting, and other features built into it. I found it intuitive and pretty easy to work with.
 
-## Installing pyodbc driver
+## Installing pyodbc
 
 {{% premonition type="info" title="platform" %}}
 
 This guide is written for someone using a Windows based development environment. The setup requirements for running in Linux/Mac will be different for drivers
 
+For running in AWS Lambda in python runtime, there are more complex issues requiring the driver to be compiled and uploaded to a Lambda layer for use. Windows dev machine doesn't have this requirement and should just work after running ODBC driver install and pyodbc. :tada:
+
 {{% /premonition %}}
+
+1. [Link for SQL Server ODBC Drivers](https://docs.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server "SQL Server ODBC Drivers")
+2. `pip3 install pyodbc`
 
 ## Generate Connection File
 
@@ -138,7 +144,6 @@ constr = 'DRIVER={{{drv}}};SERVER={srv};DATABASE={db};Trusted_Connection={tc};AP
                       )
 
 cnxn = pyodbc.connect(constr)
-
 ```
 
 This connection object then would allow running queries similar to executing `ADO.NET` queries.
@@ -166,7 +171,7 @@ To sample in your notebook a few random entries, try this
 data_frame.sample(n=20,random_state=1)
 ```
 
-You should have an excel workbook exported after this. This was even more succint than using `ImportExcel` PowerShell module which is my normal go to.
+You should have an excel workbook exported after this. This was even more succinct than using `ImportExcel` PowerShell module which is my normal go to.
 
 ## Group Results Into Ranges
 
@@ -208,7 +213,7 @@ This is pretty cool, as while you can do this with windowing functions in SQL Se
 
 ## Scatterchart
 
-Never having really used scattercharts, I'm seeing in data exploration they can be a tremdously valuable tool.
+Never having really used scattercharts, I'm seeing in data exploration they can be a tremendously valuable tool.
 
 ```python
 print(len(data_frame.value))
@@ -251,6 +256,6 @@ fig.show()
 
 ## Wrap Up
 
-Lots of great options to visualize data with Python :grinning:. I'll definitely be spending more time learning how to manipulate and query datasets with Python, and eventually give Dash by Plotly a try as well. I've enjoyed Grafana, but it's really meant for time series monitoring, not for the flexible data visualization options that can be done so easily in Python.
+Lots of great options to visualize data with Python :grinning: . I'll definitely be spending more time learning how to manipulate and query datasets with Python, and eventually give Dash by Plotly a try as well. I've enjoyed Grafana, but it's really meant for time series monitoring, not for the flexible data visualization options that can be done so easily in Python.
 
 Hopefully, this gave you a good start on some of the benefits and ease of use of Python if you, like me, are coming from a PowerShell and SQL Server heavy background, and have wanted to know more about Python. :taco:
