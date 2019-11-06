@@ -1,13 +1,14 @@
 ---
-date: 2019-11-04T10:51:08-06:00
-title: Query Sql Server With Python
-slug: query-sql-server-with-python
-excerpt:
-    To get started with running python queries with SQL Server is actually pretty easy. I waited far too long to tackle this, thinking it was much harder than it turned out to be.
+date: 2019-11-19T10:51:08-06:00
+title: Getting Starting With Python For Data Exploration
+slug: getting-starting-with-python-for-data-exploration
+excerpt: To get started with running python queries with SQL Server is actually pretty easy. I waited far too long to tackle this, thinking it was much harder than it turned out to be.
 tags:
   - devops
   - sql-server
   - python
+  - tech
+  - data-visualization
 draft: true
 toc: true
 ---
@@ -24,11 +25,13 @@ When you use great tools like dbatools with PowerShell, you come to think that P
 
 First, can they? Yes. But just because there is a library someone created to give you some of these features, are the languages themselves first class data exploration languages, especially for adhoc and exploratory work. I think most would agree: _no_.
 
+To be very clear, I know there are possibilities, such as the newer Azure Data Studio powershell notebook feature, and likely other modules that can help with exploration. What I'm trying to be clear about is that those are all exceptions to the rule, whereas exploration in Python is a first class citizen from the start. (coming from a dedicated PowerShell addict :grin:)
+
 Traditionally, I've used Azure Data Studio or SQL Management Studio and run individually queries in a large sql script to explore and manpulate the data. However, once you start wanting to pivot, aggregate, sum, and do various other experimental actions, T-SQL can be over complicated to do this for that adhoc work. Just because you can do unpivot doesn't mean it's a smarter use of time than using a pivot table in Excel for adhoc work (as much as it pains me to say).
 
 {{% premonition type="info" title="Azure Data Studio" %}}
 
-Azure datastudio is making great progress with their SQL Server based notebooks, which I highly recommend checking out. It's still in it's infancy, so while it's pretty useful for basics, if you want to stick with a scripted approach to explore, python will be superior.
+Azure datastudio is making great progress with their SQL Server based notebooks, which I highly recommend checking out. It's still in it's infancy, so while it's pretty useful for basics, if you want to stick with a scripted approach to explore, python will be superior. Just recently PowerShell based code cells are available too, I believe.
 
 {{% /premonition %}}
 
@@ -50,12 +53,11 @@ In addition to working with `plotly` I leveraged `pandas`. I think from my initi
 
 ## Installing pyodbc driver
 
-{{% premonition type="notice" title="platform" %}}
+{{% premonition type="info" title="platform" %}}
 
 This guide is written for someone using a Windows based development environment. The setup requirements for running in Linux/Mac will be different for drivers
 
 {{% /premonition %}}
-
 
 ## Generate Connection File
 
@@ -95,13 +97,13 @@ if driver_name:
 else:
     print('(No suitable driver found. Cannot connect.)')
 ```
+
 Since I had 2 versions of ODBC drivers available, this is what came up:
 
 ```text
 The following ODBC drivers were identified on your system
 ['ODBC Driver 13 for SQL Server', 'ODBC Driver 17 for SQL Server']
 ```
-
 
 This generated a connection file I could use in other py files I wanted. The file generated in my user directory `$ENV:USERPROFILE`.
 
@@ -117,7 +119,6 @@ pwd = redactedtacos
 ```
 
 This could then be used in python files like below
-
 
 ```python
 import configparser
@@ -170,6 +171,7 @@ You should have an excel workbook exported after this. This was even more succin
 ## Group Results Into Ranges
 
 ```python
+import plotly.express as px
 
 # How many results are being returned?
 print(len(data_frame.value))
@@ -214,4 +216,41 @@ fig = px.scatter(data_frame, x="metric", y="value",title='MyFancyTitle',size="va
 fig.show()
 ```
 
-This shows a visual like what the `plotly` examples demonstrate.
+## Quick Example
+
+```powershell
+pip3 install pydataset #optional for more than iris data
+```
+
+```python
+from pydataset import data
+titanic = data('titanic')
+print(titanic.sample(n=20,random_state=1))
+```
+
+This results in output like the image below
+
+![Notebook Output Sample for Titanic](/static/images/2019-11-05_20-50-29-notebook1.jpg)
+
+To generate a more advanced visualization, you can run something to visualize with `plotly`.
+
+```python
+import pandas
+import plotly.express as px
+from pydataset import data
+
+df = data('iris')
+df.sample(n=10,random_state=1)
+
+print(len(df))
+fig = px.scatter(df, x="Petal.Width", y="Sepal.Width",title='Iris Data Example',render_mode="auto",marginal_y="rug",marginal_x="histogram")
+fig.show()
+```
+
+![Scatter Chart](/static/images/2019-11-05_21-23-36-notebook2.jpg)
+
+## Wrap Up
+
+Lots of great options to visualize data with Python :grinning:. I'll definitely be spending more time learning how to manipulate and query datasets with Python, and eventually give Dash by Plotly a try as well. I've enjoyed Grafana, but it's really meant for time series monitoring, not for the flexible data visualization options that can be done so easily in Python.
+
+Hopefully, this gave you a good start on some of the benefits and ease of use of Python if you, like me, are coming from a PowerShell and SQL Server heavy background, and have wanted to know more about Python. :taco:

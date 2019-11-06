@@ -41,14 +41,17 @@
           content: "\f00d";
       }
   .mbh-warning {
-      background-color: #e67e22;
+      background-color: rgb(92, 74, 43);
+      /* #e67e22; */
   }
       .mbh-warning:before {
           content: "\f12a";
           margin-left: 5px;
       }
   .mbh-information {
-      background-color: #3498db;
+
+      background-color: rgb(14, 46, 17); ;
+      /* #3498db */
   }
       .mbh-information:before {
           content: "\f129";
@@ -62,14 +65,14 @@
           margin-left: 2px;
       }
   .mbh-tip {
-      background-color: #16a085;
+      background-color: rgb(20,45, 43); /*  #16a085; */
   }
       .mbh-tip:before {
           content: "\f0eb";
           margin-left: 2px;
       }
   .mbh-notice {
-      background-color: #bea474;
+    background-color: rgb(92, 74, 43);
   }
       .mbh-notice:before {
           content: "\f0a1";
