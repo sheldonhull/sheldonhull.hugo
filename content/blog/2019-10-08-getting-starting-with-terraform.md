@@ -1,5 +1,5 @@
 ---
-date: 2019-1105T07:30:00.000+00:00
+date: 2019-11-07T07:30:00+00:00
 title: Getting Starting With Terraform
 slug: getting-started-with-terraform
 excerpt: Getting started with using Terraform for infrastructure can be a bit daunting
@@ -7,11 +7,11 @@ excerpt: Getting started with using Terraform for infrastructure can be a bit da
   those looking to get their feet wet and have a better idea of where to go for getting
   going
 tags:
+- tech
 - infrastructure-as-code
 - devops
 - terraform
 toc: true
-draft: false
 
 ---
 Getting started with using Terraform for infrastructure can be a bit daunting if you've not dived into this stuff before. I put this together as a write up for those looking to get their feet wet and have a better idea of where to go for getting some momentum in starting. There are some assuptions in this, such as basic familarity with git for source control automation, basic command line usage, and basic cloud familarity.
