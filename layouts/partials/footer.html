@@ -11,7 +11,7 @@
           {{- with .GitInfo -}}
           &nbsp;&bull;&nbsp;<a href="https://github.com/sheldonhull/sheldonhull.hugo/commit/{{ .AbbreviatedHash }}">Site [{{ .AbbreviatedHash }}]</a>
             {{- end -}}
-            &nbsp;&bull;&nbsp;
+            &nbsp;&bull;&nbsp;<img src="https://api.netlify.com/api/v1/badges/cc815d05-9008-4078-8e4f-bad42eb3281a/deploy-status" style="padding-top:5px; max-height:15px; ">
         {{- with (not (in (.Site.Language.Get "disableKinds") "RSS")) }} <a href="https://www.feedio.co/@sheldon_hull?came_from=homepagefeedbutton" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>{{ end }}
     </p>
 </footer>

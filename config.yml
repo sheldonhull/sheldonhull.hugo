@@ -5,6 +5,8 @@ theme: "hermit"
 #languageCode: "en-us"
 #defaultContentLanguage: "en"
 metadataformat: "yaml"
+timeout: 60000
+
 
 enableGitInfo: true
 
