@@ -29,6 +29,7 @@ fields:
   name: tags
   label: tags
 pages:
+- content/blog/improving-the-quality-of-your-automation-logging-with-cowsay.md
 - content/blog/the-importance-of-good-acceptance-criteria-leveraging-gherkin.md
 - content/blog/leverage-aws-system-manager-sessions.md
 - content/blog/aws-ssm-powershell-script-automation.md
