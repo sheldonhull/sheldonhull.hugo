@@ -1,4 +1,4 @@
-name: "Hugo Broken Link Check"
+name: Hugo Broken Link Check
 on:
   schedule:
     # https://crontab.guru/#0_7_1_*_*
@@ -18,4 +18,4 @@ jobs:
     env:
       HUGO_CONFIG: "config.yml"
       HUGO_FINAL_URL: https://www.sheldonhull.com
-      HUGO_ROOT: "./sheldonhull.hugo/":
+      HUGO_ROOT: "./sheldonhull.hugo/"
