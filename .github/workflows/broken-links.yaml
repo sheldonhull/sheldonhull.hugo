@@ -1,4 +1,4 @@
-name: CI
+name: Hugo Broken Link Check
 on:
   schedule:
     # https://crontab.guru/#0_7_1_*_*
