@@ -114,6 +114,19 @@ The resulting majesty:
 
 ![CLI rendered dragon with lolcat](/images/2019-11-09_18-00-06-lolcat.jpg "Lolcat for the cli win")
 
+## Linux Powerup
+
+If you want to really wow your friends... just jump into bash inside windows and run from your cli. This is a level so far beyond the normal windows command line experience it might just make you uninstall windows and live purely on a Linux terminal for your remaining days.
+
+This looks like a good background while waiting to start presentations :rocket:
+
+```bash
+# first time if repos out of date
+sudo apt update
+sudo apt install cmatrix
+```
+
+![cmatrix](/images/cmatrix.webp)
 
 ## Resources
 
