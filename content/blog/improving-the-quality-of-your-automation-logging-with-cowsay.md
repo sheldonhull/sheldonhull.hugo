@@ -17,7 +17,7 @@ You have to glue together systems with your amazing duct taped scripts.
 
 You see failure after failure.
 
-You want help predicting the success of your next run, so I'm going to provide you with an advanced artificially intelligent way to do this through the power of npm packages.
+You want help predicting the success of your next run, so I'm going to provide you with an advanced artificially intelligent way to do this through the power of `npm install`.
 
 ## NPM
 
@@ -112,7 +112,9 @@ PowerShell version is: `Install-Module lolcat -Scope CurrentUser`
 
 The resulting majesty:
 
+
 ![CLI rendered dragon with lolcat](/images/2019-11-09_18-00-06-lolcat.jpg "Lolcat for the cli win")
+
 
 ## Resources
 
@@ -120,8 +122,8 @@ The resulting majesty:
 * [Dadjokes-cli](https://pypi.org/project/dadjokes-cli/)
 * [Cownet](https://pypi.org/project/Cownet/)
 
-{% premonition type="warning" title="disclaimer" %}
+{{% premonition type="warning" title="disclaimer" %}}
 
 :warning: There are a couple ascii layouts that are a little inappropriate, so if doing a live demo or something more visible don't use random mode if you don't want something showing up that might embarass you :grin:
 
-{% /premonition %}
+{{% /premonition %}}
