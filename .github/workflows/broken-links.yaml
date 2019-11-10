@@ -30,7 +30,7 @@
 #           path: .
 #           key: tmp/.htmltest/refcache.json
 #       - name: Build
-#         run: hugo --minify
+#         run: hugo --minify --bind=0.0.0.0
 #         env:
 #           HUGO_BASEURL: localhost:1313 #https://www.sheldonhull.com/
 #           HUGO_CONFIG: ./config.yml
