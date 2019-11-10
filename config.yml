@@ -38,7 +38,9 @@ blackfriday:
 
 
 taxonomies:
-  tag: "tags"
+  tag: tags
+  series: series
+
   # Categories are disabled by default.
 
 outputs:

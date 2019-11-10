@@ -10,15 +10,8 @@ tags:
 - powershell
 title: "Capturing Perfmon Counters With Telegraf"
 slug: "capturing-perfmon-counters-with-telegraf"
+series: ["InfluxDb"]
 ---
-
-## Other Posts in Series
-
-*   [Running InfluxDb As A Service in Windows]({% post_url 2017-05-24-running-influx-db-as-a-service-in-windows  %})
-*   [Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev]({% post_url 2017-05-17-setting-up-influx-db-chronograf-and-grafana-for-the-sql-server-dev %})
-*   [InfluxDB And Annotations]({% post_url 2017-08-07-influx-db-and-annotations %})
-*   **[Capturing Perfmon Counters With Telegraf]({% post_url 2017-08-08-capturing-perfmon-counters-with-telegraf %})**
-
 
 ## Setting up Telegraf to Capture Metrics
 
@@ -32,4 +25,3 @@ Once downloaded, generate a new config file by running the first command and the
 Once this service was setup and credentials entered, it's ready to run as a service in the background, sending whatever you've configured to the destination of choice.
 
 In my test in Amazon Web Services, using EC2 with Windows Server 2016, I had no issues once EC2 issues were resolved to allow the services to start sending their metrics and show me the load being experienced across all in Grafana.
-

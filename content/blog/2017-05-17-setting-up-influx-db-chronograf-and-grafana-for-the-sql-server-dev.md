@@ -11,15 +11,8 @@ tags:
 title: "Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev"
 slug: "setting-up-influx-db-chronograf-and-grafana-for-the-sql-server-dev"
 toc: true
+series: ["InfluxDb"]
 ---
-
-## Other Posts in Series
-
-*   [Running InfluxDb As A Service in Windows]({% post_url 2017-05-24-running-influx-db-as-a-service-in-windows  %})
-*   **[Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev]({% post_url 2017-05-17-setting-up-influx-db-chronograf-and-grafana-for-the-sql-server-dev %})**
-*   [InfluxDB And Annotations]({% post_url 2017-08-07-influx-db-and-annotations %})
-*   [Capturing Perfmon Counters With Telegraf]({% post_url 2017-08-08-capturing-perfmon-counters-with-telegraf %})
-
 
 There are some beautiful ways to visualize time series data with the tools I'm going to go over. This post is purely focused on the initial setup and saving you some time there. In a future post, I'll show how some of these tools can help you visualize your server performance in a powerful way, including taking metrics from multiple types of servers that be working with SQL Server, and combining the metrics when appropriate to give a full picture of performance.
 

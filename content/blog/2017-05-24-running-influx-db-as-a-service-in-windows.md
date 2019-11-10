@@ -10,16 +10,8 @@ tags:
 title: "Running InfluxDB as a service in Windows"
 slug: "running-influx-db-as-a-service-in-windows"
 toc: true
+series: ["InfluxDb"]
 ---
-
-## Other Posts in Series
-
-
-*   **[Running InfluxDb As A Service in Windows]({% post_url 2017-05-24-running-influx-db-as-a-service-in-windows  %})**
-*   [Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev]({% post_url 2017-05-17-setting-up-influx-db-chronograf-and-grafana-for-the-sql-server-dev %})
-*   [InfluxDB And Annotations]({% post_url 2017-08-07-influx-db-and-annotations %})
-*   [Capturing Perfmon Counters With Telegraf]({% post_url 2017-08-08-capturing-perfmon-counters-with-telegraf %})
-
 
 ## Run as a Service
 
@@ -53,4 +45,3 @@ This resulted in the following output:
     C:\tools\nssm.exe set InfluxDB Type SERVICE_WIN32_OWN_PROCESS
 
 Pretty awesome! It's a nice change to have something perfectly the first time with no issues.
-

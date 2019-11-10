@@ -11,15 +11,8 @@ tags:
 title: "InfluxDB and Annotations"
 slug: "influx-db-and-annotations"
 toc: true
+series: ["InfluxDb"]
 ---
-
-## Other Posts in Series
-
-*   [Running InfluxDb As A Service in Windows]({% post_url 2017-05-24-running-influx-db-as-a-service-in-windows  %})
-*   [Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev]({% post_url 2017-05-17-setting-up-influx-db-chronograf-and-grafana-for-the-sql-server-dev %})
-*   **[InfluxDB And Annotations]({% post_url 2017-08-07-influx-db-and-annotations %})**
-*   [Capturing Perfmon Counters With Telegraf]({% post_url 2017-08-08-capturing-perfmon-counters-with-telegraf %})
-
 
 This post assumes you've already setup InfluxDB and have Grafana running.
 
@@ -57,4 +50,3 @@ I could see a whole lot of uses for this!
 *   Specific Database Related Maintenance like Ola Hallengren's index optimize or database integrity check
 
 Monitoring always loses it's value when you have a limited picture of what is happening. Triggering relevant details for stuff that might help analyze activity might be the key to immediately gaining an understanding on what is causing a spike of activity, or of better evaluating the timeline of a load test.
-
