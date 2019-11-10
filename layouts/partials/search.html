@@ -1,28 +1,30 @@
 <script src="{{ .Site.BaseURL }}js/liveSearch.js"></script>
 
 <script>
-/* Open when someone clicks on the span element */
-function openNav() {
-    document.getElementById("search-overlay").style.width = "100%";
-    document.getElementById("searchButton").style.display = "none";
-}
+    /* Open when someone clicks on the span element */
+    function openNav() {
+        document.getElementById("search-overlay").style.width = "100%";
+        document.getElementById("searchButton").style.display = "none";
+    }
 
-/* Close when someone clicks on the "x" symbol inside the overlay */
-function closeNav() {
-    document.getElementById("search-overlay").style.width = "0%";
-    document.getElementById("searchButton").style.display = "block";
+    /* Close when someone clicks on the "x" symbol inside the overlay */
+    function closeNav() {
+        document.getElementById("search-overlay").style.width = "0%";
+        document.getElementById("searchButton").style.display = "block";
 
-}
+    }
 </script>
+
 <script>
-        window.addEventListener('keydown', function(e){
-            if((e.key=='Escape'||e.key=='Esc'||e.keyCode==27) ){ /*&& (e.target.nodeName=='BODY')*/
-                e.preventDefault();
-                document.getElementById("search-overlay").style.width = "0%";
-                document.getElementById("searchButton").style.display = "block";
-                return false;
-            }
-        }, true);
+    window.addEventListener('keydown', function (e) {
+        if ((e.key == 'Escape' || e.key == 'Esc' || e.keyCode == 27)) {
+            /*&& (e.target.nodeName=='BODY')*/
+            e.preventDefault();
+            document.getElementById("search-overlay").style.width = "0%";
+            document.getElementById("searchButton").style.display = "block";
+            return false;
+        }
+    }, true);
 </script>
 <!-- The overlay -->
 <!-- Use any element to open/show the overlay navigation menu -->
@@ -37,13 +39,15 @@ function closeNav() {
     <!-- Overlay content -->
     <div class="overlay-content">
         <div class="container">
-                <input autocomplete=off id="search" class="search-input" type="search" placeholder="Type to Search">
-                <span class="search-bar"></span>
-                <span class="esc-note">press <strong>ESC</strong> to close</span>
-                <span><a href="https://www.algolia.com/"><i class="fab fa-algolia"></i></a></span>
-                <div id="results" class="search-results">
-                </div>
+            <input autocomplete=off id="search" class="search-input" type="search" placeholder="Type to Search">
+            <span class="search-bar"></span>
+            <span class="esc-note">press <strong>ESC</strong> to close</span>
+            <span><a href="https://www.algolia.com/"><i class="fab fa-algolia"></i></a></span>
+            <div id="results" class="search-results">
             </div>
+        </div>
     </div>
 
-  </div>
+</div>
+
+</div>

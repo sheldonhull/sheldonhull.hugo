@@ -18,3 +18,4 @@
 {{ $script := resources.Get "js/applause-button.js" | minify | fingerprint -}}
 <script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}></script>
 <script defer src="https://unpkg.com/applause-button/dist/applause-button.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.1"></script>

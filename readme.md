@@ -25,5 +25,5 @@ git add . ; git commit -m "commit-$(invoke-generate '[adjective]-[noun]')"; git 
 Tutorial here:
 [search-with-algolia-in-hugo](https://forestry.io/blog/search-with-algolia-in-hugo/)
 ```
-npm atomic algolia
+npm install atomic-algolia
 ```
