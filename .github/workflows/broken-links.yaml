@@ -18,4 +18,4 @@ jobs:
     env:
       HUGO_CONFIG: "config.yml"
       HUGO_FINAL_URL: https://www.sheldonhull.com
-      #HUGO_ROOT: "./":
+      HUGO_ROOT: "./sheldonhull.hugo/":
