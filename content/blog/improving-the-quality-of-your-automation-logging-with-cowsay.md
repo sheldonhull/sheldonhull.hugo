@@ -1,5 +1,5 @@
 ---
-date: 2019-11-09T19:01:13+00:00
+date: 2019-11-11T13:00:00+00:00
 title: Improving the Quality of Your Automation Logging with Cowsay
 slug: improving-the-quality-of-your-automation-logging-with-cowsay
 excerpt: 'Everyone involved in DevOps should have this critical tool in their toolchain... '
@@ -8,7 +8,6 @@ tags:
 - cool-tools
 - devops
 - tech
-draft: true
 
 ---
 ## Automation Taxes Your Sanity
