@@ -11,5 +11,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Cache
+      uses: actions/cache@v1.0.0
     - name: Hugo Broken Link Check
       uses: marccampbell/hugo-linkcheck-action@v0.1.0
+    env:
+      HUGO_CONFIG: "config.yml"
+      HUGO_FINAL_URL: https://www.sheldonhull.com
+      #HUGO_ROOT: "./":
