@@ -1,21 +1,50 @@
-name: Hugo Broken Link Check
-on:
-  schedule:
-    # https://crontab.guru/#0_7_1_*_*
-    # “At 07:00 on day-of-month 1.”
-    - cron: '0 7 1 * *'
-  push:
-    branches:
-    - master
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-#     - name: Cache
-#       uses: actions/cache@v1.0.0
-    - name: Hugo Broken Link Check
-      uses: marccampbell/hugo-linkcheck-action@v0.1.0
-    env:
-      HUGO_CONFIG: "config.yml"
-      HUGO_FINAL_URL: https://www.sheldonhull.com
-      HUGO_ROOT: "./sheldonhull.hugo/"
+# name: Hugo Broken Link Check
+# on:
+#   schedule:
+#     # https://crontab.guru/#0_7_1_*_*
+#     # “At 07:00 on day-of-month 1.”
+#     - cron: "0 7 1 * *"
+#   push:
+#     branches:
+#       - master
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@master
+
+#         # with:
+#         #   submodules: true
+#       - name: Setup Hugo
+#         uses: peaceiris/actions-hugo@v2.2.2
+#         with:
+#           hugo-version: "0.58.3"
+#           # extended: true
+#       - name: Submodule update
+#         run: git submodule update --init --recursive
+#         shell: bash
+#       - name: Cache hugo
+#         id: cache-hugo
+#         uses: actions/cache@v1
+#         with:
+#           path: .
+#           key: tmp/.htmltest/refcache.json
+#       - name: Build
+#         run: hugo --minify
+#         env:
+#           HUGO_BASEURL: localhost:1313 #https://www.sheldonhull.com/
+#           HUGO_CONFIG: ./config.yml
+
+#           HUGO_FINAL_URL: https://www.sheldonhull.com
+#           HUGO_ROOT: "."
+#           HUGO_CONTENT_ROOT: ./content
+#           HUGO_STARTUP_WAIT: 30
+#           HUGO_ENABLEGITINFO: true
+#           HUGO_DESTINATION: "public"
+#           HUGO_VERSION: 0.59.0
+#           HUGO_BUILDFUTURE: true
+#       - name: Run htmltest
+#         run:
+#           curl https://htmltest.wjdp.uk | bash
+#           htmltest .
+#         shell: bash
