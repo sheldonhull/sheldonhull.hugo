@@ -15,6 +15,7 @@ canonifyurls: true
 pluralizeListTitles: false
 rssLimit: 10  # Maximum number of items in the RSS feed.
 
+# gallery of styles http://richleland.github.io/pygments-css/
 pygmentsstyle: "monokai"
 pygmentscodefences: true
 pygmentscodefencesguesssyntax: true
@@ -100,9 +101,9 @@ menu:
     - name: "Blog"
       weight: 1
       url : "/blog/"
-    - name: "Micro.Blog"
+    - name: "Stream"
       weight: 1
-      url : "/microblog/"
+      url : "/stream/"
     - name: "Tags"
       url: "/tags/"
       weight: 2
