@@ -1,0 +1,70 @@
+{{ define "head" }}
+{{ if .Params.featuredImg -}}
+<style>
+    .bg-img {
+        background-image: url('{{.Params.featuredImg}}');
+    }
+</style>
+{{- else if .Params.images -}}
+{{- range first 1 .Params.images -}}
+<style>
+    .bg-img {
+        background-image: url('{{. | absURL}}');
+    }
+</style>
+{{- end -}}
+{{- end -}}
+{{ end }}
+
+{{ define "header" }}
+{{ partial "header.html" . }}
+{{ end }}
+
+{{ define "main" }}
+{{- if (or .Params.images .Params.featuredImg) }}
+<div class="bg-img"></div>
+{{- end }}
+<main class="site-main section-inner animated fadeIn faster">
+    <div class="tweeter">
+        <div class="content">
+                <div id="wrapper">
+
+            <script>$(document).ready(function () {
+                    if (!$.browser.webkit) {
+                        $('.tweeter').html('<p>Sorry! Non webkit users. :(</p>');
+                    }
+                });</script>
+            <script type="text/javascript">
+                // https://dev.twitter.com/web/javascript/loading
+                window.twttr = (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0],
+                        t = window.twttr || {};
+                    if (d.getElementById(id)) return t;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "https://platform.twitter.com/widgets.js";
+                    js.async = true;
+                    fjs.parentNode.insertBefore(js, fjs);
+                    t._e = [];
+                    t.ready = function (f) {
+                        t._e.push(f);
+                    };
+                    return t;
+                }(document, "script", "twitter-wjs"));
+            </script>
+
+        <div class="scrollbar" id="style-2">
+            <a class="twitter-timeline" data-theme="dark"     data-chrome="noheader noborders transparent nofooter" href="https://twitter.com/sheldon_hull?ref_src=twsrc%5Etfw"></a>
+        </div>
+    </div><!--  end wrapper -->
+            <!-- <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+        </div>
+    </div>
+</main>
+
+</div>
+{{ end }}
+
+{{ define "footer" }}
+{{ partialCached "footer.html" . }}
+{{ end }}
