@@ -28,7 +28,6 @@ Untrusted Check Constraints and FKs can actually impact the performance of the q
 
 I forked the script from Brent's link above and modified to iterate through and generate the script for running the check against everything in the database. This could be modified to be server wide if you wish as well. Original DMV query credit to Brent, and the the tweaks for running them against the database automatically are my small contribution.
 
-Note: I wrote on this a while back, totally missed that I had covered this. For an older perspective on this: [Stranger Danger... The need for trust with constraints]({% post_url 2015-08-13-stranger-danger...-the-need-for-trust-with-constraints %})
+Note: I wrote on this a while back, totally missed that I had covered this. For an older perspective on this: [Stranger Danger... The need for trust with constraints]({{< relref "2015-08-13-stranger-danger...-the-need-for-trust-with-constraints.md" >}})
 
 {{% gist 2454ce9134eac225ce264c64adb331a9 %}}
-

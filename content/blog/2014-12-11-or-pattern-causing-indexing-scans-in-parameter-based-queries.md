@@ -10,7 +10,7 @@ slug: "or-pattern-causing-indexing-scans-in-parameter-based-queries"
 
 _(time constraints prevented me from reworking significantly)_
 
-An [article on SQL-Server-pro](http://www.sql-server-pro.com/or-condition-performance.html) was forwarded over to me to research by a friend who indicated that using a variable with an or pattern had historically caused table scans. This was a suprise to me as all previous queries with optional parameters I'd used in the past seemed to use index seeks. I had to dig into this a little deeper to see if had been missing this in my past work and needed to find an alternative method for optional parameters. Original test procedure copied from original [article](http://www.sql-server-pro.com/or-condition-performance.html)
+"or-condition-performance" article on SQL Server Pro was forwarded over to me to research by a friend who indicated that using a variable with an or pattern had historically caused table scans. This was a suprise to me as all previous queries with optional parameters I'd used in the past seemed to use index seeks. I had to dig into this a little deeper to see if had been missing this in my past work and needed to find an alternative method for optional parameters. Original test procedure copied from original.
 
 {{% gist 4f8446420776336f7478 %}}
 
@@ -34,4 +34,3 @@ However, the stored procedure is not passing in the actual value after the first
 However, when result sets can greatly vary, the problem of parameter sniffing can become a problem. In addition, if the OR statement is utilized as my original problem mentioned, the optimizer can decide that since parameter value is unknown at this time, that with an OR clause it would be better to run a table scan since all table results might be returned, rather than a seek.
 
 To bypass this, there are various approaches, but all are a compromise of some sort. The common approach to resolving if truly various selections may be made (in the case of SSRS reports for example) is to utilize option(recompile). This provide the actual value back to the compiler at run time, causing higher CPU usage, but also ensuring the usage of indexes and reducing scans when the columns are properly indexed. Again, this is one solution among several, which can include building dynamic query strings, logic blocks, and other methods.
-

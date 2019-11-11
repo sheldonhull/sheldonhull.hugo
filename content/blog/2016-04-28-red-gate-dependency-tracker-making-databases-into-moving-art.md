@@ -23,7 +23,7 @@ I figured I'd share with others a more artistic side of database architecture, a
 ## visual review of data structures
 
 This is the architecture of the application I work on everyday. I inherited care of a system that shows the attention and design that was put into it. The order of the key relationships is obvious. I've worked on some systems that this diagram would be completely different story without the order and structure.
-The interesting part about the visual dependency view is you can often see orphaned objects that aren't correctly linked to their parent objects, so it can serve as a useful tool to help improve existing designs. My previous article about tools I've use for this is here...[Documenting Your Database with Diagrams]({% post_url 2015-12-09-documenting-your-database-with-diagrams %})
+The interesting part about the visual dependency view is you can often see orphaned objects that aren't correctly linked to their parent objects, so it can serve as a useful tool to help improve existing designs. My previous article about tools I've use for this is here...[Documenting Your Database with Diagrams]({{< relref "2015-12-09-documenting-your-database-with-diagrams.md" >}})
 Enjoy!
 
 ![circular](/images/2016-04-27_17-27-07_circular.jpg)
@@ -33,4 +33,3 @@ Enjoy!
 ![smartorganic](/images/2016-04-27_17-28-32_smartorganic.jpg)
 
 ![hierarchic](/images/2016-04-27_17-26-45_hierarchic.jpg)
-

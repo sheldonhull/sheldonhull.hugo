@@ -26,6 +26,7 @@
             "menu.selectionForeground": "#616161",
             "menubar.selectionForeground": "#616161",
             "activityBar.background": "#3ed37a",
+            "activityBar.activeBorder": "#9463db",
             "activityBar.foreground": "#15202b",
             "activityBar.inactiveForeground": "#15202b99",
             "activityBarBadge.background": "#9463db",

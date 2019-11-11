@@ -69,9 +69,9 @@ choco upgrade git terraform vscode vscode-powershell -y
 This will require a Terraform Cloud account. At the time of this post they have a plan for around 5 users for free with a few features turned off. This may change in the future, so when creating the account, you'll have to see what features are no longer enabled as this matures in the free product.
 {{% /premonition %}}
 
-Setup your [Terraform App Account](https://app.terraform.io/account/new) and _make sure to enable 2FA_.
+Setup your [Terraform App Account](https://app.terraform.io/signup/account) and _make sure to enable 2FA_.
 
-Once you've been added, create a personal access token at your [user settings](https://app.terraform.io/app/settings/tokens) (this is personal, not team based)
+Once you've been added, create a personal access token at your user settings (this is personal, not team based)
 
 Now you need to add this credential file to your system so terraform can find it, which will make the remainder of projects automatically work with it.
 

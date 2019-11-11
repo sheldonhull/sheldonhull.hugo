@@ -9,13 +9,13 @@ slug: "sql-2016-brief-overview-on-some-new-features"
 These are notes taken from the [Houston SQL Pass User group from July](http://houston.sqlpass.org/Home.aspx?EventID=5496). This presentation was given by John Cook, (Data Platform Solution Architect Microsoft) who did a great job with limited time on providing some great details on the new functionality with SQL 2016. To follow him, take a look at sqlblog.com where he posts or follow him on twitter. Thanks to him for the overview.
 
 > ####
-> [JohnPaulCook (@JohnPaulCook) on Twitter](https://twitter.com/intent/user?screen_name=JohnPaulCook)
+> JohnPaulCook (@JohnPaulCook) on Twitter
 >
 > Microsoft Data Platform specialist and Registered Nurse
 <script data-preserve-html-node="true" async=" src="platform.js" charset="UTF-8"></script>
 
 > ####
-> [John Paul Cook](http://sqlblog.com/blogs/john_paul_cook/)
+> John Paul Cook Sql Blog (No Link)
 >
 > SQL Blog - Blogs about SQL Server, T-SQL, CLR, Service Broker, Integration Services, Reporting, Analysis Services, Business Intelligence, XML, SQL Scripts, best practices, database development, database administration, and programming
 <script data-preserve-html-node="true" async=" src="platform.js" charset="UTF-8"></script>
@@ -53,4 +53,3 @@ Another positive to this is that each table is contained as it's own "database" 
 ## Temporal Database
 
 Microsoft keeps track of all your changes in a table. You have to enable on each table individually. This functionality stores the history of all changes to ensure this history is tracked. This used to require a lot of coding.
-

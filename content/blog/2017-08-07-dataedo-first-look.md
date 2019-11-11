@@ -18,7 +18,7 @@ Overall, I've enjoyed the product and think it has been improved over time. Ther
 
 ## Diagramming and Documentation
 
-Previously, I've [written up on database diagramming]({% post_url 2015-12-09-documenting-your-database-with-diagrams %})for visualization of database structures. Check that out for more detailed review on what I've used.
+Previously, I've [written up on database diagramming]({{< relref "2015-12-09-documenting-your-database-with-diagrams.md" >}})for visualization of database structures. Check that out for more detailed review on what I've used.
 
 I've recently taken a swing at this newer tool and found it very promising as a database documentation tool that bridged the gap of usability and flexibility.
 

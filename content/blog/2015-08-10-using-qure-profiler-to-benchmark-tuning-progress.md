@@ -81,7 +81,7 @@ _*When comparing new (1000) simplified procs vs 100 on original views it showed:
 
 ### Additional functionality I haven't even touched on
 
-Qure Profiler offers additional functionality that I haven't even gotten a chance to touch on. It can normalize the count of events to compare an even 100 against another 100 even when the second trace might have run longer and caught the event more than the 100 times. Check out [their page](http://www.dbsophic.com/qure-analyzer) for more details.
+Qure Profiler offers additional functionality that I haven't even gotten a chance to touch on. It can normalize the count of events to compare an even 100 against another 100 even when the second trace might have run longer and caught the event more than the 100 times. Check out [their page](https://www.dbsophic.com/) for more details.
 
 ## TL;DR Summary
 

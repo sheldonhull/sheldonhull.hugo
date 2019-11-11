@@ -13,9 +13,11 @@ toc: true
 
 ## SQL Server Install Requirements
 
-SQL Server Installation requirements indicate .NET 3.5, 4.0, or 4.6 depending on the version. This is not including SSMS. At this point you shouldn't use SSMS from any SQL ISO. Just install SQL Management Studio directly. See  for more details on this
-- [Improvements with SSMS 2016]({% post_url 2016-07-12-improvements-with-ssms-2016 %})
-- [Update SSMS With PS1]({% post_url 2017-07-03-update-ssms-with-ps1 %})
+SQL Server Installation requirements indicate .NET 3.5, 4.0, or 4.6 depending on the version. This is not including SSMS. At this point you shouldn't use SSMS from any SQL ISO. Just install SQL Management Studio directly.
+
+See for more details on this
+- [Improvements with SSMS 2016]({{< relref "2016-07-12-improvements-with-ssms-2016.md" >}})
+- [Update SSMS With PS1]({{< relref "2017-07-03-update-ssms-with-ps1.md" >}})
 
 From a quick review here's what you have regarding .NET requirements for the database engine.
 

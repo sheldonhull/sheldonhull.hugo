@@ -3,32 +3,34 @@
 {{ end }}
 
 {{ define "main" }}
-	<main class="site-main section-inner thin animated fadeIn faster">
-		<h1>{{ .Title }}</h1>
-		{{- if .Content }}
-		<div class="content">
-			{{ .Content }}
-		</div>
-		{{- end }}
-		{{- range .Data.Pages.GroupByDate "2006" }}
-		<div class="posts-group">
-			<div class="post-year" id="{{ .Key }}">{{ .Key }}</div>
-			<ul class="posts-list">
-				{{- range .Pages }}
-				<li class="post-item">
-					<a href="{{.Permalink}}">
-						<span class="post-title">
-                            {{ if .Params.Draft }}<div class="tag draft">draft</div>{{ end }}
-                            {{ if gt .Params.date now }}<div class="tag future">future</div>{{ end }}
-                             {{.Title}}</span>
-						<span class="post-day">{{ .Date.Format (.Site.Params.dateFormat | default "") }}</span>
-					</a>
-				</li>
-				{{- end }}
-			</ul>
-		</div>
-		{{- end }}
-	</main>
+<main class="site-main section-inner thin animated fadeIn faster">
+    <h1>{{ .Title }}</h1>
+    {{- if .Content }}
+    <div class="content">
+        {{ .Content }}
+    </div>
+    {{- end }}
+    {{- range .Data.Pages.GroupByDate "2006" }}
+    <div class="posts-group">
+        <div class="post-year" id="{{ .Key }}">{{ .Key }}</div>
+        <ul class="posts-list">
+            {{- range .Pages }}
+            <li class="post-item">
+                <a href="{{.Permalink}}">
+
+                    <span class="post-title"><span class="listmonth">{{ .Date.Format "Jan"  }}</span>
+                    {{ if .Params.Draft }}<div class="posttag draft">draft</div>{{ end }}
+                    {{ if gt .Params.date now }}<div class="posttag scheduled">scheduled</div>{{ end }}
+                    {{.Title}}</span>
+                    <span class="post-day">{{ .Date.Format (.Site.Params.dateFormat | default "") }}</span>
+                </a>
+            </li>
+            {{- end }}
+        </ul>
+    </div>
+    {{- end }}
+
+</main>
 {{ end }}
 
 {{ define "footer" }}

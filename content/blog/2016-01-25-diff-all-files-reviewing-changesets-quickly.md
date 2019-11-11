@@ -12,7 +12,7 @@ toc: true
 # Diff all files
 
 {{% premonition type="info" title="Updated: 2017-07-14" %}}
-Still find this incredibly awesome! Developer just updated for Visual Studio 2017 after a lot of hard work. Github repo here for any issues. Big thanks to DeadlyDog for this great tool and putting in the effort to update for VS2017. [deadlydog/VS.DiffAllFiles: Visual Studio Extension to make comparing files before and after committing them to Git and TFS faster and easier](http://bit.ly/2vkXGI9)
+Still find this incredibly awesome! Developer just updated for Visual Studio 2017 after a lot of hard work. Github repo here for any issues. Big thanks to DeadlyDog for this great tool and putting in the effort to update for VS2017. [deadlydog/VS.DiffAllFiles: Visual Studio Extension to make comparing files before and after committing them to Git and TFS faster and easier](https://github.com/deadlydog/VS.DiffAllFiles)
 {{% /premonition %}}
 
 {{% premonition type="info" title="Updated: 2016-01-25" %}}
