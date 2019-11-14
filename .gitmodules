@@ -1,18 +1,3 @@
-[submodule "themes/hugo-coder"]
-	path = themes/hugo-coder
-	url = https://github.com/sheldonhull/hugo-coder.git
-[submodule "themes/cupper-hugo-theme"]
-	path = themes/cupper-hugo-theme
-	url = https://github.com/sheldonhull/cupper-hugo-theme.git
-[submodule "themes/sam"]
-	path = themes/sam
-	url = https://github.com/sheldonhull/hugo-theme-sam.git
-[submodule "themes/beautifulhugo"]
-	path = themes/beautifulhugo
-	url = https://github.com/sheldonhull/beautifulhugo.git
 [submodule "themes/hermit"]
 	path = themes/hermit
 	url = https://github.com/sheldonhull/hermit.git
-[submodule "themes/internet-weblog"]
-	path = themes/internet-weblog
-	url = https://github.com/jnjosh/internet-weblog.git
