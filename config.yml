@@ -118,6 +118,12 @@ menu:
       url: "/about/"
 
 params:
+  search:
+    algolia:
+      app_id: 04HSGXXQD5
+      api_key: a7ec2763a5d966a5b9f8d70b254bfb68
+      index_name: sheldonhull
+      show_logo: true
   RSSSection: ["blog","microblog"]
   rssmicroblogtitles: true
   RSSEnabled: true

@@ -18,20 +18,7 @@
         "panelTitle.activeBorder": "#616161",
         "breadcrumb.activeSelectionForeground": "#616161",
         "menu.selectionForeground": "#616161",
-        "menubar.selectionForeground": "#616161",
-        "activityBar.background": "#3ed37a",
-        "activityBar.foreground": "#15202b",
-        "activityBar.inactiveForeground": "#15202b99",
-        "activityBarBadge.background": "#9463db",
-        "activityBarBadge.foreground": "#e7e7e7",
-        "titleBar.activeBackground": "#29b561",
-        "titleBar.inactiveBackground": "#29b56199",
-        "titleBar.activeForeground": "#15202b",
-        "titleBar.inactiveForeground": "#15202b99",
-        "statusBar.background": "#29b561",
-        "statusBarItem.hoverBackground": "#208b4b",
-        "statusBar.foreground": "#15202b",
-        "tab.activeBorder": "#3ed37a"
+        "menubar.selectionForeground": "#616161"
     },
     "markdownTablePrettify.showWindowMessages": false,
     "[markdown]": {
