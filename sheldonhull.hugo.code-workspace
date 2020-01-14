@@ -1,8 +1,8 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
+    "folders": [
+        {
+            "path": "."
+        }
     ],
     "settings": {
         "workbench.colorCustomizations": {
@@ -31,5 +31,10 @@
             ""
         ],
         "peacock.color": "#29b561"
+    },
+    "extensions": {
+        "recommendations": [
+            "znck.grammarly"
+        ]
     }
 }

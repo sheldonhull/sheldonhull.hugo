@@ -9,4 +9,3 @@ excerpt: "My experiments with origami"
 
 
 {{% fancybox-srcset galleryname="origami" %}}
-data-fancybox data-caption=
