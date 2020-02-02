@@ -25,17 +25,13 @@ I've been blessed with 3 kids and a wonderful wife Sarah who has brought beauty 
 
 ## Work
 
-{{<button href="https://stackoverflow.com/story/sheldonhull" theme="success">}} Resume/Developer Story {{< /button >}}
+{{<button href="https://ceev.io/@sheldonhull" theme="success">}} Professional Profile // Resume {{< /button >}}
 
-I’ve got over 8 years of experience working database performance tuning & design. I’ve worked with AWS, been involved with disaster recovery & scalability planning, automation, extensive exposure to .NET, DevOps practices, and more.
+I've summed up more detail there, than in this spot, so take a peek at that if you want a professional run down.
 
-I'm obsessed with automation and making tools and processes more streamlined to improve everyone's day.
-
-I ♥ code
+I ♥ code.
 
 Software, Infrastructure-as-code, Compliance-as-code, my resume as code... you name it 😁
-
-With a passion for automation and excellence I’m a good fit for a DevOps culture that believes in agility and quality. I enjoy blogging at sheldonhull.com and contributing back to the open-source community when possible. I use spaces, Vscode City Lights dark theme, ligature fonts, ultrawide monitor, GitHub, and craft magic from this. I'm also guilty of trying out far too many terminal enhancements and trying to convince myself my Windows 10 shell will someday be as cool as Oh My Zsh. ¯\_(ツ)_/¯
 
 I also think the world needs more emojis and tacos 🌮🌮🌮
 
@@ -45,7 +41,8 @@ My passions extend beyond technology into the creative realm as well. I've enjoy
 
 ### Music - On Desk
 
-<iframe src="https://open.spotify.com/embed/user/g00p3k/playlist/4wrFiI6chFbzEx4fAb9ztX" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-
 If you want to check out some new music, this is my up to date "on deck" playlist of music I rock out to.
-<iframe src="https://open.spotify.com/embed/user/g00p3k/playlist/6iTEfldMfbgbuUwzSdib4X" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+
+{{< rawhtml >}}
+<iframe src="https://open.spotify.com/embed/playlist/6iTEfldMfbgbuUwzSdib4X" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+{{< /rawhtml >}}
