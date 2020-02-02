@@ -16,10 +16,10 @@ pluralizeListTitles: false
 rssLimit: 10  # Maximum number of items in the RSS feed.
 
 # gallery of styles http://richleland.github.io/pygments-css/
-pygmentsstyle: "monokai"
-pygmentscodefences: true
-pygmentscodefencesguesssyntax: true
-pygmentsUseClasses: true
+# pygmentsstyle: "monokai"
+# pygmentscodefences: true
+# pygmentscodefencesguesssyntax: true
+# pygmentsUseClasses: true
 
 enableEmoji: true  # Shorth and emojis in content files - https://gohugo.io/functions/emojify/
 
@@ -31,10 +31,6 @@ googleAnalytics: "UA-40198001-3"
 
 copyright: "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License." # This message is only used by the RSS template.
 
-blackfriday:
-  hrefTargetBlank: true
-  noreferrerLinks: true
-  nofollowLinks: true
 
 
 
@@ -148,7 +144,10 @@ params:
   themeColor: "#22252e" # "#494f5c"
 
 
-  homeSubtitle: "DevOps // SQL & Automation"
+  homeSubtitle:
+    - Developer
+    - You'll find various tech topics I've found interesting, with a smidge of other things
+    - ... including emoji tacos 🌮🌮🌮
   footerCopyright: ' &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
   bgImg: "images/2016-04-27_17-27-07_circular.jpg"  # Homepage background-image URL
@@ -178,6 +177,62 @@ params:
       url: "https://twitter.com/sheldon_hull"
     - name: "github"
       url: "https://github.com/sheldonhull"
+    - name: "stackoverflow"
+      url: "https://stackoverflow.com/users/68698/sheldonh"
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/sheldonhull"
 
   style:
     backgroundColor: "#018574"
+
+markup:
+  blackFriday:
+    angledQuotes: false
+    extensions: null
+    extensionsMask: null
+    footnoteAnchorPrefix: ""
+    footnoteReturnLinkContents: ""
+    fractions: true
+    hrefTargetBlank: true
+    latexDashes: true
+    nofollowLinks: false
+    noreferrerLinks: false
+    plainIDAnchors: true
+    skipHTML: false
+    smartDashes: true
+    smartypants: true
+    smartypantsQuotesNBSP: false
+    taskLists: true
+  defaultMarkdownHandler: goldmark
+  goldmark:
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      strikethrough: true
+      table: true
+      taskList: true
+      typographer: true
+    parser:
+      attribute: true
+      autoHeadingID: true
+      autoHeadingIDType: github
+    renderer:
+      hardWraps: false
+      unsafe: false
+      xHTML: false
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    hl_Lines: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: false
+    # https://xyproto.github.io/splash/docs/all.html
+    #style: paraiso-dark #solarized-dark256
+    tabWidth: 4
+  tableOfContents:
+    endLevel: 3
+    ordered: false
+    startLevel: 2

@@ -8,4 +8,4 @@ excerpt: "My experiments with origami"
 ---
 
 
-{{% fancybox-srcset galleryname="origami" %}}
+{{< fancybox-srcset galleryname="origami" >}}

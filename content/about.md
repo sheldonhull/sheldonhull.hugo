@@ -25,15 +25,23 @@ I've been blessed with 3 kids and a wonderful wife Sarah who has brought beauty 
 
 ## Work
 
-{{<button href="/files/material-dark.pdf" theme="success">}} Download Resume {{< /button >}}
+{{<button href="https://stackoverflow.com/story/sheldonhull" theme="success">}} Resume/Developer Story {{< /button >}}
 
-I specialize in working with SQL Server to help speed things up, and develop solutions focused on SQL Server. I have a passion for automation, streamlining, implementing a healthy Database Lifecycle Management (DLM) process. I've additionally dived into PowerShell to help automate many of the tasks for testing and deploying SQL databases, as well as some projects with C#. I've been excited to be part of the #sqlfamily and connect with various members online that have helped provide such a rich experience for the community to draw on and learn from. AWS is a big part of my work, and I've run performance related testing, configuration, and other stuff up in the magical land of the cloud. I've worked a little with Azure as well.
+I’ve got over 8 years of experience working database performance tuning & design. I’ve worked with AWS, been involved with disaster recovery & scalability planning, automation, extensive exposure to .NET, DevOps practices, and more.
 
-I'm allergic to red-tape, excessive emails, meetings for the sake of meetings, and busy work for the sake of busy work. I like to bring real value and see the company and client's work impacted for the better thanks to my efforts. Saving folks some money and time is always a win!
+I'm obsessed with automation and making tools and processes more streamlined to improve everyone's day.
+
+I ♥ code
+
+Software, Infrastructure-as-code, Compliance-as-code, my resume as code... you name it 😁
+
+With a passion for automation and excellence I’m a good fit for a DevOps culture that believes in agility and quality. I enjoy blogging at sheldonhull.com and contributing back to the open-source community when possible. I use spaces, Vscode City Lights dark theme, ligature fonts, ultrawide monitor, GitHub, and craft magic from this. I'm also guilty of trying out far too many terminal enhancements and trying to convince myself my Windows 10 shell will someday be as cool as Oh My Zsh. ¯\_(ツ)_/¯
+
+I also think the world needs more emojis and tacos 🌮🌮🌮
 
 ## Other Interests
 
-My passions extend beyond technology into the creative realm as well. I've enjoyed doing videography, photography, and creating music. I've been honored to serve as an associate pastor of worship for a period of time, and still engage in church community with the goal of loving like Jesus demonstrated. I'm a sucker for good post-rock music, which I think is the best type of music for coding around.
+My passions extend beyond technology into the creative realm as well. I've enjoyed doing videography, photography, and creating music. Electric & acoustic guitar have always been a passion. I'm a sucker for good post-rock music, which I think is the best type of music for coding around.
 
 ### Music - On Desk
 

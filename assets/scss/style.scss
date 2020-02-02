@@ -1,14 +1,14 @@
 @import "functions.scss";
 @import "predefined.scss";
 @import "normalize.scss";
-@import "syntax.scss";
+@import "code-syntax.scss";
 @import "animate.scss";
 
 @import "notice.scss";
 @import "shortcodes.scss";
 @import "applause-button.scss";
 @import "disqus.scss";
-@import "pygments.scss";
+// @import "pygments.scss";
 @import "search.scss";
 @import "search-form.scss";
 @import "microblog.scss";
@@ -52,42 +52,71 @@ textarea {
   font-family: $fonts;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 pre,
 code,
 pre tt {
   font-family: $code-fonts;
-}
 
+
+
+}
+code {
+        filter: drop-shadow(0 0 1px #03edf9);
+}
 pre {
+    /* Active tab neon */
+//   box-shadow: inset 0 -5px 25px #fc28a825;
+//   position: relative;
+
+
   padding: .7em 1.1em;
   overflow: auto;
-  font-size: .9em;
+  font-size: 1.0em;
   line-height: 1.5;
   letter-spacing: normal;
   white-space: pre;
-  color: #eee;
-  background: $midnightblue;
   border-radius: 4px;
-  // -webkit-overflow-scrolling: touch;
 
-  code {
-    padding: 0;
-    margin: 0;
-    background: $midnightblue;
-  }
-}
 
-code {
-  color: #eee;
-  background: $highlight-grey;
-  border-radius: 3px;
-  padding: 0 3px;
-  margin: 0 4px;
-  word-wrap: break-word;
-  letter-spacing: normal;
+//  synthwave :-)
+/* Add the subtle gradient to the editor background */
+//   background-color: transparent !important;
+//   background-image: linear-gradient(to bottom, #2a2139 75%, #34294f);
+//   background-size: auto 100vh;
+//   background-position: top;
+//   background-repeat: no-repeat;
 }
+// pre {
+//   padding: .7em 1.1em;
+//   overflow: auto;
+//   font-size: .9em;
+//   line-height: 1.5;
+//   letter-spacing: normal;
+//   white-space: pre;
+//   color: #eee;
+//   background: $midnightblue!important;
+//   border-radius: 4px;
+//   // -webkit-overflow-scrolling: touch;
+
+//   code {
+//     padding: 0;
+//     margin: 0;
+//     background: $midnightblue;
+//   }
+// }
+
+// code {
+//   color: #eee;
+//   background: $highlight-grey;
+//   border-radius: 3px;
+//   padding: 0 3px;
+//   margin: 0 4px;
+//   word-wrap: break-word;
+//   letter-spacing: normal;
+// }
 
 blockquote {
   border-left: .25em solid;

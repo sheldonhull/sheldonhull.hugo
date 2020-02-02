@@ -10,4 +10,4 @@ excerpt: "Photos"
 
 Some photos of my daughter as we got welcome her.
 
-{{% fancybox-srcset galleryname="2017-09-08-welcome-little-ella" %}}
+{{< fancybox-srcset galleryname="2017-09-08-welcome-little-ella" >}}
