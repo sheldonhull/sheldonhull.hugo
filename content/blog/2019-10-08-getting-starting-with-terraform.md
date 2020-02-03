@@ -1,6 +1,6 @@
 ---
 date: 2019-11-07T07:30:00+00:00
-title: Getting Starting With Terraform
+title: Getting Started With Terraform
 slug: getting-started-with-terraform
 excerpt: Getting started with using Terraform for infrastructure can be a bit daunting
   if you've not dived into this stuff before. I put this together as a write up for

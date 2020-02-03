@@ -52,7 +52,7 @@ function Use-Ampersand
 
 The Format-Type I modified to also use what is considered a better practice of `$null` on the left, again due to type inference.
 
-```
+```powershell
 function Format-Type($v= [System.Management.Automation.Language.NullString]::Value)
 {
 
@@ -68,19 +68,19 @@ function Format-Type($v= [System.Management.Automation.Language.NullString]::Val
 
 To narrow down the issue with the data types, I used the following commands, though this is not where I found insight into the issue. Theyh  when called directly worked the same.
 
-```
+```powershell
 Trace-Command -Name TypeConversion -Expression { Format-Type $NullString} -PSHost
 Trace-Command -Name TypeConversion -Expression { Format-Type ([System.Management.Automation.Language.NullString]$NullString) } -PSHost
 ```
 
 However, when I ran the functions using TypeConversion tracing, it showed a difference in the conversions that likely explains some of your observed behavior.
 
-```
+```powershell
 Trace-Command -Name TypeConversion  -Expression { Use-Dot} -PSHost
 Trace-Command -Name TypeConversion  -Expression { Use-Ampersand} -PSHost
 ```
 
-```
+```powershell
 # USE DOT
 DEBUG: TypeConversion Information: 0 :  Converting "" to "System.String".
 DEBUG: TypeConversion Information: 0 :      Converting object to string.
@@ -91,7 +91,7 @@ DEBUG: TypeConversion Information: 0 :      Result type is assignable from value
 
 `OUTPUT: (null)`
 
-```
+```powershell
 # Use-Ampersand
 DEBUG: TypeConversion Information: 0 : Converting "" to "System.String".
 DEBUG: TypeConversion Information: 0 :     Converting object to string.
@@ -124,4 +124,3 @@ That said, this was a challenging investigation that I had to take a swing at, w
 After posting my answer, I found another [answer](https://stackoverflow.com/a/51354791/68698) that seemed relevant, and also backs up the mentioning of not using `[NullString]` normally, as its usage in PowerShell is not really what it was designed for.
 
 _Stackoverflow specific content republished under CC-BY-SA_
-

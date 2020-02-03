@@ -1,6 +1,6 @@
 ---
 date: 2019-11-19T16:51:08.000+00:00
-title: Getting Starting With Python For Data Exploration
+title: Getting Started With Python For Data Exploration
 slug: getting-starting-with-python-for-data-exploration
 excerpt: To get started with running python queries with SQL Server is actually pretty
   easy. I waited far too long to tackle this, thinking it was much harder than it

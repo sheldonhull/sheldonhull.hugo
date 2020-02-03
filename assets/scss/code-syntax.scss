@@ -1,15 +1,18 @@
-/* Background */ .chroma {
-    // color: #e7e9db; background-color: #2f1e2e;
-  background-color: transparent !important;
-  background-image: linear-gradient(to bottom, #2a2139 75%, #34294f);
-  background-size: auto 100vh;
-  background-position: top;
-  background-repeat: no-repeat;
-//   filter: drop-shadow(0 0 5px #03edf9);
 
-    box-shadow: inset 0 -5px 25px #fc28a825;
-    position: relative;
-}
+// /* Background */ .chroma {
+//     // color: #e7e9db; background-color: #2f1e2e;
+//   background-color: transparent !important;
+//   background-image: linear-gradient(to bottom, #2a2139 75%, #34294f);
+// /*   background-size: auto 100vh;*/
+
+//   background-size: auto;
+//   background-position: top;
+//   background-repeat: no-repeat;
+// //   filter: drop-shadow(0 0 5px #03edf9);
+
+//     box-shadow: inset 0 -5px 25px #fc28a825;
+//     position: relative;
+// }
 /* Error */ .chroma .err { color: #ef6155 }
 /* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }
 /* LineTable */ .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0; width: auto; overflow: auto; display: block; }
@@ -17,15 +20,22 @@
 /* LineNumbersTable */ .chroma .lnt { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
 /* LineNumbers */ .chroma .ln { margin-right: 0.4em; padding: 0 0.4em 0 0.4em;color: #7f7f7f }
 /* Keyword */ .chroma .k {
-    color: #815ba4;
-filter: none!important;
-    // filter: drop-shadow(0 0 2px #03edf9);
+    // color: #815ba4;
+
+    //
+     filter: drop-shadow(0 0 2px #03edf9);
+/* Active tab neon */
+//   box-shadow: inset 0 -5px 25px #fc28a825;
+//   position: relative;
+
 
 
 }
+/* Custom: Function Name */ .chroma .nb {   filter: drop-shadow(0 0 1px #03edf9);color: #5bc4bf
+}
 /* KeywordConstant */ .chroma .kc { color: #815ba4 }
 /* KeywordDeclaration */ .chroma .kd { color: #815ba4 }
-/* KeywordNamespace */ .chroma .kn { color: #5bc4bf }
+/* KeywordNamespace */ .chroma .kn {   filter: drop-shadow(0 0 2px #03edf9);color: #5bc4bf }
 /* KeywordPseudo */ .chroma .kp { color: #815ba4 }
 /* KeywordReserved */ .chroma .kr { color: #815ba4 }
 /* KeywordType */ .chroma .kt { color: #fec418 }
@@ -63,7 +73,10 @@ filter: none!important;
 /* LiteralNumberOct */ .chroma .mo { color: #f99b15 }
 /* Operator */ .chroma .o { color: #5bc4bf }
 /* OperatorWord */ .chroma .ow { color: #5bc4bf }
-/* Comment */ .chroma .c { color: #776e71 }
+/* Comment */ .chroma .c {
+    color: #776e71;
+    filter: drop-shadow(0 0 1px #03edf9);
+}
 /* CommentHashbang */ .chroma .ch { color: #776e71 }
 /* CommentMultiline */ .chroma .cm { color: #776e71 }
 /* CommentSingle */ .chroma .c1 { color: #776e71 }
