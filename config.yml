@@ -1,6 +1,6 @@
 ---
 baseurl: "" #https://www.sheldonhull.com
-title: "sheldonhull.com"
+title: "Sheldon Hull"
 theme: "hermit"
 #languageCode: "en-us"
 #defaultContentLanguage: "en"
@@ -145,9 +145,9 @@ params:
 
 
   homeSubtitle:
-    - Developer
-    - You'll find various tech topics I've found interesting, with a smidge of other things
-    - ... including emoji tacos 🌮🌮🌮
+    - Developer & Reticulator Of Splines
+    - Here you'll find various topics, mostly on tech
+    - For dropping by, here's some emoji tacos 🌮🌮🌮
   footerCopyright: ' &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
   bgImg: "images/2016-04-27_17-27-07_circular.jpg"  # Homepage background-image URL
