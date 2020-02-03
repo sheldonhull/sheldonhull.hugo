@@ -62,7 +62,9 @@
 
 	max-height: 800px;
 	overflow-y: scroll;
-	margin-bottom: 25px;
+    margin-bottom: 25px;
+
+
 }
 
 #wrapper
@@ -76,5 +78,8 @@
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	border-radius: 10px;
-	background-color: #F5F5F5;
+    // background-color: #F5F5F5;
+     box-shadow: inset 0 -5px 25px #fc28a825!important;
+    position: relative;
+
 }

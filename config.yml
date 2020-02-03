@@ -124,7 +124,11 @@ params:
   rssmicroblogtitles: true
   RSSEnabled: true
   font:
-    text: "Source Sans Pro"
+    #text: "Source Sans Pro"
+    # text: 'Ubuntu'
+    #text: 'Maven Pro'
+    text: Raleway
+
     code: "Fira Code"
   dateform       : "Jan 2, 2006"
   dateformShort  : "Jan 2"

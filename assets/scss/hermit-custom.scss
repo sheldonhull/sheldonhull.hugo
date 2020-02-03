@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
 #postInfoLeft {
     max-width:50%;
     float:left;
@@ -27,6 +29,13 @@
     filter: drop-shadow(0 0 .4px #03edf9);
 }
 
-#home-title, .site-nav, .feather, .search-button {
-    filter: drop-shadow(0 0 3px #03edf9);
+#home-title, .search-button {
+    filter: drop-shadow(0 0 9px #03edf9);
+}
+.site-branding {
+    filter: drop-shadow(0 0 6px #03edf9);
+}
+.site-nav, .feather {
+    filter: drop-shadow(0 0 .5px #03edf9);
+
 }
