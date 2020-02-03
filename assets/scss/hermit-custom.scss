@@ -19,6 +19,8 @@
 #site-header {
   box-shadow: inset 0 -5px 25px #fc28a825!important;
   position: relative;
+
+
 }
 
 .hdr-left, .hdr-right, .post-header, h2,.post-year {
@@ -29,13 +31,57 @@
     filter: drop-shadow(0 0 .4px #03edf9);
 }
 
+#home-title {
+//     font-family: 'Monoton', cursive;
+//     font-size:130px;
+//   color: #FFD5FF;
+  font-weight: 400;
+  letter-spacing: 8px;
+  text-shadow: 1px 0px 4px #03edf9, 2px 0px 4px #03edf9, 3px 0px 4px #03edf9, 2px 0px 3px $theme, 2px 3px 15px $theme, 2px 0px 15px, 5px 0px 125px, 20px 0vw 200px $theme,40px 0vw 200px $theme;
+}
 #home-title, .search-button {
     filter: drop-shadow(0 0 9px #03edf9);
+
 }
 .site-branding {
     filter: drop-shadow(0 0 6px #03edf9);
 }
 .site-nav, .feather {
-    filter: drop-shadow(0 0 .5px #03edf9);
+    filter: drop-shadow(0 0 5px #03edf9);
 
+}
+.hide-in-mobile {
+    filter: drop-shadow(0 0 .2px #03edf9);
+
+}
+.neon{
+  font-family: 'Monoton', cursive;
+  font-size:130px;
+  color: #FFD5FF;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 400;
+  letter-spacing: 8px;
+  text-shadow: 1px 0px 4px #FFD5FF, 2px 0px 4px #FFD5FF, 3px 0px 4px #FFD5FF, 2px 0px 3px #D42CCA, 2px 3px 15px #D42CCA, 2px 0px 15px, 5px 0px 125px, 20px 0vw 200px #D42CCA,40px 0vw 200px #D42CCA;
+}
+
+.flicker-slow{
+  animation: flicker 4s linear infinite;
+}
+
+.flicker-fast{
+  animation: flicker 2s linear infinite;
+}
+
+@keyframes flicker {
+	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+		//text-shadow: none;
+    opacity: .99;
+
+	}
+	20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+		opacity: 0.4;
+	}
 }

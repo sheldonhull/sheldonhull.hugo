@@ -21,8 +21,8 @@
 ::-webkit-scrollbar {
     width: 20px;
     height: 8px;
-    background: $midnightblue;
-    box-shadow: inset 0 -5px 25px #fc28a825!important;
+    background: rgb(25, 0, 15)!important;
+    box-shadow: inset 0 -5px 25px rgb(25, 0, 15)!important;
     position: relative;
 }
 
@@ -45,6 +45,12 @@ html {
     line-height: 1.6;
     letter-spacing: .06em;
     scroll-behavior: smooth;
+
+    background-image: linear-gradient(to bottom, #2a2139 75%, #34294f);
+    /* Active tab neon */
+    box-shadow: inset 0 -5px 25px #fc28a825;
+    position: relative;
+
 }
 
 body,
@@ -171,7 +177,8 @@ pre {
                 transition-timing-function: ease-out;
 
                 &:hover {
-                    color: #fff;
+                    // color: #fff;
+                    filter: drop-shadow(0 0 8px #03edf9);
                 }
             }
 
