@@ -95,3 +95,6 @@ The goal of 100% reliability, while sounding great, is inherently unrealistic.
 Long-winded post, but since I've been mulling over this for a while, and had a mix of practical and concept-oriented concepts to cover, I hope you got some value from this either on the SRE concept level or the practical steps to approaching an operational task from more of a software development mentality with writing tests.
 
 As always, these are personal thoughts and don't reflect the opinion of my company or other entity.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTk1ODk3MzYwM119
+-->
