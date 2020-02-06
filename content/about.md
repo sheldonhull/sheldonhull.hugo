@@ -11,7 +11,7 @@ sidebar:
   image_alt: image
   text: This is me, with a little too much coffee...
 author_profile: false
-
+comments: true
 ---
 ## Core Values
 
