@@ -44,7 +44,7 @@ I found a reference to a great library called [Communary.PASM](https://www.power
 
 The resulting adhoc script I created:
 
-{{% gist c57c51882e7102e6b9b383443c115409 %}}
+{{< gist c57c51882e7102e6b9b383443c115409 >}}
 
 The resulting matches were helpful in saving me a lot of time, finding partial matches when a few characters were off.
 

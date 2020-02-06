@@ -17,7 +17,7 @@ author_profile: false
 
 I live as a follower of Christ, desiring to impact the world around with who He is. I'm an unashamed disciple and though I've got plenty I mess up, following Him is my joy. I'm passionate about worship through music, and have played and led worship team for a number of years. Currently, I've been enjoying playing electric. This had challenged me to play in a completely different way than acoustic, as the melodic nature of the electric guitar parts bring a subtle but powerful part to a worship band.
 
-{{% figure src="/images/about-me-200.jpg" alt="Me" class="right" %}}
+{{< figure src="/images/about-me-200.jpg" alt="Me" class="right" >}}
 
 ## Family
 

@@ -32,9 +32,9 @@ choco upgrade rclone -y
 
 Go through `rclone config` dialogue and setup your cloud provider. In my case, I setup Azure as a provider to connect to blob storage, and then AWS with s3.
 
-{{% premonition type="info" title="Cloud to Cloud" %}}
+{{< premonition type="info" title="Cloud to Cloud" >}}
 Providers that support cloud to cloud based calls without copying locally are provided in the section for [Optional Features](http://bit.ly/2LEOSrR) where you can view the operations that support calls
-{{% /premonition %}}
+{{< /premonition >}}
 
 
 ## Initialize Sync

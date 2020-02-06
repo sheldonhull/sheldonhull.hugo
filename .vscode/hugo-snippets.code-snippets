@@ -3,7 +3,7 @@
          "scope": "markdown",
          "prefix": "premonition",
          "body": [
-            "{{% premonition type=\"${1|info,warning|}\" title=\"${Title}\" %}}\r\n$0\r\n{{% /premonition %}}"
+            "{{< premonition type=\"${1|info,warning|}\" title=\"${Title}\" >}}\r\n$0\r\n{{< /premonition >}}"
          ],
          "description": "premonition notice for notice box"
      }

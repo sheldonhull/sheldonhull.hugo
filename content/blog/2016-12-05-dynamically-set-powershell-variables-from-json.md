@@ -11,5 +11,4 @@ slug: "dynamically-set-powershell-variables-from-json"
 
 I created this small snippet to allow a list of values from a json file be turned into variables to work with. For working with a fixed list of configuration values, this might be helpful to reduce some coding effort.
 <!--more-->
-{{% gist dbbc8356028264047fd742b56c5ee27e %}}
-
+{{< gist dbbc8356028264047fd742b56c5ee27e >}}

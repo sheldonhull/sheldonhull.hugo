@@ -29,7 +29,7 @@
 
 <body id="page">
 	{{ block "header" . -}}{{ end -}}
-	{{ partial "search.html" . -}}
+	{{/* {{ partial "search.html" . -}} */}}
 	{{ block "main" . -}}{{ end -}}
 	{{ block "footer" . -}}{{ end }}
 	{{ $script := resources.Get "js/main.js" | minify | fingerprint -}}

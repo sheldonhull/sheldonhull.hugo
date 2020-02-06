@@ -63,7 +63,7 @@ Next to create a reusable package
     1. Install35Offline.ps1
     2. Install35Offline.bat
 
-{{% gist 954303c02bf1a5e05b45628dada83f9a %}}
+{{< gist 954303c02bf1a5e05b45628dada83f9a >}}
 
 Hopefully this will save you some effort, as it took me a little to figure out how to wrap it all up to make it easy to run.
 

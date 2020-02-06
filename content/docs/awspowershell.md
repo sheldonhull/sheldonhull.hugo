@@ -8,9 +8,9 @@ date:  2019-02-19
 toc: true
 ---
 
-{{% premonition type="note" title="Notice" %}}
+{{< premonition type="note" title="Notice" >}}
 Pending. Work in progress
-{{% /premonition %}}
+{{< /premonition >}}
 
 ## Setup
 

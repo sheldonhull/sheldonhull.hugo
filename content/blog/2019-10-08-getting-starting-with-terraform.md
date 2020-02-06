@@ -65,9 +65,9 @@ choco upgrade git terraform vscode vscode-powershell -y
 
 ### Terraform Cloud Setup
 
-{{% premonition type="warning" title="Subscription" %}}
+{{< premonition type="warning" title="Subscription" >}}
 This will require a Terraform Cloud account. At the time of this post they have a plan for around 5 users for free with a few features turned off. This may change in the future, so when creating the account, you'll have to see what features are no longer enabled as this matures in the free product.
-{{% /premonition %}}
+{{< /premonition >}}
 
 Setup your [Terraform App Account](https://app.terraform.io/signup/account) and _make sure to enable 2FA_.
 
@@ -99,28 +99,28 @@ ENDOFFILE
 ## Creating Your First Project
 
 Create `main.tf`. It will be the first file you create.
-{{% gist 95c3f9533b2111d7d9fa40ff90a917e3 "main.tf" %}}
+{{< gist 95c3f9533b2111d7d9fa40ff90a917e3 "main.tf" >}}
 
 Create `provider.tf`
 
-{{% gist 95c3f9533b2111d7d9fa40ff90a917e3 "provider.tf" %}}
+{{< gist 95c3f9533b2111d7d9fa40ff90a917e3 "provider.tf" >}}
 
 Create `terraform.tfvars`
 
-{{% gist 95c3f9533b2111d7d9fa40ff90a917e3 "terraform.tfvars" %}}
+{{< gist 95c3f9533b2111d7d9fa40ff90a917e3 "terraform.tfvars" >}}
 
 Create `variables.tf` which is going to house all the input variables we want to declare.
 
-{{% gist 95c3f9533b2111d7d9fa40ff90a917e3 "variables.tf" %}}
+{{< gist 95c3f9533b2111d7d9fa40ff90a917e3 "variables.tf" >}}
 
 Create `iam.tf` which will provide a nice low risk resource to create that will show you how to use string interpolation for dynamic names in the most simple way, as well as the way to leverage `EOT` syntax to easily escape mutliline strings. However, if you see yourself doing this constantly, you might reevaluate your approach to ensure you are using objects and properties as much as possible and not just strings.
 
 
-{{% gist 95c3f9533b2111d7d9fa40ff90a917e3 "iam.tf" %}}
+{{< gist 95c3f9533b2111d7d9fa40ff90a917e3 "iam.tf" >}}
 
-{{% premonition type="info" title="HCL Multiline String Syntax" %}}
+{{< premonition type="info" title="HCL Multiline String Syntax" >}}
 If you use `<<-EOT` you get a nice little benefit that's not well documented. The `-` means it strings buffering whitespace for the following lines. This can allow you to keep your content indented and if you preface the first line with 6 spaces, then all the following lines trim 6 spaces as well to allow you to avoid a bunch of difficult to read string blocks.
-{{% /premonition %}}
+{{< /premonition >}}
 
 You'll likely want to use a workspace with Terraform to organize this work, so instead of using the default, use the command
 
@@ -130,10 +130,10 @@ terraform workspace new qa
 
 Terraform should select this new workspace by default. You can list the current workspaces using `terraform workspace list` and then select another one later if you wish by running `terraform workspace select qa`.
 
-{{% premonition type="warning" title="Terraform Workspace Naming" %}}
+{{< premonition type="warning" title="Terraform Workspace Naming" >}}
 
 Personally, I'd recommend to not drive much of your naming or other configuration based on the workspace name, and instead use variables. Terraform Cloud behavior with trying to use workspace names at the time of this post was not what I expected, so I ended up removing my dependency on workspace names being imporant for the configuration. Instead, I use it as metadata only to organize the workspaces.
-{{% /premonition %}}
+{{< /premonition >}}
 
 ## Deploying Infrastructure
 
