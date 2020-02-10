@@ -3,7 +3,7 @@ image:
 
 tasks:
 - init: hugo
-  command: hugo serve --watch
+  command: hugo serve --baseUrl $(gp url 1313) --appendPort=false --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc --watch
 # Ports to expose on workspace startup (optional)
 ports:
 - port: 8000
