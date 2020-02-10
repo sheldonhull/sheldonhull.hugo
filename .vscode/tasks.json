@@ -6,7 +6,7 @@
         {
             "label": "serve",
             "type": "shell",
-            "command": "hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc", //
+            "command": "hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc",
             "group": {
                 "isDefault": true,
                 "kind": "build"
@@ -27,8 +27,9 @@
         {
             "label": "gitpod-serve",
             "type": "shell",
-            "command": "hugo serve --baseUrl $(gp url 1313) --appendPort=false --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc", //
-            "group": "build"
+            "command": "hugo serve --baseUrl $(gp url 1313) --appendPort=false --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc",
+            "group": "build",
+            "problemMatcher": []
         }
     ]
 }
