@@ -6,7 +6,7 @@ FROM gitpod/workspace-full:latest
 USER root
 
 
-ENV VERSION 0.55.2
+ENV VERSION 0.64.1
 # Install custom tools, runtime, etc.
 #RUN apt-get update && apt-get install -y \
 #    snap \
