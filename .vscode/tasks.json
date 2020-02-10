@@ -25,7 +25,7 @@
             "problemMatcher": []
         },
         {
-            "label": "serve",
+            "label": "gitpod-serve",
             "type": "shell",
             "command": "hugo serve --baseUrl $(gp url 1313) --appendPort=false --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc", //
             "group": "build"
