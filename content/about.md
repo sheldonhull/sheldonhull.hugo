@@ -26,6 +26,7 @@ I've been blessed with 3 kids and a wonderful wife Sarah who has brought beauty 
 ## Work
 
 {{<button href="https://ceev.io/@sheldonhull" theme="success">}} Professional Profile // Resume {{< /button >}}
+{{<button href="https://stackoverflow.com/story/sheldonhull" theme="success">}} StackOverflow Developer Story {{< /button >}}
 
 I've summed up more detail there, than in this spot, so take a peek at that if you want a professional run down.
 
