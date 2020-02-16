@@ -19,3 +19,7 @@
 <script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}></script>
 <script defer src="https://unpkg.com/applause-button/dist/applause-button.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.1"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@3.32.0/dist/algoliasearchLite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@^4.0.0"></script>
+{{ $script := resources.Get "js/algolia-search.js" | minify | fingerprint -}}
+<script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}></script>

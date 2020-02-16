@@ -1,10 +1,10 @@
-<script src="https://cdn.jsdelivr.net/npm/algoliasearch@3/dist/algoliasearch.min.js"></script>
-<script src="{{ .Site.BaseURL }}js/liveSearch.js"></script>
 <script>
     /* Open when someone clicks on the span element */
     function openNav() {
         document.getElementById("search-overlay").style.width = "100%";
         document.getElementById("searchButton").style.display = "none";
+        document.querySelector(".ais-SearchBox-input").focus();
+
     }
 
     /* Close when someone clicks on the "x" symbol inside the overlay */
@@ -14,8 +14,8 @@
 
     }
 </script>
-
 <script>
+    $(document).ready(function () {
     window.addEventListener('keydown', function (e) {
         if ((e.key == 'Escape' || e.key == 'Esc' || e.keyCode == 27)) {
             /*&& (e.target.nodeName=='BODY')*/
@@ -25,25 +25,30 @@
             return false;
         }
     }, true);
+})
 </script>
-<!-- The overlay -->
-<!-- Use any element to open/show the overlay navigation menu -->
-<div id="searchButton" class="search-button active" onclick="openNav()"><a href='#search-input'
-        class='search-button'>{{ with .Site.Params.search }}{{ . }}{{ else }}Search <i class="fas fa-search"
-            aria-hidden="true"></i>{{ end }}</a></div>
 
-<div id="search-overlay" class="overlay">
+{{ if (.Site.Params.search.algolia.app_id) }}
+<div id="searchButton" class="search-button active" onclick="openNav()">
+    <a href='#search-input' class='search-button'> Search <i class="fas fa-search" aria-hidden="true"></i></a></div>
+
+<div id="search-overlay" class="overlay" onclick="closeNav()">
     <!-- Button to close the overlay navigation -->
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
+    <div id="search-searchbar"></div>
     <!-- Overlay content -->
-    <div class="overlay-content">
-        <div class="container">
-            <input autocomplete=off id="search" class="search-input" type="search" placeholder="Type to Search">
-            <span class="search-bar"></span>
+    <div class="container">
+        <div class="overlay-content">
+            <div id="searchbox" class="search-input"></div>
+            <div id="hits"></div>
+            <div id="pagination"></div>
+            <!-- <input autocomplete=off id="searchbox" class="search-input" type="search"> -->
+
+            <!-- <span class="search-bar"></span> -->
             <span class="esc-note">press <strong>ESC</strong> to close</span>
-            <span><a href="https://www.algolia.com/"><i class="fab fa-algolia"></i></a></span>
-            <div id="results" class="search-results">
+            <span style="float:right;"><a href="https://www.algolia.com/"><i class="fab fa-algolia"></i></a></span>
+            <div id="hits">
             </div>
         </div>
     </div>
@@ -51,3 +56,4 @@
 </div>
 
 </div>
+{{ end }}

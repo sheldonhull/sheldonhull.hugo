@@ -11,46 +11,90 @@
     background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-  }
 
-  /* Position the content inside the overlay */
-  .overlay-content {
+    // background-image: linear-gradient(to bottom, #2a2139 95%, #34294f);
+    /* Active tab neon */
+    // box-shadow: inset 0 -5px 25px #fc28a825;
+    //position: relative;
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+
     position: relative;
     top: 25%; /* 25% from the top */
     width: 100%; /* 100% width */
     text-align: center; /* Centered text/links */
     margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
-  }
+}
 
-  /* The navigation links inside the overlay */
-  .overlay a {
+/* The navigation links inside the overlay */
+.overlay a {
     padding: 8px;
     text-decoration: none;
     font-size: 36px;
     color: #818181;
     display: block; /* Display block instead of inline */
     transition: 0.3s; /* Transition effects on hover (color) */
-  }
+}
 
-  /* When you mouse over the navigation links, change their color */
-  .overlay a:hover, .overlay a:focus {
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
     color: #f1f1f1;
-  }
+}
 
-  /* Position the close button (top right corner) */
-  .overlay .closebtn {
+/* Position the close button (top right corner) */
+.overlay .closebtn {
     position: absolute;
     top: 20px;
     right: 45px;
     font-size: 60px;
-  }
+    z-index: 1;
 
-  /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-  @media screen and (max-height: 450px) {
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
     .overlay a {font-size: 20px}
     .overlay .closebtn {
-      font-size: 40px;
-      top: 15px;
-      right: 35px;
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
     }
-  }
+}
+
+
+.hit-title {
+    color:$text;
+    display:block;
+    font-size:1.5em;
+    filter: drop-shadow(0 0 2px #03edf9);
+}
+.hit-description {
+    color:$text;
+}
+.hit-tags{
+    color:$text;
+    filter: drop-shadow(0 0 2px #03edf9);
+    overflow:hidden;
+}
+
+.ais-Hits {
+    overflow:hidden;
+    flex-wrap: nowrap;
+border:none!important;
+    display:list-item;
+}
+.ais-Hits-list {
+    display:list-item!important;
+    flex-wrap: nowrap!important;
+    border:none!important;
+}
+
+.ais-Hits-item {
+    border:none!important;
+    overflow:none;
+    flex-wrap: nowrap;
+    width: calc(100% - 1rem)!important;
+    box-shadow:none!important;
+}

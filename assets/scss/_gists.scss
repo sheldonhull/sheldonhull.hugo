@@ -10,17 +10,22 @@ body .gist .gist-file , .gist:visited{
     /* border: none; */
     border-color:#293134;
     border-bottom: none;
-    background: #293134;
+    // background: #293134;
     color: #A0A8B3;
     text-decoration: none;
+    font-family: 'Ubuntu';
+    box-shadow: 2px 4px 10px rgba(0,0,0,.5);
+
+
   }
 
   body .gist .gist-data {
     background: #293134;
     border-radius: 4px 4px 0 0;
     color: #A0A8B3;
-    font-size: 0.625rem;
+
     line-height: 1.4;
+
   /*   // padding: 16px 16px 0; */
   }
 
@@ -36,6 +41,9 @@ body .gist .gist-file , .gist:visited{
     max-width: 800px;
     overflow-x: scroll;
     border: none;
+     background: rgba(56, 4, 40, .9);
+     font-family:'Ubuntu';
+     font-size:1.4em;
   }
 
   body .gist .highlight td, body .gist .highlight tbody {
@@ -53,6 +61,7 @@ body .gist .gist-file , .gist:visited{
   body .gist .pl-vo,
   body .gist .pl-vpf {
     color: #e0e2e4;
+    font-size:0.7em;
   }
 
   body .gist .pl-c,
@@ -210,3 +219,7 @@ body .gist .gist-file , .gist:visited{
 //code {
 //    background-color:#212224;
 //}
+
+.gist{
+ background: rgba(56, 4, 40, .9);
+}

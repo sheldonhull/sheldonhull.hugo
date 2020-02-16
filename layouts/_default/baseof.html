@@ -30,14 +30,16 @@
 
 <body id="page">
 	{{ block "header" . -}}{{ end -}}
-	{{/* {{ partial "search.html" . -}} */}}
+	{{ partial "search.html" . -}}
 	{{ block "main" . -}}{{ end -}}
 	{{ block "footer" . -}}{{ end }}
 	{{ $script := resources.Get "js/main.js" | minify | fingerprint -}}
 	<script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}></script>
 	{{- partial "analytics.html" . }}
 	{{- if templates.Exists "partials/extra-foot.html" -}}
-	{{ partial "extra-foot.html" . }}
+    {{ partial "extra-foot.html" . }}
+
+
 	{{- end }}
 </body>
 

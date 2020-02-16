@@ -4,6 +4,8 @@
 @import "code-syntax.scss";
 @import "_gists.scss";
 @import "animate.scss";
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
 @import "notice.scss";
 @import "shortcodes.scss";
@@ -72,6 +74,7 @@ pre,
 code,
 pre tt {
     font-family: $code-fonts;
+    font-family: 'Ubuntu';
 
 }
 code {
@@ -87,10 +90,10 @@ pre {
 
     code {
         background-color: transparent !important;
-        // background-image: linear-gradient(to bottom, #2a2139 75%, #34294f);
         background-image: none;
         box-shadow: none;
         filter: none;
+
     }
 
 
@@ -109,6 +112,7 @@ pre {
     background-color: transparent !important;
     background-image: linear-gradient(to bottom, #2a2139 75%, #34294f);
     /*   background-size: auto 100vh;*/
+
 
     background-size: auto;
     background-position: top;

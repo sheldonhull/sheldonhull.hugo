@@ -10,6 +10,7 @@ tags:
   - tech
 draft: false
 toc: true
+featuredImg: /images/codesnap-asciidoc-azurepipelines.png
 ---
 
 ## The Problem

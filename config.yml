@@ -31,8 +31,9 @@ googleAnalytics: "UA-40198001-3"
 
 copyright: "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License." # This message is only used by the RSS template.
 
-
-
+additional_scripts:
+  - node_modules/algoliasearch/dist/algoliasearch.umd.js
+  - assets/js/algolia-search.js
 
 taxonomies:
   tag: tags
@@ -114,12 +115,12 @@ menu:
       url: "/about/"
 
 params:
-  #search:
-    #algolia:
-     # app_id: 04HSGXXQD5
-      #api_key: a7ec2763a5d966a5b9f8d70b254bfb68
-      #index_name: sheldonhull
-      #show_logo: true
+  search:
+    algolia:
+      app_id: 04HSGXXQD5
+      api_key: a7ec2763a5d966a5b9f8d70b254bfb68
+      index_name: sheldonhull
+      show_logo: true
   RSSSection: ["blog","microblog"]
   rssmicroblogtitles: true
   RSSEnabled: true
@@ -130,9 +131,9 @@ params:
     text: Raleway
 
     code: "Fira Code"
-  dateform       : "Jan 2, 2006"
-  dateformShort  : "Jan 2"
-  dateformNum    : "2006-01-02"
+  dateform: "Jan 2, 2006"
+  dateformShort: "Jan 2"
+  dateformNum: "2006-01-02"
   dateformNumTime: "2006-01-02 15:04 -0700"
 
   comments: true
