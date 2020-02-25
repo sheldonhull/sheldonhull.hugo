@@ -4,6 +4,17 @@
 
 /* START CUSTOM GIST STYLE */
 
+.markdown-body, .entry-content {
+
+    background-image: linear-gradient(to bottom, #2a2139 75%, #34294f);
+    /* Active tab neon */
+    box-shadow: inset 0 -5px 25px #fc28a825;
+    position: relative;
+}
+
+.gist .markdown-body .highlight pre, .gist .markdown-body pre {
+    width:100%;
+}
 /* Gist Custom Syntax Highlighting CSS
 --------------------------------------------- */
 body .gist .gist-file , .gist:visited{
@@ -22,7 +33,7 @@ body .gist .gist-file , .gist:visited{
   body .gist .gist-data {
     background: #293134;
     border-radius: 4px 4px 0 0;
-    color: #A0A8B3;
+    color: $text;
 
     line-height: 1.4;
 
@@ -39,7 +50,7 @@ body .gist .gist-file , .gist:visited{
   body .gist .highlight {
     background: #293134;
     max-width: 800px;
-    overflow-x: scroll;
+    // overflow-x: scroll; // This causes double scrollbar
     border: none;
      background: rgba(56, 4, 40, .9);
      font-family:'Ubuntu';
@@ -61,7 +72,7 @@ body .gist .gist-file , .gist:visited{
   body .gist .pl-vo,
   body .gist .pl-vpf {
     color: #e0e2e4;
-    font-size:0.7em;
+    // font-size:0.7em;
   }
 
   body .gist .pl-c,
@@ -160,19 +171,27 @@ body .gist .gist-file , .gist:visited{
     border-radius: 0 0 4px 4px;
     font-size: 14px;
     padding: 6px 16px;
+    color:$text!important;
+    background-image: linear-gradient(to bottom, #2a2139 75%, #34294f);
+    /* Active tab neon */
+    box-shadow: inset 0 -5px 25px #fc28a825;
+    position: relative;
+
+
   }
 
   body .gist .gist-meta a {
     color: #E96B2C;
+    // background-color: $theme;
   }
 
   body .gist .gist-meta a:hover {
-    background-color: $dark-grey;
     color:$text !important;
   }
   /* SHELDON: added to make footer links not orange */
   div.gist-meta a {
-    color:$midnightblue !important; // LINK COLOR FOR GISTS
+    color:$text !important; // LINK COLOR FOR GISTS
+    filter: drop-shadow(0 0 3px #03edf9);
 
   }
 
