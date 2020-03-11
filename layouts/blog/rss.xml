@@ -1,4 +1,7 @@
 {{- $pages := where site.RegularPages "Type" "in" site.Params.RSSSection -}}
+{{- $pages := where $pages "Section" "!=" "microblog" -}}
+
+
 
 
 {{- $limit := .Site.Params.rssLimit -}}
@@ -27,7 +30,7 @@
             <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
             {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
             <guid>{{ .Permalink }}</guid>
-            <description>TEST {{ .Content | html }}</description>
+            <description>{{ .Content | html }}</description>
         </item>
     {{ end }}
   </channel>
