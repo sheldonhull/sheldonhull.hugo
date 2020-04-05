@@ -59,13 +59,13 @@ As you dive into the world of exploring fonts, here's a couple things I'd look f
 2.  Resizes well for your target zoom. I've tried some fonts that don't seem to look right once you change your zoom level or the size of the font. I looked up some details on this and apparently some fonts are bitmapped, and some vector images. If you are using bitmapped fonts, then the target size is ideal, while adjusting zoom level can cause blurriness or fuzzy quality as it's not going to rescale like a vector based font would. This isn't bad if you are ok with the normal font size levels.
 
 
-{{% fancybox-gallery
+{{< fancybox-gallery
     "fontgallery"
 "testcaption"
     "fira-code-mono.png"
     "source-code-pro.png"
     "bitstream-vera-sans-mono.png"
-%}}
+>}}
 
 
 

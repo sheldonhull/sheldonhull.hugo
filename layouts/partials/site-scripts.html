@@ -1,0 +1,6 @@
+{{ $.Scratch.Set "jslibs" slice}}
+<!-- {{ range .Site.additional_scripts }} ### NOT WORKING -->
+{{ $.Scratch.Add "jslibs" (resources.Get . ) }}
+{{ end }}
+{{ $js := .Scratch.Get "jslibs" | resources.Concat "js/combined-scripts.js" | resources.Minify | fingerprint }}
+<script src="{{ $js.Permalink }}" {{ printf "integrity=%q" $js.Data.Integrity | safeHTMLAttr }}></script>

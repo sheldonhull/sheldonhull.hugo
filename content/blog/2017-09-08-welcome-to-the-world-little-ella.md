@@ -15,7 +15,7 @@ It was a rough 24 hours resulting in our first cesarean experience. This was a b
 
 <!-- {% include gallery caption="Welcome to the World Little Ella" %} -->
 
-{{% fancybox-gallery
+{{< fancybox-gallery
     "GalleryElla"
     "Welcoming Ella"
     "Ella_18.jpg"
@@ -36,7 +36,7 @@ It was a rough 24 hours resulting in our first cesarean experience. This was a b
     "Ella_2.jpg"
     "Ella_3.jpg"
     "Ella_1.jpg"
-%}}
+>}}
 
 
 Thanks for all the prayers!
@@ -47,4 +47,4 @@ Shout out to Willowbrook Women's Center for their consideration and stellar care
 Thanks to their care I have a healthy baby girl, healthy wife, and some beautiful moments despite the complication of the delivery.
 
 
-{{% youtube vB1EqN-WfkI %}}
+{{< youtube vB1EqN-WfkI >}}

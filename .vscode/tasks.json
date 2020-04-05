@@ -1,28 +1,35 @@
 {
-  // See https://go.microsoft.com/fwlink/?LinkId=733558
-  // for the documentation about the tasks.json format
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "serve",
-      "type": "shell",
-      "command": "hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc", //
-      "group": {
-        "isDefault": true,
-        "kind": "build"
-      }
-    },
-    {
-      "label": "algolia update",
-      "type": "shell",
-      "command": "npm run algolia ${workspaceFolder}\\_site\\algolia.json",
-      "group": "build",
-      "problemMatcher": []
-    },
-    {
-      "type": "npm",
-      "script": "lunr",
-      "problemMatcher": []
-    }
-  ]
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "serve",
+            "type": "shell",
+            "command": "hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc",
+            "group": {
+                "isDefault": true,
+                "kind": "build"
+            }
+        },
+        {
+            "label": "algolia update",
+            "type": "shell",
+            "command": "npm run algolia ${workspaceFolder}\\_site\\algolia.json",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "type": "npm",
+            "script": "lunr",
+            "problemMatcher": []
+        },
+        {
+            "label": "gitpod-serve",
+            "type": "shell",
+            "command": "hugo serve --baseUrl $(gp url 1313) --appendPort=false --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc",
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
 }

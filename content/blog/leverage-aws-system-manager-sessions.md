@@ -24,13 +24,13 @@ This leverages IAM Credentials, allowing consistent security management in align
 
 ## Browser
 
-This is a great option for leveraging AWS Systems Manager web console. When you select start a session you'll be presented with the tagged instances by name that you can quickly select and start a remote session with. 
+This is a great option for leveraging AWS Systems Manager web console. When you select start a session you'll be presented with the tagged instances by name that you can quickly select and start a remote session with.
 
 ![Select Instances to Start Session Against](/images/SNAG-0000- 2019-06-03-112313.png "Select Instances to Start Session Against")
 
 ![Start Session](/images/SNAG-0000- 2019-06-03-112325.png "Start Session")
 
-Once you've started the session you'll enter into a remote prompt. 
+Once you've started the session you'll enter into a remote prompt.
 
 ![Interactive PowerShell Prompt on Remote Instance](/images/SNAG-0000- 2019-06-03-112309.png "Interactive PowerShell Prompt on Remote Instance")
 
@@ -40,7 +40,7 @@ I use Cmder for my main terminal, with all other terminals normally running in V
 
 ### Install on Windows
 
-{{% gist d2c4b009e7da1845081327121a61a05c %}}
+{{< gist d2c4b009e7da1845081327121a61a05c >}}
 
 Ensure your AWS Credentials are setup, and use the session manager plugin after installation by running:
 

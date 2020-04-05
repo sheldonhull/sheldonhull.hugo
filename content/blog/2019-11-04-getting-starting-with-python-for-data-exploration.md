@@ -30,11 +30,11 @@ To be very clear, I know there are possibilities, such as the newer Azure Data S
 
 Traditionally, I've used Azure Data Studio or SQL Management Studio and run individually queries in a large sql script to explore and manipulate the data. However, once you start wanting to pivot, aggregate, sum, and do various other experimental actions, T-SQL can be over complicated to do this for that adhoc work. Just because you can do unpivot doesn't mean it's a smarter use of time than using a pivot table in Excel for adhoc work (as much as it pains me to say).
 
-{{% premonition type="info" title="Azure Data Studio" %}}
+{{< premonition type="info" title="Azure Data Studio" >}}
 
 Azure data studio is making great progress with SQL Server based notebooks, which I highly recommend checking out. It's still in its infancy. So while it's pretty useful for basics, if you want to stick with a scripted approach to explore, python will be superior. Just recently PowerShell based code cells are available too, I believe.
 
-{{% /premonition %}}
+{{< /premonition >}}
 
 However, even better than playing around with data in an Excel sheet, what if you wanted to stay in your programmatic script and start slicing and dicing the data coming back, molding into "tidy data" for what you want to analyze?
 
@@ -54,13 +54,13 @@ In addition to working with `plotly` I leveraged `pandas`. I think from my initi
 
 ## Installing pyodbc
 
-{{% premonition type="info" title="platform" %}}
+{{< premonition type="info" title="platform" >}}
 
 This guide is written for someone using a Windows based development environment. The setup requirements for running in Linux/Mac will be different for drivers
 
 For running in AWS Lambda in python runtime, there are more complex issues requiring the driver to be compiled and uploaded to a Lambda layer for use. Windows dev machine doesn't have this requirement and should just work after running ODBC driver install and pyodbc. :tada:
 
-{{% /premonition %}}
+{{< /premonition >}}
 
 1. [Link for SQL Server ODBC Drivers](https://docs.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server "SQL Server ODBC Drivers")
 2. `pip3 install pyodbc`

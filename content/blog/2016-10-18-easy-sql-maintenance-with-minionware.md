@@ -9,9 +9,9 @@ title: "Easy SQL Maintenance with Minionware"
 slug: "easy-sql-maintenance-with-minionware"
 ---
 
-{{% premonition type="info" title="Updated 2017-01-25" %}}
+{{< premonition type="info" title="Updated 2017-01-25" >}}
 While I think the minionware solution is pretty awesome, I think it takes more work for the value, and can be a bit confusing to correctly setup, vs the Ola Hallengren solution, esp since you can install this quickly with dbatools now. I'd lean towards Ola Hallengren for simple implementations, and consider MinionWare's option if you are looking at the their flexibility in the table based configuration. The learning curve seems higher to me, but more for those looking to tweak options a lot. Both are great solutions, just be aware MinionWare will require a little more digging to leverage it fully.
-{{% /premonition %}}
+{{< /premonition >}}
 
 
 Here's my personal tweaked settings for deploying [Minionware's fantastic Reindex & Backup jobs.](http://bit.ly/2e8aE8g) In the development environment, I wanted to have some scheduled jobs running to provide a safety net, as well ensure updated statistics, but there were a few default settings I wanted to adjust. In particular, I tweaked the default fill factor back to 0/100. I also installed all the objects to a new "minion" database instead of in master, as I'm beginning to be a fan of isolating these type of maintenance jobs with logging to their own isolated database to easy portability. I also adjusted the default retain days on backups to 30.
@@ -24,4 +24,4 @@ There has been various forms of discussion on the adjustments of Fill Factor for
 Maybe this will help you get up to speed if you want to try out this great solution, but tweak a few defaults.
 The ease of installation across multiple instances makes this my current favorite solution, followed by the [fantastic Ola Hallengren solution](http://bit.ly/2e8d9qW).
 
-{{% gist 2fee8ab97c0210918e8fb10719fca3f5 %}}
+{{< gist 2fee8ab97c0210918e8fb10719fca3f5 >}}

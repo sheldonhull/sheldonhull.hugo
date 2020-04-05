@@ -4,8 +4,10 @@
   "description": "To Update submodules and download",
   "main": "index.js",
   "dependencies": {
+    "algoliasearch": "^4.0.3",
     "atomic-algolia": "^0.3.17",
     "hugo-lunr": "0.0.4",
+    "instantsearch.js": "^4.2.0",
     "lunr": "^2.3.6",
     "moment": "^2.24.0",
     "vanilla-lazyload": "^11.0.6"

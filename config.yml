@@ -13,7 +13,7 @@ enableGitInfo: true
 paginate: 20
 canonifyurls: true
 pluralizeListTitles: false
-rssLimit: 10  # Maximum number of items in the RSS feed.
+
 
 # gallery of styles http://richleland.github.io/pygments-css/
 # pygmentsstyle: "monokai"
@@ -31,8 +31,9 @@ googleAnalytics: "UA-40198001-3"
 
 copyright: "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License." # This message is only used by the RSS template.
 
-
-
+additional_scripts:
+  - node_modules/algoliasearch/dist/algoliasearch.umd.js
+  - assets/js/algolia-search.js
 
 taxonomies:
   tag: tags
@@ -114,15 +115,18 @@ menu:
       url: "/about/"
 
 params:
-  #search:
-    #algolia:
-     # app_id: 04HSGXXQD5
-      #api_key: a7ec2763a5d966a5b9f8d70b254bfb68
-      #index_name: sheldonhull
-      #show_logo: true
-  RSSSection: ["blog","microblog"]
+  mainSections: ["blog"]
+
+  search:
+    algolia:
+      app_id: 04HSGXXQD5
+      api_key: a7ec2763a5d966a5b9f8d70b254bfb68
+      index_name: sheldonhull
+      show_logo: true
+  RSSSection: ["blog"]
   rssmicroblogtitles: true
   RSSEnabled: true
+  rssLimit: 15  # Maximum number of items in the RSS feed.
   font:
     #text: "Source Sans Pro"
     # text: 'Ubuntu'
@@ -130,9 +134,9 @@ params:
     text: Raleway
 
     code: "Fira Code"
-  dateform       : "Jan 2, 2006"
-  dateformShort  : "Jan 2"
-  dateformNum    : "2006-01-02"
+  dateform: "Jan 2, 2006"
+  dateformShort: "Jan 2"
+  dateformNum: "2006-01-02"
   dateformNumTime: "2006-01-02 15:04 -0700"
 
   comments: true
@@ -150,7 +154,6 @@ params:
 
   homeSubtitle:
     - Developer & Reticulator Of Splines
-    - Here you'll find various topics, mostly on tech
     - For dropping by, here's some emoji tacos 🌮🌮🌮
   footerCopyright: ' &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 

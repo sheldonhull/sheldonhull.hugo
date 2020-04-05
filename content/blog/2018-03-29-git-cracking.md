@@ -14,12 +14,12 @@ slug: git-cracking
 toc: true
 
 ---
-{{% premonition type="info" title="Resources" %}}
+{{< premonition type="info" title="Resources" >}}
 - [GitKraken](http://bit.ly/2J6a4mW)
 - [Source Tree](http://bit.ly/2pPQeUU)
 - [Posh-Git](http://bit.ly/2pOPLm6)
 - [Cmder](http://bit.ly/2GnxzpH)
-{{% /premonition %}}
+{{< /premonition >}}
 
 
 ## Git Some Pain

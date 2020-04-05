@@ -1,9 +1,9 @@
 {{ define "head" }}
     {{ if .Params.featuredImg -}}
-    <style>.bg-img {background-image: url('{{.Params.featuredImg}}');}</style>
+    <style>.featured-image {background-image: url('{{.Params.featuredImg}}');}</style>
     {{- else if .Params.images -}}
         {{- range first 1 .Params.images -}}
-        <style>.bg-img {background-image: url('{{. | absURL}}');}</style>
+        <style>.featured-image {background-image: url('{{. | absURL}}');}</style>
         {{- end -}}
     {{- end -}}
 {{ end }}
@@ -14,7 +14,7 @@
 
 {{ define "main" }}
     {{- if (or .Params.images .Params.featuredImg) }}
-    <div class="bg-img"></div>
+    <div class="featured-image"></div>
     {{- end }}
     <main class="site-main section-inner animated fadeIn faster">
         <article class="thin">
@@ -47,8 +47,8 @@
             </a>
             {{- end }}
         </div>
-        <div id="comments" class="thin">
-        {{- partial "comments.html" . -}}
+        <div id="utterances-container">
+            {{- partial "utterances.html" . -}}
         </div>
     </main>
 {{ end }}

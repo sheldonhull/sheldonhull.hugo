@@ -41,7 +41,7 @@ I plan on moving to this screen in the future for development as well. I include
 
 Me too. No regrets. The SVA panel beautiful. No complaints whatsoever, and no regrets about leaving behind my IPS display for this.
 
-{{% fancybox-gallery
+{{< fancybox-gallery
     "gallery1"
     "Samsung CF971 Gallery"
     "20170708+1304+2352134.jpg"
@@ -55,4 +55,4 @@ Me too. No regrets. The SVA panel beautiful. No complaints whatsoever, and no re
     "2017-07-08_15-16-31.png"
     "2017-07-08_16-03-25.png"
     "2017-07-20_12-45-12.png"
-%}}
+>}}

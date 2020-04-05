@@ -7,7 +7,8 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	{{- with .Site.Params.themeColor }}
 	<meta name="theme-color" content="{{.}}">
-	<meta name="msapplication-TileColor" content="{{.}}">
+    <meta name="msapplication-TileColor" content="{{.}}">
+
 	{{- end }}
 	{{- partial "structured-data.html" . }}
 	{{- partial "favicons.html" }}
@@ -36,7 +37,9 @@
 	<script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}></script>
 	{{- partial "analytics.html" . }}
 	{{- if templates.Exists "partials/extra-foot.html" -}}
-	{{ partial "extra-foot.html" . }}
+    {{ partial "extra-foot.html" . }}
+
+
 	{{- end }}
 </body>
 

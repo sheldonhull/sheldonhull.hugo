@@ -12,12 +12,12 @@ _(time constraints prevented me from reworking significantly)_
 
 "or-condition-performance" article on SQL Server Pro was forwarded over to me to research by a friend who indicated that using a variable with an or pattern had historically caused table scans. This was a suprise to me as all previous queries with optional parameters I'd used in the past seemed to use index seeks. I had to dig into this a little deeper to see if had been missing this in my past work and needed to find an alternative method for optional parameters. Original test procedure copied from original.
 
-{{% gist 4f8446420776336f7478 %}}
+{{< gist 4f8446420776336f7478 >}}
 
 
 The result from running the test1 procedure was to find a clustered index scan. SQL Server optimizer should be able to utilize the or conditions as long as an index covers the predicates, so I dug in deeper. When I ran a random query against a few tables I found this was creating table scans. Looking a little deeper I decided to evaluate the indexing on the tables to see if it was an issues with indexing, and not the pattern of using the OR against a variable.
 
-{{% gist ef2d134cdd3b47dcdf84 %}}
+{{< gist ef2d134cdd3b47dcdf84 >}}
 
 
 Test 1: SCANS - except with option recompile Found index scans on all my versions of running this except when including option(recompile) inside the stored procedure statement text. This of course fixed the issue by allowing sql to build the plan based on the exact value passed in, however, this would be at the cost of increasing CPU and negating the benefits of having a cached plan ready.

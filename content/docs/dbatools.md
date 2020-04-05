@@ -20,5 +20,4 @@ install-module 'dbatools' -Scope CurrentUser
 ```
 
 ## Database Corruption
-{{{% gist 92fb73704acfd0c7c1e67308e2dca1f4 %}}}
-
+{{{< gist 92fb73704acfd0c7c1e67308e2dca1f4 >}}}

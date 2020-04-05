@@ -11,13 +11,13 @@ sidebar:
   image_alt: image
   text: This is me, with a little too much coffee...
 author_profile: false
-
+comments: true
 ---
 ## Core Values
 
 I live as a follower of Christ, desiring to impact the world around with who He is. I'm an unashamed disciple and though I've got plenty I mess up, following Him is my joy. I'm passionate about worship through music, and have played and led worship team for a number of years. Currently, I've been enjoying playing electric. This had challenged me to play in a completely different way than acoustic, as the melodic nature of the electric guitar parts bring a subtle but powerful part to a worship band.
 
-{{% figure src="/images/about-me-200.jpg" alt="Me" class="right" %}}
+{{< figure src="/images/about-me-200.jpg" alt="Me" class="right" >}}
 
 ## Family
 
@@ -26,6 +26,7 @@ I've been blessed with 3 kids and a wonderful wife Sarah who has brought beauty 
 ## Work
 
 {{<button href="https://ceev.io/@sheldonhull" theme="success">}} Professional Profile // Resume {{< /button >}}
+{{<button href="https://stackoverflow.com/story/sheldonhull" theme="success">}} StackOverflow Developer Story {{< /button >}}
 
 I've summed up more detail there, than in this spot, so take a peek at that if you want a professional run down.
 

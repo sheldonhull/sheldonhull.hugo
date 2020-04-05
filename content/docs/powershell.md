@@ -78,9 +78,9 @@ Secondly, try using [BetterCredentials](https://github.com/Jaykul/BetterCredenti
 Install-Module BetterCredentials -Force -AllowClobber
 ```
 
-{{% premonition type="note" title="Notice" %}}
+{{< premonition type="note" title="Notice" >}}
 Personally, I use `BetterCredential\Get-Credential` which is `module\function` syntax if I'm not certain I've imported first. The reason is auto-discovery of module functions in PowerShell might use the default `Get-Credentials` that BetterCredentials overloads if you don't import first. BetterCredentials overrides the default cmdlets to improve for using CredentialManager, so make sure you import it, not assume it will be correctly imported by just referring to the function you are calling.
-{{% /premonition %}}
+{{< /premonition >}}
 
 ### Creating a Credential
 
