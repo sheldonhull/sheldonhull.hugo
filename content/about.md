@@ -1,23 +1,18 @@
 ---
 permalink: "/about/"
 layout: single
-title: "About"
-slug: "about"
+title: About
+slug: about
 excerpt: about me
-last_modified_at: 2019-02-21 00:00:00 +0000
-sidebar:
-- title: About
-  image: "/images/about-me-200.jpg"
-  image_alt: image
-  text: This is me, with a little too much coffee...
+last_modified_at: 2019-02-21T00:00:00.000+00:00
+sidebar: []
 author_profile: false
 comments: true
+
 ---
 ## Core Values
 
 I live as a follower of Christ, desiring to impact the world around with who He is. I'm an unashamed disciple and though I've got plenty I mess up, following Him is my joy. I'm passionate about worship through music, and have played and led worship team for a number of years. Currently, I've been enjoying playing electric. This had challenged me to play in a completely different way than acoustic, as the melodic nature of the electric guitar parts bring a subtle but powerful part to a worship band.
-
-{{< figure src="/images/about-me-200.jpg" alt="Me" class="right" >}}
 
 ## Family
 
