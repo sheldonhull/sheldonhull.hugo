@@ -1,31 +1,31 @@
 ---
-date: 2020-02-03T22:50:07-06:00
+date: 2020-04-20T13:00:00+00:00
 title: Using Pester to Improve Operational Tasks
 slug: using-pester-to-improve-operational-tasks
-excerpt: Leverage more software development testing principles for operational tasks to improve the quality and repeatability of work completed
-draft: true
+excerpt: Leverage more software development testing principles for operational tasks
+  to improve the quality and repeatability of work completed
 comments: true
 toc: true
-images:
+images: 
 tags:
-- agile
-- working-smart
 - tech
 - devops
 - testing
+
 ---
-
-
 ## Taking the Time To Test
 
-Changing requirements set you up for failure.
-Planning with defined acceptance criteria of work you are committing to is not about filling in more documentation and work that no one cares about.
-Properly defining the acceptance criteria for yourself is about the exploratory process that defines and limits the scope of the work to deliver the minimum viable product.
-This allows continued momentum and delivery of value to the business.
+Requirements in a constant state of change set you up for failure.
+
+Failure to work through requirements before starting can also increase the risk of failure. 
+
+Planning with defined acceptance criteria of work you are committing to is not about filling in more documentation and work that no one cares about. Properly defining the acceptance criteria for yourself is about the exploratory process that defines and limits the scope of the work to deliver the minimum viable product. This allows continued momentum and delivery of value to the business.
+
+## Doesn't this create more busy work for me?
 
 Without effective acceptance criteria, _you are setting yourself up for more work_, and thus likely to deliver value to the business as quickly. From my perspective, if you cannot truly define the acceptance criteria for work, then it's likely the effort will result in less value, be difficult to deliver, or end up with scope creep.
 
-*This is a critical thing to communicate to any teams struggling with reactive work.* Without spending time ensuring proactive planning and defining the work, more work is often spent reworking and solving problems that might have been better handled with a little planning and forethought.
+_This is a critical thing to communicate to any teams struggling with reactive work._ Without spending time ensuring proactive planning and defining the requirement and acceptance criteria, more time is often spent reworking and solving problems that might have been better handled with a little planning and forethought.
 
 A classic example of unclear acceptance criteria and the wasteful impact of work is from a youtube clip here.
 
@@ -38,7 +38,7 @@ How many times have you started work on a project and found yourself in a simila
 > The most effective way to do this is through conversation and collaboration between key stakeholders...
 > Dan North
 
-## Baby Steps In Testing
+## Small Steps In Testing
 
 Now that I did my high-level philosophizing about the SRE, DevOps, communication, and planning... let's do something more low level and fun.
 
@@ -66,8 +66,9 @@ In a Windows environment, for example, you can use it to check many things like 
 
 Most examples I've found on Cucumber are focused very much on user testing, like website clicks, saving things, and other very narrow development focused actions.
 
-What I've failed to see as much of is the discussion on the value of using this approach with teams implementing "Infrastructure as Code", operations teams, and other non-application specific roles.
-To be fair, the more complicated but better design approach would probably do this with Ansible, Chef, PowerShell DSC, Saltstack, or another tool.
+What I've failed to see as much of is the discussion on the value of using this approach with teams implementing "Infrastructure as Code", operations teams, and other non-application specific roles. 
+
+## Make Your Checklist Automated
 
 In my example, let's start small and say you just have PowerShell, and some servers.
 
@@ -207,13 +208,13 @@ And 'the application should show up in installed programs' {
 
 # helper function could be loaded and used to parse registry info for installed app showing up, or you could code it directly
 
-Get-InstalledApp 'Sumo' | Should -Be $true
+Get-InstalledApp 'MyAgent' | Should -Be $true
 }
 And 'the service should show up' {
-@(Get-Service 'Sumo*').Count | Should -Be 0
+@(Get-Service 'MyAgent*').Count | Should -Be 0
 }
 And 'the service should be running' {
-@(Get-Service 'Sumo*' | Where-Object Status -eq 'Running').Count | Should -Be 0
+@(Get-Service 'MyAgent*' | Where-Object Status -eq 'Running').Count | Should -Be 0
 }
 ```
 
@@ -224,3 +225,11 @@ Invoke-Gherkin -Path InstallFancyLoggingVendor.steps.ps1
 ```
 
 This would run all the steps from a feature file and ensure I'm able to repeat these tests after any change to confirm they work.
+
+## Other Great Use Cases
+
+I've leveraged this to validate SQL Server configuration changes on a new AWS RDS Deployment, validate build steps completed sucessfully, tested file paths existing, and more. I really like how you can have this all integrated in a nice UI by uploading the nunit tests in Azure DevOps pipelines too. 
+
+## Start Small
+
+Take a look at the simple Pester syntax examples or the gherkin examples I gave and use that to do anything you keep having to check more than a few times. You'll find your efforts rewarded by having more consistent testing and probably save quite a bit of effort as well.
