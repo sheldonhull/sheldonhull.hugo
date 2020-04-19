@@ -11,11 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
       - run: npm install atomic-algolia
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '0.69'
-          extended: true
+      - name: brew install hugo
       - name: Build Hugo Site And Algolia Json
         run: hugo --minify --enableGitInfo -d _site --disableKinds ["RSS","HTML"]
       - run: npm run algolia
