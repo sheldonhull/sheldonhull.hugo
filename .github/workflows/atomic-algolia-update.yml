@@ -21,6 +21,6 @@ jobs:
       - run: npm run algolia
         env:
           ALGOLIA_APP_ID: '04HSGXXQD5'
-          ALGOLIA_ADMIN_KEY: {{ `secrets.ALGOLIA_ADMIN_KEY` }}
+          ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
           ALGOLIA_INDEX_NAME: 'sheldonhull'
           ALGOLIA_INDEX_FILE: '_site/algolia.json'
