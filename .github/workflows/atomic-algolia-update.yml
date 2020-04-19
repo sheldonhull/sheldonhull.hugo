@@ -4,20 +4,16 @@ on:
   push:
     branches:
       - master
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 7.6
-        uses: actions/setup-node@v1
-        with:
-          node-version: 7.6
+      - uses: actions/setup-node@v1
       - run: npm install atomic-algolia
-      - uses: jakejarvis/hugo-build-action@master
+      - uses: jakejarvis/hugo-build-action@v0.69.0
         with:
-          args: '--minify --enableGitInfo -d _site --gc'
+          args: '--minify --enableGitInfo -d _site'
       - run: npm run algolia
         env:
           ALGOLIA_APP_ID: '04HSGXXQD5'
