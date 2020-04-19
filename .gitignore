@@ -1,7 +1,7 @@
 # File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
 
-# Created by https://www.gitignore.io/api/angular,node
-# Edit at https://www.gitignore.io/?templates=angular,node
+# Created by https://www.gitignore.io/api/node,angular,hugo
+# Edit at https://www.gitignore.io/?templates=node,angular,hugo
 
 ### Angular ###
 ## Angular ##
@@ -33,6 +33,16 @@ e2e/*.map
 
 #System Files
 .DS_Store/
+
+### Hugo ###
+# Generated files by hugo
+/public/
+/resources/_gen/assets
+
+# Executable may be added to repository
+hugo.exe
+hugo.darwin
+hugo.linux
 
 ### Node ###
 # Logs
@@ -136,9 +146,8 @@ jspm_packages/
 # Temporary folders
 temp/
 
-# End of https://www.gitignore.io/api/angular,node
+# End of https://www.gitignore.io/api/node,angular,hugo
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
-
 
 _site

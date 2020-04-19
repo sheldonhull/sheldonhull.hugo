@@ -27,6 +27,16 @@
     "branchwarnings.protectedBranches": [
         ""
     ],
-    "peacock.color": "#29b561" // no protected branches on this blog repo, as I edit and work with master directly for CI
+    "peacock.color": "#29b561",
+    "grammarly.userWords": [
+        "Localdb",
+        "dbaconnection",
+        "dbatools",
+        "gists",
+        "ldf",
+        "localdb",
+        "mdf",
+        "pwsh"
+    ] // no protected branches on this blog repo, as I edit and work with master directly for CI
 
 }
