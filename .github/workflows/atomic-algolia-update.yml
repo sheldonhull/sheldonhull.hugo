@@ -3,6 +3,12 @@ on:
   push:
     branches:
       - master
+
+env:
+  ALGOLIA_APP_ID=04HSGXXQD5
+  ALGOLIA_ADMIN_KEY={{ `secrets.ALGOLIA_ADMIN_KEY` }}
+  ALGOLIA_INDEX_NAME=sheldonhull
+  ALGOLIA_INDEX_FILE=_site/algolia.json
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,8 +23,3 @@ jobs:
         with:
           args: '--minify --enableGitInfo -d _site --gc'
       - run: npm run algolia
-        env:
-          ALGOLIA_APP_ID=04HSGXXQD5
-          ALGOLIA_ADMIN_KEY={{ `secrets.ALGOLIA_ADMIN_KEY` }}
-          ALGOLIA_INDEX_NAME=sheldonhull
-          ALGOLIA_INDEX_FILE=_site/algolia.json
