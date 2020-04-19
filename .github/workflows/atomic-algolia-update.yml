@@ -1,17 +1,17 @@
 name: Atomic Algolia Update
+
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
 
-env:
-  ALGOLIA_APP_ID=04HSGXXQD5
-  ALGOLIA_ADMIN_KEY={{ `secrets.ALGOLIA_ADMIN_KEY` }}
-  ALGOLIA_INDEX_NAME=sheldonhull
-  ALGOLIA_INDEX_FILE=_site/algolia.json
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      ALGOLIA_APP_ID=04HSGXXQD5
+      ALGOLIA_ADMIN_KEY={{ `secrets.ALGOLIA_ADMIN_KEY` }}
+      ALGOLIA_INDEX_NAME=sheldonhull
+      ALGOLIA_INDEX_FILE=_site/algolia.json
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js 7.6
