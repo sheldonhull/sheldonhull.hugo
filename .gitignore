@@ -153,3 +153,6 @@ temp/
 _site
 
 act/
+# Local Netlify folder
+.netlify
+act/
