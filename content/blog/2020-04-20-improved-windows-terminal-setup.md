@@ -1,5 +1,5 @@
 ---
-date: 2020-04-20 07:00:00 -0500
+date: 2020-04-20T07:00:00-05:00
 title: Improved Windows Terminal Setup
 slug: improved-windows-terminal-setup
 excerpt: Quickly get some nice defaults going for latest Windows Terminal
@@ -20,7 +20,7 @@ So here it goes! Rather than hunting all around to get a nice start on some defa
 
 ## Getting Started
 
-This will help you get the terminal installed, along with downloading some settings I've already presetup with keybindings and more.
+This will help you get the terminal installed, along with downloading some settings I've already pre-setup with keybindings and more.
 
 To customize your own keybindings, you can go to the [profiles.json](https://github.com/microsoft/terminal/blob/master/doc/cascadia/SettingsSchema.md) documentation.
 
@@ -42,7 +42,7 @@ Be sure to try out the retro pwsh theme for some nice eye candy.
 
 ## The result
 
-PowerShell Protip: Note the suggested completion based on prior commands in the pwsh prompt. This is some great prerelease work on a better PSReadline experience with powershell.
+PowerShell Protip: Note the suggested completion based on prior commands in the pwsh prompt. This is some great prerelease work on a better PSReadline experience with Powershell.
 
 ![image of windows terminal](/images/windows-terminal-01.png)
 

@@ -157,3 +157,6 @@ act/
 # Local Netlify folder
 .netlify
 act/
+
+# Git Time Tracking
+.gtm
