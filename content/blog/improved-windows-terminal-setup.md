@@ -1,5 +1,5 @@
 ---
-date: 2020-04-20T12:00:00+00:00
+date: 2020-04-20 07:00:00 -0500
 title: Improved Windows Terminal Setup
 slug: improved-windows-terminal-setup
 excerpt: Quickly get some nice defaults going for latest Windows Terminal
@@ -9,7 +9,7 @@ tags:
 - git
 - powershell
 - tech
-draft: true
+draft: false
 
 ---
 I've long been a Cmder/ConEmu user for Windows as it's provided a much-needed improvement of the standard Windows terminal.

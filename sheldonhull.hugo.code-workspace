@@ -30,7 +30,10 @@
         "branchwarnings.protectedBranches": [
             ""
         ],
-        "peacock.color": "#29b561"
+        "peacock.color": "#29b561",
+        "conventionalCommits.scopes": [
+            "blog"
+        ]
     },
     "extensions": {
         "recommendations": [
