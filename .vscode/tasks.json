@@ -5,7 +5,7 @@
     "windows": {
         "options": {
             "shell": {
-                "executable": "pwsh",
+                "executable": "pwsh.exe",
                 "args": [
                     "-noprofile",
                     "-nologo",
@@ -14,6 +14,7 @@
                     "-command"
                 ]
             }
+
         }
     },
     "tasks": [
@@ -21,6 +22,15 @@
             "label": "serve",
             "type": "shell",
             "command": "hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc",
+            "group": {
+                "isDefault": true,
+                "kind": "build"
+            }
+        },
+        {
+            "label": "build-prod",
+            "type": "shell",
+            "command": "hugo -b https://www.sheldonhull.com/ --verbose --enableGitInfo -d _public --gc --disableKinds \"RSS\",\"HTML\"",
             "group": {
                 "isDefault": true,
                 "kind": "build"
