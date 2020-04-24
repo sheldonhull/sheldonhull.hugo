@@ -1,5 +1,5 @@
 ---
-date: 2020-04-20T13:00:00+00:00
+date: 2020-04-20T13:00:00.000+00:00
 title: Using Pester to Improve Operational Tasks
 slug: using-pester-to-improve-operational-tasks
 excerpt: Leverage more software development testing principles for operational tasks
@@ -17,7 +17,7 @@ tags:
 
 Requirements in a constant state of change set you up for failure.
 
-Failure to work through requirements before starting can also increase the risk of failure. 
+Failure to work through requirements before starting can also increase the risk of failure.
 
 Planning with defined acceptance criteria of work you are committing to is not about filling in more documentation and work that no one cares about. Properly defining the acceptance criteria for yourself is about the exploratory process that defines and limits the scope of the work to deliver the minimum viable product. This allows continued momentum and delivery of value to the business.
 
@@ -40,7 +40,7 @@ How many times have you started work on a project and found yourself in a simila
 
 ## Small Steps In Testing
 
-Now that I did my high-level philosophizing about the SRE, DevOps, communication, and planning... let's do something more low level and fun.
+Now that I did my high-level philosophizing ... let's do something more low level and fun.
 
 ### An example of adding tests to DevOps oriented tasks
 
@@ -66,7 +66,7 @@ In a Windows environment, for example, you can use it to check many things like 
 
 Most examples I've found on Cucumber are focused very much on user testing, like website clicks, saving things, and other very narrow development focused actions.
 
-What I've failed to see as much of is the discussion on the value of using this approach with teams implementing "Infrastructure as Code", operations teams, and other non-application specific roles. 
+What I've failed to see as much of is the discussion on the value of using this approach with teams implementing "Infrastructure as Code", operations teams, and other non-application specific roles.
 
 ## Make Your Checklist Automated
 
@@ -228,8 +228,16 @@ This would run all the steps from a feature file and ensure I'm able to repeat t
 
 ## Other Great Use Cases
 
-I've leveraged this to validate SQL Server configuration changes on a new AWS RDS Deployment, validate build steps completed sucessfully, tested file paths existing, and more. I really like how you can have this all integrated in a nice UI by uploading the nunit tests in Azure DevOps pipelines too. 
+I've leveraged this to validate SQL Server configuration changes on a new AWS RDS Deployment, validate build steps completed successfully, tested file paths existing, and more. I really like how you can have this all integrated in a nice UI by uploading the nunit tests in Azure DevOps pipelines too.
 
 ## Start Small
 
 Take a look at the simple Pester syntax examples or the gherkin examples I gave and use that to do anything you keep having to check more than a few times. You'll find your efforts rewarded by having more consistent testing and probably save quite a bit of effort as well.
+
+## Helped?
+
+If you found these concepts helpful and would like an example of using Pester to test SQL Server login authentication, user group assignment, and more, let me know. I've done SQL Server pester tests using traditional Pester syntax that would validate maintenance solution deployment, login mapping, and more. If this was valuable, I could do a write-up of this. 
+
+If you also would like more fundamentals, I'd be willing to do a basic Pester write-up for an operational focused task that is ground zero too, just depends if you the reader find this helpful.
+
+Comments always appreciated if this helped you! Let's me know it's actually helping someone out and always great to connect with others. 🍻

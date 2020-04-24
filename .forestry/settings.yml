@@ -29,7 +29,6 @@ public_path: images
 front_matter_path: ''
 use_front_matter_path: false
 file_template: ":filename:"
-instant_preview: true
 build:
   preview_env:
   - HUGO_ENV=staging
@@ -39,5 +38,4 @@ build:
   mount_path: "/opt/buildhome/repo"
   instant_preview_command: 'hugo server -D -E -F --port 8080 --bind 0.0.0.0 --renderToDisk
     -d public -enableGitinfo '
-  preview_command: hugo -E -F -D -enableGitinfo -b $DEPLOY_URL -d public
 version: 0.54.0
