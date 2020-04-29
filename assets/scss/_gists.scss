@@ -24,7 +24,7 @@ body .gist .gist-file , .gist:visited{
     // background: #293134;
     color: #A0A8B3;
     text-decoration: none;
-    font-family: 'Ubuntu';
+    font-family: $code-fonts;
     box-shadow: 2px 4px 10px rgba(0,0,0,.5);
 
 
@@ -53,7 +53,7 @@ body .gist .gist-file , .gist:visited{
     // overflow-x: scroll; // This causes double scrollbar
     border: none;
      background: rgba(56, 4, 40, .9);
-     font-family:'Ubuntu';
+     font-family:$code-fonts;
      font-size:1.4em;
   }
 

@@ -25,7 +25,8 @@
             "group": {
                 "isDefault": true,
                 "kind": "build"
-            }
+            },
+            "problemMatcher": []
         },
         {
             "label": "build-prod",
@@ -39,7 +40,7 @@
         {
             "label": "algolia update",
             "type": "shell",
-            "command":"netlify build; $ENV:ALGOLIA_INDEX_FILE = \"public/algolia.json\"; npm run algolia \"${workspaceFolder}\\public\\algolia.json\"",
+            "command": "netlify build; $ENV:ALGOLIA_INDEX_FILE = \"public/algolia.json\"; npm run algolia \"${workspaceFolder}\\public\\algolia.json\"",
             "group": "build",
             "problemMatcher": []
         },
@@ -61,6 +62,6 @@
             "command": "npm install netlify-cli -g",
             "group": "build",
             "problemMatcher": []
-        },
+        }
     ]
 }

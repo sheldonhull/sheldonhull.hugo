@@ -98,9 +98,9 @@ menu:
     - name: "Blog"
       weight: 1
       url : "/blog/"
-    - name: "Stream"
+    - name: "Microblog"
       weight: 1
-      url : "/stream/"
+      url : "/microblog/"
     - name: "Tags"
       url: "/tags/"
       weight: 2
@@ -133,7 +133,7 @@ params:
     #text: 'Maven Pro'
     text: Raleway
 
-    code: "Fira Code"
+    code: "JetBrainsMono"
   dateform: "Jan 2, 2006"
   dateformShort: "Jan 2"
   dateformNum: "2006-01-02"

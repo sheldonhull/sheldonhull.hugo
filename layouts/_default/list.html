@@ -15,13 +15,17 @@
         <div class="post-year" id="{{ .Key }}">{{ .Key }}</div>
         <ul class="posts-list">
             {{- range .Pages }}
+            {{$section := .Section}}
             <li class="post-item">
                 <a href="{{.Permalink}}">
-
                     <span class="post-title"><span class="listmonth">{{ .Date.Format "Jan"  }}</span>
                     {{ if .Params.Draft }}<div class="posttag draft">draft</div>{{ end }}
                     {{ if gt .Params.date now }}<div class="posttag scheduled">scheduled</div>{{ end }}
-                    {{.Title}}</span>
+                    {{- if (eq $section "microblog")}}<i>microblog:</i> {{.RawContent | plainify | truncate 70}}
+                    {{else}}
+                    {{.Title}}
+                    {{ end -}}
+                    </span>
                     <span class="post-day">{{ .Date.Format (.Site.Params.dateFormat | default "") }}</span>
                 </a>
             </li>

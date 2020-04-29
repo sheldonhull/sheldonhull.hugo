@@ -4,9 +4,9 @@
 @import "code-syntax.scss";
 @import "_gists.scss";
 @import "animate.scss";
-@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
-@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import "fonts.scss";
 
+//
 @import "notice.scss";
 @import "shortcodes.scss";
 @import "applause-button.scss";
@@ -83,7 +83,6 @@ pre,
 code,
 pre tt {
     font-family: $code-fonts;
-    font-family: 'Ubuntu';
     color: $text;
     font-size: 1.0em;
     overflow-x: auto;
