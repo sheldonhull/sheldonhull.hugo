@@ -22,6 +22,7 @@ fields:
     required: true
     date_format: YYYY-MM-DD
     time_format: HH:mm:ssZ
+    export_format: YYYY-MM-DD HH:00:00 Z
   default: now
 - type: list
   name: tags
