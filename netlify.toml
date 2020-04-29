@@ -141,7 +141,7 @@ package = "netlify-plugin-checklinks"
   # Many build tools don't emit working references, so this is disabled by default
   followSourceMaps = false
 
-  [[plugins]]
+[[plugins]]
 package = "netlify-plugin-subfont"
 
   [plugins.inputs]
