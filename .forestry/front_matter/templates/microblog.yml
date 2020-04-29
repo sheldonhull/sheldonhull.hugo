@@ -24,18 +24,12 @@ fields:
     time_format: HH:mm:ssZ
     export_format: YYYY-MM-DD HH:00:00 Z
   default: now
-- type: list
-  name: tags
+- name: tags
+  type: tag_list
+  default:
+  - til
+  - tech
   label: tags
-  config:
-    use_select: false
-    source:
-      type: simple
-      section: ''
-      path: ''
-    options:
-    - til
-    - tech
 pages:
 - content/microblog/2019-04-20t03-48-12-00-00.md
 - content/microblog/2019-04-25t00-39-35-05-00.md
