@@ -9,18 +9,22 @@ slug: "manictime-timetracking-automation-done-right"
 toc: true
 ---
 
+{{< premonition type="info" title="Updated: 2020-04-29" >}}
+broken image links removed
+{{< /premonition >}}
+
 Tracking time is always a beast. With the amount of context switching many developers do, it can be tough to remember how much time went to each project. With companies looking to track effort on sprints, hours on a client project, or (as in my case) just a dev wanting to better evaluate the productive use of time, this app fills some gaps that others don't.For instance, I've tried tools such as Toggl, and similar. I found them useful, but requiring a lot of diligence to work with. There is very little "automatic" categorization of time. Many of those tools are focused on a timer based approach that requires you to start and stop the timer.
 [ManicTime](http://bit.ly/2e9tsDZ) approaches this differently. It has the typical stop watch, countdown, Pomodoro type functionality a time tracking tool might offer, but in addition to this it provides a captured timeline of activity with various forms of meta data to easily review and parse for categorization.
 
 This categorization of information can take the form of details such as:
 
-1.  Development
-2.  Personal
-3.  Browsing
+1. Development
+2. Personal
+3. Browsing
 or be specific based on user input such as
-4.  Development, Reticulating Splines
-5.  Personal, Contemplating Navel
-6.  Project Manhattan, Task 666: Optimizing Nuclear Db Performance
+4. Development, Reticulating Splines
+5. Personal, Contemplating Navel
+6. Project Manhattan, Task 666: Optimizing Nuclear Db Performance
 
 Manually entered information is a big driver for better tagging accuracy, _but_ it expands this to allowing dynamic tags based on matching of applications, titles of documents, titles of web pages, calendar entries, and more. This offers a vast range of meta data captured on your system to generate more accurate allocation of your time. The only real negative to this is that it is _not_ as simple as something like Toggle. However, with a little work, you can work an entire day and quickly recap at the end, categorizing your effort with very little fuss, and a high amount of accuracy.
 
@@ -30,15 +34,11 @@ I've used this application over the last year and found a lot of value in it, fi
 
 ## Overview
 
-![Overview](/images/overview-sm.png)
-
 ### Time Categories
 
 ![Time Categories](/images/time-categories.png)
 
 ### Overview of Day's Activities
-
-![Overview of Day](/images/overview-of-day-s-activities-sm.png)
 
 The list of all activities is organized into several timelines, whether it be the applications, extracted document titles from applications, calendar, or even calendar feeds. This allows a variety of ways to go back through and easily organize and track time. One recent improvement that I completely love is the integrated screenshots into the application timeline. This allows you to keep a running screenshot log of activity to easily go back through existing applications and remember exactly what was being done at the time. A very useful implementation!
 
@@ -52,7 +52,7 @@ Autotagging is where this tool gets powerful. Basically, the concept is to allow
 
 ### Regex Parsing
 
-I've yet to figure out the [dynamic tags based on regex parsing ](http://bit.ly/2dLECP9) as it doesn't seem to give you a preview to test and refine results. Once I figure this out, or the app improves the ability to use this I think the additional timelines will be very handy as you could have one timeline focused on dynamic parsing and grouping of projects based on doc/chrome titles that doesn't interfer with the categorization that the other timeline might use.
+I've yet to figure out the [dynamic tags based on regex parsing](http://bit.ly/2dLECP9) as it doesn't seem to give you a preview to test and refine results. Once I figure this out, or the app improves the ability to use this I think the additional timelines will be very handy as you could have one timeline focused on dynamic parsing and grouping of projects based on doc/chrome titles that doesn't interfer with the categorization that the other timeline might use.
 This is a usability issue that I hope to see improved in the future. It has a lot of potential.
 
 ![Regex Parsing](/images/regex-parsing.png)
@@ -85,8 +85,6 @@ There is a variety of ways to filter down the timeline to only untagged activiti
 
 ### Some Nice Visual Statistics Available
 
-![Some Nice Visual Statistics Available](/images/some-nice-visual-statistics-available-sm.png)
-
 ### Other Statistics Available
 
 These are listed based on the selected groups, tags and more.
@@ -110,4 +108,3 @@ Fantastic app with a unique approach.
 Cost is a little high, but it's an independent app so supporting the development can be a good thing as a really specialized tool. Not sure they'd be able to continue development if it was a lifetime purchase (those seem to have gone away over time). As a good office tool for better tracking and reporting on time (for instance if working with clients), then I believe it might just pay for itself.
 I'd like to see a smoother integration with the server components to being a better cloud tracking mechanism, allowing android, pc, mac, all to provide a solid reporting mechanism for families on the go. The app seems more focused on enterprise/business tracking though, so this might not be implemented.
 I'll continue using and finding great value in helping track my time with the least amount of work. For those looking for a solution, give it a shot. They have a [lite version](http://bit.ly/2e9vhke) available as well with less features, so you can take a swing at it.
-

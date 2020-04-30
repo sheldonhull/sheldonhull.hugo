@@ -9,6 +9,11 @@ title: TFS Custom Task - Service Actions (for TFS 2015 Update 2.1 or before)
 slug: tfs-custom-task-service-actions-(for-tfs-2015-update-21-or-before)
 
 ---
+
+{{< premonition type="info" title="Updated: 2020-04-29" >}}
+broken image links removed
+{{< /premonition >}}
+
 Apparently, boolean values for custom VSTS tasks for versions prior to TFS 2015 Update 3) require some special handling as they don't pass the checkbox values as actual powershell `$true` or `$false`. Instead the task passes this information along as `true` or `false`. To properly handle this you'll need to pass in the value as a `string` then convert to `boolean`.
 
 I found a great start on working on this solution in a blog post by Rene which has more detail, so [check it out.](http://bit.ly/2mggrc9) In addition, some reading on [promiscuous types](http://bit.ly/2mgmMnY) with powershell can be helpful to understand why special handling is needed with conversion.
@@ -34,8 +39,6 @@ For example, in the task.json file you'll have:
 ```
 
 This boolean value provides a checkbox on the custom task window.
-
-![](/images/tfs-custom-build-task-with-boolean.pngtfs-custom-build-task-with-boolean?format=original)
 
 To properly work with the boolean value, you have to bring it in as a script then convert it to a boolean value.
 

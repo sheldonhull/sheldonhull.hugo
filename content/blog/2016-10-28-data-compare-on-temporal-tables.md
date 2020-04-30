@@ -12,6 +12,11 @@ I hadn't seen much talk on doing data comparisons on temporal tables, as they ar
 
 ## SSMS 2016 View Of Temporal Table
 
+{{< premonition type="info" title="Updated: 2020-04-29" >}}
+broken image links removed
+{{< /premonition >}}
+
+
 With the latest version of SSMS, you can see the temporal tables labeled and expanded underneath the source table.
 
 ![SSMS 2016 View Of Temporal Table](/images/ssms-2016-view-of-temporal-table.png)
@@ -20,13 +25,9 @@ With the latest version of SSMS, you can see the temporal tables labeled and exp
 
 To begin the comparison process, you need to do some custom mapping, which requires navigating into the Tables & Views settings in SQL Data Compare
 
-![Red Gate SQL Data Compare 12](/images/red-gate-sql-data-compare-12-sm.png)
-
 ### Unmap the existing options
 
 To remap the Customers to Customers_Archive, we need to select this in the tables and choose to unmap the Customer and the Customer-Archive Tables from each other. This is 2 unmapping operations.
-
-![Unmap the existing options](/images/unmap-the-existing-options-sm.png)
 
 ### Setup Compare Key
 
@@ -56,8 +57,6 @@ This entry was matched in DbForge SQL Data Compare as a conflict due to matching
 
 The entry identified as potential conflict  by DbForge is identified in the Only In Destination.
 
-![Conflict Entry Only In Destination](/images/conflict-entry-only-in-destination-sm.png)
-
 ### Diff Report
 
 Both tools report differences. RG's tool has focused on the diff report being simple CSV output. This is fine in the majority of cases, though I'm hoping for additional XLSX and HTML diff reports similar to DbForge eventually. In the case of the CSV output, you could consume the information easily in Power-BI, Excel, or even... SQL Server :-) No screenshot on this as it's just a csv output.
@@ -75,15 +74,11 @@ As a simple example, I just provided the primary key. You could get creative wit
 
 ![Choose the key column to compare against](/images/choose-the-key-column-to-compare-against.png)
 
-![84a38857-022c-4d68-8c00-1f79cfcac3b2-sm](/images/84a38857-022c-4d68-8c00-1f79cfcac3b2-sm.png)
-
 ### Handling Conflicts differently
 
 Looks like the conflict is handled differently in the GUI than Red Gate, as this provides back a separate tab indicating a conflict. Their documentation indicates:
 Appears only if there are conflict records (records, having non-unique values of the custom comparison key).
 [DbForge Data Compare for SQL server Documentation - Data Comparison Document](https://www.devart.com/dbforge/sql/datacompare/docs/data_comparison_document.htm?zoom_highlightsub=conflict)
-
-![Handling Conflicts differently](/images/handling-conflicts-differently-sm.png)
 
 ### Diff Report
 
@@ -98,4 +93,3 @@ Here is a sample of a detail provided on the diff report. One feature I found in
 ![Diff Report Details](/images/diff-report-details.png)
 
 Overall, good experience with both, and they both support a lot of flexibility with more specialized comparisons.
-

@@ -33,8 +33,6 @@ When possible, I personally am going to recommend to leverage a package like dba
 
 ## Exploring SQL Path Provider
 
-![](/images/exploring-sql-path-provider.pngexploring-sql-path-provider?format=original)
-
 Trying to find the path initially can be challenging. However, by opening SSMS up, right clicking, and launching the powershell window you'll be able to easily find the correct path to get the server level object.
 
 This allows you to leverage default methods in powershell like Get-ChildItem for iterating through objects. It treats the navigated SQL server path basically as a "file structure" allowing some interesting actions to be performed. One of these is a different approach to killing connections to a particular database.
@@ -134,7 +132,6 @@ For instance, here's a walkthrough on the various ways you might explore the obj
 
 {{< gist e3ed8534b1565c67d6d59163b0921d59 >}}
 
-
 ## Comparing Restoring a Database with Cmdlet vs SMO
 
 ### using dbatools cmdlet
@@ -142,7 +139,6 @@ For instance, here's a walkthrough on the various ways you might explore the obj
 An example of how simple using dbatools cmdlet can make restoring a database copy
 
 {{< gist 7314ffa3fc830f36a2eda8ee7e27f7c4 >}}
-
 
 ### rolling your own wheel
 

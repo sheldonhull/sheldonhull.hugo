@@ -9,6 +9,11 @@ slug: "syncovery-&-arq-syncing-&-backup"
 
 # Syncovery & Arq 5I've tried a lot of file sync/backup utilities.
 
+{{< premonition type="info" title="Updated: 2020-04-29" >}}
+broken image links removed
+{{< /premonition >}}
+
+
 The primary definition to get right is that there are two main functions people try to achieve with this type of software.
 
 *   File Syncing: Syncing Files Between Cloud and Local
@@ -51,7 +56,6 @@ At a high level, some of the powerful options I appreciated where the exact mirr
 
 Shows the current progress. I have used some backup apps that froze when running large backups in the past. So far, I've had good experinces with Syncovery's stability.
 
-![Compare screen](/images/2016-09-30_21-34-32_syncovery_compare_screen)
 
 ![Running backup in attended mode](/images/running-backup-in-attended-mode.png)
 
