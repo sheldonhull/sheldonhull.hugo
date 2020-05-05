@@ -1,16 +1,42 @@
 ---
-date: 2020-01-16T07:00:00-06:00
+date: 2020-01-16T13:00:00.000+00:00
 title: Running SQL Server in Docker
 slug: running-sql-server-in-docker
-excerpt:
-  For development work, it can be freeing to leverage Docker to simplify spinning up a test SQL Server instance for your work
+excerpt: For development work, it can be freeing to leverage Docker to simplify spinning
+  up a test SQL Server instance for your work
 tags:
- - devops
- - docker
- - sql-server
- - tech
+- devops
+- docker
+- sql-server
+- tech
 toc: true
+
 ---
+{{< premonition type="info" title="Updated 2020-05-05" >}}
+
+I've had lots of challenges in getting docker for sql-server working because I've wanted to ensure for my dev use case that there was no need for virtual volume management and copying files into and out of this. Instead, I've wanted to bind to local windows paths and have it drop all the mdf/ldf right there, so even on container destruction everything is good to go. 
+
+After working through the changes in SQL 2019 that require running as non-root, I've gotten it work again. No install of sql-server needed. Easy disposable development instance through docker! I'll update my docker compose content when I can, but in the meantime, this should get you running even more quickly with SQL Server 2019.
+
+```powershell
+docker run `
+    --name SQL19 `
+    -p 1433:1433 `
+    -e "ACCEPT_EULA=Y" `
+    -e "MSSQL_SA_PASSWORD=ThisIsNotARealPassword@!1}" `
+    -v C:\mssql\SQL19:/sql `
+    -d mcr.microsoft.com/mssql/server:2019-latest
+
+docker run `
+    --name SQL19WithSpaces `
+    -p 1434:1433 `
+    -e "ACCEPT_EULA=Y" `
+    -e "MSSQL_SA_PASSWORD=ThisIsNotARealPassword@!1}" `
+    -v C:\mssql\SQL19WithSpaces:/sql `
+    -d mcr.microsoft.com/mssql/server:2019-latest
+```
+
+{{< /premonition >}}
 
 ## Why Use Docker for MSSQL
 
@@ -28,10 +54,10 @@ I'm happy to say I finally have it working to my satisfaction, resolving most of
 
 If you've desired to do the following, then using Docker might end up saving you some effort.
 
-- simplify the setup of a new SQL Server instance
-- be able to reset your SQL Server instance to allow testing some setup in isolation
-- be able to switch SQL Server editions to match a new requirement
-- be able to upgrade or patch to a later version of SQL Server with minimal effort
+* simplify the setup of a new SQL Server instance
+* be able to reset your SQL Server instance to allow testing some setup in isolation
+* be able to switch SQL Server editions to match a new requirement
+* be able to upgrade or patch to a later version of SQL Server with minimal effort
 
 This is not for production. There's more effort and debate that goes on to using SQL Server in containers, Kubernetes (even more complex!), and other containerization approaches that are far outside the scope of what I'm looking at. This is first and foremost focused on ensuring a development workflow that reduces complexity for a developer and increases the ease at which SQL Server testing can be implemented by making the SQL Server instance easily disposed of and recreated.
 
