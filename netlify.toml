@@ -8,7 +8,7 @@ echo "DEPLOY_PRIME_URL = $DEPLOY_PRIME_URL"
 # HUGO_BASEURL=$DEPLOY_PRIME_URL #not setting, as no branch naming for production deploy
 echo "HUGO_BASEURL = $HUGO_BASEURL"
 
-echo `hugo version`
+echo "hugo version"
 git status --porcelain
 git submodule update --init --recursive
 export GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
@@ -17,7 +17,7 @@ echo "GIT_COMMIT_SHA       = $GIT_COMMIT_SHA"
 echo "GIT_COMMIT_SHA_SHORT = $GIT_COMMIT_SHA_SHORT"
 hugo --verbose --verboseLog --minify --destination $HUGO_DESTINATION -b $DEPLOY_PRIME_URL
 
-echo `Starting atomic-algolia update`
+echo "Starting atomic-algolia update"
 npm run algolia
 
 """ # -b $DEPLOY_PRIME_URL
