@@ -2,7 +2,7 @@
 title: powershell
 slug: powershell
 date: 2019-03-19
-last_modified_at: 2019-03-19
+last_modified_at: 2020-05-08T05:00:00+00:00
 toc: true
 excerpt: A cheatsheet for some interesting PowerShell related concepts that might
   benefit others looking for some tips and tricks
