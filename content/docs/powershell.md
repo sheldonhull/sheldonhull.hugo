@@ -4,16 +4,15 @@ slug: powershell
 date: 2019-03-19
 last_modified_at: 2019-03-19
 toc: true
-excerpt:
-  A cheatsheet for some interesting PowerShell related concepts that might
+excerpt: A cheatsheet for some interesting PowerShell related concepts that might
   benefit others looking for some tips and tricks
 permalink: "/docs/powershell"
 tags:
-  - development
-  - powershell
+- development
+- powershell
 comments: true
----
 
+---
 {{< premonition type="info" title="Requests or Suggestions" >}}
 If you have any requests or improvements for this content, please comment below. It will open a GitHub issue for chatting further.
 I'd be glad to improve with any additional quick help and in general like to know if anything here in particular was helpful to someone.
@@ -262,5 +261,65 @@ Get-S3Object -BucketName 'tacoland' | Select-PSFObject -ScriptProperty @{
             (($this.Name  -split '/')[-1])
         }
     }
+}
+```
+
+
+## Parallel Tips & Tricks
+
+If you are using `-Parallel` with the newer runspaces feature in PowerShell 7 or greater, then long running operations such as queries or operations that take a while might be difficult to track progress on. 
+In my case, I wanted to be able to see the progress for build process running in parallel and found using the synchronized hashtable I was able to do this. 
+
+```powershell
+$hash = [hashtable]::Synchronized(@{})
+$hash.counter = 1
+@(1..100) | ForEach-Object -Throttle 8 -Parallel { 
+    $hash = $using:hash
+    $hash.counter++
+    Write-Host "Progress: $($hash.counter)"
+    Start-Sleep -Milliseconds (Get-Random -Minimum 1 -Maximum 10)
+}
+$hash.counter
+```
+
+I put the delay in there to show that the asynchronous nature doesn't mean 1-100, it could do some faster than others and this shows on the output with content like: 
+
+```text
+Progress: 1
+Progress: 2
+Progress: 3
+Progress: 4
+Progress: 6 <---- parallel, no promise of which runspace finishes first
+Progress: 5
+```
+
+A more advanced way to use this might be to help guage how long something might take to complete when running parallel SQL Server queries. 
+
+```powershell
+#################################################################
+# Quick Estimate of Pipeline Completion with Parallel Runspaces #
+#################################################################
+
+$TotalToProcess = 150
+$StopwatchProcess = [diagnostics.stopwatch]::StartNew()
+
+$hash = [hashtable]::Synchronized(@{ })
+$hash.counter = 1
+
+
+
+@(1..$TotalToProcess ) | ForEach-Object -Throttle 8 -Parallel { 
+    $d = $_
+    $PerItemStopwatch = [diagnostics.stopwatch]::StartNew()
+    $hash = $using:hash
+
+    $hash.counter++
+    $x = $hash.counter
+
+    $ApproxSecondsEachSoFar = $hash.counter / $using:StopwatchProcess.Elapsed.TotalSeconds
+    $RemainingCount = $using:TotalToProcess - $x
+    $ApproxRemainingTime =  $RemainingCount * $ApproxSecondsEachSoFar
+    Write-Host ( "{0:hh\:mm\:ss\.fff} | {1} | $x of $using:TotalToProcess | remaining time {3} | {2}" -f $PerItemStopwatch.Elapsed, 'Run-ThisStuff', $d, [timespan]::FromSeconds($ApproxRemainingTime).ToString())
+    Start-Sleep -Milliseconds (Get-Random -Minimum 1 -Maximum 1500)
 }
 ```
