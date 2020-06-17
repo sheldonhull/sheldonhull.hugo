@@ -1,5 +1,5 @@
 ---
-date: 2020-05-29T15:48:41.000+00:00
+date: 2020-06-18 12:00:00 +00:00
 title: My Experience Switching To A Macbook Pro From Windows
 slug: my-experience-switching-to-a-macbook-pro-from-windows
 excerpt: Having used Windows mostly for my entire life, this is what it was like switching
@@ -44,20 +44,22 @@ Overall, that made it a much better developer onboarding experience than trying 
 * No aeropeek
 * No automatic window snapping without third party apps
 * Text editing shortcuts
-  * Absolutely despise the changed home/end and selection behavior. Trying to remap this is painful.
+  * Absolutely despise the changed home/end and selection behavior. Trying to remap this is painful. I've limited my remapping to try and adjust to the way it works natively, but it's difficult. VSCode remapping for certain actions is also tricky, but possible.
 
 ## Wins
 
 * So far I've found Finder to be really good and much more intuitive than Explorer in Windows.
 * The consistency of app placement makes finding things to run quick, whereas in Windows, finding the app can be a beast at times. Think about this from a new Windows developer perspective. Go to Program Files (x86), or Program Files, but some go into AppData, and then settings in ProgramData, but sometimes that program prefers to put some of the configuration data in the Program directory and sometimes in ProgramData.... unless they want to put it in AppData.... and then Local/Roaming etc. It gets really really confusing quick. That's why tools like _Everything_ are so helpful!
 * Docker startup is 🚀 FAST. I'm talking about an update for Docker, and install restart and in a few seconds it's back up and running. I've been so used to it being minutes on Windows.
-* Brew is stellar. I love Chocolatey on Windows, but I'm seeing some advantages to a central repository containing all the packages, instead of each package being the responibility of maintainers to keep up to date. This makes the contribution phase much more difficult in Chocolatey. I've written very complex Choco packages for my company, but haven't yet setup a community one, whereas Brew, Scoop, and others have a central repository that you can easily submit a push request to with improvements or new additions without having to manage the autorefresh of the packages. A minor, but important distinction to me, as the ease of contributing must be there for more people to engage in it. 
-* Not having Windows as my OS has helped me go cold turkey as much as possible on running more workloads in Docker. Visual Studio Docker workspaces are absolutely incredible, and paired with a good tool like `InvokeBuild` with PowerShell, you have a stellar setup than can easily bootstrap itself on a new machine with ease. 
+* Brew is stellar. I love Chocolatey on Windows, but I'm seeing some advantages to a central repository containing all the packages, instead of each package being the responibility of maintainers to keep up to date. This makes the contribution phase much more difficult in Chocolatey. I've written very complex Choco packages for my company, but haven't yet setup a community one, whereas Brew, Scoop, and others have a central repository that you can easily submit a push request to with improvements or new additions without having to manage the autorefresh of the packages. A minor, but important distinction to me, as the ease of contributing must be there for more people to engage in it.
+* Not having Windows as my OS has helped me go cold turkey as much as possible on running more workloads in Docker. Visual Studio Docker workspaces are absolutely incredible, and paired with a good tool like `InvokeBuild` with PowerShell, you have a stellar setup than can easily bootstrap itself on a new machine with ease.
 
 ## Quirks
 
-* As of this time, mouse cursor not autohiding in full screen video without work arounds on certain sites. 
-* Experimenting with some apps resulted in 2 full system crashes in first 3 weeks of using, so stability while good wasn't as stellar as I was hoping. Just like Windows, it all depends on what you are running. 
+* As of this time, mouse cursor not auto-hiding in full screen video without work arounds on certain sites.
+* Experimenting with some apps resulted in 2 full system crashes in first 3 weeks of using, so stability while good wasn't as stellar as I was hoping. Just like Windows, it all depends on what you are running.
+* Massive lag on bluetooth and even Logitech Unifying receiver based mouse and keyboard, enough to make them unusable. Others seem to have had similar issues when I searched. 
+* Need to buy a powered hub to expand ports, as only USB-C resulting in all my peripherals not working.
 
 ## Verdict
 
