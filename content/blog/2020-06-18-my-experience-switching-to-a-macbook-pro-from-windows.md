@@ -9,7 +9,6 @@ tags:
 - tech
 - development
 - apple
-draft: true
 
 ---
 ## My background

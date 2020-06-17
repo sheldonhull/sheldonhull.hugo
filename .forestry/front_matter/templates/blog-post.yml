@@ -30,11 +30,11 @@ fields:
   name: tags
   label: tags
 pages:
+- content/blog/2020-06-18-my-experience-switching-to-a-macbook-pro-from-windows.md
 - content/blog/aws-ssm-powershell-script-automation.md
 - content/blog/bump-nuspec-file-version-with-powershell.md
 - content/blog/generating-diagrams-programmatically.md
 - content/blog/improving-the-quality-of-your-automation-logging-with-cowsay.md
 - content/blog/infrastructure-as-code.md
 - content/blog/leverage-aws-system-manager-sessions.md
-- content/blog/my-experience-switching-to-a-macbook-pro-from-windows.md
 - content/blog/painless-synchronization-of-azure-blob-storage-with-aws-s3.md
