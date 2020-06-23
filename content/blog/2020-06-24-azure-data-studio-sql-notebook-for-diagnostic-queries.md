@@ -10,7 +10,6 @@ tags:
 - cool-tools
 - azure-data-studio
 - sql-server
-draft: true
 
 ---
 ## Diagnostic Queries
