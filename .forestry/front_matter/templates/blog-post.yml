@@ -32,6 +32,7 @@ fields:
 pages:
 - content/blog/2020-06-18-my-experience-switching-to-a-macbook-pro-from-windows.md
 - content/blog/2020-06-24-azure-data-studio-sql-notebook-for-diagnostic-queries.md
+- content/blog/2020-06-26-what-i-wish-i-had-known-when-i-started-terraform.md
 - content/blog/aws-ssm-powershell-script-automation.md
 - content/blog/bump-nuspec-file-version-with-powershell.md
 - content/blog/generating-diagrams-programmatically.md
