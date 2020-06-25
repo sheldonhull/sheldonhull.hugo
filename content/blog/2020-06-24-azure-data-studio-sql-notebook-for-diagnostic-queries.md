@@ -1,5 +1,5 @@
 ---
-date: 2020-06-24 11:00:00 +00:00
+date: 2020-06-24T11:00:00.000+00:00
 title: Azure Data Studio SQL Notebook for Diagnostic Queries
 slug: azure-data-studio-sql-notebook-for-diagnostic-queries
 excerpt: Dbatools has many amazing features. This one is a pretty amazing quick win
@@ -53,4 +53,4 @@ Some queries take heavy resources and might not be appropriate to run in the mid
 
 {{< /premonition >}}
 
-![Shows the diagnostic query view in Azure Data Studio](images/2020-06-23_13-23-07_azure_data_studio.png "Azure Data Studio Diagnostic Queries")
+![Shows the diagnostic query view in Azure Data Studio](/images/2020-06-23_13-23-07_azure_data_studio.png "Azure Data Studio Diagnostic Queries")
