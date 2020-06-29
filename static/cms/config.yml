@@ -19,7 +19,7 @@ collections: # A list of collections the CMS should be able to edit
     format: yaml-frontmatter
     extension: md
     create: true # Allow users to create new documents in this collection
-    slug: '{{year}}-{{month}}-{{day}}t{{Hour}}-{{Minute}}-00-00}}'
+    slug: '{{year}}-{{month}}-{{day}}t{{Hour}}-{{Minute}}-00-00'
     identifier_field: title
     fields: # The fields each document in this collection have
       # MAIN AUTHORING AREA
@@ -27,12 +27,12 @@ collections: # A list of collections the CMS should be able to edit
       - label: title
         name: title
         widget: datetime
-        format: YYYY-MM-DD HH:00:00 +-HH:mm
+        #format: YYYY-MM-DD HH:00:00 +-HH:mm
         required: true
       - label: Publish Date
         name: date
         widget: datetime
-        format: YYYY-MM-DD HH:00:00 +-HH:mm
+        #format: YYYY-MM-DD HH:00:00 +-HH:mm
         required: true
       - label: Body
         name: body
