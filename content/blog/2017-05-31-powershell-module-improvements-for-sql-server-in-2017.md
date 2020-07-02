@@ -4,6 +4,7 @@ tags:
 - powershell
 - sql-server
 - tech
+- dbatools
 title: "Powershell Module Improvements for SQL Server in 2017"
 slug: "powershell-module-improvements-for-sql-server-in-2017"
 ---

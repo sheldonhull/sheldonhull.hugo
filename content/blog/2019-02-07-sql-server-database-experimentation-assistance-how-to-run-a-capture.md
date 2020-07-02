@@ -7,6 +7,7 @@ tags:
 - sql-server
 - tech
 - performance-tuning
+- dbatools
 title: "SQL Server Database Experimentation Assistant - How to Run a Capture"
 slug: "sql-server-database-experimentation-assistance-how-to-run-a-capture"
 toc: false
@@ -51,4 +52,3 @@ restore-dbadatabase -SqlInstance localhost -Path "<BackupFilePath>" -DatabaseNam
 After this restore, initiating the replay was achieved by going to the replay tab.
 
 ![DEA Replay](/images/1516995297608.png)
-

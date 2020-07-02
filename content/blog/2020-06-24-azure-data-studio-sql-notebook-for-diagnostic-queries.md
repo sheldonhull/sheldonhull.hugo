@@ -10,8 +10,8 @@ tags:
 - cool-tools
 - azure-data-studio
 - sql-server
-
 ---
+
 ## Diagnostic Queries
 
 Glenn Berry has long been known for producing the definitive diagnostic query set for various SQL Server versions. Between his amazing work and my favorite Brent Ozar First Responder Kit, you are pretty much set.
@@ -37,18 +37,18 @@ To get started on this just make sure you have the latest dbatools: `Install-Mod
 Then generate a new Azure Data Studio Notebook like this:
 
 ```powershell
-# This will create the notebook in whatever location you currently are in 
+# This will create the notebook in whatever location you currently are in
 $Version = 2017
 New-DbaDiagnosticAdsNotebook -Path "DiagnosticNotebook${Version}.ipynb" -TargetVersion $Version
 ```
 
-Open up this new notebook and enjoy the result! To make reading easier, you can issue the command to "collapse all cells" and the queries will be minimized allowing you to read through all the query options. 
+Open up this new notebook and enjoy the result! To make reading easier, you can issue the command to "collapse all cells" and the queries will be minimized allowing you to read through all the query options.
 
 Note that even the description of the queries is provided in the notebook, providing insight on the purpose of the query.
 
-{{< premonition type="warning" title="Warning" >}} 
+{{< premonition type="warning" title="Warning" >}}
 
-As always, make sure you are careful before just running all queries by default against a production server. 
+As always, make sure you are careful before just running all queries by default against a production server.
 Some queries take heavy resources and might not be appropriate to run in the middle of a production workflow.
 
 {{< /premonition >}}

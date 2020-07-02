@@ -11,6 +11,7 @@ tags:
 - python
 - tech
 - data-visualization
+- dbatools
 toc: true
 
 ---

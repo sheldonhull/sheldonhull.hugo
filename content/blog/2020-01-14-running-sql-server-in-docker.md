@@ -9,12 +9,13 @@ tags:
 - docker
 - sql-server
 - tech
+- dbatools
 toc: true
 
 ---
 {{< premonition type="info" title="Updated 2020-05-05" >}}
 
-I've had lots of challenges in getting docker for sql-server working because I've wanted to ensure for my dev use case that there was no need for virtual volume management and copying files into and out of this. Instead, I've wanted to bind to local windows paths and have it drop all the mdf/ldf right there, so even on container destruction everything is good to go. 
+I've had lots of challenges in getting docker for sql-server working because I've wanted to ensure for my dev use case that there was no need for virtual volume management and copying files into and out of this. Instead, I've wanted to bind to local windows paths and have it drop all the mdf/ldf right there, so even on container destruction everything is good to go.
 
 After working through the changes in SQL 2019 that require running as non-root, I've gotten it work again. No install of sql-server needed. Easy disposable development instance through docker! I'll update my docker compose content when I can, but in the meantime, this should get you running even more quickly with SQL Server 2019.
 
