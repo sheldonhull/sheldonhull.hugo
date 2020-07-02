@@ -8,10 +8,14 @@ backend:
 
 display_url: https://www.sheldonhull.com
 media_folder: static/images # Folder where user uploaded files should go
-logo_url: static/images/sheldon_400x400.jpg
+logo_url: https://www.sheldonhull.com/images/sheldon_400x400.jpg
 editor:
   preview: false
 publish_mode: editorial_workflow
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
 collections: # A list of collections the CMS should be able to edit
   # - name: microblog # Used in routes, ie.: /admin/collections/:slug/edit
   #   label: micro.blog # Used in the UI, ie.: "New Post"
@@ -76,9 +80,24 @@ collections: # A list of collections the CMS should be able to edit
     label: blog # Used in the UI, ie.: "New Post"
     folder: content/blog # The path to the folder where the documents are stored
     format: yaml-frontmatter
+    frontmatter_delimiter: '---'
+    identifier_field: title
     extension: md
     create: true # Allow users to create new documents in this collection
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    sortableFields: ['commit_date', 'title', 'commit_author', 'language.en']
+    summary: "{{title}} - commit {{commit_date}}"
+
+    view_filters:
+    - label: 'Posts published in 2020'
+      field: date
+      pattern: '2020'
+    - label: 'Posts published in 2019'
+      field: date
+      pattern: '2019'
+    - label: Drafts
+      field: draft
+      pattern: true
     #identifier_field: slug
     fields: # The fields each document in this collection have
       - label: Title
@@ -97,17 +116,12 @@ collections: # A list of collections the CMS should be able to edit
         widget: date
         format: YYYY-MM-DD
         required: true
-      - label: Last Modified Date
-        name: last_modified_at
-        widget: date
-        format: YYYY-MM-DD
-        required: true
       - label: Body
         name: body
         widget: markdown
         required:
           true
-          # Additional string fields to set manually in YAML
+      # Additional string fields to set manually in YAML
       - label: toc
         name: toc
         widget: boolean
@@ -117,7 +131,7 @@ collections: # A list of collections the CMS should be able to edit
         widget: string
         required: true
       - label: Cover Image
-        name: image
+        name: featuredImg
         widget: image
         required: false
         tagname:
@@ -172,11 +186,11 @@ collections: # A list of collections the CMS should be able to edit
             widget: date
             format: YYYY-MM-DD
             required: true
-          - label: Last Modified Date
-            name: last_modified_at
-            widget: date
-            format: YYYY-MM-DD
-            required: true
+          # - label: Last Modified Date
+          #   name: last_modified_at
+          #   widget: date
+          #   format: YYYY-MM-DD
+          #   required: true
           # MAIN AUTHORING ARE
           - label: Body
             name: body
