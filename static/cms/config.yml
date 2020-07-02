@@ -31,7 +31,7 @@ collections: # A list of collections the CMS should be able to edit
       - label: title
         name: title
         widget: datetime
-        #format: YYYY-MM-DD HH:00:00 +-HH:mm
+        format: YYYY-MM-DD HH:00:00 Z
         required: true
       - label: Publish Date
         name: date
