@@ -10,7 +10,8 @@
         ],
         "conventionalCommits.scopes": [
             "blog",
-            "build"
+            "build",
+            "netlifycms"
         ],
         "[yaml]": {
             "editor.insertSpaces": true,
