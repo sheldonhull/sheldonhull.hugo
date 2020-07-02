@@ -32,6 +32,9 @@ collections: # A list of collections the CMS should be able to edit
     extension: md
     create: true # Allow users to create new documents in this collection
     slug: '{{year}}-{{month}}-{{day}}-{{Hour}}-{{Minute}}'
+    sortableFields: ['commit_date', 'title', 'commit_author','date']
+    summary: "{{title}} - commit {{commit_date}} - {{body}}"
+
     identifier_field: title
     fields: # The fields each document in this collection have
       # MAIN AUTHORING AREA
@@ -93,8 +96,8 @@ collections: # A list of collections the CMS should be able to edit
     extension: md
     create: true # Allow users to create new documents in this collection
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    sortableFields: ['commit_date', 'title', 'commit_author', 'language.en']
-    summary: "{{title}} - commit {{commit_date}}"
+    sortableFields: ['commit_date', 'title', 'commit_author','date']
+    summary: "{{title}} // {{commit_date}}"
 
     view_filters:
     - label: 'Posts published in 2020'
