@@ -17,65 +17,65 @@ slug:
   clean_accents: true
   sanitize_replacement: "-"
 collections: # A list of collections the CMS should be able to edit
-  # - name: microblog # Used in routes, ie.: /admin/collections/:slug/edit
-  #   label: micro.blog # Used in the UI, ie.: "New Post"
-  #   folder: content/microblog # The path to the folder where the documents are stored
-  #   format: yaml-frontmatter
-  #   extension: md
-  #   create: true # Allow users to create new documents in this collection
-  #   slug: '{{year}}-{{month}}-{{day}}-{{Hour}}-{{Minute}}'
-  #   identifier_field: title
-  #   fields: # The fields each document in this collection have
-  #     # MAIN AUTHORING AREA
-  #     # MomentJS Token Reference: https://momentjscom.readthedocs.io/en/latest/moment/01-parsing/03-string-format/
-  #     - label: title
-  #       name: title
-  #       widget: datetime
-  #       #format: YYYY-MM-DD HH:00:00 +-HH:mm
-  #       required: true
-  #     - label: Publish Date
-  #       name: date
-  #       widget: datetime
-  #       #format: YYYY-MM-DD HH:00:00 +-HH:mm
-  #       required: true
-  #     - label: Body
-  #       name: body
-  #       widget: markdown
-  #       required: true
-  #     - label: Tags
-  #       name: tags
-  #       widget: list
-  #       default: [tech, til]
-  #       multiple: true
-  #       required: true
-  #       allow_add: true
-  #       options:
-  #         - til
-  #         - development
-  #         - sql-server
-  #         - tech
-  #         - ramblings
-  #         - powershell
-  #         - cool-tools
-  #         - performance-tuning
-  #         - deep-dive
-  #         - AWS
-  #         - devops
-  #         - redgate
-  #         - tfs
-  #         - photography
-  #         - music
-  #         - follower-of-Jesus
-  #         - worship
-  #         - videography
-  #         - azure
-  #   # - label: "Post Author"
-  #   #   name: "author"
-  #   #   widget: "relation"
-  #   #   collection: "authors"
-  #   #   searchFields: ["name", "twitterHandle"]
-  #   #   valueField: "name"
-  #   #   displayFields: ["twitterHandle", "followerCount"]
+  - name: microblog # Used in routes, ie.: /admin/collections/:slug/edit
+    label: micro.blog # Used in the UI, ie.: "New Post"
+    folder: content/microblog # The path to the folder where the documents are stored
+    format: yaml-frontmatter
+    extension: md
+    create: true # Allow users to create new documents in this collection
+    slug: '{{year}}-{{month}}-{{day}}-{{Hour}}-{{Minute}}'
+    identifier_field: title
+    fields: # The fields each document in this collection have
+      # MAIN AUTHORING AREA
+      # MomentJS Token Reference: https://momentjscom.readthedocs.io/en/latest/moment/01-parsing/03-string-format/
+      - label: title
+        name: title
+        widget: datetime
+        #format: YYYY-MM-DD HH:00:00 +-HH:mm
+        required: true
+      - label: Publish Date
+        name: date
+        widget: datetime
+        #format: YYYY-MM-DD HH:00:00 +-HH:mm
+        required: true
+      - label: Body
+        name: body
+        widget: markdown
+        required: true
+      - label: Tags
+        name: tags
+        widget: list
+        default: [tech, til]
+        multiple: true
+        required: true
+        allow_add: true
+        options:
+          - til
+          - development
+          - sql-server
+          - tech
+          - ramblings
+          - powershell
+          - cool-tools
+          - performance-tuning
+          - deep-dive
+          - AWS
+          - devops
+          - redgate
+          - tfs
+          - photography
+          - music
+          - follower-of-Jesus
+          - worship
+          - videography
+          - azure
+    # - label: "Post Author"
+    #   name: "author"
+    #   widget: "relation"
+    #   collection: "authors"
+    #   searchFields: ["name", "twitterHandle"]
+    #   valueField: "name"
+    #   displayFields: ["twitterHandle", "followerCount"]
   - name: blog # Used in routes, ie.: /admin/collections/:slug/edit
     label: blog # Used in the UI, ie.: "New Post"
     folder: content/blog # The path to the folder where the documents are stored
