@@ -63,17 +63,14 @@ collections: # A list of collections the CMS should be able to edit
         name: body
         widget: markdown
         required: true
-
-
-
       - label: Tags
         name: tags
         widget: list
-        default: &default['tech','development']
+        default: ['tech','development']
         multiple: true
         required: true
         allow_add: true
-        options: &options[
+        options: [
         'til',
         'development',
         'sql-server',
@@ -161,13 +158,30 @@ collections: # A list of collections the CMS should be able to edit
         tagname:
       - label: Tags
         name: tags
-        widget: select
-        default: tech
-        options: *options
-
+        widget: list
+        default: ['tech','development']
         multiple: true
         required: true
         allow_add: true
+        options: [
+        'til',
+        'development',
+        'sql-server',
+        'tech',
+        'ramblings',
+        'powershell',
+        'cool-tools',
+        'performance-tuning',
+        'deep-dive',
+        'aws',
+        'devops',
+        'photography',
+        'music',
+        'follower-of-Jesus',
+        'worship',
+        'videography',
+        'azure'
+        ]
       - name: docs # Used in routes, ie.: /admin/collections/:slug/edit
         label: docs # Used in the UI, ie.: "New Post"
         folder: content/docs # The path to the folder where the documents are stored
@@ -218,10 +232,27 @@ collections: # A list of collections the CMS should be able to edit
             tagname:
           - label: Tags
             name: tags
-            widget: select
-            default: *default
-            options: *options
-
+            widget: list
+            default: ['tech','development']
             multiple: true
             required: true
             allow_add: true
+            options: [
+            'til',
+            'development',
+            'sql-server',
+            'tech',
+            'ramblings',
+            'powershell',
+            'cool-tools',
+            'performance-tuning',
+            'deep-dive',
+            'aws',
+            'devops',
+            'photography',
+            'music',
+            'follower-of-Jesus',
+            'worship',
+            'videography',
+            'azure'
+            ]
