@@ -70,26 +70,24 @@ collections: # A list of collections the CMS should be able to edit
         multiple: true
         required: true
         allow_add: true
-        options: [
-        'til',
-        'development',
-        'sql-server',
-        'tech',
-        'ramblings',
-        'powershell',
-        'cool-tools',
-        'performance-tuning',
-        'deep-dive',
-        'aws',
-        'devops',
-        'photography',
-        'music',
-        'follower-of-Jesus',
-        'worship',
-        'videography',
-        'azure'
-        ]
-
+        options:
+          - 'til'
+          - 'development'
+          - 'sql-server'
+          - 'tech'
+          - 'ramblings'
+          - 'powershell'
+          - 'cool-tools'
+          - 'performance-tuning'
+          - 'deep-dive'
+          - 'aws'
+          - 'devops'
+          - 'photography'
+          - 'music'
+          - 'follower-of-Jesus'
+          - 'worship'
+          - 'videography'
+          - 'azure'
     # - label: "Post Author"
     #   name: "author"
     #   widget: "relation"
@@ -163,25 +161,24 @@ collections: # A list of collections the CMS should be able to edit
         multiple: true
         required: true
         allow_add: true
-        options: [
-        'til',
-        'development',
-        'sql-server',
-        'tech',
-        'ramblings',
-        'powershell',
-        'cool-tools',
-        'performance-tuning',
-        'deep-dive',
-        'aws',
-        'devops',
-        'photography',
-        'music',
-        'follower-of-Jesus',
-        'worship',
-        'videography',
-        'azure'
-        ]
+        options:
+          - 'til'
+          - 'development'
+          - 'sql-server'
+          - 'tech'
+          - 'ramblings'
+          - 'powershell'
+          - 'cool-tools'
+          - 'performance-tuning'
+          - 'deep-dive'
+          - 'aws'
+          - 'devops'
+          - 'photography'
+          - 'music'
+          - 'follower-of-Jesus'
+          - 'worship'
+          - 'videography'
+          - 'azure'
       - name: docs # Used in routes, ie.: /admin/collections/:slug/edit
         label: docs # Used in the UI, ie.: "New Post"
         folder: content/docs # The path to the folder where the documents are stored
@@ -237,22 +234,21 @@ collections: # A list of collections the CMS should be able to edit
             multiple: true
             required: true
             allow_add: true
-            options: [
-            'til',
-            'development',
-            'sql-server',
-            'tech',
-            'ramblings',
-            'powershell',
-            'cool-tools',
-            'performance-tuning',
-            'deep-dive',
-            'aws',
-            'devops',
-            'photography',
-            'music',
-            'follower-of-Jesus',
-            'worship',
-            'videography',
-            'azure'
-            ]
+            options:
+              - 'til'
+              - 'development'
+              - 'sql-server'
+              - 'tech'
+              - 'ramblings'
+              - 'powershell'
+              - 'cool-tools'
+              - 'performance-tuning'
+              - 'deep-dive'
+              - 'aws'
+              - 'devops'
+              - 'photography'
+              - 'music'
+              - 'follower-of-Jesus'
+              - 'worship'
+              - 'videography'
+              - 'azure'

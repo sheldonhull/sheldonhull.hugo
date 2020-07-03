@@ -21,8 +21,8 @@
                 "comments": false,
                 "strings": true
             },
-            "editor.autoIndent": "advanced"
-        }
+            "editor.autoIndent": "advanced",
+        },
     },
     "extensions": {
         "recommendations": [
