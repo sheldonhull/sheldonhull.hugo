@@ -1,6 +1,35 @@
 #reference
 #dateformat uses moment.js
+#TAGS ANCHOR:
 
+###########################
+# anchors to avoid repeat #
+###########################
+options: &options[
+'til',
+'development',
+'sql-server',
+'tech',
+'ramblings',
+'powershell',
+'cool-tools',
+'performance-tuning',
+'deep-dive',
+'aws',
+'devops',
+'photography',
+'music',
+'follower-of-Jesus',
+'worship',
+'videography',
+'azure'
+]
+default: &default['tech','development']
+
+
+###############
+# MAIN CONFIG #
+###############
 backend:
   name: git-gateway
   branch: master # Branch to update (master by default). It will use the publish command to push to this branch
@@ -15,7 +44,7 @@ backend:
 
 
 display_url: https://www.sheldonhull.com
-media_folder: static/images # Folder where user uploaded files should go
+media_folder: /images # Folder where user uploaded files should go
 logo_url: https://www.sheldonhull.com/images/sheldon_400x400.jpg
 editor:
   preview: false
@@ -42,17 +71,20 @@ collections: # A list of collections the CMS should be able to edit
       - label: title
         name: title
         widget: datetime
-        format: YYYY-MM-DD HH:00:00 Z
+        format: YYYY-MM-DDTHH:00:00Z
         required: true
       - label: Publish Date
         name: date
         widget: datetime
-        format: YYYY-MM-DD HH:00:00 +-HH:mm
+        format: YYYY-MM-DDTHH:00:00Z
         required: true
       - label: Body
         name: body
         widget: markdown
         required: true
+
+
+
       - label: Tags
         name: tags
         widget: list
@@ -60,26 +92,8 @@ collections: # A list of collections the CMS should be able to edit
         multiple: true
         required: true
         allow_add: true
-        options:
-          - til
-          - development
-          - sql-server
-          - tech
-          - ramblings
-          - powershell
-          - cool-tools
-          - performance-tuning
-          - deep-dive
-          - AWS
-          - devops
-          - redgate
-          - tfs
-          - photography
-          - music
-          - follower-of-Jesus
-          - worship
-          - videography
-          - azure
+        options: *options
+
     # - label: "Post Author"
     #   name: "author"
     #   widget: "relation"
@@ -125,7 +139,7 @@ collections: # A list of collections the CMS should be able to edit
       - label: Publish Date
         name: date
         widget: date
-        format: YYYY-MM-DD
+        format: YYYY-MM-DDTHH:00:00Z
         required: true
       - label: Body
         name: body
@@ -150,26 +164,8 @@ collections: # A list of collections the CMS should be able to edit
         name: tags
         widget: select
         default: tech
-        options:
-          - til
-          - development
-          - sql-server
-          - tech
-          - ramblings
-          - powershell
-          - cool-tools
-          - performance-tuning
-          - deep-dive
-          - AWS
-          - devops
-          - redgate
-          - tfs
-          - photography
-          - music
-          - follower-of-Jesus
-          - worship
-          - videography
-          - azure
+        options: *options
+
         multiple: true
         required: true
         allow_add: true
@@ -195,7 +191,7 @@ collections: # A list of collections the CMS should be able to edit
           - label: Publish Date
             name: date
             widget: date
-            format: YYYY-MM-DD
+            format: YYYY-MM-DDTHH:00:00Z
             required: true
           # - label: Last Modified Date
           #   name: last_modified_at
@@ -224,27 +220,9 @@ collections: # A list of collections the CMS should be able to edit
           - label: Tags
             name: tags
             widget: select
-            default: tech
-            options:
-              - til
-              - development
-              - sql-server
-              - tech
-              - ramblings
-              - powershell
-              - cool-tools
-              - performance-tuning
-              - deep-dive
-              - AWS
-              - devops
-              - redgate
-              - tfs
-              - photography
-              - music
-              - follower-of-Jesus
-              - worship
-              - videography
-              - azure
+            default: *default
+            options: *options
+
             multiple: true
             required: true
             allow_add: true
