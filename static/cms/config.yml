@@ -5,26 +5,7 @@
 ###########################
 # anchors to avoid repeat #
 ###########################
-options: &options[
-'til',
-'development',
-'sql-server',
-'tech',
-'ramblings',
-'powershell',
-'cool-tools',
-'performance-tuning',
-'deep-dive',
-'aws',
-'devops',
-'photography',
-'music',
-'follower-of-Jesus',
-'worship',
-'videography',
-'azure'
-]
-default: &default['tech','development']
+
 
 
 ###############
@@ -88,11 +69,29 @@ collections: # A list of collections the CMS should be able to edit
       - label: Tags
         name: tags
         widget: list
-        default: [tech, til]
+        default: &default['tech','development']
         multiple: true
         required: true
         allow_add: true
-        options: *options
+        options: &options[
+        'til',
+        'development',
+        'sql-server',
+        'tech',
+        'ramblings',
+        'powershell',
+        'cool-tools',
+        'performance-tuning',
+        'deep-dive',
+        'aws',
+        'devops',
+        'photography',
+        'music',
+        'follower-of-Jesus',
+        'worship',
+        'videography',
+        'azure'
+        ]
 
     # - label: "Post Author"
     #   name: "author"
