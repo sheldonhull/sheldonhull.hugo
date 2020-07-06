@@ -1,21 +1,31 @@
 ---
-date: "2016-10-18T00:00:00Z"
+last_modified_at: 2019-02-21
+title: Easy SQL Maintenance with Minionware
+slug: easy-sql-maintenance-with-minionware
+date: 2016-10-18T00:00:00Z
+toc: true
 excerpt: Review of using Minionware sql maintenance solution
-last_modified_at: "2019-02-21"
 tags:
-- powershell
-- sql-server
-- dbatools
-title: "Easy SQL Maintenance with Minionware"
-slug: "easy-sql-maintenance-with-minionware"
+  - powershell
+  - sql-server
+  - dbatools
 ---
+
+{{< premonition type="info" title="Updated 2020-07-06" >}}
+After a great chat with Sean today (creator), I did see some pretty cool benefits that for those looking for more scalability, will find pretty interesting. 
+
+* Backup tuning: based on the size or specific database, use striped backups to enhance performance of backup jobs
+* Enterprise edition, centrally manage and report on all backups across all servers.
+* Override defaults by just including additional sql files in the InitialLoad configuration. Review the docs for the specifics. This means no need to loop and override like I did below now. Just deploy and your final steps can be setting up your default configuration options.
+
+Overall, great conversation and found out some really cool things about postcode commands that could be PowerShell driven. Definitely worth a further look if you want an alternative to the commonly used Ola Hallengren solution, and especially if you are wanting more table driven configuration options over the need to customize the commands in the agent steps.
+{{< /premonition >}}
 
 {{< premonition type="info" title="Updated 2017-01-25" >}}
 While I think the minionware solution is pretty awesome, I think it takes more work for the value, and can be a bit confusing to correctly setup, vs the Ola Hallengren solution, esp since you can install this quickly with dbatools now.
 I'd lean towards Ola Hallengren for simple implementations, and consider MinionWare's option if you are looking at their flexibility in the table based configuration.
 The learning curve seems higher to me, but more for those looking to tweak options a lot. Both are great solutions, just be aware MinionWare will require a little more digging to leverage it fully.
 {{< /premonition >}}
-
 
 Here's my personal tweaked settings for deploying [Minionware's fantastic Reindex & Backup jobs.](http://bit.ly/2e8aE8g) In the development environment, I wanted to have some scheduled jobs running to provide a safety net, as well ensure updated statistics, but there were a few default settings I wanted to adjust.
 In particular, I tweaked the default fill factor back to 0/100. I also installed all the objects to a new "minion" database instead of in master, as I'm beginning to be a fan of isolating these type of maintenance jobs with logging to their own isolated database to easy portability.
