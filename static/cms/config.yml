@@ -41,7 +41,7 @@ collections: # A list of collections the CMS should be able to edit
     format: yaml-frontmatter
     extension: md
     create: true # Allow users to create new documents in this collection
-    slug: '{{year}}-{{month}}-{{day}}-{{Hour}}-{{Minute}}'
+    slug: '{{year}}-{{month}}-{{day}}t{{hour}}-{{minute}}'
     sortableFields: ['commit_date', 'title', 'commit_author','date']
     summary: "{{title}} - commit {{commit_date}} - {{body}}"
 
@@ -59,6 +59,12 @@ collections: # A list of collections the CMS should be able to edit
         widget: datetime
         format: YYYY-MM-DDTHH:00:00Z
         required: true
+      - label: slug
+        name: slug
+        widget: string
+        tagname: h1
+        required: true
+        default: '{{fields.slug}}'
       - label: Body
         name: body
         widget: markdown
@@ -129,6 +135,7 @@ collections: # A list of collections the CMS should be able to edit
         widget: string
         tagname: h1
         required: true
+        default: '{{fields.slug}}'
       # MAIN AUTHORING AREA
       - label: Publish Date
         name: date
