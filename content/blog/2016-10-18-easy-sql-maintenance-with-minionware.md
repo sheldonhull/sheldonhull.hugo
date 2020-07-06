@@ -9,8 +9,8 @@ tags:
   - powershell
   - sql-server
   - dbatools
-docs: " "
 ---
+
 {{< premonition type="info" title="Updated 2020-07-06" >}}
 After a great chat with Sean today (creator), I did see some pretty cool benefits that for those looking for more scalability, will find pretty interesting. 
 
