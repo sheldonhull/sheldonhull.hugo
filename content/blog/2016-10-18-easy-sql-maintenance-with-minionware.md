@@ -1,5 +1,4 @@
 ---
-last_modified_at: 2019-02-21
 title: Easy SQL Maintenance with Minionware
 slug: easy-sql-maintenance-with-minionware
 date: 2016-10-18T00:00:00Z
