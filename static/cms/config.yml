@@ -25,7 +25,7 @@ backend:
 
 
 display_url: https://www.sheldonhull.com
-media_folder: /images # Folder where user uploaded files should go
+media_folder: static/images # Folder where user uploaded files should go
 logo_url: https://www.sheldonhull.com/images/sheldon_400x400.jpg
 editor:
   preview: false
