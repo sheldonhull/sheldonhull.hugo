@@ -804,6 +804,16 @@ pre {
                 hr.post-end {
                     width: 40%;
                 }
+                // Mobile/Small Screen Ensure Search Button is a Block
+
+                #searchButton {
+                    display:block!important;
+                    margin-left:40%
+                }
+                #home-title {
+                    font-size: .8em;
+                }
+
 
             }
 
@@ -814,6 +824,13 @@ pre {
                 /*override toc to be block at top if on mobile */
                 #toc.show-toc {
                     display:inline-block;
+                }
+                #searchButton {
+                    display:block!important;
+                    margin-left:40%
+                }
+                #home-title {
+                    font-size: .8em;
                 }
             }
 

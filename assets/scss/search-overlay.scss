@@ -77,12 +77,13 @@
     color:$text;
     filter: drop-shadow(0 0 2px #03edf9);
     overflow:hidden;
+    display:block;
 }
 
 .ais-Hits {
     overflow:hidden;
     flex-wrap: nowrap;
-border:none!important;
+    border:none!important;
     display:list-item;
 }
 .ais-Hits-list {
