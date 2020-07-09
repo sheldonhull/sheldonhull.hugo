@@ -108,7 +108,7 @@ Create `terraform.auto.tfvars`
 
 Note that if you try to create this file with the `terraform.tfvars` name, it won't work if using Terraform Cloud, as tfvars get generated dynamically from the variables setup in the Cloud workspace.
 
-{{< gist 95c3f9533b2111d7d9fa40ff90a917e3 "terraform.tfvars" >}}
+{{< gist 95c3f9533b2111d7d9fa40ff90a917e3 "terraform.auto.tfvars" >}}
 
 Create `variables.tf` which is going to house all the input variables we want to declare.
 
