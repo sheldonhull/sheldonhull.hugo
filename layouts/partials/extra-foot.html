@@ -19,3 +19,10 @@
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@^4.0.0"></script>
 {{ $script := resources.Get "js/algolia-search.js" | minify | fingerprint -}}
 <script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}></script>
+
+<script>
+    // Execute timeago on all 'relativetime' class elements
+    timeago().render(document.querySelectorAll('.relativetime'));
+    // Optional: cancel the real-time updates for all nodes
+    timeago.cancel();
+</script>
