@@ -22,9 +22,13 @@ tags:
 ## Terraform Cloud
 
 For Terraform Cloud, bundling is not allowed.
+
 Instead, the "legacy" way of running this is to include the plugin directly in the directory that Terraform will be invoked on with `terraform.d/plugins/linux_amd64` as the path containing the provider. See discussion: [Using Community Providers With Terraform Cloud](https://discuss.hashicorp.com/t/using-community-providers-with-terraform-cloud-api/5432/4).
 
-My current walk-through is focused by mistake on Terraform Enterprise, as I missed the ending documentation section on the custom bundle requiring installation and not being supported in Terraform Cloud.
+Part of my current walk-through (primarily using terraform-bundle) is relevant only for Terraform Enterprise, not Terraform Cloud.
+I missed the ending documentation section on the custom bundle requiring installation and not being supported in Terraform Cloud.
+
+For the directions below, disregard the bundle aspect for Terraform Cloud, and instead focus on building the custom provider and including in the project directory as shown.
 
 If you are willing to explore Atlantis, I bet something can be done with custom providers in there.
 
@@ -54,9 +58,9 @@ terraform {
 
 If you get an error the first time you run this, see the troubleshooting section at the end.
 
-### Custom Providers Bundling
+## Custom Providers Bundling
 
-As of the time of this post, to include a custom provider, you need to create a custom [terraform bundle](https://bit.ly/3fA4CZu) bundle to package up the terraform package and any desired custom plugins.
+As of the time of this post, to include a custom provider with Terraform Enterprise, you need to create a custom [terraform bundle](https://bit.ly/3fA4CZu) bundle to package up the terraform package and any desired custom plugins.
 
 This terraform bundle includes the terraform program, as well as any range of other providers that you want to include for running in the remote terraform workspace.
 
@@ -106,7 +110,7 @@ git checkout tags/<tag_name>
 Quick little #devhack... Use Git Graph in Visual Studio Code to make working with busy repositories much easier.
 Yes, I'm no Vim magician. Sometimes a little visual help is much better than trying to do it all in cli. #heresy
 
-![Use Git Graph to Visually Navigate A Busy Repo and Checkout a Tagged Commit](/static/images/2020-07-14_14-57-48_using_git_graph.png "Git Graph Makes Things Easier")
+![Use Git Graph to Visually Navigate A Busy Repo and Checkout a Tagged Commit](/images/2020-07-14_14-57-48_using_git_graph.png "Git Graph Makes Things Easier")
 
 Next, you'll want to install and validate your install worked.
 `go install` ensures that dependencies are downloaded, so once again the magic of `Go` wins the day.
@@ -252,7 +256,7 @@ I tested and found it matched the local provider with `0.0.0` by running `terraf
 
 However, what to bundle correctly required simplifying the output to no nested directories.
 
-![What Actually Worked In Plugin Directory Was a simple flat directory](/static/images/2020-07-14_16-56-17-terraform-plugin-output.png "What Actually Worked In Plugin Directory")
+![What Actually Worked In Plugin Directory Was a simple flat directory](/images/2020-07-14_16-56-17-terraform-plugin-output.png "What Actually Worked In Plugin Directory")
 
 The output of the bundle was successful with
 
