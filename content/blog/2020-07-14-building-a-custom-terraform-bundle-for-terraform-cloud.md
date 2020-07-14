@@ -131,6 +131,8 @@ terraform-bundle package -os=linux -arch=amd64 mybundle/jfrog-bundle.hcl
 
 ## Troubleshooting
 
+### Problems Parsing the bundle configuration file 
+
 I ran into some issues with it parsing the configuration file as soon as I added the custom plugin. It reported `unknown type for string *ast.ObjectType`.
 
 Here's what I looked at: 
@@ -166,3 +168,22 @@ providers {
   }
 }
 ```
+
+It looks like the configuration syntax from the example is a bit different from what is being successfully parsed.
+Instead of using the fully designated schema, I adjusted it to `artifactory = ["0.1"]` and it succeeded in parsing the configuration.
+
+The help `terraform-bundle package --help` also provides an example indicating to just use the simple syntax and let it look for the provider in the default directory of `./plugins`.
+
+### Failed to resolve artifactory provider 0.1: no provider exists with the given name
+
+This next piece was a bit trickier to figure out. 
+Once I enabled `$ENV:TF_LOG = 1` I found some output showing it was actually having an issue with the version of the provider.
+
+```text
+2020/07/14 16:12:51 [WARN] found legacy provider "terraform-provider-artifactory"
+plugin: artifactory (0.0.0)
+- Resolving "artifactory" provider (0.1)...
+- Checking for provider plugin on https://releases.hashicorp.com...
+```
+
+I went back to the provider project and installed [goreleaser](https://goreleaser.com/quick-start/) using: `brew install goreleaser/tap/goreleaser` which provided me the same tool to build the various packages for this provider.
