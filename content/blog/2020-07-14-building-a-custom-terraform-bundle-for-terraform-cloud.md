@@ -177,7 +177,7 @@ The help `terraform-bundle package --help` also provides an example indicating t
 ### Failed to resolve artifactory provider 0.1: no provider exists with the given name
 
 This next piece was a bit trickier to figure out. 
-Once I enabled `$ENV:TF_LOG = 1` I found some output showing it was actually having an issue with the version of the provider.
+Once I enabled `$ENV:TF_LOG = 'TRACE'` I found some output showing it was actually having an issue with the version of the provider.
 
 ```text
 2020/07/14 16:12:51 [WARN] found legacy provider "terraform-provider-artifactory"
