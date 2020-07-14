@@ -56,9 +56,13 @@ git clone https://github.com/atlassian/terraform-provider-artifactory.git
 git install .
 
 # I use pwsh even on macOS 😁
-$ENV:GOOS='linux'
-$ENV:GOARCH='amd64'
-go build
+#$ENV:GOOS='linux'
+#$ENV:GOARCH='amd64'
+#go build
+
+#See troubleshooting section below. More robust than simple go build. This simplifies things and will generate all binaries for you
+
+goreleaser build --snapshot
 ```
 
 ## Get Stuff Setup
