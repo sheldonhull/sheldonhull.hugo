@@ -187,3 +187,4 @@ plugin: artifactory (0.0.0)
 ```
 
 I went back to the provider project and installed [goreleaser](https://goreleaser.com/quick-start/) using: `brew install goreleaser/tap/goreleaser` which provided me the same tool to build the various packages for this provider.
+Build the provider by running `goreleaser build --snapshot`
