@@ -28,6 +28,32 @@ My current walk-through is focused by mistake on Terraform Enterprise, as I miss
 
 If you are willing to explore Atlantis, I bet something can be done with custom providers in there.
 
+After following the custom provider build steps below, create a `.terraformignore` file in your project directory and put in the config below.
+
+```text
+.terraform
+.git
+.gtm
+*.tfstate
+```
+
+With a backend like below, I was actually able to get terraform cloud to run the custom provider and return the plan.
+
+```
+terraform {
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "myorg"
+
+    workspaces {
+      name = "terraform-artifactory"
+    }
+  }
+}
+```
+
+If you get an error the first time you run this, see the troubleshooting section at the end.
+
 ### Custom Providers Bundling
 
 As of the time of this post, to include a custom provider, you need to create a custom [terraform bundle](https://bit.ly/3fA4CZu) bundle to package up the terraform package and any desired custom plugins.
@@ -242,3 +268,14 @@ plugin: artifactory (0.0.0)
 Creating terraform_0.12.28-bundle2020071421_linux_amd64.zip ...
 All done!
 ```
+
+### Terraform Cloud Fails with terraform.tfstate detected
+
+Since the local plugins seem to generate some tfstate for mapping the local plugin directory, I ensure you have a `.terraformignore` file in the root of your directory per the notes I provided at the beginning.
+
+```text
+Terraform Enterprise detected a terraform.tfstate file in your working
+directory: <VCS-REPO>/terraform.tfstate
+```
+
+Once I added the `.terraformignore` the apparent conflict with uploading a local tfstate on the plugins was resolved and the plan succeeded.
