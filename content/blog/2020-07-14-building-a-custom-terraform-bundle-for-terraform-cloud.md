@@ -64,6 +64,11 @@ To checkout a specific tagged version (recommended):
 git checkout tags/<tag_name>
 ```
 
+Quick little #devhack... Use Git Graph in Visual Studio Code to make working with busy repositories much easier.
+Yes, I'm no Vim magician. Sometimes a little visual help is much better than trying to do it all in cli. #heresy
+
+![Use Git Graph to Visually Navigate A Busy Repo and Checkout a Tagged Commit](/static/images/2020-07-14_14-57-48_using_git_graph.png "Git Graph Makes Things Easier")
+
 Next, you'll want to install and validate your install worked.
 `go install` ensures that dependencies are downloaded, so once again the magic of `Go` wins the day.
 If you flip to a new tagged version, make sure to rerun the install so you have the correct version of the tooling available.
