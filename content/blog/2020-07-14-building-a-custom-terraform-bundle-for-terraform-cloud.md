@@ -129,4 +129,40 @@ Now to bundle this up
 terraform-bundle package -os=linux -arch=amd64 mybundle/jfrog-bundle.hcl
 ```
 
-If you get an error `unknown type for string *ast.ObjectType` try to make sure your fully qualified path to the plugin is correct.
+## Troubleshooting
+
+I ran into some issues with it parsing the configuration file as soon as I added the custom plugin. It reported `unknown type for string *ast.ObjectType`.
+
+Here's what I looked at: 
+
+In the project, there is a `tools/terraform-bundle/config.go` that is responsible for parsing the hcl file.
+
+First, the configuration looks correct in taking a string slice for the versions, and the source is a normal string.
+
+
+```go
+type TerraformConfig struct {
+	Version discovery.VersionStr `hcl:"version"`
+}
+
+type ProviderConfig struct {
+	Versions []string `hcl:"versions"`
+	Source   string   `hcl:"source"`
+}
+
+```
+
+This seems to mean the configuration syntax of meets with the schema required by the configuration code.
+
+```hcl
+terraform {
+  version = "0.12.28"
+}
+providers {
+    # artifactory = ["0.1"]
+  artifactory = {
+    versions = ["0.1"]
+    source = "example.org/myorg/artifactory"
+  }
+}
+```
