@@ -92,9 +92,30 @@ terraform {
 providers {
   customplugin = {
     versions = ["0.1"]
-    source = "terraform-provider-artifactory"
+    source = "atlassian/tf/artifactory"
   }
 }
+```
+
+We need to include this plugin in a [specific location](https://bit.ly/32jetib) for the bundle tool to do it's magic.
+
+Also ensure you follow the naming convention for a provider.
+
+>  To be recognized as a valid plugin, the file must have a name of the form terraform-provider-<NAME>
+
+This is where powershell shines, and it's easy to make this path without issue using `Join-Path` in a way that also is fully cross platform with macOS, Linux, or Windows (pick your poison)
+
+```powershell
+# From the terraform project directory
+$SOURCEHOST     ='example.org'  # any arbitrary value allowed per docs
+$SOURCENAMESPACE='myorg'    # any arbitrary value allowed per docs
+$NAME           ='artifactory'
+$OS             ='linux'
+$ARCH           ='amd64'
+$VERSION        = '0.1'
+$PluginPath     = Join-Path plugins $SOURCEHOST $SOURCENAMESPACE $NAME $VERSION "${OS}_${ARCH}"
+$null           = New-Item -Path $PluginPath -ItemType Directory -Force
+Copy-Item ${ENV:HOME}/go/bin/linux_amd64/terraform-provider-artifactory -Destination $PluginPath -Force
 ```
 
 Now to bundle this up
@@ -103,3 +124,4 @@ Now to bundle this up
 terraform-bundle package -os=linux -arch=amd64 mybundle/jfrog-bundle.hcl
 ```
 
+If you get an error `unknown type for string *ast.ObjectType` try to make sure your fully qualified path to the plugin is correct.
