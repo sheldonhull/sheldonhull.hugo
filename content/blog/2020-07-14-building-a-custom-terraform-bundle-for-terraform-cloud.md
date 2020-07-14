@@ -187,4 +187,25 @@ plugin: artifactory (0.0.0)
 ```
 
 I went back to the provider project and installed [goreleaser](https://goreleaser.com/quick-start/) using: `brew install goreleaser/tap/goreleaser` which provided me the same tool to build the various packages for this provider.
-Build the provider by running `goreleaser build --snapshot`
+Build the provider by running `goreleaser build --snapshot`.
+
+After reviewing the help in more detail, the following CLI content conflicts with the main README.md, so I aligned me build to this and wonder of wonders... success! 🎉
+
+
+```text
+ #Include a custom plugin to the bundle. Will search for the plugin in the 
+        #plugins directory, and package it with the bundle archive. Plugin must have
+        #a name of the form: terraform-provider-*-v*, and must be built with the operating
+        #system and architecture that terraform enterprise is running, e.g. linux and amd64
+        customplugin = ["0.1"]
+```
+
+The message did provide a warning: `found legacy provider "terraform-provider-artifactory-v2.0.0"`.
+I tested and found it matched the local provider with `0.0.0` by running `terraform providers` and seeing the output: 
+
+```text
+2020/07/14 16:49:52 [TRACE] Meta.Backend: backend *remote.Remote supports operations
+.
+└── provider.artifactory
+```
+
