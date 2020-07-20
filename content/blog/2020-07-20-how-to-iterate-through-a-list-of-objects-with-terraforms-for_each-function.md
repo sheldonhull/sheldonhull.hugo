@@ -33,27 +33,27 @@ locals {
 }
 ```
 
-What I want to work
-```hcl
+What I want to work:
 
-resource "something" { 
+```hcl
+resource "something" {
 for_each local.users_config
 
 name = each.key # or even each.value.name
 email = each.value.email
-
 }
 ```
 
 ## What I've had to do
 
-Now to iterate through this collection, I've had challenges, as the only way I've gotten this to work would be to ensure their was a designated key in the yaml structure, in essence providing a map object with a key/value format, instead of a collection of normal objects.
+Now to iterate through this collection, I've had challenges, as the only way I've gotten this to work would be to ensure there was a designated key in the `yaml` structure.
+This provides a map object with a key/value format, instead of a collection of normal objects.
 
-This would result in a yaml format like: 
+This would result in a yaml format like:
 
 ```yml
 user:
-  - 'foobar1': 
+  - 'foobar1':
       name: foobar1
       email: foobar1@foobar.com
   - 'foobar2':
@@ -69,4 +69,18 @@ This is important, as without a unique key to determine the resource a plan coul
 
 ## Another Way Using Expressions
 
-Iterating through a map has been the main way I've handled this, I finally ironed out how to use expressions with Terraform to allow an object list to be the source of a for_each operation. This makes feeding Terraform plans from yaml or other collection input much easier to work with.
+Iterating through a map has been the main way I've handled this, I finally ironed out how to use expressions with Terraform to allow an object list to be the source of a `for_each` operation.
+This makes feeding Terraform plans from `yaml` or other input much easier to work with.
+
+Most of the examples I've seen confused the issue by focusing on very complex flattening or other steps.
+From this stack overflow answer, I experimented and finally got my expression to work with only a single line.
+
+```hcl
+resource "foobar" "this" {
+    for_each = {for user in local.users_config.users: user.name => user}
+    name     = each.key
+    email    = each.value.email
+}
+```
+
+This results in a simple yaml object list being correctly turned into something Terraform can work with, as it defines the unique key in the expression.
