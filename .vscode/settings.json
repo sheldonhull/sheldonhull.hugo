@@ -1,4 +1,35 @@
 {
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "grammarly.userWords": [
+        "Localdb",
+        "dbaconnection",
+        "dbatools",
+        "gists",
+        "ldf",
+        "localdb",
+        "mdf",
+        "pwsh"
+    ], // no protected branches on this blog repo, as I edit and work with master directly for CI
+    "branchwarnings.protectedBranches": [
+        ""
+    ],
+    "conventionalCommits.scopes": [
+        "blog",
+        "build",
+        "netlifycms"
+    ],
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.autoIndent": "advanced",
+    },
     "workbench.colorCustomizations": {
         "terminal.background": "#282828",
         "terminal.ansiBlue": "#83a598",
@@ -20,23 +51,4 @@
         "menu.selectionForeground": "#616161",
         "menubar.selectionForeground": "#616161"
     },
-    "markdownTablePrettify.showWindowMessages": false,
-    "[markdown]": {
-        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-    },
-    "branchwarnings.protectedBranches": [
-        ""
-    ],
-    "peacock.color": "#29b561",
-    "grammarly.userWords": [
-        "Localdb",
-        "dbaconnection",
-        "dbatools",
-        "gists",
-        "ldf",
-        "localdb",
-        "mdf",
-        "pwsh"
-    ] // no protected branches on this blog repo, as I edit and work with master directly for CI
-
 }
