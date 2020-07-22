@@ -48,7 +48,7 @@ I think the key area I've missed in the past was providing the mfa and token in 
 
 In the case of needing to generate a temporary credential, say for an environment variable based run outside of the SDK tooling, this might also provide something useful.
 
-It's one example of further reducing risk vectors by only providing a time-limited credential to a tool you might be using (can limit to a smaller timeframe).
+It's one example of further reducing risk vectors by only providing a time-limited credential to a tool you might be using (can limit to a smaller time-frame).
 
 {{< gist "e73dc7689be62dc7e8946d4ab948728b" "generate-temporary-credentials.ps1" >}}
 
