@@ -124,6 +124,24 @@
                 }
             });
         </script>
+        <script>
+            CMS.registerEditorComponent({
+                id: 'premonition', label: 'premonition',
+                // A bogus field so that the component doesn't look weird when rendered:
+                fields: [
+                    {
+                        label: 'premonition',
+                        widget: 'select',
+                        options: ['', '{{< premonition type="info|warning" title="Title" >}}', '\n\n\n{{< /premonition >}}']
+                    }
+                ],
+                // Never match anything so that the separator will be recognized as a horizontal rule when the document is reloaded:
+                pattern: /.^/,
+                toBlock(obj) {
+                    return obj.other;
+                }
+            });
+        </script>
     </body>
 
 </html>

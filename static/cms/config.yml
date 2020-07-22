@@ -17,12 +17,11 @@ backend:
   squash_merges: true
   commit_messages:
     create: 'feat: {{collection}} {{slug}}'
-    update: 'refactor: {{collection}} {{slug}}'
-    delete: '!refactor(delete): {{collection}} {{slug}}'
-    uploadMedia: 'feat(media): {{path}}'
-    deleteMedia: '!refactor(media): {{path}}'
+    update: 'refactor: {{collection}} {{slug}} [skip ci]'
+    delete: '!refactor(delete): {{collection}} {{slug}} [skip ci]'
+    uploadMedia: 'feat(media): {{path}} [skip ci]'
+    deleteMedia: '!refactor(media): {{path}} [skip ci]'
     openAuthoring: '{{message}}'
-
 
 display_url: https://www.sheldonhull.com
 media_folder: static/images # Folder where user uploaded files should go
@@ -109,7 +108,7 @@ collections: # A list of collections the CMS should be able to edit
     identifier_field: title
     extension: md
     create: true # Allow users to create new documents in this collection
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+   # slug: '{{year}}-{{month}}-{{day}}-{{fields.title}}'
     sortableFields: ['commit_date', 'title', 'commit_author','date']
     summary: "{{title}} // {{commit_date}}"
 
@@ -132,10 +131,10 @@ collections: # A list of collections the CMS should be able to edit
         required: true
       - label: slug
         name: slug
-        widget: string
+        widget: hidden
         tagname: h1
         required: true
-        default: '{{fields.slug}}'
+        default: '{{year}}-{{month}}-{{day}}-{{fields.title}}'
       # MAIN AUTHORING AREA
       - label: Publish Date
         name: date
@@ -192,7 +191,7 @@ collections: # A list of collections the CMS should be able to edit
     format: yaml-frontmatter
     extension: md
     create: true # Allow users to create new documents in this collection
-    slug: '{{ slug }}'
+    slug: '{{fields.title}}'
     #identifier_field: slug
     fields: # The fields each document in this collection have
       - label: Title
@@ -202,9 +201,12 @@ collections: # A list of collections the CMS should be able to edit
         required: true
       - label: slug
         name: slug
-        widget: string
+        widget: hidden
         tagname: h1
         required: true
+        default: '{{slug}}'
+
+
       - label: Publish Date
         name: date
         widget: date
@@ -259,3 +261,103 @@ collections: # A list of collections the CMS should be able to edit
           - 'worship'
           - 'videography'
           - 'azure'
+
+  - name: 100DaysOfCode # Used in routes, ie.: /admin/collections/:slug/edit
+    label: 100-days-of-code # Used in the UI, ie.: "New Post"
+    folder: content/microblog # The path to the folder where the documents are stored
+    format: yaml-frontmatter
+    extension: md
+    create: true # Allow users to create new documents in this collection
+    slug: '{{year}}-{{month}}-{{day}}-{{area}}-R{{round}}-D{{day}}'
+    sortableFields: ['commit_date', 'title', 'commit_author','date','area','round','day']
+    summary: "{{area}} - R{{round}} - D{{day}} - {{title}} - commit {{commit_date}} - {{body}}"
+    identifier_field: title
+    fields: # The fields each document in this collection have
+      # MAIN AUTHORING AREA
+      # MomentJS Token Reference: https://momentjscom.readthedocs.io/en/latest/moment/01-parsing/03-string-format/
+      - label: title
+        name: title
+        widget: string
+        required: true
+      - label: Publish Date
+        name: date
+        widget: datetime
+        format: YYYY-MM-DDTHH:00:00Z
+        required: true
+      - label: slug
+        name: slug
+        widget: hidden
+        tagname: h1
+        required: true
+        default: '{{fields.slug}}'
+      - label: area
+        name: area
+        widget: list
+        default: ['go']
+        multiple: false
+        required: true
+        options:
+          - 'go'
+      - label: round
+        name: round
+        widget: number
+        valueType: int
+        default: 1
+        min: 1
+        max: 5
+        step: 1
+      - label: day
+        name: day
+        widget: number
+        valueType: int
+        min: 1
+        max: 100
+        step: 1
+      - label: Body
+        name: body
+        widget: markdown
+        required: true
+        default: |
+          ## progress
+
+          -
+          -
+          -
+
+          ## links
+
+          - []()
+          - []()
+          - []()
+      - label: Tags
+        name: tags
+        widget: list
+        default: ['tech','development']
+        multiple: true
+        required: true
+        allow_add: true
+        options:
+          - 'til'
+          - 'development'
+          - 'sql-server'
+          - 'tech'
+          - 'ramblings'
+          - 'powershell'
+          - 'cool-tools'
+          - 'performance-tuning'
+          - 'deep-dive'
+          - 'aws'
+          - 'devops'
+          - 'photography'
+          - 'music'
+          - 'follower-of-Jesus'
+          - 'worship'
+          - 'videography'
+          - 'azure'
+    # - label: "Post Author"
+    #   name: "author"
+    #   widget: "relation"
+    #   collection: "authors"
+    #   searchFields: ["name", "twitterHandle"]
+    #   valueField: "name"
+    #   displayFields: ["twitterHandle", "followerCount"]
