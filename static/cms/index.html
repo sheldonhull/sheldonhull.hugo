@@ -124,6 +124,40 @@
                 }
             });
         </script>
+
+        <script>
+            CMS.registerEditorComponent({
+                id: "premonition",
+                label: "premonition",
+                icon: 'seperator',
+                fields: [
+                    {
+                        name: 'id',
+                        label: 'premonition text'
+                    },
+                    {
+                        name: 'type',
+                        label: 'premonition type',
+                        widget: 'select',
+                        options: ['information', 'warning', 'success', 'failure', 'question', 'tip', 'notice']
+                    },
+                    {
+                        name: 'title',
+                        label: 'premonition title'
+                    }
+                ],
+                pattern: /^{{<\spremonition.*>}}/,
+                fromBlock: function (match) {
+                    return { id: match[1] };
+                },
+                toBlock: function (obj) {
+                    return ('{{< premonition type="' + obj.type + '" title="' + obj.title + '" >}}\n' + '' + obj.id + '\n{{< /premonition >}}');
+                },
+                toPreview: function (obj) {
+                    return ('{{< premonition type="' + obj.type + '" title="' + obj.title + '" >}}\n' + '' + obj.id + '\n{{< /premonition >}}');
+                }
+            });
+        </script>
     </body>
 
 </html>

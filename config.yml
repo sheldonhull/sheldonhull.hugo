@@ -1,204 +1,177 @@
----
-baseurl: "" #https://www.sheldonhull.com
-title: "Sheldon Hull"
-theme: "hermit"
-#languageCode: "en-us"
-#defaultContentLanguage: "en"
-metadataformat: "yaml"
+baseurl: ''
+title: Sheldon Hull
+theme: hermit
+metadataformat: yaml
 timeout: 60000
-
-
 enableGitInfo: true
-
 paginate: 20
 canonifyurls: true
 pluralizeListTitles: false
-
-
-# gallery of styles http://richleland.github.io/pygments-css/
-# pygmentsstyle: "monokai"
-# pygmentscodefences: true
-# pygmentscodefencesguesssyntax: true
-# pygmentsUseClasses: true
-
-enableEmoji: true  # Shorth and emojis in content files - https://gohugo.io/functions/emojify/
-
-# Analytics & Comments
-DisqusShortname: "sheldonhull"
+enableEmoji: true
+DisqusShortname: sheldonhull
 DelayDisqus: true
-googleAnalytics: "UA-40198001-3"
-
-
-copyright: "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License." # This message is only used by the RSS template.
-
+googleAnalytics: UA-40198001-3
+copyright: This work is licensed under a Creative Commons Attribution-NonCommercial
+  4.0 International License.
 additional_scripts:
   - node_modules/algoliasearch/dist/algoliasearch.umd.js
   - assets/js/algolia-search.js
-
 taxonomies:
   tag: tags
   series: series
-
-  # Categories are disabled by default.
-
 outputs:
-  home: ["HTML","RSS","Algolia"] #,"RSS","Algolia"
-  page: ["HTML"]
-  section: ["HTML","RSS"]
-  microblog: ["RSS"]
-
-
+  home:
+    - HTML
+    - RSS
+    - Algolia
+  page:
+    - HTML
+  section:
+    - HTML
+    - RSS
+  microblog:
+    - RSS
 outputFormats:
   Algolia:
-    baseName: "algolia"
+    baseName: algolia
     isPlainText: true
-    mediaType: "application/json"
+    mediaType: application/json
     notAlternative: true
-  # RSS:
-  #   mediatype: "application/rss"
-  #   baseName: "feed"
 permalinks:
-  posts: "/:slug/"
-
-# Defaults for front matter when something isn't included to make front matter simply to work with
+  posts: /:slug/
 frontmatter:
-  date: ["date", "publishDate", "lastmod"]
-  lastmod: [":git", "lastmod", "date", "publishDate",":fileModTime"]
-  publishDate: ["publishDate", "date"]
-  expiryDate: ["expiryDate"]
-  title: ["title","date"]
-
+  date:
+    - date
+    - publishDate
+    - lastmod
+  lastmod:
+    - :git
+    - lastmod
+    - date
+    - publishDate
+    - :fileModTime
+  publishDate:
+    - publishDate
+    - date
+  expiryDate:
+    - expiryDate
+  title:
+    - title
+    - date
 Author:
-  name: "Sheldon Hull"
-  website: "https://www.sheldonhull.com"
-  email: ""
-  facebook: ""
-  googleplus: "" # or xxxxxxxxxxxxxxxxxxxxx
-  github: "sheldonhull"
-  gitlab: ""
-  bitbucket: ""
-  twitter: "sheldon_hull"
-  reddit: ""
-  linkedin: ""
-  xing: ""
-  stackoverflow: "users/68698/sheldonh"
-  snapchat: ""
-  instagram: ""
-  youtube: "" # or channel/channelname
-  soundcloud: ""
-  spotify: ""
-  bandcamp: ""
-  itchio: ""
-  vk: ""
-  paypal: ""
-  telegram: ""
-  500px: ""
+  name: Sheldon Hull
+  website: https://www.sheldonhull.com
+  email: ''
+  facebook: ''
+  googleplus: ''
+  github: sheldonhull
+  gitlab: ''
+  bitbucket: ''
+  twitter: sheldon_hull
+  reddit: ''
+  linkedin: ''
+  xing: ''
+  stackoverflow: users/68698/sheldonh
+  snapchat: ''
+  instagram: ''
+  youtube: ''
+  soundcloud: ''
+  spotify: ''
+  bandcamp: ''
+  itchio: ''
+  vk: ''
+  paypal: ''
+  telegram: ''
+  500px: ''
 menu:
   main:
-    - name: "Blog"
+    - name: Blog
       weight: 1
-      url : "/blog/"
-    - name: "Microblog"
+      url: /blog/
+    - name: 100 Days Of Code
       weight: 1
-      url : "/microblog/"
-    - name: "Tags"
-      url: "/tags/"
+      url: https://100-days-of-code-sheldonhull.netlify.app/
+    - name: Microblog
+      weight: 1
+      url: /microblog/
+    - name: Tags
+      url: /tags/
       weight: 2
-    - name: "Docs"
-      url: "/docs/"
+    - name: Docs
+      url: /docs/
       weight: 3
-    - name: "Creative"
-      url: "/creative/"
+    - name: Creative
+      url: /creative/
       weight: 4
-    - name: "About"
+    - name: About
       weight: 5
-      url: "/about/"
-
+      url: /about/
 params:
-  mainSections: ["blog"]
-
+  mainSections:
+    - blog
   search:
     algolia:
       app_id: 04HSGXXQD5
       api_key: a7ec2763a5d966a5b9f8d70b254bfb68
       index_name: sheldonhull
       show_logo: true
-  RSSSection: ["blog"]
+  RSSSection:
+    - blog
   rssmicroblogtitles: true
   RSSEnabled: true
-  rssLimit: 15  # Maximum number of items in the RSS feed.
+  rssLimit: 15
   font:
-    #text: "Source Sans Pro"
-    # text: 'Ubuntu'
-    #text: 'Maven Pro'
     text: Raleway
-
-    code: "JetBrainsMono"
-  dateform: "Jan 2, 2006"
-  dateformShort: "Jan 2"
-  dateformNum: "2006-01-02"
-  dateformNumTime: "2006-01-02 15:04 -0700"
-
+    code: JetBrainsMono
+  dateform: Jan 2, 2006
+  dateformShort: Jan 2
+  dateformNum: '2006-01-02'
+  dateformNumTime: 2006-01-02 15:04 -0700
   comments: true
-
-  # Show Table of Contents By Default
   toc: true
   algolia:
-    vars: ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
-    params: ["tags"] #,"categories"
-
-
-  # Metadata mostly used in document's head
-  themeColor: "#22252e" # "#494f5c"
-
-
+    vars:
+      - title
+      - summary
+      - date
+      - publishdate
+      - expirydate
+      - permalink
+    params:
+      - tags
+  themeColor: '#22252e'
   homeSubtitle:
     - Developer & Reticulator Of Splines
-    - For dropping by, here's some emoji tacos 🌮🌮🌮
-  footerCopyright: ' &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
-
-  bgImg: "images/2016-04-27_17-27-07_circular.jpg"  # Homepage background-image URL
-
-  # Prefix of link to the git commit detail page. GitInfo must be enabled.
-  gitUrl: "https://github.com/sheldonhull/sheldonhull.hugo/commit/"
-
-  # Toggling this option needs to rebuild SCSS, requires Hugo extended version
-  justifyContent: false  # Set "text-align: justify" to `.content`.
-
-  # Social Icons
-  # Check https://github.com/Track3/hermit#social-icons for more info.
-
-  # SHELDON: My addition
+    - For dropping by, here's some emoji tacos Γëí╞Æ├«┬½Γëí╞Æ├«┬½Γëí╞Æ├«┬½
+  footerCopyright: ' &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/"
+    target="_blank" rel="noopener">CC BY-NC 4.0</a>'
+  bgImg: images/2016-04-27_17-27-07_circular.jpg
+  gitUrl: https://github.com/sheldonhull/sheldonhull.hugo/commit/
+  justifyContent: false
   commit: true
-  since: "2013"
-
-  # Add custom css
-  custom_css: [
-    "css/custom.css",
-    "css/ticks.css",
-    "css/notice.css"
-    ]
-
+  since: '2013'
+  custom_css:
+    - css/custom.css
+    - css/ticks.css
+    - css/notice.css
   social:
-    - name: "twitter"
-      url: "https://twitter.com/sheldon_hull"
-    - name: "github"
-      url: "https://github.com/sheldonhull"
-    - name: "stackoverflow"
-      url: "https://stackoverflow.com/users/68698/sheldonh"
-    - name: "linkedin"
-      url: "https://www.linkedin.com/in/sheldonhull"
-
+    - name: twitter
+      url: https://twitter.com/sheldon_hull
+    - name: github
+      url: https://github.com/sheldonhull
+    - name: stackoverflow
+      url: https://stackoverflow.com/users/68698/sheldonh
+    - name: linkedin
+      url: https://www.linkedin.com/in/sheldonhull
   style:
-    backgroundColor: "#018574"
-
+    backgroundColor: '#018574'
 markup:
   blackFriday:
     angledQuotes: false
     extensions: null
     extensionsMask: null
-    footnoteAnchorPrefix: ""
-    footnoteReturnLinkContents: ""
+    footnoteAnchorPrefix: ''
+    footnoteReturnLinkContents: ''
     fractions: true
     hrefTargetBlank: true
     latexDashes: true
@@ -231,21 +204,16 @@ markup:
   highlight:
     codeFences: true
     guessSyntax: true
-    hl_Lines: ""
+    hl_Lines: ''
     lineNoStart: 1
     lineNos: false
     lineNumbersInTable: true
     noClasses: false
-    # https://xyproto.github.io/splash/docs/all.html
-    #style: paraiso-dark #solarized-dark256
     tabWidth: 4
   tableOfContents:
     endLevel: 3
     ordered: false
     startLevel: 2
-
-
-
   minify:
     disableCSS: false
     disableHTML: false

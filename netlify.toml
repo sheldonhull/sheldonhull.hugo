@@ -55,10 +55,10 @@ publish = "preview"
 
 [context.deploy-preview.environment]
   HUGO_GOOGLEANALYTICS = "dev"
-  HUGO_BASEURL = "$DEPLOY_PRIME_URL"
+  HUGO_BASEURL = "/"
   HUGO_ENABLEGITINFO = "true"
   HUGO_DESTINATION = "preview"
-  HUGO_VERSION = "0.60.1"
+  HUGO_VERSION = "0.69.0"
 ###############################
 # BRANCH
 ###############################
@@ -80,10 +80,10 @@ hugo --buildFuture --buildDrafts --verbose --minify --gc --destination $HUGO_DES
 """
 [context.branch-deploy.environment]
   HUGO_GOOGLEANALYTICS = "dev"
-  HUGO_BASEURL = "$DEPLOY_PRIME_URL"
+  HUGO_BASEURL = "/"
   HUGO_ENABLEGITINFO = "true"
   HUGO_DESTINATION = "branch"
-  HUGO_VERSION = "0.60.1"
+  HUGO_VERSION = "0.69.0"
 # Redirects to keep jekyll based urls that some use like:
 #xmlUrl="https://www.sheldonhull.com/tags/tech/feed.xml"  should still be working, since hugo generates with index.xml
 

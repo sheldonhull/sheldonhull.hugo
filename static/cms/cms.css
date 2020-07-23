@@ -4,9 +4,8 @@ html,
 body {
   color: #444;
   font-size: 14px;
-  font-family: 'Raleway,Source Sans Pro', sans-serif;
+  font-family: 'Raleway','Source Sans Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
-
   -moz-osx-font-smoothing: grayscale;
 }
 
