@@ -191,7 +191,7 @@ collections: # A list of collections the CMS should be able to edit
     format: yaml-frontmatter
     extension: md
     create: true # Allow users to create new documents in this collection
-    slug: '{{fields.title}}'
+    slug: '{{slug}}'
     #identifier_field: slug
     fields: # The fields each document in this collection have
       - label: Title
@@ -302,9 +302,10 @@ collections: # A list of collections the CMS should be able to edit
       - label: area
         name: area
         widget: list
-        default: 'go'
+        default: ['go']
         multiple: false
         required: true
+        collapsed: true
         options:
           - 'go'
       - label: round
@@ -325,19 +326,22 @@ collections: # A list of collections the CMS should be able to edit
       - label: Body
         name: body
         widget: markdown
+        minimal: true
         required: true
         default: |
+          ## Day {{day}} of 100
+
           ## progress
 
-          -
-          -
-          -
+          - note
+          - note
+          - note
 
           ## links
 
-          - []()
-          - []()
-          - []()
+          - [link](github.com)
+          - [link](github.com)
+          - [link](github.com)
       - label: Tags
         name: tags
         widget: list
