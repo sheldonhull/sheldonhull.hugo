@@ -6,8 +6,6 @@
 # anchors to avoid repeat #
 ###########################
 
-
-
 ###############
 # MAIN CONFIG #
 ###############
@@ -30,9 +28,9 @@ editor:
   preview: false
 publish_mode: editorial_workflow
 slug:
-  encoding: "ascii"
+  encoding: 'ascii'
   clean_accents: true
-  sanitize_replacement: "-"
+  sanitize_replacement: '-'
 collections: # A list of collections the CMS should be able to edit
   - name: microblog # Used in routes, ie.: /admin/collections/:slug/edit
     label: micro.blog # Used in the UI, ie.: "New Post"
@@ -41,10 +39,9 @@ collections: # A list of collections the CMS should be able to edit
     extension: md
     create: true # Allow users to create new documents in this collection
     slug: '{{year}}-{{month}}-{{day}}t{{hour}}-{{minute}}'
-    sortableFields: ['commit_date', 'title', 'commit_author','date']
-    summary: "{{title}} - commit {{commit_date}} - {{body}}"
+    sortableFields: ['commit_date', 'title', 'commit_author', 'date']
+    summary: "{{commit_date}}-{{title}\n{{body}}"
     preview_path: microblog/{{slug}}
-
 
     identifier_field: title
     fields: # The fields each document in this collection have
@@ -73,7 +70,7 @@ collections: # A list of collections the CMS should be able to edit
       - label: Tags
         name: tags
         widget: list
-        default: ['tech','development']
+        default: ['tech', 'development']
         multiple: true
         required: true
         allow_add: true
@@ -110,21 +107,21 @@ collections: # A list of collections the CMS should be able to edit
     identifier_field: title
     extension: md
     create: true # Allow users to create new documents in this collection
-   # slug: '{{year}}-{{month}}-{{day}}-{{fields.title}}'
-    sortableFields: ['commit_date', 'title', 'commit_author','date']
-    summary: "{{title}} // {{commit_date}}"
+    # slug: '{{year}}-{{month}}-{{day}}-{{fields.title}}'
+    sortableFields: ['commit_date', 'title', 'commit_author', 'date']
+    summary: '{{title}}-{{commit_date}}'
     preview_path: blog/{{slug}}
 
     view_filters:
-    - label: 'Posts published in 2020'
-      field: date
-      pattern: '2020'
-    - label: 'Posts published in 2019'
-      field: date
-      pattern: '2019'
-    - label: Drafts
-      field: draft
-      pattern: true
+      - label: 'Posts published in 2020'
+        field: date
+        pattern: '2020'
+      - label: 'Posts published in 2019'
+        field: date
+        pattern: '2019'
+      - label: Drafts
+        field: draft
+        pattern: true
     #identifier_field: slug
     fields: # The fields each document in this collection have
       - label: Title
@@ -147,8 +144,7 @@ collections: # A list of collections the CMS should be able to edit
       - label: Body
         name: body
         widget: markdown
-        required:
-          true
+        required: true
       # Additional string fields to set manually in YAML
       - label: toc
         name: toc
@@ -166,7 +162,7 @@ collections: # A list of collections the CMS should be able to edit
       - label: Tags
         name: tags
         widget: list
-        default: ['tech','development']
+        default: ['tech', 'development']
         multiple: true
         required: true
         allow_add: true
@@ -210,7 +206,6 @@ collections: # A list of collections the CMS should be able to edit
         required: true
         default: '{{slug}}'
 
-
       - label: Publish Date
         name: date
         widget: date
@@ -243,7 +238,7 @@ collections: # A list of collections the CMS should be able to edit
       - label: Tags
         name: tags
         widget: list
-        default: ['tech','development']
+        default: ['tech', 'development']
         multiple: true
         required: true
         allow_add: true
@@ -273,14 +268,23 @@ collections: # A list of collections the CMS should be able to edit
     format: yaml-frontmatter
     extension: md
     create: true # Allow users to create new documents in this collection
-    slug: '{{year}}-{{month}}-{{day}}-{{area}}-R{{round}}-D{{day}}'
-    sortableFields: ['commit_date', 'title', 'commit_author','date','area','round','day']
-    summary: "{{area}} - R{{round}} - D{{day}} - {{title}}"
+    slug: '{{year}}-{{month}}-{{day}}-{{area}}-R{{round}}-D{{day_counter}}'
+    sortableFields:
+      [
+        'commit_date',
+        'title',
+        'commit_author',
+        'date',
+        'area',
+        'round',
+        'day_counter',
+      ]
+    summary: "{{area}}-R{{round}}-D{{day_counter}}\n{{body}}"
     identifier_field: title
     view_filters:
-    - label: '100-days-of-code'
-      field: tags
-      pattern: '100-days-of-code'
+      - label: '100-days-of-code'
+        field: tags
+        pattern: '100-days-of-code'
     fields: # The fields each document in this collection have
       # MAIN AUTHORING AREA
       # MomentJS Token Reference: https://momentjscom.readthedocs.io/en/latest/moment/01-parsing/03-string-format/
@@ -317,8 +321,8 @@ collections: # A list of collections the CMS should be able to edit
         min: 1
         max: 5
         step: 1
-      - label: day
-        name: day
+      - label: day_counter
+        name: day_counter
         widget: number
         valueType: int
         min: 1
@@ -346,7 +350,7 @@ collections: # A list of collections the CMS should be able to edit
       - label: Tags
         name: tags
         widget: list
-        default: ['tech','development','100-days-of-code','go']
+        default: ['tech', 'development', '100-days-of-code', 'go']
         multiple: true
         required: true
         allow_add: true

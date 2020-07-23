@@ -134,6 +134,15 @@
                     {
                         name: 'id',
                         label: 'premonition text'
+                    },
+                    {
+                        name: 'type',
+                        label: 'premonition type',
+                        options: ['information','warning','success','failure','question','tip','notice']
+                    },
+                    {
+                        name: 'title',
+                        label: 'premonition title'
                     }
                 ],
                 pattern: /^{{<\spremonition.*>}}/,
@@ -141,10 +150,10 @@
                     return { id: match[1] };
                 },
                 toBlock: function (obj) {
-                    return ('{{< premonition type="info" title="title" >}}\n' + '' + obj.id + '\n{{< /premonition >}}');
+                    return ('{{< premonition type="' + obj.type + '" title="' + obj.title + '" >}}\n' + '' + obj.id + '\n{{< /premonition >}}');
                 },
                 toPreview: function (obj) {
-                    return ('{{< premonition type="info" title="title" >}}\n' + '' + obj.id + '\n{{< /premonition >}}');
+                    return ('{{< premonition type="' + obj.type + '" title="' + obj.title + '" >}}\n' + '' + obj.id + '\n{{< /premonition >}}');
                 }
             });
         </script>
