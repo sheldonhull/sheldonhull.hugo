@@ -106,7 +106,7 @@ collections: # A list of collections the CMS should be able to edit
     identifier_field: title
     extension: md
     create: true # Allow users to create new documents in this collection
-    # slug: '{{year}}-{{month}}-{{day}}-{{fields.title}}'
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     sortableFields: ['commit_date', 'title', 'commit_author', 'date']
     summary: '{{title}}-{{commit_date}}'
     preview_path: blog/{{slug}}
@@ -128,12 +128,12 @@ collections: # A list of collections the CMS should be able to edit
         widget: string
         tagname: h1
         required: true
-      - label: slug
-        name: slug
-        widget: string
-        tagname: h1
-        required: true
-        default: '{{year}}-{{month}}-{{day}}-{{slug}}'
+#       - label: slug
+#         name: slug
+#         widget: string
+#         tagname: h1
+#         required: true
+#         default: '{{year}}-{{month}}-{{day}}-{{slug}}'
       # MAIN AUTHORING AREA
       - label: Publish Date
         name: date
@@ -198,12 +198,12 @@ collections: # A list of collections the CMS should be able to edit
         widget: string
         tagname: h1
         required: true
-      - label: slug
-        name: slug
-        widget: string
-        tagname: h1
-        required: true
-        default: '{{slug}}'
+#       - label: slug
+#         name: slug
+#         widget: string
+#         tagname: h1
+#         required: true
+#         default: '{{slug}}'
 
       - label: Publish Date
         name: date
@@ -267,7 +267,7 @@ collections: # A list of collections the CMS should be able to edit
     format: yaml-frontmatter
     extension: md
     create: true # Allow users to create new documents in this collection
-    slug: '{{year}}-{{month}}-{{day}}-{{area}}-R{{round}}-D{{day_counter}}'
+    slug: '{{year}}-{{month}}-{{day}}-{{area}}-R{{round}}-day-{{day_counter}}'
     sortableFields:
       [
         'commit_date',
