@@ -291,7 +291,7 @@ collections: # A list of collections the CMS should be able to edit
         name: title
         widget: string
         required: true
-        default: '{{year}}-{{month}}-{{day}}-{{area}}-R{{round}}-D{{day_counter}}'
+        default: 'go-R1-D001'
       - label: Publish Date
         name: date
         widget: datetime
