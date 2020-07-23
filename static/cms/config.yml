@@ -267,7 +267,7 @@ collections: # A list of collections the CMS should be able to edit
     format: yaml-frontmatter
     extension: md
     create: true # Allow users to create new documents in this collection
-    #slug: '{{year}}-{{month}}-{{day}}-{{area}}-R{{round}}-D{{day_counter}}'
+    slug: '{{year}}-{{month}}-{{day}}-{{area}}-R{{round}}-D{{day_counter}}'
     sortableFields:
       [
         'commit_date',
