@@ -306,13 +306,9 @@ collections: # A list of collections the CMS should be able to edit
         default: '{{slug}}'
       - label: area
         name: area
-        widget: list
-        default: ['go']
-        multiple: false
+        widget: string
+        default: 'go'
         required: true
-        collapsed: true
-        options:
-          - 'go'
       - label: round
         name: round
         widget: number
