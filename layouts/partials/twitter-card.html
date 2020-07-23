@@ -4,7 +4,12 @@
 <meta name="twitter:site" content="{{- .site -}}">
 {{ if ne .card "app" -}}
 <meta name="twitter:title" content="{{- .title -}}">
+{{ with .image }}
 <meta name="twitter:image" content="{{- .image -}}">
+{{- end }}
+{{ with .Params.featuredImg }}
+<meta name="twitter:image" content="{{- .featuredImg -}}">
+{{- end}}
 {{ with .image_alt -}}<meta name="twitter:image:alt" content="{{- . -}}">{{- end }}
 {{- end }}
 {{ with .creator -}}<meta name="twitter:creator" content="{{- . -}}">{{- end }}

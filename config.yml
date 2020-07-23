@@ -141,15 +141,14 @@ params:
       - tags
   themeColor: '#22252e'
   homeSubtitle:
-    - Developer & Reticulator Of Splines
-    - For dropping by, here's some emoji tacos Γëí╞Æ├«┬½Γëí╞Æ├«┬½Γëí╞Æ├«┬½
-  footerCopyright: ' &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/"
-    target="_blank" rel="noopener">CC BY-NC 4.0</a>'
+    - "Developer & Reticulator Of Splines"
+    - "For dropping by, here's some emoji tacos 🌮🌮🌮"
+  footerCopyright: '&#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
   bgImg: images/2016-04-27_17-27-07_circular.jpg
   gitUrl: https://github.com/sheldonhull/sheldonhull.hugo/commit/
   justifyContent: false
   commit: true
-  since: '2013'
+  since: 2013
   custom_css:
     - css/custom.css
     - css/ticks.css
