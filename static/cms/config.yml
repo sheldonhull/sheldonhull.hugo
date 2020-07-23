@@ -60,10 +60,10 @@ collections: # A list of collections the CMS should be able to edit
         required: true
       - label: slug
         name: slug
-        widget: string
+        widget: hidden
         tagname: h1
         required: true
-        default: '{{fields.slug}}'
+        default: '{{slug}}'
       - label: Body
         name: body
         widget: markdown
@@ -289,7 +289,7 @@ collections: # A list of collections the CMS should be able to edit
         widget: hidden
         tagname: h1
         required: true
-        default: '{{fields.slug}}'
+        default: '{{slug}}'
       - label: area
         name: area
         widget: list
