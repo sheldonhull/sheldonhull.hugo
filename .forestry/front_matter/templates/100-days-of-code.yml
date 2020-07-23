@@ -1,13 +1,65 @@
 ---
 label: 100-days-of-code
 hide_body: false
+display_field: title
 fields:
+- name: title
+  type: text
+  config:
+    required: true
+  label: title
+  description: normally formatted as Day 1 of 100
 - type: datetime
   name: date
   label: date
+  hidden: true
+  default: now
+- name: round
+  type: number
+  label: round
+  default: 0
+  required: true
+  config:
+    min: 1
+    max: 199
+    step: 1
+    required: false
+  description: The round for 100-days-of-code
+- name: day_counter
+  type: number
+  label: day_counter
+  description: The 100-days-of-code counter
+  default: 0
+  required: true
+  config:
+    min: 1
+    max: 100
+    step: 1
+    required: true
+- name: area
+  type: select
+  default: ''
+  config:
+    required: true
+    options: []
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: area
+  description: The area the 100 day challenge is focused on
+- name: featuredimg
+  type: file
+  config:
+    maxSize: 64
+  label: featuredImg
 - type: list
   name: tags
   label: tags
-- type: datetime
-  name: title
-  label: title
+  config:
+    use_select: false
+    source:
+      type: simple
+      section: microblog
+      file: content/microblog/2019-04-17-2153.md
