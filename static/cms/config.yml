@@ -38,7 +38,7 @@ collections: # A list of collections the CMS should be able to edit
     format: yaml-frontmatter
     extension: md
     create: true # Allow users to create new documents in this collection
-    slug: '{{year}}-{{month}}-{{day}}t{{hour}}-{{minute}}'
+    slug: '{{year}}-{{month}}-{{day}}t{{hour}}-{{minute}}-{{slug}}'
     sortableFields: ['commit_date', 'title', 'commit_author', 'date']
     summary: "{{commit_date}}-{{title}\n{{body}}"
     preview_path: microblog/{{slug}}
@@ -49,20 +49,19 @@ collections: # A list of collections the CMS should be able to edit
       # MomentJS Token Reference: https://momentjscom.readthedocs.io/en/latest/moment/01-parsing/03-string-format/
       - label: title
         name: title
-        widget: datetime
-        format: YYYY-MM-DDTHH:00:00Z
+        widget: string
         required: true
       - label: Publish Date
         name: date
         widget: datetime
         format: YYYY-MM-DDTHH:00:00Z
         required: true
-      - label: slug
-        name: slug
-        widget: hidden
-        tagname: h1
-        required: true
-        default: '{{slug}}'
+      # - label: slug
+      #   name: slug
+      #   widget: string
+      #   tagname: h1
+      #   required: true
+      #   default: '{{slug}}'
       - label: Body
         name: body
         widget: markdown
@@ -131,10 +130,10 @@ collections: # A list of collections the CMS should be able to edit
         required: true
       - label: slug
         name: slug
-        widget: hidden
+        widget: string
         tagname: h1
         required: true
-        default: '{{year}}-{{month}}-{{day}}-{{fields.title}}'
+        default: '{{year}}-{{month}}-{{day}}-{{slug}}'
       # MAIN AUTHORING AREA
       - label: Publish Date
         name: date
@@ -201,7 +200,7 @@ collections: # A list of collections the CMS should be able to edit
         required: true
       - label: slug
         name: slug
-        widget: hidden
+        widget: string
         tagname: h1
         required: true
         default: '{{slug}}'
@@ -268,7 +267,7 @@ collections: # A list of collections the CMS should be able to edit
     format: yaml-frontmatter
     extension: md
     create: true # Allow users to create new documents in this collection
-    slug: '{{year}}-{{month}}-{{day}}-{{area}}-R{{round}}-D{{day_counter}}'
+    #slug: '{{year}}-{{month}}-{{day}}-{{area}}-R{{round}}-D{{day_counter}}'
     sortableFields:
       [
         'commit_date',
@@ -292,6 +291,7 @@ collections: # A list of collections the CMS should be able to edit
         name: title
         widget: string
         required: true
+        default: '{{year}}-{{month}}-{{day}}-{{area}}-R{{round}}-D{{day_counter}}'
       - label: Publish Date
         name: date
         widget: datetime
@@ -302,12 +302,12 @@ collections: # A list of collections the CMS should be able to edit
         widget: image
         required: false
         tagname:
-      - label: slug
-        name: slug
-        widget: hidden
-        tagname: h1
-        required: true
-        default: '{{slug}}'
+      # - label: slug
+      #   name: slug
+      #   widget: hidden
+      #   tagname: h1
+      #   required: true
+      #   default: '{{year}}-{{month}}-{{day}}-{{area}}-R{{round}}-D{{day_counter}}'
       - label: area
         name: area
         widget: string
