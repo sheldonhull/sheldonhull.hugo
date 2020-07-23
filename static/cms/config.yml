@@ -270,8 +270,12 @@ collections: # A list of collections the CMS should be able to edit
     create: true # Allow users to create new documents in this collection
     slug: '{{year}}-{{month}}-{{day}}-{{area}}-R{{round}}-D{{day}}'
     sortableFields: ['commit_date', 'title', 'commit_author','date','area','round','day']
-    summary: "{{area}} - R{{round}} - D{{day}} - {{title}} - commit {{commit_date}} - {{body}}"
+    summary: "{{area}} - R{{round}} - D{{day}} - {{title}}"
     identifier_field: title
+    view_filters:
+    - label: '100-days-of-code'
+      field: tags
+      pattern: '100-days-of-code'
     fields: # The fields each document in this collection have
       # MAIN AUTHORING AREA
       # MomentJS Token Reference: https://momentjscom.readthedocs.io/en/latest/moment/01-parsing/03-string-format/
@@ -284,6 +288,11 @@ collections: # A list of collections the CMS should be able to edit
         widget: datetime
         format: YYYY-MM-DDTHH:00:00Z
         required: true
+      - label: Cover Image
+        name: featuredImg
+        widget: image
+        required: false
+        tagname:
       - label: slug
         name: slug
         widget: hidden
@@ -293,7 +302,7 @@ collections: # A list of collections the CMS should be able to edit
       - label: area
         name: area
         widget: list
-        default: ['go']
+        default: 'go'
         multiple: false
         required: true
         options:
@@ -332,7 +341,7 @@ collections: # A list of collections the CMS should be able to edit
       - label: Tags
         name: tags
         widget: list
-        default: ['tech','development']
+        default: ['tech','development','100-days-of-code','go']
         multiple: true
         required: true
         allow_add: true
@@ -354,6 +363,7 @@ collections: # A list of collections the CMS should be able to edit
           - 'worship'
           - 'videography'
           - 'azure'
+          - 'go'
     # - label: "Post Author"
     #   name: "author"
     #   widget: "relation"
