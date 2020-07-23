@@ -17,7 +17,7 @@ backend:
   squash_merges: true
   commit_messages:
     create: 'feat: {{collection}} {{slug}}'
-    update: 'refactor: {{collection}} {{slug}} [skip ci]'
+    update: 'refactor: {{collection}} {{slug}}'
     delete: '!refactor(delete): {{collection}} {{slug}} [skip ci]'
     uploadMedia: 'feat(media): {{path}} [skip ci]'
     deleteMedia: '!refactor(media): {{path}} [skip ci]'
@@ -43,6 +43,8 @@ collections: # A list of collections the CMS should be able to edit
     slug: '{{year}}-{{month}}-{{day}}t{{hour}}-{{minute}}'
     sortableFields: ['commit_date', 'title', 'commit_author','date']
     summary: "{{title}} - commit {{commit_date}} - {{body}}"
+    preview_path: microblog/{{slug}}
+
 
     identifier_field: title
     fields: # The fields each document in this collection have
@@ -111,6 +113,7 @@ collections: # A list of collections the CMS should be able to edit
    # slug: '{{year}}-{{month}}-{{day}}-{{fields.title}}'
     sortableFields: ['commit_date', 'title', 'commit_author','date']
     summary: "{{title}} // {{commit_date}}"
+    preview_path: blog/{{slug}}
 
     view_filters:
     - label: 'Posts published in 2020'
@@ -192,6 +195,7 @@ collections: # A list of collections the CMS should be able to edit
     extension: md
     create: true # Allow users to create new documents in this collection
     slug: '{{slug}}'
+    preview_path: docs/{{slug}}
     #identifier_field: slug
     fields: # The fields each document in this collection have
       - label: Title
@@ -265,6 +269,7 @@ collections: # A list of collections the CMS should be able to edit
   - name: 100DaysOfCode # Used in routes, ie.: /admin/collections/:slug/edit
     label: 100-days-of-code # Used in the UI, ie.: "New Post"
     folder: content/microblog # The path to the folder where the documents are stored
+    preview_path: microblog/{{slug}}
     format: yaml-frontmatter
     extension: md
     create: true # Allow users to create new documents in this collection
