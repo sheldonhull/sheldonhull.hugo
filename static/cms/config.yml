@@ -297,6 +297,17 @@ collections: # A list of collections the CMS should be able to edit
         widget: datetime
         format: YYYY-MM-DDTHH:00:00Z
         required: true
+      - label: Cover Image
+        name: featuredImg
+        widget: image
+        required: false
+        tagname:
+      # - label: slug
+      #   name: slug
+      #   widget: hidden
+      #   tagname: h1
+      #   required: true
+      #   default: '{{year}}-{{month}}-{{day}}-{{area}}-R{{round}}-D{{day_counter}}'
       - label: area
         name: area
         widget: string
