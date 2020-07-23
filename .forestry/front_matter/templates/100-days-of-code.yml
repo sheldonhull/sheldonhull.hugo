@@ -1,0 +1,13 @@
+---
+label: 100-days-of-code
+hide_body: false
+fields:
+- type: datetime
+  name: date
+  label: date
+- type: list
+  name: tags
+  label: tags
+- type: datetime
+  name: title
+  label: title
