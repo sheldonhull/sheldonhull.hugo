@@ -88,23 +88,20 @@ menu:
     - name: Blog
       weight: 1
       url: /blog/
-    - name: 100 Days Of Code
-      weight: 1
-      url: https://100-days-of-code-sheldonhull.netlify.app/
     - name: Microblog
-      weight: 1
+      weight: 2
       url: /microblog/
     - name: Tags
       url: /tags/
-      weight: 2
+      weight: 3
     - name: Docs
       url: /docs/
-      weight: 3
+      weight: 4
     - name: Creative
       url: /creative/
-      weight: 4
-    - name: About
       weight: 5
+    - name: About
+      weight: 6
       url: /about/
 params:
   mainSections:
