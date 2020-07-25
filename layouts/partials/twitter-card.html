@@ -7,7 +7,7 @@
 {{ with .image }}
 <meta name="twitter:image" content="{{- .image -}}">
 {{- end }}
-{{ with .Params.featuredImg }}
+{{ with .featuredImg }}
 <meta name="twitter:image" content="{{- .featuredImg -}}">
 {{- end}}
 {{ with .image_alt -}}<meta name="twitter:image:alt" content="{{- . -}}">{{- end }}

@@ -41,9 +41,8 @@ collections: # A list of collections the CMS should be able to edit
     create: true # Allow users to create new documents in this collection
     slug: '{{year}}-{{month}}-{{day}}t{{hour}}-{{minute}}-{{slug}}'
     sortableFields: ['commit_date', 'title', 'commit_author', 'date']
-    summary: "{{commit_date}}-{{title}\n{{body}}"
+    #summary: "{{body}}"
     preview_path: microblog/{{slug}}
-
     identifier_field: title
     fields: # The fields each document in this collection have
       # MAIN AUTHORING AREA
@@ -70,7 +69,7 @@ collections: # A list of collections the CMS should be able to edit
       - label: Tags
         name: tags
         widget: list
-        default: ['tech', 'development']
+        default: ['tech', 'development','microblog']
         multiple: true
         required: true
         allow_add: true
@@ -107,9 +106,9 @@ collections: # A list of collections the CMS should be able to edit
     identifier_field: title
     extension: md
     create: true # Allow users to create new documents in this collection
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: '{{slug}}'
     sortableFields: ['commit_date', 'title', 'commit_author', 'date']
-    summary: '{{title}}-{{commit_date}}'
+    #summary: '{{title}}'
     preview_path: blog/{{slug}}
 
     view_filters:
@@ -129,13 +128,6 @@ collections: # A list of collections the CMS should be able to edit
         widget: string
         tagname: h1
         required: true
-#       - label: slug
-#         name: slug
-#         widget: string
-#         tagname: h1
-#         required: true
-#         default: '{{year}}-{{month}}-{{day}}-{{slug}}'
-      # MAIN AUTHORING AREA
       - label: Publish Date
         name: date
         widget: date
@@ -234,7 +226,6 @@ collections: # A list of collections the CMS should be able to edit
         name: image
         widget: image
         required: false
-        tagname:
       - label: Tags
         name: tags
         widget: list
@@ -279,7 +270,7 @@ collections: # A list of collections the CMS should be able to edit
         'round',
         'day_counter',
       ]
-    summary: "{{area}}-R{{round}}-D{{day_counter}}\n{{body}}"
+    summary: "{{area}}-R{{round}}-D{{day_counter}}"
     identifier_field: title
     view_filters:
       - label: '100-days-of-code'
@@ -351,7 +342,7 @@ collections: # A list of collections the CMS should be able to edit
       - label: Tags
         name: tags
         widget: list
-        default: ['tech', 'development', '100-days-of-code', 'go']
+        default: ['tech', 'development', '100-days-of-code', 'go','100DaysOfCode']
         multiple: true
         required: true
         allow_add: true
