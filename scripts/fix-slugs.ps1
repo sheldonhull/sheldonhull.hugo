@@ -7,5 +7,5 @@ Get-ChildItem 'C:\GIT\sheldonhull.hugo\content' -recurse -filter *.md | ForEach-
     $content = $content -replace 'slug\:\s\".*?\"', $newslugline
     #Write-Warning $Content
     #Read-Host "enter to continue"
-    [System.IO.File]::WriteAllLines($_.FullName,$Content, [System.Text.UTF8Encoding]::new($false))
+    [System.IO.File]::WriteAllLines($_.FullName, $Content, [System.Text.UTF8Encoding]::new($false))
 }

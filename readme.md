@@ -1,4 +1,15 @@
-# Common Commands
+# sheldonhull.hugo
+
+## Setup on mac
+
+> ❗️ As of 2020-07, there are issues with the template that fail on later version of hugo.
+
+## install
+
+- Windows: `choco install-hugo-extended --version 0.69.2`
+- On macOS, run: `brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/5c50ad9cf3b3145b293edbc01e7fa88583dd0024/Formula/hugo.rb`
+
+## Common Commands
 
 To Update submodules and download
 
@@ -21,9 +32,14 @@ git add . ; git commit -m "commit-$(invoke-generate '[adjective]-[noun]')"; git 
 ```
 
 
-# Algolia
+## Algolia
 Tutorial here:
 [search-with-algolia-in-hugo](https://forestry.io/blog/search-with-algolia-in-hugo/)
 ```
 npm install atomic-algolia
-```
+``
+
+
+## Errors
+
+-

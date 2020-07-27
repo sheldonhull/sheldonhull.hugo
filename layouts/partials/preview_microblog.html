@@ -31,6 +31,9 @@
       {{ end }}
     {{ end }}
   {{ else }}
+{{- if (or .Params.images .Params.featuredImg) }}
+<img src="{{ .Params.featuredImg }}"></img>
+{{- end }}
     {{ .Content }}
     <a href='{{ .Permalink }}'><aside class="dates"><i class="fas fa-calendar"></i>&nbsp;{{ .Date.Format "2006/01/02 3:04 PM" }}</aside></a>
 				{{- with .Params.tags -}}
