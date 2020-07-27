@@ -6,7 +6,8 @@
 {{- $pages := where site.RegularPages "Type" "in" site.Params.RSSSection -}}
 {{/* - $pages := where $pages "Section" "!=" "microblog" - */}}
 {{ range $pages }}
-  {{- if ((not .Draft) and (not .Params.private)) -}}
+.
+  {{- if (and (not .Draft) (not .Params.private)) -}}
     {{- $.Scratch.Add "index" (dict "objectID" .UniqueID "date" .Date.UTC.Unix "description" .Description "dir" .Dir "expirydate" .ExpiryDate.UTC.Unix "fuzzywordcount" .FuzzyWordCount "keywords" .Keywords "kind" .Kind "lang" .Lang "lastmod" .Lastmod.UTC.Unix "permalink" .Permalink "publishdate" .PublishDate "readingtime" .ReadingTime "relpermalink" .RelPermalink "summary" .Summary "title" .Title "type" .Type "url" .URL "weight" .Weight "wordcount" .WordCount "section" .Section "tags" .Params.Tags "categories" .Params.Categories "authors" .Params.Authors)}}
   {{- end -}}
 {{- end -}}
