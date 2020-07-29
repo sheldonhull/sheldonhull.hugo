@@ -13,5 +13,5 @@
 <meta name="twitter:image" content="{{ $baseUrl }}{{ .Site.Params.cover }}" />
 {{ end }}
 {{ with .Params.featuredImg }}
-<meta name="twitter:image" content="{{- . -}}">
+<meta name="twitter:image" content="{{ ( replaceRE "^\\./" $.RelPermalink . ) | absURL }}">
 {{ end }}

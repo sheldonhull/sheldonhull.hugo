@@ -114,6 +114,7 @@ params:
       show_logo: true
   RSSSection:
     - blog
+    - microblog
   rssmicroblogtitles: true
   RSSEnabled: true
   rssLimit: 15
