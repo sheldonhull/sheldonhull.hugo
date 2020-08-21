@@ -1,19 +1,21 @@
 ---
-title: powershell
-slug: powershell
-date: 2019-03-19
 last_modified_at: 2020-05-08T05:00:00+00:00
+title: powershell
+date: 2019-03-19
 toc: true
-excerpt: A cheatsheet for some interesting PowerShell related concepts that might
-  benefit others looking for some tips and tricks
-permalink: "/docs/powershell"
-tags:
-- development
-- powershell
+excerpt: A cheatsheet for some interesting PowerShell related concepts that
+  might benefit others looking for some tips and tricks
+slug: powershell
+permalink: /docs/powershell
 comments: true
-
+tags:
+  - development
+  - powershell
 ---
-{{< premonition type="info" title="Requests or Suggestions" >}}
+{{< premonition type="undefined" title="undefined" >}}
+undefined
+{{< /premonition >}}
+
 If you have any requests or improvements for this content, please comment below. It will open a GitHub issue for chatting further.
 I'd be glad to improve with any additional quick help and in general like to know if anything here in particular was helpful to someone.
 Cheers! 👍
@@ -21,9 +23,9 @@ Cheers! 👍
 
 ## Requirements
 
-- Going forward most examples will focus on Powershell (>= v7), the modern successor to Windows PowerShell & PowerShell Core. Install this easily through chocolatey. Just install chocolatey, and then run `choco upgrade powershell powershell-core -y --source chocolatey` and you should have both 5.1 and core ready to go if your Windows version supports it. If you are on Windows 7 as a developer, there is no :taco: for you, just get upgraded already. Linux has it's own set of directions.
-- Anything manipulating system might need admin, so run as admin in prompt.
-- `Install-Module PSFramework` // I use this module for better logging and overall improvements in my quality of life. It's high quality, used by big projects like DbaTools and developed by a Powershell MVP with lots of testing. Forget regular `Write-Verbose` commands and just use the `Write-PSFMessage -Level Verbose -Message 'TacoBear'` instead.
+* Going forward most examples will focus on Powershell (>= v7), the modern successor to Windows PowerShell & PowerShell Core. Install this easily through chocolatey. Just install chocolatey, and then run `choco upgrade powershell powershell-core -y --source chocolatey` and you should have both 5.1 and core ready to go if your Windows version supports it. If you are on Windows 7 as a developer, there is no :taco: for you, just get upgraded already. Linux has it's own set of directions.
+* Anything manipulating system might need admin, so run as admin in prompt.
+* `Install-Module PSFramework` // I use this module for better logging and overall improvements in my quality of life. It's high quality, used by big projects like DbaTools and developed by a Powershell MVP with lots of testing. Forget regular `Write-Verbose` commands and just use the `Write-PSFMessage -Level Verbose -Message 'TacoBear'` instead.
 
 ### PSFramework
 
@@ -31,11 +33,11 @@ I use [PSFramework](http://bit.ly/2LHNpkE) on all my instances, as it's fantasti
 
 A few key elements it can help with are:
 
-- Improving Configuration and variable handling without complex scope issues
-- Improving overall logging and troubleshooting
-- Improving object manipulation
-- Runspace usability enhancements
-- Scripted properties
+* Improving Configuration and variable handling without complex scope issues
+* Improving overall logging and troubleshooting
+* Improving object manipulation
+* Runspace usability enhancements
+* Scripted properties
 
 ## Development (Optional)
 
@@ -44,10 +46,10 @@ A few key elements it can help with are:
 
 ## String Formatting
 
-| Type               | Example                                                 | Output                      | Notes                                                               |
-| ------------------ | ------------------------------------------------------- | --------------------------- | ------------------------------------------------------------------- |
-| Formatting Switch  | 'select {0} from sys.tables' -f 'name'                  | select name from sys.tables | Same concept as .NET \[string\]::Format(). Token based replacement  |
-| .NET String Format | \[string\]::Format('select {0} from sys.tables','name') | select name from sys.tables | Why would you do this? Because you want to showoff your .NET chops? |
+| Type               | Example                                                | Output                      | Notes                                                               |
+| ------------------ | ------------------------------------------------------ | --------------------------- | ------------------------------------------------------------------- |
+| Formatting Switch  | 'select {0} from sys.tables' -f 'name'                 | select name from sys.tables | Same concept as .NET \[string]::Format(). Token based replacement   |
+| .NET String Format | \[string]::Format('select {0} from sys.tables','name') | select name from sys.tables | Why would you do this? Because you want to showoff your .NET chops? |
 
 ## Math & Number Conversions
 
@@ -60,7 +62,6 @@ A few key elements it can help with are:
 Converting dates to Unix Epoc time can be challenging without using the correct .NET classes. There is some built in functionality for converting dates such as `(Get-Date).ToUniversalTime() -UFormat '%s'` but this can have problems with time zone offsets. A more consistent approach would be to leverage the following. This was very helpful to me in working with Grafana and InfluxDb which commonly leverage Unix Epoc time format with seconds or milliseconds precision.
 
 ```powershell
-
 $CurrentTime = [DateTimeOffset]::new([datetime]::now,[DateTimeOffset]::Now.Offset);
 
 # Unix Epoc time starts from this date
@@ -84,7 +85,10 @@ Secondly, try using [BetterCredentials](https://github.com/Jaykul/BetterCredenti
 Install-Module BetterCredentials -Force -AllowClobber
 ```
 
-{{< premonition type="note" title="Notice" >}}
+{{< premonition type="undefined" title="undefined" >}}
+undefined
+{{< /premonition >}}
+
 Personally, I use `BetterCredential\Get-Credential` which is `module\function` syntax if I'm not certain I've imported first. The reason is auto-discovery of module functions in PowerShell might use the default `Get-Credentials` that BetterCredentials overloads if you don't import first. BetterCredentials overrides the default cmdlets to improve for using CredentialManager, so make sure you import it, not assume it will be correctly imported by just referring to the function you are calling.
 {{< /premonition >}}
 
@@ -171,7 +175,6 @@ $Headers = @{
 }
 $results = Invoke-RestMethod -Uri $Uri -Header $Headers
 $results
-
 ```
 
 ## Load Functions from a Folder
@@ -264,7 +267,6 @@ Get-S3Object -BucketName 'tacoland' | Select-PSFObject -ScriptProperty @{
 }
 ```
 
-
 ## Parallel Tips & Tricks
 
 If you are using `-Parallel` with the newer runspaces feature in PowerShell 7 or greater, then long running operations such as queries or operations that take a while might be difficult to track progress on. 
@@ -322,4 +324,57 @@ $hash.counter = 1
     Write-Host ( "{0:hh\:mm\:ss\.fff} | {1} | $x of $using:TotalToProcess | remaining time {3} | {2}" -f $PerItemStopwatch.Elapsed, 'Run-ThisStuff', $d, [timespan]::FromSeconds($ApproxRemainingTime).ToString())
     Start-Sleep -Milliseconds (Get-Random -Minimum 1 -Maximum 1500)
 }
+```
+
+## The Various Iteration Methods Possible
+
+PowerShell supports a wide range of iteration options.
+Not all are idiomatic to the language, but can be useful to know about.
+
+I recommend when possible to default to `$Items | ForEach-Object { }` as your default approach.
+This ensures a pipeline driven solution that can be enhanced later or piped to other cmdlets that are compatible with the pipeline.
+
+{{< premonition type="warning" title="Gotcha" >}}
+This is a cmdlet, not a PowerShell language feature. This means that the behavior of break, continue, and return all operate differently in this ForEach-Object process block than when doing a `foreach` loop.
+{{< /premonition >}}
+
+These are ranked in the order I recommend using by default.
+
+```powershell
+$Items = Get-ChildItem
+```
+
+- The default go to for major loop work.
+- Default first positional argument is `-Process {}` but mostly that is not provided and just the curly braces.
+- It is by default the slowest on a scale of raw performance.
+- Each item is loaded into memory, and it frees memory as it goes through pipeline.
+- Pipelines can be chained passing input as the pipeline progresses.
+- Break, continue, return behave differently as you are using a function, not a language operator.
+
+```powershell
+$Items | ForEach-Object { $_.Name.ToString().ToLower() }
+```
+
+- Magic operator. 
+- Seriously, I've seen it called that. 
+- It's only in version >= 4 [Magic Operators](https://bit.ly/3l1i3Vn).
+- Loads all results into memory before running, so can be great performance boost for certain scenarios that a `ForEach-Object` would be slower at.
+
+```powershell
+$Items.ForEach{ $_.Name.ToString().ToLower() }
+```
+
+- This is the standard `foreach` loop.
+- It is the easiest to use and understand for someone new to PowerShell, but highly recommend that it is used in exceptions and try to stick with `ForEach-Object` as your default for idiomatic PowerShell if you are learning.
+- Standard break, continue, return behavior is a bit easier to understand.
+
+```powershell
+foreach ($item in $Items) { $_.Name.ToString().ToLower() }
+```
+
+- If you find yourself exploring delegate functions in PowerShell, you should probably just use C# or find a different language as you are probably trying to screw a nail with a hammer. 😁
+
+```powershell
+$f = [System.Func[string, string]] { param($i) $i.ToString().ToLower() }
+$f.Invoke($Items.Name)
 ```
