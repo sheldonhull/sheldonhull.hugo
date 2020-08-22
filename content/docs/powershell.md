@@ -12,6 +12,7 @@ tags:
   - development
   - powershell
 ---
+
 {{< premonition type="info" title="Any requests?" >}}
 If you have any requests or improvements for this content, please comment below. It will open a GitHub issue for chatting further.
 I'd be glad to improve with any additional quick help and in general like to know if anything here in particular was helpful to someone.
@@ -82,12 +83,8 @@ Secondly, try using [BetterCredentials](https://github.com/Jaykul/BetterCredenti
 Install-Module BetterCredentials -Force -AllowClobber
 ```
 
-{{< premonition type="undefined" title="undefined" >}}
-undefined
-{{< /premonition >}}
-
 Personally, I use `BetterCredential\Get-Credential` which is `module\function` syntax if I'm not certain I've imported first. The reason is auto-discovery of module functions in PowerShell might use the default `Get-Credentials` that BetterCredentials overloads if you don't import first. BetterCredentials overrides the default cmdlets to improve for using CredentialManager, so make sure you import it, not assume it will be correctly imported by just referring to the function you are calling.
-{{< /premonition >}}
+
 
 ### Creating a Credential
 
