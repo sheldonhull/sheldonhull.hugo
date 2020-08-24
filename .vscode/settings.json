@@ -29,5 +29,6 @@
             "strings": true
         },
         "editor.autoIndent": "advanced",
-    }
+    },
+    "go.inferGopath": false
 }
