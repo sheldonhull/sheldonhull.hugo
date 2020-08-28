@@ -23,14 +23,14 @@ Check this out at: [Install on AWS](https://bit.ly/2YGACVe)
 # Set-Location ./terraform/gitpod
 
 Import-Module aws.tools.common, aws.tools.SecurityToken
+
 Set-AWSCredential -ProfileName 'MyProfileName' -Scope Global
-$cred = Get-STSSessionToken -DurationInSeconds ([timespan]::FromHours(1).TotalSeconds)
 
-$ENV:AWS_REGION = 'us-east-1'
-$ENV:AWS_ACCESS_KEY_ID = $cred.AccessKeyId
-$ENV:AWS_SECRET_ACCESS_KEY = $cred.SecretAccessKey
-$ENV:AWS_SESSION_TOKEN  = $cred.SessionToken
+$ENV:AWS_ACCESS_KEY_ID = $cred.GetCredentials().AccessKey
+$ENV:AWS_SECRET_ACCESS_KEY = $cred.GetCredentials().SecretKey
+$ENV:AWS_DEFAULT_REGION = 'eu-west-1'
 
-docker run --rm -it -e AWS_ACCESS_KEY_ID=$ENV:AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$ENV:AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=$ENV:AWS_DEFAULT_REGION -e AWS_SESSION_TOKEN=$ENV:AWS_SESSION_TOKEN `
+# can't use STS temporary credentials to create iam resources, so use normal iam credentials
+docker run --rm -it -e AWS_ACCESS_KEY_ID=$ENV:AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$ENV:AWS_SECRET_ACCESS_KEY -e AWS_DEFAULT_REGION=$ENV:AWS_DEFAULT_REGION `
 -v ${PWD}/awsinstall:/workspace eu.gcr.io/gitpod-io/self-hosted/installer:latest aws
 ```
