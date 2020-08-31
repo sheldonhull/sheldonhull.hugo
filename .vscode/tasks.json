@@ -20,6 +20,7 @@
       "shell": {
         "executable": "/usr/bin/pwsh",
         "args": [
+          "-NoProfile",
           "-Command"
         ]
       }
@@ -60,6 +61,18 @@
       "type": "shell",
       "problemMatcher": "$msCompile",
       "command": "./build.ps1 -LoadConstants -Task hugo-algolia-update -File './task.build.ps1'"
+    },
+    {
+      "label": "hugo-new-100daysOfCode",
+      "type": "shell",
+      "problemMatcher": "$msCompile",
+      "command": "./build.ps1 -LoadConstants -Task hugo-new-100daysOfCode -File './task.build.ps1'"
+    },
+    {
+      "label": "hugo-new-microblog",
+      "type": "shell",
+      "problemMatcher": "$msCompile",
+      "command": "./build.ps1 -LoadConstants -Task hugo-new-microblog -File './task.build.ps1'"
     },
     {
       "label": "serverless-deploy",
@@ -157,3 +170,4 @@
     }
   ]
 }
+
