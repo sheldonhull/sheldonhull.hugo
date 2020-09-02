@@ -13,17 +13,12 @@ Task hugo-serve {
             &/usr/local/bin/hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc
         }
         '*Linux*' {
-            throw 'not implemented yet'
+            &/usr/bin/hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc
         }
     }
 
 }
 
-Task hugo-algolia-update {
-    netlify build
-    $ENV:ALGOLIA_INDEX_FILE = 'public/algolia.json'
-    run algolia "$BuildRoot/public/algolia.json"
-}
 #Synposis: Will need to adjust for Round 2 later. For now, this just generates a new
 Task hugo-new-100daysOfCode {
 
@@ -80,3 +75,18 @@ Task hugo-new-microblog {
     $Content | Out-File $NewFile -Force
     Write-Build Green "Successfully created file: $NewFile"
 }
+
+task netlify-build {
+    #&"$ENV:USERPROFILE\AppData\Roaming\npm\node_modules\netlify-cli\bin\run" build
+    npm run netlify build
+
+}
+
+task algolia-update {
+    #$ENV:ALGOLIA_INDEX_FILE = 'public/algolia.json'
+    #npm run algolia "$BuildRoot/public/algolia.json"
+    npm run algolia "$BuildRoot/_site/algolia.json"
+}
+
+# Synposis: Build and update index
+task build netlify-build,algolia-update

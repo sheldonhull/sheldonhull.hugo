@@ -42,4 +42,11 @@ npm install atomic-algolia
 
 ## Errors
 
--
+## Windows Environment Variables
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('ALGOLIA_APP_ID', '04HSGXXQD5','User')
+[System.Environment]::SetEnvironmentVariable('ALGOLIA_ADMIN_KEY', $(Read-Host 'Enter Admin Key'),'User')
+[System.Environment]::SetEnvironmentVariable('ALGOLIA_INDEX_NAME', 'sheldonhull','User')
+[System.Environment]::SetEnvironmentVariable('ALGOLIA_INDEX_FILE', '_site/algolia.json','User')
+```

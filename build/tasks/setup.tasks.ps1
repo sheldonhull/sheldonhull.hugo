@@ -13,5 +13,15 @@ check setup-hugo {
 }
 
 Task setup-install-netlify-cli {
-    npm install netlify-cli -g
+    npm install netlify-cli -g --no-warnings --quiet
 }
+
+# Synposis: Run lnk and build for netlify
+check setup-node-modules {
+    npm install --global --quiet netlify-cli
+    npm install --global --quiet atomic-algolia
+    npm install --quiet --no-warnings
+}
+
+# Synposis: Setup requirements
+task setup setup-install-netlify-cli, setup-node-modules

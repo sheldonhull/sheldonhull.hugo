@@ -163,3 +163,5 @@ act/
 public
 _public
 artifacts
+
+*.clixml
