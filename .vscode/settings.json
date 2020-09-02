@@ -19,7 +19,8 @@
     "conventionalCommits.scopes": [
         "blog",
         "build",
-        "netlifycms"
+        "netlifycms",
+        "microblog"
     ],
     "[yaml]": {
         "editor.insertSpaces": true,

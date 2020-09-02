@@ -7,8 +7,6 @@ slug: {{ replace $TitleWithoutDate " " "-" | lower }}
 area: go
 round: 1
 day_counter: VAR_DAYCOUNTER
-excerpt:
-  excerpt here
 tags:
     - tech
     - development

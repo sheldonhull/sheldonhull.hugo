@@ -26,6 +26,7 @@ Task hugo-algolia-update {
 }
 #Synposis: Will need to adjust for Round 2 later. For now, this just generates a new
 Task hugo-new-100daysOfCode {
+
     $files = Get-ChildItem -Path content/microblog -Filter '*day*.md'
     [int]$DayCounter = $files.ForEach{
         $Day = ($_.Name -split '-')[-1]
@@ -36,7 +37,20 @@ Task hugo-new-100daysOfCode {
     $FileName =  "microblog/$(Get-Date -Format 'yyyy-MM-dd')-go-R1-day-$NewDayCounter.md"
     $NewFile = Join-Path $BuildRoot 'content' $FileName
     Write-Build DarkGray "Creating file: $NewFile"
-    &/usr/local/bin/hugo new $FileName --kind 100DaysOfCode
+
+
+    switch -Wildcard ($PSVersionTable.OS) {
+        '*Windows*' {
+            &hugo new $FileName --kind 100DaysOfCode
+
+        }
+        '*Darwin*' {
+            &/usr/local/bin/hugo new $FileName --kind 100DaysOfCode
+        }
+        '*Linux*' {
+            throw 'not implemented yet'
+        }
+    }
     $Content = Get-Content $NewFile -Raw
     $Content = $Content.Replace('VAR_DAYCOUNTER', $NewDayCounter)
     $Content | Out-File $NewFile -Force
@@ -50,7 +64,17 @@ Task hugo-new-microblog {
     $FileName =  "microblog/$(Get-Date -Format 'yyyy-MM-dd')-$Title.md"
     $NewFile = Join-Path $BuildRoot 'content' $FileName
     Write-Build DarkGray "Creating file: $NewFile"
-    &/usr/local/bin/hugo new $FileName --kind microblog
+    switch -Wildcard ($PSVersionTable.OS) {
+        '*Windows*' {
+            &hugo new $FileName --kind microblog
+        }
+        '*Darwin*' {
+            &/usr/local/bin/hugo new $FileName --kind microblog
+        }
+        '*Linux*' {
+            throw 'not implemented yet'
+        }
+    }
     $Content = Get-Content $NewFile -Raw
     $Content = $Content.Replace('VAR_TITLE', $Title)
     $Content | Out-File $NewFile -Force
