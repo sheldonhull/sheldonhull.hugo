@@ -76,6 +76,30 @@ Task hugo-new-microblog {
     Write-Build Green "Successfully created file: $NewFile"
 }
 
+#Synposis: Will need to adjust for Round 2 later. For now, this just generates a new
+Task hugo-new-blog {
+    $Title = Read-Host 'Enter title'
+    $Title = $Title.ToLower().Trim() -replace '\s', '-'
+    $FileName =  "blog/$(Get-Date -Format 'yyyy-MM-dd')-$Title.md"
+    $NewFile = Join-Path $BuildRoot 'content' $FileName
+    Write-Build DarkGray "Creating file: $NewFile"
+    switch -Wildcard ($PSVersionTable.OS) {
+        '*Windows*' {
+            &hugo new $FileName --kind blog
+        }
+        '*Darwin*' {
+            &/usr/local/bin/hugo new $FileName --kind blog
+        }
+        '*Linux*' {
+            throw 'not implemented yet'
+        }
+    }
+    # $Content = Get-Content $NewFile -Raw
+    # $Content = $Content.Replace('VAR_TITLE', $Title)
+    # $Content | Out-File $NewFile -Force
+    Write-Build Green "Successfully created file: $NewFile"
+}
+
 task netlify-build {
     #&"$ENV:USERPROFILE\AppData\Roaming\npm\node_modules\netlify-cli\bin\run" build
     npm run netlify build
