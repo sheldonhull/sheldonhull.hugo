@@ -165,3 +165,4 @@ _public
 artifacts
 
 *.clixml
+.DS_Store
