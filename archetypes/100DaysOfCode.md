@@ -13,7 +13,7 @@ tags:
     - 100-days-of-code
     - 100DaysOfCode
     - golang
-featuredImg: /images/image.png
+featuredImg: /images/r1-dVAR_DAYCOUNTERIMAGE.png
 ---
 
 ## Day VAR_DAYCOUNTER of 100

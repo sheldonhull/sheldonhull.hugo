@@ -47,7 +47,7 @@ Task hugo-new-100daysOfCode {
         }
     }
     $Content = Get-Content $NewFile -Raw
-    $Content = $Content.Replace('VAR_DAYCOUNTER', $NewDayCounter)
+    $Content = $Content.Replace('VAR_DAYCOUNTER', $NewDayCounter).Replace('VAR_DAYCOUNTERIMAGE', [string]"$NewDayCounter".PadLeft(3, '0'))
     $Content | Out-File $NewFile -Force
     Write-Build Green "Successfully created file: $NewFile"
 }
