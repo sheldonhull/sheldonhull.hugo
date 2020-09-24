@@ -24,6 +24,7 @@ jobs:
         env:
           HUGO_ENABLEGITINFO: 'true'
           HUGO_BASEURL: 'https://nice-coast-0f1923510.azurestaticapps.net'
+          DEPLOY_PRIME_URL: 'https://nice-coast-0f1923510.azurestaticapps.net'
           HUGO_MINIFY: 'true'
           HUGO_DESTINATION: 'public'
         with:
