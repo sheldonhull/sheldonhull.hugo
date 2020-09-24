@@ -1,18 +1,22 @@
 Task hugo-serve {
 
-    switch -Wildcard ($PSVersionTable.OS) {
-        '*Windows*' {
+    switch -Wildcard ($PSVersionTable.OS)
+    {
+        '*Windows*'
+        {
             hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc
 
         }
-        '*Darwin*' {
+        '*Darwin*'
+        {
             Write-Build DarkGray 'Setting hugo path as fails to find in env variables'
             #not working and no time to debug this
             #$hugo = &bash -c 'which hugo'
             #&$hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc
             &/usr/local/bin/hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc
         }
-        '*Linux*' {
+        '*Linux*'
+        {
             &/usr/bin/hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc
         }
     }
@@ -29,20 +33,24 @@ Task hugo-new-100daysOfCode {
     } | Sort-Object -Descending | Select-Object -First 1
     [int]$NewDayCounter = ++$DayCounter
 
-    $FileName =  "microblog/$(Get-Date -Format 'yyyy-MM-dd')-go-R1-day-$NewDayCounter.md"
+    $FileName = "microblog/$(Get-Date -Format 'yyyy-MM-dd')-go-R1-day-$NewDayCounter.md"
     $NewFile = Join-Path $BuildRoot 'content' $FileName
     Write-Build DarkGray "Creating file: $NewFile"
 
 
-    switch -Wildcard ($PSVersionTable.OS) {
-        '*Windows*' {
+    switch -Wildcard ($PSVersionTable.OS)
+    {
+        '*Windows*'
+        {
             &hugo new $FileName --kind 100DaysOfCode
 
         }
-        '*Darwin*' {
+        '*Darwin*'
+        {
             &/usr/local/bin/hugo new $FileName --kind 100DaysOfCode
         }
-        '*Linux*' {
+        '*Linux*'
+        {
             throw 'not implemented yet'
         }
     }
@@ -56,17 +64,21 @@ Task hugo-new-100daysOfCode {
 Task hugo-new-microblog {
     $Title = Read-Host "Enter title"
     $Title = $Title.ToLower().Trim() -replace '\s', '-'
-    $FileName =  "microblog/$(Get-Date -Format 'yyyy-MM-dd')-$Title.md"
+    $FileName = "microblog/$(Get-Date -Format 'yyyy-MM-dd')-$Title.md"
     $NewFile = Join-Path $BuildRoot 'content' $FileName
     Write-Build DarkGray "Creating file: $NewFile"
-    switch -Wildcard ($PSVersionTable.OS) {
-        '*Windows*' {
+    switch -Wildcard ($PSVersionTable.OS)
+    {
+        '*Windows*'
+        {
             &hugo new $FileName --kind microblog
         }
-        '*Darwin*' {
+        '*Darwin*'
+        {
             &/usr/local/bin/hugo new $FileName --kind microblog
         }
-        '*Linux*' {
+        '*Linux*'
+        {
             throw 'not implemented yet'
         }
     }
@@ -80,17 +92,21 @@ Task hugo-new-microblog {
 Task hugo-new-blog {
     $Title = Read-Host 'Enter title'
     $Title = $Title.ToLower().Trim() -replace '\s', '-'
-    $FileName =  "blog/$(Get-Date -Format 'yyyy-MM-dd')-$Title.md"
+    $FileName = "blog/$(Get-Date -Format 'yyyy-MM-dd')-$Title.md"
     $NewFile = Join-Path $BuildRoot 'content' $FileName
     Write-Build DarkGray "Creating file: $NewFile"
-    switch -Wildcard ($PSVersionTable.OS) {
-        '*Windows*' {
+    switch -Wildcard ($PSVersionTable.OS)
+    {
+        '*Windows*'
+        {
             &hugo new $FileName --kind blog
         }
-        '*Darwin*' {
+        '*Darwin*'
+        {
             &/usr/local/bin/hugo new $FileName --kind blog
         }
-        '*Linux*' {
+        '*Linux*'
+        {
             throw 'not implemented yet'
         }
     }
@@ -113,4 +129,4 @@ task algolia-update {
 }
 
 # Synposis: Build and update index
-task build netlify-build,algolia-update
+task build netlify-build, algolia-update

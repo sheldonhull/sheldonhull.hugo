@@ -41,140 +41,232 @@
     {
       "label": "docker-pull",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task docker-pull -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task docker-pull -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "git-initialize-submodules",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task git-initialize-submodules -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task git-initialize-submodules -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "git-update-theme-from-remote",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task git-update-theme-from-remote -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task git-update-theme-from-remote -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "hugo-serve",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task hugo-serve -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task hugo-serve -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "hugo-new-100daysOfCode",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task hugo-new-100daysOfCode -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task hugo-new-100daysOfCode -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "hugo-new-microblog",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task hugo-new-microblog -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task hugo-new-microblog -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "hugo-new-blog",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task hugo-new-blog -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task hugo-new-blog -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "netlify-build",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task netlify-build -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task netlify-build -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "algolia-update",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task algolia-update -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task algolia-update -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "build",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task build -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task build -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "serverless-deploy",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task serverless-deploy -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task serverless-deploy -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "setup-hugo",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task setup-hugo -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task setup-hugo -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "setup-install-netlify-cli",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task setup-install-netlify-cli -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task setup-install-netlify-cli -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "setup-node-modules",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task setup-node-modules -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task setup-node-modules -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "setup",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task setup -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task setup -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "bootstrap-powershell-modules",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task bootstrap-powershell-modules -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task bootstrap-powershell-modules -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "bootstrap-install-serverless-cli",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task bootstrap-install-serverless-cli -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task bootstrap-install-serverless-cli -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "bootstrap-install-aws-vault",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task bootstrap-install-aws-vault -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task bootstrap-install-aws-vault -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "clean",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task clean -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task clean -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "vscode-rebuild-tasks",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task vscode-rebuild-tasks -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task vscode-rebuild-tasks -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "powershell-format-code",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task powershell-format-code -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task powershell-format-code -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "git-commit-push",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task git-commit-push -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task git-commit-push -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": ".",
       "type": "shell",
-      "problemMatcher": "$msCompile",
       "command": "./build.ps1 -LoadConstants -Task . -File './task.build.ps1'",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      },
       "group": {
         "kind": "build",
         "isDefault": true
@@ -183,26 +275,42 @@
     {
       "label": "tidy",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task tidy -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task tidy -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "bootstrap",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task bootstrap -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task bootstrap -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "github-tidy",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task github-tidy -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task github-tidy -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     },
     {
       "label": "?",
       "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task ? -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
-      "command": "./build.ps1 -LoadConstants -Task ? -File './task.build.ps1'"
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
     }
   ]
 }

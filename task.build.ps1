@@ -17,9 +17,11 @@ foreach ($file in (Get-ChildItem -Path (Join-Path $BuildRoot 'build/functions') 
 foreach ($file in (Get-ChildItem -Path (Join-Path $BuildRoot 'build/tasks')  -Filter '*.tasks.ps1').FullName) { . $file }
 
 # Can handle both windows and mac if powershell core is setup on mac
-if ([System.IO.Path]::GetFileName($MyInvocation.ScriptName) -ne 'Invoke-Build.ps1') {
+if ([System.IO.Path]::GetFileName($MyInvocation.ScriptName) -ne 'Invoke-Build.ps1')
+{
     $ErrorActionPreference = 'Stop'
-    if (!(Get-Module InvokeBuild -ListAvailable)) {
+    if (!(Get-Module InvokeBuild -ListAvailable))
+    {
         Install-Module InvokeBuild
         'Installed and imported InvokeBuild as was not available'
     }
@@ -40,13 +42,16 @@ Enter-Build {
     $script:ArtifactDirectory = (Join-Path $BuildRoot 'artifacts')
     $null = New-Item $script:ArtifactDirectory -ItemType Directory -Force -ErrorAction SilentlyContinue
 
-    if ($LoadConstants) {
+    if ($LoadConstants)
+    {
         $ConstantsFile = (Join-Path "${ENV:HOME}${ENV:USERPROFILE}" ".invokebuild/$ProjectDirectory.constants.ps1")
-        if (Test-Path $ConstantsFile) {
+        if (Test-Path $ConstantsFile)
+        {
             . $ConstantsFile
             Write-Build DarkYellow "Loaded: $ConstantsFile"
         }
-        else {
+        else
+        {
             New-Item $ConstantsFile -ItemType File -Force
         }
     }
@@ -83,10 +88,12 @@ check bootstrap-install-serverless-cli {
 
 check bootstrap-install-aws-vault {
     Write-Build DarkGray "Bootstraping aws-vault for: $($PSVersionTable.OS)"
-    switch -Wildcard ($PSVersionTable.OS) {
+    switch -Wildcard ($PSVersionTable.OS)
+    {
         'Windows' { choco install aws-vault -y --no-progress --quiet }
         'Darwin' { brew cask install aws-vault }
-        'Linux' {
+        'Linux'
+        {
             $releases = Get-GitHubRelease -Owner 99designs -RepositoryName 'aws-vault' -Latest | Get-GitHubReleaseAsset
             Write-Build DarkGray "Github Releases found: $(@($releases).count)"
             $downloadurl = $releases.Where{ $_.Name -match 'linux\-amd64' }.url
@@ -105,7 +112,8 @@ Task clean {
 }
 
 Task vscode-rebuild-tasks {
-    if (-not (Get-InstalledScript 'New-VSCodeTask' -ErrorAction SilentlyContinue)) {
+    if (-not (Get-InstalledScript 'New-VSCodeTask' -ErrorAction SilentlyContinue))
+    {
         Write-Build DarkGray "Installing New-VscodeTask"
         Install-Script -name New-VsCodeTask -Force -Confirm:$false -Scope CurrentUser
     }

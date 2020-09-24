@@ -86,5 +86,5 @@ if (!$WhatIf)
         Write-Build DarkGray "Importing from: $CheckClixml"
         Import-Clixml $CheckClixml -ErrorAction SilentlyContinue
     }
-    else { @{} }
+    else { @{ } }
 }
