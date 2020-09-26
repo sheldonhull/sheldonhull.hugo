@@ -37,5 +37,8 @@
     "go.inferGopath": false,
     "staticWebApps.appSubpath": "/",
     "staticWebApps.apiSubpath": "/",
-    "staticWebApps.appArtifactSubpath": "build"
+    "staticWebApps.appArtifactSubpath": "build",
+    "go.toolsGopath": "~/.go/bin",
+    "go.useLanguageServer": true,
+    "go.docsTool": "gogetdoc"
 }

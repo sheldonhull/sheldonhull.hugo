@@ -45,3 +45,6 @@ RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod
 RUN curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh \
     && sudo bash nodesource_setup.sh \
     && sudo apt -qqy install nodejs
+
+RUN wget -q -O - https://git.io/vQhTU | sudo bash && echo "Finished installing go"
+ENV PATH=$PATH:~/.go/bin

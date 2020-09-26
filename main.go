@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"github.com/gernest/front"
 
 	"github.com/algolia/algoliasearch-client-go/algolia/search"
 	// . "github.com/algolia/algoliasearch-client-go/v3@v3.Y.Z"
