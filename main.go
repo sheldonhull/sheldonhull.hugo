@@ -72,6 +72,7 @@ func main() {
 	for i, f := range files {
 		log.Info().Msgf("i: %v f: %v", i, f.Name())
 
+
 	}
 
 }

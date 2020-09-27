@@ -45,4 +45,5 @@
     "go.useCodeSnippetsOnFunctionSuggestWithoutType": true,
     "go.useLanguageServer": true,
     "goOutliner.extendExplorerTab": true
+
 }

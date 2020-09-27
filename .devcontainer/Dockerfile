@@ -47,5 +47,5 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh \
     && sudo apt -qqy install nodejs
 
 USER vscode
-RUN wget -q -O - https://git.io/vQhTU | sudo bash && echo "Finished installing go"
+RUN wget -q -O - https://git.io/vQhTU | bash && echo "Finished installing go"
 ENV PATH=$PATH:~/.go/bin
