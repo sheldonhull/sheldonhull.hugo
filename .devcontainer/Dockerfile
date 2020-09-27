@@ -39,7 +39,7 @@ EXPOSE 1313
 RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb \
     && sudo dpkg -i packages-microsoft-prod.deb \
     && sudo apt-get -qqy update \
-    && sudo apt-get -qqy install powershell
+    && sudo apt-get -qqy install powershell build-essential
 
 #RUN sudo apt -qqy update && sudo apt -qqy install nodejs npm
 RUN curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh \

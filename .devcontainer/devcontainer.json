@@ -22,18 +22,27 @@
     },
     // Add the IDs of extensions you want installed when the container is created.
     "extensions": [
-		"bungcip.better-toml",
-		"davidanson.vscode-markdownlint",
-		"spmeesseman.vscode-taskexplorer",
-		"budparr.language-hugo-vscode",
-		"akmittal.hugofy"
-	],
+        "bungcip.better-toml",
+        "davidanson.vscode-markdownlint",
+        "spmeesseman.vscode-taskexplorer",
+        "budparr.language-hugo-vscode",
+        "akmittal.hugofy",
+        "golang.go",
+        "msyrus.go-doc",
+        "766b.go-outliner",
+        "neverik.go-critic",
+        "sirtori.indenticator"
+    ],
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     "forwardPorts": [
         1313
     ],
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "pwsh -c ./build -task setup",
+    "postCreateCommand": [
+        "PATH=$PATH:~/.go/bin",
+        "go get -v golang.org/x/tools/gopls",
+        "pwsh -c ./build -task setup"
+    ],
     // Uncomment to use Docker from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
     // "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
     // Uncomment when using a ptrace-based debugger like C++, Go, and Rust

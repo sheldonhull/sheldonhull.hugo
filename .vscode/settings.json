@@ -38,7 +38,11 @@
     "staticWebApps.appSubpath": "/",
     "staticWebApps.apiSubpath": "/",
     "staticWebApps.appArtifactSubpath": "build",
-    "go.toolsGopath": "~/.go/bin",
+    // "go.toolsGopath": "~/.go/pkg/tool/linux_amd64",
+    "go.goroot": "~/.go",
+    "go.docsTool": "gogetdoc",
+    "go.useCodeSnippetsOnFunctionSuggest": true,
+    "go.useCodeSnippetsOnFunctionSuggestWithoutType": true,
     "go.useLanguageServer": true,
-    "go.docsTool": "gogetdoc"
+    "goOutliner.extendExplorerTab": true
 }
