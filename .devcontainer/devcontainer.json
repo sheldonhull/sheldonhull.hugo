@@ -40,6 +40,7 @@
     // Use 'postCreateCommand' to run commands after the container is created.
     "postCreateCommand": [
         "PATH=$PATH:~/.go/bin",
+        "go get -u",
         "go get -v golang.org/x/tools/gopls",
         "pwsh -c ./build -task setup"
     ],
