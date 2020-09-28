@@ -166,3 +166,4 @@ artifacts
 
 *.clixml
 .DS_Store
+bin

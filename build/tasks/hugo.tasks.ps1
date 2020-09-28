@@ -51,7 +51,7 @@ Task hugo-new-100daysOfCode {
         }
         '*Linux*'
         {
-            throw 'not implemented yet'
+            &$(which hugo) new $FileName --kind 100DaysOfCode
         }
     }
     $Content = Get-Content $NewFile -Raw
@@ -79,7 +79,7 @@ Task hugo-new-microblog {
         }
         '*Linux*'
         {
-            throw 'not implemented yet'
+            &$(which hugo) new  $FileName --kind microblog
         }
     }
     $Content = Get-Content $NewFile -Raw
@@ -107,7 +107,8 @@ Task hugo-new-blog {
         }
         '*Linux*'
         {
-            throw 'not implemented yet'
+            &$(which hugo) new $FileName --kind blog
+
         }
     }
     # $Content = Get-Content $NewFile -Raw
