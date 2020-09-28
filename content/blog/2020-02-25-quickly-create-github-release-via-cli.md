@@ -9,7 +9,7 @@ tags:
   - devops
   - tech
   - automation
-  - go
+  - golang
 draft: false
 toc: false
 ---

@@ -9,7 +9,7 @@ excerpt: If you need to include a custom provider with Terraform Cloud, you
 tags:
   - tech
   - development
-  - go
+  - golang
   - terraform
 ---
 ## Assumptions
