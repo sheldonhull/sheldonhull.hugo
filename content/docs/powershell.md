@@ -263,13 +263,13 @@ Get-S3Object -BucketName 'tacoland' | Select-PSFObject -ScriptProperty @{
 
 ## Parallel Tips & Tricks
 
-If you are using `-Parallel` with the newer runspaces feature in PowerShell 7 or greater, then long running operations such as queries or operations that take a while might be difficult to track progress on. 
-In my case, I wanted to be able to see the progress for build process running in parallel and found using the synchronized hashtable I was able to do this. 
+If you are using `-Parallel` with the newer runspaces feature in PowerShell 7 or greater, then long running operations such as queries or operations that take a while might be difficult to track progress on.
+In my case, I wanted to be able to see the progress for build process running in parallel and found using the synchronized hashtable I was able to do this.
 
 ```powershell
 $hash = [hashtable]::Synchronized(@{})
 $hash.counter = 1
-@(1..100) | ForEach-Object -Throttle 8 -Parallel { 
+@(1..100) | ForEach-Object -Throttle 8 -Parallel {
     $hash = $using:hash
     $hash.counter++
     Write-Host "Progress: $($hash.counter)"
@@ -278,7 +278,7 @@ $hash.counter = 1
 $hash.counter
 ```
 
-I put the delay in there to show that the asynchronous nature doesn't mean 1-100, it could do some faster than others and this shows on the output with content like: 
+I put the delay in there to show that the asynchronous nature doesn't mean 1-100, it could do some faster than others and this shows on the output with content like:
 
 ```text
 Progress: 1
@@ -289,7 +289,7 @@ Progress: 6 <---- parallel, no promise of which runspace finishes first
 Progress: 5
 ```
 
-A more advanced way to use this might be to help guage how long something might take to complete when running parallel SQL Server queries. 
+A more advanced way to use this might be to help guage how long something might take to complete when running parallel SQL Server queries.
 
 ```powershell
 #################################################################
@@ -304,7 +304,7 @@ $hash.counter = 1
 
 
 
-@(1..$TotalToProcess ) | ForEach-Object -Throttle 8 -Parallel { 
+@(1..$TotalToProcess ) | ForEach-Object -Throttle 8 -Parallel {
     $d = $_
     $PerItemStopwatch = [diagnostics.stopwatch]::StartNew()
     $hash = $using:hash
@@ -349,8 +349,8 @@ $Items = Get-ChildItem
 $Items | ForEach-Object { $_.Name.ToString().ToLower() }
 ```
 
-- Magic operator. 
-- Seriously, I've seen it called that. 
+- Magic operator.
+- Seriously, I've seen it called that.
 - It's only in version >= 4 [Magic Operators](https://bit.ly/3l1i3Vn).
 - Loads all results into memory before running, so can be great performance boost for certain scenarios that a `ForEach-Object` would be slower at.
 
@@ -371,4 +371,43 @@ foreach ($item in $Items) { $_.Name.ToString().ToLower() }
 ```powershell
 $f = [System.Func[string, string]] { param($i) $i.ToString().ToLower() }
 $f.Invoke($Items.Name)
+```
+
+## Cool Tricks
+
+Output the results of your code into a Console GUI Gridview.
+This recent module provides a fantastic solution to allowing filtering and selection of results passed into it.
+
+Install it with: `Install-Module Microsoft.PowerShell.ConsoleGuiTools -Scope CurrentUser -Confirm:$false`
+
+```powershell
+# Gather filtered list of EC2 Instances from AWS and then provide a console gui to select and filter the results further
+$Filters = @([Amazon.EC2.Model.Filter]::new('tag:{{TAGHERE}}','{{TAG VALUE}}')
+(Get-EC2Instance -Filter $Filters)).Instances| Select-PSFObject InstanceId, PublicIpAddress,PrivateIpAddress,Tags,'State.Code as StateCode', 'State.Name as StateName'  -ScriptProperty @{
+    Name = @{
+        get  = {
+            $this.Tags.GetEnumerator().Where{$_.Key -eq 'Name'}.Value
+        }
+    }
+} | Out-ConsoleGridView
+```
+
+For quick access, save this to a Visual Studio Code snippet like below:
+
+```json
+"ec2-filtered-list": {
+    "prefix": "ec2-filtered-list",
+    "description": "Get EC2 Filtered results and output to interactive ConsoleGridView",
+    "body": [
+        "# Gather filtered list of EC2 Instances from AWS and then provide a console gui to select and filter the results further",
+        "\\$Filters = @([Amazon.EC2.Model.Filter]::new('tag:${1:TagKey}','${2:TagValue}')",
+        "(Get-EC2Instance -Filter \\$Filters)).Instances| Select-PSFObject InstanceId, PublicIpAddress,PrivateIpAddress,Tags,'State.Code as StateCode', 'State.Name as StateName'  -ScriptProperty @{",
+        "    Name = @{",
+        "        get  = {",
+        "            \\$this.Tags.GetEnumerator().Where{\\$_.Key -eq 'Name'}.Value",
+        "        }",
+        "    }",
+        "} | Out-ConsoleGridView"
+    ]
+}
 ```
