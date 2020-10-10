@@ -1,4 +1,4 @@
-FROM golang:1.13
+FROM golang:1.15
 
 # VARIANT can be either 'hugo' for the standard version or 'hugo_extended' for the extended version.
 ARG VARIANT=hugo
