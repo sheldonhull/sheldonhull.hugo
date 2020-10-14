@@ -10,7 +10,7 @@
     "instantsearch.js": "^4.2.0",
     "lunr": "^2.3.6",
     "moment": "^2.24.0",
-    "vanilla-lazyload": "^11.0.6"
+    "vanilla-lazyload": "^17.0.0"
   },
   "devDependencies": {},
   "scripts": {
