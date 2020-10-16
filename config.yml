@@ -144,6 +144,7 @@ params:
   footerCopyright: '&#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
   bgImg: images/2016-04-27_17-27-07_circular.jpg
   gitUrl: https://github.com/sheldonhull/sheldonhull.hugo/commit/
+  gitter: sheldonhull/community
   justifyContent: false
   commit: true
   since: 2013
