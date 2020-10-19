@@ -32,24 +32,22 @@
 	{{ block "header" . -}}{{ end -}}
 	{{ partial "search.html" . -}}
 	{{ block "main" . -}}{{ end -}}
-    {{ block "footer" . -}}{{ end }}
-    {{ $main := resources.Get "js/main.js" -}}
-    {{ if .Site.Params.code_copy_button | default true -}}
-    {{ $codeCopy := resources.Get "js/code-copy.js" -}}
-    {{ $script := slice $main $codeCopy | resources.Concat "js/bundle.js" | minify | fingerprint -}}
-    <script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}
-        crossorigin="anonymous"></script>
-    {{ else -}}
-    {{ $script := $main | minify | fingerprint -}}
-    <script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}
-        crossorigin="anonymous"></script>
-    {{ end }}
+	{{ block "footer" . -}}{{ end }}
+{{/*BUNDLE RESOURCES */}}
+{{ $main := resources.Get "js/main.js" }}
+{{$codeCopy := ""}}
+	{{ if .Site.Params.code_copy_button | default true -}}
+	{{ $codeCopy = resources.Get "js/code-copy.js" }}
+	{{ end }}
+	
+	{{/*CREATE SINGLE BUNDLE OF ALL RESOURCES*/}}
+	{{ $script := slice $main $codeCopy  | resources.Concat "js/bundle.js" | minify | fingerprint -}}
 
+    <script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}
+        crossorigin="anonymous"></script>
 	{{- partial "analytics.html" . }}
 	{{- if templates.Exists "partials/extra-foot.html" -}}
-    {{ partial "extra-foot.html" . }}
-
-
+	{{ partial "extra-foot.html" . }}
 	{{- end }}
 </body>
 

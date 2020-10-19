@@ -1,5 +1,4 @@
 Task hugo-serve {
-
     switch -Wildcard ($PSVersionTable.OS)
     {
         '*Windows*'
@@ -20,9 +19,16 @@ Task hugo-serve {
             &/usr/bin/hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc
         }
     }
-
 }
 
+
+task hugo-serve-nocache {
+    Write-Build Red "Error. Going to try to clean mod cache. Try also `hugo serve --ignoreCache` and see if that helps.`nTry `$ENV:HUGO_CACHEDIR=./tmp as one additional fix"
+    &/usr/bin/hugo mod clean
+    $ENV:HUGO_CACHEDIR = '.cache'
+    &/usr/bin/hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc --ignoreCache
+
+}
 #Synposis: Will need to adjust for Round 2 later. For now, this just generates a new
 Task hugo-new-100daysOfCode {
 
@@ -62,7 +68,7 @@ Task hugo-new-100daysOfCode {
 
 #Synposis: Will need to adjust for Round 2 later. For now, this just generates a new
 Task hugo-new-microblog {
-    $Title = Read-Host "Enter title"
+    $Title = Read-Host 'Enter title'
     $Title = $Title.ToLower().Trim() -replace '\s', '-'
     $FileName = "microblog/$(Get-Date -Format 'yyyy-MM-dd')-$Title.md"
     $NewFile = Join-Path $BuildRoot 'content' $FileName
@@ -79,7 +85,7 @@ Task hugo-new-microblog {
         }
         '*Linux*'
         {
-            &$(which hugo) new  $FileName --kind microblog
+            &$(which hugo) new $FileName --kind microblog
         }
     }
     $Content = Get-Content $NewFile -Raw

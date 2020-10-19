@@ -33,11 +33,12 @@
             <description>
             {{ .Content | html }}
 
-             {{- with .Params.tags -}}
-                    {{- range . -}}
-                        {{ "#" | absURL }}&nbsp;
+            {{ .Content | html }}
+                    {{- with .Params.tags -}}
+                      {{- range . -}}
+                        #{{.}}&nbsp;
                     {{- end -}}
-                {{- end -}}
+            {{- end -}}
             </description>
         </item>
     {{ end }}

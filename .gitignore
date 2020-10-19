@@ -167,3 +167,8 @@ artifacts
 *.clixml
 .DS_Store
 bin
+.cache
+*dontcommit*
+
+.env
+.envlist
