@@ -25,9 +25,9 @@
 
     {{ .Content | html }}
             {{- with .Params.tags -}}
-                {{- range . -}}
-                  #{{.}}&nbsp;
-            {{- end -}}
+                    {{- range . -}}
+                        #{{.}} {{end -}}
+                    {{- end -}}
     {{- end -}}
     </description>
     <!-- .Content For Full -->

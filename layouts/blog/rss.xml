@@ -35,10 +35,9 @@
 
             {{ .Content | html }}
                     {{- with .Params.tags -}}
-                      {{- range . -}}
-                        #{{.}}&nbsp;
+                     {{- range . -}}
+                        #{{.}} {{end -}}
                     {{- end -}}
-            {{- end -}}
             </description>
         </item>
     {{ end }}
