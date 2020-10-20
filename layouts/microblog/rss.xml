@@ -28,7 +28,6 @@
                     {{- range . -}}
                         #{{.}} {{end -}}
                     {{- end -}}
-    {{- end -}}
     </description>
     <!-- .Content For Full -->
 </item>
