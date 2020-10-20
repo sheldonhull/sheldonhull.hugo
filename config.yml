@@ -110,7 +110,7 @@ params:
     algolia:
       app_id: 04HSGXXQD5
       api_key: a7ec2763a5d966a5b9f8d70b254bfb68
-      index_name: sheldonhull
+      index_name: sheldonhull.com
       show_logo: true
   RSSSection:
     - blog

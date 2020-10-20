@@ -172,3 +172,6 @@ bin
 
 .env
 .envlist
+vendor/
+__*
+public/

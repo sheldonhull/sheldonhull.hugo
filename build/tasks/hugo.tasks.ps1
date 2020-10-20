@@ -33,10 +33,10 @@ task hugo-serve-nocache {
 Task hugo-new-100daysOfCode {
 
     $files = Get-ChildItem -Path content/microblog -Filter '*day*.md'
-    [int]$DayCounter = $files.ForEach{
+    [int]$DayCounter = ($files.ForEach{
         $Day = ($_.Name -split '-')[-1]
         $day.Trim('.md')
-    } | Sort-Object -Descending | Select-Object -First 1
+        } | Sort-Object -Descending | Measure-Object -Maximum).Maximum
     [int]$NewDayCounter = ++$DayCounter
 
     $FileName = "microblog/$(Get-Date -Format 'yyyy-MM-dd')-go-R1-day-$NewDayCounter.md"

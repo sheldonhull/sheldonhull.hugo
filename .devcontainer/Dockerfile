@@ -6,7 +6,7 @@ ARG VARIANT=hugo_extended
 ARG VERSION=latest
 
 # Download and patch selected Hugo binary
-RUN apt-get update && apt-get install -y ca-certificates openssl git curl && \
+RUN apt-get update && apt-get install -y ca-certificates openssl git curl python3-pip python3-dev && \
     rm -rf /var/lib/apt/lists/* && \
     case ${VERSION} in \
     latest) \
@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y ca-certificates openssl git curl && \
     go get github.com/yaegashi/muslstack && \
     muslstack -s 0x800000 /usr/bin/hugo
 
-
+RUN go get -u all
 # cat /etc/*release
 
 # Copy patched hugo binary from build stage

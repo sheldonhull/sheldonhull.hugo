@@ -2,7 +2,8 @@
 
 version: '2'
 env:
-  HUGO: /usr/bin/hugo
+ # HUGO: /usr/bin/hugo
+  HUGO: hugo
 vars:
 
   # JS_FILES:
@@ -17,7 +18,7 @@ vars:
 tasks:
   default:
     cmds:
-      - task: run
+      - task: build
 
   run:
     desc: Build and run hugo
@@ -37,6 +38,28 @@ tasks:
     cmds:
       - git submodule update --init --recursive
       - git submodule update --recursive
+
+  go:
+    desc: Setup go environment
+    cmds:
+    - go get github.com/algolia/algoliasearch-client-go/v3@v3.4.0
+    - go get -u
+
+  algolia:
+    desc: Generate algolia json
+    env:
+      HUGO_ENABLEGITINFO: "true"
+      HUGO_BASEURL: "https://www.sheldonhull.com/"
+      HUGO_MINIFY: "true"
+      HUGO_DESTINATION: "public"
+      #ALGOLIA_ADMIN_KEY: SET IN LOCAL ENVIRONMENT ONLY
+      ALGOLIA_APP_ID:                 04HSGXXQD5
+      ALGOLIA_INDEX_FILE:             public/algolia.json
+      ALGOLIA_INDEX_NAME:             sheldonhull.com
+    cmds:
+    - $HUGO --enableGitInfo  --gc
+    - npm run algolia
+
   # assets:
   #   desc: Bundle assets and generate box for it
   #   deps: [js, css]
