@@ -175,3 +175,4 @@ bin
 vendor/
 __*
 public/
+go.tar.gz

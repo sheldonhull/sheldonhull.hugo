@@ -32,7 +32,18 @@ tasks:
     #deps: [assets, templates]
     cmds:
       - $HUGO -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc
-
+  build-public:
+      desc: Build algolia public json only if missing algolia
+      generates:
+        - public/algolia.json
+      env:
+        HUGO_ENABLEGITINFO: "true"
+        HUGO_BASEURL: "https://www.sheldonhull.com/"
+        HUGO_MINIFY: "true"
+        HUGO_DESTINATION: "public"
+        #ALGOLIA_ADMIN_KEY: SET IN LOCAL ENVIRONMENT ONLY
+      cmds:
+      - $HUGO --enableGitInfo  --gc
   init:
     desc: Initialize project to ensure dependencies, submodules, and tooling is ready
     cmds:
@@ -44,20 +55,19 @@ tasks:
     cmds:
     - go get github.com/algolia/algoliasearch-client-go/v3@v3.4.0
     - go get -u
-
+  go-run:
+    desc: Try running the new go algolia command
+    cmds:
+    - go run main.go
   algolia:
     desc: Generate algolia json
+    deps: [build-public]
     env:
-      HUGO_ENABLEGITINFO: "true"
-      HUGO_BASEURL: "https://www.sheldonhull.com/"
-      HUGO_MINIFY: "true"
-      HUGO_DESTINATION: "public"
-      #ALGOLIA_ADMIN_KEY: SET IN LOCAL ENVIRONMENT ONLY
+
       ALGOLIA_APP_ID:                 04HSGXXQD5
       ALGOLIA_INDEX_FILE:             public/algolia.json
       ALGOLIA_INDEX_NAME:             sheldonhull.com
     cmds:
-    - $HUGO --enableGitInfo  --gc
     - npm run algolia
 
   # assets:
