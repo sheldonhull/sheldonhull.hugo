@@ -11,6 +11,7 @@ enableEmoji: true
 DisqusShortname: sheldonhull
 DelayDisqus: true
 googleAnalytics: UA-40198001-3
+GoogleAnalyticsGTag: G-JQ2V568D3Y
 copyright: This work is licensed under a Creative Commons Attribution-NonCommercial
   4.0 International License.
 additional_scripts:
