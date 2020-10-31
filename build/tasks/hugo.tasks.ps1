@@ -130,6 +130,7 @@ task netlify-build {
 }
 
 task algolia-update {
+    Write-Warning 'Use task build-algolia algolia for this'
     #$ENV:ALGOLIA_INDEX_FILE = 'public/algolia.json'
     #npm run algolia "$BuildRoot/public/algolia.json"
     npm run algolia "$BuildRoot/_site/algolia.json"

@@ -3,7 +3,6 @@ title: "AWSPowershell"
 slug: "awspowershell"
 permalink: /docs/awspowershell/
 excerpt: "A cheatsheet and quick start reference for working with AWSPowershell"
-last_modified_at: 2020-05-05
 date:  2019-02-19
 toc: true
 comments: true

@@ -1,5 +1,4 @@
 ---
-last_modified_at: 2020-05-08T05:00:00+00:00
 title: powershell
 date: 2019-03-19
 toc: true
@@ -411,3 +410,10 @@ For quick access, save this to a Visual Studio Code snippet like below:
     ]
 }
 ```
+
+## Puzzles - Fizz Buzz
+
+I did this to participate in Code Golf, and felt pretty good that I landed in 112 🤣 with this.
+Really pains me to write in the code-golf style.
+
+{{< gist "3ea6fd6cafe210edb1d71b5e8d3d1696" >}}

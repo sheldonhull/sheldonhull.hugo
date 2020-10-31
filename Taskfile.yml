@@ -1,6 +1,6 @@
 # demo https://github.com/go-task/examples/blob/master/go-web-app/Taskfile.yml
 
-version: '2'
+version: '3'
 env:
  # HUGO: /usr/bin/hugo
   HUGO: hugo
@@ -43,7 +43,7 @@ tasks:
         HUGO_DESTINATION: "public"
         #ALGOLIA_ADMIN_KEY: SET IN LOCAL ENVIRONMENT ONLY
       cmds:
-      - $HUGO --enableGitInfo  --gc
+      - $HUGO --enableGitInfo  --gc --cleanDestinationDir
   init:
     desc: Initialize project to ensure dependencies, submodules, and tooling is ready
     cmds:

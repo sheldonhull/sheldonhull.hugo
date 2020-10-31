@@ -4,12 +4,17 @@ layout: single
 title: About
 slug: about
 excerpt: about me
-last_modified_at: 2019-02-21T00:00:00.000+00:00
 sidebar: []
 author_profile: false
 comments: true
 
 ---
+
+## Want to Talk
+
+Add a comment to any of the pages at the bottom and it will open up a GitHub issue to have a public discussion.
+If you like chatting realtime, look at the bottom of the page for "Open Chat" and let's talk using Gitter (only need GitHub auth as well).
+
 ## Core Values
 
 I live as a follower of Christ, desiring to impact the world around with who He is. I'm an unashamed disciple and though I've got plenty I mess up, following Him is my joy. I'm passionate about worship through music, and have played and led worship team for a number of years. Currently, I've been enjoying playing electric. This had challenged me to play in a completely different way than acoustic, as the melodic nature of the electric guitar parts bring a subtle but powerful part to a worship band.
@@ -20,20 +25,18 @@ I've been blessed with 3 kids and a wonderful wife Sarah who has brought beauty 
 
 ## Work
 
-{{<button href="https://ceev.io/@sheldonhull" theme="success">}} Professional Profile // Resume {{< /button >}}
 {{<button href="https://stackoverflow.com/story/sheldonhull" theme="success">}} StackOverflow Developer Story {{< /button >}}
 
-I've summed up more detail there, than in this spot, so take a peek at that if you want a professional run down.
+I ♥ code. Software, Infrastructure-as-code, Compliance-as-code, my resume as code... you name it 😁
 
-I ♥ code.
-
-Software, Infrastructure-as-code, Compliance-as-code, my resume as code... you name it 😁
-
-I also think the world needs more emojis and tacos 🌮🌮🌮
+I also think the world needs more emojis and tacos 🌮🌮🌮 to lighten things up.
 
 ## Other Interests
 
-My passions extend beyond technology into the creative realm as well. I've enjoyed doing videography, photography, and creating music. Electric & acoustic guitar have always been a passion. I'm a sucker for good post-rock music, which I think is the best type of music for coding around.
+My passions extend beyond technology into the creative realm as well.
+I've enjoyed doing videography, photography, and creating music.
+Electric & acoustic guitar have always been a passion.
+I'm a sucker for good post-rock music, which I think is the best type of music for coding around.
 
 ### Music - On Desk
 
