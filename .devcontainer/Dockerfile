@@ -1,47 +1,14 @@
-FROM golang:1.15
-
-# VARIANT can be either 'hugo' for the standard version or 'hugo_extended' for the extended version.
-ARG VARIANT=hugo_extended
-# VERSION can be either 'latest' or a specific version number
-ARG VERSION=latest
-
-# Download and patch selected Hugo binary
-RUN apt-get update && apt-get install -y ca-certificates openssl git curl python3-pip python3-dev && \
-    rm -rf /var/lib/apt/lists/* && \
-    case ${VERSION} in \
-    latest) \
-    export VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | grep "tag_name" | awk '{print substr($2, 3, length($2)-4)}') ;;\
-    esac && \
-    echo ${VERSION} && \
-    wget -O ${VERSION}.tar.gz https://github.com/gohugoio/hugo/releases/download/v${VERSION}/${VARIANT}_${VERSION}_Linux-64bit.tar.gz && \
-    tar xf ${VERSION}.tar.gz && \
-    mv hugo* /usr/bin/hugo && \
-    go get github.com/yaegashi/muslstack && \
-    muslstack -s 0x800000 /usr/bin/hugo
-
-RUN go get -u all
-# cat /etc/*release
-
-# Copy patched hugo binary from build stage
-FROM mcr.microsoft.com/vscode/devcontainers/base
-COPY --from=0 /usr/bin/hugo /usr/bin
-EXPOSE 1313
-
-# [Optional] Uncomment this section to install additional OS packages you may want.
-#
-# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends <your-package-list-here>
-# RUN wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb \
-#     && sudo dpkg -i packages-microsoft-prod.deb && sudo apt-get update \
-#     && echo "initiating installation of powershell" \
-#     && sudo apt-get install -y powershell
+#FROM golang:1.15
+FROM klakegg/hugo:latest-ext
 
 RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb \
-    && sudo dpkg -i packages-microsoft-prod.deb \
-    && sudo apt-get -qqy update \
-    && sudo apt-get -qqy install powershell
+    && dpkg -i packages-microsoft-prod.deb \
+    && apt-get -qqy update \
+    && apt-get -qqy install --no-install-recommends powershell
 
-#RUN sudo apt -qqy update && sudo apt -qqy install nodejs npm
-RUN curl -sL https://deb.nodesource.com/setup_12.x -o nodesource_setup.sh \
-    && sudo bash nodesource_setup.sh \
-    && sudo apt -qqy install nodejs
+
+RUN export GOROOT=/opt/go && export GOPATH=/home/codespaces/go && wget -q -O - https: //git.io/vQhTU | bash
+ENV PATH=$PATH:/opt/go/bin
+ENV GOPATH=/home/codespaces/go
+RUN go get -u all
+EXPOSE 1313
