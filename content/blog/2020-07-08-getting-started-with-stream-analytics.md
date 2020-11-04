@@ -11,6 +11,7 @@ tags:
   - development
   - azure
 ---
+
 ## Resources
 
 | Resources |
@@ -19,7 +20,6 @@ tags:
 ](http://bit.ly/2S3kFlD)|
 | If you want to visualize last 90 days of App Insight Data with Grafana // [Monitor Azure services and applications using Grafana // Microsoft Docs
 ](http://bit.ly/2S1Kkv9)|
-
 
 ## The Scenario
 
@@ -80,10 +80,6 @@ create table dbo.Example (
 
 Take a look at the [query examples](https://docs.microsoft.com/en-us/azure/azure-monitor/app/code-sample-export-sql-stream-analytics) on how to use `cross apply` and `into` to quickly create Sql Server tables.
 
-## Debugging
-
-## Submit job to Azure
-
 ## Backfilling Historical Data
 
 When you start the job, the default start job date can be changed. 
@@ -97,11 +93,9 @@ However, I found out that Grafana 5.1 > has data source plugins for Azure and Ap
 I've written on Grafana and InfluxDB in the past and am huge fan of Grafana. 
 I'd highly suggest you explore that, as it's free, while publishing to a workspace with PowerBI can require a subscription, that might not be included in your current MSDN or Office 365 membership. YMMV.
 
-## Reporting with Grafana
+### Filter Syntax
 
-- [Filter Syntax Reference](http://bit.ly/2Uft9bv)
-
-### Filtering
+[Filter Syntax Reference](http://bit.ly/2Uft9bv)
 
 I had to search to find details on the filtering but ended up finding the right syntax for doing partial match searches in the Filter Syntax Reference linked above. 
 This also provides direct links to their ApiExplorer which allows testing and constructing api queries to confirm your syntax.
@@ -120,3 +114,9 @@ customEvent/Name eq 'Save(Me)'
 customEvent/Name eq 'Save(Time)'
 customEvent/Name eq 'Save(Tacos)'
 ```
+
+
+## Wrap-up
+
+I only did this one project so unfortunately I don't have exhaustive notes this.
+However, some of the filter syntax and links were helpful to get me jump started on this and hopefully they'll be useful to anyone trying to get up and running like I had too.
