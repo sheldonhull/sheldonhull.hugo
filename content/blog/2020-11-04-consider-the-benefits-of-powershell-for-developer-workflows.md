@@ -1,5 +1,5 @@
 ---
-date: 2020-11-05T07:00:00Z
+date: 2020-11-04T07:00:00Z
 title: Consider the Benefits of Powershell for Developer Workflows
 slug: consider-the-benefits-of-powershell-for-developer-workflows
 excerpt:
