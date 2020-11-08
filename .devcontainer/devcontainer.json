@@ -25,7 +25,10 @@
 		"davidanson.vscode-markdownlint",
 		"spmeesseman.vscode-taskexplorer",
 		"budparr.language-hugo-vscode",
-		"akmittal.hugofy"
+		"akmittal.hugofy",
+		"sneezry.vscode-devto",
+		"darkriszty.markdown-table-prettify",
+		"yzhang.markdown-all-in-one"
 	],
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     "forwardPorts": [

@@ -14,19 +14,17 @@ tags:
 
 ## Resources
 
-| Resources |
-| --- |
-| If you want a schema reference for the json Application Insights produces // [Azure Application Insights Data Model // Microsoft Docs
-](http://bit.ly/2S3kFlD)|
-| If you want to visualize last 90 days of App Insight Data with Grafana // [Monitor Azure services and applications using Grafana // Microsoft Docs
-](http://bit.ly/2S1Kkv9)|
+| Resources                                                                                                                                                                  |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| If you want a schema reference for the json Application Insights produces // [Azure Application Insights Data Model // Microsoft Docs](http://bit.ly/2S3kFlD)              |
+| If you want to visualize last 90 days of App Insight Data with Grafana // [Monitor Azure services and applications using Grafana // Microsoft Docs](http://bit.ly/2S1Kkv9) |
 
 ## The Scenario
 
-Application insights is integrated into your application and is sending the results to Azure. In my case, it was blob storage. This can compromise your entire insights history. 
+Application insights is integrated into your application and is sending the results to Azure. In my case, it was blob storage. This can compromise your entire insights history.
 
-Application Insights has some nice options to visualize data, Grafana included among them. 
-However, the data retention as of this time is still set to 90 days. This means historical reporting is limited, and you'll need to utilize `Continuous Export` in the Application Insights settings to stream out the content into blob storage to 
+Application Insights has some nice options to visualize data, Grafana included among them.
+However, the data retention as of this time is still set to 90 days. This means historical reporting is limited, and you'll need to utilize `Continuous Export` in the Application Insights settings to stream out the content into blob storage to
 
 ## The process
 
@@ -35,7 +33,7 @@ However, the data retention as of this time is still set to 90 days. This means 
 3. Import some test data
 4. (Optional) If using SQL Server as storage for stream analytics then design the schema.
 5. Write your stream analytics sql, aka asql.
-6. Debug and confirm you are happy with this. 
+6. Debug and confirm you are happy with this.
 7. Submit job to Azure (stream from now, or stream and backfill)
 8. Configure Grafana or PowerBI to connect to your data and make management happy with pretty graphs.
 
@@ -45,7 +43,7 @@ I don't think this would have been a feasible learning process without having ru
 Highly recommend using Visual Studio for this part.
 
 Learning the ropes through the web interface can be helpful, but if you are exploring the data parsing you need a way to debug and test the results without waiting minutes to simply have a job start.
-In addition, you need a way to see the parsed results from test data to ensure you are happy with the results. 
+In addition, you need a way to see the parsed results from test data to ensure you are happy with the results.
 
 ## New Stream Analytics Project
 
@@ -53,17 +51,17 @@ In addition, you need a way to see the parsed results from test data to ensure y
 
 ## Setup test data
 
-Grab some blob exports from your Azure storage and sample a few of the earliest and the latest of your json, placing into a single json file. Put this in your solution folder called inputs through Windows Explorer. After you've done this, right click on the input file contained in your project and select `Add Local Input`. This local input is what you'll use to debug and test without having to wait for the cloud job. You'll be able to preview the content in Visual Studio just like when you run SQL Queries and review the results in the grid. 
+Grab some blob exports from your Azure storage and sample a few of the earliest and the latest of your json, placing into a single json file. Put this in your solution folder called inputs through Windows Explorer. After you've done this, right click on the input file contained in your project and select `Add Local Input`. This local input is what you'll use to debug and test without having to wait for the cloud job. You'll be able to preview the content in Visual Studio just like when you run SQL Queries and review the results in the grid.
 
 ## Design SQL Schema
 
-Unique constraints create an index. 
-If you use a unique constraint, you need to be aware of the following info to avoid errors. 
+Unique constraints create an index.
+If you use a unique constraint, you need to be aware of the following info to avoid errors.
 
 > When you configure Azure SQL database as output to a Stream Analytics job, it bulk inserts records into the destination table. In general, Azure stream analytics guarantees at least once delivery to the output sink, one can still achieve exactly-once delivery to SQL output when SQL table has a unique constraint defined.
 Once unique key constraints are set up on the SQL table, and there are duplicate records being inserted into SQL table, Azure Stream Analytics removes the duplicate record.
 [Common issues in Stream Analytics and steps to troubleshoot
-](http://bit.ly/2Bugzh0) 
+](http://bit.ly/2Bugzh0)
 Using the warning above, create any unique constraints with the following syntax to avoid issues.
 
 ```sql
@@ -82,25 +80,25 @@ Take a look at the [query examples](https://docs.microsoft.com/en-us/azure/azure
 
 ## Backfilling Historical Data
 
-When you start the job, the default start job date can be changed. 
-Use custom date and then provide it the oldest data of your data. 
+When you start the job, the default start job date can be changed.
+Use custom date and then provide it the oldest data of your data.
 For me this correctly initialized the historical import, resulting in a long running job that populated all the historical data from 2017 and on.
 
 ## Configure Grafana or PowerBI
 
-Initially I started with Power BI. 
-However, I found out that Grafana 5.1 > has data source plugins for Azure and Application insights, along with dashboard to get you started. 
-I've written on Grafana and InfluxDB in the past and am huge fan of Grafana. 
+Initially I started with Power BI.
+However, I found out that Grafana 5.1 > has data source plugins for Azure and Application insights, along with dashboard to get you started.
+I've written on Grafana and InfluxDB in the past and am huge fan of Grafana.
 I'd highly suggest you explore that, as it's free, while publishing to a workspace with PowerBI can require a subscription, that might not be included in your current MSDN or Office 365 membership. YMMV.
 
 ### Filter Syntax
 
 [Filter Syntax Reference](http://bit.ly/2Uft9bv)
 
-I had to search to find details on the filtering but ended up finding the right syntax for doing partial match searches in the Filter Syntax Reference linked above. 
+I had to search to find details on the filtering but ended up finding the right syntax for doing partial match searches in the Filter Syntax Reference linked above.
 This also provides direct links to their ApiExplorer which allows testing and constructing api queries to confirm your syntax.
 
-If you had a custom metric you were grouping by that was `customEvent\name` then the filter to match something like a save action could be: 
+If you had a custom metric you were grouping by that was `customEvent\name` then the filter to match something like a save action could be:
 
 ```text
 startswith(customEvent/name, 'Save')
