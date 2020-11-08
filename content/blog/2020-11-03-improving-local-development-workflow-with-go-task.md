@@ -50,6 +50,8 @@ However, if you need to initialize some local dependencies, run a linting check,
 
 ## Task
 
+[Go Task](https://taskfile.dev/#/)
+
 I've been pleasantly surprised by this cross-platform tool based on a simple `yaml` schema.
 It's written in go, and as a result it's normally just a single line or two to immediately install in your system.
 

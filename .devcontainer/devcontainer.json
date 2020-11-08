@@ -28,7 +28,8 @@
 		"akmittal.hugofy",
 		"sneezry.vscode-devto",
 		"darkriszty.markdown-table-prettify",
-		"yzhang.markdown-all-in-one"
+		"yzhang.markdown-all-in-one",
+		"vivaxy.vscode-conventional-commits"
 	],
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     "forwardPorts": [
