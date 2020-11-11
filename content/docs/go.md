@@ -65,3 +65,15 @@ I honestly had never done any algorithm or interview puzzles beyond sql-server, 
 At least I pass the basic Joel test 😁
 
 {{< gist "25309ea04d1646f26bc0f4a54e0f16af" >}}
+
+## Logging
+
+At this stage, I'm using [zerolog](https://github.com/rs/zerolog) as I found it very easy to get moving with structured logs.
+
+The output of this demo looks pretty good!
+
+![Output from Zerolog](/static/images/r1-d014-structured-console-output.png)
+
+Here's a functional demo that can be used to bootstrap a new project with this.
+
+{{< gist "9e608da09f84fac600d921e3f0867226" >}}

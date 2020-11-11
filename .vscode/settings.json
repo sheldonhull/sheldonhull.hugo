@@ -24,6 +24,8 @@
         "netlifycms",
         "microblog"
     ],
+    "conventionalCommits.emojiFormat": "emoji",
+    "conventionalCommits.lineBreak": "|",
     "[yaml]": {
         "editor.insertSpaces": true,
         "editor.tabSize": 2,
