@@ -7,15 +7,15 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"github.com/rs/zerolog"
-	"github.com/rs/zerolog/log"
 	"io/ioutil"
 	"os"
 	// "path"
 	"time"
-
 	// "stdlog"
 	"strings"
+
+	"github.com/rs/zerolog"
+	"github.com/rs/zerolog/log"
 	// "github.com/algolia/algoliasearch-client-go/algolia/search"
 	// . "github.com/algolia/algoliasearch-client-go/v3@v3.Y.Z"
 )
