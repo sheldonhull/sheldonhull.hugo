@@ -14,10 +14,12 @@
 
 .gist .markdown-body .highlight pre, .gist .markdown-body pre {
     width:100%;
+
 }
 /* Gist Custom Syntax Highlighting CSS
 --------------------------------------------- */
 body .gist .gist-file , .gist:visited{
+
     /* border: none; */
     border-color:#293134;
     border-bottom: none;
@@ -34,7 +36,7 @@ body .gist .gist-file , .gist:visited{
     background: #293134;
     border-radius: 4px 4px 0 0;
     color: $text;
-
+    max-height:400px;
     line-height: 1.4;
 
   /*   // padding: 16px 16px 0; */

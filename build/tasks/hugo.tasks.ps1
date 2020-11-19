@@ -16,7 +16,7 @@ Task hugo-serve {
         }
         '*Linux*'
         {
-            &/usr/bin/hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc
+            &hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc
         }
     }
 }
@@ -34,8 +34,8 @@ Task hugo-new-100daysOfCode {
 
     $files = Get-ChildItem -Path content/microblog -Filter '*day*.md'
     [int]$DayCounter = ($files.ForEach{
-        $Day = ($_.Name -split '-')[-1]
-        $day.Trim('.md')
+            $Day = ($_.Name -split '-')[-1]
+            $day.Trim('.md')
         } | Sort-Object -Descending | Measure-Object -Maximum).Maximum
     [int]$NewDayCounter = ++$DayCounter
 

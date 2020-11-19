@@ -79,6 +79,16 @@
       }
     },
     {
+      "label": "hugo-serve-nocache",
+      "type": "shell",
+      "command": "./build.ps1 -LoadConstants -Task hugo-serve-nocache -File './task.build.ps1'",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      }
+    },
+    {
       "label": "hugo-new-100daysOfCode",
       "type": "shell",
       "command": "./build.ps1 -LoadConstants -Task hugo-new-100daysOfCode -File './task.build.ps1'",

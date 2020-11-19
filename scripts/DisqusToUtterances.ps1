@@ -73,21 +73,21 @@ $AllComments | ForEach-Object -process {
             # Other properties
             $Post.$prop = ($Comment |
                     Select-Object -ExpandProperty $prop ) -replace '`r`n'
+            }
+            # Keep the original comment data structure if we need it later
+            $Post.raw = $Comment
         }
-        # Keep the original comment data structure if we need it later
-        $Post.raw = $Comment
+        # Return a PowerShell object for the current comment
+        New-Object -TypeName PSObject -Property $Post
     }
-    # Return a PowerShell object for the current comment
-    New-Object -TypeName PSObject -Property $Post
-}
 
 
-# Retrieve threads
-$AllThreads = $DisqusXML.thread
+    # Retrieve threads
+    $AllThreads = $DisqusXML.thread
 
-# Retrieve Thread properties
-$Properties = $AllThreads |
-    Get-Member -MemberType Property
+    # Retrieve Thread properties
+    $Properties = $AllThreads |
+        Get-Member -MemberType Property
 
 # Process each threads
 $AllThreads = $AllThreads | ForEach-Object -process {
@@ -121,55 +121,55 @@ $AllThreads = $AllThreads | ForEach-Object -process {
         {
             $ThreadObj.Category = ($ThreadItem |
                     Select-Object -ExpandProperty $prop).id
+            }
+            else
+            {
+                # Other properties
+                $ThreadObj.$prop = ($ThreadItem |
+                        Select-Object -ExpandProperty $prop) -replace '`r`n'
+                }
+                $ThreadObj.raw = $ThreadItem
+            }
+            # Return a PowerShell object for the current ThreadItem
+            New-Object -TypeName PSObject -Property $ThreadObj
         }
-        else
-        {
-            # Other properties
-            $ThreadObj.$prop = ($ThreadItem |
-                    Select-Object -ExpandProperty $prop) -replace '`r`n'
-        }
-        $ThreadObj.raw = $ThreadItem
-    }
-    # Return a PowerShell object for the current ThreadItem
-    New-Object -TypeName PSObject -Property $ThreadObj
-}
 
-# $AllThreads = $AllThreads |
-# Where-Object -FilterScript {
-#     $_.link -match "\.io\/\d{4}\/.+html$|
-#           \.com\/\d{4}\/.+html$|
-#           \.com\/p\/.+html$|
-#           \.io\/minimal-mistakes\/\d{4}\/.+html$|
-#           \.io\/powershell\/\d{4}\/.+html$|
-#           \.io\/usergroup\/\d{4}\/.+html$" -and
-#     $_.link -notmatch "googleusercontent\.com" }
+        # $AllThreads = $AllThreads |
+        # Where-Object -FilterScript {
+        #     $_.link -match "\.io\/\d{4}\/.+html$|
+        #           \.com\/\d{4}\/.+html$|
+        #           \.com\/p\/.+html$|
+        #           \.io\/minimal-mistakes\/\d{4}\/.+html$|
+        #           \.io\/powershell\/\d{4}\/.+html$|
+        #           \.io\/usergroup\/\d{4}\/.+html$" -and
+        #     $_.link -notmatch "googleusercontent\.com" }
 
 
-Write-Host "`$AllThreads : $($AllThreads.Count)"
+        Write-Host "`$AllThreads : $($AllThreads.Count)"
 
-# Create 2 properties 'link2' and 'title2' that will contains the clean information
-#  then group per link (per thread or post)
-#  link2: trimed URL
-#  title2: Remove prefix, weird brackets or weird characters, Encoding issues
-$AllThreads = $AllThreads |
-    Select-Object -Property *,
-    @{L = 'link2'; E = {
-            $_.link -replace "
+        # Create 2 properties 'link2' and 'title2' that will contains the clean information
+        #  then group per link (per thread or post)
+        #  link2: trimed URL
+        #  title2: Remove prefix, weird brackets or weird characters, Encoding issues
+        $AllThreads = $AllThreads |
+            Select-Object -Property *,
+            @{L = 'link2'; E = {
+                    $_.link -replace "
         https://|http://|www\.|
         sheldonhull\.com|
         sheldonhull\.github\.io|
         \/minimal-mistakes|
         \/powershell" }
-    },
-    @{L = 'title2'; E = {
-            $_.title -replace "^sheldonhull:\s" `
-                -replace 'â€™', "'" `
-                -replace "Ã¢â‚¬Â¦|â€¦" `
-                -replace 'â€', '-' `
-                -replace '\/\[', '[' `
-                -replace '\\\/\]', ']' }
-    } |
-    Group-Object -Property link2
+            },
+            @{L = 'title2'; E = {
+                    $_.title -replace "^sheldonhull:\s" `
+                        -replace 'â€™', "'" `
+                        -replace "Ã¢â‚¬Â¦|â€¦" `
+                        -replace 'â€', '-' `
+                        -replace '\/\[', '[' `
+                        -replace '\\\/\]', ']' }
+            } |
+            Group-Object -Property link2
 
 
 # if we can't find the proper title, we are doing a lookup with the URL using Invoke-WebRequest
@@ -193,62 +193,62 @@ $ThreadsUpdated = $AllThreads |
                     Select-Object -Property *,
                     @{L = 'RealTitle'; e = { $RealTitle } },
                     @{L = 'ThreadCount'; e = { $CurrentPost.count } }
-            }
-            elseif ($CurrentPost.group.title2 -match '^http')
-            {
-                # lookup online
-                $result = Invoke-WebRequest -Uri $CurrentPost.group.link -Method Get
-                # add REALTitle prop
-                $RealTitle = $result.ParsedHtml.title
-                # output object
-                $CurrentPost.group |
-                    Select-Object -Property *, @{L = 'RealTitle'; e = { $RealTitle } }, @{L = 'ThreadCount'; e = { $CurrentPost.count } }
-            }
-        }
-        if ($CurrentPost.count -gt 1)
-        {
-            if ($CurrentPost.group.title2 -notmatch '^http')
-            {
-                # add REALTitle prop
-                $RealTitle = ($CurrentPost.group.title2 |
-                        Where-Object -FilterScript {
-                            $_ -notmatch '^http' } |
-                        Select-Object -first 1)
-
-                # Output object
-                $CurrentPost.group |
-                    Select-Object -Property *,
-                    @{L = 'RealTitle'; e = { $RealTitle } },
-                    @{L = 'ThreadCount'; e = { $CurrentPost.count }
+                }
+                elseif ($CurrentPost.group.title2 -match '^http')
+                {
+                    # lookup online
+                    $result = Invoke-WebRequest -Uri $CurrentPost.group.link -Method Get
+                    # add REALTitle prop
+                    $RealTitle = $result.ParsedHtml.title
+                    # output object
+                    $CurrentPost.group |
+                        Select-Object -Property *, @{L = 'RealTitle'; e = { $RealTitle } }, @{L = 'ThreadCount'; e = { $CurrentPost.count } }
                     }
-            }
-            elseif ($CurrentPost.group.title2 -match '^http')
-            {
-                # get url of one
-                $u = ($CurrentPost.group |
-                        Where-Object {
-                            $_.title2 -match '^http' } |
-                        Select-Object -first 1).link
+                }
+                if ($CurrentPost.count -gt 1)
+                {
+                    if ($CurrentPost.group.title2 -notmatch '^http')
+                    {
+                        # add REALTitle prop
+                        $RealTitle = ($CurrentPost.group.title2 |
+                                Where-Object -FilterScript {
+                                    $_ -notmatch '^http' } |
+                                Select-Object -first 1)
 
-                # lookup online
-                $result = Invoke-WebRequest -Uri $u -Method Get
+                            # Output object
+                            $CurrentPost.group |
+                                Select-Object -Property *,
+                                @{L = 'RealTitle'; e = { $RealTitle } },
+                                @{L = 'ThreadCount'; e = { $CurrentPost.count }
+                                }
+                            }
+                            elseif ($CurrentPost.group.title2 -match '^http')
+                            {
+                                # get url of one
+                                $u = ($CurrentPost.group |
+                                        Where-Object {
+                                            $_.title2 -match '^http' } |
+                                        Select-Object -first 1).link
 
-                # add REALTitle prop
-                $RealTitle = $result.ParsedHtml.title
-                # output object
-                $CurrentPost.group |
-                    Select-Object *, @{L = 'RealTitle'; e = { $RealTitle }
-                    }
-            }
-            else
-            {
-                # add REALTitle prop
-                $RealTitle = 'unknown'
-                # output object
-                $CurrentPost.group | Select-Object *, @{L = 'RealTitle'; e = { $RealTitle } }
-            }
-        }
-    }
+                                    # lookup online
+                                    $result = Invoke-WebRequest -Uri $u -Method Get
+
+                                    # add REALTitle prop
+                                    $RealTitle = $result.ParsedHtml.title
+                                    # output object
+                                    $CurrentPost.group |
+                                        Select-Object *, @{L = 'RealTitle'; e = { $RealTitle }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        # add REALTitle prop
+                                        $RealTitle = 'unknown'
+                                        # output object
+                                        $CurrentPost.group | Select-Object *, @{L = 'RealTitle'; e = { $RealTitle } }
+                                    }
+                                }
+                            }
 
 # Append the thread information to the each comment object
 # Here we just pass the realtitle and link2
@@ -259,13 +259,13 @@ $AllTogether = $AllComments | ForEach-Object -Process {
             $_.id -match $CommentItem.ThreadId
         }
 
-    $CommentItem |
-        Select-Object -Property *,
-        @{L = 'ThreadTitle'; E = { $ThreadInformation.Realtitle } },
-        @{L = 'ThreadLink'; E = { $ThreadInformation.link2 } }
-} |
-Group-Object -Property ThreadLink |
-Where-Object -FilterScript { $_.name } | select-object -ExpandProperty group
+        $CommentItem |
+            Select-Object -Property *,
+            @{L = 'ThreadTitle'; E = { $ThreadInformation.Realtitle } },
+            @{L = 'ThreadLink'; E = { $ThreadInformation.link2 } }
+        } |
+            Group-Object -Property ThreadLink |
+            Where-Object -FilterScript { $_.name } | select-object -ExpandProperty group
 
 Write-Build DarkGray "`$AllTogether : $($AllTogether.Count)"
 #$AllTogether
@@ -315,17 +315,17 @@ $AllTogether | Sort-Object name -Descending | ForEach-Object -Process {
     $IssueObject = $issues |
         Where-Object -filterscript { $_.title -eq $IssueTitle }
 
-    if (-not $IssueObject)
-    {
-        # Build Header of the post
-        $IssueHeader = $BlogPost.group.ThreadTitle |
-            Select-Object -first 1
+        if (-not $IssueObject)
+        {
+            # Build Header of the post
+            $IssueHeader = $BlogPost.group.ThreadTitle |
+                Select-Object -first 1
 
-        # Define blog post link
-        $BlogPostLink = "$($BlogUrl)$($BlogPost.name)"
+                # Define blog post link
+                $BlogPostLink = "$($BlogUrl)$($BlogPost.name)"
 
-        # Define body of the issue
-        $Body = @"
+                # Define body of the issue
+                $Body = @"
 # $IssueHeader
 
 [$BlogPostLink]($BlogPostLink)
@@ -334,35 +334,35 @@ $AllTogether | Sort-Object name -Descending | ForEach-Object -Process {
 Imported via PowerShell on $(Get-Date -Format o)
 -->
 "@
-        # Create an issue
-        Write-Build DarkGray "$IssueTitle issue being created"
+                # Create an issue
+                Write-Build DarkGray "$IssueTitle issue being created"
 
-        $IssueObject = New-GitHubIssue @githubsplat `
-            -Title $IssueTitle `
-            -Body $body `
-            -Label 'blog comments' -WhatIf
-    }
-
-    # Sort comment by createdAt
-    $BlogPost.group |
-        Where-Object { $_.isspam -like '*false*' } |
-        Sort-Object createdAt |
-        ForEach-Object {
-
-            # Current comment
-            $CurrenComment = $_
-
-            # Author update
-            #  we replace my post author name :)
-            $AuthorName = $($CurrenComment.AuthorName)
-            switch -regex ($AuthorName)
-            {
-                'Sheldon' { $AuthorName = 'Sheldon Hull' }
-                default { }
+                $IssueObject = New-GitHubIssue @githubsplat `
+                    -Title $IssueTitle `
+                    -Body $body `
+                    -Label 'blog comments' -WhatIf
             }
 
-            # Define body of the comment
-            $CommentBody = @"
+            # Sort comment by createdAt
+            $BlogPost.group |
+                Where-Object { $_.isspam -like '*false*' } |
+                Sort-Object createdAt |
+                ForEach-Object {
+
+                    # Current comment
+                    $CurrenComment = $_
+
+                    # Author update
+                    #  we replace my post author name :)
+                    $AuthorName = $($CurrenComment.AuthorName)
+                    switch -regex ($AuthorName)
+                    {
+                        'Sheldon' { $AuthorName = 'Sheldon Hull' }
+                        default { }
+                    }
+
+                    # Define body of the comment
+                    $CommentBody = @"
 
 ## **Author**: $AuthorName
 **Posted on**: ``$($CurrenComment.createdAt)``
@@ -374,17 +374,17 @@ Json_original_message:
 $($CurrenComment|Select-Object -ExcludeProperty raw|ConvertTo-Json)
 -->
 "@
-            # Create Comment
-            Write-Build DarkGray "$($IssueObject.number) comment added"
+                    # Create Comment
+                    Write-Build DarkGray "$($IssueObject.number) comment added"
 
-            New-GitHubComment @githubsplat `
-                -Issue $IssueObject.number `
-                -Body $CommentBody -WhatIf
-        }
-    # Close issue
-    Update-GitHubIssue @githubsplat `
-        -Issue $IssueObject.number `
-        -State Closed -WhatIf
+                    New-GitHubComment @githubsplat `
+                        -Issue $IssueObject.number `
+                        -Body $CommentBody -WhatIf
+                }
+                # Close issue
+                Update-GitHubIssue @githubsplat `
+                    -Issue $IssueObject.number `
+                    -State Closed -WhatIf
 
-    read-host "enter to continue"
-}
+                read-host "enter to continue"
+            }
