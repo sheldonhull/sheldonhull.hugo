@@ -31,7 +31,8 @@
 		"yzhang.markdown-all-in-one",
 		"vivaxy.vscode-conventional-commits",
 		"skn0tt.markdown-link-expander",
-		"mhutchie.git-graph"
+		"mhutchie.git-graph",
+		"znck.grammarly"
 	],
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     "forwardPorts": [
