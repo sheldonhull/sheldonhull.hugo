@@ -1,19 +1,50 @@
 <footer id="site-footer" class="section-inner thin animated fadeIn slower">
-    <p>
-        {{ if .Site.Params.since }}
-          {{ .Site.Params.since }} - {{ .Site.LastChange.Format "2006" }}
-        {{ else }}
-          {{ .Site.LastChange.Format "2006" }}
-        {{ end }}
-        &nbsp;&bull;&nbsp;Site Updated <span class="relativetime" datetime="{{ .Site.LastChange.Format "2006-01-02T15:04:05" }}" title="{{ .Site.LastChange.Format "January 2, 2006" }}">{{ .Site.LastChange.Format "January 2, 2006" }}</span>
-        &nbsp;&bull;&nbsp;<a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit Theme</a>&nbsp;&bull;&nbsp;<a href="https://github.com/sheldonhull/sheldonhull.hugo/commit/{{ getenv "GIT_COMMIT_SHA" }}">Page [
-          {{- getenv "GIT_COMMIT_SHA_SHORT" -}}
-          ]</a>
-          {{- with .GitInfo -}}
-          &nbsp;&bull;&nbsp;<a href="https://github.com/sheldonhull/sheldonhull.hugo/commit/{{ .AbbreviatedHash }}">Site {{ .AbbreviatedHash }}</a>
-            {{- end -}}
-            &nbsp;&bull;&nbsp;<img src="https://api.netlify.com/api/v1/badges/cc815d05-9008-4078-8e4f-bad42eb3281a/deploy-status" style="padding-top:5px; max-height:15px; ">
-        {{- with (not (in (.Site.Language.Get "disableKinds") "RSS")) }}<br><a href="https://www.feedio.co/@sheldon_hull?came_from=homepagefeedbutton" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg><stronger> Subscribe</stronger></a>{{ end }}
-
-    </p>
+  <p>
+    {{ if .Site.Params.since }}
+    {{ .Site.Params.since }} - {{ .Site.LastChange.Format "2006" }}
+    {{ else }}
+    {{ .Site.LastChange.Format "2006" }}
+    {{ end }}
+    &nbsp;&bull;&nbsp;Site Updated <span class="relativetime"
+      datetime="{{ .Site.LastChange.Format "2006-01-02T15:04:05" }}"
+      title="{{ .Site.LastChange.Format "January 2, 2006" }}">{{ .Site.LastChange.Format "January 2, 2006" }}</span>
+    &nbsp;&bull;&nbsp;<a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit
+      Theme</a>&nbsp;&bull;&nbsp;<a
+      href="https://github.com/sheldonhull/sheldonhull.hugo/commit/{{ getenv "GIT_COMMIT_SHA" }}">Page [
+      {{- getenv "GIT_COMMIT_SHA_SHORT" -}}
+      ]</a>
+    {{- with .GitInfo -}}
+    &nbsp;&bull;&nbsp;<a href="https://github.com/sheldonhull/sheldonhull.hugo/commit/{{ .AbbreviatedHash }}">Site
+      {{ .AbbreviatedHash }}</a>
+    {{- end -}}
+    &nbsp;&bull;&nbsp;<img
+      src="https://api.netlify.com/api/v1/badges/cc815d05-9008-4078-8e4f-bad42eb3281a/deploy-status"
+      style="padding-top:5px; max-height:15px; ">
+    {{- with (not (in (.Site.Language.Get "disableKinds") "RSS")) }}<br><a
+      href="https://www.feedio.co/@sheldon_hull?came_from=homepagefeedbutton" target="_blank" title="rss"><svg
+        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss">
+        <path d="M4 11a9 9 0 0 1 9 9"></path>
+        <path d="M4 4a16 16 0 0 1 16 16"></path>
+        <circle cx="5" cy="19" r="1"></circle>
+      </svg>
+      <stronger> Subscribe</stronger>
+    </a>{{ end }}
+  <div class='feedio-subscribe'>
+    <form action='https://www.feedio.co/@sheldon_hull/verify' id='subscribe_widget_sheldon_hull' method='post'
+      target='popupwindow'>
+      <p>
+        <input class='feedio-email' name='email' type='text'>
+      </p>
+      <p>
+        <input class='feedio-submit' type='submit' value='Subscribe'>
+      </p>
+      <p style='font-size:0.9em'>
+        Powered by
+        <a
+          href='http://www.feedio.co?utm_source=sheldon_hull_site&utm_medium=widget&utm_campaign=powered_by_feedio_html_email_widget'>Feedio</a>
+      </p>
+    </form>
+  </div>
+  </p>
 </footer>
