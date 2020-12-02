@@ -1,22 +1,7 @@
-
-applause-button {
-    position: relative;
-    cursor: pointer;
-    margin-top:30px;
-    filter: drop-shadow(0 0 9px #03edf9);
-    box-shadow: inset 0 -5px 25px #fc28a825;
-    position: relative;
-    background-color: transparent !important;
-    background-image: linear-gradient(to bottom, #2a2139 75%, #34294f);
-    border-radius: 30px;
-    /*   background-size: auto 100vh;*/
-
-}
-
 @mixin animate-once($name) {
     animation-name: $name;
     animation-duration: 0.5s;
-    animation-iteration-count:10;
+    animation-iteration-count: 1;
 }
 
 @mixin centered-square($size) {
@@ -37,9 +22,15 @@ applause-button {
 
 applause-button {
     position: relative;
-    cursor:pointer;
-
-
+    cursor: pointer;
+    margin-top: 30px;
+    filter: drop-shadow(0 0 9px #03edf9);
+    box-shadow: inset 0 -5px 25px #fc28a825;
+    position: relative;
+    background-color: transparent !important;
+    background-image: linear-gradient(to bottom, #2a2139 75%, #34294f);
+    border-radius: 30px;
+    /*   background-size: auto 100vh;*/
     .style-root {
         @include position-fill();
 
@@ -94,20 +85,13 @@ applause-button {
 
     .count-container {
         position: absolute;
-        top: -55%;
+        top: -40%;
         width: 100%;
-        color: $light-grey;
+        color: gray;
         user-select: none;
 
         .count {
-            margin-left: 50%;
-            transform: translateX(-50%);
-            width: 1000px;
             text-align: center;
-            color: #06b6ef!important;
-            filter: drop-shadow(0 0 10px #03edf9);
-            font-size: 1.8em;
-
         }
     }
 
