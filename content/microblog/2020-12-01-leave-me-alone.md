@@ -20,9 +20,9 @@ This has resulted in me looking more favorably at apps I would have dismissed in
 ## Leave Me Alone
 
 The notion of buying credits for something I could script, click, or do myself made me use sporadically last year.
-This year, I took the plunge and spent $10 and really appreciate the concept and cost.
+This year, I took the plunge and spent $10 and appreciate the concept and cost.
 
-If you have a lot of tech interaction, it's likely you'll have a slew of newsletter and marketing subscriptions coming your way.
+If you have a lot of tech interaction, you'll have a slew of newsletter and marketing subscriptions coming your way.
 This noise can drown your email.
 
 I saw one Children's clothing place that got my email on a receipt generate an average of 64 emails a month!
@@ -38,8 +38,8 @@ Take a look, the free start is enough to figure out if you like it.
 Combine this type of tool with:
 
 - [Kill The Newsletter](https://kill-the-newsletter.com/)
-- [Feedly (RSS Reader)](https://feedly.com/i/discover)
+- [Inoreader (RSS Reader)](https://www.inoreader.com/)
 - [Subscription Score](https://subscriptionscore.com/): a really promising tool made by the same folks, but haven't added at this time as price seems a bit high for this specific feature if I'm already using their app. (at this time $49 a year). Be nice if this was a feature provided automatically to those who bought 250 credits or more since it's powered by the data mining of lists users unsubscribe from the most.
 
 You'll be more likely to keep up to date with this noise reduced.
-Last tip: Add GitHub Release notes like Terraform and others as a subscription in Feedly and it further reduce the noise via email and slack on releases.
+Last tip: Add GitHub Release notes like Terraform and others as a subscription in your RSS reader, and it might reduce the noise via email and slack on releases.
