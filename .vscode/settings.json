@@ -3,6 +3,7 @@
         "editor.defaultFormatter": "yzhang.markdown-all-in-one"
     },
     "grammarly.userWords": [
+        "CLI",
         "Localdb",
         "cli",
         "dbaconnection",
@@ -12,8 +13,8 @@
         "ldf",
         "localdb",
         "mdf",
-        "pwsh",
-        "CLI"
+        "omitempty",
+        "pwsh"
     ], // no protected branches on this blog repo, as I edit and work with master directly for CI
     "branchwarnings.protectedBranches": [
         ""

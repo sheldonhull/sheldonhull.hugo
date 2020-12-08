@@ -1,10 +1,17 @@
 {
-     "Print to console": {
-         "scope": "markdown",
-         "prefix": "premonition",
-         "body": [
+    "Print to console": {
+        "scope": "markdown",
+        "prefix": "premonition",
+        "body": [
             "{{< premonition type=\"${1|info,warning|}\" title=\"${Title}\" >}}\r\n$0\r\n{{< /premonition >}}"
-         ],
-         "description": "premonition notice for notice box"
-     }
+        ],
+        "description": "premonition notice for notice box"
+    },
+    "rel-reference": {
+        "prefix": "rel-reference",
+        "description": "internal link to another doc",
+        "body": [
+            "[${2:LinkInfo}]({{< relref \"${1:FileNameNoPath}\" >}} \"${2:LinkInfo}\")"
+        ]
+    }
 }

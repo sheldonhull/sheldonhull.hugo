@@ -197,7 +197,7 @@ markup:
       autoHeadingIDType: github
     renderer:
       hardWraps: false
-      unsafe: false
+      unsafe: true
       xHTML: false
   highlight:
     codeFences: true

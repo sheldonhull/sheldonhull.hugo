@@ -21,12 +21,12 @@ toc: true
 - [Cmder](http://bit.ly/2GnxzpH)
 {{< /premonition >}}
 
-
 ## Git Some Pain
 
 Having come from a Team Foundation Server background, I found Git to be a bit confusing. The problem is primarily the big difference in a distributed version control system vs non-distributed. In addition to that complexity the terminology is not exactly intuitive. A lot of phrases like `PULL` have different results depending on what step you are in.
 
 ### Here's Your Sign
+
 Here's my version of "Here's Your Sign" For Newbie Git Users That Are Coming from TFS Background
 
 You Must a TFS'er using Git when...
