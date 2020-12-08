@@ -8,7 +8,7 @@ tags:
   - tech
   - development
   - aws
-  - go
+  - golang
   - metrics
 toc: true
 featuredImg: /images/2020-12-08_13-23-25-matching-images-cover.png
