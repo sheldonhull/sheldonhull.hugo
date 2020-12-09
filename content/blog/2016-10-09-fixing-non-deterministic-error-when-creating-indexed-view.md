@@ -31,4 +31,3 @@ Stack Overflow to the rescue... The issue is with float values.
     + isnull(cast  (t2.Fooey as nvarchar(max)),''') + N'''
 
 If you can resolve these issues then you are on your way to resolving the other thousand restrictions on indexed views.... :-)  Good luck!
-

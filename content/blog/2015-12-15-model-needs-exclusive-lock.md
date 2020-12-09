@@ -11,4 +11,3 @@ Ran into an issue where a developer was trying to create a database and was deni
 In my case I had connected with SSMS directly to model for some queries instead of master. In this case, SQL Complete (Devarts's excellent alternative to SQL Prompt) was querying the schema had this open session was blocking usage of model to create a new database. After killing this low priority query session, no issues were experienced.
 
 Good to remember! Don't connect directly to model unless you have a specific reason to do so. Otherwise, you might be the culprit on some blocking errors.
-

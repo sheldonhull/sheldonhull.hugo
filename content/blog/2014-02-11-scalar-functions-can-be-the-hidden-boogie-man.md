@@ -11,4 +11,3 @@ Suggest reading "Death by UDF" section by Kevin Boles.
 This comment is buried at the very end of the chapter. He indicates
 
 > "One final parting gift: scalar UDFs also void the use of parallel query plans, which is why the FormatDate UDFpegged only ONE CPU core on my laptop! " (Page 194-summary)
-

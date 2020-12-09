@@ -33,4 +33,3 @@ Music:
 > *   Panasonic GH3
 > *   Editing with [Edius 8.2 ](http://bit.ly/2fqxVlw)
 > *   Graded with [Magic Bullet Looks](http://bit.ly/2fqzxvT)
-

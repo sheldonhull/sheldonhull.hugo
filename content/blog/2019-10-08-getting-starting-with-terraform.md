@@ -19,13 +19,13 @@ tags:
 - Replaced details on creating terraform credential file with the new `tf login` command
 {{< /premonition >}}
 
-Getting started with using Terraform for infrastructure can be a bit daunting if you've not dived into this stuff before. 
-I put this together as a write up for those looking to get their feet wet and have a better idea of where to go for getting some momentum in starting. 
+Getting started with using Terraform for infrastructure can be a bit daunting if you've not dived into this stuff before.
+I put this together as a write up for those looking to get their feet wet and have a better idea of where to go for getting some momentum in starting.
 There are some assumptions in this, such as basic familiarity with git for source control automation, basic command line usage, and basic cloud familiarity.
 
-If time permits, I plan on writing up some more detailed walk through in future posts on Terraform iteration methods, object types, dynamic data inputs, and other things I've explored. 
-However, what I've found is just getting the initial start seems to be a blocker for many people interested in trying it. 
-Hopefully, this will give someone a head start on getting a basic plan going so they can understand how this works a little better and the other more detailed tutorials that abound will make more sense then. 
+If time permits, I plan on writing up some more detailed walk through in future posts on Terraform iteration methods, object types, dynamic data inputs, and other things I've explored.
+However, what I've found is just getting the initial start seems to be a blocker for many people interested in trying it.
+Hopefully, this will give someone a head start on getting a basic plan going so they can understand how this works a little better and the other more detailed tutorials that abound will make more sense then.
 Give this post a clap or leave a comment if it helps you or you have any feedback. Cheers! :cheers:
 
 ## Purpose of This Post
@@ -39,8 +39,8 @@ In retrospect, Terraform Cloud intermixed with getting up and running as a new u
 
 In technical documentation, there is a difference between a tutorial and a getting started. The getting started here is going to focus just on getting up and running, not on all the concepts about infrastructure as code.
 I found that just doing it the first time was the hardest thing.
-Terminology about modules and re-usability at the beginning of my efforts with Terraform went straight over my head as I couldn't fully wrap my understanding around how it would work. 
-Now that I've gotten a lot more experience with Terraform for various projects, I've got some personal "best-practices" that I've found as well as insight from the community. 
+Terminology about modules and re-usability at the beginning of my efforts with Terraform went straight over my head as I couldn't fully wrap my understanding around how it would work.
+Now that I've gotten a lot more experience with Terraform for various projects, I've got some personal "best-practices" that I've found as well as insight from the community.
 
 That's for another day :grin:
 
@@ -131,7 +131,7 @@ terraform workspace new qa
 Terraform should select this new workspace by default. You can list the current workspaces using `terraform workspace list` and then select another one later if you wish by running `terraform workspace select qa`.
 
 {{< premonition type="warning" title="Terraform Workspace Naming" >}}
-Personally, I'd recommend to not drive much of your naming or other configuration based on the workspace name, and instead use variables. 
+Personally, I'd recommend to not drive much of your naming or other configuration based on the workspace name, and instead use variables.
 
 Terraform Cloud behavior with trying to use workspace names at the time of this post was not what I expected, so I ended up removing my dependency on workspace names being important for the configuration. See [GitHub Issue](https://github.com/hashicorp/terraform/issues/22802#issuecomment-544499610)
 
@@ -144,7 +144,7 @@ Deploying is as simple as running `terraform apply`. You'll get a preview of the
 
 ### If You Connected This to Terraform Cloud
 
-This is assuming you are running via Terraform Cloud. 
+This is assuming you are running via Terraform Cloud.
 To run locally, you'll want to go to the workspace you created in Terraform Cloud and in the General Settings set to run locally instead of remote.
 
 This means you'll be able to run the apply directly on your machine instead of running it from the remote location.
@@ -155,7 +155,7 @@ My preferred solution for this is to setup another Terraform workspace to create
 This is a more advanced operation and not required on your first go-round, but keep it in mind as you scale up to managing many workspaces later on.
 {{< /premonition >}}
 
-Connecting your git repository to your Terraform workspace can also be done for automatically planning on commit. 
+Connecting your git repository to your Terraform workspace can also be done for automatically planning on commit.
 This forces changes to come through your git commits instead of being able to run locally, which can be great for ensuring source control truly is the equivalent of your release when working with a team.
 
 ## Tearing Down Infrastructure
@@ -166,8 +166,8 @@ If you are using Terraform Cloud, in order to destroy a remote workspace (by que
 
 ## Wrap up
 
-Terraform documentation is pretty solid on all the provider resources, so you can normally copy and paste (or use vscode extension mentioned). 
-Another great way to learn is to look at github and the various Terraform modules that have been published. 
+Terraform documentation is pretty solid on all the provider resources, so you can normally copy and paste (or use vscode extension mentioned).
+Another great way to learn is to look at github and the various Terraform modules that have been published.
 You can see how they structure their code a bit better and learn from that as well.
 
 If you are using Visual Studio Code, also download the Hashicorp Terraform extension for extra support.

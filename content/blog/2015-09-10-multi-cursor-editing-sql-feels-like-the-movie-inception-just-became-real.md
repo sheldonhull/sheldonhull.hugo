@@ -19,4 +19,3 @@ I apologize in advance for the video quality. I plan on recording a better one i
 
 
 ![Multi-cursor editing #2](/images/Sublime-Multi-Cursor-Editing-Example-21.gif)
-

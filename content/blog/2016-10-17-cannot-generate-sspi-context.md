@@ -27,4 +27,3 @@ Still no luck....
 Finally, I switched the account to use LocalSystem (this was in a dev environment) following the [directions by Bob Sullentrup ](http://dba.stackexchange.com/a/150447/7682) and this allowed it to successfully register the SPN.
 
 I'll update my blog post when I have a better understanding on exactly why this occurs, but for now, at least I was able to proceed.
-

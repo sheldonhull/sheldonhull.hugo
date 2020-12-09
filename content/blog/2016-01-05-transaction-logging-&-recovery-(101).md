@@ -56,4 +56,3 @@ Transaction Has Committed
 *   Before the transaction can commit, the transaction log file has to be written through to disk. - Once the transaction log is written out to disk, the transaction is considered _durable_
 *   If you are using mirroring, the system will stop and wait for the replica/mirror to harden the transaction to the mirror db log file on disk, and then can harden the transaction log to the disk on the primary.
 *   The Log file basically represents an exact playback of what changes have been made, so even if the buffer was cleared (removing the pages that were changed in buffer), SQL crashed, or your server went down, SQL server can recover the changes that were made from the log file. This is the "description" of the changes that were made.
-

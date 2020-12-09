@@ -15,4 +15,3 @@ I ended up deleting everything in the v11.0 Instances folder and then issuing th
 Resulting in message: `LocalDB instance "v11.0" created with version 11.0.3000.0.`
 
 Success! This resulted in the instance being created successfully, and then I was able to login with SSMS. Apparently today was my day for learning some localdb permissions issues. What a blast..... Could have avoided this if I had simply used a test login, or had setup the SA with a proper password for logging in. `#sqlfail`
-

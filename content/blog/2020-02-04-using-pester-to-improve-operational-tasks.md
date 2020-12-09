@@ -6,7 +6,7 @@ excerpt: Leverage more software development testing principles for operational t
   to improve the quality and repeatability of work completed
 comments: true
 toc: true
-images: 
+images:
 tags:
 - tech
 - devops
@@ -236,7 +236,7 @@ Take a look at the simple Pester syntax examples or the gherkin examples I gave 
 
 ## Helped?
 
-If you found these concepts helpful and would like an example of using Pester to test SQL Server login authentication, user group assignment, and more, let me know. I've done SQL Server pester tests using traditional Pester syntax that would validate maintenance solution deployment, login mapping, and more. If this was valuable, I could do a write-up of this. 
+If you found these concepts helpful and would like an example of using Pester to test SQL Server login authentication, user group assignment, and more, let me know. I've done SQL Server pester tests using traditional Pester syntax that would validate maintenance solution deployment, login mapping, and more. If this was valuable, I could do a write-up of this.
 
 If you also would like more fundamentals, I'd be willing to do a basic Pester write-up for an operational focused task that is ground zero too, just depends if you the reader find this helpful.
 

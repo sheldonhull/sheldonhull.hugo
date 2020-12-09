@@ -37,4 +37,3 @@ This seems speak to the mentality today that algorithms and user behavior drive 
 ## honorable mention Pandora
 
 Overall, the winner for me is Spotify. However, if Pandora's new service wasn't so darn limited in selection, inconsistent with on demand availability, and implemented on desktop as well as mobile I'd recommend them. As it stands, I can't recommend it at this time.
-

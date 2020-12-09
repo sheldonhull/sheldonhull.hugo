@@ -46,4 +46,3 @@ _Disclaimer: as a Friend of Redgate, I'm provided with app for usage, this doesn
 >
 > Write and format SQL with SQL Prompt's IntelliSense-style code completion, customizable code formatting, snippets, and tab history for SSMS. Try it free
 <script data-preserve-html-node="true" async=" src="platform.js" charset="UTF-8"></script>
-

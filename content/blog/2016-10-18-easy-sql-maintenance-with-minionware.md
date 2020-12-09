@@ -11,7 +11,7 @@ tags:
 ---
 
 {{< premonition type="info" title="Updated 2020-07-06" >}}
-After a great chat with Sean today (creator), I did see some pretty cool benefits that for those looking for more scalability, will find pretty interesting. 
+After a great chat with Sean today (creator), I did see some pretty cool benefits that for those looking for more scalability, will find pretty interesting.
 
 * Backup tuning: based on the size or specific database, use striped backups to enhance performance of backup jobs
 * Enterprise edition, centrally manage and report on all backups across all servers.

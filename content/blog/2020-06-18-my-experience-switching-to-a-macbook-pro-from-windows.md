@@ -57,7 +57,7 @@ Overall, that made it a much better developer onboarding experience than trying 
 
 * As of this time, mouse cursor not auto-hiding in full screen video without work arounds on certain sites.
 * Experimenting with some apps resulted in 2 full system crashes in first 3 weeks of using, so stability while good wasn't as stellar as I was hoping. Just like Windows, it all depends on what you are running.
-* Massive lag on bluetooth and even Logitech Unifying receiver based mouse and keyboard, enough to make them unusable. Others seem to have had similar issues when I searched. 
+* Massive lag on bluetooth and even Logitech Unifying receiver based mouse and keyboard, enough to make them unusable. Others seem to have had similar issues when I searched.
 * Need to buy a powered hub to expand ports, as only USB-C resulting in all my peripherals not working.
 
 ## Verdict

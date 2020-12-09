@@ -71,4 +71,3 @@ I'm pretty happy with the documentation and support, as they have a wide range o
 
 [Check out a trial](http://bit.ly/2dHCt87) if you want to give it a shot and post some feedback below on what you think. Remember, I'm not an affiliate, or getting paid for anything on this, I just like reviewing and referring folks to good software.
 Good luck!
-

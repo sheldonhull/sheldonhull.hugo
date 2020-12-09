@@ -22,4 +22,3 @@ To enable it on the instance upon startup:
 4.  Confirm the change by navigating to Advanced > Startup Parameters. This should be grayed out and display the new value that was added at the end with a delimited semicolon.
 
 ![Startup Properties Setting for Confirmation](/images/2016-08-30_09-58-08.png)
-

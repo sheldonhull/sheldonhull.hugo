@@ -14,4 +14,3 @@ If you have a keyword selected and want to view details, definition, and example
 ![f1_shortcut_query](/images/f1_shortcut_query_kfowoy.png)
 
 ![f1_shortcut_results](/images/f1_shortcut_results_cayikt.png)
-

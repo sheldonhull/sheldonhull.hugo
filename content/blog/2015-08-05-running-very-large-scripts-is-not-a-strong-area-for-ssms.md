@@ -33,4 +33,3 @@ I haven't switched to using it as my primary development environment because of 
 Other than a few minor quibbles like that I'm pretty happy with it. They've done a great job and the skinning of the app is great, giving you the option of dark or light themes.
 
 _Devart apps provided to me for my evaluation, but are not biasing my recommendation._
-

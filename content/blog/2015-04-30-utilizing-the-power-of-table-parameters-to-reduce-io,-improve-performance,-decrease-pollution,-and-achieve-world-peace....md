@@ -26,4 +26,3 @@ The footprint is reduced when dealing with IO from the child statement, because 
 ![TVP Test 6](/images/Miscellaneous_Files_-_Testing_New_Stored_Proc_with_Debug.sql_--2015-04-30_10_06_40_ojiues.png)
 
 In summary, the table valued parameter can end up being pretty powerful when dealing with passing a list of values that may need to be referenced by several actions or passed to nested procs (not that this is the best practice anyway). Disclaimer: this is working with the constraints of what I have to release soon, so not saying that nested procs with dynamic sql in both MAIN and CHILD are a great practice, but sometimes you gotta do what you gotta do!
-

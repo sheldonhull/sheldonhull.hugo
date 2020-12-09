@@ -78,4 +78,3 @@ Some recent updates were released with version 4 that might be beneficial for yo
 ## its not CRUD.... it's quite nice!
 
 While it doesn't really do full formatting or other things, the organized query execution, CRUD generator, and some other features make it a nice tool if you have the budget to purchase. It's a especially a good tool for those who want to generate CRUD procs easily.
-

@@ -180,4 +180,3 @@ MSDN article with example code to walk through it
     from
     dbo.TestImplicitTrans as TIT;
     go
-

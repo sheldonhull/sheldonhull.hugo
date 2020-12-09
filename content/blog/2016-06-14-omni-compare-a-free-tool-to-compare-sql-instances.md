@@ -49,4 +49,3 @@ Simple and quick to add a server, as well as tag them so you can easily compare 
 Makes it very easy to immediately just view configuration scoped differences between each
 
 ![Configuration Differences](/images/configuration-differences.png)
-

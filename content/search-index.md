@@ -4,4 +4,3 @@ type: "search-index"
 url: "index.json"
 hidden: true
 ---
-

@@ -68,4 +68,3 @@ GO
 ## Visualized in Power Bi
 
 ![Visualized in Power Bi](/images/visualized-in-power-bi.png)
-

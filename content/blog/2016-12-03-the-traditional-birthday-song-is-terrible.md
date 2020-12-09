@@ -34,4 +34,3 @@ New lyrics:
     Hey hey hey, It's your birthday day
     Sing Loud, Sing Proud, It's Your Birthday
     - Creative Commons Zero CC0, so do whatever you want with this bit of musical genius
-

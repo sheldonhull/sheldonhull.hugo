@@ -117,4 +117,3 @@ The MSBuild XML project file format cannot fully execute build operations on its
 The execution logic of a task is implemented as a .NET class that implements the ITask interface, which is defined in the Microsoft.Build.Framework namespace.
 
 The task class also defines the input and output parameters available to the task in the project file. [MSBuild Tasks](https://msdn.microsoft.com/en-us/library/ms171466(v=vs.120).aspx#Anchor_0)
-

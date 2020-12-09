@@ -12,4 +12,3 @@ I found matches for read committed/uncommitted string at: `HKCU\SOFTWARE\Microso
 
 Running the following powershell command:
 `get-itemproperty -path 'Registry::HKCU\SOFTWARE\Microsoft\VisualStudio\14.0\SSDT\SQLEditorUserSettings' ' select SetTransactionIsolationLevel ' format-list`
-

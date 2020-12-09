@@ -44,4 +44,3 @@ Finally, the killer feature for those fans of Everything search tool (Void) is t
 ![everything search engine integration](/images/FARR2_8_Plugin_Manager-2015-01-13_08_03_47_bqwkdp.png)
 
 Why does this tool not get more recognization! What a life saver as you search through sql files, projects, and docs! Hope this helped point you in the direction of an amazing tool... post a comment if you try it out and tell me what you think! [Find and Run Robot Help](http://goo.gl/rQ3YEE) [Find and Run Robot Download](http://goo.gl/RIjaoF)
-

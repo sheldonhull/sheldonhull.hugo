@@ -17,4 +17,3 @@ Since table size has a direct impact on the compare due to local caching of the 
 
 If I setup a comparison on a view with custom key (due to no index on the view), and I drop and recreate the view for a new definition, the comparison options are not persisted (for example the custom key). I'm not sure if this is due to the underlying changes on the `object_id` and lack of clustered index for explicit mapping, but persisting this would be really nice when the columns used for key comparison still exist.
 Overall, as a friend of Redgate I'm
-

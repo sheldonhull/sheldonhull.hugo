@@ -11,4 +11,3 @@ Snippet to designate a certain time of the day to evaluate in the current day. I
 ```sql
 select convert(datetime2(0),cast(cast(getdate() as date) as varchar(10)) + ' 09:00 ')
 ```
-

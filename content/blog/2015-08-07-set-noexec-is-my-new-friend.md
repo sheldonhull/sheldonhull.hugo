@@ -14,4 +14,3 @@ Turns out this can be a helpful way to validate larger batch scripts before actu
 > Having this function can be a nice resource for validation of scripts before running, without the overhead of estimated execution plans.
 > Additionally, you can handle transactional rollbacks and prevent cascading problems from happening when running a batch that changes your database by setting `NOEXEC ON` when encountering an error. Red Gate SQL Compare does this elegantly:
 > ![MyDescription](/images/2015.08.05_14h03m00s_026__ewrvo0.jpg)
-

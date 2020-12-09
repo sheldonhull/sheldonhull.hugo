@@ -20,4 +20,3 @@ AND ' Changed By ' <> [Field] ' Assigned to
 Note that you don't include brackets on the assigned to field, and that the <> [Field] is not a placeholder for you to type the field name in, it's actually the literal command for it to parse this correctly.
 
 ![Filter setup for tfs query](/images/SNAG-0036_q6zoow.png)
-

@@ -82,4 +82,3 @@ Some things that could use improvement:
 5.  Allow optional layouts like Tree, Hierarchical
 
 ![](/images/final-winner-dbschema_tyy0py.jpg)
-

@@ -38,4 +38,3 @@ Again, this was just a quick peek at what I've looked at. Overall, I like the de
 UI Design improvements are nice. I would say the next stage would be seeing this better design roll-out into better report styling & formats, making it consistent. Additionally, while the UI improvements are nice, the code diff viewer at the bottom looks pretty similar, and I'd love the ability to have this improved a little. Perhaps even the option to use "external diff viewer" and pipe it into my preferred diff viewer (Araxis Merge for me).
 Officially, I'm part of the Friend's of Red Gate community now, so I'll probably be posting a bit more on their tools as I've got the chance to work with more of them now. I've always been a big fan of their products, and now I get a chance to be part of their community and help with testing, feedback, and advocating their great stuff when it would help folks out.
 Final thought... why can't all great tools have a full Solarized Dark theme? ;-)
-

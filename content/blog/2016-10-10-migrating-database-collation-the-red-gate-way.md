@@ -16,4 +16,3 @@ I had some cross database comparisons that I wanted to simplify, but ensuring th
 Since the new database was created with the desired migration, I was good to go!
 
 _Note: I'm a member of Friends of Redgate program, and am provided with licenses for testing and feedback. This doesn't impact my assessments, as I just love finding good tools for development, regardless of who makes them!_
-

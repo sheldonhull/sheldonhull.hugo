@@ -13,4 +13,3 @@ Ran into an issue with the "Preview New Reporting Portal" link on a fresh instal
 
 Changing the virtual directory in the Report URL tab for SSRS configuration fixed this invalid link. In my case, I changed /Report to /Reporting.
 Thanks to [Adam on Stack Overflow](http://stackoverflow.com/questions/34410218/access-ssrs-2016-new-reporting-portal) for providing the solution and saving me a lot of time!
-

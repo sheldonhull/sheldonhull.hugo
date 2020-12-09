@@ -13,4 +13,3 @@ I've made it my personal quest as a creative who has a passion for videography t
 
 <iframe src="https://www.youtube.com/embed/BAj2xx1_sTg?wmode=opaque&enablejsapi=1" height="480" width="854" scrolling="no" frameborder="0" allowfullscreen="yes">
 </iframe>
-

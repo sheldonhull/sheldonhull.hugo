@@ -9,4 +9,3 @@ tags:
 ---
 - Using `cmd+=` results in zooming to 120%,145%,170%
 - Using `cmd+-` results in zooming out to 85%, 70%, 60%
-

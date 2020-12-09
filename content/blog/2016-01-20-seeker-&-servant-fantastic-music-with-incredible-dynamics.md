@@ -30,4 +30,3 @@ Would Like If:
 Here's the album on spotify for those who want to check it out!
 
 <iframe data-preserve-html-node="true" src="?uri=spotify%3Aalbum%3A4ZbX2MIrXRrTviMGDGsHpv" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-

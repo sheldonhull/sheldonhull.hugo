@@ -54,4 +54,3 @@ GCI C:\Temp | Where-Object { $_.FullName -match 'taco'} | Remove-Item
 So for me, I wanted to confirm that PowerShell was truly unable to resolve the issue without resorting to cmd.exe for this. Turns out it can, but you need to pass the matched object in, not expect it to match the filepath directly.
 
 Now to go eat some tacos....
-

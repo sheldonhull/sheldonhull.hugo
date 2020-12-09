@@ -24,4 +24,3 @@ It seems like a real promising toolkit for testing and reducing storage requirem
 I wasn't using for a while due to error message I couldn't figure out. I then read through the help documentation again and found that the permissions required for the service account should be a **local admin**. Once I added the service account to local admins, it correctly allowed the service to start.
 
 ![Error if you don](/images/2016-08-15_10-17-17.png)
-

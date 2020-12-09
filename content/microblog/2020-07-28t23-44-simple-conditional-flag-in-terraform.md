@@ -7,8 +7,8 @@ tags:
   - microblog
   - terraform
 ---
-Sometimes, you just need a very simple flag for enabled or disabled, or perhaps just a resource to deploy if `var.stage == "qa"`. 
-This works well for a single resource as well as collections if you provide the [splat syntax](https://bit.ly/39yHUP9). 
+Sometimes, you just need a very simple flag for enabled or disabled, or perhaps just a resource to deploy if `var.stage == "qa"`.
+This works well for a single resource as well as collections if you provide the [splat syntax](https://bit.ly/39yHUP9).
 
 ```powershell
 

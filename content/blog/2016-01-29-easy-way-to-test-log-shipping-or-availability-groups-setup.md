@@ -14,4 +14,3 @@ Side note: Fantastic training resource with great roi with Brent Ozar Unlimited 
 
 Recommend you add to your training budget asap. [Podcast Review Discount](http://bit.ly/1WRXNmx)
 Combine this with a subscription to Office Hours with the app Pocket Cast, and you'll have an easy way to keep up to date with some great tips.
-

@@ -82,4 +82,3 @@ In this case there is a shortcut to pull up a compare and you can open up the co
 ## thoughts
 
 If you are working with powershell then something like ISE Steroids can provide some smart help, ensuring better script quality, and hopefully saving some time. It's a recommended tool for my #cooltools list.
-

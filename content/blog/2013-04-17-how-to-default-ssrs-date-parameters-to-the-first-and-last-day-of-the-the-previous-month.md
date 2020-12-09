@@ -23,4 +23,3 @@ To set the default date of the parameters:
 3.  Paste the formula into the expression field and save.
 
 Result: Your default dates should now show last month's date range. You can apply your own rounding or date types if you wish, this provides the time as well, since I was working with smalldatetime, datetime, and datetime2 datatypes.
-
