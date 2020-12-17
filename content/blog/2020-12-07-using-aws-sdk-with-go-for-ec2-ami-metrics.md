@@ -81,7 +81,8 @@ From the initial iteration I'll post, there's quite a bit of room for even basic
 ## Caveat
 
 1. Still learning Go. Posting this up and welcome any pull requests or comments (comments will open GitHubub issue automatically).
-1. There is no proper isolation of functions and tests applied. I've determined it's better to produce and get some volume under my belt that focus on immediately making everything best practices. Once I've gotten more familar with Go proper structure, removing logic from `main()` and more will be important.
+1. There is no proper isolation of functions and tests applied. I've determined it's better to produce and get some volume under my belt that focus on immediately making everything best practices.
+Once I've gotten more familiar with Go proper structure, removing logic from `main()` and more will be important.
 1. This is not a complete walkthrough of all concepts, more a few things I found interesting along the way.
 
 ## Some Observations & Notes On V1 Attempt
@@ -111,7 +112,7 @@ In this case, I just set `omitempty` and it would set to null if I passed in a p
 
 ### Multi-Region
 
-Here things got a little confusing as I really wanted to run this concurrently, but shelved that for v1 to deliver results more quickly.
+Here things got a little confusing as I wanted to run this concurrently, but shelved that for v1 to deliver results more quickly.
 
 To initialize a new session, I provided my starting point.
 
@@ -126,7 +127,8 @@ if err != nil {
 log.Info().Str("region", string(*sess.Config.Region)).Msg("initialized new session successfully")
 ```
 
-Next, I had to gather all the regions. In my scenario, I wanted to add flexibility to ignore regions that were not opted into, to allow less regions to be covered when this setting was correctly used in AWS.
+Next, I had to gather all the regions.
+In my scenario, I wanted to add flexibility to ignore regions that were not opted into, to allow less regions to be covered when this setting was correctly used in AWS.
 
 ```go
 // Create EC2 service client
@@ -146,7 +148,10 @@ if err != nil {
 }
 ```
 
-The filter syntax is pretty ugly. Due to the way the SDK works, you can't just pass in `*[]string{"opted-in","opt-in-not-required}` and then reference this. Instead, you have to se the AWS functions to create pointers to the strongs and then dereference it apparently. Deep diving into this further was beyond my time alloted, but definitely a bit clunky.
+The filter syntax is pretty ugly.
+Due to the way the SDK works, you can't just pass in `*[]string{"opted-in","opt-in-not-required}` and then reference this.
+Instead, you have to set the AWS functions to create pointers to the strings and then dereference.
+Deep diving into this further was beyond my time allotted, but made my first usage feel somewhat clunky.
 
 After gathering the regions you'd iterate and create a new session per region similar to this.
 
@@ -225,7 +230,6 @@ if err != nil {
     log.Err(err).Msg("failure to find ami")
 }
 ```
-
 
 ## Feedback Welcome
 

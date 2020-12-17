@@ -1,4 +1,5 @@
 {
+    "explorer.sortOrder": "modified",
     "[markdown]": {
         "editor.defaultFormatter": "tehnix.vscode-tidymarkdown"
     },
@@ -16,9 +17,7 @@
         "omitempty",
         "pwsh"
     ], // no protected branches on this blog repo, as I edit and work with master directly for CI
-    "branchwarnings.protectedBranches": [
-        ""
-    ],
+    "branchwarnings.protectedBranches": [],
     "conventionalCommits.scopes": [
         "blog",
         "build",
