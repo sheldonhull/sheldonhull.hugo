@@ -72,7 +72,7 @@ At this stage, I'm using [zerolog](https://github.com/rs/zerolog) as I found it 
 
 The output of this demo looks pretty good!
 
-![Output from Zerolog](/static/images/r1-d014-structured-console-output.png)
+![Output from Zerolog](/images/r1-d014-structured-console-output.png)
 
 Here's a functional demo that can be used to bootstrap a new project with this.
 
