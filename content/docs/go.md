@@ -82,10 +82,10 @@ I'll eventually put these in a repo most likely, and have test cases to make run
 
 > Alex works at a clothing store. There is a large pile of socks that must be paired by color for sale. Given an array of integers representing the color of each sock, determine how many pairs of socks with matching colors there are. Return the total number of matching pairs of socks that Alex can sell.
 
-{{< gist "f7671b1d78705c329fe25b3c4af7c3ec" }}
+{{< gist "f7671b1d78705c329fe25b3c4af7c3ec" >}}
 
 ### Bubble Sort
 
 > Given an array of integers, sort the array in ascending order using the Bubble Sort algorithm above. Once sorted, print the following three lines for example: Array is sorted in 3 swaps. First Element: 1 Last Element: 6
 
-{{< gist "4aae8e98dd228530d97ce7c6e8208444" }}
+{{< gist "4aae8e98dd228530d97ce7c6e8208444" >}}
