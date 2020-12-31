@@ -3,7 +3,6 @@
 {{ end }}
 
 {{ define "main" }}
-{{ $pages :=  .Site.Pages }}
 <main class="site-main section-inner thin animated fadeIn faster">
     <h1>{{ .Title }}</h1>
     {{- if .Content }}
@@ -11,11 +10,11 @@
         {{ .Content }}
     </div>
     {{- end }}
-    {{ range $pages.GroupByDate "2006" }}
+    {{- range .Data.Pages.GroupByDate "2006" }}
     <div class="posts-group">
         <div class="post-year" id="{{ .Key }}">{{ .Key }}</div>
         <ul class="posts-list">
-            {{- range $pages }}
+            {{- range .Pages }}
             {{$section := .Section}}
             <li class="post-item">
                 <a href="{{.Permalink}}">

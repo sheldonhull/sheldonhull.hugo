@@ -65,3 +65,59 @@ svg[class~="fa-xs"],
 //   .microblog p > a {
 //     text-decoration: underline;
 //   }
+
+// Microblog on list page
+
+.microtag {
+   overflow:hidden;
+   display:inline-block;
+
+  .tag {
+    background: $dark-grey;
+    border-radius: 3px 0 0 3px;
+    color: $highlight-grey;
+    display: inline-block;
+    height: 1.5em;
+    line-height: 1.5em;
+    padding: 0 1em 0 1em;
+    position: relative;
+    // margin: 0 0.5em 0.5em 0;
+    text-decoration: none;
+    // -webkit-transition: color 0.2s;
+  }
+
+  .tag::before {
+    background: $theme;
+    border-radius: 10px;
+    box-shadow: inset 0 1px $theme;
+    // content: '';
+    height: 6px;
+    left: 10px;
+    position: absolute;
+    width: 6px;
+    top: 10px;
+    border-bottom: 1em solid transparent;
+    border-left: 1em solid $dark-grey;
+    border-top: 1em solid transparent;
+  }
+
+  .tag::after {
+    background: $theme;
+    border-bottom: 1em solid transparent;
+    border-left: 1em solid $dark-grey;
+    border-top: 1em solid transparent;
+    // content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .tag:hover {
+    background-color: crimson;
+    color: white;
+  }
+
+  .tag:hover::after {
+    border-left-color: crimson;
+  }
+}

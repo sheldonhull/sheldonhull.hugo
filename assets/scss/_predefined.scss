@@ -26,8 +26,11 @@ $font-content-size: 1.26em;
 
 @mixin aTag {
   a {
+    font-style: italic;
+    font-weight: bolder;
     word-wrap: break-word;
-    border: none;
+    color:$highlight-grey;
+    // border-bottom: $highlight-grey!important;
     box-shadow: inset 0 -4px 0 $theme;
     transition-property: background-color;
 

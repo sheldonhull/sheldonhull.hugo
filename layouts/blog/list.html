@@ -1,0 +1,57 @@
+{{ define "header" }}
+{{ partialCached "header.html" . }}
+{{ end }}
+
+{{ define "main" }}
+
+{{ $pages := (where .Site.Pages "Section" "in" (slice "microblog" "blog")) }}
+<main class="site-main section-inner thin animated fadeIn faster">
+    <h1>{{ .Title }}</h1>
+    {{- if .Content }}
+    <div class="content">
+        {{ .Content }}
+    </div>
+    {{- end }}
+    {{ range $pages.GroupByDate "January 2006" }}
+    <div class="posts-group">
+        <div class="post-year" id="{{ .Key }}">{{ .Key }}</div>
+        <ul class="posts-list">
+            {{- range .Pages }}
+            {{$section := .Section}}
+            <li class="post-item">
+                <a href="{{.Permalink}}">
+                    <span class="post-title"><span class="listmonth">{{ dateFormat "01-02" .Date }}</span>
+
+                    {{- if .Params.Draft -}}
+                        <div class="posttag draft">draft</div>
+                    {{- end -}}
+                    {{- if gt .Params.date now -}}
+                        <div class="posttag scheduled">scheduled</div>
+                    {{- end -}}
+
+                    {{- if in .Params.tags "microblog" -}}
+                    <span class="microtag"><span class="tag">microblog</span>
+                    {{- end -}}
+
+                    {{- if (findRE `\d{4}-\d{2}-\d{2}` .Title) -}}
+                        {{.Content | plainify | htmlUnescape | truncate 40 -}}
+                    {{ else if in .Params.tags "microblog"}}
+                        {{.Content | plainify | htmlUnescape | truncate 40 -}}
+                    {{ else }}
+                        {{- .Title -}}
+                    {{ end -}}
+                    </span>
+                    <span class="post-day">{{ .Date.Format (.Site.Params.dateFormat | default "") }}</span>
+                </a>
+            </li>
+            {{- end }}
+        </ul>
+    </div>
+    {{- end }}
+
+</main>
+{{ end }}
+
+{{ define "footer" }}
+{{ partialCached "footer.html" . }}
+{{ end }}

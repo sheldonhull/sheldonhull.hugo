@@ -1,0 +1,25 @@
+{{ define "head" }}
+{{ if .Site.Params.bgImg -}}
+<style>
+    .bg-img {
+        background-image: url('{{.Site.Params.bgImg}}');
+    }
+</style>
+{{- else if .Site.Params.images -}}
+{{- range first 1 .Site.Params.images -}}
+<style>
+    .bg-img {
+        background-image: url('{{. | absURL}}');
+    }
+</style>
+{{- end -}}
+{{- end -}}
+{{ end }}
+
+{{ define "main" }}
+
+{{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+<a href="/tags/{{ $name | urlize }}">#{{ $name | humanize }} ({{ $taxonomy.Count }})</a>
+{{end}}
+
+{{end}}

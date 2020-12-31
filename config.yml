@@ -106,6 +106,7 @@ menu:
 params:
   mainSections:
     - blog
+    - microblog
   search:
     algolia:
       app_id: 04HSGXXQD5
@@ -115,7 +116,7 @@ params:
   RSSSection:
     - blog
     - microblog
-    - docs
+    # - docs
   rssmicroblogtitles: true
   RSSEnabled: true
   rssLimit: 15

@@ -373,10 +373,14 @@ pre {
                 font-size: .9em;
                 margin-bottom: 96px;
                 margin-top: 64px;
-
+                color:$highlight-grey;
                 p {
                     margin: 0;
                 }
+                a {
+                    color:$highlight-grey;
+                }
+
             }
 
             // Spotlight
@@ -504,13 +508,13 @@ pre {
                 display: flex;
                 margin-bottom: 1.9em;
                 line-height: normal;
+                overflow:none;
 
                 .post-year {
                     padding-top: 6px;
                     margin-right: 1.8em;
-                    font-size: 1.6em;
+                    font-size: 1.5em;
                     @include dimmed;
-
                     &:hover {
                         text-decoration: underline;
                         cursor: pointer;
@@ -522,11 +526,12 @@ pre {
                     margin: 0;
                     padding: 0;
                     list-style: none;
+
                 }
 
                 .post-item {
                     border-bottom: 1px $highlight-grey dashed;
-
+                    overflow:none;
                     a {
                         display: flex;
                         justify-content: space-between;
