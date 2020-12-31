@@ -8,11 +8,11 @@ area: go
 round: 1
 day_counter: VAR_DAYCOUNTER
 tags:
-    - tech
-    - development
-    - 100-days-of-code
-    - 100DaysOfCode
-    - golang
+  - tech
+  - development
+  - 100DaysOfCode
+  - golang
+  - microblog
 featuredImg: /images/r1-dVAR_DAYCOUNTERIMAGE.png
 ---
 

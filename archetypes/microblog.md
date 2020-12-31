@@ -5,7 +5,7 @@ date: {{ .Date }}
 title: {{ replace $TitleWithoutDate "-" " " | title }}
 slug: {{ replace $TitleWithoutDate " " "-" | lower }}
 tags:
-    - tech
-    - development
-    - microblog
+  - tech
+  - development
+  - microblog
 ---
