@@ -21,6 +21,7 @@
 @import "tweeter.scss";
 @import "utterances.scss";
 @import "print_friendly.scss";
+@import "filter-posts.scss";
 
 /* Webkit Scrollbar Customize */
 ::-webkit-scrollbar {
@@ -234,7 +235,8 @@ pre {
             }
 
             .thin {
-                max-width: 720px;
+                //max-width: 720px;
+                max-width: 70%;
                 margin: auto;
             }
 
@@ -510,7 +512,9 @@ pre {
                 line-height: normal;
                 overflow:none;
 
+
                 .post-year {
+                    width:100px;
                     padding-top: 6px;
                     margin-right: 1.8em;
                     font-size: 1.5em;

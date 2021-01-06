@@ -1,0 +1,41 @@
+// @import "functions.scss";
+// @import "predefined.scss";
+/*** Important ***/
+.tf-filter-item {
+  display: none;
+  list-style-type: none;
+
+}
+button {
+  background-color: $midnightblue;
+}
+button.active {
+  background-color: $dark-grey;
+}
+
+button.disable-button {
+  border-style: $dark-grey;
+}
+
+.show-item {
+                  flex-grow: 1;
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    display: flex;
+  /* or whatever display style is appropriate
+   * for tf-filter-item when it is showing;
+   */
+}
+
+/*** Aesthetics ***/
+
+.tf-items-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+pre code {
+  overflow-x: auto;
+}
