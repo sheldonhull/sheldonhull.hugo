@@ -4,25 +4,48 @@
 .tf-filter-item {
   display: none;
   list-style-type: none;
-
 }
 button {
-  background-color: $midnightblue;
+  background-color: $midnightblue !important;
+  color: $text;
+  font-size: 0.5em;
+  border:none;
+  padding: 5px;
+  a {
+    display: inline-block;
+    border: 1px solid $text;
+    border-radius: 5px;
+    padding: 5px;
+    transition-property: color, border-color;
+
+    &:first-child {
+      margin-right: 1em;
+    }
+
+    &:hover {
+      border-color: #fff;
+    }
+
+    svg {
+      margin-right: 0.5em;
+    }
+  }
 }
 button.active {
   background-color: $dark-grey;
 }
 
 button.disable-button {
-  border-style: $dark-grey;
+  border-style:$text;
+  display:none;
 }
 
 .show-item {
-                  flex-grow: 1;
-                    margin: 0;
-                    padding: 0;
-                    list-style: none;
-                    display: flex;
+  flex-grow: 1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
   /* or whatever display style is appropriate
    * for tf-filter-item when it is showing;
    */

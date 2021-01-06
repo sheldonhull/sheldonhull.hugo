@@ -41,7 +41,7 @@
         <span class="tf-buttons-container flex-grow">
         <!-- <h2><span id="selectedItemCount"></span> Items</h2> -->
         <button xx id="selectAllSections" onclick="htf.showAll('section')" >
-            All Sections
+            All
         </button>
         {{ range $sections }}
         <button xx class="sect-button" id="sect-{{ . | urlize }}" onclick="htf.checkFilter('{{ . | urlize }}', 'sect-')">
@@ -84,7 +84,7 @@
                                     <div class="posttag scheduled">scheduled</div>
                                     {{- end -}}
 
-                                    {{- if in .Params.tags "microblog" -}}
+                                    {{- if or (in .Params.tags "microblog") (in .Section "microblog") -}}
                                     <span class="microtag"><span class="tag">microblog</span>
                                         {{- end -}}
 

@@ -56,7 +56,6 @@ class HugoTagsFilter {
         }
         this.showCheck(this.FILTERS[0]['name'], true);
 
-
     }
 
     initFilterCount(fvc, isInitial) {
