@@ -8,7 +8,7 @@ date: 2019-02-19
 toc: false
 ---
 
-This is a compilation of what's more like "cheatsheets" than docs.
+This is a compilation of what is more like a cheatsheet for quick reference and detailed docs.
 I like adding snippets and concepts here and there when explaining things to others and for myself so I don't have to relearn those things that just don't click.
 
 Dash and Vscode snippets are great for this as well, but a simple markdown file sometimes is the easiest way to persist something.

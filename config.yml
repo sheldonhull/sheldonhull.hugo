@@ -91,9 +91,9 @@ menu:
     - name: Microblog
       weight: 2
       url: /microblog/
-    - name: Tags
-      url: /tags/
-      weight: 3
+    # - name: Tags
+    #   url: /tags/
+    #   weight: 3
     - name: Docs
       url: /docs/
       weight: 4
