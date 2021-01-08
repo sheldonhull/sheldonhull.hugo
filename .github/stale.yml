@@ -7,7 +7,7 @@ exemptLabels:
   - pinned
   - security
 # Label to use when marking an issue as stale
-staleLabel: wontfix
+staleLabel: no-recent-activity
 # Comment to post when marking an issue as stale. Set to `false` to disable
 # No comment as I use this to power github utterance comments. No need to comment on close.
 markComment: false
