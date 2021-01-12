@@ -19,6 +19,12 @@ fields:
   config:
     required: true
   label: title
+- name: slug
+  type: text
+  config:
+    required: false
+  label: slug
+  description: title without the date
 - name: tags
   type: tag_list
   default:
