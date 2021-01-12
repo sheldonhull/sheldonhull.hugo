@@ -44,9 +44,9 @@ fields:
     options: []
     source:
       type: simple
-      section:
-      file:
-      path:
+      section: 
+      file: 
+      path: 
   label: area
   description: The area the 100 day challenge is focused on
 - name: featuredimg

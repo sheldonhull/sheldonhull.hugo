@@ -1,18 +1,8 @@
 ---
 label: microblog
 hide_body: false
+display_field: title
 fields:
-- type: datetime
-  name: title
-  label: title
-  hidden: true
-  config:
-    display_utc: false
-    required: true
-    time_format: HH:mm:ssZ
-    date_format: YYYY-MM-DD
-  default: now
-  description: microblog uses date as the title
 - type: datetime
   name: date
   label: date
@@ -24,11 +14,17 @@ fields:
     time_format: HH:mm:ssZ
     export_format: YYYY-MM-DD HH:00:00 Z
   default: now
+- name: title
+  type: text
+  config:
+    required: true
+  label: title
 - name: tags
   type: tag_list
   default:
-  - til
   - tech
+  - microblog
+  - development
   label: tags
 pages:
 - content/microblog/2019-04-20t03-48-12-00-00.md
