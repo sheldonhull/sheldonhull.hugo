@@ -9,15 +9,21 @@ fields:
     required: true
   label: title
   description: normally formatted as Day 1 of 100
+  default: Go R1 Day x
 - type: datetime
   name: date
   label: date
   hidden: true
   default: now
+  config:
+    date_format: YYYY-MM-DD
+    time_format: HH:mm:ssZ
+    export_format: YYYY-MM-DD HH:00:00 Z
+    required: true
 - name: round
   type: number
   label: round
-  default: 0
+  default: 1
   required: true
   config:
     min: 1
@@ -38,15 +44,16 @@ fields:
     required: true
 - name: area
   type: select
-  default: ''
+  default: go
   config:
     required: true
-    options: []
+    options:
+    - go
     source:
       type: simple
-      section: 
-      file: 
-      path: 
+      section: microblog
+      file: content/microblog/2020-05-19t17-27-31-00-00.md
+      path: tags
   label: area
   description: The area the 100 day challenge is focused on
 - name: featuredimg
@@ -58,8 +65,14 @@ fields:
   name: tags
   label: tags
   config:
-    use_select: false
+    use_select: true
     source:
       type: simple
       section: microblog
       file: content/microblog/2019-04-17-2153.md
+    options:
+    - tech
+    - development
+    - 100DaysOfCode
+    - golang
+    - microblog
