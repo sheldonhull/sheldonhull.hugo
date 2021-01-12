@@ -10,6 +10,7 @@ sections:
   create: documents
   match: "**/*"
   templates:
+  - 100-days-of-code
   - microblog
 - type: directory
   path: content
