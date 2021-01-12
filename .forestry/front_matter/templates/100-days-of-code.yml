@@ -10,6 +10,14 @@ fields:
   label: title
   description: normally formatted as Day 1 of 100
   default: Go R1 Day x
+- name: slug
+  type: text
+  config:
+    required: false
+  label: slug
+  default: go-r1-day-x
+  description: 'This is what is used to manage the permalink for the url. Example:
+    <br>title: Go R1 Day 25<br>slug: go-r1-day-25go-r1-day-25'
 - type: datetime
   name: date
   label: date
