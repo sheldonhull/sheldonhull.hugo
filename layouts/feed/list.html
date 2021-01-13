@@ -1,0 +1,47 @@
+{{ define "header" }}
+{{ partialCached "header.html" . }}
+{{ end }}
+
+{{ define "main" }}
+{{/*  {{ $pages := (where site.RegularPages "Type" "in" site.Params.mainSections) }}  */}}
+
+{{ $urlPre := "https://api.github.com" }}
+{{ $pages := getJSON $urlPre "/users/sheldonhull/gists" }}
+{{ $pages }}
+<main class="site-main section-inner thin animated fadeIn faster">
+    <h1>{{ .Title }}</h1>
+    {{- if .Content }}
+    <div class="content">
+        {{ .Content }}
+    </div>
+    {{- end }}
+    {{/*  {{ range $pages.GroupByDate "2006" }}  */}}
+    <div class="posts-group">
+        {{/*  <div class="post-year" id="{{ .Key }}">{{ .Key }}</div>  */}}
+        <ul class="posts-list">
+            {{- range (where ( where $pages "public" true) ".language" "==" "markdown") }}
+            <li class="post-item">
+                <a href="{{.Permalink}}">
+                    <span class="post-title"><span class="listmonth">{{ dateFormat  "Jan" .created_at }}</span>
+                        {{ if .Params.Draft }}<div class="posttag draft">draft</div>{{ end }}
+                        {{ if gt .created_at now }}<div class="posttag scheduled">scheduled</div>{{ end }}
+                        {{- if in .Params.tags "microblog"}}<span class="microtag"><span class="tag">microblog</span>
+                            {{.description | markdownify | truncate 40 -}}
+                            {{- else -}}
+                            {{.description | markdownify | truncate 40 -}}
+                            {{ end -}}
+                        </span>
+                        <span class="post-day">{{ dateFormat (.Site.Params.dateFormat | default "") .created_at }}</span>
+                </a>
+            </li>
+            {{- end }}
+        </ul>
+    {{/*  </div>  */}}
+    {{/*  {{- end }}  */}}
+
+</main>
+{{ end }}
+
+{{ define "footer" }}
+{{ partialCached "footer.html" . }}
+{{ end }}
