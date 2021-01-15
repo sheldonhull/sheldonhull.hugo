@@ -22,21 +22,22 @@
     },
     // Add the IDs of extensions you want installed when the container is created.
     "extensions": [
-        "bungcip.better-toml",
-        "davidanson.vscode-markdownlint",
-        "spmeesseman.vscode-taskexplorer",
-        "budparr.language-hugo-vscode",
-        "akmittal.hugofy",
-        "sneezry.vscode-devto",
-        "darkriszty.markdown-table-prettify",
-        "yzhang.markdown-all-in-one",
-        "vivaxy.vscode-conventional-commits",
-        "skn0tt.markdown-link-expander",
-        "mhutchie.git-graph",
-        "znck.grammarly",
-        "stylelint.vscode-stylelint",
-        "sibiraj-s.vscode-scss-formatter"
-    ],
+		"bungcip.better-toml",
+		"davidanson.vscode-markdownlint",
+		"spmeesseman.vscode-taskexplorer",
+		"budparr.language-hugo-vscode",
+		"akmittal.hugofy",
+		"sneezry.vscode-devto",
+		"darkriszty.markdown-table-prettify",
+		"yzhang.markdown-all-in-one",
+		"vivaxy.vscode-conventional-commits",
+		"skn0tt.markdown-link-expander",
+		"mhutchie.git-graph",
+		"znck.grammarly",
+		"stylelint.vscode-stylelint",
+		"sibiraj-s.vscode-scss-formatter",
+		"redhat.vscode-yaml"
+	],
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     "forwardPorts": [
         1313

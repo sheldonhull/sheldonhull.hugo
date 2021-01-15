@@ -39,7 +39,7 @@ collections: # A list of collections the CMS should be able to edit
     format: yaml-frontmatter
     extension: md
     create: true # Allow users to create new documents in this collection
-    slug: '{{year}}-{{month}}-{{day}}t{{hour}}-{{minute}}-{{slug}}'
+    slug: '{{slug}}'
     sortableFields: ['commit_date', 'title', 'commit_author', 'date']
     #summary: "{{body}}"
     preview_path: microblog/{{slug}}
@@ -69,7 +69,7 @@ collections: # A list of collections the CMS should be able to edit
       - label: Tags
         name: tags
         widget: list
-        default: ['tech', 'development','microblog']
+        default: ['tech', 'development', 'microblog']
         multiple: true
         required: true
         allow_add: true
@@ -191,12 +191,12 @@ collections: # A list of collections the CMS should be able to edit
         widget: string
         tagname: h1
         required: true
-#       - label: slug
-#         name: slug
-#         widget: string
-#         tagname: h1
-#         required: true
-#         default: '{{slug}}'
+      #       - label: slug
+      #         name: slug
+      #         widget: string
+      #         tagname: h1
+      #         required: true
+      #         default: '{{slug}}'
 
       - label: Publish Date
         name: date
@@ -253,13 +253,13 @@ collections: # A list of collections the CMS should be able to edit
           - 'azure'
 
   - name: 100DaysOfCode # Used in routes, ie.: /admin/collections/:slug/edit
-    label: 100-days-of-code # Used in the UI, ie.: "New Post"
+    label: 100DaysOfCode # Used in the UI, ie.: "New Post"
     folder: content/microblog # The path to the folder where the documents are stored
     preview_path: microblog/{{slug}}
     format: yaml-frontmatter
     extension: md
     create: true # Allow users to create new documents in this collection
-    slug: '{{year}}-{{month}}-{{day}}-{{area}}-R{{round}}-day-{{day_counter}}'
+    slug: '{{area}}-r{{round}}-day-{{day_counter}}'
     sortableFields:
       [
         'commit_date',
@@ -270,12 +270,12 @@ collections: # A list of collections the CMS should be able to edit
         'round',
         'day_counter',
       ]
-    summary: "{{area}}-R{{round}}-D{{day_counter}}"
+    summary: '{{area}}-r{{round}}-d{{day_counter}}'
     identifier_field: title
     view_filters:
-      - label: '100-days-of-code'
+      - label: '100DaysOfCode'
         field: tags
-        pattern: '100-days-of-code'
+        pattern: '100DaysOfCode'
     fields: # The fields each document in this collection have
       # MAIN AUTHORING AREA
       # MomentJS Token Reference: https://momentjscom.readthedocs.io/en/latest/moment/01-parsing/03-string-format/
@@ -342,7 +342,8 @@ collections: # A list of collections the CMS should be able to edit
       - label: Tags
         name: tags
         widget: list
-        default: ['tech', 'development', '100-days-of-code', 'go','100DaysOfCode']
+        default:
+          ['microblog', 'tech', 'development', '100DaysOfCode', 'golang']
         multiple: true
         required: true
         allow_add: true
