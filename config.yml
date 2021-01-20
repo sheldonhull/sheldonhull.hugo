@@ -103,6 +103,9 @@ menu:
     - name: About
       weight: 6
       url: /about/
+    - name: 🆕 Curated Newletter
+      url: https://app.mailbrew.com/sheldonhull
+      weight: 7
 params:
   mainSections:
     - blog

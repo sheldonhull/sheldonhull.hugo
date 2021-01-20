@@ -22,12 +22,14 @@
             <div id="home-social">
                 {{ partialCached "social-icons.html" . }}
             </div>
+            <div id="homepage-subscribe">{{ partial "mailbrew-subscribe-minimal.html" }}</div>
             {{- end }}
             <nav id="home-nav" class="site-nav">
                 {{- range .Site.Menus.main }}
                 <a href="{{ .URL | absLangURL }}">{{ .Name }}</a>
                 {{- end }}
             </nav>
+
         </div>
         <div id="home-footer">
             <p>

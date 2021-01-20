@@ -18,6 +18,9 @@
     {{- end }}
     <main class="site-main section-inner animated fadeIn faster">
       <article class="microblog">
+        <header class="post-header">
+            <h1>{{ .Title }}</h1>
+        </header>
         <div class="content">
         {{- if (or .Params.images .Params.featuredImg) }}
         <img src="{{ .Params.featuredImg }}"></img>
