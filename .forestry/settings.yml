@@ -13,18 +13,18 @@ sections:
   - 100-days-of-code
   - microblog
 - type: directory
-  path: content
-  label: Pages
-  create: all
-  match: "**/*"
-  exclude: blog/*
-- type: directory
   path: content/blog
   label: Blog
   create: documents
   match: "**/*"
   templates:
   - blog-post
+- type: directory
+  path: content
+  label: Pages
+  create: all
+  match: "**/*"
+  exclude: blog/*
 upload_dir: static/images
 public_path: images
 front_matter_path: ''

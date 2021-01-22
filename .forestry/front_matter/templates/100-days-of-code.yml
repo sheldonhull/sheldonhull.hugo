@@ -84,5 +84,3 @@ fields:
     - 100DaysOfCode
     - golang
     - microblog
-pages:
-- content/microblog/go-r1-day-x.md
