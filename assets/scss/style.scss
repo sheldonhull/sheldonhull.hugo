@@ -884,8 +884,9 @@ pre {
                 }
 
                 #toc {
+                    display:flexbox;
                     top: 13em;
-                    margin-left: 370px;
+                    margin-left: 475px;
                     max-width: 220px;
                     position: fixed; left: 50%;
                 }
