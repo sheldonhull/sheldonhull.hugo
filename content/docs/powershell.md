@@ -421,3 +421,9 @@ Really pains me to write in the code-golf style.
 ## Syncing Files Using S5Cmd
 
 {{< gist "9bdb6ae57121e3c9ddc3fa594119c476" >}}
+
+## Other Cheatsheets
+
+Trying a new gist driven approach here, so this will auto update.
+
+{{< gist "c738117686c3e9cf7d717e1301e250b7" >}}
