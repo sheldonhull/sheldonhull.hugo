@@ -32,3 +32,7 @@ install-module 'dbatools' -Scope CurrentUser
 ## Configure the Database Default Path
 
 {{< gist c1869e4a67e5721f6e9807e94cc727da >}}
+
+## Install Dbatools And Restore A Directory of Backups
+
+{{< gist "f9972f12d4348d754d2659921ffc9b5b" >}}
