@@ -417,3 +417,7 @@ I did this to participate in Code Golf, and felt pretty good that I landed in 11
 Really pains me to write in the code-golf style.
 
 {{< gist "3ea6fd6cafe210edb1d71b5e8d3d1696" >}}
+
+## Syncing Files Using S5Cmd
+
+{{< gist "9bdb6ae57121e3c9ddc3fa594119c476" >}}
