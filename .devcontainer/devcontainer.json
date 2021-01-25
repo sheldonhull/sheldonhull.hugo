@@ -27,9 +27,9 @@
 		"vivaxy.vscode-conventional-commits",
 		"skn0tt.markdown-link-expander",
 		"mhutchie.git-graph",
-		"znck.grammarly",
 		"stylelint.vscode-stylelint",
 		"sibiraj-s.vscode-scss-formatter"
+		"znck.grammarly",
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
@@ -38,7 +38,8 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": [
 		//"sh -c \"$(curl --location https: //taskfile.dev/install.sh)\" -- -d -b /usr/local/bin",
-		"sudo pwsh -c ./build -task setup",
+		//"sudo pwsh -c ./build -task setup",
+		"task init"
 	]
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	,
@@ -46,7 +47,7 @@
 	"containerEnv": {
 		"ALGOLIA_APP_ID": "04HSGXXQD5",
 		"ALGOLIA_ADMIN_KEY": "${localEnv:ALGOLIA_ADMIN_KEY}",
-		"ALGOLIA_INDEX_NAME": "sheldonhull",
+		"ALGOLIA_INDEX_NAME": "sheldonhull.com",
 		"ALGOLIA_INDEX_FILE": "public/algolia.json"
 	}
 }

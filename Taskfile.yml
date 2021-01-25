@@ -2,8 +2,9 @@
 
 version: '3'
 env:
- # HUGO: /usr/bin/hugo
+  # HUGO: /usr/bin/hugo
   HUGO: hugo
+
 vars:
 
   # JS_FILES:
@@ -49,6 +50,10 @@ tasks:
     cmds:
       - git submodule update --init --recursive
       - git submodule update --recursive
+      - npm install --global --quiet netlify-cli
+      - npm install --global --quiet atomic-algolia
+      - npm install --quiet --no-warnings
+
 
   go:
     desc: Setup go environment
@@ -62,11 +67,11 @@ tasks:
   algolia:
     desc: Generate algolia json
     deps: [build-public]
+    # These are configured in the .devcontainer but no harm in setting here too
     env:
-
-      ALGOLIA_APP_ID:                 04HSGXXQD5
-      ALGOLIA_INDEX_FILE:             public/algolia.json
-      ALGOLIA_INDEX_NAME:             sheldonhull.com
+     ALGOLIA_APP_ID: 04HSGXXQD5
+     ALGOLIA_INDEX_FILE: public/algolia.json
+     ALGOLIA_INDEX_NAME: sheldonhull.com
     cmds:
     - npm run algolia
 

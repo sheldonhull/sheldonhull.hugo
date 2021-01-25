@@ -422,6 +422,10 @@ Really pains me to write in the code-golf style.
 
 {{< gist "9bdb6ae57121e3c9ddc3fa594119c476" >}}
 
+## AWS PowerShell Specific Cheatsheets
+
+{{< gist "9534958236fbc3973e704f648cec27e7" >}}
+
 ## Other Cheatsheets
 
 Trying a new gist driven approach here, so this will auto update.
