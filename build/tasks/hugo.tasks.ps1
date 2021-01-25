@@ -66,8 +66,8 @@ Task hugo-new-100-days-of-code {
         }
     }
     $Content = Get-Content $NewFile -Raw
-    $Content = $Content.Replace('VAR_DAYCOUNTER', $NewDayCounter).Replace('VAR_DAYCOUNTERIMAGE', [string]"$NewDayCounter".PadLeft(3, '0')).Replace((Get-Date -Format 'yyyy-MM-dd'),$Date)
-    $Content = $Content -replace 'title: \d{4}.\d{2}.\d{2}\s+', 'title: ' -replace 'slug: \d{4}.\d{2}.\d{2}-','slug: '
+    $Content = $Content.Replace('VAR_DAYCOUNTER', $NewDayCounter).Replace('VAR_DAYCOUNTERIMAGE', [string]"$NewDayCounter".PadLeft(3, '0')).Replace((Get-Date -Format 'yyyy-MM-dd'), $Date)
+    $Content = $Content -replace 'title: \d{4}.\d{2}.\d{2}\s+', 'title: ' -replace 'slug: \d{4}.\d{2}.\d{2}-', 'slug: '
 
     $Content | Out-File $NewFile -Force
     Write-Build Green "Successfully created file: $NewFile"
