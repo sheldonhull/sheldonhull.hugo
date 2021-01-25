@@ -16,8 +16,6 @@ tags:
 featuredImg: /images/r1-dVAR_DAYCOUNTERIMAGE.png
 ---
 
-## Day VAR_DAYCOUNTER of 100
-
 ## progress
 
 - note
