@@ -12,7 +12,7 @@ tags:
 Ran across this app, and thought was kinda cool.
 I've had some issues with Chrome apps showing up correctly in certain macOS windows managers to switch context quickly.
 
-Using this tool, you can generate a standalone electron app bundle to run a webpage in as it's own dedicated.
+Using this tool, you can generate a standalone electron app bundle to run a webpage in as it's own dedicated window.
 
 It's cross-platform.
 
