@@ -4,11 +4,11 @@
 # and also improves the path handling so I don't have to worry about it.
 # this is how to copy from
 
-# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.154.2/containers/ubuntu/.devcontainer/base.Dockerfile
+# See here for image contents: https://github.com/microsoft/codespace-dev-containers/tree/v0.154.2/containers/ubuntu/.devcontainer/base.Dockerfile
 # [Choice] Ubuntu version: bionic, focal
 ARG VARIANT="focal"
 FROM homebrew/brew:latest AS DOCKERBREW
-FROM mcr.microsoft.com/vscode/devcontainers/base:0-${VARIANT} as BASE
+FROM mcr.microsoft.com/codespace/devcontainers/base:0-${VARIANT} as BASE
 
 RUN sudo apt-get update \
 # Install pre-requisite packages.
@@ -33,14 +33,16 @@ RUN useradd -m -s /bin/bash linuxbrew && \
 
 USER linuxbrew
 COPY --from=DOCKERBREW /home/linuxbrew/.linuxbrew /home/linuxbrew/.linuxbrew
-#RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+#RUN   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 USER root
 RUN sudo apt update && sudo apt-get -qqy install build-essential curl file git \
     && rm -rf /var/lib/apt/lists/*
-ENV PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
 
-USER vscode
+ENV PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
+# for troubleshooting:
+# $ENV:PATH = "/home/linuxbrew/.linuxbrew/bin:$($ENV:PATH)"
+USER codespace
 #RUN curl -L "https://github.com/whalebrew/whalebrew/releases/download/0.3.0/whalebrew-$(uname -s)-$(uname -m)" -o /usr/local/bin/whalebrew; chmod +x /usr/local/bin/whalebrew
 RUN brew --version
 RUN brew update
@@ -51,6 +53,7 @@ RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install hugo
 RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install git-town
 RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install go-task/tap/go-task
 RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install npm
+RUN mkdir $HOME/.git-template
 #RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install --cask powershell
 
 
