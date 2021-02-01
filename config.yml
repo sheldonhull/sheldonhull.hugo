@@ -11,8 +11,7 @@ enableEmoji: true
 DisqusShortname: sheldonhull
 DelayDisqus: true
 googleAnalytics: UA-40198001-3
-copyright: This work is licensed under a Creative Commons Attribution-NonCommercial
-  4.0 International License.
+copyright: This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.
 additional_scripts:
   - node_modules/algoliasearch/dist/algoliasearch.umd.js
   - assets/js/algolia-search.js
@@ -144,8 +143,7 @@ params:
       - tags
   themeColor: '#22252e'
   homeSubtitle:
-    - "For dropping by, here's some emoji tacos 🌮🌮🌮"
-  footerCopyright: '&#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
+  footerCopyright: '&#183; <a href="https://www.sheldonhull.com/license">License</a>'
   bgImg: images/2016-04-27_17-27-07_circular.jpg
   gitUrl: https://github.com/sheldonhull/sheldonhull.hugo/commit/
   gitter: sheldonhull/community
