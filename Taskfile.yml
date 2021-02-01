@@ -21,13 +21,11 @@ tasks:
     cmds:
       - task: build
 
-  run:
+  serve:
     desc: Build and run hugo
     cmds:
       - $HUGO serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc
       # - task: build
-
-
   build:
     desc: Build the webpage
     #deps: [assets, templates]
