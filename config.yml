@@ -319,7 +319,7 @@ params:
       utterances:
         enable: true
         repo: 'sheldonhull/sheldonhull.hugo'
-        issueTerm: 'title'
+        issueTerm: 'og:title'
         label: ':speech_balloon: blog comment'
         lightTheme: github-light
         darkTheme: github-dark
