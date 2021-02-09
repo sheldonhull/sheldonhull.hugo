@@ -320,7 +320,7 @@ params:
         enable: true
         repo: sheldonhull/sheldonhull.hugo
         issueTerm: title
-        label: 💬 blog comment
+        label: ':speech_balloon: blog comment'
         lightTheme: github-light
         darkTheme: github-dark
     library:
