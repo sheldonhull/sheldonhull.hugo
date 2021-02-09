@@ -1,5 +1,5 @@
 {
-    "explorer.sortOrder": "modified",
+    "explorer.sortOrder": "filesFirst",
     "[markdown]": {
         "editor.defaultFormatter": "tehnix.vscode-tidymarkdown"
     },
@@ -39,5 +39,7 @@
     "go.inferGopath": false,
     "staticWebApps.appSubpath": "/",
     "staticWebApps.apiSubpath": "/",
-    "staticWebApps.appArtifactSubpath": "build"
+    "staticWebApps.appArtifactSubpath": "build",
+    "markdown-image.coding.path": "/static/images",
+    "markdown-image.local.path": "/static/images"
 }
