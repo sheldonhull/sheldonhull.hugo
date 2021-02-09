@@ -13,5 +13,14 @@
         "body": [
             "[${2:LinkInfo}]({{< relref \"${1:FileNameNoPath}\" >}} \"${2:LinkInfo}\")"
         ]
+    },
+    "hugo-terminal": {
+        "prefix": "hugo-terminal",
+        "description": "Shortcode snippet for a styled terminal",
+        "body": [
+            "{{< terminal \"sheldonhull@macbook\" \"~/ (pwsh)\" >}}",
+            "$0",
+            "{{< /terminal >}}"
+        ]
     }
 }
