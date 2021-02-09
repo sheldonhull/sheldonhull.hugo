@@ -81,6 +81,8 @@
                 {{- dict "Src" . "Title" $.Description "Resources" $.Resources | partial "plugin/image.html" -}}
             </div>
         {{- end -}}
+        {{- /* Series content */ -}}
+        {{ partial "series.html" . }}
 
         {{- /* Static TOC */ -}}
         {{- if ne $toc.enable false -}}
