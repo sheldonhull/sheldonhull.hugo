@@ -2,7 +2,7 @@
 date: 2020-02-14T07:00:00-06:00
 title: Asciidoc Distributed Docs as Code
 slug: asciidoc-distributed-docs-as-code
-excerpt:
+summary:
   Approach documentation with a developer's mindset and use a 'docs-as-code' mentality. This is how you can get started.
 tags:
   - devops
@@ -10,7 +10,7 @@ tags:
   - tech
 draft: false
 toc: true
-featuredImg: /images/codesnap-asciidoc-azurepipelines.png
+featuredImage: /images/codesnap-asciidoc-azurepipelines.png
 ---
 
 ## The Problem
@@ -132,7 +132,7 @@ I ended using an Azure DevOps pipeline (YAML of course 🤘) that provides a nic
 First, for proper linking, you should follow the directions Azure DevOps gives on the creation of a [Github Service Connection](http://bit.ly/2UNWWel) which uses OAUTH.
 This will ensure your setup isn't brittle and using your access token.
 
-{{< gist "053cb176d5c2847a4e323f01207acb82" >}}
+{{< gist sheldonhull  "053cb176d5c2847a4e323f01207acb82" >}}
 
 ## Things to Know
 
@@ -153,6 +153,6 @@ README.adoc  -- optional, but I always include for landing page, and point to th
 * Ensure your non-asciidoc contents are prefaced with an underscore in the title name. I don't like this, but it's a requirement from confluence-publisher. This ensures it won't try to render as a page.
 * Anything in the target directory (ancestor) gets purged in the process. I recommend a dedicated confluence space you create just for this to minimize risk and disable manual edits.
 
-{{< premonition type="info" title="Docker Commands in Microsoft-Hosted Agent" >}}
+{{< admonition type="info" title="Docker Commands in Microsoft-Hosted Agent" >}}
 I didn't expect docker commands to work in Azure DevOps agent, thinking nested virtualization would not work and all. However, it works beautifully. Consider using Azure DevOps yaml pipelines for running your docker commands and you take one step towards better build processes.
-{{< /premonition >}}
+{{< /admonition >}}

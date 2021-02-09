@@ -2,7 +2,7 @@
 date: 2020-04-20T07:00:00-05:00
 title: Improved Windows Terminal Setup
 slug: improved-windows-terminal-setup
-excerpt: Quickly get some nice defaults going for latest Windows Terminal
+summary: Quickly get some nice defaults going for latest Windows Terminal
 tags:
 - cool-tools
 - development
@@ -24,17 +24,17 @@ This will help you get the terminal installed, along with downloading some setti
 
 To customize your own keybindings, you can go to the [profiles.json](https://github.com/microsoft/terminal/blob/master/doc/cascadia/SettingsSchema.md) documentation.
 
-{{< gist "93d8060e6f86e0c46535ef6699d6e0c8" "install-settings.ps1" >}}
+{{< gist sheldonhull  "93d8060e6f86e0c46535ef6699d6e0c8" "install-settings.ps1" >}}
 
 ## Improve Your Experience
 
 After install, you can run the next command to help you get a better font setup with full support for ligatures and more.
 
-{{< gist "93d8060e6f86e0c46535ef6699d6e0c8" "install-font.ps1" >}}
+{{< gist sheldonhull  "93d8060e6f86e0c46535ef6699d6e0c8" "install-font.ps1" >}}
 
 And after this, if you don't have a nice PowerShell prompt experience, this will help give you a great start. This contains a few things, including [starship](https://starship.rs). This is really useful as it has a library of prompt enhancements baked in. For example, if you are have an AWS profile active, it will display that for reference. It can display an active terraform workspace, git branch info, python virtual environment and more. Definitely a nice quick productivity booster with no real configuration needed to get going.
 
-{{< gist "93d8060e6f86e0c46535ef6699d6e0c8" "configure-profile-prompt.ps1" >}}
+{{< gist sheldonhull  "93d8060e6f86e0c46535ef6699d6e0c8" "configure-profile-prompt.ps1" >}}
 
 If you are wondering why I didn't leave the pretty awesome `"useAcrylic": true` on for my main pwsh session, it's because I found the background contrast reduction made it hard to read some darker colors on the prompt.
 

@@ -2,7 +2,7 @@
 date: 2019-07-16T13:00:00+00:00
 title: Painless Synchronization of Azure Blob Storage with AWS S3
 slug: painless-synchronization-of-azure-blob-storage-with-aws-s3
-excerpt: leverage the free tool RClone for using the cloud api's easily to synchronize
+summary: leverage the free tool RClone for using the cloud api's easily to synchronize
   cloud based storage without the need to copy locally
 tags:
 - tech
@@ -32,9 +32,9 @@ choco upgrade rclone -y
 
 Go through `rclone config` dialogue and setup your cloud provider. In my case, I setup Azure as a provider to connect to blob storage, and then AWS with s3.
 
-{{< premonition type="info" title="Cloud to Cloud" >}}
+{{< admonition type="info" title="Cloud to Cloud" >}}
 Providers that support cloud to cloud based calls without copying locally are provided in the section for [Optional Features](http://bit.ly/2LEOSrR) where you can view the operations that support calls
-{{< /premonition >}}
+{{< /admonition >}}
 
 
 ## Initialize Sync

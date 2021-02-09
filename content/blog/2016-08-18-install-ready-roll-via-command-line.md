@@ -29,4 +29,4 @@ I personally use Ketarin to help me manage automatically updating apps like SQL 
 ![2016-08-16_11-05-53](/images/2016-08-16_11-05-53.png)
 - For automated setup and install use the following code with Ketarin
 
-{{< gist bfde8f5846555183e3abd4e7575bc2a9 >}}
+{{< gist sheldonhull  bfde8f5846555183e3abd4e7575bc2a9 >}}

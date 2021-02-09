@@ -3,7 +3,7 @@ title: Getting Started With Terraform
 slug: getting-started-with-terraform
 date: 2019-11-07T07:30:00+00:00
 toc: true
-excerpt: Getting started with using Terraform for infrastructure can be a bit
+summary: Getting started with using Terraform for infrastructure can be a bit
   daunting if you've not dived into this stuff before. I put this together as a
   write up for those looking to get their feet wet and have a better idea of
   where to go for getting going
@@ -13,11 +13,11 @@ tags:
   - devops
   - terraform
 ---
-{{< premonition type="info" title="Updated 2020-07" >}}
+{{< admonition type="info" title="Updated 2020-07" >}}
 - Added comments about brand new Terraform users ignoring Terraform Cloud for first time tests.
 - Added comment about pulling credentials using data source instead of environment variables for AWS as a more advanced option to consider in the future.
 - Replaced details on creating terraform credential file with the new `tf login` command
-{{< /premonition >}}
+{{< /admonition >}}
 
 Getting started with using Terraform for infrastructure can be a bit daunting if you've not dived into this stuff before.
 I put this together as a write up for those looking to get their feet wet and have a better idea of where to go for getting some momentum in starting.
@@ -30,11 +30,11 @@ Give this post a clap or leave a comment if it helps you or you have any feedbac
 
 ## Purpose of This Post
 
-{{< premonition type="info" title="Using Terraform Cloud 2020-07" >}}
+{{< admonition type="info" title="Using Terraform Cloud 2020-07" >}}
 If you are brand new to Terraform, then consider ignoring the "backend" section.
 This will have all the artifacts that Terraform produces (such as the state file) just sit in your local directory.
 In retrospect, Terraform Cloud intermixed with getting up and running as a new user might add more complication than required.
-{{< /premonition >}}
+{{< /admonition >}}
 
 
 In technical documentation, there is a difference between a tutorial and a getting started. The getting started here is going to focus just on getting up and running, not on all the concepts about infrastructure as code.
@@ -84,10 +84,10 @@ brew cask install terraform
 
 ### Terraform Cloud Setup
 
-{{< premonition type="warning" title="Subscription" >}}
+{{< admonition type="warning" title="Subscription" >}}
 This will require a Terraform Cloud account.
 At the time of this post they have a plan for around 5 users for free with a few features turned off.
-{{< /premonition >}}
+{{< /admonition >}}
 
 Setup your [Terraform App Account](https://app.terraform.io/signup/account) and *make sure to enable 2FA*.
 
@@ -98,29 +98,29 @@ If you are using Terraform Cloud, run `tf login` to generate your local credenti
 ## Creating Your First Project
 
 Create `main.tf`. It will be the first file you create.
-{{< gist 95c3f9533b2111d7d9fa40ff90a917e3 "main.tf" >}}
+{{< gist sheldonhull  95c3f9533b2111d7d9fa40ff90a917e3 "main.tf" >}}
 
 Create `provider.tf`
 
-{{< gist 95c3f9533b2111d7d9fa40ff90a917e3 "provider.tf" >}}
+{{< gist sheldonhull  95c3f9533b2111d7d9fa40ff90a917e3 "provider.tf" >}}
 
 Create `terraform.auto.tfvars`
 
 Note that if you try to create this file with the `terraform.tfvars` name, it won't work if using Terraform Cloud, as tfvars get generated dynamically from the variables setup in the Cloud workspace.
 
-{{< gist 95c3f9533b2111d7d9fa40ff90a917e3 "terraform.auto.tfvars" >}}
+{{< gist sheldonhull  95c3f9533b2111d7d9fa40ff90a917e3 "terraform.auto.tfvars" >}}
 
 Create `variables.tf` which is going to house all the input variables we want to declare.
 
-{{< gist 95c3f9533b2111d7d9fa40ff90a917e3 "variables.tf" >}}
+{{< gist sheldonhull  95c3f9533b2111d7d9fa40ff90a917e3 "variables.tf" >}}
 
 Create `iam.tf` which will provide a nice low risk resource to create that will show you how to use string interpolation for dynamic names in the most simple way, as well as the way to leverage `EOT` syntax to easily escape mutliline strings. However, if you see yourself doing this constantly, you might reevaluate your approach to ensure you are using objects and properties as much as possible and not just strings.
 
-{{< gist 95c3f9533b2111d7d9fa40ff90a917e3 "iam.tf" >}}
+{{< gist sheldonhull  95c3f9533b2111d7d9fa40ff90a917e3 "iam.tf" >}}
 
-{{< premonition type="info" title="HCL Multiline String Syntax" >}}
+{{< admonition type="info" title="HCL Multiline String Syntax" >}}
 If you use `<<-EOT` you get a nice little benefit that's not well documented. The `-` means it strings buffering whitespace for the following lines. This can allow you to keep your content indented and if you preface the first line with 6 spaces, then all the following lines trim 6 spaces as well to allow you to avoid a bunch of difficult to read string blocks.
-{{< /premonition >}}
+{{< /admonition >}}
 
 You'll likely want to use a workspace with Terraform to organize this work, so instead of using the default, use the command
 
@@ -130,13 +130,13 @@ terraform workspace new qa
 
 Terraform should select this new workspace by default. You can list the current workspaces using `terraform workspace list` and then select another one later if you wish by running `terraform workspace select qa`.
 
-{{< premonition type="warning" title="Terraform Workspace Naming" >}}
+{{< admonition type="warning" title="Terraform Workspace Naming" >}}
 Personally, I'd recommend to not drive much of your naming or other configuration based on the workspace name, and instead use variables.
 
 Terraform Cloud behavior with trying to use workspace names at the time of this post was not what I expected, so I ended up removing my dependency on workspace names being important for the configuration. See [GitHub Issue](https://github.com/hashicorp/terraform/issues/22802#issuecomment-544499610)
 
 Instead, I use it as metadata only to organize the workspaces, not try to build configuration based heavily on using workspace name.
-{{< /premonition >}}
+{{< /admonition >}}
 
 ## Deploying Infrastructure
 
@@ -150,10 +150,10 @@ To run locally, you'll want to go to the workspace you created in Terraform Clou
 This means you'll be able to run the apply directly on your machine instead of running it from the remote location.
 Running remote is great, but for this to work you need to edit your Terraform remote cloud workspace and add the AWS access keys, as the job is actually running in the remote context and not using your local machine credentials.
 
-{{< premonition type="info" title="Terraform Cloud Credentials" >}}
+{{< admonition type="info" title="Terraform Cloud Credentials" >}}
 My preferred solution for this is to setup another Terraform workspace to create the credentials and then call this datasource to provide me with access instead of having to configure environment variables per workspace.
 This is a more advanced operation and not required on your first go-round, but keep it in mind as you scale up to managing many workspaces later on.
-{{< /premonition >}}
+{{< /admonition >}}
 
 Connecting your git repository to your Terraform workspace can also be done for automatically planning on commit.
 This forces changes to come through your git commits instead of being able to run locally, which can be great for ensuring source control truly is the equivalent of your release when working with a team.

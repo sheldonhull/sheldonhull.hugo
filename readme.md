@@ -50,3 +50,8 @@ npm install atomic-algolia
 [System.Environment]::SetEnvironmentVariable('ALGOLIA_INDEX_NAME', 'sheldonhull','User')
 [System.Environment]::SetEnvironmentVariable('ALGOLIA_INDEX_FILE', '_site/algolia.json','User')
 ```
+
+
+## Codeit Theme Reference
+
+- [The Default Yaml Frontmatter Options](https://codeit.suntprogramator.dev/theme-documentation-content/#front-matter)

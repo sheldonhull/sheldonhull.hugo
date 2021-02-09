@@ -2,7 +2,7 @@
 date: 2020-01-16T13:00:00.000+00:00
 title: Running SQL Server in Docker
 slug: running-sql-server-in-docker
-excerpt: For development work, it can be freeing to leverage Docker to simplify spinning
+summary: For development work, it can be freeing to leverage Docker to simplify spinning
   up a test SQL Server instance for your work
 tags:
 - devops
@@ -13,7 +13,7 @@ tags:
 toc: true
 
 ---
-{{< premonition type="info" title="Updated 2020-05-05" >}}
+{{< admonition type="info" title="Updated 2020-05-05" >}}
 
 I've had lots of challenges in getting docker for sql-server working because I've wanted to ensure for my dev use case that there was no need for virtual volume management and copying files into and out of this. Instead, I've wanted to bind to local windows paths and have it drop all the mdf/ldf right there, so even on container destruction everything is good to go.
 
@@ -37,7 +37,7 @@ docker run `
     -d mcr.microsoft.com/mssql/server:2019-latest
 ```
 
-{{< /premonition >}}
+{{< /admonition >}}
 
 ## Why Use Docker for MSSQL
 
@@ -83,7 +83,7 @@ A few helpful tips:
 1. Remove `-d` for detached and you can see the SQL Server console output in the console.
 2. See the persisted databases (system and user!) in the artifacts directory after docker-compose begins running.
 
-{{< gist a70a3a731b329b67f47a331c64c72ab5 >}}
+{{< gist sheldonhull  a70a3a731b329b67f47a331c64c72ab5 >}}
 
 ## Improving Code Tests
 

@@ -2,7 +2,7 @@
 date: 2020-04-20T13:00:00.000+00:00
 title: Using Pester to Improve Operational Tasks
 slug: using-pester-to-improve-operational-tasks
-excerpt: Leverage more software development testing principles for operational tasks
+summary: Leverage more software development testing principles for operational tasks
   to improve the quality and repeatability of work completed
 comments: true
 toc: true
@@ -55,9 +55,9 @@ For our example, let's say we are deploying a monitoring agent on some servers.
 
 Gherkin is the syntax used to describe the tests.
 
-{{< premonition type="info" title="Pester Syntax" >}}
+{{< admonition type="info" title="Pester Syntax" >}}
 You can write Pester tests with PowerShell in a different format, but I'm going to use Gherkin here because of its sentences and far less of a confusing DSL for our example.
-{{< /premonition >}}
+{{< /admonition >}}
 
 My understanding would be to compare Cucumber "spoken word", and Gherkin as the "language" chosen to communicate.
 When you write the feature files to work with Cucumber, you write them in Gherkin.
@@ -158,11 +158,11 @@ So all that writing...what benefit? Is it going to save time?
 
 With PowerShell, I'd write something similar to match a called step to a code block here.
 
-{{< premonition type="warning" title="Warning" >}}
+{{< admonition type="warning" title="Warning" >}}
 
 Case sensitive name as of 2019-04-16 for keywords. Therefore to match steps, use `Before` not `before` or it won't match.
 
-{{< /premonition >}}
+{{< /admonition >}}
 
 ```powershell
 

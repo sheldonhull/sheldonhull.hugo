@@ -1,0 +1,5 @@
+{{ if .IsNamedParams }}
+<a data-fancybox="{{.Get "data-fancybox"}}" href="{{.Site.BaseURL}}/images/{{.Get "src" }}"><img src="{{.Site.BaseURL}}/images/{{.Get "src" }}" alt="{{.Get "alt" }}"></a>
+{{ else }}
+<a href="{{.Site.BaseURL}}/images/{{.Get 0 }}"><img src="{{.Site.BaseURL}}/images/{{.Get 0 }}" alt="{{.Get 1 }}"></a>
+{{ end }}

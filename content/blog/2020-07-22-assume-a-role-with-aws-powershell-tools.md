@@ -3,7 +3,7 @@ title: Assume a role with AWS PowerShell Tools
 slug: assume-a-role-with-aws-powershell-tools
 date: 2020-07-21T20:00:00-05:00
 toc: true
-excerpt: However, as I've wanted to run some scripts across multiple accounts,
+summary: However, as I've wanted to run some scripts across multiple accounts,
   the need to simplify by assuming a role has been more important.
 tags:
   - tech
@@ -31,16 +31,16 @@ Setup a `[default]` profile in your credentials manually or through `Initialize-
 
 If you don't set this, you'll need to modify the examples provided to include the source `profilename`.
 
-{{< gist "e73dc7689be62dc7e8946d4ab948728b" "aws-cred-example" >}}
+{{< gist sheldonhull  "e73dc7689be62dc7e8946d4ab948728b" "aws-cred-example" >}}
 
 Next, ensure you provide the correct Account Number for the role you are trying to assume, while the MFA number is going to come from the "home" account you setup.
 For the `Invoke-Generate`, I use a handy little generator from `Install-Module NameIt -Scope LocalUser -Confirm:$false`.
 
-{{< gist "e73dc7689be62dc7e8946d4ab948728b" "aws-sts-assume-role-example.ps1" >}}
+{{< gist sheldonhull  "e73dc7689be62dc7e8946d4ab948728b" "aws-sts-assume-role-example.ps1" >}}
 
 Bonus: Use Visual Studio Code Snippets and drop this in your snippet file to quickly configure your credentials in a script with minimal fuss. 🎉
 
-{{< gist "e73dc7689be62dc7e8946d4ab948728b" "vscode-snippet.json" >}}
+{{< gist sheldonhull  "e73dc7689be62dc7e8946d4ab948728b" "vscode-snippet.json" >}}
 
 I think the key area I've missed in the past was providing the mfa and token in my call, or setting up this correctly in the configuration file.
 
@@ -50,7 +50,7 @@ In the case of needing to generate a temporary credential, say for an environmen
 
 It's one example of further reducing risk vectors by only providing a time-limited credential to a tool you might be using (can limit to a smaller time-frame).
 
-{{< gist "e73dc7689be62dc7e8946d4ab948728b" "generate-temporary-credentials.ps1" >}}
+{{< gist sheldonhull  "e73dc7689be62dc7e8946d4ab948728b" "generate-temporary-credentials.ps1" >}}
 
 ## AWS-Vault
 

@@ -1,6 +1,6 @@
 ---
 date: "2019-02-07T23:55:00Z"
-excerpt: Migrating from hipchat to slack can be a little painful if you have some
+summary: Migrating from hipchat to slack can be a little painful if you have some
   issues similar to mine to cleanup. Maybe this will help save you some time.
 last_modified_at: "2019-02-07 23:55:00"
 published: true
@@ -35,9 +35,9 @@ The Slack Migration tool is pretty good, but the auto renaming had some rename b
 ## Getting Started with Hipchat CLI
 It's painful. Hipchat's going into the great beyond so don't expect support for it.
 
-{{< premonition type="warning" title="Important" >}}
+{{< admonition type="warning" title="Important" >}}
 API Key for personal won't access full list of rooms in the action `getRoomList` in the CLI. Instead, you'll need to obtain the room list using Add-On token which I found too complex for my one time migration. Instead, you can copy the raw html of the table list, and use a regex script to parse out the room name and number list and use this. You can still perform room rename, just not `sendmessage` action on the rooms using the API token.
-{{< /premonition >}}
+{{< /admonition >}}
 
 1.  Install integration from marketplace to the entire account
 2.  Download the CLI for running locally

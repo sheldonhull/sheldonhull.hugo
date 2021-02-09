@@ -25,4 +25,4 @@ Anyway, commendation aside, the explanation from sp_blitz was fantastic at summa
 
 I appreciate the script as a starting point (see link above). I adapted to run this individually on each check constraint and log the errors that occurred. This runs though all FK and CHECK constraints in the database you are in, and then checks the data behind the constraint to ensure it is noted as trusted.
 
-{{< gist 2454ce9134eac225ce264c64adb331a9 >}}
+{{< gist sheldonhull  2454ce9134eac225ce264c64adb331a9 >}}

@@ -19,16 +19,18 @@ It's cross-platform.
 For a site like Azure DevOps, you can run:
 
 ```powershell
+
 $MYORG = 'foo'
 $MYPROJECT = 'bar'
 $BOARDNAME = 'bored'
 nativefier https://dev.azure.com/$MYORG/$MYPROJECT/_boards/board/t/$BOARDNAME/Backlog%20items/?fullScreen=true ~/$BOARDNAME
+
 ```
 
 If redirects for permissions occur due to external links opening, you might have to open the application bundle and edit the url mapping. [GitHub Issue #706](https://github.com/jiahaog/nativefier/issues/706)
 
 ```text
- `/Users/$(whoami)/$BOARDNAME/APP-darwin-x64/$BOARDNAME.app/Contents/Resources/app/nativefier.json`.
+/Users/$(whoami)/$BOARDNAME/APP-darwin-x64/$BOARDNAME.app/Contents/Resources/app/nativefier.json
 ```
 
 Ensure your external urls match the redirect paths that you need such as below.

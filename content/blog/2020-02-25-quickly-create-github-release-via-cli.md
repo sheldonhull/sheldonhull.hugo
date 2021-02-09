@@ -2,7 +2,7 @@
 date: 2020-02-26T07:00:00-06:00
 title: Quickly Create Github Release via Cli
 slug: quickly-create-github-release-via-cli
-excerpt:
+summary:
   Here's how you can quickly create a github release without having to go through the web interface
 tags:
   - git
@@ -51,7 +51,7 @@ With PowerShell you can do it quickly like this (you might need to close and reo
 
 To use this, you can chain together some steps and see how it can save you time on creating a GitHub release.
 
-{{< gist "53055bbff368a4ebe4e0794076a56c37" >}}
+{{< gist sheldonhull  "53055bbff368a4ebe4e0794076a56c37" >}}
 
 This helped me get moving faster ⚡ on using Github releases without the tedious work to create.
 If this helped you or have any feedback, drop a comment below and let me know!

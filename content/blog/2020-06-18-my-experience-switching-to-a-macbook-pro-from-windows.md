@@ -2,7 +2,7 @@
 date: 2020-06-18 12:00:00 +00:00
 title: My Experience Switching To A Macbook Pro From Windows
 slug: my-experience-switching-to-a-macbook-pro-from-windows
-excerpt: Having used Windows mostly for my entire life, this is what it was like switching
+summary: Having used Windows mostly for my entire life, this is what it was like switching
   to a Mac for professional use
 tags:
 - devops

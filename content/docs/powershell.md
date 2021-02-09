@@ -1,8 +1,7 @@
 ---
 title: powershell
 date: 2019-03-19
-toc: true
-excerpt: A cheatsheet for some interesting PowerShell related concepts that
+summary: A cheatsheet for some interesting PowerShell related concepts that
   might benefit others looking for some tips and tricks
 slug: powershell
 permalink: /docs/powershell
@@ -12,11 +11,11 @@ tags:
   - powershell
 ---
 
-{{< premonition type="info" title="Any requests?" >}}
+{{< admonition type="info" title="Any requests?" >}}
 If you have any requests or improvements for this content, please comment below. It will open a GitHub issue for chatting further.
 I'd be glad to improve with any additional quick help and in general like to know if anything here in particular was helpful to someone.
 Cheers! 👍
-{{< /premonition >}}
+{{< /admonition >}}
 
 ## Requirements
 
@@ -327,9 +326,9 @@ Not all are idiomatic to the language, but can be useful to know about.
 I recommend when possible to default to `$Items | ForEach-Object { }` as your default approach.
 This ensures a pipeline driven solution that can be enhanced later or piped to other cmdlets that are compatible with the pipeline.
 
-{{< premonition type="warning" title="Gotcha" >}}
+{{< admonition type="warning" title="Gotcha" >}}
 This is a cmdlet, not a PowerShell language feature. This means that the behavior of break, continue, and return all operate differently in this ForEach-Object process block than when doing a `foreach` loop.
-{{< /premonition >}}
+{{< /admonition >}}
 
 These are ranked in the order I recommend using by default.
 
@@ -416,18 +415,18 @@ For quick access, save this to a Visual Studio Code snippet like below:
 I did this to participate in Code Golf, and felt pretty good that I landed in 112 🤣 with this.
 Really pains me to write in the code-golf style.
 
-{{< gist "3ea6fd6cafe210edb1d71b5e8d3d1696" >}}
+{{< gist sheldonhull  "3ea6fd6cafe210edb1d71b5e8d3d1696" >}}
 
 ## Syncing Files Using S5Cmd
 
-{{< gist "9bdb6ae57121e3c9ddc3fa594119c476" >}}
+{{< gist sheldonhull  "9bdb6ae57121e3c9ddc3fa594119c476" >}}
 
 ## AWS PowerShell Specific Cheatsheets
 
-{{< gist "9534958236fbc3973e704f648cec27e7" >}}
+{{< gist sheldonhull  "9534958236fbc3973e704f648cec27e7" >}}
 
 ## Other Cheatsheets
 
 Trying a new gist driven approach here, so this will auto update.
 
-{{< gist "c738117686c3e9cf7d717e1301e250b7" >}}
+{{< gist sheldonhull c738117686c3e9cf7d717e1301e250b7 >}}

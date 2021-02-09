@@ -2,7 +2,7 @@
 date: 2019-11-11T13:00:00+00:00
 title: Improving the Quality of Your Automation Logging with Cowsay
 slug: improving-the-quality-of-your-automation-logging-with-cowsay
-excerpt: 'Everyone involved in DevOps should have this critical tool in their toolchain... '
+summary: 'Everyone involved in DevOps should have this critical tool in their toolchain... '
 tags:
 - cli
 - cool-tools
@@ -134,8 +134,8 @@ sudo apt install cmatrix
 * [Dadjokes-cli](https://pypi.org/project/dadjokes-cli/)
 * [Cownet](https://pypi.org/project/Cownet/)
 
-{{< premonition type="warning" title="disclaimer" >}}
+{{< admonition type="warning" title="disclaimer" >}}
 
 :warning: There are a couple ascii layouts that are a little inappropriate, so if doing a live demo or something more visible don't use random mode if you don't want something showing up that might embarass you :grin:
 
-{{< /premonition >}}
+{{< /admonition >}}

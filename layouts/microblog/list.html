@@ -1,0 +1,49 @@
+{{- define "title" }}
+{{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+{{- end -}}
+
+{{- define "content" -}}
+
+{{/*  <div class="page archive">  */}}
+
+    {{- /* Title */ -}}
+    <h2 class="single-title animated pulse faster">
+        {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
+    </h2>
+
+    {{ $pages := (where .Site.RegularPages.ByTitle "Section" "microblog" ) }}
+    {{ $section := .Section }}
+    {{- /* Paginate */ -}}
+    {{- if $pages -}}
+    {{- $pages := $pages.GroupByDate "2006" -}}
+    {{- with .Site.Params.section.paginate | default .Site.Params.paginate -}}
+    {{- $pages = $.Paginate $pages . -}}
+    {{- else -}}
+    {{- $pages = .Paginate $pages -}}
+    {{- end -}}
+    {{- range $pages.PageGroups -}}
+    <h1 class="group-title">{{ .Key }}</h1>
+    {{- range .Pages -}}
+    {{- if (or .Params.images .Params.featuredImg) }}
+    <div class="bg-img"></div>
+    {{- end }}
+    <!-- <main class="site-main section-inner thin animated fadeIn faster"> -->
+        <article class="page single">
+        {{- $params := .Scratch.Get "params" -}}
+            <a href="{{ .Permalink }}"><h1 class="h1-glow">{{ .Title }}</h1></a>
+            <div class="content" id="content">
+
+
+                {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+            </div>
+            {{- /* Comment */ -}}
+            {{- partial "comment.html" . -}}
+        <div><hr></div>
+        </article>
+    <!-- </main> -->
+    {{- end -}}
+    {{- end -}}
+    {{- partial "paginator.html" . -}}
+    {{- end -}}
+{{/*  </div>  */}}
+{{- end -}}

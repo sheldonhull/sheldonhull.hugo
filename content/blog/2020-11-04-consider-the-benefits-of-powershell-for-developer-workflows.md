@@ -2,7 +2,7 @@
 date: 2020-11-04T07:00:00Z
 title: Consider the Benefits of Powershell for Developer Workflows
 slug: consider-the-benefits-of-powershell-for-developer-workflows
-excerpt:
+summary:
   You use bash and python. You have no need of the wierdness that is powershell.
   Give me couple minutes to convince you otherwise. Maybe you'll find something useful :-)
 tags:
@@ -67,14 +67,14 @@ Simple cli bash scripting is great for many things (thus prior article about Imp
 The fundemental difference in bash vs PowerShell is really text vs object, in my opinion.
 This actually is where much of the value comes in for considering what to use.
 
-{{< premonition type="info" title="Go For CLI Tools" >}}
+{{< admonition type="info" title="Go For CLI Tools" >}}
 Go provides a robust cross-platform single binary with autocomplete features and more.
 
 I'd say that for things such as exporting pipelines to Excel, and other "automation" actions it's far more work in Go.
 
 Focus Go on tooling that makes the extra plumbing and stronger typing give benefit rather than just overhead.
 AWS SDK operations, serverless/lambda, apis, complex tools like Terraform, and more fit the bill perfectly and are a great use case.
-{{< /premonition >}}
+{{< /admonition >}}
 
 ## Scenario: Working with AWS
 

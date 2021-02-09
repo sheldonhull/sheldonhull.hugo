@@ -2,7 +2,7 @@
 date: 2019-06-17T14:00:00+00:00
 title: Bump nuspec file version with powershell
 slug: bump-nuspec-file-version-with-powershell
-excerpt: " This snippet should help give you a way to bump a nuspec file version programmatically."
+summary: " This snippet should help give you a way to bump a nuspec file version programmatically."
 tags:
 - chocolatey
 - azuredevops
@@ -16,6 +16,6 @@ Bumping the version of the nuspec file requires a little tweaking and I got some
 
 This snippet should help give you a way to bump a nuspec file version programmatically.
 
-{{< gist f0c2bd47e18e5d074c5e2b9943f79dfc >}}
+{{< gist sheldonhull  f0c2bd47e18e5d074c5e2b9943f79dfc >}}
 
 I modified the logic to support `-WhatIf` since I'm a fan of being able to run stuff like this without actually breaking things first.

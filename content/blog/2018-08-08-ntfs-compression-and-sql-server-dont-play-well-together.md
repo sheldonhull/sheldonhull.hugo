@@ -1,6 +1,6 @@
 ---
 date: "2018-08-08T00:00:00Z"
-excerpt: accidentally copying a database to a ntfs compressed volume can result in
+summary: accidentally copying a database to a ntfs compressed volume can result in
   some unpleasant aftertaste. If you get the error The requested operation could not
   be completed due to a file system limitation you are probably at the right place.
 last_modified_at: "2019-02-21"
@@ -47,8 +47,8 @@ Since I wasn't able to fix this large of a file by toggling the file (it was 100
 
 Here's a helpful script to get you on your way in case it takes a while. Use at your own risk, and please... always have backups! #DontBlameMeIfYouDidntBackThingsUp #CowsayChangedMyLife
 
-{{< gist c13eec8bbd570f762fd3834b19464465 >}}
+{{< gist sheldonhull  c13eec8bbd570f762fd3834b19464465 >}}
 
 and finally to remount the database after copying it back to your drive ...
 
-{{< gist 274861a17a7db002bddd55861b781719 >}}
+{{< gist sheldonhull  274861a17a7db002bddd55861b781719 >}}

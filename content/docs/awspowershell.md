@@ -2,13 +2,13 @@
 title: AWSPowershell
 slug: awspowershell
 permalink: /docs/awspowershell/
-excerpt: A cheatsheet and quick start reference for working with AWSPowershell
+summary: A cheatsheet and quick start reference for working with AWSPowershell
 date: 2019-02-19T00:00:00.000Z
 toc: true
 comments: true
 ---
 
-{{< premonition type="info" title="Requests or Suggestions" >}} If you have any requests or improvements for this content, please comment below. It will open a GitHub issue for chatting further. I'd be glad to improve with any additional quick help and in general like to know if anything here in particular was helpful to someone. Cheers! 👍 {{< /premonition >}}
+{{< admonition type="info" title="Requests or Suggestions" >}} If you have any requests or improvements for this content, please comment below. It will open a GitHub issue for chatting further. I'd be glad to improve with any additional quick help and in general like to know if anything here in particular was helpful to someone. Cheers! 👍 {{< /admonition >}}
 
 ## Setup
 

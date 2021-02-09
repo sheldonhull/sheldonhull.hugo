@@ -3,7 +3,7 @@ title: Compiling a Custom Provider and Including for Terraform Cloud
 slug: compiling-a-custom-provider-and-including-for-terraform-cloud
 date: 2020-07-14T13:00:00-05:00
 toc: true
-excerpt: If you need to include a custom provider with Terraform Cloud, you
+summary: If you need to include a custom provider with Terraform Cloud, you
   currently need to perform some special work to package everything together
   properly. Here's how I did it to give you a jump start
 tags:

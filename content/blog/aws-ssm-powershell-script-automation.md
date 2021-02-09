@@ -2,7 +2,7 @@
 date: 2019-07-04T22:24:01+00:00
 title: AWS SSM PowerShell Script Automation
 slug: aws-ssm-powershell-script-automation
-excerpt:
+summary:
   simply your management of instances in AWS by learning how to pass PowerShell
   commands through the AWSPowershell cmdlets without having to handle complicated
   string escaping

@@ -28,8 +28,9 @@
 		"skn0tt.markdown-link-expander",
 		"mhutchie.git-graph",
 		"stylelint.vscode-stylelint",
-		"sibiraj-s.vscode-scss-formatter"
+		"sibiraj-s.vscode-scss-formatter",
 		"znck.grammarly",
+		"ms-vscode.powershell-preview"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [

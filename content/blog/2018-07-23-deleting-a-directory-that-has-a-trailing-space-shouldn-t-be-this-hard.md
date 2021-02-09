@@ -1,6 +1,6 @@
 ---
 date: "2018-07-23T00:00:00Z"
-excerpt: Can't delete a directory due to some edge case in naming errors... like a
+summary: Can't delete a directory due to some edge case in naming errors... like a
   trailing space. Here's the fix!
 last_modified_at: "2019-03-18"
 published: true

@@ -2,7 +2,7 @@
 date: 2020-06-24T11:00:00.000+00:00
 title: Azure Data Studio SQL Notebook for Diagnostic Queries
 slug: azure-data-studio-sql-notebook-for-diagnostic-queries
-excerpt: Dbatools has many amazing features. This one is a pretty amazing quick win
+summary: Dbatools has many amazing features. This one is a pretty amazing quick win
   for diagnostic efforts
 tags:
 - dbatools
@@ -46,11 +46,11 @@ Open up this new notebook and enjoy the result! To make reading easier, you can 
 
 Note that even the description of the queries is provided in the notebook, providing insight on the purpose of the query.
 
-{{< premonition type="warning" title="Warning" >}}
+{{< admonition type="warning" title="Warning" >}}
 
 As always, make sure you are careful before just running all queries by default against a production server.
 Some queries take heavy resources and might not be appropriate to run in the middle of a production workflow.
 
-{{< /premonition >}}
+{{< /admonition >}}
 
 ![Shows the diagnostic query view in Azure Data Studio](/images/2020-06-23_13-23-07_azure_data_studio.png "Azure Data Studio Diagnostic Queries")

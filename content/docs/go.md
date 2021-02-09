@@ -2,7 +2,7 @@
 title: go
 date: 2020-10-30T00:00:00.000Z
 toc: true
-excerpt: >-
+summary: >-
   A cheatsheet to update with what I pickup with Go that I likely need to
   reference again as a new gopher.
 slug: go
@@ -60,7 +60,7 @@ func run(args []string, stdout io.Writer) error {
 
 I honestly had never done any algorithm or interview puzzles beyond sql-server, so I was really happy to knock this out relatively easily. At least I pass the basic Joel test 😁
 
-{{< gist "25309ea04d1646f26bc0f4a54e0f16af" >}}
+{{< gist sheldonhull  "25309ea04d1646f26bc0f4a54e0f16af" >}}
 
 ## Logging
 
@@ -72,7 +72,7 @@ The output of this demo looks pretty good!
 
 Here's a functional demo that can be used to bootstrap a new project with this.
 
-{{< gist "9e608da09f84fac600d921e3f0867226" >}}
+{{< gist sheldonhull  "9e608da09f84fac600d921e3f0867226" >}}
 
 ## Algorithms & Challenges
 
@@ -82,10 +82,10 @@ I'll eventually put these in a repo most likely, and have test cases to make run
 
 > Alex works at a clothing store. There is a large pile of socks that must be paired by color for sale. Given an array of integers representing the color of each sock, determine how many pairs of socks with matching colors there are. Return the total number of matching pairs of socks that Alex can sell.
 
-{{< gist "f7671b1d78705c329fe25b3c4af7c3ec" >}}
+{{< gist sheldonhull  "f7671b1d78705c329fe25b3c4af7c3ec" >}}
 
 ### Bubble Sort
 
 > Given an array of integers, sort the array in ascending order using the Bubble Sort algorithm above. Once sorted, print the following three lines for example: Array is sorted in 3 swaps. First Element: 1 Last Element: 6
 
-{{< gist "4aae8e98dd228530d97ce7c6e8208444" >}}
+{{< gist sheldonhull  "4aae8e98dd228530d97ce7c6e8208444" >}}

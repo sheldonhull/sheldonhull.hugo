@@ -1,6 +1,6 @@
 ---
 date: "2018-08-19T00:00:00Z"
-excerpt: Trouble with duplicate files in Google Drive? Want to fix a mess? Found the
+summary: Trouble with duplicate files in Google Drive? Want to fix a mess? Found the
   tool to do it!
 last_modified_at: "2019-02-21"
 published: true
@@ -59,4 +59,4 @@ This includes quite a few nifty S3 operations. Even though I'm more experienced 
 
 Buried in there was also mention of the ability to mount **any** of the storage systems as local drives in Windows. See [RClount Mount documentation.](https://rclone.org/commands/rclone_mount/). This means you could mount an S3 bucket as a local drive with RClone. I'll try and post an update on that after I try it out. It's pretty promising.
 
-{{< gist e286bd05ff154b47c8a1f8ecf2bdc22b >}}
+{{< gist sheldonhull  e286bd05ff154b47c8a1f8ecf2bdc22b >}}

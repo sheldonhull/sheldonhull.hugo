@@ -2,7 +2,7 @@
 date: 2019-06-10T05:06:00+00:00
 title: Leverage AWS System Manager Sessions
 slug: leveraging-aws-system-manager-sessions
-excerpt: leveraging aws system manager sessions can help with aws development, by
+summary: leveraging aws system manager sessions can help with aws development, by
   eliminating the need to RDP for work that can be done via a PowerShell session.
   In addition, it can help bypass the need to use SSH tunneling, or RDP hops into
   the final destination.
@@ -40,7 +40,7 @@ I use Cmder for my main terminal, with all other terminals normally running in V
 
 ### Install on Windows
 
-{{< gist d2c4b009e7da1845081327121a61a05c >}}
+{{< gist sheldonhull  d2c4b009e7da1845081327121a61a05c >}}
 
 Ensure your AWS Credentials are setup, and use the session manager plugin after installation by running:
 

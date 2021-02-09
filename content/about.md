@@ -3,7 +3,7 @@ permalink: "/about/"
 layout: single
 title: About
 slug: about
-excerpt: about me
+summary: about me
 sidebar: []
 author_profile: false
 comments: true
@@ -38,7 +38,7 @@ I've enjoyed doing videography, photography, and creating music.
 Electric & acoustic guitar have always been a passion.
 I'm a sucker for good post-rock music, which I think is the best type of music for coding around.
 
-### Music - On Desk
+## Music - On Desk
 
 If you want to check out some new music, this is my up to date "on deck" playlist of music I rock out to.
 

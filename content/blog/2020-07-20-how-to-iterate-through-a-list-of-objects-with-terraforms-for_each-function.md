@@ -3,7 +3,7 @@ title: How to Iterate Through A List of Objects with Terraform's for_each functi
 slug: how-to-iterate-through-a-list-of-objects-with-terraforms-for-each-function
 date: 2020-07-29T16:00:00-05:00
 toc: true
-excerpt: While iterating through a map has been the main way I've handled this,
+summary: While iterating through a map has been the main way I've handled this,
   I finally ironed out how to use expressions with Terraform to allow an object
   list to be the source of a for_each operation. This makes feeding Terraform
   plans from yaml or other collection input much easier to work with.

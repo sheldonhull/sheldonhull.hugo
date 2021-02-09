@@ -1,6 +1,6 @@
 ---
 date: "2019-02-07T00:07:21Z"
-excerpt: Just a quick look at the very beginning of setting up SQL Server Database
+summary: Just a quick look at the very beginning of setting up SQL Server Database
   Experimentation Assistant
 last_modified_at: "2019-02-08 00:07:21"
 tags:

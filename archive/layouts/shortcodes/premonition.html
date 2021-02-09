@@ -1,0 +1,12 @@
+<!-- https://codepen.io/madebyhugh/pen/doYOgO -->
+{{ $type := .Get "type" }}
+
+{{ $type := replace $type "info" "information" }}
+
+
+<div class="mbh-{{ $type }} mbh-notification-box">
+{{ if .Get "title" }}
+<p>{{- .Get "title" | markdownify -}}</p>
+{{- end -}}
+{{- .Inner | markdownify -}}
+</div>

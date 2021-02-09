@@ -2,7 +2,7 @@
 date: 2020-12-30T21:44:34Z
 title: Experiments With Go Arrays and Slices
 slug: experiments-with-go-arrays-and-slices
-excerpt:
+summary:
   Some ramblings as I worked through working with arrays and slices with Go
 tags:
   - powershell

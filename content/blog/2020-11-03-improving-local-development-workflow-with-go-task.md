@@ -2,7 +2,7 @@
 date: 2020-11-03T22:24:28Z
 title: Improving Local Development Workflow With Go Task
 slug: improving-local-development-workflow-with-go-task
-excerpt:
+summary:
   Development workflow, especially outside of a full-fledged IDE, is often a disjointed affair.
   Here's how to improve that with Task, a cross-platform task runner alternative to Make.
 tags:

@@ -1,6 +1,6 @@
 ---
 date: "2019-03-11T00:00:00Z"
-excerpt: What is the best way to debug more complicated parameter binding and type
+summary: What is the best way to debug more complicated parameter binding and type
   casting scenarios in PowerShell.
 last_modified_at: "2019-03-12"
 tags:

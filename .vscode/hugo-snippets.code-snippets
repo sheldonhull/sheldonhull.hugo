@@ -1,9 +1,9 @@
 {
     "Print to console": {
         "scope": "markdown",
-        "prefix": "premonition",
+        "prefix": "admonition",
         "body": [
-            "{{< premonition type=\"${1|info,warning|}\" title=\"${Title}\" >}}\r\n$0\r\n{{< /premonition >}}"
+            "{{< admonition type=\"${1||Note,Abstract,Info,Tip,Success,Question,Warning,Failure,Danger,Bug,Example,Quote|}\" title=\"${Title}\" >}}\r\n$0\r\n{{< /admonition >}}"
         ],
         "description": "premonition notice for notice box"
     },

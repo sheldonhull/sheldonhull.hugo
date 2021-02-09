@@ -14,9 +14,9 @@ toc: true
 series: ["InfluxDb"]
 ---
 
-{{< premonition type="info" title="Updated: 2020-04-29" >}}
+{{< admonition type="info" title="Updated: 2020-04-29" >}}
 broken image links removed
-{{< /premonition >}}
+{{< /admonition >}}
 
 
 This post assumes you've already setup InfluxDB and have Grafana running.
@@ -29,7 +29,7 @@ This post on maxchadwick.xyz greatly helped me get started: [Creating Grafana An
 
 Per Max's original post it supports html as well, so you could link for example to a build, test result, or anything else you want to link to from your performance statistics.
 
-{{< gist e95ca6d909f741ebe80fa28c6da4de5b >}}
+{{< gist sheldonhull  e95ca6d909f741ebe80fa28c6da4de5b >}}
 
 This provides an annotation on your timeline in a nice format for browsing through the timeline. I can see usage cases for identifying specific activity or progress in tests, helping coorelate the performance metrics with known activity steps from a build, script, or other related tasks. You could have an type of activity trigger this powershell insert, providing a lot of flexibility to help relate useful metrics to your monitoring.
 

@@ -22,7 +22,7 @@ select
 You can see the difference in naming. The bottom too are deprecated syntax from older naming standards, and should be avoided typically. Aliasing is pretty straight forward and the variance in doing your alias pattern doesn't normally have an actual impact on the results or way of handling...
 **Except when doing with XML apparently**
 
-{{< gist aae7d80467d37b89dc15 >}}
+{{< gist sheldonhull  aae7d80467d37b89dc15 >}}
 
 
 ![Image of XML Difference](/images/xml-handling-with-aliases_uxvcja.jpg)

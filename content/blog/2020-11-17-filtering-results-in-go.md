@@ -2,7 +2,7 @@
 date: 2020-11-17T15:18:17-06:00
 title: Filtering Results in Go
 slug: filtering-results-in-go
-excerpt:
+summary:
   Comparing the basic filtering from PowerShell to syntax in Go
 tags:
   - development

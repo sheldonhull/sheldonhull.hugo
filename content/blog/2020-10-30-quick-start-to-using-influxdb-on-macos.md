@@ -2,7 +2,7 @@
 date: 2020-10-30T19:40:52-05:00
 title: Quick Start to Using Influxdb on Macos
 slug: quick-start-to-using-influxdb-on-macos
-excerpt:
+summary:
   Took me a few minutes to get started on the newer InfluxDB 2.0 so let me save you a few minutes, running telegraf + docker based InfluxDB.
 tags:
   - development

@@ -28,4 +28,4 @@ Note that you'd want to install the auto-approver app they document in the marke
 In addition, if you use `CODEOWNERS` file, this will still block automerge.
 Consider removing that if you aren't really leveraging it.
 
-{{< gist "f36ea328a2167e93a7015906beb08bbe" >}}
+{{< gist sheldonhull  "f36ea328a2167e93a7015906beb08bbe" >}}

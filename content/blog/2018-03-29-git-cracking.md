@@ -1,6 +1,6 @@
 ---
 date: 2018-03-29T00:00:00Z
-excerpt: Git can be an interesting learning curve if you are coming from TFS (Team
+summary: Git can be an interesting learning curve if you are coming from TFS (Team
   Foundation Server). However, there are some great things about using Git if you
   can wrap you head around the terminology
 last_modified_at: 2018-03-29
@@ -14,12 +14,12 @@ slug: git-cracking
 toc: true
 
 ---
-{{< premonition type="info" title="Resources" >}}
+{{< admonition type="info" title="Resources" >}}
 - [GitKraken](http://bit.ly/2J6a4mW)
 - [Source Tree](http://bit.ly/2pPQeUU)
 - [Posh-Git](http://bit.ly/2pOPLm6)
 - [Cmder](http://bit.ly/2GnxzpH)
-{{< /premonition >}}
+{{< /admonition >}}
 
 ## Git Some Pain
 

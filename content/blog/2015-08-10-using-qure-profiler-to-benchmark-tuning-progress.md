@@ -10,9 +10,9 @@ toc: true
 
 # Qure Analyzer Benchmark Testing
 
-{{< premonition type="warning" title="Updated 2018-03-18" >}}
+{{< admonition type="warning" title="Updated 2018-03-18" >}}
 Wouldn't recommend tool at this time. Development seemed to cease, resulting in me not being able to use with later versions of SQL Server. When I came back recently to check on it, the app was sold and it was with a new company. Didn't see to have progressed much based on a quick look and not really interested in it at this point. Instead, other solutions like the new DEA (Database Experimentation Assistant from Microsoft) would be where I'd spend more effort.
-{{< /premonition >}}
+{{< /admonition >}}
 
 
 ## the problem of monster views

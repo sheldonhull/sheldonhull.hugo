@@ -1,6 +1,6 @@
 ---
 date: "2017-09-03T00:00:00Z"
-excerpt: It's important to remember that the road to recovery is not an instant process.
+summary: It's important to remember that the road to recovery is not an instant process.
 tags:
 - ramblings
 - flood

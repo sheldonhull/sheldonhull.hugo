@@ -6,7 +6,7 @@ tags:
 - tech
 title: "Ultrawide Monitor - Samsung CF971 - First impressions"
 slug: "ultrawide-monitor-samsung-cf971-first-impressions"
-excerpt: ""
+summary: ""
 ---
 
 As a developer, I've been a big fan of multiple monitors for a long time. I moved to a triple screen setup years ago, and up until recently, had no desire to try anything different.

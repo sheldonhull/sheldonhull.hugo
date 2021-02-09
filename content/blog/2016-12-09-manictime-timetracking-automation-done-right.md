@@ -9,9 +9,9 @@ slug: "manictime-timetracking-automation-done-right"
 toc: true
 ---
 
-{{< premonition type="info" title="Updated: 2020-04-29" >}}
+{{< admonition type="info" title="Updated: 2020-04-29" >}}
 broken image links removed
-{{< /premonition >}}
+{{< /admonition >}}
 
 Tracking time is always a beast. With the amount of context switching many developers do, it can be tough to remember how much time went to each project. With companies looking to track effort on sprints, hours on a client project, or (as in my case) just a dev wanting to better evaluate the productive use of time, this app fills some gaps that others don't.For instance, I've tried tools such as Toggl, and similar. I found them useful, but requiring a lot of diligence to work with. There is very little "automatic" categorization of time. Many of those tools are focused on a timer based approach that requires you to start and stop the timer.
 [ManicTime](http://bit.ly/2e9tsDZ) approaches this differently. It has the typical stop watch, countdown, Pomodoro type functionality a time tracking tool might offer, but in addition to this it provides a captured timeline of activity with various forms of meta data to easily review and parse for categorization.

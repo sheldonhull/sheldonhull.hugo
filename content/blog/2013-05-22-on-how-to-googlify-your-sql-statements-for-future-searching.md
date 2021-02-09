@@ -1,6 +1,6 @@
 ---
 date: "2013-05-22T00:00:00Z"
-excerpt: On using SSMSBoost to improve your SSMS workflow
+summary: On using SSMSBoost to improve your SSMS workflow
 tags:
 - sql-server
 - cool-tools

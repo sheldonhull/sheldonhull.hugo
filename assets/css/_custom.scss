@@ -1,0 +1,48 @@
+@import "_microtag.scss";
+@import "_fonts.scss";
+@import "_mailbrew.scss";
+@import "_tags.scss";
+$global-font-family: Raleway, Maven Pro, Source Sans Pro, Trebuchet MS, Verdana, Verdana Ref, Segoe UI, Candara,
+    Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif !default;
+$code-font-family: "JetBrainsMono", "Fira Code Retina", "Fira Code", Consolas, "Andale Mono WT", "Andale Mono", Menlo,
+    Monaco, "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+    "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, "YaHei Consolas Hybrid", monospace, "Segoe UI Emoji",
+    "PingFang SC", "Microsoft YaHei" !default;
+
+// Override the whitespace being eliminated
+.highlight,
+.gist {
+    .table-wrapper {
+        white-space: normal;
+    }
+}
+
+.h1-glow,.single-title, .headerLink,.header-title,.menu-item:not(#search-desktop) {
+    filter: drop-shadow(0 0 10px #03edf9);
+}
+
+hr {
+    filter: drop-shadow(0 0 10px #03edf9);
+}
+
+.group-title {
+    text-align: center;
+    filter: drop-shadow(0 0 10px #03edf9);
+}
+
+// Set the logo image to be rounded
+
+header .logo,
+header .header-title-pre {
+    border-radius: 100%;
+}
+.archive .archive-item-date {
+    width:6em;
+}
+
+.fa-search {
+        filter:none;
+}
+.header-title-pre {
+    margin-left:1em;
+}

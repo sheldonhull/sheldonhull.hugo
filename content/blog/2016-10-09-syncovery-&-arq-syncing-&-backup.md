@@ -9,9 +9,9 @@ slug: "syncovery-&-arq-syncing-&-backup"
 
 # Syncovery & Arq 5I've tried a lot of file sync/backup utilities.
 
-{{< premonition type="info" title="Updated: 2020-04-29" >}}
+{{< admonition type="info" title="Updated: 2020-04-29" >}}
 broken image links removed
-{{< /premonition >}}
+{{< /admonition >}}
 
 
 The primary definition to get right is that there are two main functions people try to achieve with this type of software.
