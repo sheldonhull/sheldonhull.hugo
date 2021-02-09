@@ -318,7 +318,7 @@ params:
         enable: false
       utterances:
         enable: true
-        repo: https://github.com/sheldonhull/sheldonhull.hugo
+        repo: sheldonhull/sheldonhull.hugo
         issueTerm: title
         label: '💬 blog comment'
         lightTheme: github-light
