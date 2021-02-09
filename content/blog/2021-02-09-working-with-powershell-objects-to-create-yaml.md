@@ -9,7 +9,6 @@ tags:
   - tech
   - powershell
   - devops
-draft: true
 ---
 
 ## Who This Might Be For
@@ -177,7 +176,7 @@ $Services | ConvertTo-Json -Depth 100 | &'C:\tools\yq.exe' eval - --prettyPrint 
 
 This would produce a nice json output like this
 
-
+![Example config image](/images/2021-02-08-yaml-config-example.png)
 
 ### One More Complex Example
 
@@ -210,7 +209,13 @@ $Queries += [ordered]@{
 }
 ```
 
-Using `+=` is a bit of an anti-pattern for high performance PowerShell, but it works great for something like this that's ad-hoc and needs to be simple. For high performance needs, try using something like `$list = [Systems.Collections.Generic.List[pscustomobject]]:new()` for example. This can then allow you to use the `$list.Add([pscustomobject]@{}` to add items. A bit more complex, but very powerful and performance, with the benefit of stronger data typing.
+{{< admonition type="Tip" title="Using += for Collections" >}}
+Using `+=` is a bit of an anti-pattern for high performance PowerShell, but it works great for something like this that's ad-hoc and needs to be simple.
+For high performance needs, try using something like `$list = [Systems.Collections.Generic.List[pscustomobject]]:new()` for example.
+This can then allow you to use the `$list.Add([pscustomobject]@{}` to add items.
+
+A bit more complex, but very powerful and performance, with the benefit of stronger data typing.
+{{< /admonition >}}
 
 This one is a good example of the custom query format that Datadog supports, but honestly I found pretty confusing in their docs until I bumbled my way through a few iterations.
 
@@ -250,7 +255,7 @@ Let me do a quick breakdown, in case you aren't as familiar with this type of sy
 
 1. `$Queries +=` takes whatever existing object we have and replaces it with the current object + the new object. This is why it's not performant for large scale work as it's basically creating a whole new copy of the collection with your new addition.
 2. Next, I'm using `[ordered]` instead of `[pscustomobject]` which in effect does the same thing, but ensures I'm not having all my properties randomly sorted each time. Makes things a little easier to review. This is a shorthand syntax for what would be a much longer tedious process using `New-Object` and `Add-Member`.
-3. Custom queries is a list, so I cast it with `@()` format, which tells PowerShell to expect a list. This helps json/yaml conversion be correct even if you have just a single entry. You can be more explicit if you want, like `[pscustomobject[]]@()` but since PowerShell ignores you mostly on trying to be type specific, it's not worth it. Don't try to make PowerShell in Go or C#. 😁
+3. Custom queries is a list, so I cast it with `@()` format, which tells PowerShell to expect a list. This helps json/yaml conversion be correct even if you have just a single entry. You can be more explicit if you want, like `[pscustomobject[]]@()` but since PowerShell ignores you mostly on trying to be type specific, it's not worth it. Don't try to make PowerShell be Go or C#. 😁
 
 ### Flip To Yaml
 
@@ -295,3 +300,10 @@ Get-Content 'C:\ProgramData\Datadog\logs\agent.log' -Tail 5 -Wait
 Ideally, use Chef, Ansible, Saltstack, DSC, or another tool to do this. However, sometimes you just need some flexible options for generating this type of content dynamically. Hopefully, you'll find this useful in your PowerShell magician journey and save some time.
 
 I've already found it useful in flipping json content for various tools back and forth. 🎉
+
+A few scenarios that tooling like yq might prove useful could be:
+
+- convert simple query results from json to yaml and store in git as config
+- Flip an SSM Json doc to yaml
+- Review a complex json doc by flipping to yaml for more readable syntax
+- Confusing co-workers by flipping all their cloudformation from yaml to json or yaml from json. (If you take random advice like this and apply, you probably deserve the aftermath this would bring 🤣.)
