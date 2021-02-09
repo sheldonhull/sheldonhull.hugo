@@ -52,3 +52,21 @@ header .header-title-pre {
 .header-title-pre {
     margin-left: 1em;
 }
+
+// Prefix My Headers With Nice Markdown styled headers for consistency
+.single {
+    .content {
+        > h2 > .header-mark::before {
+            content: "#";
+        }
+        > h3 > .header-mark::before {
+            content: "##";
+        }
+        > h4 > .header-mark::before {
+            content: "###";
+        }
+        > h5 > .header-mark::before {
+            content: "####";
+        }
+    }
+}
