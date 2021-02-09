@@ -320,7 +320,7 @@ params:
         enable: true
         repo: sheldonhull/sheldonhull.hugo
         issueTerm: title
-        label: '💬 blog comment'
+        label: 💬 blog comment
         lightTheme: github-light
         darkTheme: github-dark
     library:
@@ -413,17 +413,17 @@ outputFormats:
     mediaType: text/plain
     isPlainText: true
     isHTML: false
-  # Algolia:
-  #   baseName: algolia
-  #   isPlainText: true
-  #   mediaType: application/json
-  #   notAlternative: true
+  Algolia:
+    baseName: algolia
+    isPlainText: true
+    mediaType: application/json
+    notAlternative: true
 outputs:
   home:
     - HTML
     - RSS
     - JSON
-    # - Algolia
+    - Algolia
   page:
     - HTML
     - MarkDown

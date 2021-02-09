@@ -13,12 +13,17 @@ $code-font-family: "JetBrainsMono", "Fira Code Retina", "Fira Code", Consolas, "
 // Override the whitespace being eliminated
 .highlight,
 .gist {
+    font-family: $code-font-family;
     .table-wrapper {
         white-space: normal;
     }
 }
 
-.h1-glow,.single-title, .headerLink,.header-title,.menu-item:not(#search-desktop) {
+.h1-glow,
+.single-title,
+.headerLink,
+.header-title,
+.menu-item:not(#search-desktop) {
     filter: drop-shadow(0 0 10px #03edf9);
 }
 
@@ -38,12 +43,12 @@ header .header-title-pre {
     border-radius: 100%;
 }
 .archive .archive-item-date {
-    width:6em;
+    width: 6em;
 }
 
 .fa-search {
-        filter:none;
+    filter: none;
 }
 .header-title-pre {
-    margin-left:1em;
+    margin-left: 1em;
 }
