@@ -178,7 +178,7 @@ params:
   version: 0.2.X
   defaultTheme: dark
   gitRepo: https://github.com/sheldonhull/sheldonhull.hugo
-  fingerprint: sha256
+  fingerprint: ''
   dateFormat: 2006-01-02
   images:
     - images/2016-04-27_17-27-07_circular.jpg
