@@ -34,5 +34,4 @@ Instead, ensure you create the entire object as shown in the example, and then y
 
 Good luck!
 
-
-{{< gist sheldonhull  sheldonhull "ad168faccb06cd0387bcebfdf99da3d6" >}}
+{{< gist sheldonhull ad168faccb06cd0387bcebfdf99da3d6 >}}
