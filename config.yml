@@ -188,7 +188,8 @@ params:
     title:
       logo: /images/2016-04-27_17-27-07_circular.jpg
       name: sheldonhull.com
-      pre: '<i class="fas fa-terminal"></i>'  #<i class='fas fa-laptop-code fa-fw'></i>
+      #pre: '<i class="fas fa-terminal"></i>'  #<i class='fas fa-laptop-code fa-fw'></i>
+      pre: <span id="logo-anima"><span class="arrow">></span><span class="dash">_</span></span>
       post: ''
       typeit: false
   footer:

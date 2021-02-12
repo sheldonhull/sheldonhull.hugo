@@ -22,7 +22,8 @@
         "blog",
         "build",
         "netlifycms",
-        "microblog"
+        "microblog",
+        "style"
     ],
     "conventionalCommits.emojiFormat": "emoji",
     "conventionalCommits.lineBreak": "|",

@@ -1,0 +1,39 @@
+[theme="dark"] {
+    .microblog {
+        background-color: $header-background-color-dark;
+        box-shadow: 2px 2px 4px rgba(3, 237, 249, 0.034), 4px 4px 8px rgba(3, 237, 249, 0.048),
+            6px 6px 8px rgba(3, 237, 249, 0.06), 8px 8px 10px rgba(3, 237, 249, 0.072),
+            10px 10px 12px rgba(3, 237, 249, 0.086), 12px 12px 14px rgba(3, 237, 249, 0.12);
+
+        &:hover {
+            /*box-shadow: 0 5px 22px 0 rgba(0,0,0,.25);*/
+            box-shadow: 2px 2px 4px rgba(3, 237, 249, 0.034), 4px 4px 8px rgba(3, 237, 249, 0.048),
+                6px 6px 8px rgba(3, 237, 249, 0.06), 8px 8px 10px rgba(3, 237, 249, 0.072),
+                10px 10px 12px rgba(3, 237, 249, 0.086), 12px 12px 14px rgba(3, 237, 249, 0.12);
+            // margin-bottom: 40p;
+        }
+        &.img {
+            background-color: $global-border-color-dark;
+        }
+    }
+}
+[theme="light"] {
+    .microblog {
+        background-color: $header-background-color;
+    }
+}
+
+.microblog {
+    // background-color: $header-background-color-dark;
+    margin: 40px auto;
+    padding: 40px;
+    max-width: 80%;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+
+    // &:active {
+    //   background-color: #6c95b6;
+    //   background-size: 100%;
+    //   transition: background 0.5s;
+    // }
+}

@@ -4,7 +4,7 @@
 
 {{- define "content" -}}
 
-{{/*  <div class="page archive">  */}}
+{{/* <div class="page archive"> */}}
 
     {{- /* Title */ -}}
     <h2 class="single-title animated pulse faster">
@@ -28,22 +28,32 @@
     <div class="bg-img"></div>
     {{- end }}
     <!-- <main class="site-main section-inner thin animated fadeIn faster"> -->
-        <article class="page single">
-        {{- $params := .Scratch.Get "params" -}}
-            <a href="{{ .Permalink }}"><h1 class="h1-glow">{{ .Title }}</h1></a>
+
+    <article class="page single">
+        <div class="microblog" id="microblog-item">
+            {{- $params := .Scratch.Get "params" -}}
+            <a href="{{ .Permalink }}">
+                <h1 class="h1-glow">{{ .Title }}</h1>
+                <div class="post-meta">
+                    <div class="post-meta-line">
+                        {{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
+                        <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
+                        {{- end -}}
+                    </div>
+                </div>
+            </a>
             <div class="content" id="content">
-
-
                 {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
             </div>
             {{- /* Comment */ -}}
             {{- partial "comment.html" . -}}
-        <div><hr></div>
-        </article>
-    <!-- </main> -->
-    {{- end -}}
-    {{- end -}}
-    {{- partial "paginator.html" . -}}
-    {{- end -}}
-{{/*  </div>  */}}
+        <div>
+    </article>
+</div>
+<!-- </main> -->
+{{- end -}}
+{{- end -}}
+{{- partial "paginator.html" . -}}
+{{- end -}}
+{{/* </div> */}}
 {{- end -}}
