@@ -32,7 +32,7 @@
     <article class="page single">
         <div class="microblog" id="microblog-item">
             {{- $params := .Scratch.Get "params" -}}
-            <a href="{{ .Permalink }}">
+            <a href="{{- .RelPermalink -}}">
                 <h1 class="h1-glow">{{ .Title }}</h1>
                 <div class="post-meta">
                     <div class="post-meta-line">

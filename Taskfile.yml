@@ -26,14 +26,25 @@ tasks:
   serve:
     desc: Build and run hugo
     cmds:
-      - $HUGO serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc --disableFastRender
+      - | 
+        if [ -x "$(command -v gp)" ]; then
+          echo "gitpod command: $(gp url 1313)"
+          export DEPLOY_PRIME_URL=$(gp url 1313)
+        fi
+      - $HUGO serve -b ${DEPLOY_PRIME_URL:-$DEFAULT_BUILD_SERVER} --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc --disableFastRender
+      
       # - task: build
   echo-debug:
     desc: output variables for debugging netlify or other build tasks
     cmds:
       - echo "$(hugo version)"
       - git status --porcelain
-      - echo "DEPLOY_PRIME_URL = $DEPLOY_PRIME_URL"
+      - | 
+          if [ -x "$(command -v gp)" ]; then
+            echo "gitpod command: $(gp url 1313)"
+            export DEPLOY_PRIME_URL=$(gp url 1313)
+          fi
+      - echo "DEPLOY_PRIME_URL   = $DEPLOY_PRIME_URL"
       - echo "HUGO_BASEURL = $HUGO_BASEURL"
       - export GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
       - export GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
