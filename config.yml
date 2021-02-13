@@ -94,7 +94,7 @@ languages:
         profile:
           enable: true
           gravatarEmail: ''
-          avatarURL: images/2016-04-27_17-27-07_circular.jpg
+          avatarURL: /images/sheldonhull_gopher_avatar.png
           title: 'Sheldon Hull'
           subtitle: ''
           typeit: true
@@ -181,12 +181,12 @@ params:
   fingerprint: ''
   dateFormat: 2006-01-02
   images:
-    - images/2016-04-27_17-27-07_circular.jpg
+    - /images/sheldonhull_gopher_avatar.png
   header:
     desktopMode: fixed
     mobileMode: auto
     title:
-      logo: /images/2016-04-27_17-27-07_circular.jpg
+      logo: /images/sheldonhull_gopher_avatar.png
       name: sheldonhull.com
       #pre: '<i class="fas fa-terminal"></i>'  #<i class='fas fa-laptop-code fa-fw'></i>
       pre: <span id="logo-anima"><span class="arrow">></span><span class="dash">_</span></span>
@@ -332,7 +332,7 @@ params:
       images: []
       publisher:
         name: xxxx
-        logoUrl: images/2016-04-27_17-27-07_circular.jpg
+        logoUrl: images/sheldonhull_gopher_avatar.png
   typeit:
     speed: 100
     cursorSpeed: 1000
@@ -345,8 +345,8 @@ params:
     pinterest: ''
     baidu: ''
   seo:
-    image: images/2016-04-27_17-27-07_circular.jpg
-    thumbnailUrl: images/2016-04-27_17-27-07_circular.jpg
+    image: /images/sheldonhull_gopher_avatar.png
+    thumbnailUrl: /images/sheldonhull_gopher_avatar.png
   analytics:
     enable: true
     google:
