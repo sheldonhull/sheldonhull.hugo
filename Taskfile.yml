@@ -1,10 +1,13 @@
 # demo https://github.com/go-task/examples/blob/master/go-web-app/Taskfile.yml
 
 version: '3'
+output: prefixed
 env:
   # HUGO: /usr/bin/hugo
   HUGO: hugo
-
+  DEFAULT_BUILD_SERVER: localhost:1313
+  DEFAULT_HUGO_DESTINATION: _site
+  HUGO_VERSION: 0.80.0
 vars:
 
   # JS_FILES:
@@ -20,17 +23,30 @@ tasks:
   default:
     cmds:
       - task: build
-
   serve:
     desc: Build and run hugo
     cmds:
       - $HUGO serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc --disableFastRender
       # - task: build
+  echo-debug:
+    desc: output variables for debugging netlify or other build tasks
+    cmds:
+      - echo "$(hugo version)"
+      - git status --porcelain
+      - echo "DEPLOY_PRIME_URL = $DEPLOY_PRIME_URL"
+      - echo "HUGO_BASEURL = $HUGO_BASEURL"
+      - export GIT_COMMIT_SHA=`git rev-parse --verify HEAD`
+      - export GIT_COMMIT_SHA_SHORT=`git rev-parse --short HEAD`
+      - echo "GIT_COMMIT_SHA       = $GIT_COMMIT_SHA"
+      - echo "GIT_COMMIT_SHA_SHORT = $GIT_COMMIT_SHA_SHORT"
+      - echo "HUGO_GOOGLEANALYTICS  = $HUGO_GOOGLEANALYTICS"
+      - echo "HUGO_ENABLEGITINFO    = $HUGO_ENABLEGITINFO"
+      - echo "HUGO_VERSION          = $HUGO_VERSION"
   build:
-    desc: Build the webpage
+    desc: Build the webpage for previews or other debug setup
     #deps: [assets, templates]
     cmds:
-      - $HUGO -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc
+      - $HUGO --buildFuture --buildDrafts --enableGitInfo --verbose --minify --gc --destination ${HUGO_DESTINATION:-$DEFAULT_HUGO_DESTINATION} -b ${DEPLOY_PRIME_URL:-$DEFAULT_BUILD_SERVER}
   build-public:
       desc: Build algolia public json only if missing algolia
       generates:
@@ -41,18 +57,17 @@ tasks:
         HUGO_MINIFY: "true"
         HUGO_DESTINATION: "public"
         #ALGOLIA_ADMIN_KEY: SET IN LOCAL ENVIRONMENT ONLY
+        # DEPLOY_PRIME_URL:
+        #-b $DEPLOY_PRIME_URL
       cmds:
-      - $HUGO --enableGitInfo  --gc --cleanDestinationDir
+        - $HUGO --enableGitInfo  --gc --cleanDestinationDir --verboseLog --minify --destination ${HUGO_DESTINATION:-$DEFAULT_HUGO_DESTINATION} -b ${DEPLOY_PRIME_URL:-$DEFAULT_BUILD_SERVER}
   init:
     desc: Initialize project to ensure dependencies, submodules, and tooling is ready
     cmds:
       - git submodule update --init --recursive
-      - git submodule update --recursive
-      - npm install --global --quiet netlify-cli
+      - hugo mod tidy
+      - hugo mod get -u
       - npm install --global --quiet atomic-algolia
-      - npm install --quiet --no-warnings
-
-
   go:
     desc: Setup go environment
     cmds:
