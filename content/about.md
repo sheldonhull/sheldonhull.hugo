@@ -13,7 +13,10 @@ comments: true
 ## Want to Talk
 
 Add a comment to any of the pages at the bottom and it will open up a GitHub issue to have a public discussion.
-If you like chatting realtime, look at the bottom of the page for "Open Chat" and let's talk using Gitter (only need GitHub auth as well).
+
+:(fab fa-twitter fa-fw): <a href="https://twitter.com/messages/compose?recipient_id=247477081&text=connecting%20from%20your%20site..."
+  class="twitter-dm-button" data-screen-name="@sheldon_hull">
+Direct Message Me</a>
 
 ## Core Values
 
@@ -25,11 +28,13 @@ I've been blessed with 3 kids and a wonderful wife Sarah who has brought beauty 
 
 ## Work
 
-{{<button href="https://stackoverflow.com/story/sheldonhull" theme="success">}} StackOverflow Developer Story {{< /button >}}
-
-I ♥ code. Software, Infrastructure-as-code, Compliance-as-code, my resume as code... you name it 😁
+I ♥ code
 
 I also think the world needs more emojis and tacos 🌮🌮🌮 to lighten things up.
+
+If you are bored and want to see my brag sheet, here you go: [brag sheet]({{< relref "brag.md" >}})
+
+It's a :construction: wip that I plan on adding some accomplishments to over time.
 
 ## Other Interests
 
