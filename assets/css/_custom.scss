@@ -5,6 +5,7 @@
 @import "_terminal.scss";
 @import "_microblog.scss";
 @import "_buttons.scss";
+@import "_gists.scss";
 
 $global-font-family: Raleway, Maven Pro, Source Sans Pro, Trebuchet MS, Verdana, Verdana Ref, Segoe UI, Candara,
     Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif !default;
@@ -142,4 +143,9 @@ header .header-title-pre {
     //     position: fixed;
     //     top: -50px;
     // }
+}
+// Contrast on the homepage for summary is too low to be readable, so override with better constrasting font
+[theme="dark"] .home[posts] .summary .content {
+    color: lighten($global-font-secondary-color-dark, 25%) !important;
+
 }
