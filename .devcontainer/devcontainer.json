@@ -30,7 +30,8 @@
 		"stylelint.vscode-stylelint",
 		"sibiraj-s.vscode-scss-formatter",
 		"znck.grammarly",
-		"ms-vscode.powershell-preview"
+		"ms-vscode.powershell-preview",
+		"ericadamski.carbon-now-sh"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
