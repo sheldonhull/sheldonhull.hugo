@@ -1,5 +1,5 @@
 {
-    "explorer.sortOrder": "filesFirst",
+    "explorer.sortOrder": "mixed",
     "[markdown]": {
         "editor.defaultFormatter": "tehnix.vscode-tidymarkdown"
     },

@@ -34,17 +34,18 @@ Task hugo-new-100-days-of-code {
     $Date = Read-Host -Message "Enter date override or enter to continue with $(Get-Date -Format 'yyyy-MM-dd')"
     if (-not $Date)
     {
+        $Year = $(Get-Date -Format 'yyyy')
         $Date = $(Get-Date -Format 'yyyy-MM-dd')
     }
 
-    $files = Get-ChildItem -Path content/microblog -Filter '*day*.md'
+    $files = Get-ChildItem -Path content/microblog -Filter '*day*.md' -Recurse
     [int]$DayCounter = ($files.ForEach{
             $Day = ($_.Name -split '-')[-1]
             $day.Trim('.md')
         } | Sort-Object -Descending | Measure-Object -Maximum).Maximum
     [int]$NewDayCounter = ++$DayCounter
 
-    $FileName = "microblog/$Date-go-R1-day-$NewDayCounter.md"
+    $FileName = "microblog/$Year/$Date-go-R1-day-$NewDayCounter.md"
     $NewFile = Join-Path $BuildRoot 'content' $FileName
     Write-Build DarkGray "Creating file: $NewFile"
 
@@ -80,9 +81,10 @@ Task hugo-new-microblog {
     $Date = Read-Host -Message "Enter date override or enter to continue with $(Get-Date -Format 'yyyy-MM-dd')"
     if (-not $Date)
     {
+        $Year = $(Get-Date -Format 'yyyy')
         $Date = $(Get-Date -Format 'yyyy-MM-dd')
     }
-    $FileName = "microblog/$Date-$Title.md"
+    $FileName = "microblog/$Year/$Date-$Title.md"
     $NewFile = Join-Path $BuildRoot 'content' $FileName
     Write-Build DarkGray "Creating file: $NewFile"
     switch -Wildcard ($PSVersionTable.OS)
@@ -114,9 +116,10 @@ Task hugo-new-blog {
     $Date = Read-Host -Message "Enter date override or enter to continue with $(Get-Date -Format 'yyyy-MM-dd')"
     if (-not $Date)
     {
+        $Year = $(Get-Date -Format 'yyyy')
         $Date = $(Get-Date -Format 'yyyy-MM-dd')
     }
-    $FileName = "blog/$Date-$Title.md"
+    $FileName = "blog/$Year/$Date-$Title.md"
     $NewFile = Join-Path $BuildRoot 'content' $FileName
     Write-Build DarkGray "Creating file: $NewFile"
     switch -Wildcard ($PSVersionTable.OS)
