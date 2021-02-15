@@ -10,7 +10,7 @@
     </h2>
 
     {{- /* Paginate */ -}}
-    {{ $pages := (where .Site.RegularPages.ByTitle "Section" "creative" ) }}
+    {{ $pages := (where .Site.RegularPages.ByTitle "Section" "docs" ) }}
     {{ $section := .Section }}
     {{- if $pages -}}
     {{- with .Site.Params.section.paginate | default .Site.Params.paginate -}}
@@ -18,7 +18,7 @@
     {{- else -}}
     {{- $pages = .Paginate $pages -}}
     {{- end -}}
-    {{- range .Pages -}}
+    {{- range (.Pages.ByParam "Lastmod").Reverse -}}
     <article class="archive-item">
         <a href="{{ .RelPermalink }}" class="archive-item-link">
             {{- .Title -}}
