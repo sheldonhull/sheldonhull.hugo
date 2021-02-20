@@ -24,7 +24,9 @@
         "netlifycms",
         "microblog",
         "style",
-        "config"
+        "config",
+        "add tls1.2 for older servers for ssm agent install command",
+        "docs"
     ],
     "conventionalCommits.emojiFormat": "emoji",
     "conventionalCommits.lineBreak": "|",

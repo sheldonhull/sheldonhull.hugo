@@ -493,6 +493,7 @@ This is based on the AWS install commands, but with a few enhancements to better
 ```powershell
 # https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-win.html
 $ProgressPreference = 'SilentlyContinue'
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 Write-Host "Downloading installer"
 $InstallerFile = Join-Path $env:USERPROFILE 'Downloads\SSMAgent_latest.exe'
 $invokeWebRequestSplat = @{
