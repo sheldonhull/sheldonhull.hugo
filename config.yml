@@ -96,7 +96,7 @@ languages:
           appID: 04HSGXXQD5
           searchKey: a7ec2763a5d966a5b9f8d70b254bfb68
       home:
-        rss: 10
+        rss: 15
         profile:
           enable: true
           gravatarEmail: ''
@@ -451,3 +451,5 @@ taxonomies:
 RSSSection:
 - blog
 - microblog
+RSSEnabled: true
+rssLimit: 15
