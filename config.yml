@@ -451,5 +451,3 @@ taxonomies:
 RSSSection:
 - blog
 - microblog
-RSSEnabled: true
-rssLimit: 15
