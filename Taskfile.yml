@@ -26,20 +26,20 @@ tasks:
   serve:
     desc: Build and run hugo
     cmds:
-      - | 
+      - |
         if [ -x "$(command -v gp)" ]; then
           echo "gitpod command: $(gp url 1313)"
           export DEPLOY_PRIME_URL=$(gp url 1313)
         fi
       - $HUGO serve -b ${DEPLOY_PRIME_URL:-$DEFAULT_BUILD_SERVER} --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc --disableFastRender
-      
+
       # - task: build
   echo-debug:
     desc: output variables for debugging netlify or other build tasks
     cmds:
       - echo "$(hugo version)"
       - git status --porcelain
-      - | 
+      - |
           if [ -x "$(command -v gp)" ]; then
             echo "gitpod command: $(gp url 1313)"
             export DEPLOY_PRIME_URL=$(gp url 1313)
@@ -98,7 +98,10 @@ tasks:
      ALGOLIA_INDEX_NAME: sheldonhull.com
     cmds:
     - npm run algolia
-
+  theme-update:
+      desc: rebase on remote theme to pull in the upstream changes
+      cmd:
+        - git submodule update --rebase --remote
   # assets:
   #   desc: Bundle assets and generate box for it
   #   deps: [js, css]
