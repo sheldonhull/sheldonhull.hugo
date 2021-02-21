@@ -1,9 +1,5 @@
 # sheldonhull.hugo
 
-## Setup on mac
-
-> ❗️ As of 2020-07, there are issues with the template that fail on later version of hugo.
-
 ## install
 
 - Windows: `choco install-hugo-extended --version 0.69.2`
