@@ -112,3 +112,7 @@ Maybe you'll find it inspiring as a jump start of your own.
 
 Regardless, hope you have a good journey with it yourself.
 I've had since 2013 blogging now and it's pretty cool to see how things have evolved over time.
+
+## Other Credits
+
+- [webmentions](https://github.com/PlaidWeb/webmention.js)

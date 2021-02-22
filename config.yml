@@ -333,7 +333,9 @@ params:
     library:
       css:
         - https://fonts.googleapis.com/css?family=Raleway&display=swap
-      js: {}
+      js:
+        - <script src="/javascript/webmention.min.js" async></script>
+
     seo:
       images: []
       publisher:
