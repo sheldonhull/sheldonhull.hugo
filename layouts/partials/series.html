@@ -1,19 +1,29 @@
 {{ if .Params.series }}
+<div id="series-section">
+<hr/>
     {{ $name := index .Params.series 0 }}
-	<p><a href="" id="series"></a>
-	<div style="font-size:1.4em"><b>{{$name}}</b> series<br/></p></div>
+	<p><a href="" id=" series"></a>
+    <div style="font-size:1.4em"><b>{{$name}}</b><i> series</i><br/></p>
+    </div>
     {{ $name := $name | urlize }}
     {{ $series := index .Site.Taxonomies.series $name }}
     <ul class="series">
-    {{ range $series.Pages }}
+        {{ range $series.Pages }}
         <table style="border:0px; max-width: 80%;">
-        {{ if eq $.Page.Title .LinkTitle }}
-            <tr style="background-color:#335daf"><td style="width:30%; border:0px">{{.Date.Format "Jan 02, 2006"}}</td><td style="border:0px"><a href="{{.Permalink}}">{{.LinkTitle}}</a></td></tr>
-        {{ else }}
-            <tr><td style="border:0px; width:30%">{{.Date.Format "Jan 02, 2006"}}</td><td style="border:0px"><a href="{{.Permalink}}">{{.LinkTitle}}</a></td></tr>
-        {{ end }}
+            {{ if eq $.Page.Title .LinkTitle }}
+            <tr>
+                <td style="width:40%; border:0px">{{.Date.Format "Jan 02, 2006"}}</td>
+                <td style="border:0px"><a href="{{.Permalink}}">{{.LinkTitle}}</a></td>
+            </tr>
+            {{ else }}
+            <tr>
+                <td style="border:0px; width:30%">{{.Date.Format "Jan 02, 2006"}}</td>
+                <td style="border:0px"><a href="{{.Permalink}}">{{.LinkTitle}}</a></td>
+            </tr>
+            {{ end }}
         </table>
-    {{end}}
+        {{end}}
     </ul>
     <hr/>
+</div>
 {{end}}
