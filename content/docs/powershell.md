@@ -9,6 +9,10 @@ comments: true
 tags:
   - development
   - powershell
+toc:
+  enable: true
+  keepStatic: false
+  auto: true
 ---
 
 {{< admonition type="info" title="Any requests?" >}}
@@ -72,94 +76,50 @@ $UnixTimeInMilliseconds = [Math]::Floor( ((get-date $MyDateValue) - $UnixStartTi
 
 ## Credential Management
 
-### Setup for BetterCredentials
+### Setup
 
-First, don't store anything as plain text in your files. That's a no no.
-Secondly, try using [BetterCredentials](https://github.com/Jaykul/BetterCredentials "BetterCredentials Github Repo"). This allows you to use Windows Credential Manager to store your credentials and then easily pull them back in for usage later in other scripts you run. I've found it a great way to manage my local credentials to simplify my script running.
+Look at [SecretsManagement](https://github.com/PowerShell/SecretManagement).
+
+SecureString should be considered deprecated.
+It provides a false illusion of security mostly, and it's better to approach with other methods.
+
+- [Obsolete the SecureString Type Discussion](https://github.com/dotnet/runtime/issues/30612#issuecomment-523534346)
+- [DE0001](https://github.com/dotnet/platform-compat/blob/master/docs/DE0001.md)
+
+Depending on your technology stack, the best way handle this is to authenticate using a credential library.
+
+For example, if pulling service account credentials for SQL Server in AWS, you could put these in AWS Secrets Manager and use something like:
 
 ```powershell
-Install-Module BetterCredentials -Force -AllowClobber
-```
+Import-module AWS.Tools.SecretsManager
+Write-Warning "Poor Example"
+Write-Warning "This exposes the credential in local memory and potentionally logging. It is for demo purposes"
+$SecretString = (Get-SECSecretValue 'service-accounts/sql-admin' -ProfileName 'myprofile').SecretString | ConvertFrom-Json -Depth 1
+$SecretString.UserName
+$SecretString.Password
 
-Personally, I use `BetterCredential\Get-Credential` which is `module\function` syntax if I'm not certain I've imported first. The reason is auto-discovery of module functions in PowerShell might use the default `Get-Credentials` that BetterCredentials overloads if you don't import first. BetterCredentials overrides the default cmdlets to improve for using CredentialManager, so make sure you import it, not assume it will be correctly imported by just referring to the function you are calling.
-
-
-### Creating a Credential
-
-Then to create credentials try using this handy little filter/function
-
-```
-<#
-.Description
-	Quick helper function for passing in credentials to create. Why filter? Planned on using with pipeline. Right now just using arguments in examples below.
-#>
-filter CredentialCreator
-{
-    [cmdletbinding()]
-    param(
-     [string]$UserName
-    ,[string]$Pass
-    ,[string]$Target
-    )
-    [string]$CalcTarget = ($Target,$UserName -ne '')[0]
-    $SetCredentialSplat = @{
-        Credential = [pscredential]::new($UserName,($Pass | ConvertTo-SecureString -AsPlainText -Force))
-        Target = $CalcTarget
-        Description = "BetterCredentials cached credential for $CalcTarget"
-        Persistence = 'LocalComputer'
-        Type = 'Generic'
-    }
-    BetterCredentials\Set-Credential @SetCredentialSplat
-    Write-PSFMessage -Level Important -Message "BetterCredentials cached credential for $CalcTarget"
-
+Write-Host "A better way, you could use this to directly create a secure credential object without creating a variable to store the plain text"
+(Get-SECSecretValue 'service-accounts/sql-admin' -ProfileName 'myprofile').SecretString |
+ConvertFrom-Json -Depth 1 |
+ForEach-Object {
+    [pscredential]::new( $_.username, ($_.password | ConvertTo-SecureString -AsPlainText -Force))
 }
 ```
 
-Example on using this quick function (if you don't want to use my quick helper, then just use code in the function as an example).
+The SecretsManagement powershell module supports a variety of backends such as 1Password, Thycotic Secrets Server, Lastpass, and more.
 
-```powershell
-#----------------------------------------------------------------------------#
-#                   Example On Using to Create Credentials                   #
-#----------------------------------------------------------------------------#
-$pass = Read-Host 'Enter Network Pass'
-CredentialCreator -UserName "$ENV:USERDOMAIN\$ENV:UserName" -Pass $pass -Target "$ENV:USERDOMAIN\$ENV:UserName"
-CredentialCreator -UserName "TacoBear" -Pass 'TacoBearEatsThings' -Target "azure-tacobear-api"
-```
-
-### Clearing all credentials in credential repo
-
-```powershell
-Find-Credential * | Remove-Credential
-```
-
-### Using Credentials in a Script
-
-Using with credential object
-
-```powershell
-Do-Something -Credential (Find-Credential 'azure-tacobear-api')
-```
-
-Extracting out the raw name and password for things that won't take the credential object, but want the password as a string (uggh)
-
-```powershell
-$cred = Find-Credential 'azure-tacobear-api'
-$UserName = $cred.GetNetworkCredential().UserName   #Note that this could be an access key if you wanted.
-$AccessKey = $cred.GetNetworkCredential().Password
-```
+[↗️ List of Secrets Management Modules](https://www.powershellgallery.com/packages?q=Tags%3A%22SecretManagement%22)
 
 ### Using Basic Authorization With REST
 
-When leveraging some api methods you need to encode the header with basic authentication to allow authenticated requests. This is how you can do that in a script without having to embed the credentials directly, leveraging `BetterCredentials` as well.
+When leveraging some api methods you need to encode the header with basic authentication to allow authenticated requests.
 
 ```powershell
 #seems to work for both version 5.1 and 6.1
 param(
     $Uri = ''
 )
-
-Import-Module BetterCredentials
-$cred = Find-Credential 'mycredentialname'
+# Load From SecretsManagement module ideally
 $AccessId = $cred.GetNetworkCredential().UserName
 $AccessKey = $cred.GetNetworkCredential().Password
 $Headers = @{
@@ -332,8 +292,16 @@ This is a cmdlet, not a PowerShell language feature. This means that the behavio
 
 These are ranked in the order I recommend using by default.
 
+Setup the results to test with.
+
 ```powershell
 $Items = Get-ChildItem
+```
+
+### ForEach-Object
+
+```powershell
+$Items | ForEach-Object { $_.Name.ToString().ToLower() }
 ```
 
 - The default go to for major loop work.
@@ -343,14 +311,13 @@ $Items = Get-ChildItem
 - Pipelines can be chained passing input as the pipeline progresses.
 - Break, continue, return behave differently as you are using a function, not a language operator.
 
-```powershell
-$Items | ForEach-Object { $_.Name.ToString().ToLower() }
-```
 
 - Magic operator.
 - Seriously, I've seen it called that.
 - It's only in version >= 4 [Magic Operators](https://bit.ly/3l1i3Vn).
 - Loads all results into memory before running, so can be great performance boost for certain scenarios that a `ForEach-Object` would be slower at.
+
+### ForEach Magic Operator
 
 ```powershell
 $Items.ForEach{ $_.Name.ToString().ToLower() }
@@ -360,11 +327,15 @@ $Items.ForEach{ $_.Name.ToString().ToLower() }
 - It is the easiest to use and understand for someone new to PowerShell, but highly recommend that it is used in exceptions and try to stick with `ForEach-Object` as your default for idiomatic PowerShell if you are learning.
 - Standard break, continue, return behavior is a bit easier to understand.
 
+### foreach loop
+
 ```powershell
 foreach ($item in $Items) { $_.Name.ToString().ToLower() }
 ```
 
-- If you find yourself exploring delegate functions in PowerShell, you should probably just use C# or find a different language as you are probably trying to screw a nail with a hammer. 😁
+### Linq
+
+If you find yourself exploring delegate functions in PowerShell, you should probably just use C# or find a different language as you are probably trying to screw a nail with a hammer. 😁
 
 ```powershell
 $f = [System.Func[string, string]] { param($i) $i.ToString().ToLower() }
@@ -419,14 +390,65 @@ Really pains me to write in the code-golf style.
 
 ## Syncing Files Using S5Cmd
 
-{{< gist sheldonhull  "9bdb6ae57121e3c9ddc3fa594119c476" >}}
+### Get S5Cmd
 
-## Other Cheatsheets
+Older versions of PowerShell (4.0) and the older AWSTools don't have the required ability to sync down a folder from a key prefix.
+This also performs much more quickly for a quick sync of files like backups to a local directory for initiating restores against.
 
-Trying a new gist driven approach here, so this will auto update.
+In testing down by the tool creator, they showed this could saturate a network for an EC2 with full download speed and be up to 40x faster than using CLI with the benefit of being a small self-contained Go binary as well.
 
-{{< gist sheldonhull c738117686c3e9cf7d717e1301e250b7 >}}
+Once the download of the tooling is complete you can run a copy from s3 down to a local directory by doing something similar to this, assuming you have rights to the bucket.
+If you don't have rights, you'll want to set environment variables for the access key and secret key such as:
 
+```powershell
+Import-Module aws.tools.common, aws.tools.SecurityToken
+Set-AWSCredential -ProfileName 'MyProfileName' -Scope Global
+$cred = Get-STSSessionToken -DurationInSeconds ([timespan]::FromHours(8).TotalSeconds)
+@"
+`$ENV:AWS_ACCESS_KEY_ID = '$($cred.AccessKeyId)'
+`$ENV:AWS_SECRET_ACCESS_KEY = '$($cred.SecretAccessKey)'
+`$ENV:AWS_SESSION_TOKEN  = '$($cred.SessionToken)'
+"@
+```
+
+You can copy that string into your remote session to get the access tokens recognized by the s5cmd tool and allow you to grab files from another AWS account S3 bucket.
+
+> NOTE: To sync a full "directory" in s3, you need to leave the asteriks at the end of the key as demonstrated.
+
+### Windows
+#### Install S5Cmd For Windows
+
+```powershell
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+$ToolsDir = 'C:\tools'
+$ProgressPreference = 'SilentlyContinue'
+$OutZip = Join-Path $ToolsDir 's5cmd.zip'
+Invoke-WebRequest -Uri 'https://github.com/peak/s5cmd/releases/download/v1.2.1/s5cmd_1.2.1_Windows-64bit.zip' -UseBasicParsing -OutFile $OutZip
+
+# Not available on 4.0 Expand-Archive $OutZip -DestinationPath $ToolsDir
+
+Add-Type -assembly 'system.io.compression.filesystem'
+[io.compression.zipfile]::ExtractToDirectory($OutZip, $ToolsDir)
+$s5cmd = Join-Path $ToolsDir 's5cmd.exe'
+&$s5cmd version
+```
+
+#### Windows Sync A Directory From To Local
+
+```powershell
+$ErrorActionPreference = 'Stop'
+$BucketName = ''
+$KeyPrefix = 'mykeyprefix/anothersubkey/*'
+
+$Directory = "C:\temp\adhoc-s3-sync-$(Get-Date -Format 'yyyy-MM-dd')\$KeyPrefix"
+New-Item $Directory -ItemType Directory -Force -ErrorAction SilentlyContinue
+$s5cmd = Join-Path $ToolsDir 's5cmd.exe'
+Write-Host "This is what is going to run: `n&$s5cmd cp `"s3://$bucketname/$KeyPrefix`" $Directory"
+Read-Host 'Enter to continue if this makes sense, or cancel (ctrl+c)'
+
+
+&$s5cmd cp "s3://$bucketname/$KeyPrefix" $Directory
+```
 ## AWS Tools
 
 ### Install AWS.Tools
