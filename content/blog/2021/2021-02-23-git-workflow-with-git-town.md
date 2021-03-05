@@ -97,7 +97,11 @@ The following steps would be performed by: `git sync`
 
 Easy to quickly ensure you are up to date with remote and generate a new branch with your current uncommitted changes.
 
+```powershell
+git town hack fix/quick-fix
 ```
+
+```text
 [master] git fetch --prune --tags
 [master] git add -A
 [master] git stash
@@ -107,17 +111,19 @@ Easy to quickly ensure you are up to date with remote and generate a new branch 
 [feat/demo-feature] git stash pop
 ```
 
-
 ### Example 4: Quickly Create a PR While On A Branch for Seperate Set of Changes
 
 This workflow is far too tedious to do without tooling like this.
 
 Let's say I'm on a branch doing some work, and then I recognize that another bug, doc improvements, or other change unrelated to my current work would be good to submit.
 
-With git town, it's as simple as: `git town hack feat/improve-docs`.
+With git town, it's as simple as:
 
-This pulls the latest, flips you over to the new branch, and sets you up to commit just the lines or files you need from all the pending changes that still show up.
-Commit those specific changes, sync, and you've now got an upstream branch with minimal effort that is also updated from main.
+```powershell
+git town hack feat/improve-docs
+```
+
+I can stage individual lines using VSCode for this fix if I want to, and then after committing:
 
 ```text
 [feat/demo-feature] git fetch --prune --tags
@@ -130,15 +136,24 @@ Commit those specific changes, sync, and you've now got an upstream branch with 
 [feat/demo-feature-2] git stash pop
 ```
 
+```powershell
+git town new-pull-request
+```
+
 ### Example 5: Ship It
 
-When not using a PR-driven workflow, such as solo projects, then you can still branch and get your work over to main to keep a cleaner history with `git town ship`.
+When not using a PR-driven workflow, such as solo projects, then you can still branch and get your work over to main to keep a cleaner history with:
+
+```powershell
+git town ship
+```
 
 This command ensures all the sync features are run, while then initiating a squash of your branch, allow you to edit the squash message, rebase merge this onto main, and finally clean-up the stale branch.
 
 ### More Examples
 
 Check out the documentation from the creators: [Git Town Tutorials](https://bit.ly/3kjgsKy)
+
 ## Other Cool Features
 
 - Automatically prune stale branches after PR merge when syncing
