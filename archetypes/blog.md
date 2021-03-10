@@ -4,12 +4,14 @@
 date: {{ .Date }}
 title: {{ replace $TitleWithoutDate "-" " " | title }}
 slug: {{ replace $TitleWithoutDate " " "-" | lower }}
-excerpt:
-  excerpt here
+summary:
+  Foo
 tags:
-  - tag1
-  - tag2
-  - tag3
+  - tech
+  - development
+  - azure-devops
+  - powershell
+  - devops
 draft: true
 toc: true
 ---

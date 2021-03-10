@@ -2,7 +2,7 @@
 date: 2021-03-05T06:00:00Z
 title: Azure Pipelines Template Iteration
 slug: azure-pipelines-template-iteration
-excerpt:
+summary:
   First time using templates for iteration loops and found it very handy!
 tags:
   - tech

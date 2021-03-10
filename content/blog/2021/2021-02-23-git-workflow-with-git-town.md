@@ -2,7 +2,7 @@
 date: 2021-02-23T22:23:00Z
 title: Git Workflow With Git Town
 slug: git-workflow-with-git-town
-excerpt:
+summary:
   Improve your git workflow with a few cli tools.
 tags:
   - tech

@@ -2,7 +2,7 @@
 date: 2021-02-09T05:30:39Z
 title: Working With Powershell Objects to Create Yaml
 slug: working-with-powershell-objects-to-create-yaml
-excerpt:
+summary:
   Here's a walk-through on using PowerShell objects to dynamically generate yaml configuration files.
 tags:
   - development
