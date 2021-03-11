@@ -8,26 +8,26 @@
 # [Choice] Ubuntu version: bionic, focal
 ARG VARIANT="focal"
 FROM homebrew/brew:latest AS DOCKERBREW
-FROM mcr.microsoft.com/codespace/devcontainers/base:0-${VARIANT} as BASE
+FROM mcr.microsoft.com/vscode/devcontainers/universal:1-${VARIANT} as BASE
 
-RUN sudo apt-get update \
-# Install pre-requisite packages.
-&& sudo apt-get install -y wget apt-transport-https software-properties-common \
-# Download the Microsoft repository GPG keys
-&& wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb \
-# Register the Microsoft repository GPG keys
-&& sudo dpkg -i packages-microsoft-prod.deb \
-# Update the list of products
-&& sudo apt-get update \
-# Enable the "universe" repositories
-&& sudo add-apt-repository universe \
-# Install PowerShell
-&& sudo apt-get install -y powershell
+# RUN sudo apt-get update \
+# # Install pre-requisite packages.
+# && sudo apt-get install -y wget apt-transport-https software-properties-common \
+# # Download the Microsoft repository GPG keys
+# && wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb \
+# # Register the Microsoft repository GPG keys
+# && sudo dpkg -i packages-microsoft-prod.deb \
+# # Update the list of products
+# && sudo apt-get update \
+# # Enable the "universe" repositories
+# && sudo add-apt-repository universe \
+# # Install PowerShell
+# && sudo apt-get install -y powershell
 # RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb \
 #     && dpkg -i packages-microsoft-prod.deb \
 #     && apt-get -qqy update \
 #     && apt-get -qqy install --no-install-recommends powershell curl wget
-
+USER root
 RUN useradd -m -s /bin/bash linuxbrew && \
     echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
 

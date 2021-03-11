@@ -26,7 +26,8 @@
         "style",
         "config",
         "add tls1.2 for older servers for ssm agent install command",
-        "docs"
+        "docs",
+        "codespaces"
     ],
     "conventionalCommits.emojiFormat": "emoji",
     "[yaml]": {
