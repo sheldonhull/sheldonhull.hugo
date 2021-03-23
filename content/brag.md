@@ -27,16 +27,27 @@ Thanks for stopping by!
 
 {{< admonition type="info" title="Current // Senior Developer" open=false >}}
 
-:(fas fa-calendar-alt fa-fw): 2014 - Current :(fas fa-grip-lines-vertical fa-fw): :(fas fa-lightbulb fa-fw): Altus Group :(fas fa-grip-lines-vertical fa-fw): :(fas fa-user-tag fa-fw): Senior Developer (Database & Dev Operations)
+:(fas fa-calendar-alt fa-fw): March 2021 - Current :(fas fa-grip-lines-vertical fa-fw): :(fas fa-lightbulb fa-fw): Thycotic :(fas fa-grip-lines-vertical fa-fw): :(fas fa-user-tag fa-fw): Senior Software Engineer (AWS/Go)
+
+⚡ Part of team building services in Go for security management software.<br>
+⚡ AWS, Go, Containerization and more TBD 🎉
+
+
+{{< /admonition >}}
+
+
+{{< admonition type="info" title="Senior Developer" open=false >}}
+
+:(fas fa-calendar-alt fa-fw): 2014 - 2021 :(fas fa-grip-lines-vertical fa-fw): :(fas fa-lightbulb fa-fw): Altus Group :(fas fa-grip-lines-vertical fa-fw): :(fas fa-user-tag fa-fw): Senior Developer (Database & Dev Operations)
 
 #### Some Highlights
 
 :(fas fa-info-circle fa-fw): Senior Individual Contributor with cross-team impact functioning as Database/Site Reliability Engineer
 
-:(fas fa-info-circle fa-fw): Started with focus on SQL Server development, architecture, and performance tuning. 
-Migrated to Development operations team during tenure and operated on development through operations. 
-Heavy focus on production reliability for data tier. 
-Additional focus on automation for non-release tasks, such as Terraform deployments, AWS SSM management, automated runbook creation and more. 
+:(fas fa-info-circle fa-fw): Started with focus on SQL Server development, architecture, and performance tuning.
+Migrated to Development operations team during tenure and operated on development through operations.
+Heavy focus on production reliability for data tier.
+Additional focus on automation for non-release tasks, such as Terraform deployments, AWS SSM management, automated runbook creation and more.
 Functioned in part as Site Reliability Engineer with mixed cross-functional impact.
 
 ⚡ Part of transformation of on-premise to Cloud based
