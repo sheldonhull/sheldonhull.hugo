@@ -14,7 +14,7 @@ At this time, I've migrated to using [Codeit](https://codeit.suntprogramator.dev
 Why?
 
 - Still being developed/maintained with some active contributors.
-- Minimal UI/theme
+- Minimal UI/theme....
 - Very good formatting and table of contents for docs and long-form content.
 - Algolia integration already handled beautifully.
 - My preferred comment system of utterances is natively supported as well.
