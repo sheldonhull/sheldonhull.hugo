@@ -61,7 +61,9 @@ func run(args []string, stdout io.Writer) error {
 Here's how to setup [pre-commit](https://bit.ly/3szdwNf) for Go projects.
 
 1. Install [pre-commit](https://bit.ly/2O9urag) for macOS: `brew install pre-commit` or see directions for curl/other options for WSL, Windows, Linux, etc.
-1. Use the template from [dnephin/pre-commit-golang: Golang hooks for pre-commit](https://bit.ly/31HwJ3D)
+1. Use the template from [TekWizely/pre-commit-golang: Pre-Commit hooks for Golang with support for Modules](https://bit.ly/31w3gtk)
+    1. Several options are provided for `fmt` oriented commands.
+    Comment out any duplicates that don't apply.
 1. Finally initialize the pre-commit hooks in your repo by running: `pre-commit install`
 
 
