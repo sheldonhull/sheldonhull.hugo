@@ -1,54 +1,54 @@
+{{- partial "init.html" . -}}
+
 <!DOCTYPE html>
-<html lang="{{.Site.LanguageCode}}">
+<html lang="{{ .Site.LanguageCode }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>
+            {{- block "title" . }}{{ .Site.Title }}{{ end -}}
+        </title>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	{{- with .Site.Params.themeColor }}
-	<meta name="theme-color" content="{{.}}">
-    <meta name="msapplication-TileColor" content="{{.}}">
+        {{- partial "head/meta.html" . -}}
+        {{- partial "head/link.html" . -}}
+        {{- partial "head/seo.html" . -}}
 
-	{{- end }}
-	{{- partial "structured-data.html" . }}
-	{{- partial "favicons.html" }}
-	<title>{{.Title}}</title>
-	{{ range .AlternativeOutputFormats -}}
-		{{ printf `<link rel="%s" type="%s+%s" href="%s" title="%s" />` .Rel .MediaType.Type .MediaType.Suffix .Permalink $.Site.Title | safeHTML }}
-	{{ end -}}
-	{{ $style := resources.Get "scss/style.scss" | resources.ExecuteAsTemplate "css/style.css" . | toCSS | minify | fingerprint -}}
-	<link rel="stylesheet" href="{{ $style.Permalink }}" {{ printf "integrity=%q" $style.Data.Integrity | safeHTMLAttr }}>
-	{{- block "head" . -}}{{- end }}
-	{{- range .Site.Params.customCSS }}
-	<link rel="stylesheet" href="{{ . | absURL }}">
-	{{- end }}
+        <link rel="webmention" href="https://webmention.io/www.sheldonhull.com/webmention" />
+        <link rel="pingback" href="https://webmention.io/www.sheldonhull.com/xmlrpc" />
+    </head>
+    <body header-desktop="{{ .Site.Params.header.desktopMode }}" header-mobile="{{ .Site.Params.header.mobileMode }}">
+        {{- /* Check theme isDark before body rendering */ -}}
+        {{- $theme := .Site.Params.defaulttheme -}}
+        <script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('{{ $theme }}' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '{{ $theme }}' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
-	{{- if templates.Exists "partials/extra-head.html" -}}
-	{{ partial "extra-head.html" . }}
-	{{- end }}
-</head>
+        <div id="mask"></div>
 
-<body id="page">
-	{{ block "header" . -}}{{ end -}}
-	{{ partial "search.html" . -}}
-	{{ block "main" . -}}{{ end -}}
-	{{ block "footer" . -}}{{ end }}
-{{/*BUNDLE RESOURCES */}}
-{{ $main := resources.Get "js/main.js" }}
-{{$codeCopy := ""}}
-	{{ if .Site.Params.code_copy_button | default true -}}
-	{{ $codeCopy = resources.Get "js/code-copy.js" }}
-	{{ end }}
+        {{- /* Body wrapper */ -}}
+        <div class="wrapper">
+            {{- partial "header.html" . -}}
+            <main class="main">
+                <div class="container">
+                    {{- block "content" . }}{{ end -}}
+                </div>
+            </main>
+            {{- partial "footer.html" . -}}
+        </div>
 
-	{{/*CREATE SINGLE BUNDLE OF ALL RESOURCES*/}}
-	{{ $script := slice $main $codeCopy  | resources.Concat "js/bundle.js" | minify | fingerprint -}}
+        <div id="fixed-buttons">
+            {{- /* top button */ -}}
+            <a href="#" id="back-to-top" class="fixed-button" title="{{ T `backToTop` }}">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a>
 
-    <script src="{{ $script.Permalink }}" {{ printf "integrity=%q" $script.Data.Integrity | safeHTMLAttr }}
-        crossorigin="anonymous"></script>
-	{{- partial "analytics.html" . }}
-	{{- if templates.Exists "partials/extra-foot.html" -}}
-	{{ partial "extra-foot.html" . }}
-	{{- end }}
-</body>
+            {{- /* comment button */ -}}
+            <a href="#" id="view-comments" class="fixed-button" title="{{ T `viewComments` }}">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div>
 
+        {{- /* Load JavaScript scripts and CSS */ -}}
+        {{- partial "assets.html" . -}}
+    </body>
 </html>

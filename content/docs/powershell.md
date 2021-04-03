@@ -1,8 +1,7 @@
 ---
 title: powershell
 date: 2019-03-19
-toc: true
-excerpt: A cheatsheet for some interesting PowerShell related concepts that
+summary: A cheatsheet for some interesting PowerShell related concepts that
   might benefit others looking for some tips and tricks
 slug: powershell
 permalink: /docs/powershell
@@ -10,13 +9,17 @@ comments: true
 tags:
   - development
   - powershell
+toc:
+  enable: true
+  keepStatic: false
+  auto: true
 ---
 
-{{< premonition type="info" title="Any requests?" >}}
+{{< admonition type="info" title="Any requests?" >}}
 If you have any requests or improvements for this content, please comment below. It will open a GitHub issue for chatting further.
 I'd be glad to improve with any additional quick help and in general like to know if anything here in particular was helpful to someone.
 Cheers! 👍
-{{< /premonition >}}
+{{< /admonition >}}
 
 ## Requirements
 
@@ -73,94 +76,50 @@ $UnixTimeInMilliseconds = [Math]::Floor( ((get-date $MyDateValue) - $UnixStartTi
 
 ## Credential Management
 
-### Setup for BetterCredentials
+### Setup
 
-First, don't store anything as plain text in your files. That's a no no.
-Secondly, try using [BetterCredentials](https://github.com/Jaykul/BetterCredentials "BetterCredentials Github Repo"). This allows you to use Windows Credential Manager to store your credentials and then easily pull them back in for usage later in other scripts you run. I've found it a great way to manage my local credentials to simplify my script running.
+Look at [SecretsManagement](https://github.com/PowerShell/SecretManagement).
+
+SecureString should be considered deprecated.
+It provides a false illusion of security mostly, and it's better to approach with other methods.
+
+- [Obsolete the SecureString Type Discussion](https://github.com/dotnet/runtime/issues/30612#issuecomment-523534346)
+- [DE0001](https://github.com/dotnet/platform-compat/blob/master/docs/DE0001.md)
+
+Depending on your technology stack, the best way handle this is to authenticate using a credential library.
+
+For example, if pulling service account credentials for SQL Server in AWS, you could put these in AWS Secrets Manager and use something like:
 
 ```powershell
-Install-Module BetterCredentials -Force -AllowClobber
-```
+Import-module AWS.Tools.SecretsManager
+Write-Warning "Poor Example"
+Write-Warning "This exposes the credential in local memory and potentionally logging. It is for demo purposes"
+$SecretString = (Get-SECSecretValue 'service-accounts/sql-admin' -ProfileName 'myprofile').SecretString | ConvertFrom-Json -Depth 1
+$SecretString.UserName
+$SecretString.Password
 
-Personally, I use `BetterCredential\Get-Credential` which is `module\function` syntax if I'm not certain I've imported first. The reason is auto-discovery of module functions in PowerShell might use the default `Get-Credentials` that BetterCredentials overloads if you don't import first. BetterCredentials overrides the default cmdlets to improve for using CredentialManager, so make sure you import it, not assume it will be correctly imported by just referring to the function you are calling.
-
-
-### Creating a Credential
-
-Then to create credentials try using this handy little filter/function
-
-```
-<#
-.Description
-	Quick helper function for passing in credentials to create. Why filter? Planned on using with pipeline. Right now just using arguments in examples below.
-#>
-filter CredentialCreator
-{
-    [cmdletbinding()]
-    param(
-     [string]$UserName
-    ,[string]$Pass
-    ,[string]$Target
-    )
-    [string]$CalcTarget = ($Target,$UserName -ne '')[0]
-    $SetCredentialSplat = @{
-        Credential = [pscredential]::new($UserName,($Pass | ConvertTo-SecureString -AsPlainText -Force))
-        Target = $CalcTarget
-        Description = "BetterCredentials cached credential for $CalcTarget"
-        Persistence = 'LocalComputer'
-        Type = 'Generic'
-    }
-    BetterCredentials\Set-Credential @SetCredentialSplat
-    Write-PSFMessage -Level Important -Message "BetterCredentials cached credential for $CalcTarget"
-
+Write-Host "A better way, you could use this to directly create a secure credential object without creating a variable to store the plain text"
+(Get-SECSecretValue 'service-accounts/sql-admin' -ProfileName 'myprofile').SecretString |
+ConvertFrom-Json -Depth 1 |
+ForEach-Object {
+    [pscredential]::new( $_.username, ($_.password | ConvertTo-SecureString -AsPlainText -Force))
 }
 ```
 
-Example on using this quick function (if you don't want to use my quick helper, then just use code in the function as an example).
+The SecretsManagement powershell module supports a variety of backends such as 1Password, Thycotic Secrets Server, Lastpass, and more.
 
-```powershell
-#----------------------------------------------------------------------------#
-#                   Example On Using to Create Credentials                   #
-#----------------------------------------------------------------------------#
-$pass = Read-Host 'Enter Network Pass'
-CredentialCreator -UserName "$ENV:USERDOMAIN\$ENV:UserName" -Pass $pass -Target "$ENV:USERDOMAIN\$ENV:UserName"
-CredentialCreator -UserName "TacoBear" -Pass 'TacoBearEatsThings' -Target "azure-tacobear-api"
-```
-
-### Clearing all credentials in credential repo
-
-```powershell
-Find-Credential * | Remove-Credential
-```
-
-### Using Credentials in a Script
-
-Using with credential object
-
-```powershell
-Do-Something -Credential (Find-Credential 'azure-tacobear-api')
-```
-
-Extracting out the raw name and password for things that won't take the credential object, but want the password as a string (uggh)
-
-```powershell
-$cred = Find-Credential 'azure-tacobear-api'
-$UserName = $cred.GetNetworkCredential().UserName   #Note that this could be an access key if you wanted.
-$AccessKey = $cred.GetNetworkCredential().Password
-```
+[↗️ List of Secrets Management Modules](https://www.powershellgallery.com/packages?q=Tags%3A%22SecretManagement%22)
 
 ### Using Basic Authorization With REST
 
-When leveraging some api methods you need to encode the header with basic authentication to allow authenticated requests. This is how you can do that in a script without having to embed the credentials directly, leveraging `BetterCredentials` as well.
+When leveraging some api methods you need to encode the header with basic authentication to allow authenticated requests.
 
 ```powershell
 #seems to work for both version 5.1 and 6.1
 param(
     $Uri = ''
 )
-
-Import-Module BetterCredentials
-$cred = Find-Credential 'mycredentialname'
+# Load From SecretsManagement module ideally
 $AccessId = $cred.GetNetworkCredential().UserName
 $AccessKey = $cred.GetNetworkCredential().Password
 $Headers = @{
@@ -327,14 +286,22 @@ Not all are idiomatic to the language, but can be useful to know about.
 I recommend when possible to default to `$Items | ForEach-Object { }` as your default approach.
 This ensures a pipeline driven solution that can be enhanced later or piped to other cmdlets that are compatible with the pipeline.
 
-{{< premonition type="warning" title="Gotcha" >}}
+{{< admonition type="warning" title="Gotcha" >}}
 This is a cmdlet, not a PowerShell language feature. This means that the behavior of break, continue, and return all operate differently in this ForEach-Object process block than when doing a `foreach` loop.
-{{< /premonition >}}
+{{< /admonition >}}
 
 These are ranked in the order I recommend using by default.
 
+Setup the results to test with.
+
 ```powershell
 $Items = Get-ChildItem
+```
+
+### ForEach-Object
+
+```powershell
+$Items | ForEach-Object { $_.Name.ToString().ToLower() }
 ```
 
 - The default go to for major loop work.
@@ -344,14 +311,13 @@ $Items = Get-ChildItem
 - Pipelines can be chained passing input as the pipeline progresses.
 - Break, continue, return behave differently as you are using a function, not a language operator.
 
-```powershell
-$Items | ForEach-Object { $_.Name.ToString().ToLower() }
-```
 
 - Magic operator.
 - Seriously, I've seen it called that.
 - It's only in version >= 4 [Magic Operators](https://bit.ly/3l1i3Vn).
 - Loads all results into memory before running, so can be great performance boost for certain scenarios that a `ForEach-Object` would be slower at.
+
+### ForEach Magic Operator
 
 ```powershell
 $Items.ForEach{ $_.Name.ToString().ToLower() }
@@ -361,11 +327,15 @@ $Items.ForEach{ $_.Name.ToString().ToLower() }
 - It is the easiest to use and understand for someone new to PowerShell, but highly recommend that it is used in exceptions and try to stick with `ForEach-Object` as your default for idiomatic PowerShell if you are learning.
 - Standard break, continue, return behavior is a bit easier to understand.
 
+### foreach loop
+
 ```powershell
 foreach ($item in $Items) { $_.Name.ToString().ToLower() }
 ```
 
-- If you find yourself exploring delegate functions in PowerShell, you should probably just use C# or find a different language as you are probably trying to screw a nail with a hammer. 😁
+### Linq
+
+If you find yourself exploring delegate functions in PowerShell, you should probably just use C# or find a different language as you are probably trying to screw a nail with a hammer. 😁
 
 ```powershell
 $f = [System.Func[string, string]] { param($i) $i.ToString().ToLower() }
@@ -416,4 +386,400 @@ For quick access, save this to a Visual Studio Code snippet like below:
 I did this to participate in Code Golf, and felt pretty good that I landed in 112 🤣 with this.
 Really pains me to write in the code-golf style.
 
-{{< gist "3ea6fd6cafe210edb1d71b5e8d3d1696" >}}
+{{< gist sheldonhull  "3ea6fd6cafe210edb1d71b5e8d3d1696" >}}
+
+## Syncing Files Using S5Cmd
+
+### Get S5Cmd
+
+Older versions of PowerShell (4.0) and the older AWSTools don't have the required ability to sync down a folder from a key prefix.
+This also performs much more quickly for a quick sync of files like backups to a local directory for initiating restores against.
+
+In testing down by the tool creator, they showed this could saturate a network for an EC2 with full download speed and be up to 40x faster than using CLI with the benefit of being a small self-contained Go binary as well.
+
+Once the download of the tooling is complete you can run a copy from s3 down to a local directory by doing something similar to this, assuming you have rights to the bucket.
+If you don't have rights, you'll want to set environment variables for the access key and secret key such as:
+
+```powershell
+Import-Module aws.tools.common, aws.tools.SecurityToken
+Set-AWSCredential -ProfileName 'MyProfileName' -Scope Global
+$cred = Get-STSSessionToken -DurationInSeconds ([timespan]::FromHours(8).TotalSeconds)
+@"
+`$ENV:AWS_ACCESS_KEY_ID = '$($cred.AccessKeyId)'
+`$ENV:AWS_SECRET_ACCESS_KEY = '$($cred.SecretAccessKey)'
+`$ENV:AWS_SESSION_TOKEN  = '$($cred.SessionToken)'
+"@
+```
+
+You can copy that string into your remote session to get the access tokens recognized by the s5cmd tool and allow you to grab files from another AWS account S3 bucket.
+
+> NOTE: To sync a full "directory" in s3, you need to leave the asteriks at the end of the key as demonstrated.
+
+### Windows
+#### Install S5Cmd For Windows
+
+```powershell
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+$ToolsDir = 'C:\tools'
+$ProgressPreference = 'SilentlyContinue'
+$OutZip = Join-Path $ToolsDir 's5cmd.zip'
+Invoke-WebRequest -Uri 'https://github.com/peak/s5cmd/releases/download/v1.2.1/s5cmd_1.2.1_Windows-64bit.zip' -UseBasicParsing -OutFile $OutZip
+
+# Not available on 4.0 Expand-Archive $OutZip -DestinationPath $ToolsDir
+
+Add-Type -assembly 'system.io.compression.filesystem'
+[io.compression.zipfile]::ExtractToDirectory($OutZip, $ToolsDir)
+$s5cmd = Join-Path $ToolsDir 's5cmd.exe'
+&$s5cmd version
+```
+
+#### Windows Sync A Directory From To Local
+
+```powershell
+$ErrorActionPreference = 'Stop'
+$BucketName = ''
+$KeyPrefix = 'mykeyprefix/anothersubkey/*'
+
+$Directory = "C:\temp\adhoc-s3-sync-$(Get-Date -Format 'yyyy-MM-dd')\$KeyPrefix"
+New-Item $Directory -ItemType Directory -Force -ErrorAction SilentlyContinue
+$s5cmd = Join-Path $ToolsDir 's5cmd.exe'
+Write-Host "This is what is going to run: `n&$s5cmd cp `"s3://$bucketname/$KeyPrefix`" $Directory"
+Read-Host 'Enter to continue if this makes sense, or cancel (ctrl+c)'
+
+
+&$s5cmd cp "s3://$bucketname/$KeyPrefix" $Directory
+```
+## AWS Tools
+
+### Install AWS.Tools
+
+Going forward, use AWS.Tools modules for newer development.
+It's much faster to import and definitely a better development experience in alignment with .NET SDK namespace approach.
+
+Use their installer module to simplify versioning and avoid conflicts with automatic cleanup of prior SDK versions.
+
+```powershell
+install-module 'AWS.Tools.Installer' -Scope CurrentUser
+
+$modules = @(
+    'AWS.Tools.Common'
+    'AWS.Tools.CostExplorer'
+    'AWS.Tools.EC2'
+    'AWS.Tools.Installer'
+    'AWS.Tools.RDS'
+    'AWS.Tools.S3'
+    'AWS.Tools.SecretsManager'
+    'AWS.Tools.SecurityToken'
+    'AWS.Tools.SimpleSystemsManagement'
+)
+
+Install-AWSToolsModule $modules -Cleanup -Force
+```
+
+### Using Systems Manager Parameters (SSM) To Create A PSCredential
+
+```powershell
+$script:SqlLoginName = (Get-SSMParameterValue -Name $SSMParamLogin -WithDecryption $true).Parameters[0].Value
+$script:SqlPassword = (Get-SSMParameterValue -Name $SSMParamPassword -WithDecryption $true).Parameters[0].Value | ConvertTo-SecureString -AsPlainText -Force
+$script:SqlCredential = [pscredential]::new($script:SqlLoginName, $script:SqlPassword)
+```
+
+### Using AWS Secrets Manager To Create a PSCredential
+
+Note that this can vary in how you read it based on the format.
+The normal format for entries like databases seems to be: `{"username":"password"}` or similar.
+
+```powershell
+$Secret = Get-SECSecretValue -SecretId 'service-accounts/my-secret-id' -ProfileName $ProfileName
+```
+
+### Generate a Temporary Key
+
+Useful for needing to generate some time sensitive access credentials when connected via SSM Session and needing to access another account's resources.
+
+```powershell
+Import-Module aws.tools.common, aws.tools.SecurityToken
+Set-AWSCredential -ProfileName 'ProfileName' -scope Global
+$cred = Get-STSSessionToken -DurationInSeconds ([timespan]::FromHours(8).TotalSeconds)
+@"
+`$ENV:AWS_ACCESS_KEY_ID = '$($cred.AccessKeyId)'
+`$ENV:AWS_SECRET_ACCESS_KEY = '$($cred.SecretAccessKey)'
+`$ENV:AWS_SESSION_TOKEN  = '$($cred.SessionToken)'
+"@
+```
+
+### Install SSM Agent Manually
+
+This is based on the AWS install commands, but with a few enhancements to better work on older Windows servers.
+
+```powershell
+# https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-win.html
+$ProgressPreference = 'SilentlyContinue'
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Write-Host "Downloading installer"
+$InstallerFile = Join-Path $env:USERPROFILE 'Downloads\SSMAgent_latest.exe'
+$invokeWebRequestSplat = @{
+    Uri = 'https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/windows_amd64/AmazonSSMAgentSetup.exe'
+    OutFile = $InstallerFile
+}
+Invoke-WebRequest @invokeWebRequestSplat
+
+Write-Host "Installing SSM Agent"
+$startProcessSplat = @{
+    FilePath     = $InstallerFile
+    ArgumentList = '/S'
+}
+Start-Process @startProcessSplat
+
+Write-Host "Cleaning up ssmagent download"
+Remove-Item $InstallerFile -Force
+Restart-Service AmazonSSMAgent
+```
+
+### AWS PowerShell Specific Cheatsheets
+
+{{< gist sheldonhull  "9534958236fbc3973e704f648cec27e7" >}}
+
+## Pester
+
+Many changes occurred after version 5.
+This provides a few examples on how to leverage Pester for data driven tests with this new format.
+
+
+### BeforeAll And BeforeDiscovery
+
+One big change was the two scopes.
+Read the Pester docs for more details.
+
+The basic gist is that BeforeAll is in the "run" scope, while the test generation is BeforeDiscovery.
+While older versions of Pester would allow a lot more `foreach` type loops, this should be in the discovery phase now, and then `-Foreach` (aka `-TestCases`) hashtable can be used to iterate more easily now through result sets.
+
+<!-- ### Using Inline Script With PesterContainer -->
+
+### Pester Container To Help Setup Data Driven Tests
+
+Example of setting up inputs for the test script from your InvokeBuild job.
+
+```powershell
+$pc = New-PesterContainer -Path (Join-Path $BuildRoot 'tests\configuration.tests.ps1') -Data @{
+    credential_user1 = Get-PSFConfigValue "Project.$ENV:GROUP.credential.user1" -NotNull
+    credential_user2 = Get-PSFConfigValue "Project.$ENV:GROUP.credential.user2" -NotNull
+    sql_instance     = Get-PSFConfigValue "Project.$ENV:GROUP.instance_address" -NotNull
+    database_list    = $DatabaseList
+}
+```
+
+### Pester Configuration Object
+
+Now, you'd add this `PesterContainer` object to the `PesterConfiguration`.
+
+{{< admonition type="Tip" title="Explore PesterConfiguration" open=false >}}
+If you want to explore the pester configuration try navigating through it with: `PesterConfiguration]::Default` and then explore sub-properties with actions like: `[PesterConfiguration]::Default.Run | Get-Member`.
+{{< /admonition >}}
+
+```powershell
+
+$configuration = [PesterConfiguration]@{
+    Run        = @{
+        Path        = (Join-Path $BuildRoot 'tests\configuration.tests.ps1')
+        ExcludePath = '*PSFramework*', '*_tmp*'
+        PassThru    = $True
+        Container   = $pc
+    }
+    Should     = @{
+        ErrorAction = 'Continue'
+    }
+    TestResult = @{
+        Enabled      = $true
+        OutputPath   = (Join-Path $ArtifactsDirectory 'TEST-configuration-results.xml')
+        OutputFormat = 'NUnitXml'
+
+    }
+    Output     = @{
+        Verbosity = 'Diagnostic'
+    }
+}
+
+
+```
+
+This pester configuration is a big shift from the parameterized arguments provided in version < 5.
+
+### Invoke Pester
+
+Run this with: `Invoke-Pester -Configuration $Configuration`
+
+To improve the output, I took a page from `PSFramework` and used the summary counts here, which could be linked to a chatops message.
+Otherwise the diagnostic output should be fine.
+
+```powershell
+$testresults = @()
+$testresults +=  Invoke-Pester -Configuration $Configuration
+
+
+Write-Host '======= TEST RESULT OBJECT ======='
+
+foreach ($result in $testresults)
+{
+    $totalRun += $result.TotalCount
+    $totalFailed += $result.FailedCount
+    # -NE 'Passed'
+    $result.Tests | Where-Object Result | ForEach-Object {
+        $testresults += [pscustomobject]@{
+            Block   = $_.Block
+            Name    = "It $($_.Name)"
+            Result  = $_.Result
+            Message = $_.ErrorRecord.DisplayErrorMessage
+        }
+    }
+}
+
+#$testresults | Sort-Object Describe, Context, Name, Result, Message | Format-List
+if ($totalFailed -eq 0) { Write-Build Green "All $totalRun tests executed without a single failure!" }
+else { Write-Build Red "$totalFailed tests out of $totalRun tests failed!" }
+if ($totalFailed -gt 0)
+{
+    throw "$totalFailed / $totalRun tests failed!"
+}
+
+```
+
+### Use Test Artifact
+
+Use the artifact generated in the Azure Pipelines yaml to publish pipeline test results.
+
+```yaml
+## Using Invoke Build for running
+
+- task: PowerShell@2
+  displayName: Run Pester Tests
+  inputs:
+    filePath: build.ps1
+    arguments: '-Task PesterTest -Configuration $(Configuration)'
+    errorActionPreference: 'Continue'
+    pwsh: true
+    failOnStderr: true
+  env:
+    SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+- task: PublishTestResults@2
+  displayName: Publish Pester Tests
+  inputs:
+    testResultsFormat: 'NUnit'
+    testResultsFiles: '**/TEST-*.xml'     # <---------  MATCHES MULTIPLE TEST FILES AND UPLOADED
+    failTaskOnFailedTests: true
+  alwaysRun: true                         # <---------  Or it won't upload if test fails
+
+```
+
+## Azure Pipelines Tips
+
+### Dynamic Link to a Pipeline Run
+
+Create a link to a pipeline for your chatops.
+
+```powershell
+$button = "${ENV:SYSTEM_TEAMFOUNDATIONCOLLECTIONURI}${ENV:SYSTEM_TEAMPROJECT}/_build/results?buildId=$($ENV:BUILD_BUILDID)&view=logs"
+```
+
+### Helper Function for Reporting Progress on Task
+
+This is an ugly function, but hopefully useful as a jump start when in a hurry. 😁
+
+This primarily allows you to quickly report:
+
+- ETA
+- Percent complete on a task
+- Log output on current task
+
+Needs more refinement and probably should just be an invoke build function, but for now it's semi-useful for some long-running tasks
+
+Setup up your variables like demonstrated.
+This doesn't handle nested task creation, so parentid won't be useful for anything other than local progress bar nesting.
+
+```powershell
+$ProgressId =  [int]$RANDOM.Next(1, 1000)
+$ProgressCounter = 0
+$ProgressTotalToProcess = 1000
+$ProgressStopwatch =  [diagnostics.stopwatch]::new()
+$ProgressStopwatch.Start()
+foreach ($i in $List.Items)
+{
+    $ProgressCounter++
+        $ProgressSplat = @{
+        Activity       =  '>>> Tacos'
+        StatusMessage  =  "$($i.Foo).$($i.Bar)"
+        ProgressId     =  $ProgressId
+        Counter        =  $Counter
+        TotalToProcess =  $ProgressTotalToProcess
+        Stopwatch      =  $ProgressStopwatch
+        # ParentId       =  $ParentProgressId
+        BuildOutput    = $true # for write-host special commands to show task progress in pipelines
+    }
+    Write-BuildProgressInfo @ProgressSplat
+}
+```
+
+Include this function in InvokeBuild job.
+If not using InvokeBuild, you'll need to change `Write-Build` to `Write-Host` and remove the color attribute.
+
+```powershell
+function Write-BuildProgressInfo
+{
+    [cmdletbinding()]
+    param(
+        [string]$Activity='doing stuff',
+        [string]$StatusMessage,
+        [int]$ProgressId,
+        [int]$Counter,
+        [int]$TotalToProcess,
+        $StopWatch,
+        $ParentId,
+        [switch]$Complete,
+        [switch]$BuildOutput
+    )
+    [hashtable]$writeProgressSplat = @{}
+    $writeProgressSplat.Add('Id', $ProgressId)
+    $writeProgressSplat.Add('Activity'  , $Activity)
+    if ($ParentId)
+    {
+        $writeProgressSplat.Add('ParentId', $ParentId )
+    }
+
+    # Write-Debug($PSBoundParameters.GetEnumerator() | Format-Table -AutoSize| Out-String)
+    if ($Counter -lt $TotalToProcess -and $Complete -eq $false)
+    {
+        #still processing
+        [int]$PercentComplete = [math]::Ceiling(($counter/$TotalToProcess)*100)
+        try { [int]$AvgTimeMs = [math]::Ceiling(($StopWatch.ElapsedMilliseconds / $counter)) } catch { [int]$AvgTimeMs=0 } #StopWatch from beginning of process
+
+        [int]$RemainingTimeSec = [math]::Ceiling( ($TotalToProcess - $counter) * $AvgTimeMs/1000)
+        [string]$Elapsed = '{0:hh\:mm\:ss}' -f $StopWatch.Elapsed
+
+        $writeProgressSplat.Add('Status', ("Batches: ($counter of $TotalToProcess) | Average MS: $($AvgTimeMs)ms | Elapsed Secs: $Elapsed | $($StatusMessage)"))
+        $writeProgressSplat.Add('PercentComplete', $PercentComplete)
+        $writeProgressSplat.Add('SecondsRemaining', $RemainingTimeSec)
+        Write-Progress @writeProgressSplat
+        if ($BuildOutput)
+        {
+            Write-Build DarkGray ("$Activity | $PercentComplete | ETA: $('{0:hh\:mm\:ss\.fff}' -f [timespan]::FromSeconds($RemainingTimeSec)) |  Batches: ($counter of $TotalToProcess) | Average MS: $($AvgTimeMs)ms | Elapsed Secs: $Elapsed | $($StatusMessage)")
+            Write-Build DarkGray "##vso[task.setprogress value=$PercentComplete;]$Activity"
+        }
+    }
+    else
+    {
+        [int]$PercentComplete = 100
+        try { [int]$AvgTimeMs = [math]::Ceiling(($StopWatch.ElapsedMilliseconds / $TotalToProcess)) } catch { [int]$AvgTimeMs=0 } #StopWatch from beginning of process
+        [string]$Elapsed = '{0:hh\:mm\:ss}' -f $StopWatch.Elapsed
+
+        $writeProgressSplat.Add('Completed', $true)
+        $writeProgressSplat.Add('Status', ("Percent Complete: 100% `nAverage MS: $($AvgTimeMs)ms`nElapsed: $Elapsed"))
+        Write-Progress @writeProgressSplat
+        if ($BuildOutput)
+        {
+            Write-Build DarkGray ("COMPLETED | $Activity | $PercentComplete | ETA: $('{0:hh\:mm\:ss\.fff}' -f $RemainingTimeSec) |  Batches: ($counter of $TotalToProcess) | Average MS: $($AvgTimeMs)ms | Elapsed Secs: $Elapsed | $($StatusMessage)")
+        }
+    }
+}
+
+
+```

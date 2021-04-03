@@ -1,13 +1,46 @@
-{{/* Generates a valid Algolia search index */}}
-{{- $.Scratch.Add "index" slice -}}
-{{/*- $section := $.Site.GetPage "section" .Section */}}
-{{/*- range .Site.AllPages -*/}}
+{{- if .Site.Params.search -}}
+    {{- $index := slice -}}
+    {{- $pages := .Site.RegularPages -}}
+    {{- if .Site.Params.page.hiddenFromSearch -}}
+        {{- $pages = where $pages "Params.hiddenfromsearch" false -}}
+    {{- else -}}
+        {{- $pages = where $pages "Params.hiddenfromsearch" "!=" true -}}
+    {{- end -}}
+    {{- range $pages -}}
+        {{- $uri := .RelPermalink -}}
+        {{- if $.Site.Params.search.absoluteURL -}}
+            {{- $uri = .Permalink -}}
+        {{- end -}}
+        {{- $meta := dict "uri" $uri "title" .Title "tags" .Params.tags "categories" .Params.categories -}}
+        {{- $meta = $.Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format | dict "date" | merge $meta -}}
+        {{- with .Description -}}
+            {{- $index = $index | append (dict "content" . "objectID" $uri | merge $meta) -}}
+        {{- end -}}
+        {{- $params := .Params | merge $.Site.Params.page -}}
+        {{/* Extended Markdown syntax */}}
+        {{- $content := dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" -}}
+        {{/* Remove line number for code */}}
+        {{- $content = $content | replaceRE `<span class="lnt?"> *\d*\n?</span>` "" -}}
+        {{- range $i, $contenti := split $content "<h2 id=" -}}
+            {{- if gt $i 0 -}}
+                {{- $contenti = printf "<h2 id=%v" $contenti -}}
+            {{- end -}}
+            {{- range $j, $contentj := split $contenti "<h3 id=" -}}
+                {{- if gt $j 0 -}}
+                    {{- $contentj = printf "<h3 id=%v" $contentj -}}
+                {{- end -}}
+                {{/* Plainify, unescape and remove (\n, \t) */}}
+                {{- $contentj = $contentj | plainify | htmlUnescape | replaceRE `[\n\t ]+` " " -}}
+                {{- if gt $.Site.Params.search.contentLength 0 -}}
+                    {{- $contentj = substr $contentj 0 $.Site.Params.search.contentLength -}}
+                {{- end -}}
+                {{- if $contentj | and (ne $contentj " ") -}}
+                    {{- $one := printf "%v:%v:%v" $uri $i $j | dict "content" $contentj "objectID" | merge $meta -}}
+                    {{- $index = $index | append $one -}}
+                {{- end -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
 
-{{- $pages := where site.RegularPages "Type" "in" site.Params.RSSSection -}}
-{{/* - $pages := where $pages "Section" "!=" "microblog" - */}}
-{{ range $pages }}
-  {{- if (and (not .Draft) (not .Params.private)) -}}
-    {{- $.Scratch.Add "index" (dict "objectID" .UniqueID "date" .Date.UTC.Unix "description" .Description "dir" .Dir "expirydate" .ExpiryDate.UTC.Unix "fuzzywordcount" .FuzzyWordCount "keywords" .Keywords "kind" .Kind "lang" .Lang "lastmod" .Lastmod.UTC.Unix "permalink" .Permalink "publishdate" .PublishDate "readingtime" .ReadingTime "relpermalink" .RelPermalink "summary" .Summary "title" .Title "type" .Type "url" .URL "weight" .Weight "wordcount" .WordCount "section" .Section "tags" .Params.Tags "categories" .Params.Categories "authors" .Params.Authors)}}
-  {{- end -}}
+    {{- $index | jsonify | safeJS -}}
 {{- end -}}
-{{- $.Scratch.Get "index" | jsonify -}}

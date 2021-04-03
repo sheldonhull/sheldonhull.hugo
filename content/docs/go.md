@@ -2,7 +2,7 @@
 title: go
 date: 2020-10-30T00:00:00.000Z
 toc: true
-excerpt: >-
+summary: >-
   A cheatsheet to update with what I pickup with Go that I likely need to
   reference again as a new gopher.
 slug: go
@@ -56,11 +56,21 @@ func run(args []string, stdout io.Writer) error {
 }
 ```
 
-## Puzzles - FizzBuzz
+## Pre-Commit
 
-I honestly had never done any algorithm or interview puzzles beyond sql-server, so I was really happy to knock this out relatively easily. At least I pass the basic Joel test 😁
+Here's how to setup [pre-commit](https://bit.ly/3szdwNf) for Go projects.
 
-{{< gist "25309ea04d1646f26bc0f4a54e0f16af" >}}
+1. Install [pre-commit](https://bit.ly/2O9urag) for macOS: `brew install pre-commit` or see directions for curl/other options for WSL, Windows, Linux, etc.
+1. Use the template from [TekWizely/pre-commit-golang: Pre-Commit hooks for Golang with support for Modules](https://bit.ly/31w3gtk)
+    1. Several options are provided for `fmt` oriented commands.
+    Comment out any duplicates that don't apply.
+1. Finally initialize the pre-commit hooks in your repo by running: `pre-commit install`
+
+
+Validate everything is working by running: `pre-commit run --all-files`
+
+Periodically, you can run `pre-commit autoupdate` to ensure the latest version of the pre-commit hooks are upgraded.
+
 
 ## Logging
 
@@ -72,20 +82,16 @@ The output of this demo looks pretty good!
 
 Here's a functional demo that can be used to bootstrap a new project with this.
 
-{{< gist "9e608da09f84fac600d921e3f0867226" >}}
+{{< gist sheldonhull  "9e608da09f84fac600d921e3f0867226" >}}
 
-## Algorithms & Challenges
 
-I'll eventually put these in a repo most likely, and have test cases to make runnable, but for now, just snippets of solutions to reference.
+## Other
 
-### Sock Merchant
+<div class="github-card" data-github="sheldonhull/algorithmswithgo.com" data-width="400" data-height="" data-theme="default"></div>
+<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
 
-> Alex works at a clothing store. There is a large pile of socks that must be paired by color for sale. Given an array of integers representing the color of each sock, determine how many pairs of socks with matching colors there are. Return the total number of matching pairs of socks that Alex can sell.
+<div class="github-card" data-github="sheldonhull/web-development-with-go" data-width="400" data-height="" data-theme="default"></div>
+<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
 
-{{< gist "f7671b1d78705c329fe25b3c4af7c3ec" >}}
-
-### Bubble Sort
-
-> Given an array of integers, sort the array in ascending order using the Bubble Sort algorithm above. Once sorted, print the following three lines for example: Array is sorted in 3 swaps. First Element: 1 Last Element: 6
-
-{{< gist "4aae8e98dd228530d97ce7c6e8208444" >}}
+<div class="github-card" data-github="sheldonhull/go-aws-ami-metrics" data-width="400" data-height="" data-theme="default"></div>
+<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>

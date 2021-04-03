@@ -3,7 +3,7 @@ permalink: "/about/"
 layout: single
 title: About
 slug: about
-excerpt: about me
+summary: about me
 sidebar: []
 author_profile: false
 comments: true
@@ -13,7 +13,10 @@ comments: true
 ## Want to Talk
 
 Add a comment to any of the pages at the bottom and it will open up a GitHub issue to have a public discussion.
-If you like chatting realtime, look at the bottom of the page for "Open Chat" and let's talk using Gitter (only need GitHub auth as well).
+
+:(fab fa-twitter fa-fw): <a href="https://twitter.com/messages/compose?recipient_id=247477081&text=connecting%20from%20your%20site..."
+  class="twitter-dm-button" data-screen-name="@sheldon_hull">
+Direct Message Me</a>
 
 ## Core Values
 
@@ -25,11 +28,13 @@ I've been blessed with 3 kids and a wonderful wife Sarah who has brought beauty 
 
 ## Work
 
-{{<button href="https://stackoverflow.com/story/sheldonhull" theme="success">}} StackOverflow Developer Story {{< /button >}}
-
-I ♥ code. Software, Infrastructure-as-code, Compliance-as-code, my resume as code... you name it 😁
+I ♥ code
 
 I also think the world needs more emojis and tacos 🌮🌮🌮 to lighten things up.
+
+If you are bored and want to see my brag sheet, here you go: [brag sheet]({{< relref "brag.md" >}})
+
+It's a :construction: wip that I plan on adding some accomplishments to over time.
 
 ## Other Interests
 
@@ -38,7 +43,7 @@ I've enjoyed doing videography, photography, and creating music.
 Electric & acoustic guitar have always been a passion.
 I'm a sucker for good post-rock music, which I think is the best type of music for coding around.
 
-### Music - On Desk
+## Music - On Desk
 
 If you want to check out some new music, this is my up to date "on deck" playlist of music I rock out to.
 

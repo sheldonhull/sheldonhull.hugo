@@ -1,0 +1,30 @@
+<!-- Great Tutorial Reference https://greekdeveloper.com/2018/folder-based-gallery-for-hugo/ -->
+<style>
+    div.gallery {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    div.gallery a {
+        flex-grow: 1;
+        object-fit: cover;
+        margin: 2px;
+        display: flex;
+    }
+    div.gallery a img {
+        height: 200px;
+        object-fit: cover;
+        flex-grow: 1;
+    }
+</style>
+
+<div class="gallery">
+    {{ $path := print "content/" .File.Dir (.Get "src") }}
+    {{ $url  := print .Permalink (.Get "src") }}
+    {{ range (readDir $path)  }}
+        {{- $src := print .Name }}
+        <a data-fancybox="gallery" href="{{ $src }}">
+            <img src="{{ $src }}">
+        </a>
+    {{ end }}
+</div>

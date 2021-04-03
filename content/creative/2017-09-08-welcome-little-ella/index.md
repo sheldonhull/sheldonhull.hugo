@@ -5,7 +5,13 @@ type: "gallery"
 resources:
 - name: Ella-:counter
   src: "image/*.jpg"
-excerpt: "Photos"
+summary: "Photos"
+library:
+  css:
+   - https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
+  js:
+   - https://code.jquery.com/jquery-latest.min.js
+   - https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
 ---
 
 Some photos of my daughter as we got welcome her.

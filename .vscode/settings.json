@@ -1,5 +1,5 @@
 {
-    "explorer.sortOrder": "modified",
+    "explorer.sortOrder": "mixed",
     "[markdown]": {
         "editor.defaultFormatter": "tehnix.vscode-tidymarkdown"
     },
@@ -22,10 +22,15 @@
         "blog",
         "build",
         "netlifycms",
-        "microblog"
+        "microblog",
+        "style",
+        "config",
+        "add tls1.2 for older servers for ssm agent install command",
+        "docs",
+        "codespaces",
+        "brag"
     ],
     "conventionalCommits.emojiFormat": "emoji",
-    "conventionalCommits.lineBreak": "|",
     "[yaml]": {
         "editor.insertSpaces": true,
         "editor.tabSize": 2,
@@ -39,5 +44,7 @@
     "go.inferGopath": false,
     "staticWebApps.appSubpath": "/",
     "staticWebApps.apiSubpath": "/",
-    "staticWebApps.appArtifactSubpath": "build"
+    "staticWebApps.appArtifactSubpath": "build",
+    "markdown-image.coding.path": "/static/images",
+    "markdown-image.local.path": "/static/images"
 }

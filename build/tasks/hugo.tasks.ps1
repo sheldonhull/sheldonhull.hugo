@@ -30,16 +30,22 @@ task hugo-serve-nocache {
 
 }
 #Synposis: Will need to adjust for Round 2 later. For now, this just generates a new
-Task hugo-new-100daysOfCode {
+Task hugo-new-100-days-of-code {
+    $Date = Read-Host -Message "Enter date override or enter to continue with $(Get-Date -Format 'yyyy-MM-dd')"
+    if (-not $Date)
+    {
+        $Year = $(Get-Date -Format 'yyyy')
+        $Date = $(Get-Date -Format 'yyyy-MM-dd')
+    }
 
-    $files = Get-ChildItem -Path content/microblog -Filter '*day*.md'
+    $files = Get-ChildItem -Path content/microblog -Filter '*day*.md' -Recurse
     [int]$DayCounter = ($files.ForEach{
             $Day = ($_.Name -split '-')[-1]
             $day.Trim('.md')
         } | Sort-Object -Descending | Measure-Object -Maximum).Maximum
     [int]$NewDayCounter = ++$DayCounter
 
-    $FileName = "microblog/$(Get-Date -Format 'yyyy-MM-dd')-go-R1-day-$NewDayCounter.md"
+    $FileName = "microblog/$Year/$Date-go-R1-day-$NewDayCounter.md"
     $NewFile = Join-Path $BuildRoot 'content' $FileName
     Write-Build DarkGray "Creating file: $NewFile"
 
@@ -61,7 +67,9 @@ Task hugo-new-100daysOfCode {
         }
     }
     $Content = Get-Content $NewFile -Raw
-    $Content = $Content.Replace('VAR_DAYCOUNTER', $NewDayCounter).Replace('VAR_DAYCOUNTERIMAGE', [string]"$NewDayCounter".PadLeft(3, '0'))
+    $Content = $Content.Replace('VAR_DAYCOUNTER', $NewDayCounter).Replace('VAR_DAYCOUNTERIMAGE', [string]"$NewDayCounter".PadLeft(3, '0')).Replace((Get-Date -Format 'yyyy-MM-dd'), $Date)
+    $Content = $Content -replace 'title: \d{4}.\d{2}.\d{2}\s+', 'title: ' -replace 'slug: \d{4}.\d{2}.\d{2}-', 'slug: '
+
     $Content | Out-File $NewFile -Force
     Write-Build Green "Successfully created file: $NewFile"
 }
@@ -70,7 +78,13 @@ Task hugo-new-100daysOfCode {
 Task hugo-new-microblog {
     $Title = Read-Host 'Enter title'
     $Title = $Title.ToLower().Trim() -replace '\s', '-'
-    $FileName = "microblog/$(Get-Date -Format 'yyyy-MM-dd')-$Title.md"
+    $Date = Read-Host -Message "Enter date override or enter to continue with $(Get-Date -Format 'yyyy-MM-dd')"
+    if (-not $Date)
+    {
+        $Year = $(Get-Date -Format 'yyyy')
+        $Date = $(Get-Date -Format 'yyyy-MM-dd')
+    }
+    $FileName = "microblog/$Year/$Date-$Title.md"
     $NewFile = Join-Path $BuildRoot 'content' $FileName
     Write-Build DarkGray "Creating file: $NewFile"
     switch -Wildcard ($PSVersionTable.OS)
@@ -90,6 +104,7 @@ Task hugo-new-microblog {
     }
     $Content = Get-Content $NewFile -Raw
     $Content = $Content.Replace('VAR_TITLE', $Title)
+    $Content = $Content.Replace((Get-Date -Format 'yyyy-MM-dd'), $Date)
     $Content | Out-File $NewFile -Force
     Write-Build Green "Successfully created file: $NewFile"
 }
@@ -98,7 +113,13 @@ Task hugo-new-microblog {
 Task hugo-new-blog {
     $Title = Read-Host 'Enter title'
     $Title = $Title.ToLower().Trim() -replace '\s', '-'
-    $FileName = "blog/$(Get-Date -Format 'yyyy-MM-dd')-$Title.md"
+    $Date = Read-Host -Message "Enter date override or enter to continue with $(Get-Date -Format 'yyyy-MM-dd')"
+    if (-not $Date)
+    {
+        $Year = $(Get-Date -Format 'yyyy')
+        $Date = $(Get-Date -Format 'yyyy-MM-dd')
+    }
+    $FileName = "blog/$Year/$Date-$Title.md"
     $NewFile = Join-Path $BuildRoot 'content' $FileName
     Write-Build DarkGray "Creating file: $NewFile"
     switch -Wildcard ($PSVersionTable.OS)
@@ -117,9 +138,9 @@ Task hugo-new-blog {
 
         }
     }
-    # $Content = Get-Content $NewFile -Raw
-    # $Content = $Content.Replace('VAR_TITLE', $Title)
-    # $Content | Out-File $NewFile -Force
+    $Content = Get-Content $NewFile -Raw
+    $Content = $Content.Replace((Get-Date -Format 'yyyy-MM-dd'), $Date)
+    $Content | Out-File $NewFile -Force
     Write-Build Green "Successfully created file: $NewFile"
 }
 

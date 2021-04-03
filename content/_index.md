@@ -1,15 +1,40 @@
 ---
-date: "2017-06-26T18:27:58+01:00"
-title : "Home"
+permalink: "/profile/"
+layout: wide
+title: "Sheldon Hull // Developer"
+slug: "profile"
+summary: professional profile for Sheldon Hull
+# sidebar:
+# - title: About
+#   image: "/images/about-me-200.jpg"
+#   image_alt: image
+#   text: This is me, with a little too much coffee...
+# author_profile: false
+comments: true
+robots: noindex
+justifyContent: true
 ---
 
-### Sheldon Hull
+{{< terminal "sheldonhull@macbook" "~/ (pwsh)" >}}
+_________________________________
+< Welcome! Thanks for stopping by >
+ ---------------------------------
+ \
+  \
+     __
+    /  \
+    |  |
+    @  @
+    |  |
+    || |/
+    || ||
+    |\_/|
+    \___/
+{{< /terminal >}}
 
-##### I'm someone who's passionate about DevOps and Site Reliability Engineering (SRE)
-###### Passion for automation and learning drive me to continually learn. This blog contains mostly technology related exploration, along with a mingling of other topics
-<ul>
-<i class="fas fa-database">&nbsp; &nbsp; &nbsp; &nbsp; SQL Server</i><br>
-<i class="fas fa-terminal">&nbsp; &nbsp; &nbsp; &nbsp; PowerShell & Automation</i><br>
-<i class="fab fa-aws">&nbsp; &nbsp; &nbsp; &nbsp; AWS</i><br>
-<i class="fas fa-laptop-code">&nbsp; &nbsp; &nbsp; &nbsp; Avid user of tools, dark themes, and reticulator of splines</i><br>
-</ul>
+Here you'll find mostly tech talk and musings, with other topics periodically.
+If you want to stay in touch, look at the bottom for the curated newsletter I send out.
+
+Cheers! 🙏🏻
+
+<hr>

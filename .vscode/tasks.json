@@ -89,9 +89,9 @@
       }
     },
     {
-      "label": "hugo-new-100daysOfCode",
+      "label": "hugo-new-100-days-of-code",
       "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task hugo-new-100daysOfCode -File './task.build.ps1'",
+      "command": "./build.ps1 -LoadConstants -Task hugo-new-100-days-of-code -File './task.build.ps1'",
       "problemMatcher": "$msCompile",
       "presentation": {
         "echo": false,
@@ -324,3 +324,4 @@
     }
   ]
 }
+

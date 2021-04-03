@@ -1,9 +1,9 @@
 {
     "Print to console": {
         "scope": "markdown",
-        "prefix": "premonition",
+        "prefix": "admonition",
         "body": [
-            "{{< premonition type=\"${1|info,warning|}\" title=\"${Title}\" >}}\r\n$0\r\n{{< /premonition >}}"
+            "{{< admonition type=\"${1|Note,Abstract,Info,Tip,Success,Question,Warning,Failure,Danger,Bug,Example,Quote|}\" title=\"${2:Title}\" open=\"true\">}}\r\n$0\r\n{{< /admonition >}}"
         ],
         "description": "premonition notice for notice box"
     },
@@ -12,6 +12,15 @@
         "description": "internal link to another doc",
         "body": [
             "[${2:LinkInfo}]({{< relref \"${1:FileNameNoPath}\" >}} \"${2:LinkInfo}\")"
+        ]
+    },
+    "hugo-terminal": {
+        "prefix": "hugo-terminal",
+        "description": "Shortcode snippet for a styled terminal",
+        "body": [
+            "{{< terminal \"sheldonhull@macbook\" \"~/ (pwsh)\" >}}",
+            "$0",
+            "{{< /terminal >}}"
         ]
     }
 }

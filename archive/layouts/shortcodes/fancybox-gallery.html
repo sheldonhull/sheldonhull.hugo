@@ -1,0 +1,36 @@
+<style>
+    div.gallery {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    div.gallery a {
+        flex-grow: 1;
+        object-fit: cover;
+        margin: 2px;
+        display: flex;
+    }
+    div.gallery a img {
+        height: 200px;
+        object-fit: cover;
+        flex-grow: 1;
+    }
+</style>
+
+
+{{"<!-- begin gallery shortcode //-->" | safeHTML}}
+<div class="gallery">
+<!-- get metadata from 1st two params 0=galleryname, 1=caption -->
+{{ $meta :=  first 2 .Params }}
+<!-- everything after 1st two params is an image -->
+{{ $images :=  after 2 .Params }}
+
+<!-- begin loop through $images -->
+{{- range $images }}
+    <!-- {{ printf "%#v" . }} -->
+    {{"<!-- begin gallery shortcode //-->" | safeHTML}}
+    <a data-fancybox="{{index $meta 0 }}" href="/images/{{ . }}" data-caption="{{index $meta 1}}"><img src="/images/{{ . }}" alt="{{index $meta 1}}"></a>
+{{end -}}
+<!-- end loop through $images -->
+</div>
+{{"<!-- end gallery shortcode //-->" | safeHTML}}

@@ -1,0 +1,64 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.138.0/containers/hugo
+{
+    "name": "sheldonhull-hugo",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            // Update VARIANT to pick hugo variant.
+            // Example variants: hugo, hugo_extended
+            // Rebuild the container if it already exists to update.
+            "VARIANT": "hugo_extended",
+            // Update VERSION to pick a specific hugo version.
+            // Example versions: latest, 0.73.0, 0,71.1
+            // Rebuild the container if it already exists to update.
+            "VERSION": "latest",
+        }
+    },
+    // Set *default* container specific settings.json values on container create.
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "explorer.sortOrder": "modified"
+    },
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+        "bungcip.better-toml",
+        "davidanson.vscode-markdownlint",
+        "spmeesseman.vscode-taskexplorer",
+        "budparr.language-hugo-vscode",
+        "akmittal.hugofy",
+        "sneezry.vscode-devto",
+        "darkriszty.markdown-table-prettify",
+        "yzhang.markdown-all-in-one",
+        "vivaxy.vscode-conventional-commits",
+        "skn0tt.markdown-link-expander",
+        "mhutchie.git-graph",
+        "znck.grammarly",
+        "stylelint.vscode-stylelint",
+        "sibiraj-s.vscode-scss-formatter"
+    ],
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [
+        1313
+    ],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": [
+        // "sh -c \"$(curl --location https: //taskfile.dev/install.sh)\" -- -d -b /usr/local/bin",
+        // "RUN echo \">>> Running install-git-town.sh <<<\" && sudo chmod +x ./install-git-town.sh && bash ./install-git-town.sh",
+        // "RUN echo \">>> Running install-starship.sh <<<\" && sudo chmod +x ./install-starship.sh && bash ./install-starship.sh",
+        "sudo pwsh -c ./build -task setup"
+        //"sudo go get -u all"
+    ],
+    // Uncomment to use Docker from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
+    // "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
+    // Uncomment when using a ptrace-based debugger like C++, Go, and Rust
+    // "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+    // Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "codespace",
+    "containerEnv": {
+        "ALGOLIA_APP_ID": "04HSGXXQD5",
+        "ALGOLIA_ADMIN_KEY": "${localEnv:ALGOLIA_ADMIN_KEY}",
+        "ALGOLIA_INDEX_NAME": "sheldonhull",
+        "ALGOLIA_INDEX_FILE": "public/algolia.json"
+    }
+}

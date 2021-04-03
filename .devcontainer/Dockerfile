@@ -1,58 +1,61 @@
-#FROM golang:1.15
-FROM klakegg/hugo:latest-ext
+# Why Do I use brew?
+# Since this is a dev container and not a publishing container
+# brew simplifies a lot of quick adhoc tooling like gitversion for example
+# and also improves the path handling so I don't have to worry about it.
+# this is how to copy from
 
-RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb \
-    && dpkg -i packages-microsoft-prod.deb \
-    && apt-get -qqy update \
-    && apt-get -qqy install --no-install-recommends powershell curl wget
+# See here for image contents: https://github.com/microsoft/codespace-dev-containers/tree/v0.154.2/containers/ubuntu/.devcontainer/base.Dockerfile
+# [Choice] Ubuntu version: bionic, focal
+ARG VARIANT="focal"
+FROM homebrew/brew:latest AS DOCKERBREW
+FROM mcr.microsoft.com/vscode/devcontainers/universal:1-${VARIANT} as BASE
 
-ARG USERNAME=codespace
-ARG USER_UID=1000
-ARG USER_GID=$USER_UID
+# RUN sudo apt-get update \
+# # Install pre-requisite packages.
+# && sudo apt-get install -y wget apt-transport-https software-properties-common \
+# # Download the Microsoft repository GPG keys
+# && wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb \
+# # Register the Microsoft repository GPG keys
+# && sudo dpkg -i packages-microsoft-prod.deb \
+# # Update the list of products
+# && sudo apt-get update \
+# # Enable the "universe" repositories
+# && sudo add-apt-repository universe \
+# # Install PowerShell
+# && sudo apt-get install -y powershell
+# RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb \
+#     && dpkg -i packages-microsoft-prod.deb \
+#     && apt-get -qqy update \
+#     && apt-get -qqy install --no-install-recommends powershell curl wget
+USER root
+RUN useradd -m -s /bin/bash linuxbrew && \
+    echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
 
- # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
-RUN groupadd --gid $USER_GID $USERNAME \
-    && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
-    # [Optional] Add sudo support for the non-root user
-    && apt-get install -y sudo \
-    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
-    && chmod 0440 /etc/sudoers.d/$USERNAME \
-    #
-    # Clean up
-    && apt-get autoremove -y \
-    && apt-get clean -y \
+USER linuxbrew
+COPY --from=DOCKERBREW /home/linuxbrew/.linuxbrew /home/linuxbrew/.linuxbrew
+#RUN   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+USER root
+RUN sudo apt update && sudo apt-get -qqy install build-essential curl file git \
     && rm -rf /var/lib/apt/lists/*
 
+ENV PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
+# for troubleshooting:
+# $ENV:PATH = "/home/linuxbrew/.linuxbrew/bin:$($ENV:PATH)"
 USER codespace
-# RUN echo ">>> Running init.ps1 <<<" && sudo chmod +x ./init.ps1 && sudo pwsh -nologo -noprofile -c '$ProgressPreference = "Ignore"; &./init.ps1'
+#RUN curl -L "https://github.com/whalebrew/whalebrew/releases/download/0.3.0/whalebrew-$(uname -s)-$(uname -m)" -o /usr/local/bin/whalebrew; chmod +x /usr/local/bin/whalebrew
+RUN brew --version
+RUN brew update
+#RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc
+#RUN brew postinstall gcc
+RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install golang
+RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install hugo
+RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install git-town
+RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install go-task/tap/go-task
+RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install npm
+RUN mkdir $HOME/.git-template
+#RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install --cask powershell
 
 
-# BREW HAS ISSUES IN THIS LIMITED IMAGE
-# RUN bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" \
-#     && echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> /home/codespace/.profile \
-#     && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-# ENV PATH "$PATH:/home/linuxbrew/.linuxbrew/bin"
-
-# RUN export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin/brew" \
-#     && export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib" \
-#     && export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/isl@0.18/include" \
-#     && /home/linuxbrew/.linuxbrew/bin/brew install git-town \
-#     && /home/linuxbrew/.linuxbrew/bin/brew install go-task/tap/go-task
-
-
-ADD install-git-town.sh .
-ADD install-starship.sh .
-# ADD init.ps1 .
-# # ADD install-poetry.sh .
-
-RUN echo ">>> Running install-git-town.sh <<<" && sudo chmod +x ./install-git-town.sh && bash ./install-git-town.sh
-RUN echo ">>> Running install-starship.sh <<<" && sudo chmod +x ./install-starship.sh && bash ./install-starship.sh
-ENV SHELL=/opt/microsoft/powershell/7/pwsh
-
-
-
-RUN export GOROOT=/opt/go && export GOPATH=/home/codespace/go && wget -q -O - https: //git.io/vQhTU | sudo bash
-ENV PATH=$PATH:/opt/go/bin
-ENV GOPATH=/home/codespace/go
-#RUN sudo go get -u all
-EXPOSE 1313
+# This requires dotnet install so bypassing as not critical
+# RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install gitversion

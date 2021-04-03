@@ -1,188 +1,388 @@
-baseurl: ''
-title: Sheldon Hull
-theme: hermit
-metadataformat: yaml
-timeout: 60000
+baseURL: 'https://www.sheldonhull.com'
+defaultContentLanguage: en
+theme: codeit
+# themesDir: ../..
+title: sheldonhull.com
+enableRobotsTXT: true
 enableGitInfo: true
-paginate: 20
-canonifyurls: true
-pluralizeListTitles: false
 enableEmoji: true
-DisqusShortname: sheldonhull
-DelayDisqus: true
-googleAnalytics: UA-40198001-3
-copyright: This work is licensed under a Creative Commons Attribution-NonCommercial
-  4.0 International License.
-additional_scripts:
-  - node_modules/algoliasearch/dist/algoliasearch.umd.js
-  - assets/js/algolia-search.js
-taxonomies:
-  tag: tags
-  series: series
-outputs:
-  home:
-    - HTML
-    - RSS
-    - Algolia
-  page:
-    - HTML
-  section:
-    - HTML
-    - RSS
-  microblog:
-    - RSS
-outputFormats:
-  Algolia:
-    baseName: algolia
-    isPlainText: true
-    mediaType: application/json
-    notAlternative: true
-permalinks:
-  posts: /:slug/
-frontmatter:
-  date:
-    - date
-    - publishDate
-    - lastmod
-  lastmod:
-    - :git
-    - lastmod
-    - date
-    - publishDate
-    - :fileModTime
-  publishDate:
-    - publishDate
-    - date
-  expiryDate:
-    - expiryDate
-  title:
-    - title
-    - date
-Author:
-  name: Sheldon Hull
-  website: https://www.sheldonhull.com
-  email: ''
-  facebook: ''
-  googleplus: ''
-  github: sheldonhull
-  gitlab: ''
-  bitbucket: ''
-  twitter: sheldon_hull
-  reddit: ''
-  linkedin: ''
-  xing: ''
-  stackoverflow: users/68698/sheldonh
-  snapchat: ''
-  instagram: ''
-  youtube: ''
-  soundcloud: ''
-  spotify: ''
-  bandcamp: ''
-  itchio: ''
-  vk: ''
-  paypal: ''
-  telegram: ''
-  500px: ''
-menu:
-  main:
-    - name: Blog
-      weight: 1
-      url: /blog/
-    - name: Microblog
-      weight: 2
-      url: /microblog/
-    # - name: Tags
-    #   url: /tags/
-    #   weight: 3
-    - name: Docs
-      url: /docs/
-      weight: 4
-    - name: Creative
-      url: /creative/
-      weight: 5
-    - name: About
-      weight: 6
-      url: /about/
+ignoreErrors:
+  - error-remote-getjson
+languages:
+  en:
+    weight: 1
+    languageCode: en
+    languageName: English
+    hasCJKLanguage: false
+    paginate: 12
+    googleAnalytics: UA-40198001-3
+    copyright: >-
+      This work is licensed under a Creative Commons Attribution-NonCommercial
+      4.0 International License.
+    menu:
+      main:
+        - identifier: blog
+          pre: ''
+          post: ''
+          name: Blog
+          url: /blog/
+          title: ''
+          weight: 1
+        - identifier: Microblog
+          pre: ''
+          post: ''
+          name: Microblog
+          url: /microblog/
+          title: ''
+          weight: 2
+        - identifier: About
+          pre: ''
+          post: ''
+          name: About
+          url: /about/
+          title: ''
+          weight: 3
+        - identifier: docs
+          pre: ''
+          post: ''
+          name: Docs
+          url: /docs/
+          title: ''
+          weight: 4
+        - identifier: creative
+          pre: ''
+          post: ''
+          name: Creative
+          url: /creative/
+          title: ''
+          weight: 5
+        - identifier: tags
+          pre: ''
+          post: ''
+          name: Tags
+          url: /tags/
+          title: ''
+          weight: 6
+        - identifier: github
+          pre: <i class='fab fa-github fa-fw'></i>
+          post: ''
+          name: ''
+          url: 'https://github.com/sheldonhull/'
+          title: GitHub
+          weight: 7
+    params:
+      description: A personal dev blog
+      keywords:
+        - Theme
+        - Hugo
+      app:
+        title: sheldonhull.com
+        noFavicon: false
+        svgFavicon: ''
+        themeColor: '#ffffff'
+        iconColor: '#5bbad5'
+        tileColor: '#da532c'
+      search:
+        enable: true
+        type: algolia
+        contentLength: 4000
+        placeholder: ''
+        maxResultLength: 10
+        snippetLength: 30
+        highlightTag: em
+        absoluteURL: https://www.sheldonhull.com
+        algolia:
+          index: sheldonhull.com
+          appID: 04HSGXXQD5
+          searchKey: a7ec2763a5d966a5b9f8d70b254bfb68
+      home:
+        rss: 15
+        profile:
+          enable: true
+          gravatarEmail: ''
+          avatarURL: /images/sheldonhull_gopher_avatar.png
+          title: 'Sheldon Hull'
+          subtitle: ''
+          typeit: true
+          social: true
+          disclaimer: ''
+        posts:
+          enable: true
+          paginate: 6
+      social:
+        GitHub: sheldonhull
+        Linkedin: ''
+        Twitter: sheldon_hull
+        Instagram: ''
+        Facebook: ''
+        Telegram: ''
+        Medium: ''
+        Gitlab: ''
+        Youtubelegacy: ''
+        Youtubecustom: ''
+        Youtubechannel: ''
+        Tumblr: ''
+        Quora: ''
+        Keybase: ''
+        Pinterest: ''
+        Reddit: ''
+        Codepen: ''
+        FreeCodeCamp: ''
+        Bitbucket: ''
+        Stackoverflow: users/68698/sheldonh
+        Weibo: ''
+        Odnoklassniki: ''
+        VK: ''
+        Flickr: ''
+        Xing: ''
+        Snapchat: ''
+        Soundcloud: ''
+        Spotify: ''
+        Bandcamp: ''
+        Paypal: ''
+        Fivehundredpx: ''
+        Mix: ''
+        Goodreads: ''
+        Lastfm: ''
+        Foursquare: ''
+        Hackernews: ''
+        Kickstarter: ''
+        Patreon: ''
+        Steam: ''
+        Twitch: ''
+        Strava: ''
+        Skype: ''
+        Whatsapp: ''
+        Zhihu: ''
+        Douban: ''
+        Angellist: ''
+        Slidershare: ''
+        Jsfiddle: ''
+        Deviantart: ''
+        Behance: ''
+        Dribbble: ''
+        Wordpress: ''
+        Vine: ''
+        Googlescholar: ''
+        Researchgate: ''
+        Thingiverse: ''
+        Devto: sheldonhull
+        Gitea: ''
+        XMPP: ''
+        Matrix: ''
+        Bilibili: ''
+        Email:
+        RSS: true
+        #Mastodon:
+        #  id: '@xxxx'
+        #  prefix: 'https://mastodon.technology/'
+
 params:
   mainSections:
-    - blog
-    - microblog
-  search:
-    algolia:
-      app_id: 04HSGXXQD5
-      api_key: a7ec2763a5d966a5b9f8d70b254bfb68
-      index_name: sheldonhull.com
-      show_logo: true
-  RSSSection:
-    - blog
-    - microblog
-    # - docs
-  rssmicroblogtitles: true
-  RSSEnabled: true
-  rssLimit: 15
-  font:
-    text: Raleway
-    code: JetBrainsMono
-  dateform: Jan 2, 2006
-  dateformShort: Jan 2
-  dateformNum: '2006-01-02'
-  dateformNumTime: 2006-01-02 15:04 -0700
-  comments: true
-  toc: true
-  algolia:
-    vars:
-      - title
-      - summary
-      - date
-      - publishdate
-      - expirydate
-      - permalink
-    params:
-      - tags
-  themeColor: '#22252e'
-  homeSubtitle:
-    - "For dropping by, here's some emoji tacos 🌮🌮🌮"
-  footerCopyright: '&#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
-  bgImg: images/2016-04-27_17-27-07_circular.jpg
-  gitUrl: https://github.com/sheldonhull/sheldonhull.hugo/commit/
-  gitter: sheldonhull/community
-  justifyContent: false
-  commit: true
-  since: 2013
-  custom_css:
-    - css/custom.css
-    - css/ticks.css
-    - css/notice.css
-  social:
-    - name: twitter
-      url: https://twitter.com/sheldon_hull
-    - name: github
-      url: https://github.com/sheldonhull
-    - name: stackoverflow
-      url: https://stackoverflow.com/users/68698/sheldonh
-    - name: linkedin
-      url: https://www.linkedin.com/in/sheldonhull
-  style:
-    backgroundColor: '#018574'
+      - blog
+      - microblog
+  version: 0.2.X
+  defaultTheme: dark
+  gitRepo: https://github.com/sheldonhull/sheldonhull.hugo
+  fingerprint: ''
+  dateFormat: 2006-01-02
+  images:
+    - /images/sheldonhull_gopher_avatar.png
+  header:
+    desktopMode: fixed
+    mobileMode: auto
+    title:
+      logo: /images/sheldonhull_gopher_avatar.png
+      name: sheldonhull.com
+      #pre: '<i class="fas fa-terminal"></i>'  #<i class='fas fa-laptop-code fa-fw'></i>
+      pre: <span id="logo-anima"><span class="arrow">></span><span class="dash">_</span></span>
+      post: ''
+      typeit: false
+  footer:
+    enable: true
+    custom: ''
+    hugo: true
+    copyright: true
+    author: true
+    since: 2013
+    icp: ''
+    license: >-
+      <a rel="license external nofollow noopener noreferrer"
+      href="https://www.sheldonhull.com/license" target="_blank">CC
+      BY-NC 4.0</a>
+  section:
+    paginate: 20
+    dateFormat: 2006-01-02
+    rss: 10
+  list:
+    paginate: 20
+    dateFormat: 2006-01-02
+    rss: 10
+  page:
+    hiddenFromHomePage: false
+    hiddenFromSearch: false
+    twemoji: false
+    lightgallery: true
+    ruby: true
+    fraction: true
+    fontawesome: true
+    linkToMarkdown: true
+    rssFullText: true
+    toc:
+      enable: true
+      keepStatic: false
+      auto: false
+    code:
+      copy: true
+      maxShownLines: 10
+    math:
+      enable: false
+      blockLeftDelimiter: ''
+      blockRightDelimiter: ''
+      inlineLeftDelimiter: ''
+      inlineRightDelimiter: ''
+      copyTex: true
+      mhchem: true
+    mapbox:
+      accessToken: ''
+      lightStyle: 'mapbox://styles/mapbox/light-v10?optimize=true'
+      darkStyle: 'mapbox://styles/mapbox/dark-v10?optimize=true'
+      navigation: true
+      geolocate: true
+      scale: true
+      fullscreen: true
+    share:
+      enable: true
+      Twitter: true
+      Facebook: false
+      Linkedin: true
+      Whatsapp: false
+      Pinterest: false
+      Tumblr: false
+      HackerNews: false
+      Reddit: false
+      VK: false
+      Buffer: false
+      Xing: false
+      Line: false
+      Instapaper: false
+      Pocket: false
+      Digg: false
+      Stumbleupon: false
+      Flipboard: false
+      Weibo: false
+      Renren: false
+      Myspace: false
+      Blogger: false
+      Baidu: false
+      Odnoklassniki: false
+      Evernote: false
+      Skype: false
+      Trello: false
+      Mix: false
+    comment:
+      enable: true
+      disqus:
+        enable: false
+        shortname: ''
+      gitalk:
+        enable: false
+        owner: ''
+        repo: ''
+        clientId: ''
+        clientSecret: ''
+      valine:
+        enable: false
+        appId: ''
+        appKey: ''
+        placeholder: ''
+        avatar: mp
+        meta: ''
+        pageSize: 10
+        lang: ''
+        visitor: true
+        recordIP: true
+        highlight: true
+        enableQQ: false
+        serverURLs: ''
+        emoji: ''
+      facebook:
+        enable: false
+        width: 100%
+        numPosts: 10
+        appId: ''
+        languageCode: ''
+      telegram:
+        enable: false
+        siteID: ''
+        limit: 5
+        height: ''
+        color: ''
+        colorful: true
+        dislikes: false
+        outlined: false
+      commento:
+        enable: false
+      utterances:
+        enable: true
+        repo: 'sheldonhull/sheldonhull.hugo'
+        issueTerm: 'og:title'
+        label: ':speech_balloon: blog comment'
+        lightTheme: github-light
+        darkTheme: github-dark
+    library:
+      css:
+        - https://fonts.googleapis.com/css?family=Raleway&display=swap
+      js:
+        - <script src="/javascript/webmention.min.js" async></script>
+
+    seo:
+      images: []
+      publisher:
+        name: xxxx
+        logoUrl: images/sheldonhull_gopher_avatar.png
+  typeit:
+    speed: 100
+    cursorSpeed: 1000
+    cursorChar: '|'
+    duration: -1
+  verification:
+    google: ''
+    bing: ''
+    yandex: ''
+    pinterest: ''
+    baidu: ''
+  seo:
+    image: /images/sheldonhull_gopher_avatar.png
+    thumbnailUrl: /images/sheldonhull_gopher_avatar.png
+  analytics:
+    enable: true
+    google:
+      id: UA-40198001-3
+      anonymizeIP: true
+    fathom:
+      id: ''
+      server: ''
+    plausible:
+      domain: ''
+  cookieconsent:
+    enable: false
+    content:
+      message: ''
+      dismiss: ''
+      link: ''
+  cdn:
+    data: jsdelivr.yml
+  compatibility:
+    polyfill: false
+    objectFit: false
 markup:
-  blackFriday:
-    angledQuotes: false
-    extensions: null
-    extensionsMask: null
-    footnoteAnchorPrefix: ''
-    footnoteReturnLinkContents: ''
-    fractions: true
-    hrefTargetBlank: true
-    latexDashes: true
-    nofollowLinks: false
-    noreferrerLinks: false
-    plainIDAnchors: true
-    skipHTML: false
-    smartDashes: true
-    smartypants: true
-    smartypantsQuotesNBSP: false
-    taskLists: true
-  defaultMarkdownHandler: goldmark
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    lineNumbersInTable: true
+    noClasses: false
   goldmark:
     extensions:
       definitionList: true
@@ -192,49 +392,64 @@ markup:
       table: true
       taskList: true
       typographer: true
-    parser:
-      attribute: true
-      autoHeadingID: true
-      autoHeadingIDType: github
     renderer:
-      hardWraps: false
       unsafe: true
-      xHTML: false
-  highlight:
-    codeFences: true
-    guessSyntax: true
-    hl_Lines: ''
-    lineNoStart: 1
-    lineNos: false
-    lineNumbersInTable: true
-    noClasses: false
-    tabWidth: 4
   tableOfContents:
-    endLevel: 3
-    ordered: false
     startLevel: 2
-  minify:
-    disableCSS: false
-    disableHTML: false
-    disableJS: false
-    disableJSON: false
-    disableSVG: false
-    disableXML: false
-    minifyOutput: false
-    tdewolff:
-      css:
-        decimals: -1
-        keepCSS2: true
-      html:
-        keepConditionalComments: true
-        keepDefaultAttrVals: true
-        keepDocumentTags: true
-        keepEndTags: true
-        keepQuotes: false
-        keepWhitespace: false
-      js: {}
-      json: {}
-      svg:
-        decimals: -1
-      xml:
-        keepWhitespace: false
+    endLevel: 6
+author:
+  name: Sheldon Hull
+  email: ''
+  link: ''
+sitemap:
+  changefreq: weekly
+  filename: sitemap.xml
+  priority: 0.5
+Permalinks:
+  blog: /:section/:slug
+  microblog: /:section/:slug
+privacy:
+  googleAnalytics: {}
+  twitter:
+    enableDNT: true
+  youtube:
+    privacyEnhanced: true
+mediaTypes:
+  text/plain:
+    suffixes:
+      - md
+outputFormats:
+  MarkDown:
+    mediaType: text/plain
+    isPlainText: true
+    isHTML: false
+  Algolia:
+    baseName: algolia
+    isPlainText: true
+    mediaType: application/json
+    notAlternative: true
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+    - Algolia
+  page:
+    - HTML
+    - MarkDown
+  section:
+    - HTML
+    - RSS
+  taxonomy:
+    - HTML
+    - RSS
+  taxonomyTerm:
+    - HTML
+
+taxonomies:
+  tag: tags
+  series: series
+
+RSSSection:
+- blog
+- microblog

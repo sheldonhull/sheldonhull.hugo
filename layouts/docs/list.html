@@ -1,42 +1,40 @@
-{{ define "header" }}
-{{ partialCached "header.html" . }}
-{{ end }}
+{{- define "title" }}
+{{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+{{- end -}}
 
-{{ define "main" }}
-{{ $pages := (where $.RegularPages "Section" "in" "docs") }}
-<main class="site-main section-inner thin animated fadeIn faster">
-    <h1>{{ .Title }}</h1>
-    {{- if .Content }}
-    <div class="content">
-        {{ .Content }}
-    </div>
-    {{- end }}
+{{- define "content" -}}
+<div class="page archive">
+    {{- /* Title */ -}}
+    <h2 class="single-title animated pulse faster">
+        {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
+    </h2>
 
-    <div class="posts-group">
-        <ul class="posts-list">
-            {{- range $pages }}
-                {{ $section := .Section }}
-                <li class="post-item">
-                    <a href="{{.Permalink}}">
-
-                        {{ if .Params.Draft }}<div class="posttag draft">draft</div>{{ end }}
-                        {{ if gt .Params.date now }}<div class="posttag scheduled">scheduled</div>{{ end }}
-                        {{- if in .Params.tags "microblog"}}<span class="microtag"><span class="tag">microblog</span> {{.Content | plainify | truncate 40 -}}
-                        {{- else -}}
-                        {{- .Title -}}
-                        {{ end -}}
-                        </span>
-                        <span class="listmonth">{{ .Date.Format "2006 Jan" }}</span>
-                    </a>
-                </li>
-            {{- end }}
-        </ul>
-    </div>
-
-
-</main>
-{{ end }}
-
-{{ define "footer" }}
-{{ partialCached "footer.html" . }}
-{{ end }}
+    {{- /* Paginate */ -}}
+    {{ $pages := (where .Site.RegularPages.ByTitle "Section" "docs" ) }}
+    {{ $section := .Section }}
+    {{- if $pages -}}
+    {{- with .Site.Params.section.paginate | default .Site.Params.paginate -}}
+    {{- $pages = $.Paginate $pages . -}}
+    {{- else -}}
+    {{- $pages = .Paginate $pages -}}
+    {{- end -}}
+    {{- range (.Pages.ByParam "Lastmod").Reverse -}}
+    <article class="archive-item">
+        <a href="{{ .RelPermalink }}" class="archive-item-link">
+            {{- .Title -}}
+        </a>
+        <span class="archive-item-date">
+            {{- if $.Site.Params.gitRepo -}}
+                {{- with .GitInfo -}}
+                {{- dateFormat "2006-01-02" .AuthorDate.Local -}}
+                {{- end -}}
+            {{- else -}}
+            {{- dateFormat "2006-01-02" .Date -}}
+            {{- end -}}
+        </span>
+    </article>
+    {{- end -}}
+    {{- partial "paginator.html" . -}}
+    {{- end -}}
+</div>
+{{- end -}}
