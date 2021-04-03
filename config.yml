@@ -234,7 +234,7 @@ params:
       auto: false
     code:
       copy: true
-      maxShownLines: 10
+      maxShownLines: 20
     math:
       enable: false
       blockLeftDelimiter: ''

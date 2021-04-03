@@ -37,6 +37,10 @@ Task hugo-new-100-days-of-code {
         $Year = $(Get-Date -Format 'yyyy')
         $Date = $(Get-Date -Format 'yyyy-MM-dd')
     }
+    else {
+        $Date = $(Get-Date $Date -Format 'yyyy-MM-dd')
+        $Year = $(Get-Date $Date -Format 'yyyy')
+    }
 
     $files = Get-ChildItem -Path content/microblog -Filter '*day*.md' -Recurse
     [int]$DayCounter = ($files.ForEach{
