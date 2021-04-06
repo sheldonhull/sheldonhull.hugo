@@ -2,7 +2,7 @@
 new_page_extension: md
 auto_deploy: false
 admin_path: "/static/admin"
-webhook_url: 
+webhook_url:
 sections:
 - type: directory
   path: content/microblog
@@ -29,14 +29,14 @@ upload_dir: static/images
 public_path: images
 front_matter_path: ''
 use_front_matter_path: false
-file_template: ":filename:"
+file_template: ":year:/:year:-:month:-:day:-:filename:"
 build:
   preview_env:
   - HUGO_ENV=staging
-  - HUGO_VERSION=0.60.1
+  - HUGO_VERSION=0.80.0
   preview_output_directory: public
   preview_docker_image: forestryio/build:latest
   mount_path: "/opt/buildhome/repo"
   instant_preview_command: 'hugo server -D -E -F --port 8080 --bind 0.0.0.0 --renderToDisk
     -d public -enableGitinfo '
-version: 0.54.0
+version: 0.80.0
