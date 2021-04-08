@@ -11,7 +11,7 @@
 	},
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash",
+		"terminal.integrated.shell.linux": "/usr/bin/pwsh",
 		"explorer.sortOrder": "modified"
 	},
 	// Add the IDs of extensions you want installed when the container is created.
@@ -31,7 +31,8 @@
 		"sibiraj-s.vscode-scss-formatter",
 		"znck.grammarly",
 		"ms-vscode.powershell-preview",
-		"ericadamski.carbon-now-sh"
+		"ericadamski.carbon-now-sh",
+		"wmaurer.change-case"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
