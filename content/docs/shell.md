@@ -23,6 +23,7 @@ Works on Linux and macOS now 👏.
 ```shell
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
+
 ## Ansible Initialization
 
 I use this to bootstrap my macOS system for development.
@@ -125,7 +126,6 @@ package=cw
 brew list $package &>/dev/null || brew install $package
 ```
 
-
 ## Fetch A GitHub Release
 
 This contains a few things, including curl, jq parsing, and movement commands.
@@ -157,6 +157,7 @@ echo "Downloaded $(fetch --version) successfully"
 ## Fetch a GitHub Release That Requires Extraction
 
 This is more of a Linux focused shell script example for grabbing a release and extracting the tar file.
+
 ```shell
 #!/usr/bin/env bash
 sudo apt -qqy update
