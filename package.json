@@ -4,7 +4,7 @@
   "description": "To Update submodules and download",
   "main": "index.js",
   "dependencies": {
-    "algoliasearch": "^4.0.3",
+    "algoliasearch": "^4.2.0",
     "atomic-algolia": "^0.3.19",
     "hugo-lunr": "0.0.4",
     "instantsearch.js": "^4.2.0",
