@@ -7,7 +7,7 @@
     "algoliasearch": "^4.0.3",
     "atomic-algolia": "^0.3.19",
     "hugo-lunr": "0.0.4",
-    "instantsearch.js": "^4.2.0",
+    "instantsearch.js": "^4.5.0",
     "lunr": "^2.3.6",
     "moment": "^2.24.0",
     "vanilla-lazyload": "^17.0.0"
