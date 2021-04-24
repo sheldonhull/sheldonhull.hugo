@@ -2,8 +2,13 @@
 new_page_extension: md
 auto_deploy: false
 admin_path: "/static/admin"
-webhook_url:
+webhook_url: 
 sections:
+- type: directory
+  path: content/docs
+  label: docs
+  create: documents
+  match: "**/*"
 - type: directory
   path: content/microblog
   label: microblog
@@ -22,9 +27,8 @@ sections:
 - type: directory
   path: content
   label: Pages
-  create: all
-  match: "**/*"
-  exclude: blog/*
+  create: documents
+  match: "*.md"
 upload_dir: static/images
 public_path: images
 front_matter_path: ''
