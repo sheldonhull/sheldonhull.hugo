@@ -19,15 +19,23 @@ It's cross-platform.
 For a site like Azure DevOps, you can run:
 
 ```powershell
-
 $MYORG = 'foo'
 $MYPROJECT = 'bar'
 $BOARDNAME = 'bored'
-nativefier https://dev.azure.com/$MYORG/$MYPROJECT/_boards/board/t/$BOARDNAME/Backlog%20items/?fullScreen=true ~/$BOARDNAME
+nativefier --name 'board' https://dev.azure.com/$MYORG/$MYPROJECT/_boards/board/t/$BOARDNAME/Backlog%20items/?fullScreen=true ~/$BOARDNAME
+```
 
+Here's another example using more custom options to enable internal url authentication and setup an app for a sprint board.
+
+```powershell
+nativefier --name "sprint-board" --darwin-dark-mode-support `
+  --internal-urls '(._?contacts.google.com._?|._?dev.azure.com_?|._?microsoft.com_?|._?login.microsoftonline.com_?|._?azure.com_?|._?vssps.visualstudio.com._?)' `
+  "https://dev.azure.com/thycotic/Thycotic.AccessController/_sprints/directory?fullScreen=true"
+  ` ~/sprint-board
 ```
 
 If redirects for permissions occur due to external links opening, you might have to open the application bundle and edit the url mapping. [GitHub Issue #706](https://github.com/jiahaog/nativefier/issues/706)
+This can be done proactively in the `--internal-urls` command line argument shown earlier to bypass the need to do this later.
 
 ```text
 /Users/$(whoami)/$BOARDNAME/APP-darwin-x64/$BOARDNAME.app/Contents/Resources/app/nativefier.json
