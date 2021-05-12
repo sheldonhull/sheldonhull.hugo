@@ -7,23 +7,24 @@
     </div>
     {{ $name := $name | urlize }}
     {{ $series := index .Site.Taxonomies.series $name }}
-    <ul class="series">
+    <table style="border:0px; max-width: 80%;margin-bottom:1em;" class="series">
         {{ range $series.Pages }}
-        <table style="border:0px; max-width: 80%;">
+
             {{ if eq $.Page.Title .LinkTitle }}
             <tr>
-                <td style="width:40%; border:0px">{{.Date.Format "Jan 02, 2006"}}</td>
-                <td style="border:0px"><a href="{{.Permalink}}">{{.LinkTitle}}</a></td>
+                <td style="width:40%; border:0px; text-overflow: ellipsis;">{{.Date.Format "Jan 02, 2006"}}</td>
+                <td style="width:60%; border:0px; text-overflow: ellipsis;"><a href="{{.Permalink}}">{{.LinkTitle}}</a></td>
             </tr>
             {{ else }}
             <tr>
-                <td style="border:0px; width:30%">{{.Date.Format "Jan 02, 2006"}}</td>
-                <td style="border:0px"><a href="{{.Permalink}}">{{.LinkTitle}}</a></td>
+                <td style="width:40%; border:0px; text-overflow: ellipsis;"; border:0px;>{{.Date.Format "Jan 02, 2006"}}</td>
+                <td style="width:60%; border:0px; text-overflow: ellipsis;"><a href="{{.Permalink}}">{{.LinkTitle}}</a></td>
             </tr>
             {{ end }}
-        </table>
         {{end}}
-    </ul>
+    </table>
     <hr/>
+    <br>
+
 </div>
 {{end}}
