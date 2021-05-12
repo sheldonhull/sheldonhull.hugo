@@ -5,7 +5,7 @@ output: prefixed
 env:
   # HUGO: /usr/bin/hugo
   HUGO: hugo
-  DEFAULT_BUILD_SERVER: localhost:1313
+  DEFAULT_BUILD_SERVER: http://127.0.0.1:1313 #localhost:1313
   DEFAULT_HUGO_DESTINATION: _site
   HUGO_VERSION: 0.80.0
   # HUGO_ENV:
