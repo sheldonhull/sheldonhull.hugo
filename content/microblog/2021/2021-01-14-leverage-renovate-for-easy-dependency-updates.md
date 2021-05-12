@@ -8,6 +8,7 @@ tags:
   - microblog
   - terraform
   - devops
+series: ["renovate"]
 ---
 
 Renovate is a great tool to know about.
