@@ -9,12 +9,53 @@ tags:
   - cool-tools
 ---
 
+{{< admonition type="Info" title="Update 2021-05-10" open="true">}}
+Added additional context for setting `internal-urls` via command line.
+{{< /admonition >}}
+
+{{< admonition type="Info" title="Update 2021-05-13" open="true">}}
+Added docker run commands to simplify local build and run without global install.
+{{< /admonition >}}
+
 Ran across this app, and thought was kinda cool.
 I've had some issues with Chrome apps showing up correctly in certain macOS windows managers to switch context quickly.
 
 Using this tool, you can generate a standalone electron app bundle to run a webpage in as it's own dedicated window.
 
 It's cross-platform.
+
+If you are using an app like Azure Boards that doesn't offer a native app, then this can provide a slightly improved experience over Chrome shortcut apps.
+You can pin this to your tray and treat it like a native app.
+
+## Docker Setup
+
+```powershell
+cd ~/git
+gh repo clone nativefier/nativefier
+cd nativefier
+docker build -t local/nativefier .
+```
+
+## Docker Build
+
+Highly recommend using docker for the build as it was by far the less complicated.
+
+```powershell
+docker run --rm -v ~/nativefier-apps:/target/ local/nativefier:latest --help
+
+$MYORG = 'foo'
+$MYPROJECT = 'bar'
+$AppName      = 'myappname'
+$Platform     = 'darwin'
+$DarkMode     = '--darwin-dark-mode-support'
+$InternalUrls = '(._?contacts\.google\.com._?|._?dev.azure.com_?|._?microsoft.com_?|._?login.microsoftonline.com_?|._?azure.com_?|._?vssps.visualstudio.com._?)'
+$Url          = "https://dev.azure.com/$MYORG/$MYPROJECT/_sprints/directory?fullScreen=true/"
+
+docker run --rm -v  ${pwd}/nativefier-apps:/target/ local/nativefier:latest --name $AppName --platform $Platform $DarkMode --internal-urls $InternalUrls $Url /target/
+Copy-Item "${pwd}/nativefier-apps/$AppName-$Platform-x64" -Destination (Join-Path $ENV:HOME 'nativefier-apps') -Recurse -Force
+```
+
+## Running The CLI
 
 For a site like Azure DevOps, you can run:
 
