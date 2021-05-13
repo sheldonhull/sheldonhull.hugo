@@ -17,6 +17,12 @@ Initially, it's just kinda a LinkedIn professional profile equivalent, but I'm g
 
 Thanks for stopping by!
 
+## Page Metrics
+
+Check out these google analytic metrics if you want to see a pretty chart.
+
+:(fas fa-chart-line fa-fw): [Metrics]({{< relref "metrics" >}})
+
 ## Skill Highlight
 
 | Experienced | Fundamental | Currently Studying | I'd Love to Work With This More |
@@ -32,15 +38,13 @@ Thanks for stopping by!
 ⚡ Part of team building services in Go for security management software.<br>
 ⚡ AWS, Go, Containerization and more TBD 🎉
 
-
 {{< /admonition >}}
-
 
 {{< admonition type="info" title="Senior Developer" open=false >}}
 
 :(fas fa-calendar-alt fa-fw): 2014 - 2021 :(fas fa-grip-lines-vertical fa-fw): :(fas fa-lightbulb fa-fw): Altus Group :(fas fa-grip-lines-vertical fa-fw): :(fas fa-user-tag fa-fw): Senior Developer (Database & Dev Operations)
 
-#### Some Highlights
+### Some Highlights
 
 :(fas fa-info-circle fa-fw): Senior Individual Contributor with cross-team impact functioning as Database/Site Reliability Engineer
 
@@ -81,7 +85,6 @@ more.
 :(fas fa-file-alt fa-fw): [Implementation Guide](https://d34bfwpm2i2eri.cloudfront.net)
 This was a major effort in migrating content from an outdated large word doc to static generated website with analytics. Load testing, sizing guides, and more were improved. All docs for SQL Server and load test summaries were due to my efforts. CI driven via markdown file updates made this a quick process to keep things up to date. 👍
 
-
 {{< /admonition >}}
 
 {{< admonition type="info" title="2011–2014 SQL Server Developer" open=false >}}
@@ -120,7 +123,5 @@ It did teach me to handle high stress situations and do pretty decent at negotat
 :(fas fa-info-circle fa-fw): Dark Or Light: join the dark side<br>
 :(fas fa-info-circle fa-fw): Preferred OS: any. Right now using macOS for development, and working in Docker containers when possible<br>
 :(fas fa-info-circle fa-fw): Terminal: Iterm2 & _I :heart: pwsh_
-
-
 
 _As always, any posts on this site are not a reflection of my past or present employer._
