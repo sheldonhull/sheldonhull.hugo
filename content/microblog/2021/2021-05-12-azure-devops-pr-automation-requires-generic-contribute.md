@@ -1,6 +1,6 @@
 ---
 date: 2021-05-12T13:10:02-05:00
-title: Azure Devops Pr Automation Requires Generic Contribute
+title: Azure Devops PR Automation Requires Generic Contribute
 slug: azure-devops-pr-automation-requires-generic-contribute
 tags:
   - tech
