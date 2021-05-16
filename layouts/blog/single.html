@@ -20,7 +20,7 @@
 
     <article class="page single">
         {{- /* Title */ -}}
-        <h1 class="single-title animated flipInX">{{ .Title }}</h1>
+        <h1 class="single-title animated flipInX p-name">{{ .Title }}</h1>
 
         {{- /* Subtitle */ -}}
         {{- with $params.subtitle -}}
@@ -30,6 +30,7 @@
         {{- /* Meta */ -}}
         <div class="post-meta">
             <div class="post-meta-line">
+                <span class="u-url" style="display: none;">{{ .RelPermalink }}</span>
                 {{- $author := $params.author | default .Site.Author.name | default (T "author") -}}
                 {{- $authorLink := $params.authorlink | default .Site.Author.link | default .Site.Home.RelPermalink -}}
                 <span class="post-author">
@@ -57,6 +58,7 @@
                     {{- else -}}
                     {{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
                     <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
+                    <span class="dt-published" style="display: none;">{{ .PublishDate.Format "2006-01-02T15:04:05Z0700" }}</span>
                     {{- end -}}
                     {{- end -}}
 
@@ -98,7 +100,7 @@
         {{- end -}}
 
         {{- /* Content */ -}}
-        <div class="content" id="content">
+        <div class="content e-content" id="content">
             {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
         </div>
 
