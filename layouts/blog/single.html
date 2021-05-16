@@ -18,7 +18,7 @@
         </div>
     {{- end -}}
 
-    <article class="page single">
+    <article class="page single h-entry">
         {{- /* Title */ -}}
         <h1 class="single-title animated flipInX p-name">{{ .Title }}</h1>
 
@@ -30,7 +30,6 @@
         {{- /* Meta */ -}}
         <div class="post-meta">
             <div class="post-meta-line">
-                <span class="u-url" style="display: none;">{{ .RelPermalink }}</span>
                 {{- $author := $params.author | default .Site.Author.name | default (T "author") -}}
                 {{- $authorLink := $params.authorlink | default .Site.Author.link | default .Site.Home.RelPermalink -}}
                 <span class="post-author">
@@ -50,15 +49,16 @@
                 {{- end -}}
             </div>
             <div class="post-meta-line">
+                    <a rel="author" class="p-author h-card" style="display: none;" ref="{{ .Site.BaseURL }}">{{ .Site.Params.author.Name}}</a>
+                    <span class="u-url" style="display: none;">{{ .Permalink }}</span>
+                    <span class="dt-published" style="display: none;">{{ dateFormat "2006-01-02T15:04:05Z0700" .PublishDate.Local }}</span>
                     {{- if $.Site.Params.gitRepo -}}
                     {{- with $.GitInfo -}}
                     {{ dateFormat "2006-01-02" .AuthorDate.Local }}
-
                     {{- end -}}
                     {{- else -}}
                     {{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
                     <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
-                    <span class="dt-published" style="display: none;">{{ .PublishDate.Format "2006-01-02T15:04:05Z0700" }}</span>
                     {{- end -}}
                     {{- end -}}
 
