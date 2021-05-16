@@ -3,6 +3,7 @@
     position: relative;
     z-index: 100;
     line-height: 1.2em;
+    display: inline-block;
 }
 
 #webmentions .comments {
@@ -16,7 +17,7 @@
     font-size: medium;
     margin: 0;
     padding: 2px;
-    background: #ccc;
+    // background: #ccc;
 }
 
 #webmentions .reacts img {
@@ -37,14 +38,14 @@
 #webmentions a.reaction {
     position: relative;
     text-decoration: none;
-    text-shadow: 0px 0px 3px white;
+    // text-shadow: 0px 0px 3px white;
     margin-right: 0;
     letter-spacing: -1ex;
     margin-right: 1ex;
 }
 
 #webmentions a.reaction img {
-    max-height: 1.3em;
+    max-height: 4em;
     margin-right: -1ex;
     border-radius: 25%;
 }
@@ -60,11 +61,11 @@
 }
 
 #webmentions .comments li .text {
-    color: #555;
+    // color: #555;
     font-style: italic;
     text-decoration: none;
 }
 
-#webmentions .comments li .name {
-    color: #111;
-}
+// #webmentions .comments li .name {
+//     // color: #111;
+// }
