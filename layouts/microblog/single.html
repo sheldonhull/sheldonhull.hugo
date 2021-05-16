@@ -5,7 +5,7 @@
 
     <article class="page single">
         {{- /* Title */ -}}
-        <h1 class="single-title animated flipInX">{{ .Title }}</h1>
+        <h1 class="single-title animated flipInX p-name">{{ .Title }}</h1>
 
         {{- /* Subtitle */ -}}
         {{- with $params.subtitle -}}
@@ -34,8 +34,10 @@
                 {{- end -}}
             </div>
             <div class="post-meta-line">
+                <span class="u-url" style="display: none;">{{ .RelPermalink }}</span>
                 {{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
                     <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
+                    <span class="dt-published" style="display: none;">{{ .PublishDate.Format "2006-01-02T15:04:05Z0700" }}</span>
                 {{- end -}}
                 <i class="fas fa-pencil-alt fa-fw"></i>&nbsp;{{ T "wordCount" .WordCount }}&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
@@ -62,7 +64,7 @@
         {{ partial "series.html" . }}
 
         {{- /* Content */ -}}
-        <div class="content" id="content">
+        <div class="content e-content" id="content">
             {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
         </div>
 
