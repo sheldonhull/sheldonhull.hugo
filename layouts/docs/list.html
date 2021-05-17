@@ -1,9 +1,11 @@
+
+
 {{- define "title" }}
 {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
 {{- end -}}
 
 {{- define "content" -}}
-<div class="page archive">
+<div class="page archive wide">
     {{- /* Title */ -}}
     <h2 class="single-title animated pulse faster">
         {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
@@ -18,12 +20,16 @@
     {{- else -}}
     {{- $pages = .Paginate $pages -}}
     {{- end -}}
+    <div class="cards card-flex-container">
     {{- range (.Pages.ByParam "Lastmod").Reverse -}}
-    <article class="archive-item">
-        <a href="{{ .RelPermalink }}" class="archive-item-link">
-            {{- .Title -}}
+    <div class="cards card card-1">
+        <a href="{{ .RelPermalink }}" class="glow">
+            <h3 class="glow">{{- .Title -}}</h3>
         </a>
+        <span>{{ .Summary }}</span>
         <span class="archive-item-date">
+        <span>last updated: </span>
+        <span>
             {{- if $.Site.Params.gitRepo -}}
                 {{- with .GitInfo -}}
                 {{- dateFormat "2006-01-02" .AuthorDate.Local -}}
@@ -32,8 +38,10 @@
             {{- dateFormat "2006-01-02" .Date -}}
             {{- end -}}
         </span>
-    </article>
+    </span>
+    </div>
     {{- end -}}
+    </div>
     {{- partial "paginator.html" . -}}
     {{- end -}}
 </div>
