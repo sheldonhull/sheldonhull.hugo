@@ -154,7 +154,7 @@ force = true
 	baseUrl = "https://www.sheldonhull.com"
 
 	# Path to the feed URL (optional, default: /feed.xml)
-	feedPath = "/index.xml"
+	feedPath = "index.xml"
 
 	# Maximum number of feed entries to check for mentions (optional, default: 1)
 	limit = 5
