@@ -29,7 +29,8 @@
         "docs",
         "codespaces",
         "brag",
-        "forestry"
+        "forestry",
+        "vscode"
     ],
     "conventionalCommits.emojiFormat": "emoji",
     "[yaml]": {
@@ -53,5 +54,6 @@
         "codeit"
     ],
     "conventionalCommits.showNewVersionNotes": true,
-    "git.ignoreSubmodules": true
+    "git.ignoreSubmodules": true,
+    "scm.repositories.visible": 1
 }
