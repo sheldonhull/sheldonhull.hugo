@@ -25,12 +25,12 @@
         "microblog",
         "style",
         "config",
-        "add tls1.2 for older servers for ssm agent install command",
         "docs",
         "codespaces",
         "brag",
         "forestry",
-        "vscode"
+        "vscode",
+        "webmentions"
     ],
     "conventionalCommits.emojiFormat": "emoji",
     "[yaml]": {

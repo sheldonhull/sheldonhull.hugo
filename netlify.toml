@@ -16,7 +16,7 @@ sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
   HUGO_BASEURL = "https://www.sheldonhull.com/"
   HUGO_MINIFY = "true"
   HUGO_DESTINATION = "public"
-  
+
 
 ###############################
 # DEPLOY PREVIEWS
@@ -35,7 +35,7 @@ publish = "preview"
   HUGO_BASEURL = "/"
   HUGO_ENABLEGITINFO = "true"
   HUGO_DESTINATION = "preview"
-  
+
 ###############################
 # BRANCH
 ###############################
@@ -52,7 +52,7 @@ sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
   HUGO_BASEURL = "/"
   HUGO_ENABLEGITINFO = "true"
   HUGO_DESTINATION = "branch"
-  
+
 # Redirects to keep jekyll based urls that some use like:
 #xmlUrl="https://www.sheldonhull.com/tags/tech/feed.xml"  should still be working, since hugo generates with index.xml
 
@@ -145,3 +145,16 @@ force = true
 ##   # Inline generated font subsets into their respective @font-face blocks
 ##   # When set to `false` external font files will be created
 ##   inlineFonts = false
+[[plugins]]
+  package = "netlify-plugin-webmentions"
+
+	[plugins.inputs]
+
+	# The base url of your site (optional, default: main URL set in Netlify)
+	baseUrl = "https://www.sheldonhull.com"
+
+	# Path to the feed URL (optional, default: /feed.xml)
+	feedPath = "/index.xml"
+
+	# Maximum number of feed entries to check for mentions (optional, default: 1)
+	limit = 5
