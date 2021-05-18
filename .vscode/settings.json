@@ -1,7 +1,7 @@
 {
     "explorer.sortOrder": "mixed",
     "[markdown]": {
-        "editor.defaultFormatter": "tehnix.vscode-tidymarkdown"
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
     },
     "grammarly.userWords": [
         "CLI",
