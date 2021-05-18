@@ -47,5 +47,11 @@
     "staticWebApps.apiSubpath": "/",
     "staticWebApps.appArtifactSubpath": "build",
     "markdown-image.coding.path": "/static/images",
-    "markdown-image.local.path": "/static/images"
+    "markdown-image.local.path": "/static/images",
+    "git.autoRepositoryDetection": false,
+    "git.ignoredRepositories": [
+        "codeit"
+    ],
+    "conventionalCommits.showNewVersionNotes": true,
+    "git.ignoreSubmodules": true
 }
