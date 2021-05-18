@@ -1,9 +1,10 @@
 ---
 title: git
-date: 2021-04-09
+date: 2021-04-09T00:00:00.000Z
 toc: true
-summary:
-  A cheatsheet for some git workflow oriented commands, things I often forget, useful shortcuts and more.
+summary: >-
+  A cheatsheet for some git workflow oriented commands, things I often forget,
+  useful shortcuts and more.
 slug: git
 permalink: /docs/git
 comments: true
@@ -13,8 +14,7 @@ tags:
   - tech
 ---
 
-:(fas fa-info-circle fa-fw): This is a mix of git, github, azure devops repos, and other workflow tips that help me work more quickly.
-Comments are welcome with any corrections or suggestions.
+:(fas fa-info-circle fa-fw): This is a mix of git, github, azure devops repos, and other workflow tips that help me work more quickly. Comments are welcome with any corrections or suggestions.
 
 ## Install Homebrew
 
@@ -24,8 +24,7 @@ Works on Linux and macOS now 👏.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
-Many commands expect powershell, which runs on macOS and Linux as well.
-Just run `brew install powershell` to grab it and most of this will work without any further changes unless specified.
+Many commands expect powershell, which runs on macOS and Linux as well. Just run `brew install powershell` to grab it and most of this will work without any further changes unless specified.
 
 ## Tools I've Relied On
 
@@ -52,8 +51,7 @@ Here's a few I've found helpful.
 
 ### Azure DevOps Boards
 
-This one will create an autocompleted ready to go pull request in azure repos using the last commit title and description.
-If you create your commit correctly for the last one, this will ensure no extra rework required to generate the title and body of the PR, as well as the cleaned up squash message on approval.
+This one will create an autocompleted ready to go pull request in azure repos using the last commit title and description. If you create your commit correctly for the last one, this will ensure no extra rework required to generate the title and body of the PR, as well as the cleaned up squash message on approval.
 
 Install the Azure CLI and the `devops` extension will be installed automatically upon using: `brew install az`
 
@@ -85,3 +83,28 @@ For quickly ammending the last commit on your own private branch, you can combin
 pushf = !git push --force-with-lease
 fixup = !git commit -a --amend --no-edit
 ```
+
+## Cleanup
+
+### Remove files already committed
+
+```shell
+git rm --cached $File
+```
+
+## Working With Changes
+
+> All the commits the branch has that the master doesn't. [^first-commit]
+
+```shell
+git log master..$(git branch --show-current) --oneline
+```
+
+## Resources
+
+| Source               | Description          |
+| -------------------- | -------------------- |
+| GitFixUm [^gitfixum] | FlowChart Style Help |
+
+[^first-commit]: [git-how-to-find-first-commit-of-specific-branch](https://stackoverflow.com/questions/18407526/git-how-to-find-first-commit-of-specific-branch)
+[^gitfixum]: [GitFixUm](https://sethrobertson.github.io/GitFixUm)
