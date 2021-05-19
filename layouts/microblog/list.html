@@ -43,6 +43,18 @@
                 </div>
             </a>
             <div class="content" id="content">
+
+            {{- /* Featured image */ -}}
+            {{- $image := $params.featuredimage -}}
+            {{- with .Resources.GetMatch "featured-image" -}}
+            {{- $image = .RelPermalink -}}
+            {{- end -}}
+            {{- with $image -}}
+
+            <div class="featured-image">
+                {{- dict "Src" . "Title" $.Description "Resources" $.Resources | partial "plugin/image.html" -}}
+            </div>
+        {{- end -}}
                 {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
             </div>
         <div>
