@@ -1,0 +1,5 @@
+modify_config:
+  link_system: link
+  reference_by: title
+parse_config:
+  parse_wikilinks: false
