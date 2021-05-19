@@ -31,7 +31,8 @@
         "forestry",
         "vscode",
         "webmentions",
-        "layout"
+        "layout",
+        "archetypes"
     ],
     "conventionalCommits.emojiFormat": "emoji",
     "[yaml]": {

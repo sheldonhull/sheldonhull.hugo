@@ -1,6 +1,7 @@
 {{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
-{{ partial "bridgy-publish-tweet.html" }}
+
 {{- define "content" -}}
+    {{ partial "bridgy-publish-tweet.html" . }}
     {{- $params := .Scratch.Get "params" -}}
 
     {{- $toc := $params.toc -}}

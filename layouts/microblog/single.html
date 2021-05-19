@@ -1,9 +1,9 @@
 {{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
-{{ partial "bridgy-publish-tweet.html" }}
 {{- define "content" -}}
     {{- $params := .Scratch.Get "params" -}}
 
     <article class="page single h-entry">
+        {{ partial "bridgy-publish-tweet.html" . }}
         {{- /* Title */ -}}
         <h1 class="single-title animated flipInX p-name">{{ .Title }}</h1>
 
