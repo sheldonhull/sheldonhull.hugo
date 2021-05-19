@@ -8,4 +8,5 @@ tags:
   - tech
   - development
   - microblog
+# featuredImage: /images/
 ---

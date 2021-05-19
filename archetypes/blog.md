@@ -7,17 +7,14 @@ slug: {{ replace $TitleWithoutDate " " "-" | lower }}
 summary:
   Foo
 tags:
-  - tech
-  - development
-  - azure-devops
-  - powershell
-  - devops
+- tech
+- development
+- azure-devops
+- powershell
+- devops
 draft: true
 toc: true
+featuredImage: /images/
 ---
 
-## Intro
-
-## Content 1
-
-## Content 2
+## Header
