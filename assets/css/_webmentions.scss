@@ -4,6 +4,10 @@
     z-index: 100;
     line-height: 1.2em;
     display: inline-block;
+    align-content: center;
+    align-items: center;
+    max-width: 80%;
+    margin-left: 10%;
 }
 
 #webmentions .comments {
