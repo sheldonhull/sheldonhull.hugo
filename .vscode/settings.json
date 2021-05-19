@@ -30,7 +30,8 @@
         "brag",
         "forestry",
         "vscode",
-        "webmentions"
+        "webmentions",
+        "layout"
     ],
     "conventionalCommits.emojiFormat": "emoji",
     "[yaml]": {
