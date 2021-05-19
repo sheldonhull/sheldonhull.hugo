@@ -19,5 +19,3 @@ I'd probably have started with this if I was setting up my site from scratch.
 The problem I have with adopting a tool like this is no basic import of metrics from Google Analytics means I'd lose years of history.
 
 Does the history matter signficantly? Not really for me. I just don't like losing out the entire history to see how things have improved over time.
-
-![cloudflare web analytics dashboard](/images/2021-05-19-10.26.41-cloudflare-analytics-for-your-jamstack-site.png)
