@@ -13,7 +13,7 @@
     "vanilla-lazyload": "^17.0.0"
   },
   "devDependencies": {
-    "netlify-plugin-webmentions": "^1.1.1"
+    "netlify-plugin-webmentions": "1.1.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
