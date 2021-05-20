@@ -5,6 +5,7 @@ tags:
   - tech
   - development
   - macOS
+series: ["getting-started-on-macos"]
 ---
 
 It should be easy to pick a default program to open a file. On macOS, I was surprised at how poor the design was. Seriously, how is this intuitive? `Open With` > ` Set this as default`. Apparently this only set it for an individual file. This means, every different `csv` file required me to do this again.

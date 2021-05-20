@@ -7,6 +7,7 @@ tags:
   - development
   - microblog
   - macOS
+series: ["getting-started-on-macos"]
 ---
 
 Open IntelliJ via terminal: ` open "/Users/$(whoami)/Applications/JetBrains Toolbox/IntelliJ IDEA Ultimate.app"`
