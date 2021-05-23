@@ -32,7 +32,8 @@
         "vscode",
         "webmentions",
         "layout",
-        "archetypes"
+        "archetypes",
+        "rss"
     ],
     "conventionalCommits.emojiFormat": "emoji",
     "[yaml]": {
