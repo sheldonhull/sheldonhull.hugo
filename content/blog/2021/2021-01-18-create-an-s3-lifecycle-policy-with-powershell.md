@@ -3,7 +3,7 @@ title: Create an S3 Lifecycle Policy with PowerShell
 date: 2021-01-18T18:00:00-06:00
 toc: false
 summary: Deploy a lifecycle policy for s3 using PowerShell SDK
-featuredImage: /images/2021-01-15_18-10-06-big-bucket.png
+images: [/images/2021-01-15_18-10-06-big-bucket.png]
 tags:
   - tech
   - development

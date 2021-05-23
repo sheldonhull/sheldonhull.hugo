@@ -13,7 +13,7 @@ tags:
   - 100DaysOfCode
   - golang
   - microblog
-featuredImg: /images/r1-dVAR_DAYCOUNTERIMAGE.png
+# images: [/images/r1-dVAR_DAYCOUNTERIMAGE.png]
 ---
 
 ## progress

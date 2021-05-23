@@ -1,6 +1,6 @@
 baseURL: 'https://www.sheldonhull.com'
 defaultContentLanguage: en
-theme: codeit
+# theme: ["hugo-debugprint","codeit"]
 # themesDir: ../..
 title: sheldonhull.com
 enableRobotsTXT: true
@@ -458,5 +458,9 @@ RSSSection:
 module:
   imports:
       # Debug Helper for Layouts: https://github.com/kaushalmodi/hugo-debugprint
-    - path: github.com/kaushalmodi/hugo-debugprint
+    - path: github.com/dnb-hugo/debugprint
+      # github.com/kaushalmodi/hugo-debugprint
+      # github.com/dnb-hugo/debugprint
       disabled: false
+    - path: github.com/sunt-programator/CodeIT
+      disable: false

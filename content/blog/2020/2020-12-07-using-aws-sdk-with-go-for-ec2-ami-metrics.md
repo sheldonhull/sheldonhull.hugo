@@ -11,7 +11,7 @@ tags:
   - golang
   - metrics
 toc: true
-featuredImage: /images/2020-12-08_13-23-25-matching-images-cover.png
+images: [/images/2020-12-08_13-23-25-matching-images-cover.png]
 ---
 
 ## Source

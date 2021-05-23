@@ -51,3 +51,15 @@
         {{- partial "mailbrew-subscribe.html" -}}
     </footer>
 {{- end -}}
+{{ if .Site.IsServer }}
+<div class="debugprintsection">
+
+  <div><h1>Dot Context</h1>{{ partial "debugprint.html" . }}</div>
+  <div><h1>Page Context</h1>{{ partial "debugprint.html" .Params }}</div>
+
+  {{ partial "debugprint.html" site }}
+  {{ partial "debugprint.html" site.Menus }}
+  {{ partial "debugprint.html" .Resources }}
+  {{ partial "debugprint.html" .File }}
+</div>
+{{ end }}
