@@ -6,7 +6,7 @@
 {{/* . | jsonify (dict "prefix" " " "indent" "  ") | printf "%#v"  */}}
 {{/* end */}}
 
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
     <channel>
         <title>
             {{- .Site.Title -}}
