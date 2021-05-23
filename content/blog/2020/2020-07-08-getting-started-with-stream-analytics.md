@@ -5,7 +5,7 @@ date: 2020-07-24T19:00:00-05:00
 toc: true
 summary: If you are a newbie to the world of streaming analytics and need to get
   moving  on parsing some Application Insights this is for you.
-featuredImage: /images/2019-02-08_18-04-50-stream-analytics-project.png
+images: [/images/2019-02-08_18-04-50-stream-analytics-project.png]
 tags:
   - tech
   - development

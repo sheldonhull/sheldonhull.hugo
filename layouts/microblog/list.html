@@ -24,7 +24,7 @@
     {{- range $pages.PageGroups -}}
     <h1 class="group-title">{{ .Key }}</h1>
     {{- range .Pages -}}
-    {{- if (or .Params.images .Params.featuredImg) }}
+    {{- if (or .Params.images .Params.image) }}
     <div class="bg-img"></div>
     {{- end }}
     <!-- <main class="site-main section-inner thin animated fadeIn faster"> -->

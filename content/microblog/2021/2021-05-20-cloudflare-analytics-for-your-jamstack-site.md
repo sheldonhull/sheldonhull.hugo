@@ -7,7 +7,7 @@ tags:
   - development
   - microblog
   - jamstack
-featuredImage: /images/2021-05-19-10.26.41-cloudflare-analytics-for-your-jamstack-site.png
+images: [/images/2021-05-19-10.26.41-cloudflare-analytics-for-your-jamstack-site.png]
 ---
 
 A new alternative to Google Analytics if you want to keep things simple.

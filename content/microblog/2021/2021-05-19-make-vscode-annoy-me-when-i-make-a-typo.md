@@ -7,7 +7,7 @@ tags:
   - development
   - microblog
   - vscode
-featuredImage: /images/2021-05-19-15.32.06-vscode-highlight.png
+images: [/images/2021-05-19-15.32.06-vscode-highlight.png]
 ---
 
 Not sure why, but I've had 2 typos that keep plauging me.

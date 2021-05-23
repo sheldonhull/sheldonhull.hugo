@@ -14,7 +14,7 @@ tags:
 - devops
 draft: true
 toc: true
-featuredImage: /images/
+# images: [/images/]
 ---
 
 ## Header

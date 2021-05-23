@@ -31,7 +31,7 @@ services:
     container_name: influxdb
     ports:
       - '8086:8086'
-    image: 'quay.io/influxdb/influxdb:2.0.0-rc'
+    images: ['quay.io/influxdb/influxdb:2.0.0-rc']
     volumes:
       - influxdb:/var/lib/influxdb2
     command: influxd run --bolt-path /var/lib/influxdb2/influxd.bolt --engine-path /var/lib/influxdb2/engine --store bolt
