@@ -47,19 +47,19 @@
                 {{- end -}}
             </div>
         </div>
-
         {{- partial "mailbrew-subscribe.html" -}}
+        {{- partial "buymeacoffee.html" -}}
     </footer>
 {{- end -}}
-{{ if .Site.IsServer }}
+{{ if and .Site.IsServer $.Params.debug }}
 <div class="debugprintsection">
 
-  <div><h1>Dot Context</h1>{{ partial "debugprint.html" . }}</div>
-  <div><h1>Page Context</h1>{{ partial "debugprint.html" .Params }}</div>
-
-  {{ partial "debugprint.html" site }}
-  {{ partial "debugprint.html" site.Menus }}
-  {{ partial "debugprint.html" .Resources }}
-  {{ partial "debugprint.html" .File }}
+  <div><h1>. Context</h1>{{ partial "debugprint.html" . }}</div>
+  <div><h1>.Params Context</h1>{{ partial "debugprint.html" .Params }}</div>
+  <div><h1>Site Context</h1>{{ partial "debugprint.html" site }}</div>
+  {{/* partial "debugprint.html" site.Menus */}}
+  <div><h1>.Resources</h1>{{ partial "debugprint.html" .Resources }}</div>
+  <div><h1>.File</h1>{{ partial "debugprint.html" .File }}</div>
+  <div><h1>$.Site</h1>{{ partial "debugprint.html" $.Site }}</div>
 </div>
 {{ end }}
