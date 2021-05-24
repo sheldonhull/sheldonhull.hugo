@@ -9,6 +9,7 @@ tags:
   - influxdb
   - macOS
 toc: true
+images: [/images/2020-10-30_19-39-41-influx-macos.png]
 ---
 
 ## Intro

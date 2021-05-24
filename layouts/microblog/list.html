@@ -24,9 +24,12 @@
     {{- range $pages.PageGroups -}}
     <h1 class="group-title">{{ .Key }}</h1>
     {{- range .Pages -}}
-    {{- if (or .Params.images .Params.image) }}
-    <div class="bg-img"></div>
-    {{- end }}
+        {{ with .Params.images }}
+            {{ range first 1 . }}
+                        <div class="bg-img"></div>
+            {{- end -}}
+        {{- end -}}
+
     <!-- <main class="site-main section-inner thin animated fadeIn faster"> -->
 
     <article class="page single">
@@ -44,17 +47,13 @@
             </a>
             <div class="content" id="content">
 
-            {{- /* Featured image */ -}}
-            {{- $image := $params.featuredimage -}}
-            {{- with .Resources.GetMatch "featured-image" -}}
-            {{- $image = .RelPermalink -}}
-            {{- end -}}
-            {{- with $image -}}
-
-            <div class="featured-image">
-                {{- dict "Src" . "Title" $.Description "Resources" $.Resources | partial "plugin/image.html" -}}
-            </div>
+    {{ with .Params.images }}
+    {{ range first 1 . }}
+                <div class="featured-image">
+                    {{- dict "Src" . "Title" $.Description "Resources" $.Resources | partial "plugin/image.html" -}}
+                </div>
         {{- end -}}
+    {{- end -}}
                 {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
             </div>
         <div>

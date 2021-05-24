@@ -50,18 +50,13 @@
                 {{- end -}}
             </div>
         </div>
-
-        {{- /* Featured image */ -}}
-        {{- $image := $params.image -}}
-        {{- with .Resources.GetMatch "featured-image" -}}
-            {{- $image = .RelPermalink -}}
+        {{ with .Params.images }}
+            {{ range first 1 . }}
+                        <div class="featured-image">
+                            {{- dict "Src" . "Title" $.Description "Resources" $.Resources | partial "plugin/image.html" -}}
+                        </div>
+                {{- end -}}
         {{- end -}}
-        {{- with $image -}}
-            <div class="featured-image">
-                {{- dict "Src" . "Title" $.Description "Resources" $.Resources | partial "plugin/image.html" -}}
-            </div>
-        {{- end -}}
-        {{- /* Series content */ -}}
         {{ partial "series.html" . }}
 
         {{- /* Content */ -}}
