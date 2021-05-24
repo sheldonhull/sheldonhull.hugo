@@ -243,3 +243,6 @@ This was a first round usage of them, as I really want to leverage the potention
 [^template-context]: [Azure DevOps Template Context](https://bit.ly/2OoAXK0)
 [^expressions]: [Expressions - Azure Pipelines | Microsoft Docs](https://bit.ly/30bDR7g)
 [^variable-reuse]: [Variable reuse](https://bit.ly/2OqEreJ)
+
+
+
