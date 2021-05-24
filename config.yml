@@ -178,6 +178,7 @@ languages:
         #  prefix: 'https://mastodon.technology/'
 
 params:
+  debug: false
   mainSections:
       - blog
       - microblog
@@ -461,6 +462,8 @@ module:
     - path: github.com/dnb-hugo/debugprint
       # github.com/kaushalmodi/hugo-debugprint
       # github.com/dnb-hugo/debugprint
-      disabled: false
+      # ignoreConfig: true
+      # ignoreImports: true
+      disable: false
     - path: github.com/sunt-programator/CodeIT
       disable: false
