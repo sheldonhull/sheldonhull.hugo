@@ -32,3 +32,6 @@ If you have [Dash](https://kapeli.com/dash) installed, set the repo as a GitHub 
 [^loadbalancers]: [og-aws-loadbalancers](https://github.com/open-guides/og-aws#load-balancer-basics)
 [^QuinnyPig]: [Corey Quinn](https://twitter.com/QuinnyPig)
 [^dash]: [Dash Documentation Tool for macOS](https://kapeli.com/dash)
+
+
+[[2021-05-19-open-markdown-in-typora-from-vscode]]
