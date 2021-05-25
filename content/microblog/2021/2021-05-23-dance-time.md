@@ -14,4 +14,4 @@ Take a peek.
 
 I need to catch-up on a few posts with the family with all the great stuff they've been doing lately. (My son just got his black belt in Taekwondo 👏)
 
-[Dance Time For Karis](../../creative/2021-05-dance-time-for-karis)
+[Dance Time](../../../creative/dance-time-for-karis)
