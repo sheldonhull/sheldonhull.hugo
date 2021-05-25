@@ -4,6 +4,7 @@ tags:
 - sql-server
 title: "Calculating Some Max Mirror Stats"
 slug: "calculating-some-max-mirror-stats"
+alias: ['temp-slug-72']
 ---
 
 This turned out to be quite a challenge. I couldn't find anything that made this very clean and straight forward to calculate, and in my case I was trying to gauge how many mirroring databases I could run on a server.In my scenario, I wasn't running Expensive Edition (@BrentO coined this wonderful phrase), so was looking for the best way to assess numbers by doing mirroring on a large number of databases, in my case > 300 eventually.
