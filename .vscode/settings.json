@@ -33,7 +33,8 @@
         "webmentions",
         "layout",
         "archetypes",
-        "rss"
+        "rss",
+        "creative"
     ],
     "conventionalCommits.emojiFormat": "emoji",
     "[yaml]": {

@@ -780,6 +780,19 @@ function Write-BuildProgressInfo
         }
     }
 }
+```
 
+## File Manipulation
 
+Rename Images With a Counter in A Directory
+
+```powershell
+$dir = 'images'
+$imagegroup = 'my-images'
+Get-ChildItem $dir -Filter *.png | ForEach-Object -Begin { $x = 0 } -Process {
+    $file = $_.FullName
+    $newname = Join-Path ($file | Split-Path  ) "$imagegroup-$x.png"
+    $x++
+    Rename-Item $file $newname
+}
 ```
