@@ -1,0 +1,32 @@
+{{- define "title" }}
+{{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+{{- end -}}
+
+{{- define "content" -}}
+    <div class="page archive wide">
+        {{- /* Title */ -}}
+        <h2 class="single-title animated pulse faster">
+            {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
+        </h2>
+
+    <ul>
+    {{ $urlPre := "https://api.github.com" }}
+    {{ $gistJ := getJSON $urlPre "/users/sheldonhull/gists" }}
+    <table>
+        <th><td>Gist Details</td></th>
+    {{ with first 10 $gistJ }}
+        {{ if .public }}
+        <tr><td><a href="{{ .html_url }}" target="_blank">{{ .description }}</a></td></tr>
+        {{ $gistcontent := getJSON .url }}
+            {{ $item := range $gistcontent.files }}
+                <h3>$item.Key</h3>
+                <code>{{ $gistcontent.RawContent }}</code>
+            {{ end }}
+        {{ end }}
+    {{ end }}
+    </table>
+{{ end }}
+
+{{ define "footer" }}
+{{ partialCached "footer.html" . }}
+{{ end }}
