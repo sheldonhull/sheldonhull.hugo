@@ -62,3 +62,12 @@ User-agent: ZoominfoBot
 Disallow: /
 
 Sitemap: {{ "/sitemap.xml" | absLangURL }}
+
+User-agent: bot-traffic,bottraffic,trafficbot
+disallow: /
+
+
+
+
+## FROM CURATED GITHUB LIST:
+disallow: /admin/
