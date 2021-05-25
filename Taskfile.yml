@@ -79,6 +79,7 @@ tasks:
     desc: Initialize project to ensure dependencies, submodules, and tooling is ready
     cmds:
       # - git submodule update --init --recursive
+      - git rm ./themes/codeit
       - hugo mod get -u
     # -    {{ .GITHUB_REPO }}
       # - hugo mod get -u -v
@@ -105,7 +106,7 @@ tasks:
     - npm run algolia
   theme-update:
       desc: rebase on remote theme to pull in the upstream changes
-      cmd:
+      cmds:
         - git submodule update --rebase --remote
   deinit_submodule:
     desc: cleanup submodule
