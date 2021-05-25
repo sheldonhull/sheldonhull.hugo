@@ -378,12 +378,16 @@ params:
     polyfill: false
     objectFit: false
 markup:
+
+  # From Hugo Docs: https://xyproto.github.io/splash/docs/
+  # Using https://pygments.org/docs/styles/ supported and converted into the hugo highlighter chroma https://pygments.org/demo/
   highlight:
     codeFences: true
     guessSyntax: true
     lineNos: true
     lineNumbersInTable: true
     noClasses: false
+    style: default
   goldmark:
     extensions:
       definitionList: true
