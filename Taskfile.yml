@@ -11,7 +11,7 @@ env:
   GITHUB_REPO: github.com/sheldonhull/sheldonhull.hugo
   # HUGO_ENV:
   # HUGO_ENVIRONMENT:
-vars:
+# vars:
 
   # JS_FILES:
   #   assets/js/vendor/jquery.js
@@ -78,7 +78,7 @@ tasks:
   init:
     desc: Initialize project to ensure dependencies, submodules, and tooling is ready
     cmds:
-      - git submodule update --init --recursive
+      # - git submodule update --init --recursive
       - hugo mod get -u
     # -    {{ .GITHUB_REPO }}
       # - hugo mod get -u -v
@@ -107,6 +107,14 @@ tasks:
       desc: rebase on remote theme to pull in the upstream changes
       cmd:
         - git submodule update --rebase --remote
+  deinit_submodule:
+    desc: cleanup submodule
+    cmds:
+    - |
+      git submodule deinit themes/codeit
+      git rm themes/codeit
+      rm -rf .git/modules/themes/codeit
+      git rm --cached themes/codeit
   # assets:
   #   desc: Bundle assets and generate box for it
   #   deps: [js, css]
