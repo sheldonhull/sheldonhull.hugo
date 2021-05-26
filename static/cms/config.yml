@@ -9,6 +9,9 @@
 ###############
 # MAIN CONFIG #
 ###############
+# when using the default proxy server port
+local_backend: true
+
 backend:
   name: git-gateway
   branch: master # Branch to update (master by default). It will use the publish command to push to this branch
@@ -24,7 +27,7 @@ backend:
 display_url: https://www.sheldonhull.com
 media_folder: static/images # Folder where user uploaded files should go
 public_folder: /images
-logo_url: https://www.sheldonhull.com/images/sheldon_400x400.jpg
+logo_url: https://www.sheldonhull.com/images/sheldonhull_gopher_avatar.png
 editor:
   preview: false
 publish_mode: editorial_workflow
@@ -32,72 +35,73 @@ slug:
   encoding: 'ascii'
   clean_accents: true
   sanitize_replacement: '-'
-collections: # A list of collections the CMS should be able to edit
-  - name: microblog # Used in routes, ie.: /admin/collections/:slug/edit
-    label: micro.blog # Used in the UI, ie.: "New Post"
-    folder: content/microblog # The path to the folder where the documents are stored
-    format: yaml-frontmatter
-    extension: md
-    create: true # Allow users to create new documents in this collection
-    slug: '{{slug}}'
-    sortableFields: ['commit_date', 'title', 'commit_author', 'date']
-    #summary: "{{body}}"
-    preview_path: microblog/{{slug}}
-    identifier_field: title
-    fields: # The fields each document in this collection have
-      # MAIN AUTHORING AREA
-      # MomentJS Token Reference: https://momentjscom.readthedocs.io/en/latest/moment/01-parsing/03-string-format/
-      - label: title
-        name: title
-        widget: string
-        required: true
-      - label: Publish Date
-        name: date
-        widget: datetime
-        format: YYYY-MM-DDTHH:00:00Z
-        required: true
-      # - label: slug
-      #   name: slug
-      #   widget: string
-      #   tagname: h1
-      #   required: true
-      #   default: '{{slug}}'
-      - label: Body
-        name: body
-        widget: markdown
-        required: true
-      - label: Tags
-        name: tags
-        widget: list
-        default: ['tech', 'development', 'microblog']
-        multiple: true
-        required: true
-        allow_add: true
-        options:
-          - 'til'
-          - 'development'
-          - 'sql-server'
-          - 'tech'
-          - 'ramblings'
-          - 'powershell'
-          - 'cool-tools'
-          - 'performance-tuning'
-          - 'deep-dive'
-          - 'aws'
-          - 'devops'
-          - 'photography'
-          - 'music'
-          - 'follower-of-Jesus'
-          - 'worship'
-          - 'videography'
-          - 'azure'
-    # - label: "Post Author"
-    #   name: "author"
-    #   widget: "relation"
-    #   collection: "authors"
-    #   searchFields: ["name", "twitterHandle"]
-    #   valueField: "name"
-    #   displayFields: ["twitterHandle", "followerCount"]
+collections:
+  # A list of collections the CMS should be able to edit
+  # - name: microblog # Used in routes, ie.: /admin/collections/:slug/edit
+  #   label: micro.blog # Used in the UI, ie.: "New Post"
+  #   folder: content/microblog # The path to the folder where the documents are stored
+  #   format: yaml-frontmatter
+  #   extension: md
+  #   create: true # Allow users to create new documents in this collection
+  #   slug: '{{slug}}'
+  #   sortableFields: ['commit_date', 'title', 'commit_author', 'date']
+  #   #summary: "{{body}}"
+  #   preview_path: microblog/{{slug}}
+  #   identifier_field: title
+  #   fields: # The fields each document in this collection have
+  #     # MAIN AUTHORING AREA
+  #     # MomentJS Token Reference: https://momentjscom.readthedocs.io/en/latest/moment/01-parsing/03-string-format/
+  #     - label: title
+  #       name: title
+  #       widget: string
+  #       required: true
+  #     - label: Publish Date
+  #       name: date
+  #       widget: datetime
+  #       format: YYYY-MM-DDTHH:00:00Z
+  #       required: true
+  #     # - label: slug
+  #     #   name: slug
+  #     #   widget: string
+  #     #   tagname: h1
+  #     #   required: true
+  #     #   default: '{{slug}}'
+  #     - label: Body
+  #       name: body
+  #       widget: markdown
+  #       required: true
+  #     - label: Tags
+  #       name: tags
+  #       widget: list
+  #       default: ['tech', 'development', 'microblog']
+  #       multiple: true
+  #       required: true
+  #       allow_add: true
+  #       options:
+  #         - 'til'
+  #         - 'development'
+  #         - 'sql-server'
+  #         - 'tech'
+  #         - 'ramblings'
+  #         - 'powershell'
+  #         - 'cool-tools'
+  #         - 'performance-tuning'
+  #         - 'deep-dive'
+  #         - 'aws'
+  #         - 'devops'
+  #         - 'photography'
+  #         - 'music'
+  #         - 'follower-of-Jesus'
+  #         - 'worship'
+  #         - 'videography'
+  #         - 'azure'
+  #   # - label: "Post Author"
+  #   #   name: "author"
+  #   #   widget: "relation"
+  #   #   collection: "authors"
+  #   #   searchFields: ["name", "twitterHandle"]
+  #   #   valueField: "name"
+  #   #   displayFields: ["twitterHandle", "followerCount"]
   - name: blog # Used in routes, ie.: /admin/collections/:slug/edit
     label: blog # Used in the UI, ie.: "New Post"
     folder: content/blog # The path to the folder where the documents are stored
@@ -110,7 +114,6 @@ collections: # A list of collections the CMS should be able to edit
     sortableFields: ['commit_date', 'title', 'commit_author', 'date']
     #summary: '{{title}}'
     preview_path: blog/{{slug}}
-
     view_filters:
       - label: 'Posts published in 2020'
         field: date
@@ -138,16 +141,16 @@ collections: # A list of collections the CMS should be able to edit
         widget: markdown
         required: true
       # Additional string fields to set manually in YAML
-      - label: toc
-        name: toc
-        widget: boolean
-        default: true
-      - label: Excerpt
-        name: excerpt
-        widget: string
-        required: true
+      # - label: toc
+      #   name: toc
+      #   widget: boolean
+      #   default: true
+      # - label: Summary
+      #   name: Summary
+      #   widget: string
+      #   required: true
       - label: Cover Image
-        name: featuredImg
+        name: images
         widget: image
         required: false
         tagname:
@@ -161,6 +164,8 @@ collections: # A list of collections the CMS should be able to edit
         options:
           - 'til'
           - 'development'
+          - 'go'
+          - '100DaysOfCode'
           - 'sql-server'
           - 'tech'
           - 'ramblings'
@@ -213,13 +218,14 @@ collections: # A list of collections the CMS should be able to edit
         name: body
         widget: markdown
         required: true
+        modes: ['raw','rich_text']
       # Additional string fields to set manually in YAML
       - label: toc
         name: toc
         widget: boolean
         default: true
-      - label: Excerpt
-        name: excerpt
+      - label: Summary
+        name: Summary
         widget: string
         required: true
       - label: Cover Image
@@ -290,7 +296,7 @@ collections: # A list of collections the CMS should be able to edit
         format: YYYY-MM-DDTHH:00:00Z
         required: true
       - label: Cover Image
-        name: featuredImg
+        name: images
         widget: image
         required: false
         tagname:
@@ -325,6 +331,7 @@ collections: # A list of collections the CMS should be able to edit
         widget: markdown
         minimal: true
         required: true
+        modes: ['raw','rich_text']
         default: |
           ## Day {{day}} of 100
 
