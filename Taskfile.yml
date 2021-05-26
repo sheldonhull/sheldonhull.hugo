@@ -186,3 +186,23 @@ tasks:
         echo -e "{{ .dark_gray }} creating new file: $filename {{ .nocolor }}"
         hugo new $filename --kind microblog
         echo -e "{{ .green }} ✅ created: $filename {{ .nocolor }}"
+  code:
+    desc: Create a new 100DaysOfCode post
+    cmds:
+      - |
+        echo -e "{{.light_gray}}=== ℹ {{ .reversed }} Variable Info from Task {{ .nocolor }} === "
+        echo -e "{{.light_gray}}TODAY_UTC                {{.nocolor}}: {{ .orange}}{{ .TODAY_UTC }} {{ .nocolor }}"
+        echo -e "{{.green}}Please enter title{{ .nocolor }}"
+        read;
+        echo -e "{{.green}}Title: ${REPLY}{{ .nocolor }}"
+        title=$(echo ${REPLY} \
+          | sed 's/\(.\)\([A-Z]\)/\1-\2/g' \
+          | sed 's/[[:space:]]*//g' \
+          | tr '[:upper:]' '[:lower:]'
+        )
+        directory=./content/microblog/
+        mkdir -p $directory/{{ .YEAR }} || echo -e "{{.dark_gray}}🔄 skipped creation of directory [$directory] per already exists {{.nocolor}}"
+        filename=$directory/{{ .YEAR }}/{{ .YEAR }}-{{ .MONTH }}-{{ .DAY }}-$title.md
+        echo -e "{{ .dark_gray }} creating new file: $filename {{ .nocolor }}"
+        hugo new $filename --kind 100DaysOfCode
+        echo -e "{{ .green }} ✅ created: $filename {{ .nocolor }}"
