@@ -77,8 +77,21 @@ from = "/rss"
 to = "/index.xml"
 status = 200
 force = true
-
-#
+[[redirects]]
+from = "/blog/*"
+to = "/:splat"
+status = 301
+force = true
+[[redirects]]
+from = "/microblog/*"
+to = "/:splat"
+status = 301
+force = true
+[[redirects]]
+from = "/microblog/"
+to = "/posts/"
+status = 301
+force = true
 # [[plugins]]
 # package = "netlify-plugin-checklinks"
 #

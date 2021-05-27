@@ -7,6 +7,7 @@ summary: about me
 sidebar: []
 author_profile: false
 comments: true
+toc: false
 
 ---
 
