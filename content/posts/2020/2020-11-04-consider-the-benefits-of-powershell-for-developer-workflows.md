@@ -5,6 +5,8 @@ slug: consider-the-benefits-of-powershell-for-developer-workflows
 summary:
   You use bash and python. You have no need of the wierdness that is powershell.
   Give me couple minutes to convince you otherwise. Maybe you'll find something useful :-)
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
   - development
   - cool-tools

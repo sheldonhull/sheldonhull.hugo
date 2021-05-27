@@ -4,6 +4,8 @@ title: Get Started With GoReleaser
 slug: get-started-with-goreleaser
 summary:
   Improve your CICD skills with building Go apps
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - tech
 - development

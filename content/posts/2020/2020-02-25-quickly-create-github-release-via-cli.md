@@ -4,6 +4,8 @@ title: Quickly Create Github Release via Cli
 slug: quickly-create-github-release-via-cli
 summary:
   Here's how you can quickly create a github release without having to go through the web interface
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
   - git
   - devops

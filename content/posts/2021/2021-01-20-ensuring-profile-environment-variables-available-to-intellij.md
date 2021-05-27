@@ -2,6 +2,8 @@
 date: 2021-01-20T17:05:12-06:00
 title: Ensuring Profile Environment Variables Available to Intellij
 slug: ensuring-profile-environment-variables-available-to-intellij
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

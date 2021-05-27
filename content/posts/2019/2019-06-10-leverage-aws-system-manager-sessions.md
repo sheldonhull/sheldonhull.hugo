@@ -6,6 +6,8 @@ summary: leveraging aws system manager sessions can help with aws development, b
   eliminating the need to RDP for work that can be done via a PowerShell session.
   In addition, it can help bypass the need to use SSH tunneling, or RDP hops into
   the final destination.
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - tech
 - aws

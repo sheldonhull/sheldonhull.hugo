@@ -1,6 +1,8 @@
 ---
 title: Incredible setup experience with gitpod
 date: 2020-08-27T20:00:00-05:00
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

@@ -5,6 +5,8 @@ slug: luminar-ai
 summary: >-
   Let's take a look at Luminar AI from a prior Lightroom owner and get some
   first impressions.
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
   - software
   - ramblings
@@ -27,6 +29,8 @@ I'd be considered a "prosumer" with video and photography, in that I use high qu
 This is a quick review from someone who found Lightroom to overall a freeing experiencing in photography workflow.
 
 For my occasional usage, I'm not excited to pay the subscription fee, so my Lightroom 6 standalone license is all I've continued with.
+
+
 
 ## Scope
 

@@ -4,6 +4,8 @@ title: Painless Synchronization of Azure Blob Storage with AWS S3
 slug: painless-synchronization-of-azure-blob-storage-with-aws-s3
 summary: leverage the free tool RClone for using the cloud api's easily to synchronize
   cloud based storage without the need to copy locally
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - tech
 - aws

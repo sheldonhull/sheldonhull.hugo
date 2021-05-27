@@ -2,6 +2,8 @@
 date: 2021-05-11T15:59:56-05:00
 title: Hackattic
 slug: hackattic
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

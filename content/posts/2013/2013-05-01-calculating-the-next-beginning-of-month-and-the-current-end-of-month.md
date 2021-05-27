@@ -1,5 +1,7 @@
 ---
 date: "2013-05-01T00:00:00Z"
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Calculating the next beginning of month and the current end of month"

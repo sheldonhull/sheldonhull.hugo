@@ -1,25 +1,25 @@
 ---
+title: "powershell"
+date: 2021-05-26T13:57:56-05:00
+tags: []
+draft: false
+---
 title: powershell
 date: 2019-03-19
-summary: A cheatsheet for some interesting PowerShell related concepts that
-  might benefit others looking for some tips and tricks
+summary: A cheatsheet for some interesting PowerShell related concepts that might benefit others looking for some tips and tricks
 slug: powershell
 permalink: /docs/powershell
 comments: true
-tags:
-  - development
-  - powershell
-toc:
-  enable: true
-  keepStatic: false
-  auto: true
+#development #powershell #docs
+toc: true
+enable: true
+keepStatic: false
+auto: true
 ---
 
-{{< admonition type="info" title="Any requests?" >}}
-If you have any requests or improvements for this content, please comment below. It will open a GitHub issue for chatting further.
+> If you have any requests or improvements for this content, please comment below. It will open a GitHub issue for chatting further.
 I'd be glad to improve with any additional quick help and in general like to know if anything here in particular was helpful to someone.
 Cheers! 👍
-{{< /admonition >}}
 
 ## Requirements
 
@@ -48,17 +48,15 @@ A few key elements it can help with are:
 
 | Type               | Example                                                | Output                      | Notes                                                               |
 | ------------------ | ------------------------------------------------------ | --------------------------- | ------------------------------------------------------------------- |
-| Formatting Switch  | 'select {0} from sys.tables' -f 'name'                 | select name from sys.tables | Same concept as .NET \[string]::Format(). Token based replacement   |
-| .NET String Format | \[string]::Format('select {0} from sys.tables','name') | select name from sys.tables | Why would you do this? Because you want to showoff your .NET chops? |
+| Formatting Switch  | 'select {0} from sys.tables' -f 'name'                 | select name from sys.tables | Same concept as .NET [string]::Format(). Token based replacement   |
+| .NET String Format | [string]::Format('select {0} from sys.tables','name') | select name from sys.tables | Why would you do this? Because you want to showoff your .NET chops? |
 
 ## Math & Number Conversions
-
 | From                | To      | Example           | Output              | Notes                                     |
 | ------------------- | ------- | ----------------- | ------------------- | ----------------------------------------- |
 | scientific notation | Decimal | 2.19095E+08 / 1MB | 208.945274353027 MB | Native PowerShell, supports 1MB, 1KB, 1GB |
 
 ## Date & Time Conversion
-
 Converting dates to Unix Epoc time can be challenging without using the correct .NET classes. There is some built in functionality for converting dates such as `(Get-Date).ToUniversalTime() -UFormat '%s'` but this can have problems with time zone offsets. A more consistent approach would be to leverage the following. This was very helpful to me in working with Grafana and InfluxDb which commonly leverage Unix Epoc time format with seconds or milliseconds precision.
 
 ```powershell
@@ -77,14 +75,13 @@ $UnixTimeInMilliseconds = [Math]::Floor( ((get-date $MyDateValue) - $UnixStartTi
 ## Credential Management
 
 ### Setup
-
 Look at [SecretsManagement](https://github.com/PowerShell/SecretManagement).
 
 SecureString should be considered deprecated.
 It provides a false illusion of security mostly, and it's better to approach with other methods.
 
-- [Obsolete the SecureString Type Discussion](https://github.com/dotnet/runtime/issues/30612#issuecomment-523534346)
-- [DE0001](https://github.com/dotnet/platform-compat/blob/master/docs/DE0001.md)
+* [Obsolete the SecureString Type Discussion](https://github.com/dotnet/runtime/issues/30612#issuecomment-523534346)
+* [DE0001](https://github.com/dotnet/platform-compat/blob/master/docs/DE0001.md)
 
 Depending on your technology stack, the best way handle this is to authenticate using a credential library.
 
@@ -111,7 +108,6 @@ The SecretsManagement powershell module supports a variety of backends such as 1
 [↗️ List of Secrets Management Modules](https://www.powershellgallery.com/packages?q=Tags%3A%22SecretManagement%22)
 
 ### Using Basic Authorization With REST
-
 When leveraging some api methods you need to encode the header with basic authentication to allow authenticated requests.
 
 ```powershell
@@ -130,7 +126,6 @@ $results
 ```
 
 ## Load Functions from a Folder
-
 Prefer to use modules, but for quick adhoc work, you can organize your work in a folder and use a subfolder called functions. I find this better than trying to create one large script file with multiple functions in it.
 
 ```powershell
@@ -144,7 +139,6 @@ Get-ChildItem -Path $FunctionsFolder -Filter *.ps1 | ForEach-Object {
 ## Select Object Manipulation
 
 ### Expanding Nested Objects
-
 One thing that I've had challenges with is expanding nested objects with AWSPowershell, as a lot of the types aren't formatted for easy usage without expansion.
 For example, when expanding the basic results of `Get-EC2Instance` you can try to parse out the state, but it won't behave as expected.
 
@@ -183,7 +177,6 @@ The result is exactly you'd you need to work with
 | i-taco3    | 16        | running   |
 
 ### Get / Set Accessors in PowerShell
-
 In C# you use get/set accessors to have more control over your properties. In PowerShell, thanks to PSFramework, you can simplify object pipelines by using `Select-PSFObject` to do the equivalent and have a scripted property that handles a script block to provide a scripted property on your object.
 
 For example, in leveraging AWS Profiles, I wanted to get a region name mapped to a specific profile as a default region. You can do this in a couple steps using `ForEach-Object` and leverage `[pscustomobject]`, or you can simplify it greatly by running `Select-PSFObject` like this:
@@ -220,7 +213,6 @@ Get-S3Object -BucketName 'tacoland' | Select-PSFObject -ScriptProperty @{
 ```
 
 ## Parallel Tips & Tricks
-
 If you are using `-Parallel` with the newer runspaces feature in PowerShell 7 or greater, then long running operations such as queries or operations that take a while might be difficult to track progress on.
 In my case, I wanted to be able to see the progress for build process running in parallel and found using the synchronized hashtable I was able to do this.
 
@@ -279,7 +271,6 @@ $hash.counter = 1
 ```
 
 ## The Various Iteration Methods Possible
-
 PowerShell supports a wide range of iteration options.
 Not all are idiomatic to the language, but can be useful to know about.
 
@@ -304,18 +295,17 @@ $Items = Get-ChildItem
 $Items | ForEach-Object { $_.Name.ToString().ToLower() }
 ```
 
-- The default go to for major loop work.
-- Default first positional argument is `-Process {}` but mostly that is not provided and just the curly braces.
-- It is by default the slowest on a scale of raw performance.
-- Each item is loaded into memory, and it frees memory as it goes through pipeline.
-- Pipelines can be chained passing input as the pipeline progresses.
-- Break, continue, return behave differently as you are using a function, not a language operator.
+* The default go to for major loop work.
+* Default first positional argument is `-Process {}` but mostly that is not provided and just the curly braces.
+* It is by default the slowest on a scale of raw performance.
+* Each item is loaded into memory, and it frees memory as it goes through pipeline.
+* Pipelines can be chained passing input as the pipeline progresses.
+* Break, continue, return behave differently as you are using a function, not a language operator.
 
-
-- Magic operator.
-- Seriously, I've seen it called that.
-- It's only in version >= 4 [Magic Operators](https://bit.ly/3l1i3Vn).
-- Loads all results into memory before running, so can be great performance boost for certain scenarios that a `ForEach-Object` would be slower at.
+* Magic operator.
+* Seriously, I've seen it called that.
+* It's only in version >= 4 [Magic Operators](https://bit.ly/3l1i3Vn).
+* Loads all results into memory before running, so can be great performance boost for certain scenarios that a `ForEach-Object` would be slower at.
 
 ### ForEach Magic Operator
 
@@ -323,9 +313,9 @@ $Items | ForEach-Object { $_.Name.ToString().ToLower() }
 $Items.ForEach{ $_.Name.ToString().ToLower() }
 ```
 
-- This is the standard `foreach` loop.
-- It is the easiest to use and understand for someone new to PowerShell, but highly recommend that it is used in exceptions and try to stick with `ForEach-Object` as your default for idiomatic PowerShell if you are learning.
-- Standard break, continue, return behavior is a bit easier to understand.
+* This is the standard `foreach` loop.
+* It is the easiest to use and understand for someone new to PowerShell, but highly recommend that it is used in exceptions and try to stick with `ForEach-Object` as your default for idiomatic PowerShell if you are learning.
+* Standard break, continue, return behavior is a bit easier to understand.
 
 ### foreach loop
 
@@ -334,7 +324,6 @@ foreach ($item in $Items) { $_.Name.ToString().ToLower() }
 ```
 
 ### Linq
-
 If you find yourself exploring delegate functions in PowerShell, you should probably just use C# or find a different language as you are probably trying to screw a nail with a hammer. 😁
 
 ```powershell
@@ -343,7 +332,6 @@ $f.Invoke($Items.Name)
 ```
 
 ## Cool Tricks
-
 Output the results of your code into a Console GUI Gridview.
 This recent module provides a fantastic solution to allowing filtering and selection of results passed into it.
 
@@ -382,7 +370,6 @@ For quick access, save this to a Visual Studio Code snippet like below:
 ```
 
 ## Puzzles - Fizz Buzz
-
 I did this to participate in Code Golf, and felt pretty good that I landed in 112 🤣 with this.
 Really pains me to write in the code-golf style.
 
@@ -391,7 +378,6 @@ Really pains me to write in the code-golf style.
 ## Syncing Files Using S5Cmd
 
 ### Get S5Cmd
-
 Older versions of PowerShell (4.0) and the older AWSTools don't have the required ability to sync down a folder from a key prefix.
 This also performs much more quickly for a quick sync of files like backups to a local directory for initiating restores against.
 
@@ -448,11 +434,9 @@ Read-Host 'Enter to continue if this makes sense, or cancel (ctrl+c)'
 
 
 &$s5cmd cp "s3://$bucketname/$KeyPrefix" $Directory
-```
-## AWS Tools
+```## AWS Tools
 
 ### Install AWS.Tools
-
 Going forward, use AWS.Tools modules for newer development.
 It's much faster to import and definitely a better development experience in alignment with .NET SDK namespace approach.
 
@@ -485,7 +469,6 @@ $script:SqlCredential = [pscredential]::new($script:SqlLoginName, $script:SqlPas
 ```
 
 ### Using AWS Secrets Manager To Create a PSCredential
-
 Note that this can vary in how you read it based on the format.
 The normal format for entries like databases seems to be: `{"username":"password"}` or similar.
 
@@ -494,7 +477,6 @@ $Secret = Get-SECSecretValue -SecretId 'service-accounts/my-secret-id' -ProfileN
 ```
 
 ### Generate a Temporary Key
-
 Useful for needing to generate some time sensitive access credentials when connected via SSM Session and needing to access another account's resources.
 
 ```powershell
@@ -509,7 +491,6 @@ $cred = Get-STSSessionToken -DurationInSeconds ([timespan]::FromHours(8).TotalSe
 ```
 
 ### Install SSM Agent Manually
-
 This is based on the AWS install commands, but with a few enhancements to better work on older Windows servers.
 
 ```powershell
@@ -537,27 +518,20 @@ Restart-Service AmazonSSMAgent
 ```
 
 ### AWS PowerShell Specific Cheatsheets
-
 {{< gist sheldonhull  "9534958236fbc3973e704f648cec27e7" >}}
 
 ## Pester
-
 Many changes occurred after version 5.
 This provides a few examples on how to leverage Pester for data driven tests with this new format.
 
-
 ### BeforeAll And BeforeDiscovery
-
 One big change was the two scopes.
 Read the Pester docs for more details.
 
 The basic gist is that BeforeAll is in the "run" scope, while the test generation is BeforeDiscovery.
 While older versions of Pester would allow a lot more `foreach` type loops, this should be in the discovery phase now, and then `-Foreach` (aka `-TestCases`) hashtable can be used to iterate more easily now through result sets.
 
-<!-- ### Using Inline Script With PesterContainer -->
-
 ### Pester Container To Help Setup Data Driven Tests
-
 Example of setting up inputs for the test script from your InvokeBuild job.
 
 ```powershell
@@ -570,7 +544,6 @@ $pc = New-PesterContainer -Path (Join-Path $BuildRoot 'tests\configuration.tests
 ```
 
 ### Pester Configuration Object
-
 Now, you'd add this `PesterContainer` object to the `PesterConfiguration`.
 
 {{< admonition type="Tip" title="Explore PesterConfiguration" open=false >}}
@@ -606,7 +579,6 @@ $configuration = [PesterConfiguration]@{
 This pester configuration is a big shift from the parameterized arguments provided in version < 5.
 
 ### Invoke Pester
-
 Run this with: `Invoke-Pester -Configuration $Configuration`
 
 To improve the output, I took a page from `PSFramework` and used the summary counts here, which could be linked to a chatops message.
@@ -645,7 +617,6 @@ if ($totalFailed -gt 0)
 ```
 
 ### Use Test Artifact
-
 Use the artifact generated in the Azure Pipelines yaml to publish pipeline test results.
 
 ```yaml
@@ -674,7 +645,6 @@ Use the artifact generated in the Azure Pipelines yaml to publish pipeline test 
 ## Azure Pipelines Tips
 
 ### Dynamic Link to a Pipeline Run
-
 Create a link to a pipeline for your chatops.
 
 ```powershell
@@ -682,14 +652,13 @@ $button = "${ENV:SYSTEM_TEAMFOUNDATIONCOLLECTIONURI}${ENV:SYSTEM_TEAMPROJECT}/_b
 ```
 
 ### Helper Function for Reporting Progress on Task
-
 This is an ugly function, but hopefully useful as a jump start when in a hurry. 😁
 
 This primarily allows you to quickly report:
 
-- ETA
-- Percent complete on a task
-- Log output on current task
+* ETA
+* Percent complete on a task
+* Log output on current task
 
 Needs more refinement and probably should just be an invoke build function, but for now it's semi-useful for some long-running tasks
 
@@ -783,7 +752,6 @@ function Write-BuildProgressInfo
 ```
 
 ## File Manipulation
-
 Rename Images With a Counter in A Directory
 
 ```powershell

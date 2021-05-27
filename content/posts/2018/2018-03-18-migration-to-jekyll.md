@@ -1,6 +1,8 @@
 ---
 date: "2018-03-18T00:00:00Z"
 last_modified_at: "2019-02-21"
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - jekyll

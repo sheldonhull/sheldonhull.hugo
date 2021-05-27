@@ -1,6 +1,8 @@
 ---
 date: "2016-11-01T00:00:00Z"
 excerpt_separator: <!--more-->
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Get Backup History for All Databases in Server"

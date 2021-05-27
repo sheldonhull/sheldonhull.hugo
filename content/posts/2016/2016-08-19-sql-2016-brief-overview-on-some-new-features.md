@@ -1,5 +1,7 @@
 ---
 date: "2016-08-19T00:00:00Z"
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "SQL 2016 - Brief Overview on some new features"

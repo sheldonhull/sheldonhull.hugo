@@ -1,5 +1,7 @@
 ---
 date: "2015-01-16T00:00:00Z"
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - cool-tools
 title: "Dev Tools: FARR2 Launching groups of files or apps at once"

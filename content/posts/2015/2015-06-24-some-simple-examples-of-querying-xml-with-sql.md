@@ -1,5 +1,7 @@
 ---
 date: "2015-06-24T00:00:00Z"
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Some simple examples of querying xml with sql"

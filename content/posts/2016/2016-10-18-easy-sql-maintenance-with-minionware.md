@@ -4,6 +4,8 @@ slug: easy-sql-maintenance-with-minionware
 date: 2016-10-18T00:00:00Z
 toc: true
 summary: Review of using Minionware sql maintenance solution
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
   - powershell
   - sql-server

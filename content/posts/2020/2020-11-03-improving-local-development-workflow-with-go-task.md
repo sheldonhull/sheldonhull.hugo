@@ -5,6 +5,8 @@ slug: improving-local-development-workflow-with-go-task
 summary:
   Development workflow, especially outside of a full-fledged IDE, is often a disjointed affair.
   Here's how to improve that with Task, a cross-platform task runner alternative to Make.
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
   - development
   - cool-tools

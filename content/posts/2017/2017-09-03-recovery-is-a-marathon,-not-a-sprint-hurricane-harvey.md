@@ -1,6 +1,8 @@
 ---
 date: "2017-09-03T00:00:00Z"
 summary: It's important to remember that the road to recovery is not an instant process.
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - ramblings
 - flood

@@ -1,5 +1,7 @@
 ---
 date: "2016-08-15T00:00:00Z"
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Does sp_rename on a column preserve the ms_description?"

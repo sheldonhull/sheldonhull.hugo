@@ -1,5 +1,7 @@
 ---
 date: "2016-09-21T00:00:00Z"
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags: ["sql-server"]
 title: "SQL 2016 - Configuration Manager Not Showing in Start Menu"
 slug: "sql-2016-configuration-manager-not-showing-in-start-menu"

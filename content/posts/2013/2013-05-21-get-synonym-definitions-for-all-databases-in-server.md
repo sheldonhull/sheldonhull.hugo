@@ -1,5 +1,7 @@
 ---
 date: "2013-05-21T00:00:00Z"
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Get synonym definitions for all databases in server"

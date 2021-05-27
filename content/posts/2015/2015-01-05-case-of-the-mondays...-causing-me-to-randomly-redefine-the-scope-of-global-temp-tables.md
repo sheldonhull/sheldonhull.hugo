@@ -1,6 +1,8 @@
 ---
 date: "2015-01-05T00:00:00Z"
 slug: scope-of-global-temp-tables
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Case of the Mondays... causing me to randomly redefine the Scope of Global"

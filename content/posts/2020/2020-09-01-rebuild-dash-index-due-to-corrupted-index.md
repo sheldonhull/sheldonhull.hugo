@@ -2,6 +2,8 @@
 date: 2020-09-01T12:33:25-05:00
 title: Rebuild Dash Index Due to Corrupted Index
 slug: rebuild-dash-index-due-to-corrupted-index
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
     - tech
     - development

@@ -6,6 +6,8 @@ typora-root-url: ../../../static
 summary: >-
   Generate diagrams as code using Python, if you prefer to have a bit more
   development oriented workflow for visualization.
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

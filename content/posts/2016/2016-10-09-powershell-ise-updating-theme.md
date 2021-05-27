@@ -1,5 +1,7 @@
 ---
 date: "2016-10-09T00:00:00Z"
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - development
 - powershell
