@@ -1,25 +1,9 @@
 {{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
-
 {{- define "content" -}}
-    {{ partial "bridgy-publish-tweet.html" . }}
     {{- $params := .Scratch.Get "params" -}}
 
-    {{- $toc := $params.toc -}}
-    {{- if eq $toc true -}}
-        {{- $toc = .Site.Params.page.toc | default dict -}}
-    {{- else if eq $toc false -}}
-        {{- $toc = dict "enable" false -}}
-    {{- end -}}
-
-    {{- /* Auto TOC */ -}}
-    {{- if ne $toc.enable false -}}
-        <div class="toc" id="toc-auto">
-            <h2 class="toc-title">{{ T "contents" }}</h2>
-            <div class="toc-content{{ if eq $toc.auto false }} always-active{{ end }}" id="toc-content-auto"></div>
-        </div>
-    {{- end -}}
-
     <article class="page single h-entry">
+        {{ partial "bridgy-publish-tweet.html" . }}
         {{- /* Title */ -}}
         <h1 class="single-title animated flipInX p-name">{{ .Title }}</h1>
 
@@ -50,19 +34,12 @@
                 {{- end -}}
             </div>
             <div class="post-meta-line">
-                    <a rel="author" class="p-author h-card" style="display: none;" ref="{{ .Site.BaseURL }}">{{ .Site.Params.author.Name}}</a>
-                    <span class="u-url" style="display: none;">{{ .Permalink }}</span>
-                    <span class="dt-published" style="display: none;">{{ dateFormat "2006-01-02T15:04:05Z0700" .PublishDate.Local }}</span>
-                    {{- if $.Site.Params.gitRepo -}}
-                    {{- with $.GitInfo -}}
-                    {{ dateFormat "2006-01-02" .AuthorDate.Local }}
-                    {{- end -}}
-                    {{- else -}}
-                    {{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
+                <a rel="author" class="p-author h-card" style="display: none;" ref="{{ .Site.BaseURL }}">{{ .Site.Params.author.Name}}</a>
+                <span class="u-url" style="display: none;">{{ .Permalink }}</span>
+                <span class="dt-published" style="display: none;">{{ dateFormat "2006-01-02T15:04:05Z0700" .PublishDate.Local }}</span>
+                {{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
                     <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
-                    {{- end -}}
-                    {{- end -}}
-
+                {{- end -}}
                 <i class="fas fa-pencil-alt fa-fw"></i>&nbsp;{{ T "wordCount" .WordCount }}&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
                 {{- $comment := .Scratch.Get "comment" | default dict -}}
@@ -73,28 +50,14 @@
                 {{- end -}}
             </div>
         </div>
-    {{ with .Params.images }}
-    {{ range first 1 . }}
-                <div class="featured-image">
-                    {{- dict "Src" . "Title" $.Description "Resources" $.Resources | partial "plugin/image.html" -}}
-                </div>
+        {{ with .Params.images }}
+            {{ range first 1 . }}
+                        <div class="featured-image">
+                            {{- dict "Src" . "Title" $.Description "Resources" $.Resources | partial "plugin/image.html" -}}
+                        </div>
+                {{- end -}}
         {{- end -}}
-    {{- end -}}
-        {{- /* Series content */ -}}
         {{ partial "series.html" . }}
-
-        {{- /* Static TOC */ -}}
-        {{- if ne $toc.enable false -}}
-            <div class="details toc" id="toc-static"  kept="{{ if $toc.keepStatic }}true{{ end }}">
-                <div class="details-summary toc-title">
-                    <span>{{ T "contents" }}</span>
-                    <span><i class="details-icon fas fa-angle-right"></i></span>
-                </div>
-                <div class="details-content toc-content" id="toc-content-static">
-                    {{- dict "Content" .TableOfContents "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
-                </div>
-            </div>
-        {{- end -}}
 
         {{- /* Content */ -}}
         <div class="content e-content" id="content">
@@ -106,6 +69,5 @@
 
         {{- /* Comment */ -}}
         {{- partial "comment.html" . -}}
-
     </article>
 {{- end -}}

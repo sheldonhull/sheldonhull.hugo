@@ -21,45 +21,38 @@ languages:
       4.0 International License.
     menu:
       main:
-        - identifier: blog
+        - identifier: posts
           pre: ''
           post: ''
-          name: Blog
-          url: /blog/
+          name: posts
+          url: /posts
           title: ''
           weight: 1
-        - identifier: Microblog
+        - identifier: about
           pre: ''
           post: ''
-          name: Microblog
-          url: /microblog/
-          title: ''
-          weight: 2
-        - identifier: About
-          pre: ''
-          post: ''
-          name: About
+          name: about
           url: /about/
           title: ''
           weight: 3
         - identifier: docs
           pre: ''
           post: ''
-          name: Docs
+          name: docs
           url: /docs/
           title: ''
           weight: 4
         - identifier: creative
           pre: ''
           post: ''
-          name: Creative
+          name: creative
           url: /creative/
           title: ''
           weight: 5
         - identifier: tags
           pre: ''
           post: ''
-          name: Tags
+          name: tags
           url: /tags/
           title: ''
           weight: 6
@@ -180,8 +173,7 @@ languages:
 params:
   debug: false
   mainSections:
-      - blog
-      - microblog
+      - posts
   version: 0.2.X
   defaultTheme: dark
   gitRepo: https://github.com/sheldonhull/sheldonhull.hugo
@@ -209,7 +201,7 @@ params:
     icp: ''
     license: >-
       <a rel="license external nofollow noopener noreferrer"
-      href="https://www.sheldonhull.com/license" target="_blank">CC
+      href="https://www.sheldonhull.com/main/license" target="_blank">CC
       BY-NC 4.0</a>
   section:
     paginate: 20
@@ -336,7 +328,7 @@ params:
         - https://fonts.googleapis.com/css?family=Raleway&display=swap
       js:
         - <script src="/javascript/webmention.min.js" async></script>
-
+        - <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
     seo:
       images: []
       publisher:
@@ -411,8 +403,8 @@ sitemap:
   filename: sitemap.xml
   priority: 0.5
 Permalinks:
-  blog: /:section/:slug
-  microblog: /:section/:slug
+  posts: :slug
+  /: :slug
 privacy:
   googleAnalytics: {}
   twitter:
@@ -456,9 +448,7 @@ taxonomies:
   series: series
 
 RSSSection:
-- blog
-- microblog
-
+- posts
 
 module:
   imports:
