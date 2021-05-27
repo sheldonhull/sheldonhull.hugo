@@ -3,6 +3,8 @@ date: 2019-11-11T13:00:00+00:00
 title: Improving the Quality of Your Automation Logging with Cowsay
 slug: improving-the-quality-of-your-automation-logging-with-cowsay
 summary: 'Everyone involved in DevOps should have this critical tool in their toolchain... '
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - cli
 - cool-tools

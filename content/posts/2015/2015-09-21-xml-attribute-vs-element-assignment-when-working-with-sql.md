@@ -1,5 +1,7 @@
 ---
 date: "2015-09-21T00:00:00Z"
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "XML Attribute VS Element Assignment when working with SQL"

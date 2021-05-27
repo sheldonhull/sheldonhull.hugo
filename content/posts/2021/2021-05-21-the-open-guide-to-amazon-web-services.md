@@ -2,6 +2,8 @@
 date: 2021-05-21T11:21:42-05:00
 title: The Open Guide to Amazon Web Services
 slug: the-open-guide-to-amazon-web-services
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

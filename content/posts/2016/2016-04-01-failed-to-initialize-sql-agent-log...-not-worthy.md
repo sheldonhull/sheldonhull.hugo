@@ -1,5 +1,7 @@
 ---
 date: "2016-04-01T00:00:00Z"
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Failed to Initialize SQL Agent Log... not worthy"

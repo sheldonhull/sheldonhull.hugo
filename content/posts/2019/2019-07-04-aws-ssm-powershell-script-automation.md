@@ -6,6 +6,8 @@ summary:
   simply your management of instances in AWS by learning how to pass PowerShell
   commands through the AWSPowershell cmdlets without having to handle complicated
   string escaping
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
   - powershell
   - devops

@@ -1,6 +1,8 @@
 ---
 title: Incremental and Consistent
 date: 2021-02-13T09:53:31Z
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

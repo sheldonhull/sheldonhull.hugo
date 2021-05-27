@@ -1,6 +1,8 @@
 ---
 date: "2013-08-13T00:00:00Z"
 summary: assistance to convert database references when using synonyms
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Renaming all references inside stored procedures and functions can be migraine worthy without a little help..."

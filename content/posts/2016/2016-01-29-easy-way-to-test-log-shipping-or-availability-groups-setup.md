@@ -1,5 +1,7 @@
 ---
 date: "2016-01-29T00:00:00Z"
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Easy way to test log shipping or availability groups setup"

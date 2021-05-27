@@ -4,6 +4,8 @@ title: Azure Data Studio SQL Notebook for Diagnostic Queries
 slug: azure-data-studio-sql-notebook-for-diagnostic-queries
 summary: Dbatools has many amazing features. This one is a pretty amazing quick win
   for diagnostic efforts
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - dbatools
 - powershell

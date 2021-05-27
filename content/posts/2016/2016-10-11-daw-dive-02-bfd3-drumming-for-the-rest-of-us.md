@@ -1,5 +1,7 @@
 ---
 date: "2016-10-11T00:00:00Z"
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - daw
 - music

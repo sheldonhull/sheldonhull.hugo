@@ -4,6 +4,8 @@ title: Experiments With Go Arrays and Slices
 slug: experiments-with-go-arrays-and-slices
 summary:
   Some ramblings as I worked through working with arrays and slices with Go
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
   - powershell
   - tech

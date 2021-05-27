@@ -4,8 +4,8 @@
 date: {{ .Date }}
 title: {{ replace $TitleWithoutDate "-" " " | title }}
 slug: {{ replace $TitleWithoutDate " " "-" | lower }}
-area: go
-round: 1
+area: VAR_LANGUAGE
+round: VAR_ROUND
 day_counter: VAR_DAYCOUNTER
 tags:
   - tech
@@ -13,7 +13,9 @@ tags:
   - 100DaysOfCode
   - golang
   - microblog
-# images: [/images/r1-dVAR_DAYCOUNTERIMAGE.png]
+# images: [/images/r1-dVAR_DAYCOUNTER-IMAGE.png]
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 ---
 
 ## progress

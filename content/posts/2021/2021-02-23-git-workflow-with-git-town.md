@@ -4,6 +4,8 @@ title: Git Workflow With Git Town
 slug: git-workflow-with-git-town
 summary:
   Improve your git workflow with a few cli tools.
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

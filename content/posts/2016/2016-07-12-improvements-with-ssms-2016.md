@@ -4,6 +4,8 @@ summary: Improves to SSMS (Sql Server Management Studio) continue. Use the lates
   version instead of using the version bundled in older versions of SQL Server Installation
   media to ensure the latest features are available.
 last_modified_at: "2018-03-30"
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Improvements with SSMS 2016"

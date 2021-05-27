@@ -3,6 +3,8 @@ date: "2019-03-11T00:00:00Z"
 summary: What is the best way to debug more complicated parameter binding and type
   casting scenarios in PowerShell.
 last_modified_at: "2019-03-12"
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - powershell
 - deep-dive

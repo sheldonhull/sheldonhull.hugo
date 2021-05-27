@@ -4,6 +4,8 @@ title: Working With Powershell Objects to Create Yaml
 slug: working-with-powershell-objects-to-create-yaml
 summary:
   Here's a walk-through on using PowerShell objects to dynamically generate yaml configuration files.
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
   - development
   - tech

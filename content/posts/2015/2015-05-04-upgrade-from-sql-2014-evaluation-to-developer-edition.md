@@ -1,5 +1,7 @@
 ---
 date: "2015-05-04T00:00:00Z"
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Upgrade from SQL 2014 Evaluation to Developer Edition"

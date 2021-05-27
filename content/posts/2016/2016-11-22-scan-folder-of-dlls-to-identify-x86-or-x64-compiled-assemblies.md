@@ -1,5 +1,7 @@
 ---
 date: "2016-11-22T00:00:00Z"
+typora-root-url: ../../../static
+typora-copy-images-to:  ../../../static/images
 tags:
 - powershell
 title: "Scan folder of dlls to identify x86 or x64 compiled assemblies"
