@@ -2,12 +2,12 @@
 {{- $fingerprint := .Scratch.Get "fingerprint" -}}
 {{- $comment := .Scratch.Get "comment" | default dict -}}
 {{- $commentConfig := dict -}}
-{{- if $comment.enable -}}
+
 
     <div id="comments">
         {{- /* Webmentions Comment System*/ -}}
-        {{- partial "webmentions.html" -}}
-
+        {{- partial "webmentions.html" . -}}
+        {{- if $comment.enable -}}
         {{- /* Disqus Comment System */ -}}
         {{- $disqus := $comment.disqus | default dict -}}
         {{- if $disqus.enable -}}

@@ -59,5 +59,13 @@
     ],
     "conventionalCommits.showNewVersionNotes": true,
     "git.ignoreSubmodules": true,
-    "scm.repositories.visible": 1
+    "scm.repositories.visible": 1,
+    "files.exclude": {
+        "**/.git": false,
+        "**/.svn": false,
+        "**/.hg": false,
+        "**/CVS": false,
+        "**/.DS_Store": false
+    },
+    "explorerExclude.backup": null
 }
