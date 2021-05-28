@@ -53,22 +53,20 @@ Prerequiresites for the PowerShell examples:
 Install-Module Microsoft.PowerShell.ConsoleGuiTools -Scope CurrentUser -Force
 ```
 
-| Command                            | shell                     | pwsh                                                         |
-| ---------------------------------- | ------------------------- | ------------------------------------------------------------ |
-| View history                       | `history`                 | `Get-History`                                                |
-| Execute Line from History          | `!`followed by the number | `Invoke-Expression (Get-History |Out-ConsoleGridView -OutputMode Single).CommandLine` |
-| Execute Last Command But With Sudo | `sudo !! `                |                                                              |
-| Test file exists                   | `test -f ./filename`      | `Test-Path $filename -PathType Leaf` or using .NET `[io.file]::exists($filename)` |
-
-
+| Command                            | shell                | pwsh                                                                                    |
+| ---------------------------------- | -------------------- | --------------------------------------------------------------------------------------- |
+| View history                       | `history`            | `Get-History`                                                                           |
+| Execute Line from History          | `!Number`            | `Invoke-Expression (Get-History \| Out-ConsoleGridView -OutputMode Single).CommandLine` |
+| Execute Last Command But With Sudo | `sudo !!`            |                                                                                         |
+| Test file exists                   | `test -f ./filename` | `Test-Path $filename -PathType Leaf` or using .NET `[io.file]::exists($filename)`       |
 
 ## Installation
 
 ### Common App Installs
 
-| Application | Notes | Install Command |
-| --- | ---| ---|
-| HomeBrew | Works on Linux and macOS now 👏. | `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`|
+| Application | Notes                           | Install Command                                                                                     |
+| ----------- | ------------------------------- | --------------------------------------------------------------------------------------------------- |
+| HomeBrew    | Works on Linux and macOS now 👏. | `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"` |
 
 ### Ansible Initialization
 
@@ -89,10 +87,10 @@ ansible-galaxy --version
 
 ### A Few More Ansible Commands
 
-| Command                                     | Code                                                         |
-| ------------------------------------------- | ------------------------------------------------------------ |
-| Run ansible playbook against a specific tag | `ansible-playbook main.yml --inventory inventory --ask-become-pass -t 'ui'` |
-| Install requirements  | `ansible-galaxy collection install community.general && ansible-galaxy install --role-file requirements.yml --force --ignore-errors` |
+| Command                                     | Code                                                                                                                                 |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Run ansible playbook against a specific tag | `ansible-playbook main.yml --inventory inventory --ask-become-pass -t 'ui'`                                                          |
+| Install requirements                        | `ansible-galaxy collection install community.general && ansible-galaxy install --role-file requirements.yml --force --ignore-errors` |
 
 ### Installing go-task
 
@@ -100,10 +98,10 @@ This tool is great for cross-platform shell scripting as it runs all the command
 
 Quickly get up and running using the directions here: [Install Task](https://github.com/go-task/task/blob/master/docs/installation.md)
 
-| Command                                                      | Code                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Default Installation to local directory with debug logging enabled | `sh -c "$(curl -ssL https://taskfile.dev/install.sh)" -- -d` |
-| Installation for user level access                           | `sh -c "$(curl -ssL https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin` |
+| Command                                                            | Code                                                                           |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| Default Installation to local directory with debug logging enabled | `sh -c "$(curl -ssL https://taskfile.dev/install.sh)" -- -d`                   |
+| Installation for user level access                                 | `sh -c "$(curl -ssL https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin` |
 
 ### Installing Brew Packages
 
