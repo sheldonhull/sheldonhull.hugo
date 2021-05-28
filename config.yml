@@ -327,7 +327,8 @@ params:
       css:
         - https://fonts.googleapis.com/css?family=Raleway&display=swap
       js:
-        - <script src="/javascript/webmention.min.js" async></script>
+        - <script src="/javascript/webmentions.js" async></script>
+        - <script src="/javascript/app.js" async></script>
         - <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
     seo:
       images: []

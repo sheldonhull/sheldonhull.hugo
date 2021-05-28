@@ -16,20 +16,61 @@ tags:
 :(fas fa-info-circle fa-fw): This is a mix of shell, linux, and macOS commands.
 Comments are welcome with any corrections or suggestions.
 
-## Install Homebrew
+## CLI Usage
 
-Works on Linux and macOS now 👏.
+### PowerShell & Bash Comparison
 
-```shell
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+#### Brevity
+
+See all aliases with `Get-Alias` and to expedite your cli usage you could use a gist like this: [Aliaser.ps1](https://gist.github.com/JustinGrote/3eeec61472da1aa9f86a8f746eac905f)
+
+Note that PowerShell eschews brevity for clarity, but you can alias anything you like to be nearly as succint as bash commands.
+
+> IMO readability/brevity trumps succintness. However for interactive terminal usage aliasing can be a great tool. Use VSCode to auto-expand aliases into fully qualified functions if you decide to turn your adhoc work into a script file.
+
+Using `pushd` in a PowerShell session actually aliases to `Push-Location`.
+The difference is in addition to the path string pushd manages, you get a .NET object back with `[System.Management.Automation.PathInfo]` information including: Drive, Path, Provider, ProviderPath.
+
+#### PowerShell Works With Native Tooling
+
+I've included the similar PowerShell command to help those jumping between multiple shells.
+
+Please note that unlike Python, PowerShell works as a terminal with native tools + scripting language.
+
+You can use `pwsh` in almost every case in Linux & macOS and use the same tools you prefer, while being able to execute PowerShell commands as well.
+
+For example something like aws cli returning json could be automatically unmarshaled into an object instead of using `jq`
+
+```powershell
+& (aws ec2 describe-instances | ConvertFrom-Json).Instances.InstanceId
 ```
 
-## Ansible Initialization
+Another example is paths.
 
-I use this to bootstrap my macOS system for development.
-I also plan on using for more docker configuration.
+Prerequiresites for the PowerShell examples:
 
-For my mac
+```powershell
+Install-Module Microsoft.PowerShell.ConsoleGuiTools -Scope CurrentUser -Force
+```
+
+| Command                            | shell                     | pwsh                                                         |
+| ---------------------------------- | ------------------------- | ------------------------------------------------------------ |
+| View history                       | `history`                 | `Get-History`                                                |
+| Execute Line from History          | `!`followed by the number | `Invoke-Expression (Get-History |Out-ConsoleGridView -OutputMode Single).CommandLine` |
+| Execute Last Command But With Sudo | `sudo !! `                |                                                              |
+| Test file exists                   | `test -f ./filename`      | `Test-Path $filename -PathType Leaf` or using .NET `[io.file]::exists($filename)` |
+
+
+
+## Installation
+
+### Common App Installs
+
+| Application | Notes | Install Command |
+| --- | ---| ---|
+| HomeBrew | Works on Linux and macOS now 👏. | `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`|
+
+### Ansible Initialization
 
 ```shell
 #!/usr/bin/env bash
@@ -48,59 +89,33 @@ ansible-galaxy --version
 
 ### A Few More Ansible Commands
 
-:(fas fa-code fa-fw): Run ansible playbook against a specific tag `ansible-playbook main.yml --inventory inventory --ask-become-pass -t 'ui'`
+| Command                                     | Code                                                         |
+| ------------------------------------------- | ------------------------------------------------------------ |
+| Run ansible playbook against a specific tag | `ansible-playbook main.yml --inventory inventory --ask-become-pass -t 'ui'` |
+| Install requirements  | `ansible-galaxy collection install community.general && ansible-galaxy install --role-file requirements.yml --force --ignore-errors` |
 
-:(fas fa-code fa-fw): Install requirements `ansible-galaxy collection install community.general && ansible-galaxy install --role-file requirements.yml --force --ignore-errors`
-
-## Shebang
-
-A common pattern is just `#!/bin/bash`.
-
-To make your script more portable, by respecting the users env preferences try:
-
-- `#!/usr/bin/env bash`
-- `#!/usr/bin/env zsh`
-- `#!/usr/bin/env sh`
-
-{{< admonition type="Abstract" title="bash.cyberciti.biz reference" >}}
-
-Some good info on this from [Shebang](https://bash.cyberciti.biz/guide/Shebang#.2Fusr.2Fbin.2Fenv_bash)
-
-:(fas fa-code fa-fw): If you do not specify an interpreter line, the default is usually the `/bin/sh`
-
-:(fas fa-code fa-fw): For a system boot script, use `/bin/sh`
-
-:(fas fa-code fa-fw): The `/usr/bin/env` run a program such as a bash in a modified environment. It makes your bash script portable. The advantage of #!/usr/bin/env bash is that it will use whatever bash executable appears first in the running user's `$PATH` variable.
-
-{{< /admonition >}}
-
-## Installing go-task
+### Installing go-task
 
 This tool is great for cross-platform shell scripting as it runs all the commands in the `Taskfile.yml` using a built in go shell library that supports bash syntax (and others).
 
 Quickly get up and running using the directions here: [Install Task](https://github.com/go-task/task/blob/master/docs/installation.md)
 
-```shell
-# For Default Installion to ./bin with debug logging
-sh -c "$(curl -ssL https://taskfile.dev/install.sh)" -- -d
-# For Installation To /usr/local/bin for userwide access with debug logging
-# May require sudo sh
-sh -c "$(curl -ssL https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
-```
+| Command                                                      | Code                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Default Installation to local directory with debug logging enabled | `sh -c "$(curl -ssL https://taskfile.dev/install.sh)" -- -d` |
+| Installation for user level access                           | `sh -c "$(curl -ssL https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin` |
 
-## Installing Brew Packages
+### Installing Brew Packages
 
 This eliminates any attempt to install if the package already exists.
 For quick adhoc installs, this is useful.
-I still prefer Ansible for installs.
 
 ```shell
 #!/usr/bin/env bash
 
-brew update
-
 # Minimize Homebrew updates for each run, speeding things up
 export HOMEBREW_NO_AUTO_UPDATE=1
+
 # if linux install script, might want to include this: export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
 # Example of installing with a tap
@@ -117,7 +132,7 @@ brew list $package &>/dev/null || brew install $package
 
 ```
 
-## Conditional Pipeline
+## Conditional
 
 Only Proceed If First Condition Returns Nothing
 
@@ -126,14 +141,28 @@ package=cw
 brew list $package &>/dev/null || brew install $package
 ```
 
-## Fetch A GitHub Release
+On error do this:
+
+```shell
+test -f nonexistentfile || echo "😢 boo. file does not exist"
+```
+
+On success do the next command:
+
+```shell
+test -f ~/.bashrc && echo "✅ congrats, you have a bashrc file"
+```
+
+## Web Requests
+
+### Fetch A GitHub Release
 
 This contains a few things, including curl, jq parsing, and movement commands.
 
 This provides a shell script example of using those to get the latest release from GitHub, parse the json, then move this to target path.
 This release doesn't wrap in a tar file; it's just a binary.
 
-This might fail due to anonymous API hits on GitHub api are rate limited heavily.
+This might fail due to anonymous API hits on GitHub api are rate limited aggressively.
 
 ```shell
 #!/usr/bin/env bash
@@ -154,7 +183,7 @@ sudo mv fetch /usr/local/bin
 echo "Downloaded $(fetch --version) successfully"
 ```
 
-## Fetch a GitHub Release That Requires Extraction
+### Fetch a GitHub Release That Requires Extraction
 
 This is more of a Linux focused shell script example for grabbing a release and extracting the tar file.
 
@@ -179,5 +208,40 @@ sudo rm $tarball
 echo ">>>> gitversion version: $(~/gitversion /version)"
 echo "Trying to install dotnet tools version"
 dotnet tool update --global GitVersion.Tool
-# https://github.com/GitTools/GitVersion/releases/download/5.3.6/gitversion-debian.9-x64-5.3.6.tar.gz
+```
+
+## Concepts
+
+### Shebang
+
+A common pattern is just `#!/bin/bash`.
+
+To make your script more portable, by respecting the users env preferences try:
+
+- `#!/usr/bin/env bash`
+- `#!/usr/bin/env zsh`
+- `#!/usr/bin/env sh`
+
+{{< admonition type="Abstract" title="bash.cyberciti.biz reference" >}}
+
+Some good info on this from [Shebang](https://bash.cyberciti.biz/guide/Shebang#.2Fusr.2Fbin.2Fenv_bash)
+
+:(fas fa-code fa-fw): If you do not specify an interpreter line, the default is usually the `/bin/sh`
+
+:(fas fa-code fa-fw): For a system boot script, use `/bin/sh`
+
+:(fas fa-code fa-fw): The `/usr/bin/env` run a program such as a bash in a modified environment. It makes your bash script portable. The advantage of #!/usr/bin/env bash is that it will use whatever bash executable appears first in the running user's `$PATH` variable.
+
+{{< /admonition >}}
+
+## SSH
+
+Setup your permissions for `~/.ssh`
+
+```shell
+echo "Setting full user permissions for ~/.ssh"
+chmod -R u+rwX ~/.ssh
+echo "Remove group access for ~/.ssh"
+chmod go-rwx ~/.ssh
+echo "now set any pem files to chmd 400 \$key to ensure read-only"
 ```

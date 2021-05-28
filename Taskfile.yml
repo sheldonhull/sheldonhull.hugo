@@ -236,3 +236,26 @@ tasks:
     preconditions:
       - test -f .bhugo
 # TODO: Add task for imageoptim preprocessing on staged files only
+  install-tools:
+    desc: Install extra build tools that aren't needed as part of a CICD normally
+    cmds:
+    - |
+      # HOMEBREW_FORCE_BREWED_CURL=1
+      # {{if eq OS "darwin"}}
+      # brew install node || brew upgrade node
+      # rm -rf /usr/local/lib/node_modules
+      # brew uninstall node
+      # brew install node --without-npm
+      # echo prefix=~/.npm-packages >> ~/.npmrc
+      # curl -L https://www.npmjs.com/install.sh | sh
+      #npm update npm -g
+      #export PATH="$HOME/.npm-packages/bin:$PATH"
+
+
+      # {{else}}
+      # echo "Need command added for non-darwin system
+      # {{end}}
+    - |
+      brew reinstall node
+      npm install -g imageoptim-cli --silent
+      npm install -g install netlify-cli --silent
