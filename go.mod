@@ -10,6 +10,7 @@ require (
 	github.com/kelseyhightower/envconfig v1.4.0 // indirect
 	github.com/konsorten/go-windows-terminal-sequences v1.0.3 // indirect
 	github.com/mattn/go-sqlite3 v1.14.7 // indirect
+	github.com/nekr0z/webmention.io-backup v1.0.1 // indirect
 	github.com/sirupsen/logrus v1.8.1 // indirect
 	github.com/sunt-programator/CodeIT v0.1.2 // indirect
 	golang.org/x/sys v0.0.0-20210525143221-35b2ab0089ea // indirect
