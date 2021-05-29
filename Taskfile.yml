@@ -13,6 +13,8 @@ env:
   # AWS_SDK_LOAD_CONFIG: 1
   # AWS_REGION:  # Override for local developement work
 vars:
+  DATA_DIR: ./data
+  WEBMENTION_FILE: 'webmentions.json'
   GIT_COMMIT:
     sh: git log -n 1 --format=%h
   TODAY: '{{now | date "2006-01-02"}}' # https://golang.org/src/time/format.go
@@ -57,6 +59,8 @@ tasks:
         echo -e "{{.light_gray}}TODAY                {{.nocolor}}: {{ .orange}}{{ .TODAY }} {{ .nocolor }}"
         echo -e "{{.light_gray}}TODAY_UTC            {{.nocolor}}: {{ .orange}}{{ .TODAY_UTC }} {{ .nocolor }}"
         echo -e "{{.light_gray}}GIT_COMMIT           {{.nocolor}}: {{ .orange}}{{ .GIT_COMMIT }} {{ .nocolor }}"
+        echo -e "{{.light_gray}}WEBMENTION_IO_TOKEN  {{.nocolor}}: {{ .orange}}{{ if empty .WEBMENTION_IO_TOKEN }}💥 not set{{end}}{{else}}✅ token detected{{end}} {{ .nocolor }}"
+
   serve:
     desc: Build and run hugo
     cmds:
@@ -259,3 +263,12 @@ tasks:
       brew reinstall node
       npm install -g imageoptim-cli --silent
       npm install -g install netlify-cli --silent
+  webmentions:
+      desc: Generate local datafile of webmentions
+      cmds:
+        - |
+          go get -v github.com/nekr0z/webmention.io-backup
+          mkdir {{ .DATA_DIR }} || echo -e "{{ .dark_gray}}created DATA_DIR: {{ .DATA_DIR }}{{.nocolor}}"
+          pushd {{ .DATA_DIR }}
+          webmention.io-backup -f "{{ .WEBMENTION_FILE }}" -t "{{ .WEBMENTION_IO_TOKEN }}"
+          popd

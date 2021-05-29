@@ -1,75 +1,202 @@
-#webmentions {
-    margin: 0;
-    position: relative;
-    z-index: 100;
-    line-height: 1.2em;
-    display: inline-block;
-    align-content: center;
-    align-items: center;
-    max-width: 80%;
-    margin-left: 10%;
+/* Webmention Section */
+/* from https://github.com/maxboeck/eleventy-webmentions/blob/master/css/webmentions.css */
+
+.webmentions {
+  border-top: 1px solid #333;
+  display:block;
+  margin-top: 2em;
+  margin-bottom: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
 }
 
-#webmentions .comments {
-    max-height: 20em;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    font-size: 80%;
+.webmentions h2, .webmentions h3, .webmentions h4 {
+  text-align: center;
+  filter: drop-shadow(0 0 10px #03edf9);
 }
 
-#webmentions h2 {
-    font-size: medium;
-    margin: 0;
-    padding: 2px;
-    // background: #ccc;
+.webmentions__facepile {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-#webmentions .reacts img {
-    margin: 3px -1ex 1px 0;
+.webmentions__face {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: none;
 }
 
-#webmentions ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 4px;
+.webmentions__list, .webmentions__list_facepile {
+  list-style-type: none;
+  padding:0;
 }
 
-#webmentions li {
-    text-indent: -1em;
-    padding-left: 1em;
+.webmentions__list_facepile {
+  margin-top: 0;
 }
 
-#webmentions a.reaction {
-    position: relative;
-    text-decoration: none;
-    // text-shadow: 0px 0px 3px white;
-    margin-right: 0;
-    letter-spacing: -1ex;
-    margin-right: 1ex;
+.webmentions__list_facepile li {
+  display: inline;
 }
 
-#webmentions a.reaction img {
-    max-height: 4em;
-    margin-right: -1ex;
-    border-radius: 25%;
+.webmentions__item {
+  margin-bottom: 2rem;
 }
 
-#webmentions a.reaction sub {
-    font-size: 50%;
+/* Single Webmention */
+
+.webmention {
+  display: block;
 }
 
-#webmentions .comments li {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+.webmention__meta,
+.webmention__author {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-#webmentions .comments li .text {
-    // color: #555;
-    font-style: italic;
-    text-decoration: none;
+.webmention__meta {
+  margin-bottom: .5rem;
 }
 
-// #webmentions .comments li .name {
-//     // color: #111;
+.webmention__author {
+  margin-right: .25rem;
+}
+
+.webmention__author__photo {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: .5rem;
+}
+
+.webmention__pubdate {
+  font-style: italic;
+}
+
+.p-note {
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 1.5em; /* avoids phone UI stuff */
+}
+
+summary.h4 {
+  margin-bottom: 0.25em;
+  filter: drop-shadow(0 0 10px #03edf9);
+}
+
+@media screen and (min-width: 900px) {
+  .webmentions {
+    width: 45%;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .p-note {
+    width: 50%;
+    padding-bottom: 0.5em;
+  }
+}
+
+.u-url {
+  color: #333;
+  border-bottom: none !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .webmentions {
+    border-top: 1px solid #fff;
+  }
+  .p-name {
+    color: #fff;
+  }
+  .u-url {
+    color: #ddd;
+    /* border-bottom: 1px solid #fff; */
+  }
+}
+
+/* for imported comments */
+
+.commentOpen {
+  margin-top: 1.5em;
+  margin-bottom: 0;
+}
+
+.commentBody {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+
+
+// MXX.DEV
+/* Webmention Section */
+
+// .webmentions {
+//   display: block;
+//   text-align: left;
+// }
+
+// .webmentions__facepile {
+//   display: flex;
+//   align-items: center;
+//   flex-wrap: wrap;
+// }
+
+// .webmentions__face {
+//   width: 2rem;
+//   height: 2rem;
+//   border-radius: 50%;
+//   object-fit: cover;
+//   flex: none;
+// }
+
+// .webmentions__list {
+//   list-style-type: none;
+//   padding: 0;
+// }
+
+// .webmentions__item {
+//   margin-bottom: 2rem;
+// }
+
+// /* Single Webmention */
+
+// .webmention {
+//   display: block;
+// }
+
+// .webmention__meta,
+// .webmention__author {
+//   display: flex;
+//   align-items: center;
+//   flex-wrap: wrap;
+// }
+
+// .webmention__meta {
+//   margin-bottom: .5rem;
+// }
+
+// .webmention__author {
+//   margin-right: .25rem;
+// }
+
+// .webmention__author__photo {
+//   height: 3rem;
+//   width: 3rem;
+//   border-radius: 50%;
+//   object-fit: cover;
+//   margin-right: .5rem;
+// }
+
+// .webmention__pubdate {
+//   font-style: italic;
 // }
