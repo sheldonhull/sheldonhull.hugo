@@ -1,11 +1,9 @@
 ---
-title: highlighting-problem-characters-in-vscode
+title: Highlight
 date: 2021-05-31T11:43:46-05:00
 tags: [vscode, development]
 modified: 2021-05-31T11:49:41-05:00
 ---
-
-# Highlighting Problem Characters In Code
 
 Use [Vscode Gremlins](https://github.com/nhoizey/vscode-gremlins) to help flag characters that shouldn't be in your code.
 
