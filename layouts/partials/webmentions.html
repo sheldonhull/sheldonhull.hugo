@@ -2,6 +2,7 @@
 <!-- <div id="webmentions"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div> -->
 <!-- <div class='content-webmentions'></div> -->
 {{ $RelPermalink := .RelPermalink }}
+{{ $Section := .Section }}
 {{- if .Params.oldcomments }}
   {{ .Params.oldcomments | safeHTML }}
 {{- end }}
@@ -15,9 +16,10 @@
 
   {{/* SEARCH VARIATIONS */}}
   {{ $search := slice $linkForUse }}
-  {{ $search = $search | append (replaceRE ".com/" ".com/blog/" $linkForUse) }}
-  {{ $search = $search | append (replaceRE ".com/" ".com/microblog/" $linkForUse) }}
-
+  {{ if in $Section $.Site.Params.mainSections }}
+    {{ $search = $search | append (replaceRE ".com/" ".com/blog/" $linkForUse) }}
+    {{ $search = $search | append (replaceRE ".com/" ".com/microblog/" $linkForUse) }}
+  {{- end -}}
   {{/* If any aliases for page include those in search */}}
   {{ range $alias := .Params.Aliases }}
     {{/* printf "👀 alias: [%v]" $alias */}}<br>
@@ -25,8 +27,11 @@
     {{ $aliasPath := replaceRE "^www." "https://www." $aliasPath }}
     {{/* printf "👀 aliaspath: [%v]" $aliasPath */}}<br>
     {{ $search = $search | append $aliasPath }}
-    {{ $search = $search | append (replaceRE ".com/" ".com/blog/" $aliasPath) }}
-    {{ $search = $search | append (replaceRE ".com/" ".com/microblog/" $aliasPath) }}
+    {{ if in $Section $.Site.Params.mainSections }}
+      {{ $search = $search | append (replaceRE ".com/" ".com/blog/" $aliasPath) }}
+      {{ $search = $search | append (replaceRE ".com/" ".com/microblog/" $aliasPath) }}
+    {{- end -}}
+
   {{ end }}
 
   {{/* printf "🔎 search %s" ($search|jsonify (dict "prefix" " " "indent" "  ")) */}}<br>

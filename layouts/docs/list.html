@@ -28,6 +28,9 @@
         </a>
         <span>{{ .Summary }}</span>
         <span class="archive-item-date">
+            {{ partial "webmention-counts.html" . }}<br>
+        </span>
+        <span class="archive-item-date">
         <span>last updated: </span>
         <span>
             {{- if $.Site.Params.gitRepo -}}

@@ -1,0 +1,29 @@
+# list of primary rules
+rules:
+# - valueFor: '*Type*' # If user specifies "*Type*: Question" above, it will get labeled with "question" and "plz help"
+#   contains: Question
+#   addLabels: ['question', 'plz help']
+# - valueFor: '*Type*'
+#   contains: Bug
+#   addLabels: ['bug']
+# - valueFor: '*Type*'
+#   contains: Feature
+#   addLabels: ['enhancement']
+- valueFor: '**Assign to sheldonhull**' # If user specifies "**Assign to sheldonhull**: yes", it will get labeled with "sheldonhulls problem now" and assigned to "@sheldonhull"
+  contains: yes
+  addLabels: ['sheldonhulls problem now']
+  assign: ['sheldonhull']
+
+# List of secondary rules to run if no matches detected in primary rules
+nomatches:
+- contains: 'A personal dev blog'
+  addLabels: [':speech_balloon: blog comment']
+  assign: ['sheldonhull']
+- contains: 'this should get assigned to sheldonhull' # Checks the entire issue for a substring match. If one is found, adds labels "sheldonhulls problem now" and "maybe?", and assigns to "@sheldonhull"
+  addLabels: ['sheldonhulls problem now', 'maybe?']
+  assign: ['sheldonhull']
+
+# List that always runs after rules and nomatches. Look for missing sets of tags here.
+tags:
+- noneIn: ['bug', 'enhancement', 'question'] # If no bug, enhancement, or question labels are added, label with 'triage'
+  addLabels: ['triage']

@@ -6,6 +6,7 @@ daysUntilClose: 30
 exemptLabels:
   - pinned
   - security
+  - ':speech_balloon: blog comment'
 # Label to use when marking an issue as stale
 staleLabel: no-recent-activity
 # Comment to post when marking an issue as stale. Set to `false` to disable
