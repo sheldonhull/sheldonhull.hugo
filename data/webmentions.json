@@ -2474,6 +2474,81 @@
                 "sentence": "Nirmal Thewarathanthri favorited a tweet https://www.sheldonhull.com/blog/diagrams-as-code/",
                 "sentence_html": "<a href=\"https://twitter.com/nirmalmt\">Nirmal Thewarathanthri</a> favorited a tweet <a href=\"https://www.sheldonhull.com/blog/diagrams-as-code/\">https://www.sheldonhull.com/blog/diagrams-as-code/</a>"
             }
+        },
+        {
+            "source": "https://brid.gy/like/twitter/sheldon_hull/1397546049481453568/3411301",
+            "verified": true,
+            "verified_date": "2021-05-31T04:37:36Z",
+            "id": 1174614,
+            "private": false,
+            "target": "https://www.sheldonhull.com/dedupe-google-drive-with-rclone/",
+            "data": {
+                "author": {
+                    "name": "Burhan Khalid",
+                    "url": "https://twitter.com/burhan",
+                    "photo": "https://webmention.io/avatar/pbs.twimg.com/01c25827f1d72a100d0a4f23574ddf7d41ff7818461295c088d3dd32be98aeae.jpg"
+                },
+                "url": "https://twitter.com/sheldon_hull/status/1397546049481453568#favorited-by-3411301",
+                "name": "",
+                "content": "",
+                "published": "0001-01-01T00:00:00Z",
+                "published_ts": 0
+            },
+            "activity": {
+                "type": "like",
+                "sentence": "Burhan Khalid favorited a tweet https://www.sheldonhull.com/dedupe-google-drive-with-rclone/",
+                "sentence_html": "<a href=\"https://twitter.com/burhan\">Burhan Khalid</a> favorited a tweet <a href=\"https://www.sheldonhull.com/dedupe-google-drive-with-rclone/\">https://www.sheldonhull.com/dedupe-google-drive-with-rclone/</a>"
+            }
+        },
+        {
+            "source": "https://brid.gy/repost/twitter/sheldon_hull/1397546049481453568/1399204355711160322",
+            "verified": true,
+            "verified_date": "2021-05-31T03:51:08Z",
+            "id": 1174602,
+            "private": false,
+            "target": "https://www.sheldonhull.com/dedupe-google-drive-with-rclone/",
+            "data": {
+                "author": {
+                    "name": "Awesome Go Repositories",
+                    "url": "https://twitter.com/GolangRepos",
+                    "photo": "https://webmention.io/avatar/pbs.twimg.com/1f50e9a8dcfccc319e531ebbfd464f9fc6732ca7f19757b4eaa4850767aa4959.jpg"
+                },
+                "url": "https://twitter.com/GolangRepos/status/1399204355711160322",
+                "name": "",
+                "content": "I did a write-up in the past on this as I found it so useful sheldonhull.com/blog/dedupe-go…\n\nGreat tool to have!",
+                "published": "2021-05-31T03:21:29Z",
+                "published_ts": 1622431289
+            },
+            "activity": {
+                "type": "repost",
+                "sentence": "Awesome Go Repositories retweeted a tweet https://www.sheldonhull.com/dedupe-google-drive-with-rclone/",
+                "sentence_html": "<a href=\"https://twitter.com/GolangRepos\">Awesome Go Repositories</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/dedupe-google-drive-with-rclone/\">https://www.sheldonhull.com/dedupe-google-drive-with-rclone/</a>"
+            }
+        },
+        {
+            "source": "https://brid.gy/repost/twitter/sheldon_hull/1398749691702095873/1398750624188149765",
+            "verified": true,
+            "verified_date": "2021-05-29T21:42:30Z",
+            "id": 1174037,
+            "private": false,
+            "target": "https://www.sheldonhull.com/the-dark-side/",
+            "data": {
+                "author": {
+                    "name": "Techie Wiz",
+                    "url": "https://twitter.com/techie_wiz",
+                    "photo": "https://webmention.io/avatar/pbs.twimg.com/45dda74e5ac4422fb471acd067b7f704bb747f9d2db6b0e84345aecd6b8f999f.jpg"
+                },
+                "url": "https://twitter.com/techie_wiz/status/1398750624188149765",
+                "name": "",
+                "content": "The Dark Side sheldonhull.com/the-dark-side/ #tech #development #microblog #humor via @sheldon_hull",
+                "published": "2021-05-29T21:18:30Z",
+                "published_ts": 1622323110
+            },
+            "activity": {
+                "type": "repost",
+                "sentence": "Techie Wiz retweeted a tweet https://www.sheldonhull.com/the-dark-side/",
+                "sentence_html": "<a href=\"https://twitter.com/techie_wiz\">Techie Wiz</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/the-dark-side/\">https://www.sheldonhull.com/the-dark-side/</a>"
+            }
         }
     ]
 }

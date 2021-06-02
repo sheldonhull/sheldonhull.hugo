@@ -1,0 +1,13 @@
+{{ $paragraphs := split .Content "<h2 " }}
+
+{{ range $index, $p := $paragraphs }}
+    {{ $pp := trim $p " \n" }}
+    {{ if (eq $index 0) }}
+        {{ printf "%s\n" $pp | safeHTML }}
+    {{ end }}
+    {{ if and (ne $pp "") (gt $index 0) }}
+    <div class="boxtext">
+        {{ printf "<h2 %s\n" $pp | safeHTML }}
+    </div>
+    {{ end }}
+{{end}}
