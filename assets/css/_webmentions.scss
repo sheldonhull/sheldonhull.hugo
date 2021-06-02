@@ -3,15 +3,28 @@
 
 .webmentions {
   border-top: 1px solid #333;
-  display:block;
+  display: block;
   margin-top: 2em;
   margin-bottom: 0;
   margin-right: auto;
   margin-left: auto;
   width: 80%;
+  list-style:none;
 }
 
-.webmentions h2, .webmentions h3, .webmentions h4 {
+.no-arrow {
+  details>summary {
+    list-style: none;
+  }
+
+  details>summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+.webmentions h2,
+.webmentions h3,
+.webmentions h4 {
   text-align: center;
   filter: drop-shadow(0 0 10px #03edf9);
 }
@@ -30,9 +43,10 @@
   flex: none;
 }
 
-.webmentions__list, .webmentions__list_facepile {
+.webmentions__list,
+.webmentions__list_facepile {
   list-style-type: none;
-  padding:0;
+  padding: 0;
 }
 
 .webmentions__list_facepile {
@@ -83,7 +97,8 @@
 .p-note {
   width: 90%;
   margin: 0 auto;
-  padding-bottom: 1.5em; /* avoids phone UI stuff */
+  padding-bottom: 1.5em;
+  /* avoids phone UI stuff */
 }
 
 summary.h4 {
@@ -113,9 +128,11 @@ summary.h4 {
   .webmentions {
     border-top: 1px solid #fff;
   }
+
   .p-name {
     color: #fff;
   }
+
   .u-url {
     color: #ddd;
     /* border-bottom: 1px solid #fff; */
@@ -134,7 +151,17 @@ summary.h4 {
   margin-bottom: 0;
 }
 
+.webmention__stats {
+  font-size: 1.5em;
+  color: $global-font-secondary-color;
+  [theme="dark"] {
+   color: $global-font-secondary-color-dark;
+   i {
+     filter: drop-shadow(0 0 10px #03edf9);
+   }
+  }
 
+}
 
 
 // MXX.DEV
