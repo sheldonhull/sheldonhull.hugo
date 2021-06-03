@@ -3,7 +3,7 @@
 {{- end -}}
 
 {{- define "content" -}}
-
+    {{- $params := .Scratch.Get "params" -}}
     <div class="page archive wide-list">
         <h2 class="single-title animated pulse faster">
             {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
@@ -12,16 +12,37 @@
         {{ $pages := (where .Site.RegularPages.ByTitle "Section" "posts" ) }}
         {{ $section := .Section }}
         {{- if $pages -}}
-            {{- $pages := $pages.GroupByDate "2006" -}}
-            {{- with .Site.Params.section.paginate | default .Site.Params.paginate -}}
-                {{- $pages = $.Paginate $pages . -}}
-            {{- else -}}
-                {{- $pages = .Paginate $pages -}}
-            {{- end -}}
+            {{- $pages_groupbydate := $pages.GroupByDate "2006" -}}
+            {{/*- with .Site.Params.section.paginate | default .Site.Params.paginate -*/}}
+                {{/*- $pages = $.Paginate $pages . */}}
+            {{/*- else - */}}
+            {{- $pages_paginated := .Paginate $pages_groupbydate -}}
+            {{/*- end -*/}}
 
-            {{- range $pages.PageGroups -}}
+            {{- range $pg := $pages_paginated.PageGroups -}}
                 <h1 class="group-title">{{ .Key }}</h1>
-                {{- range .Pages -}}
+            {{- /* Static TOC */ -}}
+            {{- $toc := true -}}
+            {{- if ne $toc false -}}
+            {{- $toc_auto := true -}}
+            {{- $toc_keepStatic := true -}}
+                <div class="details toc" id="toc-static"  kept="{{ if $toc_keepStatic }}true{{ end }}">
+                    <div class="details-summary toc-title">
+                        <span>{{ T "contents" }}</span>
+                        <span><i class="details-icon fas fa-angle-right"></i></span>
+                    </div>
+                    <div class="details-content toc-content" id="toc-content-static">
+                        <nav>
+                        {{- range $pg.Pages -}}
+                        <ul><a href="{{ .RelPermalink}}/">{{ .Title }}</a></ul>
+                        {{- end -}}
+                        </nav>
+                    </div>
+                </div>
+            {{- end -}}
+                {{- range $pg.Pages -}}
+
+
                     {{ with .Params.images }}
                         {{ range first 1 . }}
                             <div class="bg-img"></div>
@@ -54,7 +75,8 @@
                                                 </div>
                                         {{- end -}}
                                     {{- end -}}
-                                    {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+                                    {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML | truncate 250 -}}
+                                    <a href="{{- .RelPermalink -}}"><i class="fas fa-link"><emphasis><tab>&nbsp;&nbsp;read more</emphasis></i></a>
                                 </div>
                             <div> <!-- microblog -->
                         </article>
@@ -83,7 +105,7 @@
                                                 </div>
                                         {{- end -}}
                                     {{- end -}}
-                                    {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML | truncate 500 -}}
+                                    {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML | truncate 250 -}}
                                     <!-- https://raw.githubusercontent.com/vjeantet/hugo-theme-docdock/master/exampleSite/content/shortcodes/button.md -->
                                     <a href="{{- .RelPermalink -}}"><i class="fas fa-link"><emphasis><tab>&nbsp;&nbsp;read more</emphasis></i></a>
                                 </div>

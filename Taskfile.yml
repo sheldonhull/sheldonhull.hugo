@@ -114,7 +114,7 @@ tasks:
     desc: Initialize project to ensure dependencies, submodules, and tooling is ready
     cmds:
       # - git submodule update --init --recursive
-      - git rm ./themes/codeit
+      # - git rm ./themes/codeit
       - hugo mod get -u
       # -    {{ .GITHUB_REPO }}
       # - hugo mod get -u -v
