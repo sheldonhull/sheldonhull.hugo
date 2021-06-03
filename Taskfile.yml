@@ -166,7 +166,7 @@ tasks:
           | sed 's/[[:space:]]*//g' \
           | tr '[:upper:]' '[:lower:]'
         )
-        directory=./content/blog/
+        directory="./content/blog/"
         mkdir -p $directory/{{ .YEAR }} || echo -e "{{.dark_gray}}🔄 skipped creation of directory [$directory] per already exists {{.nocolor}}"
         filename=$directory/{{ .YEAR }}/{{ .YEAR }}-{{ .MONTH }}-{{ .DAY }}-$title.md
         echo -e "{{ .dark_gray }} creating new file: $filename {{ .nocolor }}"
@@ -200,10 +200,10 @@ tasks:
         read;
         archetype=$(echo ${REPLY})
 
-        directory=./content/posts/
-        mkdir -p $directory/{{ .YEAR }} || echo -e "{{.dark_gray}}🔄 skipped creation of directory [$directory] per already exists {{.nocolor}}"
-        filename=$directory{{ .YEAR }}/{{ .YEAR }}-{{ .MONTH }}-{{ .DAY }}-$title.md
-
+        #directory="./content/posts/"
+        mkdir -p "./content/posts/{{ .YEAR }}" &>/dev/null || echo -e "{{.dark_gray}}🔄 skipped creation of directory [$directory] per already exists {{.nocolor}}"
+        filename="./content/posts/{{ .YEAR }}/{{ .YEAR }}-{{ .MONTH }}-{{ .DAY }}-$title.md"
+        echo -e "{{.dark_gray}}default filename: [$filename]{{ .nocolor }}"
         if [[ $archetype == "code" ]];
         then
           source {{ .CODE_CONFIG }}
