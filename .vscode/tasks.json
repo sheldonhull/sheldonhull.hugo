@@ -39,289 +39,202 @@
   },
   "tasks": [
     {
-      "label": "docker-pull",
+      "label": "100daysofcode_readconfig",
       "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task docker-pull -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "git-initialize-submodules",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task git-initialize-submodules -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "git-update-theme-from-remote",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task git-update-theme-from-remote -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "hugo-serve",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task hugo-serve -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "hugo-serve-nocache",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task hugo-serve-nocache -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "hugo-new-100-days-of-code",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task hugo-new-100-days-of-code -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "hugo-new-microblog",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task hugo-new-microblog -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "hugo-new-blog",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task hugo-new-blog -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "netlify-build",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task netlify-build -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "algolia-update",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task algolia-update -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "build",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task build -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "serverless-deploy",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task serverless-deploy -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "setup-hugo",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task setup-hugo -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "setup-install-netlify-cli",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task setup-install-netlify-cli -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "setup-node-modules",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task setup-node-modules -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "setup",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task setup -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "bootstrap-powershell-modules",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task bootstrap-powershell-modules -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "bootstrap-install-serverless-cli",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task bootstrap-install-serverless-cli -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "bootstrap-install-aws-vault",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task bootstrap-install-aws-vault -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "clean",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task clean -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "vscode-rebuild-tasks",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task vscode-rebuild-tasks -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "powershell-format-code",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task powershell-format-code -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": "git-commit-push",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task git-commit-push -File './task.build.ps1'",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      }
-    },
-    {
-      "label": ".",
-      "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task . -File './task.build.ps1'",
+      "command": "task 100daysofcode_readconfig",
       "problemMatcher": "$msCompile",
       "presentation": {
         "echo": false,
         "showReuseMessage": false
       },
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      }
+      "detail": "read the counter values for 100 days of code to simplify creation from archetype"
     },
     {
-      "label": "tidy",
+      "label": "algolia",
       "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task tidy -File './task.build.ps1'",
+      "command": "task algolia",
       "problemMatcher": "$msCompile",
       "presentation": {
         "echo": false,
         "showReuseMessage": false
-      }
+      },
+      "detail": "     Generate algolia json"
     },
     {
-      "label": "bootstrap",
+      "label": "bear",
       "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task bootstrap -File './task.build.ps1'",
+      "command": "task bear",
       "problemMatcher": "$msCompile",
       "presentation": {
         "echo": false,
         "showReuseMessage": false
-      }
+      },
+      "detail": "Run bhugo to sync posts"
     },
     {
-      "label": "github-tidy",
+      "label": "blog",
       "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task github-tidy -File './task.build.ps1'",
+      "command": "task blog",
       "problemMatcher": "$msCompile",
       "presentation": {
         "echo": false,
         "showReuseMessage": false
-      }
+      },
+      "detail": "Create a new blog post"
     },
     {
-      "label": "?",
+      "label": "build",
       "type": "shell",
-      "command": "./build.ps1 -LoadConstants -Task ? -File './task.build.ps1'",
+      "command": "task build",
       "problemMatcher": "$msCompile",
       "presentation": {
         "echo": false,
         "showReuseMessage": false
-      }
-    }
+      },
+      "detail": " Build the webpage for previews or other debug setup"
+    },
+    {
+      "label": "build-public",
+      "type": "shell",
+      "command": "task build-public",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      },
+      "detail": "    Build algolia public json only if missing algolia"
+    },
+    {
+      "label": "deinit_submodule",
+      "type": "shell",
+      "command": "task deinit_submodule",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      },
+      "detail": "  cleanup submodule"
+    },
+    {
+      "label": "echo-debug",
+      "type": "shell",
+      "command": "task echo-debug",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      },
+      "detail": "  output variables for debugging netlify or other build tasks"
+    },
+    {
+      "label": "go",
+      "type": "shell",
+      "command": "task go",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      },
+      "detail": "    Setup go environment"
+    },
+    {
+      "label": "go-run",
+      "type": "shell",
+      "command": "task go-run",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      },
+      "detail": "Try running the new go algolia command"
+    },
+    {
+      "label": "init",
+      "type": "shell",
+      "command": "task init",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      },
+      "detail": "Initialize project to ensure dependencies, submodules, and tooling is ready"
+    },
+    {
+      "label": "install-tools",
+      "type": "shell",
+      "command": "task install-tools",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      },
+      "detail": "     Install extra build tools that aren't needed as part of a CICD normally"
+    },
+    {
+      "label": "list",
+      "type": "shell",
+      "command": "task list",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      },
+      "detail": "list tasks"
+    },
+    {
+      "label": "post",
+      "type": "shell",
+      "command": "task post",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      },
+      "detail": "Create a new post"
+    },
+    {
+      "label": "serve",
+      "type": "shell",
+      "command": "task serve",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      },
+      "detail": " Build and run hugo"
+    },
+    {
+      "label": "theme-update",
+      "type": "shell",
+      "command": "task theme-update",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      },
+      "detail": "    rebase on remote theme to pull in the upstream changes"
+    },
+    {
+      "label": "vars",
+      "type": "shell",
+      "command": "task vars",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      },
+      "detail": "variable output"
+    },
+    {
+      "label": "webmentions",
+      "type": "shell",
+      "command": "task webmentions",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false
+      },
+      "detail": " Generate local datafile of webmentions"
+    },
   ]
 }
-
