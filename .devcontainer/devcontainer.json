@@ -51,6 +51,7 @@
 		"ALGOLIA_APP_ID": "04HSGXXQD5",
 		"ALGOLIA_ADMIN_KEY": "${localEnv:ALGOLIA_ADMIN_KEY}",
 		"ALGOLIA_INDEX_NAME": "sheldonhull.com",
-		"ALGOLIA_INDEX_FILE": "public/algolia.json"
+		"ALGOLIA_INDEX_FILE": "public/algolia.json",
+		"WEBMENTION_IO_TOKEN": "${localEnv:WEBMENTION_IO_TOKEN}"
 	}
 }
