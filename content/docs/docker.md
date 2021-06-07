@@ -441,4 +441,34 @@ Override allowed using `git tag -a 0.1.0 -m"initial commit" && git push --tags`
 | Description                                                  | Code                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Pull gitversion                                              | `docker pull gittools/gitversion:latest`                     |
-| Run gitversion (calculate current semver from git history) using config from `build/GitVersion.yml` | `docker run --rm -v "$(pwd):/repo" gittools/gitversion:latest /repo /config ./build/GitVersion.yml |
+| Run gitversion (calculate current semver from git history) using config from `build/GitVersion.yml` | `docker run --rm -v ${pwd}:/repo gittools/gitversion:latest /repo /config ./build/GitVersion.yml /showvariable FullSemVer /nofetch` |
+| Output Build Server Variables for use in Azure DevOps        | `docker run --rm -v ${pwd}:/repo gittools/gitversion:latest /repo /config ./build/GitVersion.yml /showvariable FullSemVer /nofetch /output buildserver` |
+
+You can use those output variables in your Azure Pipeline to update the build name to include Semver versioning, or pass it into a task to use for building any app.
+
+```yaml
+name: build-$(GitVersion.FullSemVer).$(Build.Reason).$(SourceBranchName).$(Date:yyyyMMdd)-$(Rev:.r)
+
+steps:
+- bash: |
+    echo "This is your new version: $VERSION"
+  displayName: PublishSomething
+  env:
+    VERSION: $(GitVersion.FullSemVer)
+- pwsh: |
+ 	Write-Host "This is your new $ENV:VERSION"
+  displayName: PublishingSomethingElse
+  env:
+    VERSION: $(GitVersion.FullSemVer)
+```
+
+I normally start with `Mainline` development mode, but if you want to customize this to drive behavior off of conventional commits or other branching and delivery methods, there's a wide range of customization at you can review at: [GitVersion Incrementing](https://gitversion.net/docs/reference/version-increments)
+
+```yaml
+---
+mode: Mainline
+branches: {}
+ignore:
+  sha: []
+merge-message-formats: {}
+```

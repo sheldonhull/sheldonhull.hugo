@@ -98,6 +98,30 @@ fixup = !git commit -a --amend --no-edit
 git rm --cached $File
 ```
 
+## Renaming Branch
+
+If you want to align with GitHub recommendeding naming of changing `master` to `main`, then this command will help you fix the local branches to correctly point `master` to the remote `main` branch.
+
+```shell
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+```
+
+You can configure this as a VSCode snippet for quick access by including this: 
+
+```json
+    ,"rename-master-to-main": {
+        "prefix": "rename-master-to-main",
+        "body": [
+            "git branch -m master main",
+            "git fetch origin",
+            "git branch -u origin/main main"
+        ],
+        "description": "rename-master-to-main"
+    }
+```
+
 ## Working With Changes
 
 > All the commits the branch has that the master doesn't. [^first-commit]
