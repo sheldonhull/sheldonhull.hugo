@@ -127,34 +127,34 @@
 
         <script>
             CMS.registerEditorComponent({
-                id: "premonition",
-                label: "premonition",
+                id: "admonition",
+                label: "admonition",
                 icon: 'seperator',
                 fields: [
                     {
                         name: 'id',
-                        label: 'premonition text'
+                        label: 'admonition text'
                     },
                     {
                         name: 'type',
-                        label: 'premonition type',
+                        label: 'admonition type',
                         widget: 'select',
                         options: ['information', 'warning', 'success', 'failure', 'question', 'tip', 'notice']
                     },
                     {
                         name: 'title',
-                        label: 'premonition title'
+                        label: 'admonition title'
                     }
                 ],
-                pattern: /^{{<\spremonition.*>}}/,
+                pattern: /^{{<\sadmonition.*>}}/,
                 fromBlock: function (match) {
                     return { id: match[1] };
                 },
                 toBlock: function (obj) {
-                    return ('{{< premonition type="' + obj.type + '" title="' + obj.title + '" >}}\n' + '' + obj.id + '\n{{< /premonition >}}');
+                    return ('{{< admonition type="' + obj.type + '" title="' + obj.title + '" >}}\n' + '' + obj.id + '\n{{< /admonition >}}');
                 },
                 toPreview: function (obj) {
-                    return ('{{< premonition type="' + obj.type + '" title="' + obj.title + '" >}}\n' + '' + obj.id + '\n{{< /premonition >}}');
+                    return ('{{< admonition type="' + obj.type + '" title="' + obj.title + '" >}}\n' + '' + obj.id + '\n{{< /admonition >}}');
                 }
             });
         </script>

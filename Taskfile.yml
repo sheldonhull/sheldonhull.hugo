@@ -131,7 +131,7 @@ tasks:
       - go run main.go
   algolia:
     desc: Generate algolia json
-    deps: [build-public]
+    # deps: [build-public]
     # These are configured in the .devcontainer but no harm in setting here too
     env:
       ALGOLIA_APP_ID: 04HSGXXQD5

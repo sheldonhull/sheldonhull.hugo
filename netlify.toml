@@ -6,8 +6,10 @@
   command = """
 sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
 ./bin/task init
+./bin/task webmentions
 ./bin/task build-public
 ./bin/task algolia
+
 """ # -b $DEPLOY_PRIME_URL
   publish = "public"
 

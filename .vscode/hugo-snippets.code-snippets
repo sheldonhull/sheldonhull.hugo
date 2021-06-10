@@ -5,7 +5,7 @@
         "body": [
             "{{< admonition type=\"${1|Note,Abstract,Info,Tip,Success,Question,Warning,Failure,Danger,Bug,Example,Quote|}\" title=\"${2:Title}\" open=\"true\">}}\r\n$0\r\n{{< /admonition >}}"
         ],
-        "description": "premonition notice for notice box"
+        "description": "admonition notice for notice box"
     },
     "rel-reference": {
         "prefix": "rel-reference",
