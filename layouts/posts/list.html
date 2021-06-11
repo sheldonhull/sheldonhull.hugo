@@ -75,8 +75,9 @@
                                                 </div>
                                         {{- end -}}
                                     {{- end -}}
-                                    {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML | truncate 250 -}}
-                                    <a href="{{- .RelPermalink -}}"><i class="fas fa-link"><emphasis><tab>&nbsp;&nbsp;read more</emphasis></i></a>
+                                    {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML | truncate 500 -}}
+                                    {{if gt (len .Content) 500}}<a href="{{- .RelPermalink -}}"><i class="fas fa-link"><tab>&nbsp;&nbsp;<span class="h3-glow">read more</span></i></a>{{ end }}
+
                                 </div>
                             <div> <!-- microblog -->
                         </article>
@@ -105,9 +106,9 @@
                                                 </div>
                                         {{- end -}}
                                     {{- end -}}
-                                    {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML | truncate 250 -}}
+                                    {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML | truncate 500 -}}
                                     <!-- https://raw.githubusercontent.com/vjeantet/hugo-theme-docdock/master/exampleSite/content/shortcodes/button.md -->
-                                    <a href="{{- .RelPermalink -}}"><i class="fas fa-link"><emphasis><tab>&nbsp;&nbsp;read more</emphasis></i></a>
+                                    {{if gt (len .Content) 500}}<a href="{{- .RelPermalink -}}"><i class="fas fa-link"><tab>&nbsp;&nbsp;<span class="h4-glow">read more</span></i></a>{{ end }}
                                 </div>
                             <div>
                         </article>
