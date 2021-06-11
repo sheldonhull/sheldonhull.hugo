@@ -1,12 +1,11 @@
 ---
-date: 2021-06-04T12:24:02-05:00
+date: 2021-06-144T00:07:00-05:00
 title: How to Use Slack Effectively as a Developer
 slug: how-to-use-slack-effectively-as-a-developer
 summary:
    Improve your Slack experience with a few tweaks. This can help you get value from Slack, rather than drowning in noise.
 tags:
 - slack
-draft: true
 toc: true
 images: [/images/2021-06-04-12.28.36-Slack.png]
 typora-root-url: ../../../static
