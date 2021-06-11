@@ -217,7 +217,7 @@ tasks:
           sed -i '' "s/\($TARGET_KEY *= *\).*/\1$REPLACEMENT_VALUE/" "{{ .CODE_CONFIG }}"
           echo -e "{{.green}} 💾 updated code config with new counter: from [$COUNTER] to [$UPDATED_COUNTER] (saved in {{ .CODE_CONFIG }}){{ .nocolor }}"
           echo -e "{{.dark_gray}} ℹ override filename with 100days of code naming convention{{ .nocolor }}"
-          filename=$directory/{{ .YEAR }}/{{ .YEAR }}-{{ .MONTH }}-{{ .DAY }}-$LANGUAGE-R$ROUND-day-$UPDATED_COUNTER.md
+          filename=./content/posts/{{ .YEAR }}/{{ .YEAR }}-{{ .MONTH }}-{{ .DAY }}-$LANGUAGE-R$ROUND-day-$UPDATED_COUNTER.md
           hugo new $filename --kind $archetype
 
           # Replace the counter in the text file
