@@ -260,9 +260,10 @@ tasks:
       # echo "Need command added for non-darwin system
       # {{end}}
     - |
-      brew reinstall node
+      # brew reinstall node
       npm install -g imageoptim-cli --silent
       npm install -g install netlify-cli --silent
+       {{ if eq OS "darwin" }}scoop install jq jid{{end}}
   webmentions:
       desc: Generate local datafile of webmentions
       cmds:

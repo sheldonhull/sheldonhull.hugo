@@ -181,3 +181,4 @@ go.tar.gz
 
 .venv
 **/*/gists.json
+tmp.json

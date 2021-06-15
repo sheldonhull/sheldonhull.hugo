@@ -1,6 +1,506 @@
 {
   "links": [
     {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1403484016561565698/1403484024853647385",
+      "verified": true,
+      "verified_date": "2021-06-11T23:36:48Z",
+      "id": 1187725,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-39/",
+      "data": {
+        "author": {
+          "name": "Camila Clement Bot",
+          "url": "https://twitter.com/cameliaclement",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/59a4e649e2d86af2f53d6b9c9c1f259b5af6f0a360e48a08d6183489fbc8fc3c.jpg"
+        },
+        "url": "https://twitter.com/cameliaclement/status/1403484024853647385",
+        "name": "",
+        "content": "Go R1 Day 39 sheldonhull.com/go-r1-day-39/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-06-11T22:47:21Z",
+        "published_ts": 1623451641
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Camila Clement Bot retweeted a tweet https://www.sheldonhull.com/go-r1-day-39/",
+        "sentence_html": "<a href=\"https://twitter.com/cameliaclement\">Camila Clement Bot</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-39/\">https://www.sheldonhull.com/go-r1-day-39/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1403484016561565698/1403484038661218304",
+      "verified": true,
+      "verified_date": "2021-06-11T23:36:47Z",
+      "id": 1187724,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-39/",
+      "data": {
+        "author": {
+          "name": "The Developer Bot",
+          "url": "https://twitter.com/TheDeveloperBot",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/6b9fb9e6c61bfc2e2bf7b938a6720320c16528b25776a2c6ef87915f460fafc6.jpg"
+        },
+        "url": "https://twitter.com/TheDeveloperBot/status/1403484038661218304",
+        "name": "",
+        "content": "Go R1 Day 39 sheldonhull.com/go-r1-day-39/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-06-11T22:47:24Z",
+        "published_ts": 1623451644
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "The Developer Bot retweeted a tweet https://www.sheldonhull.com/go-r1-day-39/",
+        "sentence_html": "<a href=\"https://twitter.com/TheDeveloperBot\">The Developer Bot</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-39/\">https://www.sheldonhull.com/go-r1-day-39/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1403484016561565698/1403484118034309122",
+      "verified": true,
+      "verified_date": "2021-06-11T23:36:47Z",
+      "id": 1187723,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-39/",
+      "data": {
+        "author": {
+          "name": "code.bot",
+          "url": "https://twitter.com/codebot12",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/ed174fccba675a60f73a797db68136a91fde8e443bf5540392b37bce0b059a8d.jpg"
+        },
+        "url": "https://twitter.com/codebot12/status/1403484118034309122",
+        "name": "",
+        "content": "Go R1 Day 39 sheldonhull.com/go-r1-day-39/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-06-11T22:47:43Z",
+        "published_ts": 1623451663
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "code.bot retweeted a tweet https://www.sheldonhull.com/go-r1-day-39/",
+        "sentence_html": "<a href=\"https://twitter.com/codebot12\">code.bot</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-39/\">https://www.sheldonhull.com/go-r1-day-39/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1403484016561565698/1403484189413019649",
+      "verified": true,
+      "verified_date": "2021-06-11T23:36:46Z",
+      "id": 1187722,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-39/",
+      "data": {
+        "author": {
+          "name": "BOT Kitty 🐈",
+          "url": "https://twitter.com/BotRaj1",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/c8eee3dc41360a1b018a60af1bb3effd2935d6f2c7a80e7ac1f1e25c13fc94b0.jpg"
+        },
+        "url": "https://twitter.com/BotRaj1/status/1403484189413019649",
+        "name": "",
+        "content": "Go R1 Day 39 sheldonhull.com/go-r1-day-39/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-06-11T22:48:00Z",
+        "published_ts": 1623451680
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "BOT Kitty 🐈 retweeted a tweet https://www.sheldonhull.com/go-r1-day-39/",
+        "sentence_html": "<a href=\"https://twitter.com/BotRaj1\">BOT Kitty 🐈</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-39/\">https://www.sheldonhull.com/go-r1-day-39/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1403484016561565698/1360395597229019143",
+      "verified": true,
+      "verified_date": "2021-06-11T23:36:46Z",
+      "id": 1187721,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-39/",
+      "data": {
+        "author": {
+          "name": "Challenged.Dev",
+          "url": "https://twitter.com/Challenged_Dev",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/15c6d15809b28d3fdaac8d538339b34f00f296b1f785824342f15a01b8dcfd10.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1403484016561565698#favorited-by-1360395597229019143",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Challenged.Dev favorited a tweet https://www.sheldonhull.com/go-r1-day-39/",
+        "sentence_html": "<a href=\"https://twitter.com/Challenged_Dev\">Challenged.Dev</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-39/\">https://www.sheldonhull.com/go-r1-day-39/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1403484016561565698/1264221109140029447",
+      "verified": true,
+      "verified_date": "2021-06-11T23:36:45Z",
+      "id": 1187720,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-39/",
+      "data": {
+        "author": {
+          "name": "code.bot",
+          "url": "https://twitter.com/codebot12",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/ed174fccba675a60f73a797db68136a91fde8e443bf5540392b37bce0b059a8d.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1403484016561565698#favorited-by-1264221109140029447",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "code.bot favorited a tweet https://www.sheldonhull.com/go-r1-day-39/",
+        "sentence_html": "<a href=\"https://twitter.com/codebot12\">code.bot</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-39/\">https://www.sheldonhull.com/go-r1-day-39/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1403484366135873540/852510109",
+      "verified": true,
+      "verified_date": "2021-06-11T23:36:45Z",
+      "id": 1187719,
+      "private": false,
+      "target": "https://www.sheldonhull.com/gitpod-user-feedback/",
+      "data": {
+        "author": {
+          "name": "🌍Dhanushka madushan",
+          "url": "https://twitter.com/DhanushkaDEV",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/931c983839ce2006cd9f72da682945905c406c92e78d84af403fb8385d57e79f.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1403484366135873540#favorited-by-852510109",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "🌍Dhanushka madushan favorited a tweet https://www.sheldonhull.com/gitpod-user-feedback/",
+        "sentence_html": "<a href=\"https://twitter.com/DhanushkaDEV\">🌍Dhanushka madushan</a> favorited a tweet <a href=\"https://www.sheldonhull.com/gitpod-user-feedback/\">https://www.sheldonhull.com/gitpod-user-feedback/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1403094715961118726/1403123774208319494",
+      "verified": true,
+      "verified_date": "2021-06-11T22:36:09Z",
+      "id": 1186580,
+      "private": false,
+      "target": "https://www.sheldonhull.com/log4-brains-improves-adr-experience/",
+      "data": {
+        "author": {
+          "name": "Education World",
+          "url": "https://twitter.com/education_24x7",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/fd547f3d168de69d14ebc2d218bfffa2f2d1e267783fce2796df8d334addf2b7.jpg"
+        },
+        "url": "https://twitter.com/education_24x7/status/1403123774208319494",
+        "name": "",
+        "content": "Log4 Brains Improves ADR Experience sheldonhull.com/log4-brains-im… #tech #development #microblog via @sheldon_hull",
+        "published": "2021-06-10T22:55:51Z",
+        "published_ts": 1623365751
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Education World retweeted a tweet https://www.sheldonhull.com/log4-brains-improves-adr-experience/",
+        "sentence_html": "<a href=\"https://twitter.com/education_24x7\">Education World</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/log4-brains-improves-adr-experience/\">https://www.sheldonhull.com/log4-brains-improves-adr-experience/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1402732383611330567/20866764",
+      "verified": true,
+      "verified_date": "2021-06-09T21:27:54Z",
+      "id": 1185389,
+      "private": false,
+      "target": "https://www.sheldonhull.com/career-advice-from-a-drunk-dev-on-reddit/",
+      "data": {
+        "author": {
+          "name": "Nirmal Thewarathanthri",
+          "url": "https://twitter.com/nirmalmt",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/4d574e02cec5b922f4f155677f5ea680f57bf72ad6aeee40697a31208e7d228f.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1402732383611330567#favorited-by-20866764",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Nirmal Thewarathanthri favorited a tweet https://www.sheldonhull.com/career-advice-from-a-drunk-dev-on-reddit/",
+        "sentence_html": "<a href=\"https://twitter.com/nirmalmt\">Nirmal Thewarathanthri</a> favorited a tweet <a href=\"https://www.sheldonhull.com/career-advice-from-a-drunk-dev-on-reddit/\">https://www.sheldonhull.com/career-advice-from-a-drunk-dev-on-reddit/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1402370000443355142/1402370224007958529",
+      "verified": true,
+      "verified_date": "2021-06-08T21:09:35Z",
+      "id": 1184460,
+      "private": false,
+      "target": "https://www.sheldonhull.com/the-open-guide-to-amazon-web-services/",
+      "data": {
+        "author": {
+          "name": "Jerry Chen",
+          "url": "https://twitter.com/mrtallerjerry",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/45dca1341f2e130d27d6418fadb023e674f1db7ee26aae8fa802cf23b4d7d0af.png"
+        },
+        "url": "https://twitter.com/mrtallerjerry/status/1402370224007958529",
+        "name": "",
+        "content": "The Open Guide to Amazon Web Services sheldonhull.com/the-open-guide… #tech #development #microblog #aws #devops",
+        "published": "2021-06-08T21:01:30Z",
+        "published_ts": 1623186090
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Jerry Chen retweeted a tweet https://www.sheldonhull.com/the-open-guide-to-amazon-web-services/",
+        "sentence_html": "<a href=\"https://twitter.com/mrtallerjerry\">Jerry Chen</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/the-open-guide-to-amazon-web-services/\">https://www.sheldonhull.com/the-open-guide-to-amazon-web-services/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1402048403346006021/586457444",
+      "verified": true,
+      "verified_date": "2021-06-08T11:41:26Z",
+      "id": 1183884,
+      "private": false,
+      "target": "https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/",
+      "data": {
+        "author": {
+          "name": "Graham Beer 💻 🚀",
+          "url": "https://twitter.com/GKBeer",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/8b94487cd10c11eaaa3c7b08fab7d288f2055b742ffadaabea097d290e06a636.png"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1402048403346006021#favorited-by-586457444",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Graham Beer 💻 🚀 favorited a tweet https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/",
+        "sentence_html": "<a href=\"https://twitter.com/GKBeer\">Graham Beer 💻 🚀</a> favorited a tweet <a href=\"https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/\">https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/comment/twitter/sheldon_hull/1402048403346006021/1402071005548486657",
+      "verified": true,
+      "verified_date": "2021-06-08T01:22:58Z",
+      "id": 1183322,
+      "private": false,
+      "target": "https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/",
+      "data": {
+        "author": {
+          "name": "Irwin Strachan",
+          "url": "https://twitter.com/IrwinStrachan",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/3e854b1e8f9ceec95c7dc241a85f15903ba75660aa7b0d7362441b9fef11bbeb.jpg"
+        },
+        "url": "https://twitter.com/IrwinStrachan/status/1402071005548486657",
+        "name": "",
+        "content": "Yes please! I’ve been looking into Go as well… Always good to have another perspective… 🙃\n<a class=\"u-mention\" href=\"https://twitter.com/sheldon_hull\"></a>\n<a class=\"u-mention\" href=\"https://www.sheldonhull.com/\"></a>",
+        "published": "2021-06-08T01:12:31Z",
+        "published_ts": 1623114751
+      },
+      "activity": {
+        "type": "reply",
+        "sentence": "Irwin Strachan replied 'Yes please! I’ve been looking into Go as well… Always good to have another persp...' to a tweet https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/",
+        "sentence_html": "<a href=\"https://twitter.com/IrwinStrachan\">Irwin Strachan</a> replied 'Yes please! I’ve been looking into Go as well… Always good to have another persp...' to a tweet <a href=\"https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/\">https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1402048403346006021/2925113842",
+      "verified": true,
+      "verified_date": "2021-06-08T01:22:57Z",
+      "id": 1183321,
+      "private": false,
+      "target": "https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/",
+      "data": {
+        "author": {
+          "name": "Irwin Strachan",
+          "url": "https://twitter.com/IrwinStrachan",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/3e854b1e8f9ceec95c7dc241a85f15903ba75660aa7b0d7362441b9fef11bbeb.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1402048403346006021#favorited-by-2925113842",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Irwin Strachan favorited a tweet https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/",
+        "sentence_html": "<a href=\"https://twitter.com/IrwinStrachan\">Irwin Strachan</a> favorited a tweet <a href=\"https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/\">https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1402007573260390404/1132581580403138560",
+      "verified": true,
+      "verified_date": "2021-06-07T21:47:03Z",
+      "id": 1182985,
+      "private": false,
+      "target": "https://www.sheldonhull.com/value-local-art/",
+      "data": {
+        "author": {
+          "name": "Chacanity",
+          "url": "https://twitter.com/mochi_genesis",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/d53ef3ce63155e4630a7e30b3163e67e8f928c72e239d3da2c8f11a87174b36a.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1402007573260390404#favorited-by-1132581580403138560",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Chacanity favorited a tweet https://www.sheldonhull.com/value-local-art/",
+        "sentence_html": "<a href=\"https://twitter.com/mochi_genesis\">Chacanity</a> favorited a tweet <a href=\"https://www.sheldonhull.com/value-local-art/\">https://www.sheldonhull.com/value-local-art/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1394819145028493312/1967601206",
+      "verified": true,
+      "verified_date": "2021-06-04T02:46:56Z",
+      "id": 1179682,
+      "private": false,
+      "target": "https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/",
+      "data": {
+        "author": {
+          "name": "InfluxData",
+          "url": "https://twitter.com/InfluxDB",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/f9ad6153f618321438bc470bfc7cfd17b2b800d850784cc632aa5025b92ae493.png"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1394819145028493312#favorited-by-1967601206",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "InfluxData favorited a tweet https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/",
+        "sentence_html": "<a href=\"https://twitter.com/InfluxDB\">InfluxData</a> favorited a tweet <a href=\"https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/\">https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/post/twitter/sheldon_hull/1356282926229581827",
+      "verified": true,
+      "verified_date": "2021-06-04T02:45:25Z",
+      "id": 1179681,
+      "private": false,
+      "target": "https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/",
+      "data": {
+        "author": {
+          "name": "InfluxData",
+          "url": "https://twitter.com/InfluxDB",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/f9ad6153f618321438bc470bfc7cfd17b2b800d850784cc632aa5025b92ae493.png"
+        },
+        "url": "https://twitter.com/InfluxDB/status/1356282926229581827",
+        "name": "",
+        "content": "Here's your quick start to using <a href=\"https://twitter.com/search?q=%23InfluxDB\">#InfluxDB</a> on <a href=\"https://twitter.com/search?q=%23Macos\">#Macos</a> from community member <a href=\"https://twitter.com/sheldon_hull\">@sheldon_hull</a> <a href=\"https://bit.ly/3r13rHI\">bit.ly/3r13rHI</a> <a href=\"https://twitter.com/search?q=%23OpenSource\">#OpenSource</a>\n<a class=\"u-mention\" href=\"https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/\"></a>",
+        "published": "2021-02-01T16:47:02Z",
+        "published_ts": 1612198022
+      },
+      "activity": {
+        "type": "link",
+        "sentence": "InfluxData posted 'Here's your quick start to using #InfluxDB on #Macos from community member @shel...' linking to https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/",
+        "sentence_html": "<a href=\"https://twitter.com/InfluxDB\">InfluxData</a> posted 'Here's your quick start to using #InfluxDB on #Macos from community member @shel...' linking to <a href=\"https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/\">https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1322344492729569283/1967601206",
+      "verified": true,
+      "verified_date": "2021-06-04T02:44:57Z",
+      "id": 1179680,
+      "private": false,
+      "target": "https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/",
+      "data": {
+        "author": {
+          "name": "InfluxData",
+          "url": "https://twitter.com/InfluxDB",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/f9ad6153f618321438bc470bfc7cfd17b2b800d850784cc632aa5025b92ae493.png"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1322344492729569283#favorited-by-1967601206",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "InfluxData favorited a tweet https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/",
+        "sentence_html": "<a href=\"https://twitter.com/InfluxDB\">InfluxData</a> favorited a tweet <a href=\"https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/\">https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1397546049481453568/3411301",
+      "verified": true,
+      "verified_date": "2021-05-31T04:37:36Z",
+      "id": 1174614,
+      "private": false,
+      "target": "https://www.sheldonhull.com/dedupe-google-drive-with-rclone/",
+      "data": {
+        "author": {
+          "name": "Burhan Khalid",
+          "url": "https://twitter.com/burhan",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/01c25827f1d72a100d0a4f23574ddf7d41ff7818461295c088d3dd32be98aeae.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1397546049481453568#favorited-by-3411301",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Burhan Khalid favorited a tweet https://www.sheldonhull.com/dedupe-google-drive-with-rclone/",
+        "sentence_html": "<a href=\"https://twitter.com/burhan\">Burhan Khalid</a> favorited a tweet <a href=\"https://www.sheldonhull.com/dedupe-google-drive-with-rclone/\">https://www.sheldonhull.com/dedupe-google-drive-with-rclone/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1397546049481453568/1399204355711160322",
+      "verified": true,
+      "verified_date": "2021-05-31T03:51:08Z",
+      "id": 1174602,
+      "private": false,
+      "target": "https://www.sheldonhull.com/dedupe-google-drive-with-rclone/",
+      "data": {
+        "author": {
+          "name": "Awesome Go Repositories",
+          "url": "https://twitter.com/GolangRepos",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/1f50e9a8dcfccc319e531ebbfd464f9fc6732ca7f19757b4eaa4850767aa4959.jpg"
+        },
+        "url": "https://twitter.com/GolangRepos/status/1399204355711160322",
+        "name": "",
+        "content": "I did a write-up in the past on this as I found it so useful sheldonhull.com/blog/dedupe-go…\n\nGreat tool to have!",
+        "published": "2021-05-31T03:21:29Z",
+        "published_ts": 1622431289
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Awesome Go Repositories retweeted a tweet https://www.sheldonhull.com/dedupe-google-drive-with-rclone/",
+        "sentence_html": "<a href=\"https://twitter.com/GolangRepos\">Awesome Go Repositories</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/dedupe-google-drive-with-rclone/\">https://www.sheldonhull.com/dedupe-google-drive-with-rclone/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1398749691702095873/1398750624188149765",
+      "verified": true,
+      "verified_date": "2021-05-29T21:42:30Z",
+      "id": 1174037,
+      "private": false,
+      "target": "https://www.sheldonhull.com/the-dark-side/",
+      "data": {
+        "author": {
+          "name": "Techie Wiz",
+          "url": "https://twitter.com/techie_wiz",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/45dda74e5ac4422fb471acd067b7f704bb747f9d2db6b0e84345aecd6b8f999f.jpg"
+        },
+        "url": "https://twitter.com/techie_wiz/status/1398750624188149765",
+        "name": "",
+        "content": "The Dark Side sheldonhull.com/the-dark-side/ #tech #development #microblog #humor via @sheldon_hull",
+        "published": "2021-05-29T21:18:30Z",
+        "published_ts": 1622323110
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Techie Wiz retweeted a tweet https://www.sheldonhull.com/the-dark-side/",
+        "sentence_html": "<a href=\"https://twitter.com/techie_wiz\">Techie Wiz</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/the-dark-side/\">https://www.sheldonhull.com/the-dark-side/</a>"
+      }
+    },
+    {
       "source": "https://brid.gy/like/twitter/sheldon_hull/1397546049481453568/1092837452820238336",
       "verified": true,
       "verified_date": "2021-05-26T22:16:01Z",
@@ -2473,306 +2973,6 @@
         "type": "like",
         "sentence": "Nirmal Thewarathanthri favorited a tweet https://www.sheldonhull.com/blog/diagrams-as-code/",
         "sentence_html": "<a href=\"https://twitter.com/nirmalmt\">Nirmal Thewarathanthri</a> favorited a tweet <a href=\"https://www.sheldonhull.com/blog/diagrams-as-code/\">https://www.sheldonhull.com/blog/diagrams-as-code/</a>"
-      }
-    },
-    {
-      "source": "https://brid.gy/like/twitter/sheldon_hull/1397546049481453568/3411301",
-      "verified": true,
-      "verified_date": "2021-05-31T04:37:36Z",
-      "id": 1174614,
-      "private": false,
-      "target": "https://www.sheldonhull.com/dedupe-google-drive-with-rclone/",
-      "data": {
-        "author": {
-          "name": "Burhan Khalid",
-          "url": "https://twitter.com/burhan",
-          "photo": "https://webmention.io/avatar/pbs.twimg.com/01c25827f1d72a100d0a4f23574ddf7d41ff7818461295c088d3dd32be98aeae.jpg"
-        },
-        "url": "https://twitter.com/sheldon_hull/status/1397546049481453568#favorited-by-3411301",
-        "name": "",
-        "content": "",
-        "published": "0001-01-01T00:00:00Z",
-        "published_ts": 0
-      },
-      "activity": {
-        "type": "like",
-        "sentence": "Burhan Khalid favorited a tweet https://www.sheldonhull.com/dedupe-google-drive-with-rclone/",
-        "sentence_html": "<a href=\"https://twitter.com/burhan\">Burhan Khalid</a> favorited a tweet <a href=\"https://www.sheldonhull.com/dedupe-google-drive-with-rclone/\">https://www.sheldonhull.com/dedupe-google-drive-with-rclone/</a>"
-      }
-    },
-    {
-      "source": "https://brid.gy/repost/twitter/sheldon_hull/1397546049481453568/1399204355711160322",
-      "verified": true,
-      "verified_date": "2021-05-31T03:51:08Z",
-      "id": 1174602,
-      "private": false,
-      "target": "https://www.sheldonhull.com/dedupe-google-drive-with-rclone/",
-      "data": {
-        "author": {
-          "name": "Awesome Go Repositories",
-          "url": "https://twitter.com/GolangRepos",
-          "photo": "https://webmention.io/avatar/pbs.twimg.com/1f50e9a8dcfccc319e531ebbfd464f9fc6732ca7f19757b4eaa4850767aa4959.jpg"
-        },
-        "url": "https://twitter.com/GolangRepos/status/1399204355711160322",
-        "name": "",
-        "content": "I did a write-up in the past on this as I found it so useful sheldonhull.com/blog/dedupe-go…\n\nGreat tool to have!",
-        "published": "2021-05-31T03:21:29Z",
-        "published_ts": 1622431289
-      },
-      "activity": {
-        "type": "repost",
-        "sentence": "Awesome Go Repositories retweeted a tweet https://www.sheldonhull.com/dedupe-google-drive-with-rclone/",
-        "sentence_html": "<a href=\"https://twitter.com/GolangRepos\">Awesome Go Repositories</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/dedupe-google-drive-with-rclone/\">https://www.sheldonhull.com/dedupe-google-drive-with-rclone/</a>"
-      }
-    },
-    {
-      "source": "https://brid.gy/repost/twitter/sheldon_hull/1398749691702095873/1398750624188149765",
-      "verified": true,
-      "verified_date": "2021-05-29T21:42:30Z",
-      "id": 1174037,
-      "private": false,
-      "target": "https://www.sheldonhull.com/the-dark-side/",
-      "data": {
-        "author": {
-          "name": "Techie Wiz",
-          "url": "https://twitter.com/techie_wiz",
-          "photo": "https://webmention.io/avatar/pbs.twimg.com/45dda74e5ac4422fb471acd067b7f704bb747f9d2db6b0e84345aecd6b8f999f.jpg"
-        },
-        "url": "https://twitter.com/techie_wiz/status/1398750624188149765",
-        "name": "",
-        "content": "The Dark Side sheldonhull.com/the-dark-side/ #tech #development #microblog #humor via @sheldon_hull",
-        "published": "2021-05-29T21:18:30Z",
-        "published_ts": 1622323110
-      },
-      "activity": {
-        "type": "repost",
-        "sentence": "Techie Wiz retweeted a tweet https://www.sheldonhull.com/the-dark-side/",
-        "sentence_html": "<a href=\"https://twitter.com/techie_wiz\">Techie Wiz</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/the-dark-side/\">https://www.sheldonhull.com/the-dark-side/</a>"
-      }
-    },
-    {
-      "source": "https://brid.gy/like/twitter/sheldon_hull/1394819145028493312/1967601206",
-      "verified": true,
-      "verified_date": "2021-06-04T02:46:56Z",
-      "id": 1179682,
-      "private": false,
-      "target": "https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/",
-      "data": {
-        "author": {
-          "name": "InfluxData",
-          "url": "https://twitter.com/InfluxDB",
-          "photo": "https://webmention.io/avatar/pbs.twimg.com/f9ad6153f618321438bc470bfc7cfd17b2b800d850784cc632aa5025b92ae493.png"
-        },
-        "url": "https://twitter.com/sheldon_hull/status/1394819145028493312#favorited-by-1967601206",
-        "name": "",
-        "content": "",
-        "published": "0001-01-01T00:00:00Z",
-        "published_ts": 0
-      },
-      "activity": {
-        "type": "like",
-        "sentence": "InfluxData favorited a tweet https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/",
-        "sentence_html": "<a href=\"https://twitter.com/InfluxDB\">InfluxData</a> favorited a tweet <a href=\"https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/\">https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/</a>"
-      }
-    },
-    {
-      "source": "https://brid.gy/post/twitter/sheldon_hull/1356282926229581827",
-      "verified": true,
-      "verified_date": "2021-06-04T02:45:25Z",
-      "id": 1179681,
-      "private": false,
-      "target": "https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/",
-      "data": {
-        "author": {
-          "name": "InfluxData",
-          "url": "https://twitter.com/InfluxDB",
-          "photo": "https://webmention.io/avatar/pbs.twimg.com/f9ad6153f618321438bc470bfc7cfd17b2b800d850784cc632aa5025b92ae493.png"
-        },
-        "url": "https://twitter.com/InfluxDB/status/1356282926229581827",
-        "name": "",
-        "content": "Here's your quick start to using <a href=\"https://twitter.com/search?q=%23InfluxDB\">#InfluxDB</a> on <a href=\"https://twitter.com/search?q=%23Macos\">#Macos</a> from community member <a href=\"https://twitter.com/sheldon_hull\">@sheldon_hull</a> <a href=\"https://bit.ly/3r13rHI\">bit.ly/3r13rHI</a> <a href=\"https://twitter.com/search?q=%23OpenSource\">#OpenSource</a>\n<a class=\"u-mention\" href=\"https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/\"></a>",
-        "published": "2021-02-01T16:47:02Z",
-        "published_ts": 1612198022
-      },
-      "activity": {
-        "type": "link",
-        "sentence": "InfluxData posted 'Here's your quick start to using #InfluxDB on #Macos from community member @shel...' linking to https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/",
-        "sentence_html": "<a href=\"https://twitter.com/InfluxDB\">InfluxData</a> posted 'Here's your quick start to using #InfluxDB on #Macos from community member @shel...' linking to <a href=\"https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/\">https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/</a>"
-      }
-    },
-    {
-      "source": "https://brid.gy/like/twitter/sheldon_hull/1322344492729569283/1967601206",
-      "verified": true,
-      "verified_date": "2021-06-04T02:44:57Z",
-      "id": 1179680,
-      "private": false,
-      "target": "https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/",
-      "data": {
-        "author": {
-          "name": "InfluxData",
-          "url": "https://twitter.com/InfluxDB",
-          "photo": "https://webmention.io/avatar/pbs.twimg.com/f9ad6153f618321438bc470bfc7cfd17b2b800d850784cc632aa5025b92ae493.png"
-        },
-        "url": "https://twitter.com/sheldon_hull/status/1322344492729569283#favorited-by-1967601206",
-        "name": "",
-        "content": "",
-        "published": "0001-01-01T00:00:00Z",
-        "published_ts": 0
-      },
-      "activity": {
-        "type": "like",
-        "sentence": "InfluxData favorited a tweet https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/",
-        "sentence_html": "<a href=\"https://twitter.com/InfluxDB\">InfluxData</a> favorited a tweet <a href=\"https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/\">https://www.sheldonhull.com/quick-start-to-using-influxdb-on-macos/</a>"
-      }
-    },
-    {
-      "source": "https://brid.gy/like/twitter/sheldon_hull/1402732383611330567/20866764",
-      "verified": true,
-      "verified_date": "2021-06-09T21:27:54Z",
-      "id": 1185389,
-      "private": false,
-      "target": "https://www.sheldonhull.com/career-advice-from-a-drunk-dev-on-reddit/",
-      "data": {
-        "author": {
-          "name": "Nirmal Thewarathanthri",
-          "url": "https://twitter.com/nirmalmt",
-          "photo": "https://webmention.io/avatar/pbs.twimg.com/4d574e02cec5b922f4f155677f5ea680f57bf72ad6aeee40697a31208e7d228f.jpg"
-        },
-        "url": "https://twitter.com/sheldon_hull/status/1402732383611330567#favorited-by-20866764",
-        "name": "",
-        "content": "",
-        "published": "0001-01-01T00:00:00Z",
-        "published_ts": 0
-      },
-      "activity": {
-        "type": "like",
-        "sentence": "Nirmal Thewarathanthri favorited a tweet https://www.sheldonhull.com/career-advice-from-a-drunk-dev-on-reddit/",
-        "sentence_html": "<a href=\"https://twitter.com/nirmalmt\">Nirmal Thewarathanthri</a> favorited a tweet <a href=\"https://www.sheldonhull.com/career-advice-from-a-drunk-dev-on-reddit/\">https://www.sheldonhull.com/career-advice-from-a-drunk-dev-on-reddit/</a>"
-      }
-    },
-    {
-      "source": "https://brid.gy/repost/twitter/sheldon_hull/1402370000443355142/1402370224007958529",
-      "verified": true,
-      "verified_date": "2021-06-08T21:09:35Z",
-      "id": 1184460,
-      "private": false,
-      "target": "https://www.sheldonhull.com/the-open-guide-to-amazon-web-services/",
-      "data": {
-        "author": {
-          "name": "Jerry Chen",
-          "url": "https://twitter.com/mrtallerjerry",
-          "photo": "https://webmention.io/avatar/pbs.twimg.com/45dca1341f2e130d27d6418fadb023e674f1db7ee26aae8fa802cf23b4d7d0af.png"
-        },
-        "url": "https://twitter.com/mrtallerjerry/status/1402370224007958529",
-        "name": "",
-        "content": "The Open Guide to Amazon Web Services sheldonhull.com/the-open-guide… #tech #development #microblog #aws #devops",
-        "published": "2021-06-08T21:01:30Z",
-        "published_ts": 1623186090
-      },
-      "activity": {
-        "type": "repost",
-        "sentence": "Jerry Chen retweeted a tweet https://www.sheldonhull.com/the-open-guide-to-amazon-web-services/",
-        "sentence_html": "<a href=\"https://twitter.com/mrtallerjerry\">Jerry Chen</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/the-open-guide-to-amazon-web-services/\">https://www.sheldonhull.com/the-open-guide-to-amazon-web-services/</a>"
-      }
-    },
-    {
-      "source": "https://brid.gy/like/twitter/sheldon_hull/1402048403346006021/586457444",
-      "verified": true,
-      "verified_date": "2021-06-08T11:41:26Z",
-      "id": 1183884,
-      "private": false,
-      "target": "https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/",
-      "data": {
-        "author": {
-          "name": "Graham Beer 💻 🚀",
-          "url": "https://twitter.com/GKBeer",
-          "photo": "https://webmention.io/avatar/pbs.twimg.com/8b94487cd10c11eaaa3c7b08fab7d288f2055b742ffadaabea097d290e06a636.png"
-        },
-        "url": "https://twitter.com/sheldon_hull/status/1402048403346006021#favorited-by-586457444",
-        "name": "",
-        "content": "",
-        "published": "0001-01-01T00:00:00Z",
-        "published_ts": 0
-      },
-      "activity": {
-        "type": "like",
-        "sentence": "Graham Beer 💻 🚀 favorited a tweet https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/",
-        "sentence_html": "<a href=\"https://twitter.com/GKBeer\">Graham Beer 💻 🚀</a> favorited a tweet <a href=\"https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/\">https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/</a>"
-      }
-    },
-    {
-      "source": "https://brid.gy/comment/twitter/sheldon_hull/1402048403346006021/1402071005548486657",
-      "verified": true,
-      "verified_date": "2021-06-08T01:22:58Z",
-      "id": 1183322,
-      "private": false,
-      "target": "https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/",
-      "data": {
-        "author": {
-          "name": "Irwin Strachan",
-          "url": "https://twitter.com/IrwinStrachan",
-          "photo": "https://webmention.io/avatar/pbs.twimg.com/3e854b1e8f9ceec95c7dc241a85f15903ba75660aa7b0d7362441b9fef11bbeb.jpg"
-        },
-        "url": "https://twitter.com/IrwinStrachan/status/1402071005548486657",
-        "name": "",
-        "content": "Yes please! I’ve been looking into Go as well… Always good to have another perspective… 🙃\n<a class=\"u-mention\" href=\"https://twitter.com/sheldon_hull\"></a>\n<a class=\"u-mention\" href=\"https://www.sheldonhull.com/\"></a>",
-        "published": "2021-06-08T01:12:31Z",
-        "published_ts": 1623114751
-      },
-      "activity": {
-        "type": "reply",
-        "sentence": "Irwin Strachan replied 'Yes please! I’ve been looking into Go as well… Always good to have another persp...' to a tweet https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/",
-        "sentence_html": "<a href=\"https://twitter.com/IrwinStrachan\">Irwin Strachan</a> replied 'Yes please! I’ve been looking into Go as well… Always good to have another persp...' to a tweet <a href=\"https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/\">https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/</a>"
-      }
-    },
-    {
-      "source": "https://brid.gy/like/twitter/sheldon_hull/1402048403346006021/2925113842",
-      "verified": true,
-      "verified_date": "2021-06-08T01:22:57Z",
-      "id": 1183321,
-      "private": false,
-      "target": "https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/",
-      "data": {
-        "author": {
-          "name": "Irwin Strachan",
-          "url": "https://twitter.com/IrwinStrachan",
-          "photo": "https://webmention.io/avatar/pbs.twimg.com/3e854b1e8f9ceec95c7dc241a85f15903ba75660aa7b0d7362441b9fef11bbeb.jpg"
-        },
-        "url": "https://twitter.com/sheldon_hull/status/1402048403346006021#favorited-by-2925113842",
-        "name": "",
-        "content": "",
-        "published": "0001-01-01T00:00:00Z",
-        "published_ts": 0
-      },
-      "activity": {
-        "type": "like",
-        "sentence": "Irwin Strachan favorited a tweet https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/",
-        "sentence_html": "<a href=\"https://twitter.com/IrwinStrachan\">Irwin Strachan</a> favorited a tweet <a href=\"https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/\">https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/</a>"
-      }
-    },
-    {
-      "source": "https://brid.gy/like/twitter/sheldon_hull/1402007573260390404/1132581580403138560",
-      "verified": true,
-      "verified_date": "2021-06-07T21:47:03Z",
-      "id": 1182985,
-      "private": false,
-      "target": "https://www.sheldonhull.com/value-local-art/",
-      "data": {
-        "author": {
-          "name": "Chacanity",
-          "url": "https://twitter.com/mochi_genesis",
-          "photo": "https://webmention.io/avatar/pbs.twimg.com/d53ef3ce63155e4630a7e30b3163e67e8f928c72e239d3da2c8f11a87174b36a.jpg"
-        },
-        "url": "https://twitter.com/sheldon_hull/status/1402007573260390404#favorited-by-1132581580403138560",
-        "name": "",
-        "content": "",
-        "published": "0001-01-01T00:00:00Z",
-        "published_ts": 0
-      },
-      "activity": {
-        "type": "like",
-        "sentence": "Chacanity favorited a tweet https://www.sheldonhull.com/value-local-art/",
-        "sentence_html": "<a href=\"https://twitter.com/mochi_genesis\">Chacanity</a> favorited a tweet <a href=\"https://www.sheldonhull.com/value-local-art/\">https://www.sheldonhull.com/value-local-art/</a>"
       }
     }
   ]
