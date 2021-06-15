@@ -34,7 +34,8 @@
         "layout",
         "archetypes",
         "rss",
-        "creative"
+        "creative",
+        "100DaysOfCode"
     ],
     "conventionalCommits.emojiFormat": "emoji",
     "[yaml]": {
