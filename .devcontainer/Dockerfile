@@ -36,9 +36,9 @@ COPY --from=DOCKERBREW /home/linuxbrew/.linuxbrew /home/linuxbrew/.linuxbrew
 #RUN   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 USER root
-RUN sudo apt update && sudo apt-get -qqy install build-essential curl file git \
+RUN apt update && apt-get -qqy install build-essential curl file git gcc \
     && rm -rf /var/lib/apt/lists/*
-
+#  sudo apt update && sudo apt-get -qqy install build-essential curl file git gcc
 ENV PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
 # for troubleshooting:
 # $ENV:PATH = "/home/linuxbrew/.linuxbrew/bin:$($ENV:PATH)"
@@ -49,12 +49,14 @@ RUN brew update
 #RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc
 #RUN brew postinstall gcc
 RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install golang
-# RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install brew install gcc@5
+RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc@5
 RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install hugo
 RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install git-town
-RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install go-task/tap/go-task
+#RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install go-task/tap/go-task
+
 RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install node
 RUN mkdir $HOME/.git-template
+RUN echo "installing go-task via go" && go install github.com/go-task/task/v3/cmd/task@latest
 #RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install --cask powershell
 
 
