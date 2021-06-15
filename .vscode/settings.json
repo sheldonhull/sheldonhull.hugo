@@ -62,11 +62,17 @@
     "git.ignoreSubmodules": true,
     "scm.repositories.visible": 1,
     "files.exclude": {
-        "**/.git": false,
-        "**/.svn": false,
-        "**/.hg": false,
-        "**/CVS": false,
-        "**/.DS_Store": false
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        ".prettierrc": true,
+        ".github-inactive": true,
+        ".forestry": true,
+        ".foam": true,
+        ".linky-note.yml": true,
+        ".run": true
     },
     "explorerExclude.backup": null
 }
