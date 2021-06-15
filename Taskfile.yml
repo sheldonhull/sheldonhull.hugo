@@ -207,16 +207,20 @@ tasks:
         if [[ $archetype == "code" ]];
         then
           source {{ .CODE_CONFIG }}
-          echo -e "{{.light_gray}}=== ℹ {{ .reversed }} 100 Days Of Code Config from: [{{ .CODE_CONFIG}}] {{ .nocolor }} === "
+          echo -e "{{.light_gray}}=== ℹ {{ .reversed }} 100 Days Of Code Config from: [{{ .CODE_CONFIG}}] {{ .nocolor }} ==="
           echo -e "{{.light_gray}}LANGUAGE                {{.nocolor}}: {{ .orange}} $LANGUAGE {{ .nocolor }}"
           echo -e "{{.light_gray}}ROUND                   {{.nocolor}}: {{ .orange}} $ROUND {{ .nocolor }}"
           echo -e "{{.light_gray}}COUNTER                 {{.nocolor}}: {{ .orange}} $COUNTER {{ .nocolor }}"
+
           UPDATED_COUNTER=$(($COUNTER+1))
           TARGET_KEY=COUNTER
           REPLACEMENT_VALUE=$UPDATED_COUNTER
-          sed -i '' "s/\($TARGET_KEY *= *\).*/\1$REPLACEMENT_VALUE/" "{{ .CODE_CONFIG }}"
+
+          sed -i '' "s/\($TARGET_KEY *= *\).*/\1$REPLACEMENT_VALUE/g" "{{ .CODE_CONFIG }}"
+
           echo -e "{{.green}} 💾 updated code config with new counter: from [$COUNTER] to [$UPDATED_COUNTER] (saved in {{ .CODE_CONFIG }}){{ .nocolor }}"
           echo -e "{{.dark_gray}} ℹ override filename with 100days of code naming convention{{ .nocolor }}"
+
           filename=./content/posts/{{ .YEAR }}/{{ .YEAR }}-{{ .MONTH }}-{{ .DAY }}-$LANGUAGE-R$ROUND-day-$UPDATED_COUNTER.md
           hugo new $filename --kind $archetype
 
