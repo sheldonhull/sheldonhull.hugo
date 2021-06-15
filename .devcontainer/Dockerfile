@@ -49,11 +49,11 @@ RUN brew update
 #RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc
 #RUN brew postinstall gcc
 RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install golang
-RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install brew install gcc@5
+# RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install brew install gcc@5
 RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install hugo
 RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install git-town
 RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install go-task/tap/go-task
-RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install npm
+RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install node
 RUN mkdir $HOME/.git-template
 #RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install --cask powershell
 
