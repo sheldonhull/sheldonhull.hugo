@@ -1,6 +1,7 @@
+---
 DirectoryPath: blog
 IgnoreURLs:
   - //localhost
   - localhost:1313
-CacheExpires: "6h"
+CacheExpires: 6h
 IgnoreAltMissing: true

@@ -108,7 +108,7 @@ git fetch origin
 git branch -u origin/main main
 ```
 
-You can configure this as a VSCode snippet for quick access by including this: 
+You can configure this as a VSCode snippet for quick access by including this:
 
 ```json
     ,"rename-master-to-main": {

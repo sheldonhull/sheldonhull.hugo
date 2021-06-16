@@ -264,4 +264,3 @@ You can use output with `--output text` but for this example I used json and `jq
 aws ec2 describe-instances --filters "Name=tag:Name,Values={{ .EC2_NAME_FILTER }}" --output json \
 --query 'Reservations[*].Instances[*].{Instance:InstanceId}' | jq --compact-output '.[][].Instance'
 ```
-

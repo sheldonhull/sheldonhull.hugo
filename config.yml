@@ -1,4 +1,5 @@
-baseURL: 'https://www.sheldonhull.com'
+---
+baseURL: https://www.sheldonhull.com
 defaultContentLanguage: en
 # theme: ["hugo-debugprint","codeit"]
 # themesDir: ../..
@@ -60,7 +61,7 @@ languages:
           pre: <i class='fab fa-github fa-fw'></i>
           post: ''
           name: ''
-          url: 'https://github.com/sheldonhull/'
+          url: https://github.com/sheldonhull/
           title: GitHub
           weight: 7
     params:
@@ -94,7 +95,7 @@ languages:
           enable: true
           gravatarEmail: ''
           avatarURL: /images/sheldonhull_gopher_avatar.png
-          title: 'Sheldon Hull'
+          title: Sheldon Hull
           subtitle: ''
           typeit: true
           social: true
@@ -173,7 +174,7 @@ languages:
 params:
   debug: false
   mainSections:
-      - posts
+    - posts
   version: 0.2.X
   defaultTheme: dark
   gitRepo: https://github.com/sheldonhull/sheldonhull.hugo
@@ -238,8 +239,8 @@ params:
       mhchem: true
     mapbox:
       accessToken: ''
-      lightStyle: 'mapbox://styles/mapbox/light-v10?optimize=true'
-      darkStyle: 'mapbox://styles/mapbox/dark-v10?optimize=true'
+      lightStyle: mapbox://styles/mapbox/light-v10?optimize=true
+      darkStyle: mapbox://styles/mapbox/dark-v10?optimize=true
       navigation: true
       geolocate: true
       scale: true
@@ -318,8 +319,8 @@ params:
         enable: false
       utterances:
         enable: true
-        repo: 'sheldonhull/sheldonhull.hugo'
-        issueTerm: 'title'
+        repo: sheldonhull/sheldonhull.hugo
+        issueTerm: title
         label: ':speech_balloon: blog comment'
         lightTheme: github-light
         darkTheme: github-dark
@@ -449,7 +450,7 @@ taxonomies:
   series: series
 
 RSSSection:
-- posts
+  - posts
 
 module:
   imports:

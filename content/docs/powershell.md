@@ -23,9 +23,9 @@ Cheers! 👍
 
 ## Requirements
 
-* Going forward most examples will focus on Powershell (>= v7), the modern successor to Windows PowerShell & PowerShell Core. Install this easily through chocolatey. Just install chocolatey, and then run `choco upgrade powershell powershell-core -y --source chocolatey` and you should have both 5.1 and core ready to go if your Windows version supports it. If you are on Windows 7 as a developer, there is no :taco: for you, just get upgraded already. Linux has it's own set of directions.
-* Anything manipulating system might need admin, so run as admin in prompt.
-* `Install-Module PSFramework` // I use this module for better logging and overall improvements in my quality of life. It's high quality, used by big projects like DbaTools and developed by a Powershell MVP with lots of testing. Forget regular `Write-Verbose` commands and just use the `Write-PSFMessage -Level Verbose -Message 'TacoBear'` instead.
+- Going forward most examples will focus on Powershell (>= v7), the modern successor to Windows PowerShell & PowerShell Core. Install this easily through chocolatey. Just install chocolatey, and then run `choco upgrade powershell powershell-core -y --source chocolatey` and you should have both 5.1 and core ready to go if your Windows version supports it. If you are on Windows 7 as a developer, there is no :taco: for you, just get upgraded already. Linux has it's own set of directions.
+- Anything manipulating system might need admin, so run as admin in prompt.
+- `Install-Module PSFramework` // I use this module for better logging and overall improvements in my quality of life. It's high quality, used by big projects like DbaTools and developed by a Powershell MVP with lots of testing. Forget regular `Write-Verbose` commands and just use the `Write-PSFMessage -Level Verbose -Message 'TacoBear'` instead.
 
 ### PSFramework
 
@@ -33,11 +33,11 @@ I use [PSFramework](http://bit.ly/2LHNpkE) on all my instances, as it's fantasti
 
 A few key elements it can help with are:
 
-* Improving Configuration and variable handling without complex scope issues
-* Improving overall logging and troubleshooting
-* Improving object manipulation
-* Runspace usability enhancements
-* Scripted properties
+- Improving Configuration and variable handling without complex scope issues
+- Improving overall logging and troubleshooting
+- Improving object manipulation
+- Runspace usability enhancements
+- Scripted properties
 
 ## Development (Optional)
 
@@ -311,7 +311,6 @@ $Items | ForEach-Object { $_.Name.ToString().ToLower() }
 - Pipelines can be chained passing input as the pipeline progresses.
 - Break, continue, return behave differently as you are using a function, not a language operator.
 
-
 - Magic operator.
 - Seriously, I've seen it called that.
 - It's only in version >= 4 [Magic Operators](https://bit.ly/3l1i3Vn).
@@ -416,6 +415,7 @@ You can copy that string into your remote session to get the access tokens recog
 > NOTE: To sync a full "directory" in s3, you need to leave the asteriks at the end of the key as demonstrated.
 
 ### Windows
+
 #### Install S5Cmd For Windows
 
 ```powershell
@@ -449,6 +449,7 @@ Read-Host 'Enter to continue if this makes sense, or cancel (ctrl+c)'
 
 &$s5cmd cp "s3://$bucketname/$KeyPrefix" $Directory
 ```
+
 ## AWS Tools
 
 ### Install AWS.Tools
@@ -544,7 +545,6 @@ Restart-Service AmazonSSMAgent
 
 Many changes occurred after version 5.
 This provides a few examples on how to leverage Pester for data driven tests with this new format.
-
 
 ### BeforeAll And BeforeDiscovery
 

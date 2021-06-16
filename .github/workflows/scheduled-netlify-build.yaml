@@ -1,10 +1,11 @@
+---
 # .github/workflows/main.yaml
 name: Trigger Netlify Build
 on:
   schedule:
     # https://crontab.guru/#0_7_*_*_1,3,5
     # At 07:00 on Monday, Wednesday, and Friday.
-    - cron: '0 7 * * 1,3,5'
+    - cron: 0 7 * * 1,3,5
 jobs:
   build:
     name: Request Netlify Webhook
