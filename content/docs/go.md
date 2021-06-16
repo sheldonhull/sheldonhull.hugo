@@ -100,7 +100,6 @@ go test -coverprofile ./artifacts/cover.out
 go tool cover -html=./artifacts/cover.out -o ./artifacts/coverage.html
 ```
 
-
 ## Repos
 
 <div class="github-card" data-github="sheldonhull/algorithmswithgo.com" data-width="400" data-height="" data-theme="default"></div>
