@@ -38,7 +38,7 @@ docker build --pull --rm -f ".devcontainer/Dockerfile" -t codespace:latest ".dev
 
 ## Installation Scripts
 
-`gh repo clone microsoft/vscode-dev-containers` and then copy the `script-library` directory to `${ProjectDirectory}/.devcontainer/script-library` 
+`gh repo clone microsoft/vscode-dev-containers` and then copy the `script-library` directory to `${ProjectDirectory}/.devcontainer/script-library`
 
 ## Best Practice
 
@@ -49,8 +49,6 @@ docker build --pull --rm -f ".devcontainer/Dockerfile" -t codespace:latest ".dev
 - Use cleanup commands on any layer to reduce it's cached size by running the clean and rm command at the end of the layer.
 
 - Use `--no-install-recommends` to reduce installation size when running `apt-get`
-
-
 
 ```dockerfile
 RUN apt-get -yyq update && apt-get -yyq install tree --no-install-recommends  \
@@ -137,15 +135,11 @@ ENV PATH="/usr/local/python${PYTHON_VERSION}:${PATH}"
 RUN echo "🎉 python-debian installed with version: [$(python3 --version)]"
 ```
 
-
-
 ```dockerfile
 RUN apt-get -yyq update && apt-get -qyy install python3-venv python3-pip --no-install-recommends \
     && apt-get -yyq clean \
     && rm -rf /var/lib/apt/lists/*
 ```
-
-
 
 ## Pre-Commit Tooling
 
@@ -177,8 +171,6 @@ tasks:
     - docker build --pull --rm --no-cache -f ".devcontainer/Dockerfile" -t {{ .CONTAINERNAME }}:latest ".devcontainer"
 ```
 
-
-
 ## Full Dockerfile Examples
 
 ### Codespaces - Ubuntu General Development Build
@@ -186,8 +178,6 @@ tasks:
 This is a general purpose dev container for dev tooling such python3, Go, PowerShell, pre-commit, and other useful tools.
 
 It is designed to be used for any of these projects with some useful tooling like Brew, bit (git enhanced cli), git town and others.
-
-
 
 Tweaks to the `devcontainer.json`  support mounting aws local credentials into the container, using volumes for high IO package/artifact directories, and improve drive performance by marking the container as the primary and the host directory mounted version to be ok to lag a bit.
 
@@ -204,7 +194,7 @@ Tweaks to the `devcontainer.json`  support mounting aws local credentials into t
     "uname -a",
     "pre-commit install"
   ],
-	// Set *default* container specific settings.json values on container create.
+ // Set *default* container specific settings.json values on container create.
   "settings": {
     "terminal.integrated.profiles.linux": {
       "bash": {
@@ -227,8 +217,6 @@ Tweaks to the `devcontainer.json`  support mounting aws local credentials into t
     }
   },
 ```
-
-
 
 ```dockerfile
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.163.1/containers/ubuntu/.devcontainer/base.Dockerfile
@@ -424,11 +412,41 @@ Configure pwsh profile
 RUN pwsh -nologo -c 'New-Item -Path ($Profile | Split-Path -Parent) -ItemType Directory'
 ```
 
-
-
-
-
 ## Useful Docker Tools & Execution Snippets
+
+### Markdown Lint
+
+Use the docker image of markdownlint to quickly fix basic formatting issues that can cause occasional issues with various markdown renderers.
+
+```
+docker run -i --rm -v ${PWD}:/work tmknom/markdownlint --fix --config .markdownlint.yaml /work/
+```
+
+Use a config like this to tweak the rules to your desired settings
+
+```yaml
+# name this file .markdownlint.yaml in your root directory or put in settings directory and pass --config in the setup.
+
+comment: my-markdown-linting-rules
+default: true
+# MD003:
+#   style:
+MD007:
+  indent: 4
+no-hard-tabs: true
+whitespace: true
+no-bare-urls: true
+fenced-code-language: true
+no-inline-html: false
+MD004:
+  style: dash
+MD025:
+MD041: false
+MD013: false
+MD046: false
+  #style: consistent
+
+```
 
 ### Gitversion
 
@@ -456,7 +474,7 @@ steps:
   env:
     VERSION: $(GitVersion.FullSemVer)
 - pwsh: |
- 	Write-Host "This is your new $ENV:VERSION"
+  Write-Host "This is your new $ENV:VERSION"
   displayName: PublishingSomethingElse
   env:
     VERSION: $(GitVersion.FullSemVer)
