@@ -21,8 +21,6 @@ tags:
 
 [Install Pre-commit](https://pre-commit.com/#install)
 
-
-
 ## Common Config Setup
 
 ````yaml
@@ -39,8 +37,6 @@ env:
   AWS_REGION: us-east-1
   DOCKER_BUILDKIT: 1
 ````
-
-
 
 ## Common Variable Setup
 
@@ -149,4 +145,3 @@ tasks:
         {{end}}
 
 ```
-
