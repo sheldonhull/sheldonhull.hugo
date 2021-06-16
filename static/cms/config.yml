@@ -1,3 +1,4 @@
+---
 #reference
 #dateformat uses moment.js
 #TAGS ANCHOR:
@@ -32,7 +33,7 @@ editor:
   preview: false
 publish_mode: editorial_workflow
 slug:
-  encoding: 'ascii'
+  encoding: ascii
   clean_accents: true
   sanitize_replacement: '-'
 collections:
@@ -111,14 +112,14 @@ collections:
     extension: md
     create: true # Allow users to create new documents in this collection
     slug: '{{slug}}'
-    sortableFields: ['commit_date', 'title', 'commit_author', 'date']
+    sortableFields: [commit_date, title, commit_author, date]
     #summary: '{{title}}'
     preview_path: blog/{{slug}}
     view_filters:
-      - label: 'Posts published in 2020'
+      - label: Posts published in 2020
         field: date
         pattern: '2020'
-      - label: 'Posts published in 2019'
+      - label: Posts published in 2019
         field: date
         pattern: '2019'
       - label: Drafts
@@ -157,30 +158,30 @@ collections:
       - label: Tags
         name: tags
         widget: list
-        default: ['tech', 'development']
+        default: [tech, development]
         multiple: true
         required: true
         allow_add: true
         options:
-          - 'til'
-          - 'development'
-          - 'go'
-          - '100DaysOfCode'
-          - 'sql-server'
-          - 'tech'
-          - 'ramblings'
-          - 'powershell'
-          - 'cool-tools'
-          - 'performance-tuning'
-          - 'deep-dive'
-          - 'aws'
-          - 'devops'
-          - 'photography'
-          - 'music'
-          - 'follower-of-Jesus'
-          - 'worship'
-          - 'videography'
-          - 'azure'
+          - til
+          - development
+          - go
+          - 100DaysOfCode
+          - sql-server
+          - tech
+          - ramblings
+          - powershell
+          - cool-tools
+          - performance-tuning
+          - deep-dive
+          - aws
+          - devops
+          - photography
+          - music
+          - follower-of-Jesus
+          - worship
+          - videography
+          - azure
   - name: docs # Used in routes, ie.: /admin/collections/:slug/edit
     label: docs # Used in the UI, ie.: "New Post"
     folder: content/docs # The path to the folder where the documents are stored
@@ -218,7 +219,7 @@ collections:
         name: body
         widget: markdown
         required: true
-        modes: ['raw','rich_text']
+        modes: [raw, rich_text]
       # Additional string fields to set manually in YAML
       - label: toc
         name: toc
@@ -235,28 +236,28 @@ collections:
       - label: Tags
         name: tags
         widget: list
-        default: ['tech', 'development']
+        default: [tech, development]
         multiple: true
         required: true
         allow_add: true
         options:
-          - 'til'
-          - 'development'
-          - 'sql-server'
-          - 'tech'
-          - 'ramblings'
-          - 'powershell'
-          - 'cool-tools'
-          - 'performance-tuning'
-          - 'deep-dive'
-          - 'aws'
-          - 'devops'
-          - 'photography'
-          - 'music'
-          - 'follower-of-Jesus'
-          - 'worship'
-          - 'videography'
-          - 'azure'
+          - til
+          - development
+          - sql-server
+          - tech
+          - ramblings
+          - powershell
+          - cool-tools
+          - performance-tuning
+          - deep-dive
+          - aws
+          - devops
+          - photography
+          - music
+          - follower-of-Jesus
+          - worship
+          - videography
+          - azure
 
   - name: 100DaysOfCode # Used in routes, ie.: /admin/collections/:slug/edit
     label: 100DaysOfCode # Used in the UI, ie.: "New Post"
@@ -266,22 +267,13 @@ collections:
     extension: md
     create: true # Allow users to create new documents in this collection
     slug: '{{area}}-r{{round}}-day-{{day_counter}}'
-    sortableFields:
-      [
-        'commit_date',
-        'title',
-        'commit_author',
-        'date',
-        'area',
-        'round',
-        'day_counter',
-      ]
+    sortableFields: [commit_date, title, commit_author, date, area, round, day_counter]
     summary: '{{area}}-r{{round}}-d{{day_counter}}'
     identifier_field: title
     view_filters:
-      - label: '100DaysOfCode'
+      - label: 100DaysOfCode
         field: tags
-        pattern: '100DaysOfCode'
+        pattern: 100DaysOfCode
     fields: # The fields each document in this collection have
       # MAIN AUTHORING AREA
       # MomentJS Token Reference: https://momentjscom.readthedocs.io/en/latest/moment/01-parsing/03-string-format/
@@ -289,7 +281,7 @@ collections:
         name: title
         widget: string
         required: true
-        default: 'go-R1-D001'
+        default: go-R1-D001
       - label: Publish Date
         name: date
         widget: datetime
@@ -309,7 +301,7 @@ collections:
       - label: area
         name: area
         widget: string
-        default: 'go'
+        default: go
         required: true
       - label: round
         name: round
@@ -331,7 +323,7 @@ collections:
         widget: markdown
         minimal: true
         required: true
-        modes: ['raw','rich_text']
+        modes: [raw, rich_text]
         default: |
           ## Day {{day}} of 100
 
@@ -349,30 +341,29 @@ collections:
       - label: Tags
         name: tags
         widget: list
-        default:
-          ['microblog', 'tech', 'development', '100DaysOfCode', 'golang']
+        default: [microblog, tech, development, 100DaysOfCode, golang]
         multiple: true
         required: true
         allow_add: true
         options:
-          - 'til'
-          - 'development'
-          - 'sql-server'
-          - 'tech'
-          - 'ramblings'
-          - 'powershell'
-          - 'cool-tools'
-          - 'performance-tuning'
-          - 'deep-dive'
-          - 'aws'
-          - 'devops'
-          - 'photography'
-          - 'music'
-          - 'follower-of-Jesus'
-          - 'worship'
-          - 'videography'
-          - 'azure'
-          - 'go'
+          - til
+          - development
+          - sql-server
+          - tech
+          - ramblings
+          - powershell
+          - cool-tools
+          - performance-tuning
+          - deep-dive
+          - aws
+          - devops
+          - photography
+          - music
+          - follower-of-Jesus
+          - worship
+          - videography
+          - azure
+          - go
     # - label: "Post Author"
     #   name: "author"
     #   widget: "relation"

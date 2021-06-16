@@ -1,3 +1,4 @@
+---
 # demo https://github.com/go-task/examples/blob/master/go-web-app/Taskfile.yml
 
 version: '3'
@@ -14,7 +15,7 @@ env:
   # AWS_REGION:  # Override for local developement work
 vars:
   DATA_DIR: ./data
-  WEBMENTION_FILE: 'webmentions.json'
+  WEBMENTION_FILE: webmentions.json
   GIT_COMMIT:
     sh: git log -n 1 --format=%h
   TODAY: '{{now | date "2006-01-02"}}' # https://golang.org/src/time/format.go
@@ -102,9 +103,9 @@ tasks:
       - public/algolia.json
     env:
       HUGO_ENABLEGITINFO: 'true'
-      HUGO_BASEURL: 'https://www.sheldonhull.com/'
+      HUGO_BASEURL: https://www.sheldonhull.com/
       HUGO_MINIFY: 'true'
-      HUGO_DESTINATION: 'public'
+      HUGO_DESTINATION: public
       #ALGOLIA_ADMIN_KEY: SET IN LOCAL ENVIRONMENT ONLY
       # DEPLOY_PRIME_URL:
       #-b $DEPLOY_PRIME_URL
@@ -175,12 +176,12 @@ tasks:
   100daysofcode_readconfig:
     desc: read the counter values for 100 days of code to simplify creation from archetype
     cmds:
-    - |
-      source {{ .CODE_CONFIG }}
-      echo -e "{{.light_gray}}=== ℹ {{ .reversed }} 100 Days Of Code Config from: [{{ .CODE_CONFIG}}] {{ .nocolor }} === "
-      echo -e "{{.light_gray}}LANGUAGE                {{.nocolor}}: {{ .orange}} $LANGUAGE {{ .nocolor }}"
-      echo -e "{{.light_gray}}ROUND                   {{.nocolor}}: {{ .orange}} $ROUND {{ .nocolor }}"
-      echo -e "{{.light_gray}}COUNTER                 {{.nocolor}}: {{ .orange}} $COUNTER {{ .nocolor }}"
+      - |
+        source {{ .CODE_CONFIG }}
+        echo -e "{{.light_gray}}=== ℹ {{ .reversed }} 100 Days Of Code Config from: [{{ .CODE_CONFIG}}] {{ .nocolor }} === "
+        echo -e "{{.light_gray}}LANGUAGE                {{.nocolor}}: {{ .orange}} $LANGUAGE {{ .nocolor }}"
+        echo -e "{{.light_gray}}ROUND                   {{.nocolor}}: {{ .orange}} $ROUND {{ .nocolor }}"
+        echo -e "{{.light_gray}}COUNTER                 {{.nocolor}}: {{ .orange}} $COUNTER {{ .nocolor }}"
   post:
     desc: Create a new post
     cmds:
@@ -237,47 +238,47 @@ tasks:
   bear:
     desc: Run bhugo to sync posts
     cmds:
-    - |
-      echo -e "{{.light_gray}}=== ℹ {{ .reversed }} Running Bear Hugo {{ .nocolor }} === "
-      go get -u github.com/Zach-Johnson/bhugo
-      bhugo
+      - |
+        echo -e "{{.light_gray}}=== ℹ {{ .reversed }} Running Bear Hugo {{ .nocolor }} === "
+        go get -u github.com/Zach-Johnson/bhugo
+        bhugo
     preconditions:
       - test -f .bhugo
 # TODO: Add task for imageoptim preprocessing on staged files only
   install-tools:
     desc: Install extra build tools that aren't needed as part of a CICD normally
     cmds:
-    - |
-      # HOMEBREW_FORCE_BREWED_CURL=1
-      # {{if eq OS "darwin"}}
-      # brew install node || brew upgrade node
-      # rm -rf /usr/local/lib/node_modules
-      # brew uninstall node
-      # brew install node --without-npm
-      # echo prefix=~/.npm-packages >> ~/.npmrc
-      # curl -L https://www.npmjs.com/install.sh | sh
-      #npm update npm -g
-      #export PATH="$HOME/.npm-packages/bin:$PATH"
+      - |
+        # HOMEBREW_FORCE_BREWED_CURL=1
+        # {{if eq OS "darwin"}}
+        # brew install node || brew upgrade node
+        # rm -rf /usr/local/lib/node_modules
+        # brew uninstall node
+        # brew install node --without-npm
+        # echo prefix=~/.npm-packages >> ~/.npmrc
+        # curl -L https://www.npmjs.com/install.sh | sh
+        #npm update npm -g
+        #export PATH="$HOME/.npm-packages/bin:$PATH"
 
 
-      # {{else}}
-      # echo "Need command added for non-darwin system
-      # {{end}}
-    - |
-      # brew reinstall node
-      npm install -g imageoptim-cli --silent
-      npm install -g install netlify-cli --silent
-       {{ if eq OS "darwin" }}scoop install jq jid{{end}}
+        # {{else}}
+        # echo "Need command added for non-darwin system
+        # {{end}}
+      - |
+        # brew reinstall node
+        npm install -g imageoptim-cli --silent
+        npm install -g install netlify-cli --silent
+         {{ if eq OS "darwin" }}scoop install jq jid{{end}}
   webmentions:
-      desc: Generate local datafile of webmentions
-      cmds:
-        - |
-          go get -v github.com/nekr0z/webmention.io-backup@master
-          mkdir {{ .DATA_DIR }} || echo -e "{{ .dark_gray}}created DATA_DIR: {{ .DATA_DIR }}{{.nocolor}}"
-          pushd {{ .DATA_DIR }}
-          $(go env GOPATH)/bin/webmention.io-backup -f "{{ .WEBMENTION_FILE }}" -t "{{ .WEBMENTION_IO_TOKEN }}"
-          echo -e "{{ .green }} ✅ results persisted to: {{ .WEBMENTION_FILE }}{{ .nocolor }}"
-          jq "." {{ .WEBMENTION_FILE }} > tmp.json
-          cat tmp.json > {{ .WEBMENTION_FILE }}
-          rm tmp.json
-          popd
+    desc: Generate local datafile of webmentions
+    cmds:
+      - |
+        go get -v github.com/nekr0z/webmention.io-backup@master
+        mkdir {{ .DATA_DIR }} || echo -e "{{ .dark_gray}}created DATA_DIR: {{ .DATA_DIR }}{{.nocolor}}"
+        pushd {{ .DATA_DIR }}
+        $(go env GOPATH)/bin/webmention.io-backup -f "{{ .WEBMENTION_FILE }}" -t "{{ .WEBMENTION_IO_TOKEN }}"
+        echo -e "{{ .green }} ✅ results persisted to: {{ .WEBMENTION_FILE }}{{ .nocolor }}"
+        jq "." {{ .WEBMENTION_FILE }} > tmp.json
+        cat tmp.json > {{ .WEBMENTION_FILE }}
+        rm tmp.json
+        popd

@@ -3,32 +3,32 @@ label: microblog
 hide_body: false
 display_field: title
 fields:
-- type: datetime
-  name: date
-  label: date
-  hidden: true
-  config:
-    display_utc: false
-    required: true
-    date_format: YYYY-MM-DD
-    time_format: HH:mm:ssZ
-    export_format: YYYY-MM-DD HH:00:00 Z
-  default: now
-- name: title
-  type: text
-  config:
-    required: true
-  label: title
-- name: slug
-  type: text
-  config:
-    required: false
-  label: slug
-  description: title without the date
-- name: tags
-  type: tag_list
-  default:
-  - tech
-  - microblog
-  - development
-  label: tags
+  - type: datetime
+    name: date
+    label: date
+    hidden: true
+    config:
+      display_utc: false
+      required: true
+      date_format: YYYY-MM-DD
+      time_format: HH:mm:ssZ
+      export_format: YYYY-MM-DD HH:00:00 Z
+    default: now
+  - name: title
+    type: text
+    config:
+      required: true
+    label: title
+  - name: slug
+    type: text
+    config:
+      required: false
+    label: slug
+    description: title without the date
+  - name: tags
+    type: tag_list
+    default:
+      - tech
+      - microblog
+      - development
+    label: tags

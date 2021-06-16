@@ -3,14 +3,12 @@
 ###############################
 [build]
   #command = "git status --porcelain &&  git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo"
-  command = """
+  command = '''
 sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
 ./bin/task init
 ./bin/task webmentions
 ./bin/task build-public
-./bin/task algolia
-
-""" # -b $DEPLOY_PRIME_URL
+./bin/task algolia'''
   publish = "public"
 
 [build.environment]
@@ -24,12 +22,11 @@ sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
 # DEPLOY PREVIEWS
 ###############################
 [context.deploy-preview]
-  command = """
+  command = '''
 sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
 ./bin/task init
 ./bin/task echo-debug
-./bin/task build
-"""
+./bin/task build'''
 publish = "preview"
 
 [context.deploy-preview.environment]
@@ -43,12 +40,11 @@ publish = "preview"
 ###############################
 [context.branch-deploy]
   publish = "branch"
-  command = """
+  command = '''
 sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
 ./bin/task init
 ./bin/task echo-debug
-./bin/task build
-"""
+./bin/task build'''
 [context.branch-deploy.environment]
   HUGO_GOOGLEANALYTICS = "dev"
   HUGO_BASEURL = "/"

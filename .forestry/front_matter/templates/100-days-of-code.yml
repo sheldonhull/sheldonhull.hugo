@@ -3,84 +3,83 @@ label: 100-days-of-code
 hide_body: false
 display_field: title
 fields:
-- name: title
-  type: text
-  config:
+  - name: title
+    type: text
+    config:
+      required: true
+    label: title
+    description: normally formatted as Day 1 of 100
+    default: Go R1 Day x
+  - name: slug
+    type: text
+    config:
+      required: false
+    label: slug
+    default: go-r1-day-x
+    description: 'This is what is used to manage the permalink for the url. Example: <br>title: Go R1 Day 25<br>slug: go-r1-day-25go-r1-day-25'
+  - type: datetime
+    name: date
+    label: date
+    hidden: true
+    default: now
+    config:
+      date_format: YYYY-MM-DD
+      time_format: HH:mm:ssZ
+      export_format: YYYY-MM-DD HH:00:00 Z
+      required: true
+  - name: round
+    type: number
+    label: round
+    default: 1
     required: true
-  label: title
-  description: normally formatted as Day 1 of 100
-  default: Go R1 Day x
-- name: slug
-  type: text
-  config:
-    required: false
-  label: slug
-  default: go-r1-day-x
-  description: 'This is what is used to manage the permalink for the url. Example:
-    <br>title: Go R1 Day 25<br>slug: go-r1-day-25go-r1-day-25'
-- type: datetime
-  name: date
-  label: date
-  hidden: true
-  default: now
-  config:
-    date_format: YYYY-MM-DD
-    time_format: HH:mm:ssZ
-    export_format: YYYY-MM-DD HH:00:00 Z
+    config:
+      min: 1
+      max: 199
+      step: 1
+      required: false
+    description: The round for 100-days-of-code
+  - name: day_counter
+    type: number
+    label: day_counter
+    description: The 100-days-of-code counter
+    default: 0
     required: true
-- name: round
-  type: number
-  label: round
-  default: 1
-  required: true
-  config:
-    min: 1
-    max: 199
-    step: 1
-    required: false
-  description: The round for 100-days-of-code
-- name: day_counter
-  type: number
-  label: day_counter
-  description: The 100-days-of-code counter
-  default: 0
-  required: true
-  config:
-    min: 1
-    max: 100
-    step: 1
-    required: true
-- name: area
-  type: select
-  default: go
-  config:
-    required: true
-    options:
-    - go
-    source:
-      type: simple
-      section: microblog
-      file: content/microblog/2020-05-19t17-27-31-00-00.md
-      path: tags
-  label: area
-  description: The area the 100 day challenge is focused on
-- name: featuredimg
-  type: file
-  config:
-    maxSize: 64
-  label: featuredImg
-- type: list
-  name: tags
-  label: tags
-  config:
-    use_select: true
-    source:
-      type: simple
-      section: microblog
-      file: content/microblog/2019-04-17-2153.md
-    options:
-    - tech
-    - development
-    - 100DaysOfCode
-    - golang
-    - microblog
+    config:
+      min: 1
+      max: 100
+      step: 1
+      required: true
+  - name: area
+    type: select
+    default: go
+    config:
+      required: true
+      options:
+        - go
+      source:
+        type: simple
+        section: microblog
+        file: content/microblog/2020-05-19t17-27-31-00-00.md
+        path: tags
+    label: area
+    description: The area the 100 day challenge is focused on
+  - name: featuredimg
+    type: file
+    config:
+      maxSize: 64
+    label: featuredImg
+  - type: list
+    name: tags
+    label: tags
+    config:
+      use_select: true
+      source:
+        type: simple
+        section: microblog
+        file: content/microblog/2019-04-17-2153.md
+      options:
+        - tech
+        - development
+        - 100DaysOfCode
+        - golang
+        - microblog
