@@ -66,11 +66,9 @@ Here's how to setup [pre-commit](https://bit.ly/3szdwNf) for Go projects.
     Comment out any duplicates that don't apply.
 1. Finally initialize the pre-commit hooks in your repo by running: `pre-commit install`
 
-
 Validate everything is working by running: `pre-commit run --all-files`
 
 Periodically, you can run `pre-commit autoupdate` to ensure the latest version of the pre-commit hooks are upgraded.
-
 
 ## Logging
 
@@ -84,8 +82,26 @@ Here's a functional demo that can be used to bootstrap a new project with this.
 
 {{< gist sheldonhull  "9e608da09f84fac600d921e3f0867226" >}}
 
+## Code Coverage Report
 
-## Other
+original post: [^go-r1-day-41]
+
+Use gopherbadge[^gopherbadge]
+
+```shell
+go install github.com/jpoles1/gopherbadger@master
+```
+
+- Set `![gopherbadger-tag-do-not-edit]()` in the readme, and then this gets replaced with a code coverage percentage badge.
+- Generate the required code coverage reports using:
+
+```shell
+go test -coverprofile ./artifacts/cover.out
+go tool cover -html=./artifacts/cover.out -o ./artifacts/coverage.html
+```
+
+
+## Repos
 
 <div class="github-card" data-github="sheldonhull/algorithmswithgo.com" data-width="400" data-height="" data-theme="default"></div>
 <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
@@ -95,3 +111,6 @@ Here's a functional demo that can be used to bootstrap a new project with this.
 
 <div class="github-card" data-github="sheldonhull/go-aws-ami-metrics" data-width="400" data-height="" data-theme="default"></div>
 <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+
+[^go-r1-day-41]: [go-r1-day-41](/go-r1-day-41)
+[^gopherbadge]: [GitHub - jpoles1/gopherbadger: Generate coverage badge images using Go!](https://github.com/jpoles1/gopherbadger)
