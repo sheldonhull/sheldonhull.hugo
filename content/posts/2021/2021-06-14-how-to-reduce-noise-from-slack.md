@@ -1,15 +1,17 @@
 ---
-date: 2021-06-144T00:07:00-05:00
-title: How to Use Slack Effectively as a Developer
-slug: how-to-use-slack-effectively-as-a-developer
+date: 2021-06-14T00:07:00-05:00
+title: How To Reduce Noise From Slack
+slug: how-to-reduce-noise-from-slack
 summary:
    Improve your Slack experience with a few tweaks. This can help you get value from Slack, rather than drowning in noise.
 tags:
 - slack
 toc: true
+draft: true
 images: [/images/2021-06-04-12.28.36-Slack.png]
 typora-root-url: ../../../static
 typora-copy-images-to:  ../../../static/images
+lightgallery: true
 ---
 
 ## Noise
