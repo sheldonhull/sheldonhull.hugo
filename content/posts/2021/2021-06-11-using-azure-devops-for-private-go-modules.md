@@ -2,25 +2,21 @@
 date: 2021-06-11T16:35:44-05:00
 title: Using Azure DevOps for Private Go Modules
 slug: using-azure-devops-for-private-go-modules
-summary:
-  How to use Azure DevOps for private Go modules
-tags:
-- azure-devops
-- go
-- devops
+summary: How to use Azure DevOps for private Go modules
+tags: [azure-devops, go, devops]
 toc: true
-# images: [/images/]
 typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
+typora-copy-images-to: ../../../static/images
+modified: 2021-06-18T22:24:51-05:00
 ---
 
 ## TL;DR
 
 This took a few hours of work to iron out, so figured maybe I'd save someone time.
 
-⚡ Just keep it simple and use SSH
+:zap: Just keep it simple and use SSH
 
-⚡ Use `dev.azure.com` even if using older `project.visualstudio.com` to keep things simple.
+:zap: Use `dev.azure.com` even if using older `project.visualstudio.com` to keep things simple.
 
 ## Modules Support
 
@@ -40,9 +36,9 @@ Compare the path.
 
 | Type                   | Path                                                        |
 | ---------------------- | ----------------------------------------------------------- |
-| SSH                    | `go get dev.azure.com/<organization>/<project>/_git/<repo>` |
-| ⚡ What I used with SSH | `go get dev.azure.com/<project>/_git/<repo>`                |
-| HTTPS                  | `go get dev.azure.com/<organization>/<project>/<repo>.git`  |
+| HTTPS                    | `go get dev.azure.com/<organization>/<project>/_git/<repo>` |
+| :zap: What I used with SSH | `go get dev.azure.com/<project>/_git/<repo>`                |
+| SSH                  | `go get dev.azure.com/<organization>/<project>/<repo>.git`  |
 
 ## Git Config
 
@@ -60,7 +56,7 @@ I've never had that need, so I'm ok with my `dev.azure.com` references being res
 | Type                              | Command                                                                                                               | GitConfig                                                                                      |
 | --------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | Support All Azure DevOps (Public) | `git config --global url."git@ssh.dev.azure.com:v3/<organization>/".insteadOf "https://dev.azure.com/<organization>"` | `[url "git@ssh.dev.azure.com:v3"]<br/>	`<br><br>`insteadOf = https://dev.azure.com`            |
-| ⚡ What I Used for  Private Org    | `git config --global url."git@ssh.dev.azure.com:v3/<organization>/".insteadOf "https://dev.azure.com/`                | `[url "git@ssh.dev.azure.com:v3/<organization>/"]`<br><br>`insteadOf = https://dev.azure.com/` |
+| :zap: What I Used for  Private Org    | `git config --global url."git@ssh.dev.azure.com:v3/<organization>/".insteadOf "https://dev.azure.com/`                | `[url "git@ssh.dev.azure.com:v3/<organization>/"]`<br><br>`insteadOf = https://dev.azure.com/` |
 
 {{< admonition type="Info" title="Organization in Dependency Path" open="true">}}
 
