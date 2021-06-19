@@ -216,7 +216,7 @@ tasks:
           UPDATED_COUNTER=$(($COUNTER+1))
           TARGET_KEY=COUNTER
           REPLACEMENT_VALUE=$UPDATED_COUNTER
-
+          echo -e "ℹ{{.dark_gray}} \"s/\($TARGET_KEY *= *\).*/\1$REPLACEMENT_VALUE/g\" \"{{ .CODE_CONFIG }}\"{{ .nocolor }}"
           sed -i '' "s/\($TARGET_KEY *= *\).*/\1$REPLACEMENT_VALUE/g" "{{ .CODE_CONFIG }}"
 
           echo -e "{{.green}} 💾 updated code config with new counter: from [$COUNTER] to [$UPDATED_COUNTER] (saved in {{ .CODE_CONFIG }}){{ .nocolor }}"

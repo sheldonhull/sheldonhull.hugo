@@ -10,7 +10,11 @@
         "esbenp.prettier-vscode",
         "sibiraj-s.vscode-scss-formatter",
         "wmaurer.change-case",
-        "redvanworkshop.explorer-exclude-vscode-extension"
+        "redvanworkshop.explorer-exclude-vscode-extension",
+        "jonrad.docker-diary-vscode",
+        "sandipchitale.docker-dive",
+        "dansnow.vscode-dockerfilelint",
+        "foxundermoon.shell-format"
     ],
     // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
     "unwantedRecommendations": []
