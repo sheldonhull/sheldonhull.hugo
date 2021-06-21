@@ -268,7 +268,11 @@ tasks:
         # brew reinstall node
         npm install -g imageoptim-cli --silent
         npm install -g install netlify-cli --silent
-         {{ if eq OS "darwin" }}scoop install jq jid{{end}}
+        {{ if eq OS "windows" }}scoop install jq jid{{end}}
+        {{ if eq OS "darwin" }}brew install jq jid{{end}}
+      - |
+        GO111MODULE=off go get -u -v github.com/sheldonhull/sharedbrain
+        echo -e "{{ .green }} ✅ sharedbrain installed{{ .nocolor }}"
   webmentions:
     desc: Generate local datafile of webmentions
     cmds:
@@ -282,3 +286,13 @@ tasks:
         cat tmp.json > {{ .WEBMENTION_FILE }}
         rm tmp.json
         popd
+  sharedbrain:
+    desc: use shared brain tool to generate markdown links from wiki links
+    cmds:
+      - |
+        #echo $(go env GOPATH)
+        #go get -u github.com/sheldonhull/sharedbrain@main
+        #export
+        #GO111MODULE=off go install github.com/sheldonhull/sharedbrain #@main
+        # GO111MODULE=off go get -u -v github.com/sheldonhull/sharedbrain
+        sharedbrain -content ./content/posts  -dest ./content/posts

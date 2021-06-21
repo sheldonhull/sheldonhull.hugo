@@ -3,6 +3,7 @@
     "[markdown]": {
         "editor.defaultFormatter": "yzhang.markdown-all-in-one"
     },
+    // "markdownlint.customRules": [".markdownlint.yaml"],
     "grammarly.userWords": [
         "CLI",
         "Localdb",

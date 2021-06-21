@@ -1,5 +1,7 @@
 github.com/Zach-Johnson/bhugo v0.0.0-20200804021317-655276ef6a59 h1:8ueUIiGyijYF15iy/QCyvymbRJykBw0pWDPhs6Ru/Jo=
 github.com/Zach-Johnson/bhugo v0.0.0-20200804021317-655276ef6a59/go.mod h1:tiFHH28q14Uaos3uN5x3ya8WKqQT0xJIacv/kM9RFSE=
+github.com/algolia/algoliasearch-client-go/v3 v3.4.0 h1:eeVU30L5DkKUK2q/EjXw+8o7reoK4QB1mS+BG0Jbd4Y=
+github.com/algolia/algoliasearch-client-go/v3 v3.4.0/go.mod h1:d0/D54BCmkwhLxT5VIQBeYLAz2GbZHFX9OptYyohTr0=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -31,8 +33,6 @@ github.com/mattn/go-sqlite3 v1.10.0/go.mod h1:FPy6KqzDD04eiIsT53CuJW3U88zkxoIYsO
 github.com/mattn/go-sqlite3 v1.14.6/go.mod h1:NyWgC/yNuGj7Q9rpYnZvas74GogHl5/Z4A/KQRfk6bU=
 github.com/mattn/go-sqlite3 v1.14.7 h1:fxWBnXkxfM6sRiuH3bqJ4CfzZojMOLVc0UTsTglEghA=
 github.com/mattn/go-sqlite3 v1.14.7/go.mod h1:NyWgC/yNuGj7Q9rpYnZvas74GogHl5/Z4A/KQRfk6bU=
-github.com/nekr0z/webmention.io-backup v1.0.1 h1:V2gR6i61wd+/26w0HNhTKaHTLECUboHH6aTKiNq29hk=
-github.com/nekr0z/webmention.io-backup v1.0.1/go.mod h1:6TBC15pHS3mzMFvRn2+Z10u2GSJumRwhRfZJB6r0Olc=
 github.com/nekr0z/webmention.io-backup v1.0.2-0.20210609190353-313bb0141b30 h1:vzQJQNWXLPnvUbN+DZ733y5jWqw8Tr+OjC+65VAD+S0=
 github.com/nekr0z/webmention.io-backup v1.0.2-0.20210609190353-313bb0141b30/go.mod h1:6TBC15pHS3mzMFvRn2+Z10u2GSJumRwhRfZJB6r0Olc=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
@@ -46,6 +46,8 @@ github.com/stretchr/objx v0.1.1/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+
 github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
 github.com/stretchr/testify v1.3.0 h1:TivCn/peBQ7UY8ooIcPgZFpTNSz0Q2U6UrFlUfqbe0Q=
 github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
+github.com/stretchr/testify v1.4.0 h1:2E4SXV/wtOkTonXsotYi4li6zVWxYlZuYNCXe9XRJyk=
+github.com/stretchr/testify v1.4.0/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81PSLYec5m4=
 github.com/sunt-programator/CodeIT v0.1.2 h1:eX7mPEMP+fWWIyKAm3gpM0HYxue9d1OSXqLPSekJ1u4=
 github.com/sunt-programator/CodeIT v0.1.2/go.mod h1:2SvxhSLzl0zKv9OynuFqwv7RWwi2ADghwJlcy93EwgM=
 golang.org/x/net v0.0.0-20180724234803-3673e40ba225 h1:kNX+jCowfMYzvlSvJu5pQWEmyWFrBXJ3PBy10xKMXK8=
@@ -58,3 +60,7 @@ golang.org/x/text v0.3.0 h1:g61tztE5qeGQ89tm6NTjjM9VPIm088od1l6aSorWRWg=
 golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
 google.golang.org/appengine v1.5.0 h1:KxkO13IPW4Lslp2bz+KHP2E3gtFlrIGNThxkZQ3g+4c=
 google.golang.org/appengine v1.5.0/go.mod h1:xpcJRLb0r/rnEns0DIKYYv+WjYCduHsrkT7/EB5XEv4=
+gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 h1:yhCVgyC4o1eVCa2tZl7eS0r+SDo693bJlVdllGtEeKM=
+gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
+gopkg.in/yaml.v2 v2.2.2 h1:ZCJp+EgiOT7lHqUV2J862kp8Qj64Jo6az82+3Td9dZw=
+gopkg.in/yaml.v2 v2.2.2/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=
