@@ -1,19 +1,19 @@
 ---
-date: 2021-02-23T22:23:00Z
-title: Git Workflow With Git Town
+date: "2021-02-23T22:23:00Z"
+series:
+- Supercharge Your Git Workflow
 slug: git-workflow-with-git-town
-summary:
-  Improve your git workflow with a few cli tools.
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
+summary: Improve your git workflow with a few cli tools.
 tags:
-  - tech
-  - development
-  - blog
-  - git
-  - devops
+- tech
+- development
+- blog
+- git
+- devops
+title: Git Workflow With Git Town
 toc: true
-series: ["Supercharge Your Git Workflow"]
+typora-copy-images-to: ../../../static/images
+typora-root-url: ../../../static
 ---
 
 ## Resources
@@ -172,3 +172,9 @@ I don't think you need to be an expert in git to use this, as it helps simplify 
 
 You can also do much of this with git aliases, but Git Town has a pretty robust feature-set with a testing framework in place, edge condition handling, and it's fast.
 Consider using it you'd like to improve your git workflow while simplifying all the effort to do it right.
+
+## Backlinks
+
+- [Git Hub Desktop Quick Look](./2021-06-18-git-hub-desktop-quick-look/)
+    - Update from `main` already built in.
+This is fantastic, and I can see how this provides a UI to do something similar to [Git Town](https://www.git-town.com/) which I blogged on earlier here: [2021-02-23-git-workflow-with-git-town](./2021-02-23-git-workflow-with-git-town/)

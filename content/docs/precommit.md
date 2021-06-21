@@ -51,3 +51,4 @@ go install github.com/evilmartians/lefthook@master
 Other installation methods are located at the installation guide [^lefthook-fullguide]
 
 [^lefthook-fullguide]: [lefthook/full_guide.md at master · evilmartians/lefthook · GitHub](https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md#installation)
+

@@ -4,6 +4,7 @@ go 1.15
 
 require (
 	github.com/Zach-Johnson/bhugo v0.0.0-20200804021317-655276ef6a59 // indirect
+	github.com/algolia/algoliasearch-client-go/v3 v3.4.0 // indirect
 	github.com/dnb-hugo/debugprint v1.0.14 // indirect
 	github.com/jmoiron/sqlx v1.3.4 // indirect
 	github.com/kaushalmodi/hugo-debugprint v0.0.0-20201009173613-d875fcafa822 // indirect
