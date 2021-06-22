@@ -244,6 +244,18 @@ chmod go-rwx ~/.ssh
 echo "now set any pem files to chmd 400 \$key to ensure read-only"
 ```
 
+{{< admonition type="Tip" title="Troubleshooting macOS permissions" >}}
+
+I've had issues with macOS adding an `@` with ACL issues on the ssh key's when downloaded.
+
+To resolve this, just copy the contents of the ssh key to a new file and remove the original.
+
+```shell
+cat original_key.pem > key.pem
+```
+
+{{< /admonition >}}
+
 ## AWS CLI & Metadata
 
 ### Retrieve Instance Region
