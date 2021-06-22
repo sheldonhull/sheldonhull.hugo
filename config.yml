@@ -101,7 +101,7 @@ languages:
           social: true
           disclaimer: ''
         posts:
-          enable: true
+          enable: false
           paginate: 6
       social:
         GitHub: sheldonhull
