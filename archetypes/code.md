@@ -20,12 +20,8 @@ typora-copy-images-to:  ../../../static/images
 
 ## progress
 
-- note
-- note
-- note
+-
 
 ## links
 
-- [link](github.com)
-- [link](github.com)
-- [link](github.com)
+-
