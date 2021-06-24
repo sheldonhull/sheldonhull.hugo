@@ -40,6 +40,34 @@ docker build --pull --rm -f ".devcontainer/Dockerfile" -t codespace:latest ".dev
 
 `gh repo clone microsoft/vscode-dev-containers` and then copy the `script-library` directory to `${ProjectDirectory}/.devcontainer/script-library`
 
+## Syntax Tips
+
+### Installing Apps
+
+Use an environment variable to cleanup the dockerfile install commands.
+
+```dockerfile
+# Additonal applications to install
+ENV ADDITIONAL_APPS \
+    curl \
+    g++ \
+    gcc \
+    gettext \
+    git \
+    locales \
+    locales-all \
+    make \
+    nano \
+    openssh-client \
+    rsync
+RUN apt -yqq install ${ADDITIONAL_APPS} --no-install-recommends  \
+    && apt-get -yqq autoremove \
+	&& rm -rf /var/lib/apt/lists/*
+
+```
+
+
+
 ## Best Practice
 
 ### Smaller Layers
