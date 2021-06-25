@@ -121,6 +121,8 @@ tasks:
       # - hugo mod get -u -v
       # - hugo mod tidy
       - npm install --quiet atomic-algolia #--globals
+      - |
+        {{ if eq OS "windows" }}scoop install sed{{end}}
   go:
     desc: Setup go environment
     cmds:
@@ -165,8 +167,10 @@ tasks:
         title=$(echo ${REPLY} \
           | sed 's/\(.\)\([A-Z]\)/\1-\2/g' \
           | sed 's/[[:space:]]*//g' \
-          | tr '[:upper:]' '[:lower:]'
+          | sed -e 's/\(.*\)/\L\1/'
+
         )
+        #tr '[:upper:]' '[:lower:]'
         directory="./content/blog/"
         mkdir -p $directory/{{ .YEAR }} || echo -e "{{.dark_gray}}🔄 skipped creation of directory [$directory] per already exists {{.nocolor}}"
         filename=$directory/{{ .YEAR }}/{{ .YEAR }}-{{ .MONTH }}-{{ .DAY }}-$title.md
@@ -195,8 +199,9 @@ tasks:
         title=$(echo ${REPLY} \
           | sed 's/\(.\)\([A-Z]\)/\1-\2/g' \
           | sed 's/[[:space:]]*//g' \
-          | tr '[:upper:]' '[:lower:]'
+          | sed -e 's/\(.*\)/\L\1/'
         )
+        ##| tr '[:upper:]' '[:lower:]'
         echo -e "{{.green}}Please enter [blog, microblog, code] for archetype{{ .nocolor }}"
         read;
         archetype=$(echo ${REPLY})
@@ -207,7 +212,7 @@ tasks:
         echo -e "{{.dark_gray}}default filename: [$filename]{{ .nocolor }}"
         if [[ $archetype == "code" ]];
         then
-          source {{ .CODE_CONFIG }}
+          # source {{ .CODE_CONFIG }}
           echo -e "{{.light_gray}}=== ℹ {{ .reversed }} 100 Days Of Code Config from: [{{ .CODE_CONFIG}}] {{ .nocolor }} ==="
           echo -e "{{.light_gray}}LANGUAGE                {{.nocolor}}: {{ .orange}} $LANGUAGE {{ .nocolor }}"
           echo -e "{{.light_gray}}ROUND                   {{.nocolor}}: {{ .orange}} $ROUND {{ .nocolor }}"
@@ -216,7 +221,8 @@ tasks:
           UPDATED_COUNTER=$(($COUNTER+1))
           TARGET_KEY=COUNTER
           REPLACEMENT_VALUE=$UPDATED_COUNTER
-          echo -e "ℹ{{.dark_gray}} \"s/\($TARGET_KEY *= *\).*/\1$REPLACEMENT_VALUE/g\" \"{{ .CODE_CONFIG }}\"{{ .nocolor }}"
+          echo -e "ℹ️ {{.dark_gray}} \"s/\($TARGET_KEY *= *\).*/\1$REPLACEMENT_VALUE/g\" \"{{ .CODE_CONFIG }}\"{{ .nocolor }}"
+
           sed -i '' "s/\($TARGET_KEY *= *\).*/\1$REPLACEMENT_VALUE/g" "{{ .CODE_CONFIG }}"
 
           echo -e "{{.green}} 💾 updated code config with new counter: from [$COUNTER] to [$UPDATED_COUNTER] (saved in {{ .CODE_CONFIG }}){{ .nocolor }}"

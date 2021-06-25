@@ -49,7 +49,7 @@ Task hugo-new-100-days-of-code {
         } | Sort-Object -Descending | Measure-Object -Maximum).Maximum
     [int]$NewDayCounter = ++$DayCounter
 
-    $FileName = "microblog/$Year/$Date-go-R1-day-$NewDayCounter.md"
+    $FileName = "posts/$Year/$Date-go-R1-day-$NewDayCounter.md"
     $NewFile = Join-Path $BuildRoot 'content' $FileName
     Write-Build DarkGray "Creating file: $NewFile"
 
@@ -88,7 +88,7 @@ Task hugo-new-microblog {
         $Year = $(Get-Date -Format 'yyyy')
         $Date = $(Get-Date -Format 'yyyy-MM-dd')
     }
-    $FileName = "microblog/$Year/$Date-$Title.md"
+    $FileName = "posts/$Year/$Date-$Title.md"
     $NewFile = Join-Path $BuildRoot 'content' $FileName
     Write-Build DarkGray "Creating file: $NewFile"
     switch -Wildcard ($PSVersionTable.OS)
@@ -123,7 +123,7 @@ Task hugo-new-blog {
         $Year = $(Get-Date -Format 'yyyy')
         $Date = $(Get-Date -Format 'yyyy-MM-dd')
     }
-    $FileName = "blog/$Year/$Date-$Title.md"
+    $FileName = "posts/$Year/$Date-$Title.md"
     $NewFile = Join-Path $BuildRoot 'content' $FileName
     Write-Build DarkGray "Creating file: $NewFile"
     switch -Wildcard ($PSVersionTable.OS)
