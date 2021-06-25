@@ -31,6 +31,7 @@ task hugo-serve-nocache {
 }
 #Synposis: Will need to adjust for Round 2 later. For now, this just generates a new
 Task hugo-new-100-days-of-code {
+    $Round=1
     $Date = Read-Host -Message "Enter date override or enter to continue with $(Get-Date -Format 'yyyy-MM-dd')"
     if (-not $Date)
     {
@@ -42,7 +43,7 @@ Task hugo-new-100-days-of-code {
         $Year = $(Get-Date $Date -Format 'yyyy')
     }
 
-    $files = Get-ChildItem -Path content/microblog -Filter '*day*.md' -Recurse
+    $files = Get-ChildItem -Path (Join-Path $BuildRoot 'content' 'posts') -Filter '*-day-*.md' -Recurse | Where-Object Name -Match ".*R${Round}-day-"
     [int]$DayCounter = ($files.ForEach{
             $Day = ($_.Name -split '-')[-1]
             $day.Trim('.md')
@@ -58,16 +59,16 @@ Task hugo-new-100-days-of-code {
     {
         '*Windows*'
         {
-            &hugo new $FileName --kind 100DaysOfCode
+            &hugo new $FileName --kind code
 
         }
         '*Darwin*'
         {
-            &/usr/local/bin/hugo new $FileName --kind 100DaysOfCode
+            &/usr/local/bin/hugo new $FileName --kind code
         }
         '*Linux*'
         {
-            &$(which hugo) new $FileName --kind 100DaysOfCode
+            &$(which hugo) new $FileName --kind code
         }
     }
     $Content = Get-Content $NewFile -Raw
