@@ -4,5 +4,5 @@ go 1.14
 
 require (
 	github.com/kaushalmodi/hugo-debugprint v0.0.0-20201009173613-d875fcafa822 // indirect
-	github.com/rs/zerolog v1.22.0
+	github.com/rs/zerolog v1.23.0
 )
