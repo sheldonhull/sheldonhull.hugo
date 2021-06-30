@@ -16,7 +16,7 @@
   "devDependencies": {
     "netlify-plugin-webmentions": "1.1.1",
     "prettier": "2.3.2",
-    "prettier-plugin-go-template": "0.0.10"
+   "prettier-plugin-go-template": "0.0.11"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

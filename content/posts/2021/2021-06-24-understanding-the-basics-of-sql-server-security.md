@@ -20,17 +20,20 @@ typora-copy-images-to:  ../../../static/images
 ## Confusing
 
 As I've worked with fxolks using other database engines, I've realized that Microsoft SQL Server has some terminology and handling that is a bit confusing.
+
 Here's my attempt to clarify the basics for myself and others needing a very quick overview.
 
 ## Terminology
 
-Note that it's best to consider SQL Server as it's own micro-operating system. It has it's own mini OS, security model, and other things so it's helpful in understanding why a Server Login != Instance Login.
+Note that it's best to consider SQL Server as it's own micro-operating system. It has it's own mini OS, security model, and other things so it's helpful in understanding why a `Server Login != Instance Login`.
 
 | Term     | Definition                                                   |
 | -------- | ------------------------------------------------------------ |
 | Server   | The operating system                                         |
 | Instance | The SQL Server Instance that can contain 1 or many databases |
 | Database | The database inside the instance. This can be 1 or many.     |
+
+
 
 | Term          | Definition                                                                                                                                                              |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -41,6 +44,11 @@ Note that it's best to consider SQL Server as it's own micro-operating system. I
 | Database Role | A defined role that grants read, write, or other permissions inside the database.                                                                                       |
 |               |                                                                                                                                                                         |
 
+Here's a quick visual I threw together to reinforce the concept.
+Yes, I'm a talented comic artistist and take commissions. 😀
+
+![sql-login-database-architecture](/images/2021-06-25-1658-sql-login-database-architecture-dark.png "Visualize SQL Security 101")
+
 ## Best Practice
 
 When managing user permissions at a database level, it's best to leverage Active Directory (AD) groups.
@@ -50,3 +58,6 @@ Once this is done, you'd create roles and the members of those roles would be th
 ## No Active Directory
 
 However, for those not using this approach, or not using active directory, then SQL Logins and corresponding database users must be created.
+
+## Survey Says
+
