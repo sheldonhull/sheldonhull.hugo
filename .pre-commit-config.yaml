@@ -77,6 +77,6 @@ repos:
         entry: zsh -c docker run --rm -v "${PWD}:/mnt" koalaman/shellcheck:stable --format=json
         language: system
   - repo: https://github.com/tchoedak/pre-commit-sql-format
-    rev: v0.0.1
+    rev: v0.0.3
     hooks:
       - id: format-sql
