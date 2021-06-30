@@ -96,7 +96,7 @@ go install github.com/jpoles1/gopherbadger@master
 - Generate the required code coverage reports using:
 
 ```shell
-go test ./package-with-tests/ -coverprofile ./artifacts/cover.out
+go test ./... -coverprofile ./artifacts/cover.out
 go tool cover -html=./artifacts/cover.out -o ./artifacts/coverage.html
 gopherbadger -md="README.md,coverage.md" -tags 'unit'
 ```
