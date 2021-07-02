@@ -3,7 +3,7 @@ date: 2021-06-28T14:57:32-05:00
 title: Simplify Aws Developer Security With Leapp
 slug: simplify-aws-developer-security-with-leapp
 summary:
-  Foo
+  Leapp... if you work with AWS, this might make your life a lot easier and make the easy path the secure path with AWS credential handling on your local system.
 tags:
 - tech
 - development
