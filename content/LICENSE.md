@@ -1,6 +1,7 @@
 Copyright (c) 2016 Sheldon Hull
 
 ## Blog Infrastructure / Customizations / Etc
+
 ```
 The MIT License (MIT)
 ```
@@ -15,6 +16,7 @@ I've heavily leveraged others work to build this, so no limitations here!
 ```
 Creative Commons Zero
 ```
+
 Do whatever you want with it. It would be really nice if you left my name in a common somewhere with link to the webpage you got it from, but just a courtesy, not required.
 
 ---------------------------------------------------------

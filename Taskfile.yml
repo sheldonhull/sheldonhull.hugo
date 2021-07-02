@@ -279,6 +279,9 @@ tasks:
       - |
         GO111MODULE=off go get -u -v github.com/sheldonhull/sharedbrain
         echo -e "{{ .green }} ✅ sharedbrain installed{{ .nocolor }}"
+      - go install github.com/owenrumney/squealer/cmd/squealer@latest
+      - go install github.com/evilmartians/lefthook@master
+      - lefthook install --aggressive
   webmentions:
     desc: Generate local datafile of webmentions
     cmds:

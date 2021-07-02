@@ -17,8 +17,10 @@ justifyContent: true
 
 {{< terminal "sheldonhull@macbook" "~/ (pwsh)" >}}
 _________________________________
+
 < Welcome! Thanks for stopping by >
  ---------------------------------
+
  \
   \
      __

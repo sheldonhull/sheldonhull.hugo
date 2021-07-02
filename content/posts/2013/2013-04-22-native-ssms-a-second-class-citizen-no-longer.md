@@ -20,7 +20,7 @@ As a developer, I'm constantly looking for ways to improve my coding experience 
 
 However, SSMS Intellisense improvement is by far the most powerful and productive coding tool that developers can look to improve. This tool enables quick hints to job the foggy mind missing that all important cup of espresso in the morning!
 
-## Cut above the competition?
+## Cut above the competition
 
 In my search for coding tools I've reviewed three main contenders in the arena: ApexSQL Complete, Red Gate SQL Prompt, and DbForge SQL Complete. For me, the best tool ended up being DbForge SQL Complete. The product fills in the gap on intellisense improvements. I've installed in SSMS 2012, which is an improved environment and developers can use while still working with SQL Server 2008R2.
 
@@ -34,7 +34,7 @@ Before reviewing the tool, I'd also mention that DBForge offers a user vote/foru
 
 This review is performed on the full version. An express version is also offered to the community as a service. This tool has a portion of the full version's functionality to whet the eager developer's appetite. A free trial is offered on the full version... but beware you won't be able to be satisfied with native SSMS features after this!
 
-## General Options - The Normally Boring Stuff That's Not Quite Boring!
+## General Options - The Normally Boring Stuff That's Not Quite Boring
 
 Improvements to the SSMS Coding environment are shown. A shortcut to refresh the cache of intellisense, formatting options, a command to execute the currently selected statement, outline the structure of the document, snippet management, and feedback. I'll review only the portions that seem to have the greatest impact, as most of it is self explanatory.
 
@@ -51,7 +51,6 @@ The highlight occurrences option is a great feature added by Devart. When a part
 Automatic alias generation is another boon to the developer. SQL Complete is will automatically generate an alias for you upon object selection from intellisense. This also means that column selections later on will be correctly assign the alias, reducing typing.
 select * from company c -- this alias was auto generated when selected
 
-
 ![SQLCompleteOptionsAdvanced_inycqx](/images/SQLCompleteOptionsAdvanced_inycqx.jpg)
 
 ## Seamless Shortcuts provide SSMS Satisfaction
@@ -62,7 +61,6 @@ Dragging the column names from object explorer results in a list of columns deli
 
 SQL Complete fills this gap. Pressing tab allows expansion of columns in a stacked list, with alias's already assigned correctly. The column select appends to the same line, but with the automatic formatting tool, the finished list is easily stacked vertically with the press of the format shortcut. These are simple examples, but I've found to extremely helpful when working with complex queries involving numerous tables. Expanding all the columns available or selecting, with correct alias generation is a major improvement to the SSMS development environment
 
-
 ![SQLCompleteTabToExpand_yylpqd](/images/SQLCompleteTabToExpand_yylpqd.jpg)
 
 ![SQLCompleteTabbedExpanded_xqzeg2](/images/SQLCompleteTabbedExpanded_xqzeg2.jpg)
@@ -71,20 +69,17 @@ SQL Complete fills this gap. Pressing tab allows expansion of columns in a stack
 
 Insert statements are "auto completed" helping provide quick statement generation, this is a lifesaver!
 
-
 ![SCCompleteInsertColumnSelector_jwqie9](/images/SCCompleteInsertColumnSelector_jwqie9.jpg)
 
 ![SCAutoGenerateInsertCompleted_llmscx](/images/SCAutoGenerateInsertCompleted_llmscx.jpg)
 
 Prompts also help developers know the table structure of objects/views, stored procedure parameters, and function usage. Might save some folks MSDN googling just to remind themselves about the correct function usage!
 
-
 ![SCTableInfoPrompt_uzpbwk](/images/SCTableInfoPrompt_uzpbwk.jpg)
 
 ![SCFunctionInfo_kigj4r](/images/SCFunctionInfo_kigj4r.jpg)
 
 Compare this to the native function prompt:
-
 
 ![NativeIntellisenseFunctionPrompt_fpi1hn](/images/NativeIntellisenseFunctionPrompt_fpi1hn.jpg)
 
@@ -93,7 +88,6 @@ Compare this to the native function prompt:
 `<enter mind blown event>` Snippet tools are helpful for saving some typing, but until now they've been typically limited to just pasting in text. The full functioned snippet functionality of Visual Studio with field selection by navigating with tab hasn't existed in SSMS.... till now.
 
 Snippets are brought to us with SQL Complete with an amazing thought to detail. Not only are the snippets brought into our editor window, but are also displayed in intellisense, with"fields" provided to navigate to to "fill in the blanks." Variables for customization are offered and the sky is the limit here!
-
 
 ![W620_qqkamh](/images/SCSnippetManager-W620_qqkamh.jpg)
 
@@ -112,17 +106,13 @@ Formatting SQL code manually can be a pain. There are online tools offered with 
 
 The level of customization is intense. A few screenshots are provided, but I will not go into all the levels of customization, instead I'll provide you with some MSDN code samples that SQL Complete beautified. Running the format can be done on a selection or an entire document. Settings can be saved so a team could easily share a formatting standard. This would prevent each person from having to configure all their settings manually, a major plus in setup for any team!
 
-
 ![SQLCompleteOptionsFormattingGeneral_tqna9q](/images/SQLCompleteOptionsFormattingGeneral_tqna9q.jpg)
-
 
 ![SQLCompleteOptionsProfiles_dt4tge](/images/SQLCompleteOptionsProfiles_dt4tge.jpg)
 
 ## Ugly Duckling SQL turned into the beautified SQL you'd be proud of
 
-
 ![W620_vstmxq](/images/SCFormatExampleCaseAlignment-W620_vstmxq.jpg)
-
 
 ![W620_xjl8xy](/images/SCFormatExampleCommented-W620_xjl8xy.jpg)
 
@@ -148,7 +138,7 @@ After: *line breaks handled with union's
 
 ![SCFormatComplexCTEBefore_g613ip](/images/SCFormatComplexCTEBefore_g613ip.jpg)
 
-**AFTER **
+**AFTER**
 
 ![SCFormatComplexCTEAfter_b1jzrb](/images/SCFormatComplexCTEAfter_b1jzrb.jpg)
 
