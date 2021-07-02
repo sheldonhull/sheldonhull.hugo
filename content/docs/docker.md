@@ -62,11 +62,9 @@ ENV ADDITIONAL_APPS \
     rsync
 RUN apt -yqq install ${ADDITIONAL_APPS} --no-install-recommends  \
     && apt-get -yqq autoremove \
-	&& rm -rf /var/lib/apt/lists/*
+ && rm -rf /var/lib/apt/lists/*
 
 ```
-
-
 
 ## Best Practice
 
