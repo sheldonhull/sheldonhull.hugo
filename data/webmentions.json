@@ -4424,6 +4424,906 @@
         "sentence": "Andrea Cavagna favorited a tweet https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
         "sentence_html": "<a href=\"https://twitter.com/a_cava94\">Andrea Cavagna</a> favorited a tweet <a href=\"https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/\">https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/</a>"
       }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1412154375263375360/1360395597229019143",
+      "verified": true,
+      "verified_date": "2021-07-05T21:49:28Z",
+      "id": 1210439,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-46/",
+      "data": {
+        "author": {
+          "name": "Challenged.Dev",
+          "url": "https://twitter.com/Challenged_Dev",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/15c6d15809b28d3fdaac8d538339b34f00f296b1f785824342f15a01b8dcfd10.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1412154375263375360#favorited-by-1360395597229019143",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Challenged.Dev favorited a tweet https://www.sheldonhull.com/go-r1-day-46/",
+        "sentence_html": "<a href=\"https://twitter.com/Challenged_Dev\">Challenged.Dev</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-46/\">https://www.sheldonhull.com/go-r1-day-46/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1412154375263375360/1412154397119987713",
+      "verified": true,
+      "verified_date": "2021-07-05T21:49:06Z",
+      "id": 1210438,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-46/",
+      "data": {
+        "author": {
+          "name": "BFTawfik Bot 2",
+          "url": "https://twitter.com/2Bftawfik",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/e60a9e46011c1769d3d7d51fa94955c1fbb50a31656169d6023060fffea3fca8.jpg"
+        },
+        "url": "https://twitter.com/2Bftawfik/status/1412154397119987713",
+        "name": "",
+        "content": "Go R1 Day 46 \nbusy day with bubbletea, dockertest, and goyek tools.\nsheldonhull.com/go-r1-day-46/\n#100DaysOfCode #golang",
+        "published": "2021-07-05T21:00:19Z",
+        "published_ts": 1625518819
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "BFTawfik Bot 2 retweeted a tweet https://www.sheldonhull.com/go-r1-day-46/",
+        "sentence_html": "<a href=\"https://twitter.com/2Bftawfik\">BFTawfik Bot 2</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-46/\">https://www.sheldonhull.com/go-r1-day-46/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1412154375263375360/1412154539629846530",
+      "verified": true,
+      "verified_date": "2021-07-05T21:49:05Z",
+      "id": 1210436,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-46/",
+      "data": {
+        "author": {
+          "name": "BOT Kitty 🐈",
+          "url": "https://twitter.com/BotRaj1",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/c8eee3dc41360a1b018a60af1bb3effd2935d6f2c7a80e7ac1f1e25c13fc94b0.jpg"
+        },
+        "url": "https://twitter.com/BotRaj1/status/1412154539629846530",
+        "name": "",
+        "content": "Go R1 Day 46 \nbusy day with bubbletea, dockertest, and goyek tools.\nsheldonhull.com/go-r1-day-46/\n#100DaysOfCode #golang",
+        "published": "2021-07-05T21:00:53Z",
+        "published_ts": 1625518853
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "BOT Kitty 🐈 retweeted a tweet https://www.sheldonhull.com/go-r1-day-46/",
+        "sentence_html": "<a href=\"https://twitter.com/BotRaj1\">BOT Kitty 🐈</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-46/\">https://www.sheldonhull.com/go-r1-day-46/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1412154375263375360/1412154397405159426",
+      "verified": true,
+      "verified_date": "2021-07-05T21:49:05Z",
+      "id": 1210437,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-46/",
+      "data": {
+        "author": {
+          "name": "Very Proud Robot",
+          "url": "https://twitter.com/RobotProud",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/4142cc3e37de881c8155e2a03d962fb5e470e1f6e175b6f88e63abbb24606509.jpg"
+        },
+        "url": "https://twitter.com/RobotProud/status/1412154397405159426",
+        "name": "",
+        "content": "Go R1 Day 46 \nbusy day with bubbletea, dockertest, and goyek tools.\nsheldonhull.com/go-r1-day-46/\n#100DaysOfCode #golang",
+        "published": "2021-07-05T21:00:19Z",
+        "published_ts": 1625518819
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Very Proud Robot retweeted a tweet https://www.sheldonhull.com/go-r1-day-46/",
+        "sentence_html": "<a href=\"https://twitter.com/RobotProud\">Very Proud Robot</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-46/\">https://www.sheldonhull.com/go-r1-day-46/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1412154375263375360/1412154761705574400",
+      "verified": true,
+      "verified_date": "2021-07-05T21:49:04Z",
+      "id": 1210434,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-46/",
+      "data": {
+        "author": {
+          "name": "#100daysOfCode",
+          "url": "https://twitter.com/codedailybot",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/672cd5cabab1cda3fe5da13a9e1147ff26e9a4fae248d6686f30a85930606a44.png"
+        },
+        "url": "https://twitter.com/codedailybot/status/1412154761705574400",
+        "name": "",
+        "content": "Go R1 Day 46 \nbusy day with bubbletea, dockertest, and goyek tools.\nsheldonhull.com/go-r1-day-46/\n#100DaysOfCode #golang",
+        "published": "2021-07-05T21:01:46Z",
+        "published_ts": 1625518906
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "#100daysOfCode retweeted a tweet https://www.sheldonhull.com/go-r1-day-46/",
+        "sentence_html": "<a href=\"https://twitter.com/codedailybot\">#100daysOfCode</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-46/\">https://www.sheldonhull.com/go-r1-day-46/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1412154375263375360/1412154761483280391",
+      "verified": true,
+      "verified_date": "2021-07-05T21:49:04Z",
+      "id": 1210435,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-46/",
+      "data": {
+        "author": {
+          "name": "#100daysOfCode",
+          "url": "https://twitter.com/codedailybot",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/672cd5cabab1cda3fe5da13a9e1147ff26e9a4fae248d6686f30a85930606a44.png"
+        },
+        "url": "https://twitter.com/codedailybot/status/1412154761483280391",
+        "name": "",
+        "content": "Go R1 Day 46 \nbusy day with bubbletea, dockertest, and goyek tools.\nsheldonhull.com/go-r1-day-46/\n#100DaysOfCode #golang",
+        "published": "2021-07-05T21:01:46Z",
+        "published_ts": 1625518906
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "#100daysOfCode retweeted a tweet https://www.sheldonhull.com/go-r1-day-46/",
+        "sentence_html": "<a href=\"https://twitter.com/codedailybot\">#100daysOfCode</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-46/\">https://www.sheldonhull.com/go-r1-day-46/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1412154375263375360/1412155404902027274",
+      "verified": true,
+      "verified_date": "2021-07-05T21:48:56Z",
+      "id": 1210432,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-46/",
+      "data": {
+        "author": {
+          "name": "CodersNotes",
+          "url": "https://twitter.com/CoderNotesBot",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/3cddc36c472604777d0b7cb9ef0f5b21ac4df5bad30cf791f80d6ab1468200ca.jpg"
+        },
+        "url": "https://twitter.com/CoderNotesBot/status/1412155404902027274",
+        "name": "",
+        "content": "Go R1 Day 46 \nbusy day with bubbletea, dockertest, and goyek tools.\nsheldonhull.com/go-r1-day-46/\n#100DaysOfCode #golang",
+        "published": "2021-07-05T21:04:19Z",
+        "published_ts": 1625519059
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "CodersNotes retweeted a tweet https://www.sheldonhull.com/go-r1-day-46/",
+        "sentence_html": "<a href=\"https://twitter.com/CoderNotesBot\">CodersNotes</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-46/\">https://www.sheldonhull.com/go-r1-day-46/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1412154375263375360/1389388994929041414",
+      "verified": true,
+      "verified_date": "2021-07-05T21:48:56Z",
+      "id": 1210433,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-46/",
+      "data": {
+        "author": {
+          "name": "Ticketnote🚀",
+          "url": "https://twitter.com/ticketnote_en",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/1fbec532d9065a26d731f6d26f48692514d054a4b6f5783f2d27a5cb8c5ece44.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1412154375263375360#favorited-by-1389388994929041414",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Ticketnote🚀 favorited a tweet https://www.sheldonhull.com/go-r1-day-46/",
+        "sentence_html": "<a href=\"https://twitter.com/ticketnote_en\">Ticketnote🚀</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-46/\">https://www.sheldonhull.com/go-r1-day-46/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1410808352607776771/606386162",
+      "verified": true,
+      "verified_date": "2021-07-05T07:04:27Z",
+      "id": 1209797,
+      "private": false,
+      "target": "https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+      "data": {
+        "author": {
+          "name": "Andrea Cavagna",
+          "url": "https://twitter.com/a_cava94",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/a8bd97f7736102f82f8938a4ada91bb1ddd79158205a58b2b849869899aa8086.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1410808352607776771#favorited-by-606386162",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Andrea Cavagna favorited a tweet https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+        "sentence_html": "<a href=\"https://twitter.com/a_cava94\">Andrea Cavagna</a> favorited a tweet <a href=\"https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/\">https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/comment/twitter/sheldon_hull/1410754116981334017/1411854530699042817",
+      "verified": true,
+      "verified_date": "2021-07-05T01:16:49Z",
+      "id": 1209561,
+      "private": false,
+      "target": "https://www.sheldonhull.com/diagrams-as-code/",
+      "data": {
+        "author": {
+          "name": "Sheldon Hull",
+          "url": "https://twitter.com/sheldon_hull",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/570e539daf6f476eeaf772c929b2ebb5f87eeaac5a50489f2ecf9f0186baa9c6.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1411854530699042817",
+        "name": "",
+        "content": "Yes! I didn't do a full comparison on diagramming tools. I've used mermaid, plant uml and others. One thing I liked about this was the python structure was very intuitive over the others.\nThe auto routing was phenomenal as well. For a quick chart mermaid/plantuml are great.\n<a class=\"u-mention\" href=\"https://twitter.com/dangoor\"></a>\n<a class=\"u-mention\" href=\"https://twitter.com/simonbrown\"></a>",
+        "published": "2021-07-05T01:08:45Z",
+        "published_ts": 1625447325
+      },
+      "activity": {
+        "type": "reply",
+        "sentence": "Sheldon Hull replied 'Yes! I didn't do a full comparison on diagramming tools. I've used mermaid, plan...' to a tweet https://www.sheldonhull.com/diagrams-as-code/",
+        "sentence_html": "<a href=\"https://twitter.com/sheldon_hull\">Sheldon Hull</a> replied 'Yes! I didn't do a full comparison on diagramming tools. I've used mermaid, plan...' to a tweet <a href=\"https://www.sheldonhull.com/diagrams-as-code/\">https://www.sheldonhull.com/diagrams-as-code/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/comment/twitter/sheldon_hull/1410754116981334017/1411854693077241858",
+      "verified": true,
+      "verified_date": "2021-07-05T01:16:48Z",
+      "id": 1209560,
+      "private": false,
+      "target": "https://www.sheldonhull.com/diagrams-as-code/",
+      "data": {
+        "author": {
+          "name": "Sheldon Hull",
+          "url": "https://twitter.com/sheldon_hull",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/570e539daf6f476eeaf772c929b2ebb5f87eeaac5a50489f2ecf9f0186baa9c6.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1411854693077241858",
+        "name": "",
+        "content": "Right now I've also been digging excalidraw as a very intuitive was to sketch out a concept. \n\nPlus is has stick figures. 😃\n<a class=\"u-mention\" href=\"https://twitter.com/dangoor\"></a>\n<a class=\"u-mention\" href=\"https://twitter.com/simonbrown\"></a>",
+        "published": "2021-07-05T01:09:24Z",
+        "published_ts": 1625447364
+      },
+      "activity": {
+        "type": "reply",
+        "sentence": "Sheldon Hull replied 'Right now I've also been digging excalidraw as a very intuitive was to sketch ou...' to a tweet https://www.sheldonhull.com/diagrams-as-code/",
+        "sentence_html": "<a href=\"https://twitter.com/sheldon_hull\">Sheldon Hull</a> replied 'Right now I've also been digging excalidraw as a very intuitive was to sketch ou...' to a tweet <a href=\"https://www.sheldonhull.com/diagrams-as-code/\">https://www.sheldonhull.com/diagrams-as-code/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1410754116981334017/1411709597400829953",
+      "verified": true,
+      "verified_date": "2021-07-04T22:53:20Z",
+      "id": 1209512,
+      "private": false,
+      "target": "https://www.sheldonhull.com/diagrams-as-code/",
+      "data": {
+        "author": {
+          "name": "Simon Brown",
+          "url": "https://twitter.com/simonbrown",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/f7d999f65ff65faf55807c13330e2b9d567e5cdaf9a8c76520f52934776a9d79.jpg"
+        },
+        "url": "https://twitter.com/simonbrown/status/1411709597400829953",
+        "name": "",
+        "content": "A little template project i threw together for doing diagrams as code. Added some helpers in there so can chart lines in a simple command delimited list and it automatically does a nice layout!\n\ngithub.com/sheldonhull/di…\n\nBlog post supporting this:\nsheldonhull.com/diagrams-as-co…",
+        "published": "2021-07-04T15:32:50Z",
+        "published_ts": 1625412770
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Simon Brown retweeted a tweet https://www.sheldonhull.com/diagrams-as-code/",
+        "sentence_html": "<a href=\"https://twitter.com/simonbrown\">Simon Brown</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/diagrams-as-code/\">https://www.sheldonhull.com/diagrams-as-code/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1410754116981334017/380683106",
+      "verified": true,
+      "verified_date": "2021-07-04T16:43:04Z",
+      "id": 1209374,
+      "private": false,
+      "target": "https://www.sheldonhull.com/diagrams-as-code/",
+      "data": {
+        "author": {
+          "name": "Cameron Yick",
+          "url": "https://twitter.com/hydrosquall",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/a58db5caebaecf60fd685a9aa02897f40b0928a8339dc3b3f40071be76dd5d4e.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1410754116981334017#favorited-by-380683106",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Cameron Yick favorited a tweet https://www.sheldonhull.com/diagrams-as-code/",
+        "sentence_html": "<a href=\"https://twitter.com/hydrosquall\">Cameron Yick</a> favorited a tweet <a href=\"https://www.sheldonhull.com/diagrams-as-code/\">https://www.sheldonhull.com/diagrams-as-code/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1410754116981334017/14890382",
+      "verified": true,
+      "verified_date": "2021-07-04T16:42:29Z",
+      "id": 1209373,
+      "private": false,
+      "target": "https://www.sheldonhull.com/diagrams-as-code/",
+      "data": {
+        "author": {
+          "name": "Poi Hierro",
+          "url": "https://twitter.com/poihierro",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/414e5f6b579234a4ac9ee19c5e3e4be50a9d7ffdda0e3805df32673848608e00.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1410754116981334017#favorited-by-14890382",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Poi Hierro favorited a tweet https://www.sheldonhull.com/diagrams-as-code/",
+        "sentence_html": "<a href=\"https://twitter.com/poihierro\">Poi Hierro</a> favorited a tweet <a href=\"https://www.sheldonhull.com/diagrams-as-code/\">https://www.sheldonhull.com/diagrams-as-code/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/comment/twitter/sheldon_hull/1410754116981334017/1411710759000760322",
+      "verified": true,
+      "verified_date": "2021-07-04T15:52:39Z",
+      "id": 1209333,
+      "private": false,
+      "target": "https://www.sheldonhull.com/diagrams-as-code/",
+      "data": {
+        "author": {
+          "name": "Kevin Dangoor",
+          "url": "https://twitter.com/dangoor",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/b04c6b87371caef9e349f77678050bb8e576f304c7275f3893b42681b26058e6.jpg"
+        },
+        "url": "https://twitter.com/dangoor/status/1411710759000760322",
+        "name": "",
+        "content": "You hadn’t mentioned PlantUML, so I thought it worth pointing to: <a href=\"https://plantuml.com\">plantuml.com</a>\n\nIt’s default output is … bleah. But, there are lots of PlantUML additions that do C4 diagrams and now there is theme support, and these look a lot better. Not as flexible as Python.\n<a class=\"u-mention\" href=\"https://twitter.com/sheldon_hull\"></a>\n<a class=\"u-mention\" href=\"https://twitter.com/simonbrown\"></a>\n<a class=\"u-mention\" href=\"https://www.sheldonhull.com/\"></a>",
+        "published": "2021-07-04T15:37:27Z",
+        "published_ts": 1625413047
+      },
+      "activity": {
+        "type": "reply",
+        "sentence": "Kevin Dangoor replied 'You hadn’t mentioned PlantUML, so I thought it worth pointing to: plantuml.com  ...' to a tweet https://www.sheldonhull.com/diagrams-as-code/",
+        "sentence_html": "<a href=\"https://twitter.com/dangoor\">Kevin Dangoor</a> replied 'You hadn’t mentioned PlantUML, so I thought it worth pointing to: plantuml.com  ...' to a tweet <a href=\"https://www.sheldonhull.com/diagrams-as-code/\">https://www.sheldonhull.com/diagrams-as-code/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1410754116981334017/8831572",
+      "verified": true,
+      "verified_date": "2021-07-04T15:52:39Z",
+      "id": 1209332,
+      "private": false,
+      "target": "https://www.sheldonhull.com/diagrams-as-code/",
+      "data": {
+        "author": {
+          "name": "Kevin Dangoor",
+          "url": "https://twitter.com/dangoor",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/b04c6b87371caef9e349f77678050bb8e576f304c7275f3893b42681b26058e6.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1410754116981334017#favorited-by-8831572",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Kevin Dangoor favorited a tweet https://www.sheldonhull.com/diagrams-as-code/",
+        "sentence_html": "<a href=\"https://twitter.com/dangoor\">Kevin Dangoor</a> favorited a tweet <a href=\"https://www.sheldonhull.com/diagrams-as-code/\">https://www.sheldonhull.com/diagrams-as-code/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1410808352607776771/811249029115940864",
+      "verified": true,
+      "verified_date": "2021-07-04T14:03:59Z",
+      "id": 1209291,
+      "private": false,
+      "target": "https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+      "data": {
+        "author": {
+          "name": "Andrés Montoya",
+          "url": "https://twitter.com/AndresMontoyaIN",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/4388acbd345f52c03b56d148df59c4040d3da197f39617576e7ad5334ccf718f.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1410808352607776771#favorited-by-811249029115940864",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Andrés Montoya favorited a tweet https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+        "sentence_html": "<a href=\"https://twitter.com/AndresMontoyaIN\">Andrés Montoya</a> favorited a tweet <a href=\"https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/\">https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1411067170495344644/1361613279727132672",
+      "verified": true,
+      "verified_date": "2021-07-02T22:13:09Z",
+      "id": 1208435,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-45/",
+      "data": {
+        "author": {
+          "name": "Ru.by",
+          "url": "https://twitter.com/rubyspch",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/188624139d0694ac5da567105502d3e18e73d9cf4a6696779a070fa0a385db44.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1411067170495344644#favorited-by-1361613279727132672",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Ru.by favorited a tweet https://www.sheldonhull.com/go-r1-day-45/",
+        "sentence_html": "<a href=\"https://twitter.com/rubyspch\">Ru.by</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-45/\">https://www.sheldonhull.com/go-r1-day-45/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1411067170495344644/1411067696947499008",
+      "verified": true,
+      "verified_date": "2021-07-02T22:12:42Z",
+      "id": 1208433,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-45/",
+      "data": {
+        "author": {
+          "name": "CodersNotes",
+          "url": "https://twitter.com/CoderNotesBot",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/3cddc36c472604777d0b7cb9ef0f5b21ac4df5bad30cf791f80d6ab1468200ca.jpg"
+        },
+        "url": "https://twitter.com/CoderNotesBot/status/1411067696947499008",
+        "name": "",
+        "content": "Go R1 Day 45 sheldonhull.com/go-r1-day-45/\n#100DaysOfCode #golang",
+        "published": "2021-07-02T21:02:09Z",
+        "published_ts": 1625259729
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "CodersNotes retweeted a tweet https://www.sheldonhull.com/go-r1-day-45/",
+        "sentence_html": "<a href=\"https://twitter.com/CoderNotesBot\">CodersNotes</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-45/\">https://www.sheldonhull.com/go-r1-day-45/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1411067170495344644/1411067233762217988",
+      "verified": true,
+      "verified_date": "2021-07-02T22:12:43Z",
+      "id": 1208434,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-45/",
+      "data": {
+        "author": {
+          "name": "Very Proud Robot",
+          "url": "https://twitter.com/RobotProud",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/4142cc3e37de881c8155e2a03d962fb5e470e1f6e175b6f88e63abbb24606509.jpg"
+        },
+        "url": "https://twitter.com/RobotProud/status/1411067233762217988",
+        "name": "",
+        "content": "Go R1 Day 45 sheldonhull.com/go-r1-day-45/\n#100DaysOfCode #golang",
+        "published": "2021-07-02T21:00:19Z",
+        "published_ts": 1625259619
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Very Proud Robot retweeted a tweet https://www.sheldonhull.com/go-r1-day-45/",
+        "sentence_html": "<a href=\"https://twitter.com/RobotProud\">Very Proud Robot</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-45/\">https://www.sheldonhull.com/go-r1-day-45/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1411067170495344644/1389388994929041414",
+      "verified": true,
+      "verified_date": "2021-07-02T22:12:41Z",
+      "id": 1208431,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-45/",
+      "data": {
+        "author": {
+          "name": "Ticketnote🚀",
+          "url": "https://twitter.com/ticketnote_en",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/1fbec532d9065a26d731f6d26f48692514d054a4b6f5783f2d27a5cb8c5ece44.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1411067170495344644#favorited-by-1389388994929041414",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Ticketnote🚀 favorited a tweet https://www.sheldonhull.com/go-r1-day-45/",
+        "sentence_html": "<a href=\"https://twitter.com/ticketnote_en\">Ticketnote🚀</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-45/\">https://www.sheldonhull.com/go-r1-day-45/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1411067170495344644/1360395597229019143",
+      "verified": true,
+      "verified_date": "2021-07-02T22:12:41Z",
+      "id": 1208432,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-45/",
+      "data": {
+        "author": {
+          "name": "Challenged.Dev",
+          "url": "https://twitter.com/Challenged_Dev",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/15c6d15809b28d3fdaac8d538339b34f00f296b1f785824342f15a01b8dcfd10.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1411067170495344644#favorited-by-1360395597229019143",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Challenged.Dev favorited a tweet https://www.sheldonhull.com/go-r1-day-45/",
+        "sentence_html": "<a href=\"https://twitter.com/Challenged_Dev\">Challenged.Dev</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-45/\">https://www.sheldonhull.com/go-r1-day-45/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1410808352607776771/974864883559706624",
+      "verified": true,
+      "verified_date": "2021-07-02T16:53:45Z",
+      "id": 1208109,
+      "private": false,
+      "target": "https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+      "data": {
+        "author": {
+          "name": "Ryan Dsouza",
+          "url": "https://twitter.com/ryands1701",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/0ba439c6c7c4bd79f00f2c7502144fb33ffdd441ee8c0a9f4e85d4c5214689dc.png"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1410808352607776771#favorited-by-974864883559706624",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Ryan Dsouza favorited a tweet https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+        "sentence_html": "<a href=\"https://twitter.com/ryands1701\">Ryan Dsouza</a> favorited a tweet <a href=\"https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/\">https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1410808352607776771/935586551588728832",
+      "verified": true,
+      "verified_date": "2021-07-02T15:50:00Z",
+      "id": 1208070,
+      "private": false,
+      "target": "https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+      "data": {
+        "author": {
+          "name": "Nicolò Marchesi",
+          "url": "https://twitter.com/NicoloMarchesi",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/59a5ee0432e03b8055094579c49ac9907b10f1723966af0d16bc01ab6e21df9d.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1410808352607776771#favorited-by-935586551588728832",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Nicolò Marchesi favorited a tweet https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+        "sentence_html": "<a href=\"https://twitter.com/NicoloMarchesi\">Nicolò Marchesi</a> favorited a tweet <a href=\"https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/\">https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1410808352607776771/1410977140435263489",
+      "verified": true,
+      "verified_date": "2021-07-02T15:49:59Z",
+      "id": 1208069,
+      "private": false,
+      "target": "https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+      "data": {
+        "author": {
+          "name": "Nicolò Marchesi",
+          "url": "https://twitter.com/NicoloMarchesi",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/59a5ee0432e03b8055094579c49ac9907b10f1723966af0d16bc01ab6e21df9d.jpg"
+        },
+        "url": "https://twitter.com/NicoloMarchesi/status/1410977140435263489",
+        "name": "",
+        "content": "Leapp... if you work with AWS, this might make your life a lot easier and make the easy path the secure path with AWS credential handling on your local system.\n\nsheldonhull.com/simplify-aws-d…\n&lt;reposting as apparently twitter considers a mention at top as a reply tweet&gt;\n#aws @beSharpsrl",
+        "published": "2021-07-02T15:02:19Z",
+        "published_ts": 1625238139
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Nicolò Marchesi retweeted a tweet https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+        "sentence_html": "<a href=\"https://twitter.com/NicoloMarchesi\">Nicolò Marchesi</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/\">https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1410808352607776771/1410897780126670848",
+      "verified": true,
+      "verified_date": "2021-07-02T10:19:50Z",
+      "id": 1207816,
+      "private": false,
+      "target": "https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+      "data": {
+        "author": {
+          "name": "Benoît Bouré ⚡️",
+          "url": "https://twitter.com/Benoit_Boure",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/8e38f1ab45ef4319144cf9579adb556210b76d74714a2b0e4a7b3a9cf4009b95.jpg"
+        },
+        "url": "https://twitter.com/Benoit_Boure/status/1410897780126670848",
+        "name": "",
+        "content": "Leapp... if you work with AWS, this might make your life a lot easier and make the easy path the secure path with AWS credential handling on your local system.\n\nsheldonhull.com/simplify-aws-d…\n&lt;reposting as apparently twitter considers a mention at top as a reply tweet&gt;\n#aws @beSharpsrl",
+        "published": "2021-07-02T09:46:58Z",
+        "published_ts": 1625219218
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Benoît Bouré ⚡️ retweeted a tweet https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+        "sentence_html": "<a href=\"https://twitter.com/Benoit_Boure\">Benoît Bouré ⚡️</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/\">https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1410808352607776771/2799617221",
+      "verified": true,
+      "verified_date": "2021-07-02T10:19:50Z",
+      "id": 1207817,
+      "private": false,
+      "target": "https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+      "data": {
+        "author": {
+          "name": "Benoît Bouré ⚡️",
+          "url": "https://twitter.com/Benoit_Boure",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/8e38f1ab45ef4319144cf9579adb556210b76d74714a2b0e4a7b3a9cf4009b95.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1410808352607776771#favorited-by-2799617221",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Benoît Bouré ⚡️ favorited a tweet https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+        "sentence_html": "<a href=\"https://twitter.com/Benoit_Boure\">Benoît Bouré ⚡️</a> favorited a tweet <a href=\"https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/\">https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1410808352607776771/1024607940",
+      "verified": true,
+      "verified_date": "2021-07-02T09:24:12Z",
+      "id": 1207791,
+      "private": false,
+      "target": "https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+      "data": {
+        "author": {
+          "name": "Alessandro Gaggia",
+          "url": "https://twitter.com/Balubor",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/aebfed69a3966f0caae0fa8e2e4eb278f26e0b1b82b4cf97de0f90493801bb51.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1410808352607776771#favorited-by-1024607940",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Alessandro Gaggia favorited a tweet https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+        "sentence_html": "<a href=\"https://twitter.com/Balubor\">Alessandro Gaggia</a> favorited a tweet <a href=\"https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/\">https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1410808352607776771/1410886642248859650",
+      "verified": true,
+      "verified_date": "2021-07-02T09:23:51Z",
+      "id": 1207789,
+      "private": false,
+      "target": "https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+      "data": {
+        "author": {
+          "name": "Alessandro Gaggia",
+          "url": "https://twitter.com/Balubor",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/aebfed69a3966f0caae0fa8e2e4eb278f26e0b1b82b4cf97de0f90493801bb51.jpg"
+        },
+        "url": "https://twitter.com/Balubor/status/1410886642248859650",
+        "name": "",
+        "content": "Leapp... if you work with AWS, this might make your life a lot easier and make the easy path the secure path with AWS credential handling on your local system.\n\nsheldonhull.com/simplify-aws-d…\n&lt;reposting as apparently twitter considers a mention at top as a reply tweet&gt;\n#aws @beSharpsrl",
+        "published": "2021-07-02T09:02:43Z",
+        "published_ts": 1625216563
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Alessandro Gaggia retweeted a tweet https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+        "sentence_html": "<a href=\"https://twitter.com/Balubor\">Alessandro Gaggia</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/\">https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1409632872068124682/51408554",
+      "verified": true,
+      "verified_date": "2021-07-02T07:21:07Z",
+      "id": 1207674,
+      "private": false,
+      "target": "https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+      "data": {
+        "author": {
+          "name": "Andrea Scova",
+          "url": "https://twitter.com/andscova",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/699ac9108cd1210d68482bd49e6a45c29913a46b7f8d250a697f6236e1903008.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1409632872068124682#favorited-by-51408554",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Andrea Scova favorited a tweet https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+        "sentence_html": "<a href=\"https://twitter.com/andscova\">Andrea Scova</a> favorited a tweet <a href=\"https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/\">https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1409632872068124682/1410859191141548033",
+      "verified": true,
+      "verified_date": "2021-07-02T07:20:38Z",
+      "id": 1207673,
+      "private": false,
+      "target": "https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+      "data": {
+        "author": {
+          "name": "Andrea Scova",
+          "url": "https://twitter.com/andscova",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/699ac9108cd1210d68482bd49e6a45c29913a46b7f8d250a697f6236e1903008.jpg"
+        },
+        "url": "https://twitter.com/andscova/status/1410859191141548033",
+        "name": "",
+        "content": "@a_cava94 finished up a post on this great tool you and your team have been working on. Keep up the great work!\n\nSimplify Aws Developer Security With Leapp sheldonhull.com/simplify-aws-d… #tech #development #security #aws #devops via @sheldon_hull",
+        "published": "2021-07-02T07:13:38Z",
+        "published_ts": 1625210018
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Andrea Scova retweeted a tweet https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+        "sentence_html": "<a href=\"https://twitter.com/andscova\">Andrea Scova</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/\">https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1410808352607776771/1410810331752980482",
+      "verified": true,
+      "verified_date": "2021-07-02T04:46:21Z",
+      "id": 1207611,
+      "private": false,
+      "target": "https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+      "data": {
+        "author": {
+          "name": "Periscope Is Lit",
+          "url": "https://twitter.com/periscopeislit",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/3aad954275e3e77000af5e66066a2b6dc5fb759e989ca4dee2a7662929b4a5dd.png"
+        },
+        "url": "https://twitter.com/periscopeislit/status/1410810331752980482",
+        "name": "",
+        "content": "Leapp... if you work with AWS, this might make your life a lot easier and make the easy path the secure path with AWS credential handling on your local system.\n\nsheldonhull.com/simplify-aws-d…\n&lt;reposting as apparently twitter considers a mention at top as a reply tweet&gt;\n#aws @beSharpsrl",
+        "published": "2021-07-02T03:59:29Z",
+        "published_ts": 1625198369
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Periscope Is Lit retweeted a tweet https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+        "sentence_html": "<a href=\"https://twitter.com/periscopeislit\">Periscope Is Lit</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/\">https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1410808352607776771/1410811459341275136",
+      "verified": true,
+      "verified_date": "2021-07-02T04:46:20Z",
+      "id": 1207610,
+      "private": false,
+      "target": "https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+      "data": {
+        "author": {
+          "name": "Python Expert",
+          "url": "https://twitter.com/PythonExpertBot",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/e502da5cc776f3e4c5dbe5a85b2ffd1e1c751a9369c32d4e39a37c5cad2eb5f7.jpg"
+        },
+        "url": "https://twitter.com/PythonExpertBot/status/1410811459341275136",
+        "name": "",
+        "content": "Leapp... if you work with AWS, this might make your life a lot easier and make the easy path the secure path with AWS credential handling on your local system.\n\nsheldonhull.com/simplify-aws-d…\n&lt;reposting as apparently twitter considers a mention at top as a reply tweet&gt;\n#aws @beSharpsrl",
+        "published": "2021-07-02T04:03:58Z",
+        "published_ts": 1625198638
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Python Expert retweeted a tweet https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+        "sentence_html": "<a href=\"https://twitter.com/PythonExpertBot\">Python Expert</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/\">https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1410808352607776771/843823051",
+      "verified": true,
+      "verified_date": "2021-07-02T04:46:19Z",
+      "id": 1207608,
+      "private": false,
+      "target": "https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+      "data": {
+        "author": {
+          "name": "beSharp",
+          "url": "https://twitter.com/beSharpsrl",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/8c4f3436f4502b3f9b4f90fabb3ec80f5c2ac24b1074482e3c32df433894fef8.png"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1410808352607776771#favorited-by-843823051",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "beSharp favorited a tweet https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+        "sentence_html": "<a href=\"https://twitter.com/beSharpsrl\">beSharp</a> favorited a tweet <a href=\"https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/\">https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1410808352607776771/1410813202888278016",
+      "verified": true,
+      "verified_date": "2021-07-02T04:46:19Z",
+      "id": 1207609,
+      "private": false,
+      "target": "https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+      "data": {
+        "author": {
+          "name": "beSharp",
+          "url": "https://twitter.com/beSharpsrl",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/8c4f3436f4502b3f9b4f90fabb3ec80f5c2ac24b1074482e3c32df433894fef8.png"
+        },
+        "url": "https://twitter.com/beSharpsrl/status/1410813202888278016",
+        "name": "",
+        "content": "Leapp... if you work with AWS, this might make your life a lot easier and make the easy path the secure path with AWS credential handling on your local system.\n\nsheldonhull.com/simplify-aws-d…\n&lt;reposting as apparently twitter considers a mention at top as a reply tweet&gt;\n#aws @beSharpsrl",
+        "published": "2021-07-02T04:10:53Z",
+        "published_ts": 1625199053
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "beSharp retweeted a tweet https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+        "sentence_html": "<a href=\"https://twitter.com/beSharpsrl\">beSharp</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/\">https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1409980119641464832/606386162",
+      "verified": true,
+      "verified_date": "2021-06-30T00:21:18Z",
+      "id": 1205207,
+      "private": false,
+      "target": "https://www.sheldonhull.com/docs/go/#code-coverage-report",
+      "data": {
+        "author": {
+          "name": "Andrea Cavagna",
+          "url": "https://twitter.com/a_cava94",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/a8bd97f7736102f82f8938a4ada91bb1ddd79158205a58b2b849869899aa8086.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1409980119641464832#favorited-by-606386162",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Andrea Cavagna favorited a tweet https://www.sheldonhull.com/docs/go/#code-coverage-report",
+        "sentence_html": "<a href=\"https://twitter.com/a_cava94\">Andrea Cavagna</a> favorited a tweet <a href=\"https://www.sheldonhull.com/docs/go/#code-coverage-report\">https://www.sheldonhull.com/docs/go/#code-coverage-report</a>"
+      }
     }
   ]
 }
