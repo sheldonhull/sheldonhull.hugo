@@ -75,5 +75,6 @@
         ".linky-note.yml": true,
         ".run": true
     },
-    "explorerExclude.backup": null
+    "explorerExclude.backup": null,
+
 }
