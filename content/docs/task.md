@@ -145,3 +145,65 @@ tasks:
         {{end}}
 
 ```
+
+## Install Tool From GitHub Release
+
+Without using any external dependency tooling, here's a way to add a task that might need to grab a binary) using `jq` and `curl`.
+
+```yaml
+  init:ci:
+    desc: setup tooling for project and download dependencies
+    cmds:
+      - |
+        go mod tidy && echo -e "{{.green}} ✅ go mod tidy completed{{.nocolor}}"
+        go install github.com/goreleaser/goreleaser@latest
+        go get github.com/caarlos0/svu  # Semver versioning tool
+        mkdir {{ .TOOLS_DIRECTORY }}
+        {{if eq OS "windows"}}
+        DOWNLOAD_URL=`curl -sL https://api.github.com/repos/restechnica/semverbot/releases/latest | jq -r '.assets[].browser_download_url' | grep "windows"`
+        curl -qo tools/sbot -sL $DOWNLOAD_URL
+        {{end}}
+        {{if eq OS "darwin"}}
+        DOWNLOAD_URL=`curl -sL https://api.github.com/repos/restechnica/semverbot/releases/latest | jq -r '.assets[].browser_download_url' | grep "darwin"`
+        curl -qo tools/sbot -sL $DOWNLOAD_URL
+        chmod +rwx ./tools/sbot
+        {{end}}
+        {{if eq OS "linux"}}
+        DOWNLOAD_URL=`curl -sL https://api.github.com/repos/restechnica/semverbot/releases/latest | jq -r '.assets[].browser_download_url' | grep "linux"`
+        curl -qo tools/sbot -sL $DOWNLOAD_URL
+        chmod +rwx ./tools/sbot
+        {{end}}
+        echo -e "{{.green}} ✅ go semverbot downloaded to tools{{.nocolor}}"
+```
+
+## Initialize Project Tooling
+
+I think any project requiring non-standardized tooling should have this setup in a standard `init` style command that makes it easy to get up and running, assuming that the basic SDK tooling is installed of course. To solve SDK's and other lower level tooling, you'll want to use Docker with Codespaces or other methods to ensure tooling setup is standardized and easy (Ansible, Docker, etc.)
+
+```yaml
+  init:
+      desc: initialize all tooling for ci and developer work locally
+      cmds:
+        - task: init:dev
+        - task: init:ci
+  init:dev:
+    desc: initialize tools for a developer, but not required for CI
+    cmds:
+      - |
+        go install github.com/evilmartians/lefthook@master
+        lefthook install
+  init:ci:
+    desc: setup tooling for project and download dependencies
+    cmds:
+      - |
+        go mod tidy && echo -e "{{.green}} ✅ go mod tidy completed{{.nocolor}}"
+        go install github.com/goreleaser/goreleaser@latest
+```
+
+This would be how I'd setup a project.
+
+Notice the seperation of `ci` and `dev` tooling.
+
+This is important if you don't want to needlessly add duration to your CI checks.
+
+This will give flexibility to ensure tooling like Lefthook or others aren't installed by a CI build.
