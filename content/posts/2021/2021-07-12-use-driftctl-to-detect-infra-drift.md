@@ -28,3 +28,7 @@ $ArtifactDirectory = (New-Item 'artifacts' -ItemType Directory -Force).FullName
     -e "AWS_PROFILE=default" ` # Replace this with your aws profile name if you have multiple profiles
     cloudskiff/driftctl scan --from "tfstate+s3://$S3BucketUri" --output "html://$ArtifactDirectory/driftctl-report-$Date.html"
 ```
+
+Optionally, you can adjust to recursively scan the state file of an entire bucket (say if using Terragrunt to store in special key prefixes).
+
+Change to `--from "tfstate+s3://mybucket/myprefix"` without requiring the full path to a single tfstate file.
