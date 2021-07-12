@@ -31,4 +31,5 @@ $ArtifactDirectory = (New-Item 'artifacts' -ItemType Directory -Force).FullName
 
 Optionally, you can adjust to recursively scan the state file of an entire bucket (say if using Terragrunt to store in special key prefixes).
 
-Change to `--from "tfstate+s3://mybucket/myprefix"` without requiring the full path to a single tfstate file.
+- Change to `--from "tfstate+s3://mybucket/myprefix"` without requiring the full path to a single tfstate file.
+- Recursively search if in many subfolders with: `**/*.tfstate`.
