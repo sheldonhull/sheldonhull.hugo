@@ -5324,6 +5324,1106 @@
         "sentence": "Andrea Cavagna favorited a tweet https://www.sheldonhull.com/docs/go/#code-coverage-report",
         "sentence_html": "<a href=\"https://twitter.com/a_cava94\">Andrea Cavagna</a> favorited a tweet <a href=\"https://www.sheldonhull.com/docs/go/#code-coverage-report\">https://www.sheldonhull.com/docs/go/#code-coverage-report</a>"
       }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1415053596023005185/1389388994929041414",
+      "verified": true,
+      "verified_date": "2021-07-13T22:14:47Z",
+      "id": 1218276,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-50/",
+      "data": {
+        "author": {
+          "name": "Ticketnote🚀",
+          "url": "https://twitter.com/ticketnote_en",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/1fbec532d9065a26d731f6d26f48692514d054a4b6f5783f2d27a5cb8c5ece44.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1415053596023005185#favorited-by-1389388994929041414",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Ticketnote🚀 favorited a tweet https://www.sheldonhull.com/go-r1-day-50/",
+        "sentence_html": "<a href=\"https://twitter.com/ticketnote_en\">Ticketnote🚀</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-50/\">https://www.sheldonhull.com/go-r1-day-50/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1415053596023005185/1415054380919926787",
+      "verified": true,
+      "verified_date": "2021-07-13T22:14:47Z",
+      "id": 1218277,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-50/",
+      "data": {
+        "author": {
+          "name": "WebDevVibes",
+          "url": "https://twitter.com/devvibesbot",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/569ea3f2583f749925dd4b3c6e6762b069cbeffe9f0d7617aa329101d7fe232a.jpg"
+        },
+        "url": "https://twitter.com/devvibesbot/status/1415054380919926787",
+        "name": "",
+        "content": "Go R1 Day 50 sheldonhull.com/go-r1-day-50/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-13T21:03:49Z",
+        "published_ts": 1626210229
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "WebDevVibes retweeted a tweet https://www.sheldonhull.com/go-r1-day-50/",
+        "sentence_html": "<a href=\"https://twitter.com/devvibesbot\">WebDevVibes</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-50/\">https://www.sheldonhull.com/go-r1-day-50/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1415053596023005185/1415053620270272512",
+      "verified": true,
+      "verified_date": "2021-07-13T22:14:48Z",
+      "id": 1218278,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-50/",
+      "data": {
+        "author": {
+          "name": "Fun Bot",
+          "url": "https://twitter.com/_FunBot",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/7446f1a1ee0315898f15ee5b9f5e081d860e7410b9f714c7fcf1051ea484301b.jpg"
+        },
+        "url": "https://twitter.com/_FunBot/status/1415053620270272512",
+        "name": "",
+        "content": "Go R1 Day 50 sheldonhull.com/go-r1-day-50/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-13T21:00:48Z",
+        "published_ts": 1626210048
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Fun Bot retweeted a tweet https://www.sheldonhull.com/go-r1-day-50/",
+        "sentence_html": "<a href=\"https://twitter.com/_FunBot\">Fun Bot</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-50/\">https://www.sheldonhull.com/go-r1-day-50/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1415053596023005185/1853371",
+      "verified": true,
+      "verified_date": "2021-07-13T22:14:46Z",
+      "id": 1218274,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-50/",
+      "data": {
+        "author": {
+          "name": "Marc Delagrammatikas",
+          "url": "https://twitter.com/marcdel",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/853db01d45e5100218c3c8ae2d508a2d96af6a2409a0f8144734fef1afbfd89f.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1415053596023005185#favorited-by-1853371",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Marc Delagrammatikas favorited a tweet https://www.sheldonhull.com/go-r1-day-50/",
+        "sentence_html": "<a href=\"https://twitter.com/marcdel\">Marc Delagrammatikas</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-50/\">https://www.sheldonhull.com/go-r1-day-50/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1415053596023005185/1415054436536311811",
+      "verified": true,
+      "verified_date": "2021-07-13T22:14:47Z",
+      "id": 1218275,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-50/",
+      "data": {
+        "author": {
+          "name": "#Python_everywhere",
+          "url": "https://twitter.com/LebotPython",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/cc7aedb37cb021eba2714a547a41f28eb19dc98b1421ecd854a01988c6319dda.jpg"
+        },
+        "url": "https://twitter.com/LebotPython/status/1415054436536311811",
+        "name": "",
+        "content": "Go R1 Day 50 sheldonhull.com/go-r1-day-50/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-13T21:04:02Z",
+        "published_ts": 1626210242
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "#Python_everywhere retweeted a tweet https://www.sheldonhull.com/go-r1-day-50/",
+        "sentence_html": "<a href=\"https://twitter.com/LebotPython\">#Python_everywhere</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-50/\">https://www.sheldonhull.com/go-r1-day-50/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/post/twitter/sheldon_hull/1414983390508437504",
+      "verified": true,
+      "verified_date": "2021-07-13T17:42:05Z",
+      "id": 1217924,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "Anita Ranga",
+          "url": "https://twitter.com/AnitaRanga2",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/b7af3f28023debf66d9ef1dffd681ee7ea73d24a82a97fa3ce65a8f5e838bc51.jpg"
+        },
+        "url": "https://twitter.com/AnitaRanga2/status/1414983390508437504",
+        "name": "",
+        "content": "<a href=\"https://www.facebook.com/groups/3373837425964422/permalink/4699802030034615/\">facebook.com/groups/3373837…</a>\n<a class=\"u-mention\" href=\"https://www.sheldonhull.com/go-r1-day-49/\"></a>",
+        "published": "2021-07-13T16:21:44Z",
+        "published_ts": 1626193304
+      },
+      "activity": {
+        "type": "link",
+        "sentence": "Anita Ranga posted 'facebook.com/groups/3373837…' linking to https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/AnitaRanga2\">Anita Ranga</a> posted 'facebook.com/groups/3373837…' linking to <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1414691047972745216/1414983401803706368",
+      "verified": true,
+      "verified_date": "2021-07-13T16:24:12Z",
+      "id": 1217854,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "Anita Ranga",
+          "url": "https://twitter.com/AnitaRanga2",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/b7af3f28023debf66d9ef1dffd681ee7ea73d24a82a97fa3ce65a8f5e838bc51.jpg"
+        },
+        "url": "https://twitter.com/AnitaRanga2/status/1414983401803706368",
+        "name": "",
+        "content": "Go R1 Day 49 sheldonhull.com/go-r1-day-49/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-13T16:21:46Z",
+        "published_ts": 1626193306
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Anita Ranga retweeted a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/AnitaRanga2\">Anita Ranga</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1414691047972745216/1414983538236137472",
+      "verified": true,
+      "verified_date": "2021-07-13T16:24:11Z",
+      "id": 1217853,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "NanoBot",
+          "url": "https://twitter.com/morolswediu",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/c99ba956955470f57c49151b035b1a3426ed29129c4fabfa708b193a21b23cdd.jpg"
+        },
+        "url": "https://twitter.com/morolswediu/status/1414983538236137472",
+        "name": "",
+        "content": "Go R1 Day 49 sheldonhull.com/go-r1-day-49/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-13T16:22:19Z",
+        "published_ts": 1626193339
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "NanoBot retweeted a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/morolswediu\">NanoBot</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1414691047972745216/1378549115504627715",
+      "verified": true,
+      "verified_date": "2021-07-13T16:23:41Z",
+      "id": 1217852,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "Anita Ranga",
+          "url": "https://twitter.com/AnitaRanga2",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/b7af3f28023debf66d9ef1dffd681ee7ea73d24a82a97fa3ce65a8f5e838bc51.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1414691047972745216#favorited-by-1378549115504627715",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Anita Ranga favorited a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/AnitaRanga2\">Anita Ranga</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1414691047972745216/1414936046631067653",
+      "verified": true,
+      "verified_date": "2021-07-13T13:59:09Z",
+      "id": 1217688,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "Whopcod",
+          "url": "https://twitter.com/whopcod",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/c319447f84323964b7171483672a0fb00042b773e7955245222a22fcc26564e8.jpg"
+        },
+        "url": "https://twitter.com/whopcod/status/1414936046631067653",
+        "name": "",
+        "content": "Go R1 Day 49 sheldonhull.com/go-r1-day-49/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-13T13:13:36Z",
+        "published_ts": 1626182016
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Whopcod retweeted a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/whopcod\">Whopcod</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1414691047972745216/1414864688341467140",
+      "verified": true,
+      "verified_date": "2021-07-13T09:14:50Z",
+      "id": 1217474,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "Coding DailyChallenge",
+          "url": "https://twitter.com/CoDailychalleng",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/5420c4adceafaf4d57a7a01f70bdcfcd1bd159dada5139058c536c1b5d36e328.png"
+        },
+        "url": "https://twitter.com/CoDailychalleng/status/1414864688341467140",
+        "name": "",
+        "content": "Go R1 Day 49 sheldonhull.com/go-r1-day-49/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-13T08:30:03Z",
+        "published_ts": 1626165003
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Coding DailyChallenge retweeted a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/CoDailychalleng\">Coding DailyChallenge</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1414691047972745216/1391393411685564416",
+      "verified": true,
+      "verified_date": "2021-07-13T08:26:32Z",
+      "id": 1217452,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "#It's Tony Stark 👨‍💻",
+          "url": "https://twitter.com/Tony_Codezz",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/03b914589e43278396b3b9d920397198a55dc406b48d52bf27ae21381f39f6b4.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1414691047972745216#favorited-by-1391393411685564416",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "#It's Tony Stark 👨‍💻 favorited a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/Tony_Codezz\">#It's Tony Stark 👨‍💻</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1414691047972745216/1390203129489092609",
+      "verified": true,
+      "verified_date": "2021-07-13T08:26:28Z",
+      "id": 1217451,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "Itachi 内葉",
+          "url": "https://twitter.com/de_ykm",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/04d7b5952ca5efb6035444471552f5b7699bf3e4b1e414ac35f3820b2da808ea.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1414691047972745216#favorited-by-1390203129489092609",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Itachi 内葉 favorited a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/de_ykm\">Itachi 内葉</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1414691047972745216/1414858161597583362",
+      "verified": true,
+      "verified_date": "2021-07-13T08:26:12Z",
+      "id": 1217450,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "Amanda",
+          "url": "https://twitter.com/CoderRetweet",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/ee51653818825f3cf5c8abb81c9adbf79f2408fcfcb7971e9f577061ba748cd1.jpg"
+        },
+        "url": "https://twitter.com/CoderRetweet/status/1414858161597583362",
+        "name": "",
+        "content": "Go R1 Day 49 sheldonhull.com/go-r1-day-49/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-13T08:04:07Z",
+        "published_ts": 1626163447
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Amanda retweeted a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/CoderRetweet\">Amanda</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1414691047972745216/1414858184007634946",
+      "verified": true,
+      "verified_date": "2021-07-13T08:26:11Z",
+      "id": 1217449,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "Django Bot",
+          "url": "https://twitter.com/DjangoBot_",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/de1f25b81217c538ecd90c65ff553d1c50410690e852e87e9f270d8f4d4b9701.jpg"
+        },
+        "url": "https://twitter.com/DjangoBot_/status/1414858184007634946",
+        "name": "",
+        "content": "Go R1 Day 49 sheldonhull.com/go-r1-day-49/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-13T08:04:12Z",
+        "published_ts": 1626163452
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Django Bot retweeted a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/DjangoBot_\">Django Bot</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1414691047972745216/1414859303530418177",
+      "verified": true,
+      "verified_date": "2021-07-13T08:26:10Z",
+      "id": 1217448,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "#100daysOfCode",
+          "url": "https://twitter.com/codedailybot",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/672cd5cabab1cda3fe5da13a9e1147ff26e9a4fae248d6686f30a85930606a44.png"
+        },
+        "url": "https://twitter.com/codedailybot/status/1414859303530418177",
+        "name": "",
+        "content": "Go R1 Day 49 sheldonhull.com/go-r1-day-49/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-13T08:08:39Z",
+        "published_ts": 1626163719
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "#100daysOfCode retweeted a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/codedailybot\">#100daysOfCode</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1414691047972745216/1414859227894620162",
+      "verified": true,
+      "verified_date": "2021-07-13T08:26:08Z",
+      "id": 1217446,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "#100DaysOfCode",
+          "url": "https://twitter.com/100DaysOf2020",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/1cd79f58cf3d4fcbfc42ef42826051b115991dc9f761efa3f2a15956975e7f53.jpg"
+        },
+        "url": "https://twitter.com/100DaysOf2020/status/1414859227894620162",
+        "name": "",
+        "content": "Go R1 Day 49 sheldonhull.com/go-r1-day-49/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-13T08:08:21Z",
+        "published_ts": 1626163701
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "#100DaysOfCode retweeted a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/100DaysOf2020\">#100DaysOfCode</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1414691047972745216/1414858897442099200",
+      "verified": true,
+      "verified_date": "2021-07-13T08:26:09Z",
+      "id": 1217447,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "EliteDaMyth 🍥",
+          "url": "https://twitter.com/EliteDaMyth",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/95b6ec623f80360354e1928d96211ecbe95e86ca2fec08e7f5d828db6e9aa068.png"
+        },
+        "url": "https://twitter.com/EliteDaMyth/status/1414858897442099200",
+        "name": "",
+        "content": "Go R1 Day 49 sheldonhull.com/go-r1-day-49/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-13T08:07:02Z",
+        "published_ts": 1626163622
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "EliteDaMyth 🍥 retweeted a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/EliteDaMyth\">EliteDaMyth 🍥</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1414691047972745216/1414859234559373313",
+      "verified": true,
+      "verified_date": "2021-07-13T08:26:07Z",
+      "id": 1217445,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "Bills Bot",
+          "url": "https://twitter.com/Bills_Bot",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/62765c9c9910f04f6a4f5bef1d52ccd7998ed6e4fc377a18ea5d778b2059fae7.jpg"
+        },
+        "url": "https://twitter.com/Bills_Bot/status/1414859234559373313",
+        "name": "",
+        "content": "Go R1 Day 49 sheldonhull.com/go-r1-day-49/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-13T08:08:22Z",
+        "published_ts": 1626163702
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Bills Bot retweeted a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/Bills_Bot\">Bills Bot</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1414691047972745216/1414859303572344832",
+      "verified": true,
+      "verified_date": "2021-07-13T08:26:06Z",
+      "id": 1217443,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "#100daysOfCode",
+          "url": "https://twitter.com/codedailybot",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/672cd5cabab1cda3fe5da13a9e1147ff26e9a4fae248d6686f30a85930606a44.png"
+        },
+        "url": "https://twitter.com/codedailybot/status/1414859303572344832",
+        "name": "",
+        "content": "Go R1 Day 49 sheldonhull.com/go-r1-day-49/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-13T08:08:39Z",
+        "published_ts": 1626163719
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "#100daysOfCode retweeted a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/codedailybot\">#100daysOfCode</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1414691047972745216/1414859303501053952",
+      "verified": true,
+      "verified_date": "2021-07-13T08:26:07Z",
+      "id": 1217444,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "#100daysOfCode",
+          "url": "https://twitter.com/codedailybot",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/672cd5cabab1cda3fe5da13a9e1147ff26e9a4fae248d6686f30a85930606a44.png"
+        },
+        "url": "https://twitter.com/codedailybot/status/1414859303501053952",
+        "name": "",
+        "content": "Go R1 Day 49 sheldonhull.com/go-r1-day-49/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-13T08:08:39Z",
+        "published_ts": 1626163719
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "#100daysOfCode retweeted a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/codedailybot\">#100daysOfCode</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1414691047972745216/1414860529391345670",
+      "verified": true,
+      "verified_date": "2021-07-13T08:26:00Z",
+      "id": 1217442,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "Omkarzzz",
+          "url": "https://twitter.com/Omkarzzz1",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/371296fcd95acaa3b6a55b15c80ccbbf9b671c9abc93476d3abb8fb3232f1aea.jpg"
+        },
+        "url": "https://twitter.com/Omkarzzz1/status/1414860529391345670",
+        "name": "",
+        "content": "Go R1 Day 49 sheldonhull.com/go-r1-day-49/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-13T08:13:31Z",
+        "published_ts": 1626164011
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Omkarzzz retweeted a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/Omkarzzz1\">Omkarzzz</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1414691047972745216/1033785633695662080",
+      "verified": true,
+      "verified_date": "2021-07-13T08:26:00Z",
+      "id": 1217441,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "MIR IRFAN🍁",
+          "url": "https://twitter.com/MIRIRFAN415",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/56c06779f8410e48be83120b1f319e23d182358d5b89b0d34269763e9acb7be3.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1414691047972745216#favorited-by-1033785633695662080",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "MIR IRFAN🍁 favorited a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/MIRIRFAN415\">MIR IRFAN🍁</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1414691047972745216/1414827373455974401",
+      "verified": true,
+      "verified_date": "2021-07-13T06:43:35Z",
+      "id": 1217414,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "VIVE LE BZZ 🇫🇷",
+          "url": "https://twitter.com/2006Bzz",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/2d18397d5409f7f0a8422d4d0b7c697a9a42a86dc253e320d509f18a9c3000b9.jpg"
+        },
+        "url": "https://twitter.com/2006Bzz/status/1414827373455974401",
+        "name": "",
+        "content": "Go R1 Day 49 sheldonhull.com/go-r1-day-49/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-13T06:01:46Z",
+        "published_ts": 1626156106
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "VIVE LE BZZ 🇫🇷 retweeted a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/2006Bzz\">VIVE LE BZZ 🇫🇷</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1414691047972745216/1186716045094117378",
+      "verified": true,
+      "verified_date": "2021-07-13T06:43:34Z",
+      "id": 1217413,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "VIVE LE BZZ 🇫🇷",
+          "url": "https://twitter.com/2006Bzz",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/2d18397d5409f7f0a8422d4d0b7c697a9a42a86dc253e320d509f18a9c3000b9.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1414691047972745216#favorited-by-1186716045094117378",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "VIVE LE BZZ 🇫🇷 favorited a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/2006Bzz\">VIVE LE BZZ 🇫🇷</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1414691047972745216/1414812564198879233",
+      "verified": true,
+      "verified_date": "2021-07-13T05:33:04Z",
+      "id": 1217396,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "1000 Days Of Coding - BOT",
+          "url": "https://twitter.com/1000dayscodingb",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/7afaa188afa5d60ce9714ad5168486083f2d2513951b3746dea9cc08189b2ac3.jpg"
+        },
+        "url": "https://twitter.com/1000dayscodingb/status/1414812564198879233",
+        "name": "",
+        "content": "Go R1 Day 49 sheldonhull.com/go-r1-day-49/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-13T05:02:55Z",
+        "published_ts": 1626152575
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "1000 Days Of Coding - BOT retweeted a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/1000dayscodingb\">1000 Days Of Coding - BOT</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1414691047972745216/1262849195855302658",
+      "verified": true,
+      "verified_date": "2021-07-13T05:33:02Z",
+      "id": 1217394,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "TWFMade",
+          "url": "https://twitter.com/taylorwfarley",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/892bfc0d5b67d809372e552daf74281f45da8778904d98512d0c011e7d55ba19.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1414691047972745216#favorited-by-1262849195855302658",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "TWFMade favorited a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/taylorwfarley\">TWFMade</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1414691047972745216/1414812628485132292",
+      "verified": true,
+      "verified_date": "2021-07-13T05:33:02Z",
+      "id": 1217395,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "TWFMade",
+          "url": "https://twitter.com/taylorwfarley",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/892bfc0d5b67d809372e552daf74281f45da8778904d98512d0c011e7d55ba19.jpg"
+        },
+        "url": "https://twitter.com/taylorwfarley/status/1414812628485132292",
+        "name": "",
+        "content": "Go R1 Day 49 sheldonhull.com/go-r1-day-49/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-13T05:03:11Z",
+        "published_ts": 1626152591
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "TWFMade retweeted a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/taylorwfarley\">TWFMade</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1414691047972745216/1414713519916912644",
+      "verified": true,
+      "verified_date": "2021-07-12T22:57:41Z",
+      "id": 1217242,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "Amanda",
+          "url": "https://twitter.com/CoderRetweet",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/ee51653818825f3cf5c8abb81c9adbf79f2408fcfcb7971e9f577061ba748cd1.jpg"
+        },
+        "url": "https://twitter.com/CoderRetweet/status/1414713519916912644",
+        "name": "",
+        "content": "Go R1 Day 49 sheldonhull.com/go-r1-day-49/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-12T22:29:21Z",
+        "published_ts": 1626128961
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Amanda retweeted a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/CoderRetweet\">Amanda</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1414691047972745216/1414713610136391684",
+      "verified": true,
+      "verified_date": "2021-07-12T22:57:41Z",
+      "id": 1217243,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "NanoBot",
+          "url": "https://twitter.com/morolswediu",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/c99ba956955470f57c49151b035b1a3426ed29129c4fabfa708b193a21b23cdd.jpg"
+        },
+        "url": "https://twitter.com/morolswediu/status/1414713610136391684",
+        "name": "",
+        "content": "Go R1 Day 49 sheldonhull.com/go-r1-day-49/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-12T22:29:43Z",
+        "published_ts": 1626128983
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "NanoBot retweeted a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/morolswediu\">NanoBot</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1414691047972745216/1389388994929041414",
+      "verified": true,
+      "verified_date": "2021-07-12T21:54:43Z",
+      "id": 1217214,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "Ticketnote🚀",
+          "url": "https://twitter.com/ticketnote_en",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/1fbec532d9065a26d731f6d26f48692514d054a4b6f5783f2d27a5cb8c5ece44.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1414691047972745216#favorited-by-1389388994929041414",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Ticketnote🚀 favorited a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/ticketnote_en\">Ticketnote🚀</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1414691047972745216/1414691070227750913",
+      "verified": true,
+      "verified_date": "2021-07-12T21:54:10Z",
+      "id": 1217213,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-49/",
+      "data": {
+        "author": {
+          "name": "Fun Bot",
+          "url": "https://twitter.com/_FunBot",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/7446f1a1ee0315898f15ee5b9f5e081d860e7410b9f714c7fcf1051ea484301b.jpg"
+        },
+        "url": "https://twitter.com/_FunBot/status/1414691070227750913",
+        "name": "",
+        "content": "Go R1 Day 49 sheldonhull.com/go-r1-day-49/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-12T21:00:09Z",
+        "published_ts": 1626123609
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Fun Bot retweeted a tweet https://www.sheldonhull.com/go-r1-day-49/",
+        "sentence_html": "<a href=\"https://twitter.com/_FunBot\">Fun Bot</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-49/\">https://www.sheldonhull.com/go-r1-day-49/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1413603876142567424/1413989752139927556",
+      "verified": true,
+      "verified_date": "2021-07-11T06:04:33Z",
+      "id": 1215929,
+      "private": false,
+      "target": "https://www.sheldonhull.com/how-to-reduce-noise-from-slack/",
+      "data": {
+        "author": {
+          "name": "Andrew Pla",
+          "url": "https://twitter.com/AndrewPlaTech",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/4c147040b2a7f4d035da70cfb8c5e299b105ffc0c61c50113b8f42b6ea3fbd60.jpg"
+        },
+        "url": "https://twitter.com/AndrewPlaTech/status/1413989752139927556",
+        "name": "",
+        "content": "How To Reduce Noise From Slack sheldonhull.com/how-to-reduce-… #slack #development via @sheldon_hull",
+        "published": "2021-07-10T22:33:22Z",
+        "published_ts": 1625956402
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Andrew Pla retweeted a tweet https://www.sheldonhull.com/how-to-reduce-noise-from-slack/",
+        "sentence_html": "<a href=\"https://twitter.com/AndrewPlaTech\">Andrew Pla</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/how-to-reduce-noise-from-slack/\">https://www.sheldonhull.com/how-to-reduce-noise-from-slack/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1413603876142567424/2562312971",
+      "verified": true,
+      "verified_date": "2021-07-10T23:07:45Z",
+      "id": 1215762,
+      "private": false,
+      "target": "https://www.sheldonhull.com/how-to-reduce-noise-from-slack/",
+      "data": {
+        "author": {
+          "name": "Andrew Pla",
+          "url": "https://twitter.com/AndrewPlaTech",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/4c147040b2a7f4d035da70cfb8c5e299b105ffc0c61c50113b8f42b6ea3fbd60.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1413603876142567424#favorited-by-2562312971",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Andrew Pla favorited a tweet https://www.sheldonhull.com/how-to-reduce-noise-from-slack/",
+        "sentence_html": "<a href=\"https://twitter.com/AndrewPlaTech\">Andrew Pla</a> favorited a tweet <a href=\"https://www.sheldonhull.com/how-to-reduce-noise-from-slack/\">https://www.sheldonhull.com/how-to-reduce-noise-from-slack/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1412879230099202049/1072375205496942593",
+      "verified": true,
+      "verified_date": "2021-07-09T12:14:21Z",
+      "id": 1214864,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-48/",
+      "data": {
+        "author": {
+          "name": "The Next Tech",
+          "url": "https://twitter.com/TheNextTech2018",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/6281e707f821396e2afcfb82d3b5c07c305121617f84f84bde1c4f046a8fb345.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1412879230099202049#favorited-by-1072375205496942593",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "The Next Tech favorited a tweet https://www.sheldonhull.com/go-r1-day-48/",
+        "sentence_html": "<a href=\"https://twitter.com/TheNextTech2018\">The Next Tech</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-48/\">https://www.sheldonhull.com/go-r1-day-48/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1412968546410303489/28433673",
+      "verified": true,
+      "verified_date": "2021-07-08T14:54:50Z",
+      "id": 1213845,
+      "private": false,
+      "target": "https://www.sheldonhull.com/docs/shell/#installing-brew-packages",
+      "data": {
+        "author": {
+          "name": "Selby",
+          "url": "https://twitter.com/selbyk",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/e6b7bf7a6b24dff7b70e000b0e2ad368f7e2e601a0f8deba6b6c4a56a4b6c5d7.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1412968546410303489#favorited-by-28433673",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Selby favorited a tweet https://www.sheldonhull.com/docs/shell/#installing-brew-packages",
+        "sentence_html": "<a href=\"https://twitter.com/selbyk\">Selby</a> favorited a tweet <a href=\"https://www.sheldonhull.com/docs/shell/#installing-brew-packages\">https://www.sheldonhull.com/docs/shell/#installing-brew-packages</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1412968546410303489/757187768137162752",
+      "verified": true,
+      "verified_date": "2021-07-08T06:41:43Z",
+      "id": 1213425,
+      "private": false,
+      "target": "https://www.sheldonhull.com/docs/shell/#installing-brew-packages",
+      "data": {
+        "author": {
+          "name": "Sehyun",
+          "url": "https://twitter.com/sehyunchung",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/b1263a187a37db74ddff7ae96d68af19b9e4f0fad065e5bbaef16934bcaf89bf.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1412968546410303489#favorited-by-757187768137162752",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Sehyun favorited a tweet https://www.sheldonhull.com/docs/shell/#installing-brew-packages",
+        "sentence_html": "<a href=\"https://twitter.com/sehyunchung\">Sehyun</a> favorited a tweet <a href=\"https://www.sheldonhull.com/docs/shell/#installing-brew-packages\">https://www.sheldonhull.com/docs/shell/#installing-brew-packages</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1412968546410303489/33521530",
+      "verified": true,
+      "verified_date": "2021-07-08T03:44:15Z",
+      "id": 1213320,
+      "private": false,
+      "target": "https://www.sheldonhull.com/docs/shell/#installing-brew-packages",
+      "data": {
+        "author": {
+          "name": "swyx",
+          "url": "https://twitter.com/swyx",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/dc00a17efc0b86a5f0299068c592a59c80d3e2240cedff60edc0fd2c2105f7b0.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1412968546410303489#favorited-by-33521530",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "swyx favorited a tweet https://www.sheldonhull.com/docs/shell/#installing-brew-packages",
+        "sentence_html": "<a href=\"https://twitter.com/swyx\">swyx</a> favorited a tweet <a href=\"https://www.sheldonhull.com/docs/shell/#installing-brew-packages\">https://www.sheldonhull.com/docs/shell/#installing-brew-packages</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1412879230099202049/1412880131518050311",
+      "verified": true,
+      "verified_date": "2021-07-07T21:25:11Z",
+      "id": 1212945,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-48/",
+      "data": {
+        "author": {
+          "name": "CodeFullOfBugs",
+          "url": "https://twitter.com/full_bugs",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/ed32470de9dc0d5b7a477da3d51076d212564f32269fd855256f9ad8cce82e59.jpg"
+        },
+        "url": "https://twitter.com/full_bugs/status/1412880131518050311",
+        "name": "",
+        "content": "Go R1 Day 48 sheldonhull.com/go-r1-day-48/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-07T21:04:08Z",
+        "published_ts": 1625691848
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "CodeFullOfBugs retweeted a tweet https://www.sheldonhull.com/go-r1-day-48/",
+        "sentence_html": "<a href=\"https://twitter.com/full_bugs\">CodeFullOfBugs</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-48/\">https://www.sheldonhull.com/go-r1-day-48/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1412879230099202049/1412879574036254720",
+      "verified": true,
+      "verified_date": "2021-07-07T21:25:12Z",
+      "id": 1212946,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-48/",
+      "data": {
+        "author": {
+          "name": "#100DaysOfCode",
+          "url": "https://twitter.com/100DaysOf2020",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/1cd79f58cf3d4fcbfc42ef42826051b115991dc9f761efa3f2a15956975e7f53.jpg"
+        },
+        "url": "https://twitter.com/100DaysOf2020/status/1412879574036254720",
+        "name": "",
+        "content": "Go R1 Day 48 sheldonhull.com/go-r1-day-48/ #tech #development #100DaysOfCode #golang #microblog via @sheldon_hull",
+        "published": "2021-07-07T21:01:55Z",
+        "published_ts": 1625691715
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "#100DaysOfCode retweeted a tweet https://www.sheldonhull.com/go-r1-day-48/",
+        "sentence_html": "<a href=\"https://twitter.com/100DaysOf2020\">#100DaysOfCode</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-48/\">https://www.sheldonhull.com/go-r1-day-48/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1412879230099202049/565742023",
+      "verified": true,
+      "verified_date": "2021-07-07T21:25:10Z",
+      "id": 1212944,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-48/",
+      "data": {
+        "author": {
+          "name": "Say Cuh",
+          "url": "https://twitter.com/BigCampPoohh",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/4e28e9c93d788d1e1486039245fbbf529aec74608519ae312b61732c518fdd64.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1412879230099202049#favorited-by-565742023",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Say Cuh favorited a tweet https://www.sheldonhull.com/go-r1-day-48/",
+        "sentence_html": "<a href=\"https://twitter.com/BigCampPoohh\">Say Cuh</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-48/\">https://www.sheldonhull.com/go-r1-day-48/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1412879230099202049/1389388994929041414",
+      "verified": true,
+      "verified_date": "2021-07-07T21:25:10Z",
+      "id": 1212943,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-48/",
+      "data": {
+        "author": {
+          "name": "Ticketnote🚀",
+          "url": "https://twitter.com/ticketnote_en",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/1fbec532d9065a26d731f6d26f48692514d054a4b6f5783f2d27a5cb8c5ece44.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1412879230099202049#favorited-by-1389388994929041414",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Ticketnote🚀 favorited a tweet https://www.sheldonhull.com/go-r1-day-48/",
+        "sentence_html": "<a href=\"https://twitter.com/ticketnote_en\">Ticketnote🚀</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-48/\">https://www.sheldonhull.com/go-r1-day-48/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1412879230099202049/1360395597229019143",
+      "verified": true,
+      "verified_date": "2021-07-07T21:25:09Z",
+      "id": 1212941,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-48/",
+      "data": {
+        "author": {
+          "name": "Challenged.Dev",
+          "url": "https://twitter.com/Challenged_Dev",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/15c6d15809b28d3fdaac8d538339b34f00f296b1f785824342f15a01b8dcfd10.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1412879230099202049#favorited-by-1360395597229019143",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Challenged.Dev favorited a tweet https://www.sheldonhull.com/go-r1-day-48/",
+        "sentence_html": "<a href=\"https://twitter.com/Challenged_Dev\">Challenged.Dev</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-48/\">https://www.sheldonhull.com/go-r1-day-48/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1412879230099202049/1853371",
+      "verified": true,
+      "verified_date": "2021-07-07T21:25:09Z",
+      "id": 1212942,
+      "private": false,
+      "target": "https://www.sheldonhull.com/go-r1-day-48/",
+      "data": {
+        "author": {
+          "name": "Marc Delagrammatikas",
+          "url": "https://twitter.com/marcdel",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/853db01d45e5100218c3c8ae2d508a2d96af6a2409a0f8144734fef1afbfd89f.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1412879230099202049#favorited-by-1853371",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Marc Delagrammatikas favorited a tweet https://www.sheldonhull.com/go-r1-day-48/",
+        "sentence_html": "<a href=\"https://twitter.com/marcdel\">Marc Delagrammatikas</a> favorited a tweet <a href=\"https://www.sheldonhull.com/go-r1-day-48/\">https://www.sheldonhull.com/go-r1-day-48/</a>"
+      }
     }
   ]
 }
