@@ -31,7 +31,8 @@ task hugo-serve-nocache {
 }
 #Synposis: Will need to adjust for Round 2 later. For now, this just generates a new
 Task hugo-new-100-days-of-code {
-    $Round=1
+    $LANGUAGE= 'go'
+    $ROUND=1
     $Date = Read-Host -Message "Enter date override or enter to continue with $(Get-Date -Format 'yyyy-MM-dd')"
     if (-not $Date)
     {
@@ -73,6 +74,7 @@ Task hugo-new-100-days-of-code {
     }
     $Content = Get-Content $NewFile -Raw
     $Content = $Content.Replace('VAR_DAYCOUNTER', $NewDayCounter).Replace('VAR_DAYCOUNTERIMAGE', [string]"$NewDayCounter".PadLeft(3, '0')).Replace((Get-Date -Format 'yyyy-MM-dd'), $Date)
+    $Content = $Content.Replace('VAR_LANGUAGE', $LANGUAGE).Replace('VAR_ROUND',$ROUND)
     $Content = $Content -replace 'title: \d{4}.\d{2}.\d{2}\s+', 'title: ' -replace 'slug: \d{4}.\d{2}.\d{2}-', 'slug: '
 
     $Content | Out-File $NewFile -Force
