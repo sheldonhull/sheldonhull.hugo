@@ -19,19 +19,47 @@ pre-push:
 # github.com/owenrumney/squealer/cmd/squealer@latest
 
 pre-commit:
-  parallel: true
-  tags: go lint
+  parallel: false
+  tags: lint
   commands:
     squealer:
-      name: squealer
+      name: squealer go
       run: squealer --config-file squealer.yml # run: bundle audit
+
     markdownlint:
-      tags: docker
-      name: markdownlint-autofix
-      ##glob: '**/*/*.md'
-      # files: git ls-files *.md
-      # glob: '*.md'
-      run: docker run -i --rm -v ${PWD}:/work tmknom/markdownlint:latest --fix /work
+      tags: npm
+      name: markdownlint
+      files: git diff-index --name-only HEAD #git ls-files **/*/*.md  -m
+      glob: '*.md'
+      run: |
+        echo "⚡ markdownlint on: {files}"
+        markdownlint-cli2-fix "{files}"
+        # markdownlint-cli2  "{files}"
+        #"**/*.md" "#node_modules"
+
+    # markdownlint:
+    #   tags: docker
+    #   name: markdownlint
+    #   files: git diff-index --name-only HEAD #git ls-files **/*/*.md  -m
+    #   glob: '*.md'
+    #   run: |
+    #     echo "⚡ markdownlint on: {files}"
+    #     docker run -i --rm  -v ${PWD}:/markdown 06kellyjac/markdownlint-cli:latest --fix {files}
+    #     # Mount Config:  -v ${PWD}/.markdownlint.yaml:/markdown/.markdownlint.yaml
+
+    # Install with task init; Manually install with npm install -g imageoptim-cli
+    imageoptim:
+      tags: image npm
+      name: imageoptim
+      files: git diff-index --name-only HEAD
+      glob: '*.png'
+      run: |
+        echo "⚡ imageoptim on: {files}"
+        imageoptim {files}
+      # --imagealpha
+
+   #DIFF: git diff-index --name-only HEAD
+   # git ls-files *.png --modified # only run on newly staged files
       # {files}
     # shellcheck:
     #   tags: gotool

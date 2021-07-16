@@ -70,7 +70,7 @@ tasks:
           echo "gitpod command: $(gp url 1313)"
           export DEPLOY_PRIME_URL=$(gp url 1313)
         fi
-      - $HUGO serve -b ${DEPLOY_PRIME_URL:-$DEFAULT_BUILD_SERVER} --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc --disableFastRender
+      - $HUGO serve -b ${DEPLOY_PRIME_URL:-$DEFAULT_BUILD_SERVER} --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc # --disableFastRender
 
       # - task: build
   echo-debug:
@@ -116,7 +116,7 @@ tasks:
     cmds:
       # - git submodule update --init --recursive
       # - git rm ./themes/codeit
-      - hugo mod get -u
+      - hugo mod get
       # -    {{ .GITHUB_REPO }}
       # - hugo mod get -u -v
       # - hugo mod tidy
@@ -272,8 +272,10 @@ tasks:
         # {{end}}
       - |
         # brew reinstall node
-        npm install -g imageoptim-cli --silent
-        npm install -g install netlify-cli --silent
+        npm install imageoptim-cli --global --silent
+        npm install markdownlint-cli2 --global --silent
+
+        # npm install -g install netlify-cli --silent
         {{ if eq OS "windows" }}scoop install jq jid{{end}}
         {{ if eq OS "darwin" }}brew install jq jid{{end}}
       - |
