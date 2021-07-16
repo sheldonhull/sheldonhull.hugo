@@ -6599,6 +6599,131 @@
         "sentence": "driftctl favorited a tweet https://www.sheldonhull.com/use-driftctl-to-detect-infra-drift/",
         "sentence_html": "<a href=\"https://twitter.com/driftctl\">driftctl</a> favorited a tweet <a href=\"https://www.sheldonhull.com/use-driftctl-to-detect-infra-drift/\">https://www.sheldonhull.com/use-driftctl-to-detect-infra-drift/</a>"
       }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1416173539074449408/14461121",
+      "verified": true,
+      "verified_date": "2021-07-16T23:38:30Z",
+      "id": 1221756,
+      "private": false,
+      "target": "https://www.sheldonhull.com/steampipe-is-sql-magic/",
+      "data": {
+        "author": {
+          "name": "David Boeke",
+          "url": "https://twitter.com/boeke",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/c6175d751e586836ba155223e8a0f27cf2aaf2a4105134f57b812ad14a07326d.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1416173539074449408#favorited-by-14461121",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "David Boeke favorited a tweet https://www.sheldonhull.com/steampipe-is-sql-magic/",
+        "sentence_html": "<a href=\"https://twitter.com/boeke\">David Boeke</a> favorited a tweet <a href=\"https://www.sheldonhull.com/steampipe-is-sql-magic/\">https://www.sheldonhull.com/steampipe-is-sql-magic/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1416173539074449408/2469180332",
+      "verified": true,
+      "verified_date": "2021-07-16T23:38:29Z",
+      "id": 1221755,
+      "private": false,
+      "target": "https://www.sheldonhull.com/steampipe-is-sql-magic/",
+      "data": {
+        "author": {
+          "name": "Turbot",
+          "url": "https://twitter.com/turbothq",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/d0fb7a5f77271b0c04a6c49f7915862c84349f183efaed8aecb9a47bc5adaaca.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1416173539074449408#favorited-by-2469180332",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Turbot favorited a tweet https://www.sheldonhull.com/steampipe-is-sql-magic/",
+        "sentence_html": "<a href=\"https://twitter.com/turbothq\">Turbot</a> favorited a tweet <a href=\"https://www.sheldonhull.com/steampipe-is-sql-magic/\">https://www.sheldonhull.com/steampipe-is-sql-magic/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1416173539074449408/33829595",
+      "verified": true,
+      "verified_date": "2021-07-16T23:38:27Z",
+      "id": 1221753,
+      "private": false,
+      "target": "https://www.sheldonhull.com/steampipe-is-sql-magic/",
+      "data": {
+        "author": {
+          "name": "Matt",
+          "url": "https://twitter.com/svcghost",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/9ac6a6619ebe0f9d72a5525d26e64b1f7b1a28c5de5917e9c940252db1fddeb8.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1416173539074449408#favorited-by-33829595",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Matt favorited a tweet https://www.sheldonhull.com/steampipe-is-sql-magic/",
+        "sentence_html": "<a href=\"https://twitter.com/svcghost\">Matt</a> favorited a tweet <a href=\"https://www.sheldonhull.com/steampipe-is-sql-magic/\">https://www.sheldonhull.com/steampipe-is-sql-magic/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1416173539074449408/1318177503995985921",
+      "verified": true,
+      "verified_date": "2021-07-16T23:38:28Z",
+      "id": 1221754,
+      "private": false,
+      "target": "https://www.sheldonhull.com/steampipe-is-sql-magic/",
+      "data": {
+        "author": {
+          "name": "Steampipe",
+          "url": "https://twitter.com/steampipeio",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/6a008fe6080dab02ca2774016219184407b4970a45a65efefb8a4cb86b80cabc.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1416173539074449408#favorited-by-1318177503995985921",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Steampipe favorited a tweet https://www.sheldonhull.com/steampipe-is-sql-magic/",
+        "sentence_html": "<a href=\"https://twitter.com/steampipeio\">Steampipe</a> favorited a tweet <a href=\"https://www.sheldonhull.com/steampipe-is-sql-magic/\">https://www.sheldonhull.com/steampipe-is-sql-magic/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/like/twitter/sheldon_hull/1416173539074449408/1111724748986155008",
+      "verified": true,
+      "verified_date": "2021-07-16T23:38:27Z",
+      "id": 1221752,
+      "private": false,
+      "target": "https://www.sheldonhull.com/steampipe-is-sql-magic/",
+      "data": {
+        "author": {
+          "name": "Voleer",
+          "url": "https://twitter.com/Voleer",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/09e6ae1bb74254d0461341254e01804df31b6037b3ca1340098c84564c06e06c.png"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1416173539074449408#favorited-by-1111724748986155008",
+        "name": "",
+        "content": "",
+        "published": "0001-01-01T00:00:00Z",
+        "published_ts": 0
+      },
+      "activity": {
+        "type": "like",
+        "sentence": "Voleer favorited a tweet https://www.sheldonhull.com/steampipe-is-sql-magic/",
+        "sentence_html": "<a href=\"https://twitter.com/Voleer\">Voleer</a> favorited a tweet <a href=\"https://www.sheldonhull.com/steampipe-is-sql-magic/\">https://www.sheldonhull.com/steampipe-is-sql-magic/</a>"
+      }
     }
   ]
 }

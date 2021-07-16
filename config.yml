@@ -191,7 +191,7 @@ params:
       #pre: '<i class="fas fa-terminal"></i>'  #<i class='fas fa-laptop-code fa-fw'></i>
       pre: <span id="logo-anima"><span class="arrow">></span><span class="dash">_</span></span>
       post: ''
-      typeit: false
+      typeit: true
   footer:
     enable: true
     custom: ''
