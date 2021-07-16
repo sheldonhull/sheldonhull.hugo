@@ -1,4 +1,6 @@
 github.com/dnb-org/debug v1.3.0 h1:w9jTmF/3UHFdyu9nzEmLfhqok2wlV9Ol0E55Wa4yQ9k=
 github.com/dnb-org/debug v1.3.0/go.mod h1:0z/MDK1qgyqHmMM8mSrexsoPSTpJgIsNu3r6nw5zHAU=
+github.com/nekr0z/webmention.io-backup v1.0.2-0.20210609190353-313bb0141b30 h1:vzQJQNWXLPnvUbN+DZ733y5jWqw8Tr+OjC+65VAD+S0=
+github.com/nekr0z/webmention.io-backup v1.0.2-0.20210609190353-313bb0141b30/go.mod h1:6TBC15pHS3mzMFvRn2+Z10u2GSJumRwhRfZJB6r0Olc=
 github.com/sunt-programator/CodeIT v0.1.2 h1:eX7mPEMP+fWWIyKAm3gpM0HYxue9d1OSXqLPSekJ1u4=
 github.com/sunt-programator/CodeIT v0.1.2/go.mod h1:2SvxhSLzl0zKv9OynuFqwv7RWwi2ADghwJlcy93EwgM=

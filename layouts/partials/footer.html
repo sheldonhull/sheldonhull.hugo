@@ -47,14 +47,19 @@
                 {{- end -}}
             </div>
         </div>
+        <div>
+        <hr style="width:50%">
+        {{- partial "webmentions-site.html" -}}
+        <br>
         {{- partial "mailbrew-subscribe.html" -}}
+        <br>
         {{- partial "buymeacoffee.html" -}}
+        </div>
     </footer>
 {{- end -}}
 {{ if and .Site.IsServer $.Params.debug }}
 <div class="debugprintsection">
-
-  <div><h1>. Context</h1>{{ partial "debugprint.html" . }}</div>
+  <div><h1>.Context</h1>{{ partial "debugprint.html" . }}</div>
   <div><h1>.Params Context</h1>{{ partial "debugprint.html" .Params }}</div>
   <div><h1>Site Context</h1>{{ partial "debugprint.html" site }}</div>
   {{/* partial "debugprint.html" site.Menus */}}
