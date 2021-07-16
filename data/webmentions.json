@@ -6724,6 +6724,131 @@
         "sentence": "Voleer favorited a tweet https://www.sheldonhull.com/steampipe-is-sql-magic/",
         "sentence_html": "<a href=\"https://twitter.com/Voleer\">Voleer</a> favorited a tweet <a href=\"https://www.sheldonhull.com/steampipe-is-sql-magic/\">https://www.sheldonhull.com/steampipe-is-sql-magic/</a>"
       }
+    },
+    {
+      "source": "https://brid.gy/comment/twitter/sheldon_hull/1416176743258415113/1416184847886950400",
+      "verified": true,
+      "verified_date": "2021-07-16T23:58:46Z",
+      "id": 1221785,
+      "private": false,
+      "target": "https://www.sheldonhull.com/steampipe-is-sql-magic/",
+      "data": {
+        "author": {
+          "name": "Sheldon Hull",
+          "url": "https://twitter.com/sheldon_hull",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/570e539daf6f476eeaf772c929b2ebb5f87eeaac5a50489f2ecf9f0186baa9c6.jpg"
+        },
+        "url": "https://twitter.com/sheldon_hull/status/1416184847886950400",
+        "name": "",
+        "content": "Nice! It was a quick post so not a full walk-through, but dang it was impressive! \n\nNow it feels like using sdk manually/cli to query this data is actually the less reliable route at first glance.\n<a class=\"u-mention\" href=\"https://twitter.com/boeke\"></a>\n<a class=\"u-mention\" href=\"https://www.sheldonhull.com/steampipe-is-sql-magic/\"></a>",
+        "published": "2021-07-16T23:55:53Z",
+        "published_ts": 1626479753
+      },
+      "activity": {
+        "type": "reply",
+        "sentence": "Sheldon Hull replied 'Nice! It was a quick post so not a full walk-through, but dang it was impressive...' to a tweet that linked to https://www.sheldonhull.com/steampipe-is-sql-magic/",
+        "sentence_html": "<a href=\"https://twitter.com/sheldon_hull\">Sheldon Hull</a> replied 'Nice! It was a quick post so not a full walk-through, but dang it was impressive...' to a tweet that linked to <a href=\"https://www.sheldonhull.com/steampipe-is-sql-magic/\">https://www.sheldonhull.com/steampipe-is-sql-magic/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1416173539074449408/1416175125251207170",
+      "verified": true,
+      "verified_date": "2021-07-16T23:38:36Z",
+      "id": 1221760,
+      "private": false,
+      "target": "https://www.sheldonhull.com/steampipe-is-sql-magic/",
+      "data": {
+        "author": {
+          "name": "Periscope Is Lit",
+          "url": "https://twitter.com/periscopeislit",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/3aad954275e3e77000af5e66066a2b6dc5fb759e989ca4dee2a7662929b4a5dd.png"
+        },
+        "url": "https://twitter.com/periscopeislit/status/1416175125251207170",
+        "name": "",
+        "content": "Steampipe Is Sql Magic sheldonhull.com/steampipe-is-s… #tech #development #aws #golang via @sheldon_hull \n\nShoutout to @steampipeio. I'm floored by how awesome this was. I remember reading about it but didn't have a chance. Wish I had checked this out earlier! 🎉🎉🎉",
+        "published": "2021-07-16T23:17:15Z",
+        "published_ts": 1626477435
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Periscope Is Lit retweeted a tweet https://www.sheldonhull.com/steampipe-is-sql-magic/",
+        "sentence_html": "<a href=\"https://twitter.com/periscopeislit\">Periscope Is Lit</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/steampipe-is-sql-magic/\">https://www.sheldonhull.com/steampipe-is-sql-magic/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/post/twitter/sheldon_hull/1416176743258415113",
+      "verified": true,
+      "verified_date": "2021-07-16T23:38:34Z",
+      "id": 1221759,
+      "private": false,
+      "target": "https://www.sheldonhull.com/steampipe-is-sql-magic/",
+      "data": {
+        "author": {
+          "name": "David Boeke",
+          "url": "https://twitter.com/boeke",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/c6175d751e586836ba155223e8a0f27cf2aaf2a4105134f57b812ad14a07326d.jpg"
+        },
+        "url": "https://twitter.com/boeke/status/1416176743258415113",
+        "name": "",
+        "content": "Terrific use case and write up!  Thank you. p.s. We 💕the Star Wars theme.\n<a class=\"u-mention\" href=\"https://www.sheldonhull.com/steampipe-is-sql-magic/\"></a>",
+        "published": "2021-07-16T23:23:41Z",
+        "published_ts": 1626477821
+      },
+      "activity": {
+        "type": "link",
+        "sentence": "David Boeke posted 'Terrific use case and write up!  Thank you. p.s. We 💕the Star Wars theme.' linking to https://www.sheldonhull.com/steampipe-is-sql-magic/",
+        "sentence_html": "<a href=\"https://twitter.com/boeke\">David Boeke</a> posted 'Terrific use case and write up!  Thank you. p.s. We 💕the Star Wars theme.' linking to <a href=\"https://www.sheldonhull.com/steampipe-is-sql-magic/\">https://www.sheldonhull.com/steampipe-is-sql-magic/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1416173539074449408/1416174884972113927",
+      "verified": true,
+      "verified_date": "2021-07-16T23:38:33Z",
+      "id": 1221758,
+      "private": false,
+      "target": "https://www.sheldonhull.com/steampipe-is-sql-magic/",
+      "data": {
+        "author": {
+          "name": "Steampipe",
+          "url": "https://twitter.com/steampipeio",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/6a008fe6080dab02ca2774016219184407b4970a45a65efefb8a4cb86b80cabc.jpg"
+        },
+        "url": "https://twitter.com/steampipeio/status/1416174884972113927",
+        "name": "",
+        "content": "Steampipe Is Sql Magic sheldonhull.com/steampipe-is-s… #tech #development #aws #golang via @sheldon_hull \n\nShoutout to @steampipeio. I'm floored by how awesome this was. I remember reading about it but didn't have a chance. Wish I had checked this out earlier! 🎉🎉🎉",
+        "published": "2021-07-16T23:16:18Z",
+        "published_ts": 1626477378
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Steampipe retweeted a tweet https://www.sheldonhull.com/steampipe-is-sql-magic/",
+        "sentence_html": "<a href=\"https://twitter.com/steampipeio\">Steampipe</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/steampipe-is-sql-magic/\">https://www.sheldonhull.com/steampipe-is-sql-magic/</a>"
+      }
+    },
+    {
+      "source": "https://brid.gy/repost/twitter/sheldon_hull/1416173539074449408/1416175550062858242",
+      "verified": true,
+      "verified_date": "2021-07-16T23:38:33Z",
+      "id": 1221757,
+      "private": false,
+      "target": "https://www.sheldonhull.com/steampipe-is-sql-magic/",
+      "data": {
+        "author": {
+          "name": "Python Expert",
+          "url": "https://twitter.com/PythonExpertBot",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/e502da5cc776f3e4c5dbe5a85b2ffd1e1c751a9369c32d4e39a37c5cad2eb5f7.jpg"
+        },
+        "url": "https://twitter.com/PythonExpertBot/status/1416175550062858242",
+        "name": "",
+        "content": "Steampipe Is Sql Magic sheldonhull.com/steampipe-is-s… #tech #development #aws #golang via @sheldon_hull \n\nShoutout to @steampipeio. I'm floored by how awesome this was. I remember reading about it but didn't have a chance. Wish I had checked this out earlier! 🎉🎉🎉",
+        "published": "2021-07-16T23:18:57Z",
+        "published_ts": 1626477537
+      },
+      "activity": {
+        "type": "repost",
+        "sentence": "Python Expert retweeted a tweet https://www.sheldonhull.com/steampipe-is-sql-magic/",
+        "sentence_html": "<a href=\"https://twitter.com/PythonExpertBot\">Python Expert</a> retweeted a tweet <a href=\"https://www.sheldonhull.com/steampipe-is-sql-magic/\">https://www.sheldonhull.com/steampipe-is-sql-magic/</a>"
+      }
     }
   ]
 }
