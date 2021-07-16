@@ -455,7 +455,7 @@ RSSSection:
 module:
   imports:
       # Debug Helper for Layouts: https://github.com/kaushalmodi/hugo-debugprint
-    - path: github.com/dnb-hugo/debugprint
+    - path: github.com/dnb-org/debug
       # github.com/kaushalmodi/hugo-debugprint
       # github.com/dnb-hugo/debugprint
       # ignoreConfig: true

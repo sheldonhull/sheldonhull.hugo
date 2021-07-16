@@ -12,8 +12,10 @@ fenced-code-language: true
 no-inline-html: false
 MD004:
   style: dash
-MD025:
+MD025: false
 MD041: false
 MD013: false
 MD046: false
+MD010: false # because I have embedded Go code in markdown
+MD032: false
   #style: consistent
