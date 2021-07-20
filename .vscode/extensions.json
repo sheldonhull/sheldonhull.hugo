@@ -14,7 +14,8 @@
         "jonrad.docker-diary-vscode",
         "sandipchitale.docker-dive",
         "dansnow.vscode-dockerfilelint",
-        "foxundermoon.shell-format"
+        "foxundermoon.shell-format",
+        "tomasvergara.vscode-fontawesome-gallery"
     ],
     // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
     "unwantedRecommendations": []
