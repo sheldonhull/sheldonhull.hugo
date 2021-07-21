@@ -9,8 +9,8 @@ slug: go
 permalink: /docs/go
 comments: true
 tags:
-  - development
-  - golang
+- development
+- golang
 ---
 
 ## Starter Template
@@ -100,6 +100,47 @@ go test ./... -coverprofile ./artifacts/cover.out
 go tool cover -html=./artifacts/cover.out -o ./artifacts/coverage.html
 gopherbadger -md="README.md,coverage.md" -tags 'unit'
 ```
+
+## PowerShell & .NET Comparisons
+
+Since my background was in the .NET world, I figured I'd log a few comparisons to general concepts with Go and compare to PowerShell/.NET, as I found only 1-2 similar comparisons in my own reading in the past.
+Yes, it's an unusual transition, but I'm betting others might find this useful in the future.
+
+I'll set these as collapsible sections in an effort to make it compact and easy to find what you need.
+
+{{< admonition type="Info" title="Objects" open=false >}}
+
+PowerShell has Objects, along with an accelerator called `[PSCustomObject]@{}` that makes it easy to build a structured object.
+
+The equivalent in Go is a struct.
+{{< /admonition >}}
+
+{{< tabs groupId="objects" >}}
+
+{{% tab name="powershell" %}}
+
+```powershell
+[PSCustomobject]@{
+    DesiredFood = 'Tacos'
+}
+```
+
+{{% /tab %}}
+{{% tab name="go" %}}
+
+:(fas fa-terminal): [Playground - Anonymous Struct](https://play.golang.org/p/ikLXt1fTvRC)
+
+```go
+type Obj struct {
+    DesiredFood string
+}
+// or anonymous struct for quick inline
+obj := struct{ DesiredFood string }{DesiredFood: "Tacos"}
+```
+
+{{% /tab %}}
+
+{{< /tabs >}}
 
 ## Repos
 
