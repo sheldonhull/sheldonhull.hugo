@@ -58,6 +58,12 @@ Works well for a TDD workflow.
 
 ![Goland Test Coverage](/images/2021-07-19-goland-test-coverage.png "test coverage")
 
+@s0xzwasd provided some great insight on the different approach in the comments on this page.
+Compound configurations work well to run multiple sets of test when using multiple modules in the same repo.
+I tried this, and while tedious to click through the first time, It's easier to configure from a UI standpoint than trying to work through the VSCode `tasks.json` schema and build tasks by hand.
+
+![Goland Compound Test Coverage Explorer Output](/images/2021-07-21-18.16.07-goland-run-all-tests.png "Compound test coverage")
+
 {{< /admonition >}}
 
 {{< admonition type="Question" title=":(fas fa-running): Run Configurations" open=false >}}
