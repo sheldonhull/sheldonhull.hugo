@@ -12,7 +12,7 @@ typora-root-url: ../../../static
 typora-copy-images-to:  ../../../static/images
 ---
 
-Use [Driftctl](https://github.com/driftlang/driftctl) to detect drift in your your infrastructure.
+Use [Driftctl](https://github.com/cloudskiff/driftctl) to detect drift in your your infrastructure.
 This snippet generates a [html report](https://driftctl.com/html-reports/) to show coverage and drift figures of the target.
 
 For multiple states, you'll need to adapt this to provide more `--from` paths to ensure all state files are used to identify coverage.
