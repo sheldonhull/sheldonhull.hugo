@@ -7,5 +7,5 @@ require (
   github.com/yuin/goldmark v1.4.0
 	github.com/rs/zerolog v1.23.0
 	mvdan.cc/xurls v1.1.0
-	mvdan.cc/xurls/v2 v2.2.0
+	mvdan.cc/xurls/v2 v2.3.0
 )
