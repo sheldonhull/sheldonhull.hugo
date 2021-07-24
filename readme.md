@@ -23,6 +23,7 @@ Why?
 ## install
 
 - Open in codespaces or in local docker container and then run `task init` to ensure all tooling and submodules are initialized
+- ✨ *NEW 2021-07*: `go mod tidy` and then `mage` to see a list of available tasks.
 
 ## Building & Tooling
 
