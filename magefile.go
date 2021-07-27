@@ -3,17 +3,18 @@
 package main
 
 import (
+	"os"
+	"os/exec"
+	"path/filepath"
+	"strings"
+	"time"
+
 	"github.com/magefile/mage/mg" // mg contains helpful utility functions, like Deps
 	"github.com/magefile/mage/sh"
 	"github.com/manifoldco/promptui"
 	"github.com/pterm/pterm"
-	"os"
-	"os/exec"
-	"time"
 
 	"github.com/gobeam/stringy" // stringy is a string manipulation package for kebab and other case
-	"path/filepath"
-	"strings"
 )
 
 // Default target to run when none is specified
@@ -26,7 +27,7 @@ type Hugo mg.Namespace
 type New mg.Namespace
 
 // hugo alias is a shortcut for calling hugo binary
-//var hugobin = sh.RunV("hugo") // go is a keyword :(
+// var hugobin = sh.RunV("hugo") // go is a keyword :(
 
 // buildUrl is the localhost default to allow. This is better than localhost when working with macOS as localhost doesn't work the same.
 const buildUrl = "http://127.0.0.1:1313"
@@ -72,7 +73,6 @@ func getBuildUrl() string {
 		return buildUrl
 	}
 	return u
-
 }
 
 // calculatePostDir calculates the post directory based on the post title and the date.
@@ -80,7 +80,7 @@ func calculatePostDir(title string) string {
 	year, month, day := time.Now().Date()
 	str := stringy.New(title)
 	kebabTitle := str.KebabCase().ToLower()
-	slugTitle := strings.Join(string(year), string(month), string(day),kebabTitle, "-") ///stringy.ToKebabCase(title)
+	slugTitle := strings.Join([]string{string(year), string(month), string(day), kebabTitle}, "-") ///stringy.ToKebabCase(title)
 
 	pterm.Success.Printf("Slugify Title: %s", slugTitle)
 	filepath := filepath.Join(contentDir, string(year), slugTitle)
@@ -88,11 +88,10 @@ func calculatePostDir(title string) string {
 	return filepath
 }
 
-
 // Run Hugo Serve
 func (Hugo) Serve() error {
 	pterm.DefaultSection.Printf("Hugo Serve")
-	//hugobin("serve", "-b ", getBuildUrl(), "--verbose", "--enableGitInfo", "-d _site", "--buildFuture", "--buildDrafts", "--gc", "--disableFastRender"); err != nil {
+	// hugobin("serve", "-b ", getBuildUrl(), "--verbose", "--enableGitInfo", "-d _site", "--buildFuture", "--buildDrafts", "--gc", "--disableFastRender"); err != nil {
 	if err := sh.RunV("hugo", "serve", "-b ", getBuildUrl(), "--verbose", "--enableGitInfo", "-d _site", "--buildFuture", "--buildDrafts", "--gc", "--disableFastRender"); err != nil {
 		return err
 	}
