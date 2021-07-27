@@ -9,9 +9,9 @@ slug: git
 permalink: /docs/git
 comments: true
 tags:
-  - development
-  - git
-  - tech
+- development
+- git
+- tech
 ---
 
 :(fas fa-info-circle fa-fw): This is a mix of git, github, azure devops repos, and other workflow tips that help me work more quickly.
@@ -129,6 +129,12 @@ You can configure this as a VSCode snippet for quick access by including this:
 ```shell
 git log master..$(git branch --show-current) --oneline
 ```
+
+## Cleanup Tags
+
+1. Remove tags on remote first: `git push --no-verify --delete MyTagName`
+1. Remove every local tag in your repo: `git tag -d $(git tag)`
+1. Pull latest tags: `git fetch origin --prune --prune-tags`
 
 ## Resources
 
