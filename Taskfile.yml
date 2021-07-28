@@ -70,7 +70,7 @@ tasks:
           echo "gitpod command: $(gp url 1313)"
           export DEPLOY_PRIME_URL=$(gp url 1313)
         fi
-      - $HUGO serve -b ${DEPLOY_PRIME_URL:-$DEFAULT_BUILD_SERVER} --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc # --disableFastRender
+      - $HUGO serve -b ${DEPLOY_PRIME_URL:-$DEFAULT_BUILD_SERVER} --verbose --enableGitInfo -d '_site' --buildFuture --buildDrafts --gc # --disableFastRender
 
       # - task: build
   echo-debug:

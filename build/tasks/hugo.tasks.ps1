@@ -3,7 +3,7 @@ Task hugo-serve {
     {
         '*Windows*'
         {
-            hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc
+            hugo serve -b localhost:1313 --verbose --enableGitInfo -d '_site' --buildFuture --buildDrafts --gc
 
         }
         '*Darwin*'
@@ -11,12 +11,12 @@ Task hugo-serve {
             Write-Build DarkGray 'Setting hugo path as fails to find in env variables'
             #not working and no time to debug this
             #$hugo = &bash -c 'which hugo'
-            #&$hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc
-            &/usr/local/bin/hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc
+            #&$hugo serve -b localhost:1313 --verbose --enableGitInfo -d '_site' --buildFuture --buildDrafts --gc
+            &/usr/local/bin/hugo serve -b localhost:1313 --verbose --enableGitInfo -d '_site' --buildFuture --buildDrafts --gc
         }
         '*Linux*'
         {
-            &hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc
+            &hugo serve -b localhost:1313 --verbose --enableGitInfo -d '_site' --buildFuture --buildDrafts --gc
         }
     }
 }
@@ -26,7 +26,7 @@ task hugo-serve-nocache {
     Write-Build Red "Error. Going to try to clean mod cache. Try also `hugo serve --ignoreCache` and see if that helps.`nTry `$ENV:HUGO_CACHEDIR=./tmp as one additional fix"
     &/usr/bin/hugo mod clean
     $ENV:HUGO_CACHEDIR = '.cache'
-    &/usr/bin/hugo serve -b localhost:1313 --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc --ignoreCache
+    &/usr/bin/hugo serve -b localhost:1313 --verbose --enableGitInfo -d '_site' --buildFuture --buildDrafts --gc --ignoreCache
 
 }
 #Synposis: Will need to adjust for Round 2 later. For now, this just generates a new
