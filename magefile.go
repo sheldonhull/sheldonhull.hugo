@@ -3,6 +3,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -78,12 +79,13 @@ func getBuildUrl() string {
 // calculatePostDir calculates the post directory based on the post title and the date.
 func calculatePostDir(title string) string {
 	year, month, day := time.Now().Date()
+	dateString := fmt.Sprintf("%d-%d-%d", year, month, day)
 	str := stringy.New(title)
 	kebabTitle := str.KebabCase().ToLower()
-	slugTitle := strings.Join([]string{string(year), string(month), string(day), kebabTitle}, "-") ///stringy.ToKebabCase(title)
+	slugTitle := strings.Join([]string{dateString, kebabTitle}, "-") ///stringy.ToKebabCase(title)
 
 	pterm.Success.Printf("Slugify Title: %s", slugTitle)
-	filepath := filepath.Join(contentDir, string(year), slugTitle)
+	filepath := filepath.Join(contentDir, fmt.Sprintf("%d", year), slugTitle)
 	pterm.Success.Printf("calculatePostDir: %s", slugTitle)
 	return filepath
 }
@@ -92,7 +94,7 @@ func calculatePostDir(title string) string {
 func (Hugo) Serve() error {
 	pterm.DefaultSection.Printf("Hugo Serve")
 	// hugobin("serve", "-b ", getBuildUrl(), "--verbose", "--enableGitInfo", "-d _site", "--buildFuture", "--buildDrafts", "--gc", "--disableFastRender"); err != nil {
-	if err := sh.RunV("hugo", "serve", "-b ", getBuildUrl(), "--verbose", "--enableGitInfo", "-d _site", "--buildFuture", "--buildDrafts", "--gc", "--disableFastRender"); err != nil {
+	if err := sh.RunV("hugo", "serve", "-b ", getBuildUrl(), "--verbose", "--enableGitInfo", "-d", "_site", "--buildFuture", "--buildDrafts", "--gc", "--disableFastRender"); err != nil {
 		return err
 	}
 	return nil
