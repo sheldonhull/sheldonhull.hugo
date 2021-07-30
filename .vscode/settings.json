@@ -1,5 +1,5 @@
 {
-    "explorer.sortOrder": "mixed",
+    "explorer.sortOrder": "modified",
     "[markdown]": {
         "editor.defaultFormatter": "yzhang.markdown-all-in-one"
     },
@@ -77,7 +77,6 @@
         "**/renovate.json": true,
         "_*/": true,
         "diagrams": true,
-        "**/config": true,
         ".*.y*ml": true,
         ".git*": true,
         ".devcontainer": true,
@@ -120,6 +119,7 @@
         "task.build.ps1": true,
         "tools": true,
         "webmentions.json": true,
+        "config": true
     },
     "explorerExclude.backup": null,
 }

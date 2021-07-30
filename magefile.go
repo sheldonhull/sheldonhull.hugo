@@ -33,7 +33,7 @@ type New mg.Namespace
 // buildUrl is the localhost default to allow. This is better than localhost when working with macOS as localhost doesn't work the same.
 const buildUrl = "http://127.0.0.1:1313"
 
-const contentDir = "content"
+const contentDir = "content/posts"
 
 // A build step that requires additional params, or platform specific steps for example
 func Build() error {
@@ -79,13 +79,13 @@ func getBuildUrl() string {
 // calculatePostDir calculates the post directory based on the post title and the date.
 func calculatePostDir(title string) string {
 	year, month, day := time.Now().Date()
-	dateString := fmt.Sprintf("%d-%d-%d", year, month, day)
+	dateString := fmt.Sprintf("%d-%02d-%d", year, month, day)
 	str := stringy.New(title)
 	kebabTitle := str.KebabCase().ToLower()
 	slugTitle := strings.Join([]string{dateString, kebabTitle}, "-") ///stringy.ToKebabCase(title)
 
 	pterm.Success.Printf("Slugify Title: %s", slugTitle)
-	filepath := filepath.Join(contentDir, fmt.Sprintf("%d", year), slugTitle)
+	filepath := filepath.Join(contentDir, fmt.Sprintf("%d", year), slugTitle+".md")
 	pterm.Success.Printf("calculatePostDir: %s", slugTitle)
 	return filepath
 }
