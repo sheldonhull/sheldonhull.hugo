@@ -9,8 +9,8 @@ slug: go
 permalink: /docs/go
 comments: true
 tags:
-  - development
-  - golang
+- development
+- golang
 ---
 
 ## Starter Template
@@ -100,6 +100,8 @@ go test ./... -coverprofile ./artifacts/cover.out
 go tool cover -html=./artifacts/cover.out -o ./artifacts/coverage.html
 gopherbadger -md="README.md,coverage.md" -tags 'unit'
 ```
+
+## Running External Commands
 
 ## Repos
 
