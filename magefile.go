@@ -33,7 +33,7 @@ type New mg.Namespace
 // var hugobin = sh.RunV("hugo") // go is a keyword :(
 
 // buildUrl is the localhost default to allow. This is better than localhost when working with macOS as localhost doesn't work the same.
-const buildUrl = "http://127.0.0.1:1313"
+const buildUrl = `http://127.0.0.1:1313`
 
 const contentDir = "content/posts"
 
@@ -78,15 +78,6 @@ func isCI() bool {
 	return os.Getenv("CI") != ""
 }
 
-// getBuildUrl checks for DEPLOY_PRIME_URL from Netlify, otherwise returns the localhost url.
-func getBuildUrl() string {
-	u := os.Getenv("DEPLOY_PRIME_URL")
-	if u == "" {
-		return buildUrl
-	}
-	return u
-}
-
 // calculatePostDir calculates the post directory based on the post title and the date.
 func calculatePostDir(title string) string {
 	year, month, day := time.Now().Date()
@@ -101,11 +92,26 @@ func calculatePostDir(title string) string {
 	return filepath
 }
 
+// getBuildUrl checks for DEPLOY_PRIME_URL from Netlify, otherwise returns the localhost url.
+func getBuildUrl() string {
+	u := os.Getenv("DEPLOY_PRIME_URL")
+	if u == "" {
+		pterm.Info.Println("DEPLOY_PRIME_URL not set")
+		pterm.Info.Println("buildUrl ", buildUrl)
+		return buildUrl
+	}
+	pterm.Info.Println("DEPLOY_PRIME_URL set to", u)
+
+	return u
+}
+
 // Run Hugo Serve
 func (Hugo) Serve() error {
 	pterm.DefaultSection.Printf("Hugo Serve")
+	url := getBuildUrl()
 	// hugobin("serve", "-b ", getBuildUrl(), "--verbose", "--enableGitInfo", "-d _site", "--buildFuture", "--buildDrafts", "--gc", "--disableFastRender"); err != nil {
-	if err := sh.RunV("hugo", "serve", "-b ", getBuildUrl(), "--verbose", "--enableGitInfo", "-d", "_site", "--buildFuture", "--buildDrafts", "--gc", "--disableFastRender"); err != nil {
+	pterm.Info.Println("hugo", "serve", "-b", url, "--verbose", "--enableGitInfo", "-d", "_site", "--buildFuture", "--buildDrafts", "--gc", "--disableFastRender")
+	if err := sh.RunV("hugo", "serve", "-b", url, "--verbose", "--enableGitInfo", "-d", "_site", "--buildFuture", "--buildDrafts", "--gc", "--disableFastRender"); err != nil {
 		return err
 	}
 	return nil
