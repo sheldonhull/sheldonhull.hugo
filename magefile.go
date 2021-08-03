@@ -16,6 +16,8 @@ import (
 	"github.com/pterm/pterm"
 
 	"github.com/gobeam/stringy" // stringy is a string manipulation package for kebab and other case
+	//mage:import
+	//	_ "github.com/sheldonhull/magetools/tools" //nolint:nolint
 )
 
 // Default target to run when none is specified
@@ -34,6 +36,15 @@ type New mg.Namespace
 const buildUrl = "http://127.0.0.1:1313"
 
 const contentDir = "content/posts"
+
+// tools is a list of Go tools to install to avoid polluting global modules.
+var toolList = []string{ //nolint:gochecknoglobals // ok to be global for tooling setup
+	"github.com/goreleaser/goreleaser@v0.174.1",
+	"golang.org/x/tools/cmd/goimports@master",
+	"github.com/sqs/goreturns@master",
+	"github.com/golangci/golangci-lint/cmd/golangci-lint@master",
+	"github.com/dustinkirkland/golang-petname/cmd/petname@master",
+}
 
 // A build step that requires additional params, or platform specific steps for example
 func Build() error {
@@ -133,5 +144,17 @@ func (New) Post() error {
 	if err := sh.RunV("hugo", "new", fileName, "--kind", kind); err != nil {
 		return err
 	}
+	return nil
+}
+
+// WebMentions refreshes the local webmentions json data file.
+func WebMentions() error {
+	return nil
+}
+
+func Init() error {
+	pterm.DefaultSection.Printf("Initialize setup")
+	// Tools(tools) // what great naming this is.
+	// mg.SerialDeps(Tools(toolList))
 	return nil
 }
