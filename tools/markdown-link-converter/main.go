@@ -123,11 +123,10 @@ func GetFile() error {
 
 	log.Info().Msg("finished convert without error")
 
-
 	files, err := ioutil.ReadDir(".")
-    if err != nil {
-        log.Panic().Err(err).Msg("failed to read directory")
-    }
+	if err != nil {
+		log.Panic().Err(err).Msg("failed to read directory")
+	}
 
 	// // Footnote Stuff
 	// for _, path := range files {

@@ -9,6 +9,7 @@ package tools
 // https://github.com/golang/go/issues/25922
 import (
 	_ "github.com/client9/misspell/cmd/misspell"
+	_ "github.com/gechr/yamlfmt"
 	_ "github.com/gobeam/stringy"
 	_ "github.com/golangci/golangci-lint/cmd/golangci-lint"
 	_ "github.com/magefile/mage/mg"

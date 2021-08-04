@@ -20,23 +20,25 @@ import (
 	// . "github.com/algolia/algoliasearch-client-go/v3@v3.Y.Z"
 )
 
-//var zerolog.TimeFieldFormat = zerolog.TimeFormatUnix
+// var zerolog.TimeFieldFormat = zerolog.TimeFormatUnix
 
-const contentDir string = "content/blog"
-const jsonOut string = "algolia.json"
+const (
+	contentDir string = "content/blog"
+	jsonOut    string = "algolia.json"
+)
 
 type AlgoliaIndex struct {
 	Authors        []string `json:"authors"`
 	Categories     []string `json:"categories"`
-	Date           string    `json:"date"`
+	Date           string   `json:"date"`
 	Description    string   `json:"description"`
 	Dir            string   `json:"dir"`
-	Expirydate     string    `json:"expirydate"`
+	Expirydate     string   `json:"expirydate"`
 	Fuzzywordcount int64    `json:"fuzzywordcount"`
 	Keywords       []string `json:"keywords"`
 	Kind           string   `json:"kind"`
 	Lang           string   `json:"lang"`
-	Lastmod        string    `json:"lastmod"`
+	Lastmod        string   `json:"lastmod"`
 	ObjectID       string   `json:"objectID"`
 	Permalink      string   `json:"permalink"`
 	Publishdate    string   `json:"publishdate"`
@@ -90,9 +92,7 @@ func main() {
 	if err != nil {
 		fmt.Print(err)
 	}
-	log.Info().Msgf("%v",data)
-
-
+	log.Info().Msgf("%v", data)
 }
 
 // func UpdateAlgolia() {

@@ -180,3 +180,12 @@ func Init() error {
 	}
 	return nil
 }
+
+// // RunLinkCheck runs checks against local host to ensure links are valid.
+// func RunLinkCheck() error {
+// 	linkchecker, err := exec.LookPath("linkchecker")
+// 	if err != nil {
+// 		pterm.Error.Printf("linkchecker not found %q", err)
+// 		return err
+// 	}
+// }
