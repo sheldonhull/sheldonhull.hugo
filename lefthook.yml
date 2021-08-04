@@ -35,7 +35,12 @@ pre-commit:
         markdownlint-cli2-fix "{files}"
         # markdownlint-cli2  "{files}"
         #"**/*.md" "#node_modules"
-
+    # yamllint: go install github.com/gechr/yamlfmt
+    yamlfmt:
+      tags: yaml
+      files: git diff-index --name-only HEAD #git ls-files **/*/*.md  -m
+      glob: '*.yaml|*.yml'
+      run: yamlfmt {files}
     # markdownlint:
     #   tags: docker
     #   name: markdownlint
