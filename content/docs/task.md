@@ -7,10 +7,10 @@ summary:
 slug: task
 comments: true
 tags:
-  - development
-  - shell
-  - task
-  - devops
+- development
+- shell
+- task
+- devops
 ---
 
 ## Prerequisites
@@ -20,6 +20,15 @@ tags:
 [Install brew (if not already installed)](https://brew.sh/)
 
 [Install Pre-commit](https://pre-commit.com/#install)
+
+{{< admonition type="Warning" title="Gotchas" open=true >}}
+
+OS Specific Limitations exist for Windows.
+For instance, without wrapping with a `pwsh -c` command you might get a failure with `mkdir`.
+
+See prior issue [Command can not be run in Windows · Issue #319 · go-task/task · GitHub](https://github.com/go-task/task/issues/319#issuecomment-626221222) for more information.
+
+{{< /admonition >}}
 
 ## Common Config Setup
 
