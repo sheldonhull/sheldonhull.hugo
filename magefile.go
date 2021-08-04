@@ -1,4 +1,4 @@
-// +build mage
+//+build mage
 
 package main
 
@@ -10,15 +10,16 @@ import (
 	"strings"
 	"time"
 
-	"github.com/magefile/mage/mg" // mg contains helpful utility functions, like Deps
+	// mg contains helpful utility functions, like Deps.
+	"github.com/gobeam/stringy"
+	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
 	"github.com/manifoldco/promptui"
 	"github.com/pterm/pterm"
-
-	"github.com/gobeam/stringy" // stringy is a string manipulation package for kebab and other case
-	//mage:import
-	//	_ "github.com/sheldonhull/magetools/tools" //nolint:nolint
 )
+
+// mage:import tools
+// "github.com/sheldonhull/magetools/tools"
 
 // Default target to run when none is specified
 // If not set, running mage will list available targets
@@ -44,9 +45,12 @@ var toolList = []string{ //nolint:gochecknoglobals // ok to be global for toolin
 	"github.com/sqs/goreturns@master",
 	"github.com/golangci/golangci-lint/cmd/golangci-lint@master",
 	"github.com/dustinkirkland/golang-petname/cmd/petname@master",
+	"github.com/nekr0z/webmention.io-backup@latest",
+	"github.com/dnb-org/debug@latest",
+	"github.com/sunt-programator/CodeIT@latest",
 }
 
-// A build step that requires additional params, or platform specific steps for example
+// A build step that requires additional params, or platform specific steps for example.
 func Build() error {
 	mg.Deps(InstallDeps)
 	pterm.DefaultSection.Printf("Building...")
@@ -54,7 +58,7 @@ func Build() error {
 	return cmd.Run()
 }
 
-// A custom install step if you need your bin someplace other than go/bin
+// A custom install step if you need your bin someplace other than go/bin.
 func Install() error {
 	mg.Deps(Build)
 	pterm.DefaultSection.Printf("Installing...")
@@ -68,7 +72,7 @@ func InstallDeps() error {
 	return cmd.Run()
 }
 
-// Clean up after yourself
+// Clean up after yourself.
 func Clean() {
 	pterm.DefaultSection.Printf("Cleaning...")
 	os.RemoveAll("MyApp")
@@ -105,7 +109,7 @@ func getBuildUrl() string {
 	return u
 }
 
-// Run Hugo Serve
+// Run Hugo Serve.
 func (Hugo) Serve() error {
 	pterm.DefaultSection.Printf("Hugo Serve")
 	url := getBuildUrl()
@@ -161,6 +165,18 @@ func WebMentions() error {
 func Init() error {
 	pterm.DefaultSection.Printf("Initialize setup")
 	// Tools(tools) // what great naming this is.
-	// mg.SerialDeps(Tools(toolList))
+	// if err := tools.InstallTools(toolList); err != nil {
+	// 	pterm.Error.Printf("InstallTools %q", err)
+	// 	return err
+	// }
+	mg.SerialDeps()
+	if err := sh.RunV("hugo", "mod", "clean"); err != nil {
+		pterm.Error.Printf("hugo mod clean %q", err)
+		return err
+	}
+	if err := sh.RunV("hugo", "mod", "tidy"); err != nil {
+		pterm.Error.Printf("hugo mod tidy %q", err)
+		return err
+	}
 	return nil
 }

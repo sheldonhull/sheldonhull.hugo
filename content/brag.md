@@ -1,4 +1,5 @@
 ---
+
 permalink: "/brag/"
 layout: wide
 title: "Sheldon Hull // Developer"
