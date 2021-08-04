@@ -11,9 +11,8 @@ ci-checks:
 
 pre-push:
   commands:
-    secrets:
-      tags: security
       squealer:
+        tags: security
         name: squealer
         run: squealer --config-file squealer.yml # run: bundle audit
 # github.com/owenrumney/squealer/cmd/squealer@latest
