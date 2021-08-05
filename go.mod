@@ -11,7 +11,7 @@ require (
 	github.com/magefile/mage v1.11.0
 	github.com/manifoldco/promptui v0.8.0
 	github.com/pterm/pterm v0.12.29
-	github.com/sheldonhull/magetools v0.0.0-20210804034138-77523ee0cfe7
+	github.com/sheldonhull/magetools v0.0.0-20210804210922-875a1afe3ec2
 	github.com/sunt-programator/CodeIT v0.1.2 // indirect
 	mvdan.cc/gofumpt v0.1.1
 )
