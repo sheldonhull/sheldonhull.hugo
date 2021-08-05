@@ -324,6 +324,16 @@ params:
         label: ':speech_balloon: blog comment'
         lightTheme: github-light
         darkTheme: github-dark
+      giscus:
+        enable: true
+        data-repo: sheldonhull/sheldonhull.hugo
+        data-repo-id: 'MDEwOlJlcG9zaXRvcnkxNzcyMzY0MTk='
+        data-category: blog
+        data-category-id: 'DIC_kwDOCpBpw84B-j5B'
+        data-mapping: pathname
+        data-reactions-enabled: 1
+        data-emit-metadata: 0
+        data-theme: transparent_dark
     library:
       css:
         - https://fonts.googleapis.com/css?family=Raleway&display=swap

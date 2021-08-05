@@ -127,6 +127,15 @@
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
             </noscript>
         {{- end -}}
+        {{- /* Utterances Comment System */ -}}
+        {{- $giscus := $comment.giscus | default dict -}}
+        {{- if $giscus.enable -}}
+          {{ partials "giscus.html" }}
+          <noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
+          </noscript>
+        {{- end -}}
+
     </div>
 {{- end -}}
 
