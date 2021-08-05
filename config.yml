@@ -318,7 +318,7 @@ params:
       commento:
         enable: false
       utterances:
-        enable: true
+        enable: false
         repo: sheldonhull/sheldonhull.hugo
         issueTerm: title
         label: ':speech_balloon: blog comment'
