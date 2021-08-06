@@ -5,3 +5,26 @@
     display:inline-block;
     text-align:center;
 }
+// From: https://embed.mailbrew.com/html-embed-style.css
+#mailbrew-embed-form {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+#mailbrew-embed-form span,
+#mailbrew-embed-form p,
+#mailbrew-embed-form h1,
+#mailbrew-embed-form h2,
+#mailbrew-embed-form h3,
+#mailbrew-embed-form h4 {
+  box-sizing: border-box;
+  margin: 0;
+}
+#mailbrew-embed-form a {
+  box-sizing: border-box;
+  color: inherit;
+  text-decoration: none;
+}
