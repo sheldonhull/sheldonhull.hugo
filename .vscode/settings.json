@@ -115,11 +115,21 @@
         "scripts": true,
         "squealer.yml": true,
         "stacks": true,
-        "static": true,
+        "static": false,
         "task.build.ps1": true,
         "tools": true,
         "webmentions.json": true,
-        "config": true
+        "config": true,
+        "static/css": true,
+        "static/*.png": true,
+        "static/*.json": true,
+        "static/*.xml": true,
+        "static/*.html": true,
+        "static/*.ico": true,
+        "static/cms": true,
+        "static/javascript": true,
+        "static/files": true,
+        "static/admin": true
     },
     "explorerExclude.backup": null,
 }
