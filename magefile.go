@@ -115,6 +115,7 @@ func (Hugo) Serve() error {
 	url := getBuildUrl()
 	// hugobin("serve", "-b ", getBuildUrl(), "--verbose", "--enableGitInfo", "-d _site", "--buildFuture", "--buildDrafts", "--gc", "--disableFastRender"); err != nil {
 	pterm.Info.Println("hugo", "serve", "-b", url, "--verbose", "--enableGitInfo", "-d", "_site", "--buildFuture", "--buildDrafts", "--gc", "--disableFastRender")
+	pterm.Info.Println("Open Posts with", url +"/posts")
 	if err := sh.RunV("hugo", "serve", "-b", url, "--verbose", "--enableGitInfo", "-d", "_site", "--buildFuture", "--buildDrafts", "--gc", "--disableFastRender"); err != nil {
 		return err
 	}
