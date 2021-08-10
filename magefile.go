@@ -85,7 +85,7 @@ func isCI() bool {
 // calculatePostDir calculates the post directory based on the post title and the date.
 func calculatePostDir(title string) string {
 	year, month, day := time.Now().Date()
-	dateString := fmt.Sprintf("%d-%02d-%d", year, month, day)
+	dateString := fmt.Sprintf("%d-%02d-%02d", year, month, day)
 	str := stringy.New(title)
 	kebabTitle := str.KebabCase().ToLower()
 	slugTitle := strings.Join([]string{dateString, kebabTitle}, "-") ///stringy.ToKebabCase(title)

@@ -16,4 +16,7 @@ import (
 	_ "github.com/magefile/mage/sh"
 	_ "github.com/pterm/pterm"
 	_ "mvdan.cc/gofumpt/gofumports"
+	// _ "github.com/sunt-programator/CodeIT"
+	// _ "github.com/dnb-org/debug"
+
 )
