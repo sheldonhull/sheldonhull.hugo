@@ -16,6 +16,11 @@ import (
 	"github.com/magefile/mage/sh"
 	"github.com/manifoldco/promptui"
 	"github.com/pterm/pterm"
+
+	// mage:import tooling
+	_ "github.com/sheldonhull/magetools/tooling"
+	// mage:import ci
+	_ "github.com/sheldonhull/magetools/ci"
 )
 
 // mage:import tools
@@ -38,16 +43,31 @@ const buildUrl = `http://127.0.0.1:1313`
 
 const contentDir = "content/posts"
 
+// artifactDirectory is a directory containing artifacts for the project and shouldn't be committed to source.
+const artifactDirectory = "_artifacts"
+
 // tools is a list of Go tools to install to avoid polluting global modules.
 var toolList = []string{ //nolint:gochecknoglobals // ok to be global for tooling setup
-	"github.com/goreleaser/goreleaser@v0.174.1",
+	//	"github.com/goreleaser/goreleaser@v0.174.1",
 	"golang.org/x/tools/cmd/goimports@master",
 	"github.com/sqs/goreturns@master",
 	"github.com/golangci/golangci-lint/cmd/golangci-lint@master",
 	"github.com/dustinkirkland/golang-petname/cmd/petname@master",
 	"github.com/nekr0z/webmention.io-backup@latest",
-	"github.com/dnb-org/debug@latest",
-	"github.com/sunt-programator/CodeIT@latest",
+}
+
+// createDirectories creates the local working directories for build artifacts and tooling.
+func createDirectories() error {
+	for _, dir := range []string{artifactDirectory} {
+		if err := os.MkdirAll(dir, 0700); err != nil { //nolint:gomnd // file permissions ok to be literal
+			pterm.Error.Printf("failed to create dir: [%s] with error: %v\n", dir, err)
+
+			return err
+		}
+		pterm.Success.Printf("✅ [%s] dir created\n", dir)
+	}
+
+	return nil
 }
 
 // A build step that requires additional params, or platform specific steps for example.
@@ -164,6 +184,7 @@ func WebMentions() error {
 
 func Init() error {
 	pterm.DefaultSection.Printf("Initialize setup")
+	tooling.InstallTools(toolList)
 	// Tools(tools) // what great naming this is.
 	// if err := tools.InstallTools(toolList); err != nil {
 	// 	pterm.Error.Printf("InstallTools %q", err)
