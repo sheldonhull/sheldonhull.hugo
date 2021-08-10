@@ -36,7 +36,8 @@
 		"jonrad.docker-diary-vscode",
 		"sandipchitale.docker-dive",
 		"dansnow.vscode-dockerfilelint",
-		"foxundermoon.shell-format"
+		"foxundermoon.shell-format",
+		"capybara1.vscode-url-title-resolver"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
