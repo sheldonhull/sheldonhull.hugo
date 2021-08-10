@@ -1,6 +1,7 @@
 ---
 baseURL: https://www.sheldonhull.com
 defaultContentLanguage: en
+timeout: 60000 # in milliseconds, so 1 min to allow time to create resized images
 # theme: ["hugo-debugprint","codeit"]
 # themesDir: ../..
 title: sheldonhull.com
