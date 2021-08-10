@@ -1,0 +1,6 @@
+ignoreErrors = ["dnb-sample-error"]
+
+[plugins]
+scss = [
+  "scss/_debugprint.scss"
+]
