@@ -36,7 +36,10 @@
         "archetypes",
         "rss",
         "creative",
-        "100DaysOfCode"
+        "100DaysOfCode",
+        "mage",
+        "tasks",
+        "project"
     ],
     "conventionalCommits.emojiFormat": "emoji",
     "[yaml]": {
@@ -75,7 +78,7 @@
         ".linky-note.yml": true,
         ".run": true,
         "**/renovate.json": true,
-        "_*/": true,
+        "_*/": false,
         "diagrams": true,
         ".*.y*ml": true,
         ".git*": true,
