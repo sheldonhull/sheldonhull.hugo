@@ -6,9 +6,22 @@ summary:
   A cheatsheet for some docker container magic. Docker has it's own quirks, so this is a way for me to remember and reuse some of this without trying to formalize into a standardized repo
 comments: true
 tags:
-  - development
-  - docker
+- development
+- docker
 ---
+
+## Buildx
+
+> Docker Buildx is a CLI plugin that extends the docker command with the full support of the features provided by Moby BuildKit builder toolkit.
+> It provides the same user experience as docker build with many new features like creating scoped builder instances and building against multiple nodes concurrently.[^docker-buildx]
+
+Enable.
+
+```shell
+DOCKER_BUILDKIT=1
+```
+
+[Set as default builder](https://docs.docker.com/buildx/working-with-buildx/#set-buildx-as-the-default-builder)
 
 ## Resources
 
@@ -414,6 +427,29 @@ LABEL vendor=misc \
 
 ### Other Dockerfile Fragments
 
+#### Mount SSH Keys
+
+- Use cached: when the host performs changes, the container is in read only mode.[^stack-overflow-answer-cached-or-delegated]
+- Use delegated: when docker container performs changes, host is in read only mode.
+- Use default: When both container and host actively and continuously perform changes on data.
+
+```json
+"mounts": [
+  "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/codespace/.ssh/,type=bind,consistency=cached"
+]
+```
+
+{{< admonition type="Note" title="cannot create /home/$USERNAME/.ssh/known_hosts: Permission denied" open=false >}}
+
+If this fails, try this in your Dockerfile.
+Not sure this is required, but did help in one test case, so I'm pinning here.
+
+```dockerfile
+RUN mkdir -p /home/$USERNAME/.ssh/ && touch /home/$USERNAME/.ssh/known_hosts
+```
+
+{{< /admonition >}}
+
 #### dotnet
 
 ```dockerfile
@@ -425,8 +461,37 @@ RUN echo "Installing dotnet sdk" && apt-get update \
   && apt-get  -yyq update \
   && apt-get  -yyq install dotnet-sdk-5.0 --no-install-recommends  \
   && rm -rf /var/lib/apt/lists/*
+```
 
+#### GitVersion
 
+```dockerfile
+RUN echo "installing gitversion for automatic semver versioning" && dotnet tool install --global GitVersion.Tool
+```
+
+#### Mage
+
+Go based Make alternative.
+
+```dockerfile
+RUN go version && go install github.com/magefile/mage@latest \
+    # mage-select provides a nice little mage task selector menu
+    && go install github.com/iwittkau/mage-select@latest
+```
+
+#### Security Tools for Lefthook
+
+```dockerfile
+RUN go install github.com/evilmartians/lefthook@latest \
+&& go install github.com/owenrumney/squealer/cmd/squealer@latest \
+&& go install -v github.com/zricethezav/gitleaks@latest
+```
+
+#### Terminal Tools
+
+```dockerfile
+RUN curl -sf https: //gobinaries.com/chriswalz/bit | sh && echo "installed bit-git" &&
+    \ curl -fsSL https://starship.rs/install.sh | sudo bash -s -- --force && echo "completed setup of starship.rs"
 ```
 
 #### powershell
@@ -444,7 +509,7 @@ RUN pwsh -nologo -c 'New-Item -Path ($Profile | Split-Path -Parent) -ItemType Di
 
 Use the docker image of markdownlint to quickly fix basic formatting issues that can cause occasional issues with various markdown renderers.
 
-```
+```shell
 docker run -i --rm -v ${PWD}:/work tmknom/markdownlint --fix --config .markdownlint.yaml /work/
 ```
 
@@ -516,3 +581,6 @@ ignore:
   sha: []
 merge-message-formats: {}
 ```
+
+[^stack-overflow-answer-cached-or-delegated]: [How do I add :cached or :delegated into a docker-compose.yml volumes list? - Stack Overflow](https://stackoverflow.com/a/63437557/68698)
+[^docker-buildx]: [Docker Buildx | Docker Documentation](https://docs.docker.com/buildx/working-with-buildx/#overview)
