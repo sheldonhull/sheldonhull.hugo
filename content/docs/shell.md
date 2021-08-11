@@ -9,8 +9,8 @@ slug: shell
 permalink: /docs/shell
 comments: true
 tags:
-  - development
-  - shell
+- development
+- shell
 ---
 
 :(fas fa-info-circle fa-fw): This is a mix of shell, linux, and macOS commands.
@@ -242,9 +242,12 @@ chmod -R u+rwX ~/.ssh
 echo "Remove group access for ~/.ssh"
 chmod go-rwx ~/.ssh
 echo "now set any pem files to chmd 400 \$key to ensure read-only"
+chmod 0600 ~/.ssh/id_rsa
 ```
 
-{{< admonition type="Tip" title="Troubleshooting macOS permissions" >}}
+For why 0600 see footnote.[^why-0600]
+
+{{< admonition type="Tip" title="Troubleshooting macOS permissions" open=false >}}
 
 I've had issues with macOS adding an `@` with ACL issues on the ssh key's when downloaded.
 
@@ -284,3 +287,5 @@ getent passwd {1000..60000}
 ```
 
 [How To List Users In Linux](https://linuxize.com/post/how-to-list-users-in-linux/)
+
+[^why-0600]: [Why are ssh keys 600 and not 400 by default? authorized_keys immutable? : linux4noobs](https://www.reddit.com/r/linux4noobs/comments/bjpbnl/why_are_ssh_keys_600_and_not_400_by_default/)
