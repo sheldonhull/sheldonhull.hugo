@@ -12,26 +12,26 @@
     "@babel/preset-env": "^7.13.15",
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
-    "all-contributors-cli": "^6.20.0",
-    "babel-preset-minify": "^0.5.1",
+    "all-contributors-cli": "6.20.0",
+    "babel-preset-minify": "0.5.1",
     "babelify": "^10.0.0",
-    "browserify": "^17.0.0",
-    "commitizen": "^4.2.3",
-    "core-js": "^3.11.1",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^7.24.0",
-    "eslint-config-prettier": "^8.3.0",
-    "husky": "^6.0.0",
+    "browserify": "17.0.0",
+    "commitizen": "4.2.4",
+    "core-js": "3.16.1",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "husky": "6.0.0",
     "lint-staged": "11.1.2",
-    "markdownlint": "^0.23.1",
-    "minimist": "^1.2.5",
+    "markdownlint": "0.23.1",
+    "minimist": "1.2.5",
     "prettier": "2.2.1",
-    "segmentit": "^2.0.3",
-    "standard-version": "^9.2.0",
-    "stylelint": "^13.13.0",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-standard": "^21.0.0",
-    "stylelint-scss": "^3.19.0"
+    "segmentit": "2.0.3",
+    "standard-version": "9.3.1",
+    "stylelint": "13.13.1",
+    "stylelint-config-prettier": "8.0.2",
+    "stylelint-config-standard": "21.0.0",
+    "stylelint-scss": "3.20.1"
   },
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
@@ -49,7 +49,7 @@
     "release:major": "standard-version -s --release-as major"
   },
   "resolutions": {
-    "minimist": "^1.2.5"
+    "minimist": "1.2.5"
   },
   "repository": {
     "type": "git",
