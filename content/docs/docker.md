@@ -591,16 +591,26 @@ I tend to use the Universal Image provided by Codespaces, which includes Go, .NE
 
 {{< admonition type="Failure" title="Prompted for SSH Password When Cloning Repo Via SSH In Volume" open=true >}}
 
-[Git SSH public key authentication failed with git on Azure DevOps - Stack Overflow](https://stackoverflow.com/a/60939986/68698) helped a lot.
+Fixed my issues with a combination of help from:
+
+- [Git SSH public key authentication failed with git on Azure DevOps - Stack Overflow](https://stackoverflow.com/a/60939986/68698) helped a lot.
+- [Git · macOS Setup Guide](https://sourabhbajaj.com/mac-setup/Git/)
 
 I updated my `~/.ssh/config` to the following, and was able to clone without being prompted for a password.
 
 ```config
+Host *
+    AddKeysToAgent yes
+    UseKeychain yes
+    IdentityFile ~/.ssh/id_rsa
+
 Host ssh.dev.azure.com
      PubkeyAcceptedKeyTypes=ssh-rsa
      IdentityFile ~/.ssh/id_rsa
      IdentitiesOnly yes
 ```
+
+- `ssh-add -K ~/.ssh/id_rsa` to finish up.
 
 {{< /admonition >}}
 
