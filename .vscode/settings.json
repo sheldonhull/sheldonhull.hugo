@@ -39,7 +39,8 @@
         "100DaysOfCode",
         "mage",
         "tasks",
-        "project"
+        "project",
+        "docker"
     ],
     "conventionalCommits.emojiFormat": "emoji",
     "[yaml]": {

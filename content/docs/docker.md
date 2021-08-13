@@ -582,5 +582,27 @@ ignore:
 merge-message-formats: {}
 ```
 
+## Codespaces & Remote Containers
+
+Using remote containers is great for isolation of unique work and a clean environment.
+I tend to use the Universal Image provided by Codespaces, which includes Go, .NET, PowerShell, Python, NodeJS, and more.
+
+### Troubleshooting Cloning a Repo In Volume
+
+{{< admonition type="Failure" title="Prompted for SSH Password When Cloning Repo Via SSH In Volume" open=true >}}
+
+[Git SSH public key authentication failed with git on Azure DevOps - Stack Overflow](https://stackoverflow.com/a/60939986/68698) helped a lot.
+
+I updated my `~/.ssh/config` to the following, and was able to clone without being prompted for a password.
+
+```config
+Host ssh.dev.azure.com
+     PubkeyAcceptedKeyTypes=ssh-rsa
+     IdentityFile ~/.ssh/id_rsa
+     IdentitiesOnly yes
+```
+
+{{< /admonition >}}
+
 [^stack-overflow-answer-cached-or-delegated]: [How do I add :cached or :delegated into a docker-compose.yml volumes list? - Stack Overflow](https://stackoverflow.com/a/63437557/68698)
 [^docker-buildx]: [Docker Buildx | Docker Documentation](https://docs.docker.com/buildx/working-with-buildx/#overview)
