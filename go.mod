@@ -7,7 +7,7 @@ require (
 	github.com/dnb-org/debug v1.3.0 // indirect
 	github.com/gechr/yamlfmt v0.0.0-20210621194800-dee2f38f283e
 	github.com/gobeam/stringy v0.0.4
-	github.com/golangci/golangci-lint v1.41.1
+	github.com/golangci/golangci-lint v1.42.0
 	github.com/magefile/mage v1.11.0
 	github.com/manifoldco/promptui v0.8.0
 	github.com/nekr0z/webmention.io-backup v1.3.1-0.20210814111338-de77a9329973 // indirect
