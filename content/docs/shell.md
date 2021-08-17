@@ -130,6 +130,24 @@ brew list $package &>/dev/null || brew install $package
 
 ```
 
+### Reduce Noise With Progress Bar
+
+Use unzip with a progress bar to display progress, rather than the thousands of lines of output.
+This is an example of installing the AWS CLI v2 in a Dockerfile, while not forcing the output of each line when unzipping.
+
+This shows how to use the `pv` command line tool to help display progress in both a count fashion, and also by just using as a timer.
+
+```shell
+RUN apt-get -yqq update --fix-missing && apt-get -yqq install pv \
+    && mkdir -p ./tmpinstall && curl --silent "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "./tmpinstall/awscliv2.zip" \
+    && COUNT=`unzip -q -l "./tmpinstall/awscliv2.zip" | wc -l` \
+    && mkdir -p ./tmpinstall/aws \
+    && unzip "./tmpinstall/awscliv2.zip" -d "./tmpinstall/"  | pv -l -s $COUNT >/dev/null \
+    && ./tmpinstall/aws/install --update | (pv --timer --name "🤖 awscli")  \
+    && rm -rf ./tmpinstall/ \
+    && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
+```
+
 ## Conditional
 
 Only Proceed If First Condition Returns Nothing
