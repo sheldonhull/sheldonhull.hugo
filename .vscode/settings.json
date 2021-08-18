@@ -83,7 +83,7 @@
         "diagrams": true,
         ".*.y*ml": true,
         ".git*": true,
-        ".devcontainer": true,
+        ".devcontainer": false,
         ".vscode": true,
         ".archive": true,
         "LICENSE": true,
