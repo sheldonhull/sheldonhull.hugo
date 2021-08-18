@@ -1,63 +1,82 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.154.2/containers/ubuntu
 {
-	"name": "Ubuntu",
-	"build": {
-		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick an Ubuntu version: focal, bionic
-		"args": {
-			"VARIANT": "focal"
-		}
-	},
-	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"terminal.integrated.shell.linux": "/usr/bin/pwsh",
-		"explorer.sortOrder": "modified"
-	},
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"bungcip.better-toml",
-		"davidanson.vscode-markdownlint",
-		"spmeesseman.vscode-taskexplorer",
-		"budparr.language-hugo-vscode",
-		"akmittal.hugofy",
-		"sneezry.vscode-devto",
-		"darkriszty.markdown-table-prettify",
-		"yzhang.markdown-all-in-one",
-		"vivaxy.vscode-conventional-commits",
-		"skn0tt.markdown-link-expander",
-		"mhutchie.git-graph",
-		"stylelint.vscode-stylelint",
-		"sibiraj-s.vscode-scss-formatter",
-		"znck.grammarly",
-		"ms-vscode.powershell-preview",
-		"ericadamski.carbon-now-sh",
-		"wmaurer.change-case",
-		"jonrad.docker-diary-vscode",
-		"sandipchitale.docker-dive",
-		"dansnow.vscode-dockerfilelint",
-		"foxundermoon.shell-format",
-		"capybara1.vscode-url-title-resolver",
-		"lukapetrovic.image-resizer"
-	],
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [
-		1313
-	],
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": [
-		//"sh -c \"$(curl --location https: //taskfile.dev/install.sh)\" -- -d -b /usr/local/bin",
-		//"sudo pwsh -c ./build -task setup",
-		"task init"
-	]
-	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	,
-	"remoteUser": "codespace",
-	"containerEnv": {
-		"ALGOLIA_APP_ID": "04HSGXXQD5",
-		"ALGOLIA_ADMIN_KEY": "${localEnv:ALGOLIA_ADMIN_KEY}",
-		"ALGOLIA_INDEX_NAME": "sheldonhull.com",
-		"ALGOLIA_INDEX_FILE": "public/algolia.json",
-		"WEBMENTION_IO_TOKEN": "${localEnv:WEBMENTION_IO_TOKEN}"
-	}
+  "name": "Ubuntu",
+  "build": {
+    "dockerfile": "Dockerfile",
+    // Update 'VARIANT' to pick an Ubuntu version: focal, bionic
+    "args": {
+      "VARIANT": "focal"
+    }
+  },
+  // Set *default* container specific settings.json values on container create.
+  "settings": {
+    "terminal.integrated.profiles.linux": {
+      "pwsh": {
+        "args": [
+          // "--login",
+          "-NoLogo"
+        ],
+        "icon": "terminal-powershell",
+        "path": "pwsh"
+      },
+      "zsh-login": {
+        "args": [
+          "-l"
+        ],
+        "icon": "terminal-bash",
+        "path": "zsh"
+      }
+    },
+    "terminal.integrated.defaultProfile.linux": "pwsh",
+    "explorer.sortOrder": "modified"
+  },
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+	"bungcip.better-toml",
+	"davidanson.vscode-markdownlint",
+	"spmeesseman.vscode-taskexplorer",
+	"budparr.language-hugo-vscode",
+	"akmittal.hugofy",
+	"sneezry.vscode-devto",
+	"darkriszty.markdown-table-prettify",
+	"yzhang.markdown-all-in-one",
+	"vivaxy.vscode-conventional-commits",
+	"skn0tt.markdown-link-expander",
+	"mhutchie.git-graph",
+	"stylelint.vscode-stylelint",
+	"sibiraj-s.vscode-scss-formatter",
+	"znck.grammarly",
+	"ms-vscode.powershell-preview",
+	"ericadamski.carbon-now-sh",
+	"wmaurer.change-case",
+	"jonrad.docker-diary-vscode",
+	"sandipchitale.docker-dive",
+	"dansnow.vscode-dockerfilelint",
+	"foxundermoon.shell-format",
+	"capybara1.vscode-url-title-resolver",
+	"lukapetrovic.image-resizer",
+	"redvanworkshop.explorer-exclude-vscode-extension"
+],
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [
+    1313
+  ],
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": [
+    //"sh -c \"$(curl --location https: //taskfile.dev/install.sh)\" -- -d -b /usr/local/bin",
+    //"sudo pwsh -c ./build -task setup",
+    // "task init"
+    "mage init"
+  ]
+  // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  ,
+  "remoteUser": "codespace",
+  "containerEnv": {
+    "ALGOLIA_APP_ID": "04HSGXXQD5",
+    "ALGOLIA_ADMIN_KEY": "${localEnv:ALGOLIA_ADMIN_KEY}",
+    "ALGOLIA_INDEX_NAME": "sheldonhull.com",
+    "ALGOLIA_INDEX_FILE": "public/algolia.json",
+    "WEBMENTION_IO_TOKEN": "${localEnv:WEBMENTION_IO_TOKEN}"
+  }
 }

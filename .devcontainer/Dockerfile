@@ -38,8 +38,10 @@ COPY --from=DOCKERBREW /home/linuxbrew/.linuxbrew /home/linuxbrew/.linuxbrew
 USER root
 RUN apt update && apt-get -qqy install build-essential curl file git gcc \
     && rm -rf /var/lib/apt/lists/*
+RUN sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
 #  sudo apt update && sudo apt-get -qqy install build-essential curl file git gcc
 ENV PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
+RUN sh -c "$(wget -qO- git.io/chezmoi)" && mv ./bin/chezmoi /usr/local/bin/chezmoi && rm -rf ./bin
 # for troubleshooting:
 # $ENV:PATH = "/home/linuxbrew/.linuxbrew/bin:$($ENV:PATH)"
 USER codespace
@@ -55,8 +57,13 @@ RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install git-town
 #RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install go-task/tap/go-task
 
 RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install node
-RUN mkdir $HOME/.git-template
-RUN echo "installing go-task via go" && go install github.com/go-task/task/v3/cmd/task@latest
+RUN go install github.com/magefile/mage@latest && echo "✅ mage installed" \
+    && go install github.com/iwittkau/mage-select@latest && echo "✅ mage-select installed"
+
+# Diagnose: ssh -vT git@github.com
+
+# echo "installing go-task via go" && go install github.com/go-task/task/v3/cmd/task@latest
+
 #RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install --cask powershell
 
 
