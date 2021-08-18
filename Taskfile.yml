@@ -155,92 +155,93 @@ tasks:
         git rm themes/codeit
         rm -rf .git/modules/themes/codeit
         git rm --cached themes/codeit
-  blog:
-    desc: Create a new blog post
-    cmds:
-      - |
-        echo -e "{{.light_gray}}=== ℹ {{ .reversed }} Variable Info from Task {{ .nocolor }} === "
-        echo -e "{{.light_gray}}TODAY_UTC                {{.nocolor}}: {{ .orange}}{{ .TODAY_UTC }} {{ .nocolor }}"
-        echo -e "{{.green}}Please enter title{{ .nocolor }}"
-        read;
-        echo -e "{{.green}}Title: ${REPLY}{{ .nocolor }}"
-        title=$(echo ${REPLY} \
-          | sed 's/\(.\)\([A-Z]\)/\1-\2/g' \
-          | sed 's/[[:space:]]*//g' \
-          | sed -e 's/\(.*\)/\L\1/'
+  # Replaced by mage:post
+  # blog:
+  #   desc: Create a new blog post
+  #   cmds:
+  #     - |
+  #       echo -e "{{.light_gray}}=== ℹ {{ .reversed }} Variable Info from Task {{ .nocolor }} === "
+  #       echo -e "{{.light_gray}}TODAY_UTC                {{.nocolor}}: {{ .orange}}{{ .TODAY_UTC }} {{ .nocolor }}"
+  #       echo -e "{{.green}}Please enter title{{ .nocolor }}"
+  #       read;
+  #       echo -e "{{.green}}Title: ${REPLY}{{ .nocolor }}"
+  #       title=$(echo ${REPLY} \
+  #         | sed 's/\(.\)\([A-Z]\)/\1-\2/g' \
+  #         | sed 's/[[:space:]]*//g' \
+  #         | sed -e 's/\(.*\)/\L\1/'
 
-        )
-        #tr '[:upper:]' '[:lower:]'
-        directory="./content/blog/"
-        mkdir -p $directory/{{ .YEAR }} || echo -e "{{.dark_gray}}🔄 skipped creation of directory [$directory] per already exists {{.nocolor}}"
-        filename=$directory/{{ .YEAR }}/{{ .YEAR }}-{{ .MONTH }}-{{ .DAY }}-$title.md
-        echo -e "{{ .dark_gray }} creating new file: $filename {{ .nocolor }}"
-        hugo new $filename --kind blog
-        echo -e "{{ .green }} ✅ created: $filename {{ .nocolor }}"
-  100daysofcode_readconfig:
-    desc: read the counter values for 100 days of code to simplify creation from archetype
-    cmds:
-      - |
-        source {{ .CODE_CONFIG }}
-        echo -e "{{.light_gray}}=== ℹ {{ .reversed }} 100 Days Of Code Config from: [{{ .CODE_CONFIG}}] {{ .nocolor }} === "
-        echo -e "{{.light_gray}}LANGUAGE                {{.nocolor}}: {{ .orange}} $LANGUAGE {{ .nocolor }}"
-        echo -e "{{.light_gray}}ROUND                   {{.nocolor}}: {{ .orange}} $ROUND {{ .nocolor }}"
-        echo -e "{{.light_gray}}COUNTER                 {{.nocolor}}: {{ .orange}} $COUNTER {{ .nocolor }}"
-  post:
-    desc: Create a new post
-    cmds:
-      - task: 100daysofcode_readconfig
-      - |
-        echo -e "{{.light_gray}}=== ℹ {{ .reversed }} Variable Info from Task {{ .nocolor }} === "
-        echo -e "{{.light_gray}}TODAY_UTC {{.nocolor}}: {{ .orange}}{{ .TODAY_UTC }} {{ .nocolor }}"
-        echo -e "{{.green}}Please enter title{{ .nocolor }}"
-        read;
-        echo -e "{{.green}}Title: ${REPLY}{{ .nocolor }}"
-        title=$(echo ${REPLY} \
-          | sed 's/\(.\)\([A-Z]\)/\1-\2/g' \
-          | sed 's/[[:space:]]*//g' \
-          | sed -e 's/\(.*\)/\L\1/'
-        )
-        ##| tr '[:upper:]' '[:lower:]'
-        echo -e "{{.green}}Please enter [blog, microblog, code] for archetype{{ .nocolor }}"
-        read;
-        archetype=$(echo ${REPLY})
+  #       )
+  #       #tr '[:upper:]' '[:lower:]'
+  #       directory="./content/blog/"
+  #       mkdir -p $directory/{{ .YEAR }} || echo -e "{{.dark_gray}}🔄 skipped creation of directory [$directory] per already exists {{.nocolor}}"
+  #       filename=$directory/{{ .YEAR }}/{{ .YEAR }}-{{ .MONTH }}-{{ .DAY }}-$title.md
+  #       echo -e "{{ .dark_gray }} creating new file: $filename {{ .nocolor }}"
+  #       hugo new $filename --kind blog
+  #       echo -e "{{ .green }} ✅ created: $filename {{ .nocolor }}"
+  # 100daysofcode_readconfig:
+  #   desc: read the counter values for 100 days of code to simplify creation from archetype
+  #   cmds:
+  #     - |
+  #       source {{ .CODE_CONFIG }}
+  #       echo -e "{{.light_gray}}=== ℹ {{ .reversed }} 100 Days Of Code Config from: [{{ .CODE_CONFIG}}] {{ .nocolor }} === "
+  #       echo -e "{{.light_gray}}LANGUAGE                {{.nocolor}}: {{ .orange}} $LANGUAGE {{ .nocolor }}"
+  #       echo -e "{{.light_gray}}ROUND                   {{.nocolor}}: {{ .orange}} $ROUND {{ .nocolor }}"
+  #       echo -e "{{.light_gray}}COUNTER                 {{.nocolor}}: {{ .orange}} $COUNTER {{ .nocolor }}"
+  # post:
+  #   desc: Create a new post
+  #   cmds:
+  #     - task: 100daysofcode_readconfig
+  #     - |
+  #       echo -e "{{.light_gray}}=== ℹ {{ .reversed }} Variable Info from Task {{ .nocolor }} === "
+  #       echo -e "{{.light_gray}}TODAY_UTC {{.nocolor}}: {{ .orange}}{{ .TODAY_UTC }} {{ .nocolor }}"
+  #       echo -e "{{.green}}Please enter title{{ .nocolor }}"
+  #       read;
+  #       echo -e "{{.green}}Title: ${REPLY}{{ .nocolor }}"
+  #       title=$(echo ${REPLY} \
+  #         | sed 's/\(.\)\([A-Z]\)/\1-\2/g' \
+  #         | sed 's/[[:space:]]*//g' \
+  #         | sed -e 's/\(.*\)/\L\1/'
+  #       )
+  #       ##| tr '[:upper:]' '[:lower:]'
+  #       echo -e "{{.green}}Please enter [blog, microblog, code] for archetype{{ .nocolor }}"
+  #       read;
+  #       archetype=$(echo ${REPLY})
 
-        #directory="./content/posts/"
-        mkdir -p "./content/posts/{{ .YEAR }}" &>/dev/null || echo -e "{{.dark_gray}}🔄 skipped creation of directory [$directory] per already exists {{.nocolor}}"
-        filename="./content/posts/{{ .YEAR }}/{{ .YEAR }}-{{ .MONTH }}-{{ .DAY }}-$title.md"
-        echo -e "{{.dark_gray}}default filename: [$filename]{{ .nocolor }}"
-        if [[ $archetype == "code" ]];
-        then
-          # source {{ .CODE_CONFIG }}
-          echo -e "{{.light_gray}}=== ℹ {{ .reversed }} 100 Days Of Code Config from: [{{ .CODE_CONFIG}}] {{ .nocolor }} ==="
-          echo -e "{{.light_gray}}LANGUAGE                {{.nocolor}}: {{ .orange}} $LANGUAGE {{ .nocolor }}"
-          echo -e "{{.light_gray}}ROUND                   {{.nocolor}}: {{ .orange}} $ROUND {{ .nocolor }}"
-          echo -e "{{.light_gray}}COUNTER                 {{.nocolor}}: {{ .orange}} $COUNTER {{ .nocolor }}"
+  #       #directory="./content/posts/"
+  #       mkdir -p "./content/posts/{{ .YEAR }}" &>/dev/null || echo -e "{{.dark_gray}}🔄 skipped creation of directory [$directory] per already exists {{.nocolor}}"
+  #       filename="./content/posts/{{ .YEAR }}/{{ .YEAR }}-{{ .MONTH }}-{{ .DAY }}-$title.md"
+  #       echo -e "{{.dark_gray}}default filename: [$filename]{{ .nocolor }}"
+  #       if [[ $archetype == "code" ]];
+  #       then
+  #         # source {{ .CODE_CONFIG }}
+  #         echo -e "{{.light_gray}}=== ℹ {{ .reversed }} 100 Days Of Code Config from: [{{ .CODE_CONFIG}}] {{ .nocolor }} ==="
+  #         echo -e "{{.light_gray}}LANGUAGE                {{.nocolor}}: {{ .orange}} $LANGUAGE {{ .nocolor }}"
+  #         echo -e "{{.light_gray}}ROUND                   {{.nocolor}}: {{ .orange}} $ROUND {{ .nocolor }}"
+  #         echo -e "{{.light_gray}}COUNTER                 {{.nocolor}}: {{ .orange}} $COUNTER {{ .nocolor }}"
 
-          UPDATED_COUNTER=$(($COUNTER+1))
-          TARGET_KEY=COUNTER
-          REPLACEMENT_VALUE=$UPDATED_COUNTER
-          echo -e "ℹ️ {{.dark_gray}} \"s/\($TARGET_KEY *= *\).*/\1$REPLACEMENT_VALUE/g\" \"{{ .CODE_CONFIG }}\"{{ .nocolor }}"
+  #         UPDATED_COUNTER=$(($COUNTER+1))
+  #         TARGET_KEY=COUNTER
+  #         REPLACEMENT_VALUE=$UPDATED_COUNTER
+  #         echo -e "ℹ️ {{.dark_gray}} \"s/\($TARGET_KEY *= *\).*/\1$REPLACEMENT_VALUE/g\" \"{{ .CODE_CONFIG }}\"{{ .nocolor }}"
 
-          sed -i '' "s/\($TARGET_KEY *= *\).*/\1$REPLACEMENT_VALUE/g" "{{ .CODE_CONFIG }}"
+  #         sed -i '' "s/\($TARGET_KEY *= *\).*/\1$REPLACEMENT_VALUE/g" "{{ .CODE_CONFIG }}"
 
-          echo -e "{{.green}} 💾 updated code config with new counter: from [$COUNTER] to [$UPDATED_COUNTER] (saved in {{ .CODE_CONFIG }}){{ .nocolor }}"
-          echo -e "{{.dark_gray}} ℹ override filename with 100days of code naming convention{{ .nocolor }}"
+  #         echo -e "{{.green}} 💾 updated code config with new counter: from [$COUNTER] to [$UPDATED_COUNTER] (saved in {{ .CODE_CONFIG }}){{ .nocolor }}"
+  #         echo -e "{{.dark_gray}} ℹ override filename with 100days of code naming convention{{ .nocolor }}"
 
-          filename=./content/posts/{{ .YEAR }}/{{ .YEAR }}-{{ .MONTH }}-{{ .DAY }}-$LANGUAGE-R$ROUND-day-$UPDATED_COUNTER.md
-          hugo new $filename --kind $archetype
+  #         filename=./content/posts/{{ .YEAR }}/{{ .YEAR }}-{{ .MONTH }}-{{ .DAY }}-$LANGUAGE-R$ROUND-day-$UPDATED_COUNTER.md
+  #         hugo new $filename --kind $archetype
 
-          # Replace the counter in the text file
-          sed -i '' "s/VAR_LANGUAGE/$LANGUAGE/g" "$filename"
-          sed -i '' "s/VAR_ROUND/$ROUND/g" "$filename"
-          sed -i '' "s/VAR_DAYCOUNTER/$UPDATED_COUNTER/g" "$filename"
-          echo -e "{{.dark_gray}} 💾 update VAR_DAYCOUNTER,VAR_LANGUAGE,VAR_DAY_COUNTER in output file{{ .nocolor }}"
-        else
-          hugo new $filename --kind $archetype
-        fi
-        echo -e "{{ .dark_gray }} creating new file: $filename {{ .nocolor }}"
-        echo -e "{{ .green }} ✅ created [ $archetype ] at: [ $filename ] {{ .nocolor }}"
+  #         # Replace the counter in the text file
+  #         sed -i '' "s/VAR_LANGUAGE/$LANGUAGE/g" "$filename"
+  #         sed -i '' "s/VAR_ROUND/$ROUND/g" "$filename"
+  #         sed -i '' "s/VAR_DAYCOUNTER/$UPDATED_COUNTER/g" "$filename"
+  #         echo -e "{{.dark_gray}} 💾 update VAR_DAYCOUNTER,VAR_LANGUAGE,VAR_DAY_COUNTER in output file{{ .nocolor }}"
+  #       else
+  #         hugo new $filename --kind $archetype
+  #       fi
+  #       echo -e "{{ .dark_gray }} creating new file: $filename {{ .nocolor }}"
+  #       echo -e "{{ .green }} ✅ created [ $archetype ] at: [ $filename ] {{ .nocolor }}"
   bear:
     desc: Run bhugo to sync posts
     cmds:

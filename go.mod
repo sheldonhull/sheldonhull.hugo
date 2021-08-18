@@ -11,6 +11,7 @@ require (
 	github.com/magefile/mage v1.11.0
 	github.com/manifoldco/promptui v0.8.0
 	github.com/nekr0z/webmention.io-backup v1.3.1-0.20210814111338-de77a9329973 // indirect
+	github.com/pelletier/go-toml/v2 v2.0.0-beta.3 // indirect
 	github.com/pterm/pterm v0.12.29
 	github.com/sheldonhull/magetools v0.0.0-20210817173308-afe4f5338c9c // indirect
 	github.com/sunt-programator/CodeIT v0.1.2 // indirect
