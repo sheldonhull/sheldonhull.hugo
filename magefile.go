@@ -3,7 +3,9 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
+	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
@@ -14,10 +16,24 @@ import (
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
 	"github.com/manifoldco/promptui"
+	"github.com/pelletier/go-toml/v2"
 	"github.com/pterm/pterm"
 	"github.com/sheldonhull/magetools/ci"
 	"github.com/sheldonhull/magetools/tooling"
 )
+
+// codeConfigFile is the file that contains the code config.
+const (
+	codeConfigFile      = "100daysofcode.toml"
+	permissionReadWrite = 0666
+)
+
+// CodeConfig contains the values for 100 days of code progress.
+type CodeConfig struct {
+	Language string `toml:"language"`
+	Counter  int    `toml:"counter"`
+	Round    int    `toml:"round"`
+}
 
 // mage:import tools
 // "github.com/sheldonhull/magetools/tools"
@@ -68,19 +84,94 @@ func Cleanup() error {
 	return nil
 }
 
+// bumpCounter increments the counter in the code config.
+func bumpCounter() error {
+	cfg, err := loadCodeConfig()
+	if err != nil {
+		return err
+	}
+	originalCount := cfg.Counter
+	cfg.Counter++
+	c, err := toml.Marshal(&cfg)
+	if err != nil {
+		pterm.Error.Printf("Failed to marshal code config file: %v\n", err)
+
+		return err
+	}
+
+	if err := ioutil.WriteFile(codeConfigFile, c, os.ModeDevice); err != nil {
+		pterm.Error.Printf("Failed to write code config file: %v\n", err)
+
+		return err
+	}
+
+	pterm.Success.Printf("Bumped 100DaysOfCode: [%d] to [%d]\n", originalCount, cfg.Counter)
+
+	return nil
+}
+
+// loadCodeConfig loads the code config file.
+func loadCodeConfig() (*CodeConfig, error) {
+	codeCfg := CodeConfig{}
+	b, err := ioutil.ReadFile(codeConfigFile)
+	if err != nil {
+		pterm.Error.Printf("Error reading code config file: %v\n", err)
+		// not the best practice, should just exit, but not sure how to do with Mage yet, so just passing stuff back up
+		return nil, err
+	}
+	err = toml.Unmarshal(b, &codeCfg)
+	if err != nil {
+		pterm.Error.Printf("Failed to marshal code config file: %v\n", err)
+
+		// not the best practice, should just exit, but not sure how to do with Mage yet, so just passing stuff back up
+		return nil, err
+	}
+
+	pterm.Info.Printf("Code Config: %+v\n", codeCfg)
+
+	return &codeCfg, nil
+
+	// codeCfg.Counter++
+	// c, err := toml.Marshal(&codeCfg)
+	// if err != nil {
+	// 	pterm.Error.Printf("Failed to marshal code config file: %v\n", err)
+
+	// 	return err
+	// }
+
+	// if err := ioutil.WriteFile(codeConfigFile, c, os.ModeDevice); err != nil {
+	// 	pterm.Error.Printf("Failed to write code config file: %v\n", err)
+
+	// 	return err
+	// }
+	// }
+}
+
 // calculatePostDir calculates the post directory based on the post title and the date.
-func calculatePostDir(title string) string {
+func calculatePostDir(title string, kind string) (string, error) {
+	if kind == "code" { //nolint:goconst
+		cfg, err := loadCodeConfig()
+		if err != nil {
+			return "", err
+		}
+		cfg.Counter++
+		title = fmt.Sprintf("%s-R%d-day-%02d", cfg.Language, cfg.Round, cfg.Counter)
+	} else {
+		// since I only lowercase the normal titles, and not 100 days of code, conditionally lower here
+		title = strings.ToLower(title)
+	}
+
 	year, month, day := time.Now().Date()
 	dateString := fmt.Sprintf("%d-%02d-%02d", year, month, day)
 	str := stringy.New(title)
-	kebabTitle := str.KebabCase().ToLower()
+	kebabTitle := str.KebabCase().Get()
 	slugTitle := strings.Join([]string{dateString, kebabTitle}, "-") ///stringy.ToKebabCase(title)
 
-	pterm.Success.Printf("Slugify Title: %s", slugTitle)
+	pterm.Success.Printf("Slugify Title: %s\n", slugTitle)
 	filepath := filepath.Join(contentDir, fmt.Sprintf("%d", year), slugTitle+".md")
-	pterm.Success.Printf("calculatePostDir: %s", slugTitle)
+	pterm.Success.Printf("calculatePostDir: %s\n", slugTitle)
 
-	return filepath
+	return filepath, nil
 }
 
 // getBuildUrl checks for DEPLOY_PRIME_URL from Netlify, otherwise returns the localhost url.
@@ -111,40 +202,87 @@ func (Hugo) Serve() error {
 	return nil
 }
 
+// replaceCodeVariables replaces the variables in the generated file based on values in the code config toml file.
+func replaceCodeVariables(file string) error {
+	cfg, err := loadCodeConfig()
+	if err != nil {
+		return err
+	}
+
+	input, err := ioutil.ReadFile(file)
+	if err != nil {
+		pterm.Error.Printf("ReadFile %v\n", err)
+
+		return err
+	}
+
+	output := bytes.Replace(input, []byte("VAR_LANGUAGE"), []byte(cfg.Language), -1)
+	output = bytes.Replace(output, []byte("VAR_DAYCOUNTER"), []byte((fmt.Sprintf("%d", cfg.Counter))), -1)
+	output = bytes.Replace(output, []byte("VAR_ROUND"), []byte((fmt.Sprintf("%d", cfg.Round))), -1)
+
+	if err := ioutil.WriteFile(file, output, permissionReadWrite); err != nil {
+		pterm.Error.Printf("WriteFile %v\n", err)
+
+		return err
+	}
+	pterm.Success.Printf("Replaced variables in %s\n", file)
+	return nil
+}
+
 // NewPost creates a new post in the Hugo format.
 func (New) Post() error {
+	var title string
+
 	prompt := promptui.Select{
 		Label: "Select Type of Post j/k to navigate",
 		Items: []string{"100DaysOfCode", "microblog", "blog"},
 	}
 	_, result, err := prompt.Run()
 	if err != nil {
-		pterm.Success.Printf("Prompt failed %v\n", err)
+		pterm.Error.Printf("Prompt failed %v\n", err)
 
 		return err
 	}
 	pterm.Success.Printf("New Post: [%s]", result)
-	promptTitle := promptui.Prompt{
-		Label: "Enter Title",
-	}
-	title, err := promptTitle.Run()
-	if err != nil {
-		pterm.Error.Printf("Prompt failed %v\n", err)
-		return err
-	}
+
 	// the archetype in archtytpes directory to use
 	var kind string
 
 	switch result {
 	case "100DaysOfCode":
 		kind = "code"
+		title = ""
 	default:
 		kind = result
 	}
-	fileName := calculatePostDir(title)
+
+	if kind != "code" {
+		promptTitle := promptui.Prompt{
+			Label: "Enter Title",
+		}
+		title, err = promptTitle.Run()
+	}
+	if err != nil {
+		pterm.Error.Printf("Prompt failed %v\n", err)
+
+		return err
+	}
+	fileName, err := calculatePostDir(title, kind)
+	if err != nil {
+		pterm.Error.Printf("calculatePostDir %v\n", err)
+
+		return err
+	}
 	if err := sh.RunV("hugo", "new", fileName, "--kind", kind); err != nil {
 		return err
 	}
+	if kind == "code" {
+		bumpCounter()
+		if err := replaceCodeVariables(fileName); err != nil {
+			return err
+		}
+	}
+
 	return nil
 }
 
