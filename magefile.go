@@ -5,7 +5,6 @@ package main
 import (
 	"fmt"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"strings"
 	"time"
@@ -16,6 +15,8 @@ import (
 	"github.com/magefile/mage/sh"
 	"github.com/manifoldco/promptui"
 	"github.com/pterm/pterm"
+	"github.com/sheldonhull/magetools/ci"
+	"github.com/sheldonhull/magetools/tooling"
 )
 
 // mage:import tools
@@ -50,36 +51,21 @@ var toolList = []string{ //nolint:gochecknoglobals // ok to be global for toolin
 	"github.com/sunt-programator/CodeIT@latest",
 }
 
-// A build step that requires additional params, or platform specific steps for example.
-func Build() error {
-	mg.Deps(InstallDeps)
-	pterm.DefaultSection.Printf("Building...")
-	cmd := exec.Command("go", "build", "-o", "MyApp", ".")
-	return cmd.Run()
-}
-
-// A custom install step if you need your bin someplace other than go/bin.
-func Install() error {
-	mg.Deps(Build)
-	pterm.DefaultSection.Printf("Installing...")
-	return os.Rename("./MyApp", "/usr/bin/MyApp")
-}
-
-// Manage your deps, or running package managers.
-func InstallDeps() error {
-	pterm.DefaultSection.Printf("Installing Deps...")
-	cmd := exec.Command("go", "get", "github.com/stretchr/piglatin")
-	return cmd.Run()
-}
-
-// Clean up after yourself.
-func Clean() {
+// 🧹 Cleanup artifacts.
+func Cleanup() error {
 	pterm.DefaultSection.Printf("Cleaning...")
-	os.RemoveAll("MyApp")
-}
+	if err := os.RemoveAll("_site"); err != nil {
+		pterm.Warning.Printf("remove _site failed: [%v]\n", err)
 
-func isCI() bool {
-	return os.Getenv("CI") != ""
+		return err
+	}
+	if err := os.RemoveAll("public"); err != nil {
+		pterm.Warning.Printf("remove public failed: [%v]\n", err)
+
+		return err
+	}
+
+	return nil
 }
 
 // calculatePostDir calculates the post directory based on the post title and the date.
@@ -93,6 +79,7 @@ func calculatePostDir(title string) string {
 	pterm.Success.Printf("Slugify Title: %s", slugTitle)
 	filepath := filepath.Join(contentDir, fmt.Sprintf("%d", year), slugTitle+".md")
 	pterm.Success.Printf("calculatePostDir: %s", slugTitle)
+
 	return filepath
 }
 
@@ -102,6 +89,7 @@ func getBuildUrl() string {
 	if u == "" {
 		pterm.Info.Println("DEPLOY_PRIME_URL not set")
 		pterm.Info.Println("buildUrl ", buildUrl)
+
 		return buildUrl
 	}
 	pterm.Info.Println("DEPLOY_PRIME_URL set to", u)
@@ -115,10 +103,11 @@ func (Hugo) Serve() error {
 	url := getBuildUrl()
 	// hugobin("serve", "-b ", getBuildUrl(), "--verbose", "--enableGitInfo", "-d _site", "--buildFuture", "--buildDrafts", "--gc", "--disableFastRender"); err != nil {
 	pterm.Info.Println("hugo", "serve", "-b", url, "--verbose", "--enableGitInfo", "-d", "_site", "--buildFuture", "--buildDrafts", "--gc", "--disableFastRender")
-	pterm.Info.Println("Open Posts with", url +"/posts")
+	pterm.Info.Println("Open Posts with", url+"/posts")
 	if err := sh.RunV("hugo", "serve", "-b", url, "--verbose", "--enableGitInfo", "-d", "_site", "--buildFuture", "--buildDrafts", "--gc", "--disableFastRender"); err != nil {
 		return err
 	}
+
 	return nil
 }
 
@@ -131,6 +120,7 @@ func (New) Post() error {
 	_, result, err := prompt.Run()
 	if err != nil {
 		pterm.Success.Printf("Prompt failed %v\n", err)
+
 		return err
 	}
 	pterm.Success.Printf("New Post: [%s]", result)
@@ -164,21 +154,56 @@ func WebMentions() error {
 }
 
 func Init() error {
+	if ci.IsCI() {
+		pterm.DisableStyling()
+	}
 	pterm.DefaultSection.Printf("Initialize setup")
+	actioncounter := 3
+
+	p, _ := pterm.DefaultProgressbar.
+		WithTotal(actioncounter).
+		WithTitle("Init()").
+		WithShowElapsedTime(true).
+		WithRemoveWhenDone(true).
+		Start()
+	defer func() {
+		p.Title = "init complete"
+		_, _ = p.Stop()
+		pterm.Success.Printf("init complete: %s\n", p.GetElapsedTime().String())
+	}()
+
 	// Tools(tools) // what great naming this is.
 	// if err := tools.InstallTools(toolList); err != nil {
 	// 	pterm.Error.Printf("InstallTools %q", err)
 	// 	return err
 	// }
-	mg.SerialDeps()
-	if err := sh.RunV("hugo", "mod", "clean"); err != nil {
+	p.Title = "hugo mod clean"
+	if err := sh.Run("hugo", "mod", "clean"); err != nil {
 		pterm.Error.Printf("hugo mod clean %q", err)
+
 		return err
 	}
-	if err := sh.RunV("hugo", "mod", "tidy"); err != nil {
+	pterm.Success.Println("✅ hugo mod clean")
+	p.Increment()
+
+	p.Title = "hugo mod tidy"
+	if err := sh.Run("hugo", "mod", "tidy"); err != nil {
 		pterm.Error.Printf("hugo mod tidy %q", err)
+
 		return err
 	}
+	pterm.Success.Println("✅ hugo mod tidy")
+	p.Increment()
+
+	p.Title = "install webmentions"
+	if err := tooling.InstallTools([]string{"github.com/nekr0z/webmention.io-backup@master"}); err != nil {
+		pterm.Error.Printf("install webmentions tool %q", err)
+
+		return err
+	}
+	pterm.Success.Println("✅ install webmentions")
+	p.Increment()
+
 	return nil
 }
 
