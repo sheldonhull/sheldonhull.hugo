@@ -56,7 +56,8 @@
 	"foxundermoon.shell-format",
 	"capybara1.vscode-url-title-resolver",
 	"lukapetrovic.image-resizer",
-	"redvanworkshop.explorer-exclude-vscode-extension"
+	"redvanworkshop.explorer-exclude-vscode-extension",
+	"robole.snippets-ranger"
 ],
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [

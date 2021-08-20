@@ -4,17 +4,14 @@ go 1.16
 
 require (
 	github.com/client9/misspell v0.3.4
-	github.com/dnb-org/debug v1.3.0 // indirect
 	github.com/gechr/yamlfmt v0.0.0-20210621194800-dee2f38f283e
 	github.com/gobeam/stringy v0.0.4
 	github.com/golangci/golangci-lint v1.42.0
 	github.com/magefile/mage v1.11.0
 	github.com/manifoldco/promptui v0.8.0
-	github.com/nekr0z/webmention.io-backup v1.3.1-0.20210814111338-de77a9329973 // indirect
-	github.com/pelletier/go-toml/v2 v2.0.0-beta.3 // indirect
+	github.com/pelletier/go-toml/v2 v2.0.0-beta.3
 	github.com/pterm/pterm v0.12.30
-	github.com/sheldonhull/magetools v0.0.0-20210817173308-afe4f5338c9c // indirect
-	github.com/sunt-programator/CodeIT v0.1.2 // indirect
+	github.com/sheldonhull/magetools v0.0.0-20210817173308-afe4f5338c9c
 	mvdan.cc/gofumpt v0.1.1
 )
 
