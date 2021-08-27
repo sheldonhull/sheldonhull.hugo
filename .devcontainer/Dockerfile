@@ -39,15 +39,21 @@ USER root
 RUN apt update && apt-get -qqy install build-essential curl file git gcc --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 RUN sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
-#  sudo apt update && sudo apt-get -qqy install build-essential curl file git gcc
 ENV PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
-RUN sh -c "$(wget -qO- git.io/chezmoi)" && mv ./bin/chezmoi /usr/local/bin/chezmoi && rm -rf ./bin
+RUN bash -c "$(wget -qO- git.io/chezmoi)" && mv ./bin/chezmoi /usr/local/bin/chezmoi && rm -rf ./bin
+#RUN bash -c "$(wget -qO- https://nixos.org/nix/install)" && echo "✅ installed nixos"
 # for troubleshooting:
 # $ENV:PATH = "/home/linuxbrew/.linuxbrew/bin:$($ENV:PATH)"
 USER codespace
+#RUN curl -L https://nixos.org/nix/install | sh -s
+RUN curl --quiet -L https://nixos.org/nix/install | sh -s -- --daemon
+  #curl --quiet -L https://nixos.org/nix/install | sh && echo "✅ installed nixos"
+RUN nix-env -iA nixpkgs.git-town && echo "✅ installed git-town" \
+    && nix-env -iA nixpkgs.go && echo "✅ installed go" \
+    && nix-env -iA nixpkgs.hugo && echo "✅ installed hugo"
 #RUN curl -L "https://github.com/whalebrew/whalebrew/releases/download/0.3.0/whalebrew-$(uname -s)-$(uname -m)" -o /usr/local/bin/whalebrew; chmod +x /usr/local/bin/whalebrew
-RUN brew --version
-RUN brew update
+# RUN bash -c brew --version
+#RUN bash -c brew update
 #RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc
 #RUN brew postinstall gcc
 # RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install golang
