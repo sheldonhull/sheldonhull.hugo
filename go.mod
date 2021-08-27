@@ -9,6 +9,7 @@ require (
 	github.com/golangci/golangci-lint v1.42.0
 	github.com/magefile/mage v1.11.0
 	github.com/manifoldco/promptui v0.8.0
+	github.com/nekr0z/webmention.io-backup v1.3.1-0.20210825074445-04dccf3467e5 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.0-beta.3
 	github.com/pterm/pterm v0.12.30
 	github.com/sheldonhull/magetools v0.0.0-20210817173308-afe4f5338c9c

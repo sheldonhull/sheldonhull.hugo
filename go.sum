@@ -542,6 +542,8 @@ github.com/nakabonne/nestif v0.3.0 h1:+yOViDGhg8ygGrmII72nV9B/zGxY188TYpfolntsaP
 github.com/nakabonne/nestif v0.3.0/go.mod h1:dI314BppzXjJ4HsCnbo7XzrJHPszZsjnk5wEBSYHI2c=
 github.com/nbutton23/zxcvbn-go v0.0.0-20210217022336-fa2cb2858354 h1:4kuARK6Y6FxaNu/BnU2OAaLF86eTVhP2hjTB6iMvItA=
 github.com/nbutton23/zxcvbn-go v0.0.0-20210217022336-fa2cb2858354/go.mod h1:KSVJerMDfblTH7p5MZaTt+8zaT2iEk3AkVb9PQdZuE8=
+github.com/nekr0z/webmention.io-backup v1.3.1-0.20210825074445-04dccf3467e5 h1:B4LfNs7N5oyter3DgD0Ei/9+3RVICBg78NQZiFxR5hw=
+github.com/nekr0z/webmention.io-backup v1.3.1-0.20210825074445-04dccf3467e5/go.mod h1:PTNGseNMMudHfeAZpnUDKcQ8w2NGiyoVBxOFr/UHrH4=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e h1:fD57ERR4JtEqsWbfPhv4DMiApHyliiK5xCTNVSPiaAs=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
 github.com/nishanths/exhaustive v0.2.3 h1:+ANTMqRNrqwInnP9aszg/0jDo+zbXa4x66U19Bx/oTk=

@@ -7949,6 +7949,31 @@
       "target": "https://www.sheldonhull.com/how-to-reduce-noise-from-slack/",
       "verified": true,
       "verified_date": "2021-08-08T15:44:44+00:00"
+    },
+    {
+      "activity": {
+        "sentence": "Angsuman Chakraborty posted 'Simplify AWS #Developer Security with Leapp sheldonhull.com/simplify-aws-d…' linking to https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+        "sentence_html": "<a href=\"https://twitter.com/angsuman\">Angsuman Chakraborty</a> posted 'Simplify AWS #Developer Security with Leapp sheldonhull.com/simplify-aws-d…' linking to <a href=\"https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/\">https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/</a>",
+        "type": "link"
+      },
+      "data": {
+        "author": {
+          "name": "Angsuman Chakraborty",
+          "photo": "https://webmention.io/avatar/pbs.twimg.com/494c7f1285a22807d72209ceeda7cb1ff8a4c9840751c5ca69597a784f71255d.jpg",
+          "url": "https://twitter.com/angsuman"
+        },
+        "content": "Simplify AWS <a href=\"https://twitter.com/search?q=%23Developer\">#Developer</a> Security with Leapp <a href=\"https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/\">sheldonhull.com/simplify-aws-d…</a>",
+        "name": null,
+        "published": "2021-08-26T04:50:18+00:00",
+        "published_ts": 1629953418,
+        "url": "https://twitter.com/angsuman/status/1430754453913694214"
+      },
+      "id": 1255013,
+      "private": false,
+      "source": "https://brid.gy/post/twitter/sheldon_hull/1430754453913694214",
+      "target": "https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/",
+      "verified": true,
+      "verified_date": "2021-08-26T05:38:49+00:00"
     }
   ]
 }

@@ -103,7 +103,7 @@
         "go.mod": true,
         "go.sum": true,
         "init.ps1": true,
-        "layouts": true,
+        "layouts": false,
         "lefthook.yml": true,
         "LICENSE.md": true,
         "main-json-builder-test.go_": true,
