@@ -24,11 +24,89 @@ Check out these google analytic metrics if you want to see a pretty chart.
 
 :(fas fa-chart-line fa-fw): [Metrics]({{< relref "metrics" >}})
 
+<div>
+<i class="fas fa-chart-bar fa-fw"></i>
+<a href="https://webmentions.sheldonhull.com/" target="_blank">Webmention Analytics</a>
+</div>
+
+## What Makes Me Worth Considering?
+
+I'm someone who believes in "cradle to grave" ownership.
+With a strong background in cloud operations, I look at software development from the deployment and operations side heavily, and this impacts the design and development approach.
+I'm also pretty darn good at automating & offloading work to computers so that my work can scale and be reused over on many projects.
+
+I'm a consumate tweaker, so being part of a team that embraces experimentation and pushing for improvement while delivering value is a good fit.
+
+{{< admonition type="Example" title="Example" open=false >}}
+
+Someone might look at deploying a webservice and spin up an EC2 linux webserver and call it done.
+
+What would go through my head:
+
+- Can I host this using a managed service such as ECS Fargate to avoid the operational toil of managing my own instance?
+- Can I benefit from a service like this with autoscaling to ensure a failed task can automatically recover or allocate work to a new node?
+- Did the web service add the instrumentation libraries for opentracing or the appropriate library?
+- Are structured logs being used to ensure automatic parsing by the logging provider?
+- Is the service being deployed via a CICD provider instead of manually?
+- Are unit tests being run on developer machines with hooks and also by CI system?
+- Are integration tests being run prior to deployment?
+- Are service level objectives defined and tracked if required to ensure service isn't over-engineered, but also allocated appropriate time for new work if problems occur that would impact customer satisfaction?
+- Is the core infrastructure defined via code?
+- Is the application configured to pull its configuration from environment variables or cloud configuration provider rather than requiring manual changes?
+
+{{< /admonition >}}
+
 ## Skill Highlight
 
-| Experienced | Fundamental | Currently Studying | I'd Love to Work With This More |
-| --- | --- | --- | --- |
-| :(fas fa-angle-right fa-fw): AWS<br>:(fas fa-angle-right fa-fw): PowerShell<br>:(fas fa-angle-right fa-fw): (CrossPlatform)<br>:(fas fa-angle-right fa-fw): SQL<br>:(fas fa-angle-right fa-fw): Terraform<br>:(fas fa-angle-right fa-fw): Packer<br>:(fas fa-angle-right fa-fw): GitHub/Actions/CI<br>:(fas fa-angle-right fa-fw): Technical Docs<br>:(fas fa-angle-right fa-fw): DevOps<br>:(fas fa-angle-right fa-fw): Observability<br>:(fas fa-angle-right fa-fw): Communication | :(fas fa-angle-right fa-fw): C#/.NET<br> :(fas fa-angle-right fa-fw): Containerization<br> :(fas fa-angle-right fa-fw): Serverless<br> :(fas fa-angle-right fa-fw): Go<br> :(fas fa-angle-right fa-fw): Python | :(fas fa-angle-right fa-fw): Go<br>:(fas fa-angle-right fa-fw): Serverless | :(fas fa-angle-right fa-fw): Microservices<br>:(fas fa-angle-right fa-fw): Go<br>:(fas fa-angle-right fa-fw): Linux |
+<style>
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+/*Clear floats after the columns*/
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+h2 {
+  font-size: 1.5em;
+}
+</style>
+<div class="row">
+<div class="column"><h2>Lots of Experience</h2></div>
+<div class="column"><h2>Exposure & Fundamentals</h2></div>
+<div class="column"><h2>Things I'd Love to Work More On</h2></div>
+<div class="row">
+  <div class="column">
+  :(fas fa-angle-right fa-fw): AWS<br>
+  :(fas fa-angle-right fa-fw): PowerShell (CrossPlatform), .NET Framework<br>
+  :(fas fa-angle-right fa-fw): SQL (Dev, Design & Operations)<br>
+  :(fas fa-angle-right fa-fw): Infrastructure As Code<br>
+  :(fas fa-angle-right fa-fw): GitHub/Actions/CI/Azure Pipelines<br>
+  :(fas fa-angle-right fa-fw): Technical Docs<br>
+  :(fas fa-angle-right fa-fw): DevOps<br>
+  :(fas fa-angle-right fa-fw): Observability<br>
+  :(fas fa-angle-right fa-fw): Containerization<br>
+  :(fas fa-angle-right fa-fw): Windows<br>
+  </div>
+  <div class="column">
+  :(fas fa-angle-right fa-fw): Go<br>
+  :(fas fa-angle-right fa-fw): Linux<br>
+  :(fas fa-angle-right fa-fw): C#/.NET<br>
+  :(fas fa-angle-right fa-fw): Serverless<br>
+  :(fas fa-angle-right fa-fw): Python<br>
+  :(fas fa-angle-right fa-fw): Serverless<br>
+  </div>
+  <div class="column">
+  :(fas fa-angle-right fa-fw): Go<br>
+  :(fas fa-angle-right fa-fw): Serverless<br>
+  :(fas fa-angle-right fa-fw): Microservices<br>
+  :(fas fa-angle-right fa-fw): Developer Tooling<br>
+  :(fas fa-angle-right fa-fw): Containerization<br>
+  </div>
+</div>
 
 ## Professional Profile
 
@@ -36,12 +114,32 @@ Check out these google analytic metrics if you want to see a pretty chart.
 
 :(fas fa-calendar-alt fa-fw): March 2021 - Current :(fas fa-grip-lines-vertical fa-fw): :(fas fa-lightbulb fa-fw): Thycotic :(fas fa-grip-lines-vertical fa-fw): :(fas fa-user-tag fa-fw): Senior Software Engineer (AWS/Go)
 
-⚡ Part of team building services in Go for security management software.<br>
-⚡ AWS, Go, Containerization and more TBD 🎉
+⚡ Improved SLDC applying DevOps practices towards trunk based
+development and infra-as-code.<br>
+⚡ Supported PR Reviews and oversight of code from offshore team programming primarily in Go.<br>
+⚡ Go: added structured logging, APM integration to support observability<br>
+⚡ AWS Architecture redesign for ECS Fargate container driven support
+of Go services, as well as supporting Docker configuration.<br>
+⚡ Go & Task tooling to support developer workflow improvements for
+pre-commit, building, and other tooling.<br>
+⚡ Investigative work for Kubernetes and usage of microservices using Dapr.<br>
+
+*Things I Used*
+
+Go, AWS, Terraform, Terragrunt, Bash, Kubernetes, Dapr (Distributed Application Runtime) for Microservices.
+
+*Public Artifacts*
+
+Work under NDA.
+Public related blog posts on general technology topics where posted on blog as well as some general studies on applying Go with TDD and algorithm studies are listed here.
+
+:(fas fa-code-branch): [Magetools](https://github.com/sheldonhull/magetools)<br>
+:(fas fa-code-branch): [100DaysOfCode for Go](https://www.sheldonhull.com/tags/100daysofcode/)<br/>
+:(fas fa-code-branch): [Learn Go With Tests - Applied](https://github.com/sheldonhull/learn-go-with-tests-applied)<br>
 
 {{< /admonition >}}
 
-{{< admonition type="info" title="Senior Developer" open=false >}}
+{{< admonition type="info" title="2014 - 2021 Senior Developer" open=false >}}
 
 :(fas fa-calendar-alt fa-fw): 2014 - 2021 :(fas fa-grip-lines-vertical fa-fw): :(fas fa-lightbulb fa-fw): Altus Group :(fas fa-grip-lines-vertical fa-fw): :(fas fa-user-tag fa-fw): Senior Developer (Database & Dev Operations)
 
