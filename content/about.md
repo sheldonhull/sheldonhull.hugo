@@ -13,7 +13,7 @@ toc: false
 
 ## Want to Talk
 
-Add a comment to any of the pages at the bottom and it will open up a GitHub issue to have a public discussion.
+Comments on this site are welcome on any topic, or open a general discussision on: [Discussions](https://github.com/sheldonhull/sheldonhull.hugo/discussions)
 
 :(fab fa-twitter fa-fw): <a href="https://twitter.com/messages/compose?recipient_id=247477081&text=connecting%20from%20your%20site..."
   class="twitter-dm-button" data-screen-name="@sheldon_hull">
@@ -21,15 +21,17 @@ Direct Message Me</a>
 
 ## Core Values
 
-I live as a follower of Christ, desiring to impact the world around with who He is. I'm an unashamed disciple and though I've got plenty I mess up, following Him is my joy. I'm passionate about worship through music, and have played and led worship team for a number of years. Currently, I've been enjoying playing electric. This had challenged me to play in a completely different way than acoustic, as the melodic nature of the electric guitar parts bring a subtle but powerful part to a worship band.
+I live as a follower of Christ, desiring to impact the world around with who He is.
+I'm an unashamed disciple and though I've got plenty I mess up, following Him is my joy.
 
 ## Family
 
-I've been blessed with 3 kids and a wonderful wife Sarah who has brought beauty into my world and to my life. I'm thankful for the richness of family and experiencing this journey.
+I've been blessed with 3 kids and a wonderful wife Sarah who has brought beauty into my world and to my life.
+I'm thankful for the richness of family and experiencing this journey.
 
 ## Work
 
-I ♥ code
+I ♥ code. Right now Go is my primary focus.
 
 I also think the world needs more emojis and tacos 🌮🌮🌮 to lighten things up.
 
