@@ -353,3 +353,13 @@ func Init() error {
 // 		return err
 // 	}
 // }
+
+// Serve site using Caddy.
+func Serve() error {
+	pterm.DefaultSection.Printf("Serve site")
+	if err := sh.RunV("caddy", "run", "--config", "Caddyfile"); err != nil {
+		pterm.Error.Printf("caddy run %q", err)
+		return err
+	}
+	return nil
+}
