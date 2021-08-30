@@ -12,6 +12,8 @@ tags:
 - development
 - git
 - tech
+typora-root-url: ../../static
+typora-copy-images-to:  ../../static/images
 ---
 
 :(fas fa-info-circle fa-fw): This is a mix of git, github, azure devops repos, and other workflow tips that help me work more quickly.

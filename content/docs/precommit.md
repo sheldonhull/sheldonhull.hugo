@@ -14,6 +14,8 @@ toc:
   enable: true
   keepStatic: false
   auto: true
+typora-root-url: ../../static
+typora-copy-images-to:  ../../static/images
 ---
 
 A cheatsheet for various pre-commit hooks and things that help with linting, formatting, code scans and more. These all help "shift left" the review to eliminate more issues in the development workflow, rather than providing feedback only once the CI system is involved.

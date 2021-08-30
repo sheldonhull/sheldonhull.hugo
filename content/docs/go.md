@@ -11,6 +11,8 @@ comments: true
 tags:
 - development
 - golang
+typora-root-url: ../../static
+typora-copy-images-to:  ../../static/images
 ---
 
 ## Starter Template
