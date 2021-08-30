@@ -2,8 +2,7 @@
 title: shell
 date: 2020-10-30
 toc: true
-summary:
-  A cheatsheet for some bash stuff. I really ♥️ pwsh... but acknowledge it's not everyone's cup of tea.
+summary: A cheatsheet for some bash stuff. I really ♥️ pwsh... but acknowledge it's not everyone's cup of tea.
   This page helps me get by with being a terrible basher
 slug: shell
 permalink: /docs/shell
@@ -11,6 +10,8 @@ comments: true
 tags:
 - development
 - shell
+typora-root-url: ../../static
+typora-copy-images-to:  ../../static/images
 ---
 
 :(fas fa-info-circle fa-fw): This is a mix of shell, linux, and macOS commands.
