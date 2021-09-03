@@ -1,6 +1,8 @@
 {{/* inspired originall by: https://github.com/brycewray/files-webmentions/blob/main/hugo_site_css-grid/layouts/partials/webmentions.html */}}
 <!-- <div id="webmentions"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div> -->
 <!-- <div class='content-webmentions'></div> -->
+
+{{/* prettier-ignore-start */}}
 {{ $RelPermalink := .RelPermalink }}
 {{ $Section := .Section }}
 {{- if .Params.oldcomments }}
@@ -67,7 +69,8 @@
 
     {{ if $reposts }}
 
-        <summary class="h4">Reposts&nbsp;&nbsp;<span class="legal" style="font-weight: normal;">({{ len $reposts }})</summary>
+        <summary class="h4">Reposts&nbsp;&nbsp;<span class="legal" style="font-weight: normal;">({{ len $reposts }})</span>
+        </summary>
         <ul class="webmentions__list_facepile">
           {{ range $i, $repost := $reposts }}
             {{/*  printf "img: [%v]"  $repost.data.author.photo */}}
@@ -80,7 +83,9 @@
     {{ end }}
 
     {{ if $replies }}
-      <summary class="h4">Comments&nbsp;&bull;&nbsp;Replies&nbsp;&nbsp;<span class="legal" style="font-weight: normal;">({{ len $replies }})</summary>
+      <summary class="h4">Comments&nbsp;&bull;&nbsp;Replies&nbsp;&nbsp;
+        <span class="legal" style="font-weight: normal;">({{ len $replies }})</span>
+        </summary>
       <ol class="webmentions__list">
       {{ range $index, $reply := sort $replies "published" }}
         <li class="webmentions__item">
@@ -98,7 +103,7 @@
     {{ end }}
 
     {{ if $mentions }}
-      <summary class="h4">Mentions&nbsp;&nbsp;<span class="legal" style="font-weight: normal;">({{ len $mentions }})</summary></summary>
+      <summary class="h4">Mentions&nbsp;&nbsp;<span class="legal" style="font-weight: normal;">({{ len $mentions }})</span></summary>
       <ol class="webmentions__list">
       {{ range $index, $mention := sort $mentions "published" }}
         <li class="webmentions__item">
@@ -120,3 +125,5 @@
 
   {{ end }}
 </div>
+
+{{/* prettier-ignore-end */}}

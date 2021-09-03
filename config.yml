@@ -16,7 +16,7 @@ languages:
     languageCode: en
     languageName: English
     hasCJKLanguage: false
-    paginate: 12
+    paginate: null
     googleAnalytics: UA-40198001-3
     copyright: >-
       This work is licensed under a Creative Commons Attribution-NonCommercial
@@ -30,6 +30,13 @@ languages:
           url: /posts
           title: ''
           weight: 1
+        - identifier: archive
+          pre: ''
+          post: ''
+          name: archive
+          url: /archive
+          title: ''
+          weight: 2
         - identifier: about
           pre: ''
           post: ''
@@ -206,11 +213,11 @@ params:
       href="https://www.sheldonhull.com/main/license" target="_blank">CC
       BY-NC 4.0</a>
   section:
-    paginate: 20
+    paginate: 100
     dateFormat: 2006-01-02
     rss: 10
   list:
-    paginate: 20
+    paginate: 100
     dateFormat: 2006-01-02
     rss: 10
   page:

@@ -1,3 +1,5 @@
+{{/* prettier-ignore-start */}}
+
 {{- $cdn := .Scratch.Get "cdn" | default dict -}}
 {{- $fingerprint := .Scratch.Get "fingerprint" -}}
 {{- $comment := .Scratch.Get "comment" | default dict -}}
@@ -135,8 +137,9 @@
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
           </noscript>
         {{- end -}}
-
     </div>
 {{- end -}}
 
 {{- dict "comment" $commentConfig | dict "config" | merge (.Scratch.Get "this") | .Scratch.Set "this" -}}
+
+{{/* prettier-ignore-end */}}

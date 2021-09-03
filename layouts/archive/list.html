@@ -1,0 +1,69 @@
+{{- define "title" }}
+{{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+{{- end -}}
+
+{{- define "content" -}}
+{{ $trimtagslist := slice "tech" "development"  }}
+{{ $excludeposttaglist := slice "100daysofcode" }}
+<div class="page archive wide" style="overflow:auto !important; height: 2000px;">
+  {{- /* Title */ -}}
+  <h4 class="single-title animated pulse faster">
+    {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
+  </h4>
+
+  {{- /* Paginate */ -}}
+  {{ $pages := (where .Site.RegularPages.ByTitle "Section" "posts" ) }}
+  {{ $section := .Section }}
+  {{- if $pages -}}
+      {{- $pages_groupbydate := $pages.GroupByDate "2006" -}}
+      {{- range $pg := $pages_groupbydate -}}
+          <h4 class="group-title">{{ .Key }}</h3>
+          {{- range $pg.Pages -}}
+                  {{- $params := .Scratch.Get "params" -}}
+                  {{ $tags := slice }}
+                  {{ $counter := 0 }}
+
+                  {{/* filter out certain tags from showing in list as not specific enough */}}
+                  {{ range $t := $params.tags }}
+                    {{ if (in $excludeposttaglist (lower .) ) }}
+                      {{ $counter = add $counter 1 }}
+                    {{ end }}
+
+                    {{/* exclude certain tags from showing up in list as not specific enough */}}
+                    {{ if not (in $trimtagslist (lower .)) }}
+                      {{ $tags = $tags | append $t }}
+                    {{ end }}
+                  {{ end }}
+
+                  {{ if eq $counter 0 }}
+                    <article class="archive-item" >
+                    <a href="{{- .RelPermalink -}}" style="width:90%;">
+                      <span class="archive-item-link glow">{{ .Title }}</span>
+                      <span class="post-meta">
+
+                        {{- with $tags -}}
+                          <span class="post-meta-line post-tags archive-item-date" style="size: 50%; font-size:0.8em; margin-left:20px;">
+                            <i class="fas fa-tags fa-fw"></i>&nbsp;
+                            {{- range $index, $value := . -}}
+                              {{- if gt $index 0 }},&nbsp;{{ end -}}
+                            {{ . }}
+                            {{- end -}}
+                          </span>
+                        {{- end -}}
+
+                        <span class="post-meta-line archive-item-date" style="float:right; width:auto;">
+                          {{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
+                          <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
+                          {{- end -}}
+                        </span>
+                      </span>
+                    </a>
+                    </article>
+                  {{- end -}}
+          {{- end -}}
+      {{- end -}}
+        {{- partial "paginator.html" . -}}
+  {{- end -}}
+
+  </div>
+{{- end -}}

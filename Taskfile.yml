@@ -120,7 +120,8 @@ tasks:
       # -    {{ .GITHUB_REPO }}
       # - hugo mod get -u -v
       # - hugo mod tidy
-      - npm install --quiet atomic-algolia #--globals
+      # - npm install --quiet atomic-algolia #--globals
+      # - npm install --quiet prettier-plugin-go-template
       - |
         {{ if eq OS "windows" }}scoop install sed{{end}}
   go:
@@ -272,9 +273,11 @@ tasks:
         # echo "Need command added for non-darwin system
         # {{end}}
       - |
+        yarn install
         # brew reinstall node
-        npm install imageoptim-cli --global --silent
-        npm install markdownlint-cli2 --global --silent
+
+        # npm install imageoptim-cli --global --silent
+        # npm install markdownlint-cli2 --global --silent
 
         # npm install -g install netlify-cli --silent
         {{ if eq OS "windows" }}scoop install jq jid{{end}}
@@ -308,3 +311,7 @@ tasks:
         #GO111MODULE=off go install github.com/sheldonhull/sharedbrain #@main
         # GO111MODULE=off go get -u -v github.com/sheldonhull/sharedbrain
         sharedbrain -content ./content/posts  -dest ./content/posts
+  fmt:
+    desc: run formatters
+    cmds:
+    - yarn prettier --write # ./layouts/

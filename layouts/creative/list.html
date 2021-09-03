@@ -1,46 +1,48 @@
 {{- define "title" }}
-{{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+  {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }}
+  -
+  {{ .Site.Title -}}
 {{- end -}}
 
 {{- define "content" -}}
-<div class="page archive">
+  <div class="page archive">
     {{- /* Title */ -}}
     <h2 class="single-title animated pulse faster">
-        {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
+      {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
     </h2>
 
     {{- /* Paginate */ -}}
     {{ $pages := (where .Site.RegularPages.ByTitle "Section" "creative" ) }}
     {{ $section := .Section }}
     {{- if $pages -}}
-    {{- with .Site.Params.section.paginate | default .Site.Params.paginate -}}
-    {{- $pages = $.Paginate $pages . -}}
-    {{- else -}}
-    {{- $pages = .Paginate $pages -}}
-    {{- end -}}
-<div class="cards card-flex-container">
-    {{- range (.Pages.ByParam "Lastmod").Reverse -}}
-    <div class="cards card card-1">
-        <a href="{{ .RelPermalink }}" class="glow">
-            <h3 class="glow">{{- .Title -}}</h3>
-        </a>
-        <span>{{ .Summary }}</span>
-        <span class="archive-item-date">
-        <span>last updated: </span>
-        <span>
-            {{- if $.Site.Params.gitRepo -}}
-                {{- with .GitInfo -}}
-                {{- dateFormat "2006-01-02" .AuthorDate.Local -}}
+      {{- with .Site.Params.section.paginate | default .Site.Params.paginate -}}
+        {{- $pages = $.Paginate $pages . -}}
+      {{- else -}}
+        {{- $pages = .Paginate $pages -}}
+      {{- end -}}
+      <div class="cards card-flex-container">
+        {{- range (.Pages.ByParam "Lastmod").Reverse -}}
+          <div class="cards card card-1">
+            <a href="{{ .RelPermalink }}" class="glow">
+              <h3 class="glow">{{- .Title -}}</h3>
+            </a>
+            <span>{{ .Summary }}</span>
+            <span class="archive-item-date">
+              <span>last updated:</span>
+              <span>
+                {{- if $.Site.Params.gitRepo -}}
+                  {{- with .GitInfo -}}
+                    {{- dateFormat "2006-01-02" .AuthorDate.Local -}}
+                  {{- end -}}
+                {{- else -}}
+                  {{- dateFormat "2006-01-02" .Date -}}
                 {{- end -}}
-            {{- else -}}
-            {{- dateFormat "2006-01-02" .Date -}}
-            {{- end -}}
-        </span>
-    </span>
-    </div>
+              </span>
+            </span>
+          </div>
+        {{- end -}}
+      </div>
+      {{- partial "paginator.html" . -}}
     {{- end -}}
-    </div>
-    {{- partial "paginator.html" . -}}
-    {{- end -}}
-</div>
+  </div>
 {{- end -}}

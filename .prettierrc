@@ -1,17 +1,13 @@
 {
-    "proseWrap": "never",
-    "htmlWhitespaceSensitivity": "ignore",
-    "overrides": [
-        {
-            "files": [
-                "*.html"
-            ],
-            "options": {
-                "parser": "go-template"
-            }
-        }
-    ],
-    "html.format.wrapAttributes": "force",
-    "html.format.wrapLineLength": 40,
-    "prettier.htmlWhitespaceSensitivity": "ignore"
+  "overrides": [
+    {
+      "files": [
+        "*.html"
+      ],
+      "options": {
+        "parser": "go-template"
+      }
+    }
+  ],
+  "goTemplateBracketSpacing": true
 }
