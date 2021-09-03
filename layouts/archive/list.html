@@ -5,7 +5,7 @@
 {{- define "content" -}}
 {{ $trimtagslist := slice "tech" "development"  }}
 {{ $excludeposttaglist := slice "100daysofcode" }}
-<div class="page archive wide" style="overflow:auto !important; height: 2000px;">
+<div class="page archive wide" style="display:block; overflow:auto !important;">
   {{- /* Title */ -}}
   <h4 class="single-title animated pulse faster">
     {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
@@ -38,7 +38,7 @@
                   {{ if eq $counter 0 }}
                     <article class="archive-item" >
                     <a href="{{- .RelPermalink -}}" style="width:90%;">
-                      <span class="archive-item-link glow">{{ .Title }}</span>
+                      <span class="archive-item-link">{{ .Title }}</span>
                       <span class="post-meta">
 
                         {{- with $tags -}}
