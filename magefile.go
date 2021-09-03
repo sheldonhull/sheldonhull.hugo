@@ -192,10 +192,11 @@ func getBuildUrl() string {
 func (Hugo) Serve() error {
 	pterm.DefaultSection.Printf("Hugo Serve")
 	url := getBuildUrl()
-	// hugobin("serve", "-b ", getBuildUrl(), "--verbose", "--enableGitInfo", "-d _site", "--buildFuture", "--buildDrafts", "--gc", "--disableFastRender"); err != nil {
-	pterm.Info.Println("hugo", "serve", "-b", url, "--verbose", "--enableGitInfo", "-d", "_site", "--buildFuture", "--buildDrafts", "--gc", "--disableFastRender")
+	hugoargs := []string{"serve", "-b", url, "--verbose", "--enableGitInfo", "-d", "_site", "--buildFuture", "--buildDrafts", "--gc", "--cleanDestinationDir", "--disableFastRender"}
+	// "--disableFastRender"
+	pterm.Info.Printf("hugo: %v", hugoargs)
 	pterm.Info.Println("Open Posts with", url+"/posts")
-	if err := sh.RunV("hugo", "serve", "-b", url, "--verbose", "--enableGitInfo", "-d", "_site", "--buildFuture", "--buildDrafts", "--gc", "--disableFastRender"); err != nil {
+	if err := sh.RunV("hugo", hugoargs...); err != nil {
 		return err
 	}
 
@@ -359,6 +360,16 @@ func Serve() error {
 	pterm.DefaultSection.Printf("Serve site")
 	if err := sh.RunV("caddy", "run", "--config", "Caddyfile"); err != nil {
 		pterm.Error.Printf("caddy run %q", err)
+		return err
+	}
+	return nil
+}
+
+// Fmt runs code formatting for project
+func Fmt() error {
+	pterm.DefaultSection.Printf("prettier go-templates")
+	if err := sh.RunV("yarn", "prettier", "--write", "."); err != nil {
+		pterm.Error.Printf("prettier go-templates %q", err)
 		return err
 	}
 	return nil

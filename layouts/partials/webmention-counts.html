@@ -2,7 +2,7 @@
 {{ $RelPermalink := .RelPermalink }}
 {{/* printf "$siteURLforWMs: %v" $siteURLforWMs */}}
 {{ $linkForUse := print ($siteURLforWMs) ($RelPermalink) }}
-{{ $linkForUse := replaceRE "^www." "https://www." $linkForUse}}
+{{ $linkForUse := replaceRE "^www." "https://www." $linkForUse }}
 {{/* printf "$linkForUse: %v" $linkForUse */}}
 
 {{/* SEARCH VARIATIONS */}}
@@ -12,40 +12,64 @@
 
 {{/* If any aliases for page include those in search */}}
 {{ range $alias := .Params.Aliases }}
-    {{/* printf "👀 alias: [%v]" $alias */}}<br>
-    {{ $aliasPath := print ($siteURLforWMs) "/" ($alias) }}
-    {{ $aliasPath := replaceRE "^www." "https://www." $aliasPath }}
-    {{/* printf "👀 aliaspath: [%v]" $aliasPath */}}<br>
-    {{ $search = $search | append $aliasPath }}
-    {{ $search = $search | append (replaceRE ".com/" ".com/blog/" $aliasPath) }}
-    {{ $search = $search | append (replaceRE ".com/" ".com/microblog/" $aliasPath) }}
+  {{/* printf "👀 alias: [%v]" $alias */}}
+  <br/>
+  {{ $aliasPath := print ($siteURLforWMs) "/" ($alias) }}
+  {{ $aliasPath := replaceRE "^www." "https://www." $aliasPath }}
+  {{/* printf "👀 aliaspath: [%v]" $aliasPath */}}
+  <br/>
+  {{ $search = $search | append $aliasPath }}
+  {{ $search = $search | append (replaceRE ".com/" ".com/blog/" $aliasPath) }}
+  {{ $search = $search | append (replaceRE ".com/" ".com/microblog/" $aliasPath) }}
 {{ end }}
 
-  {{/* printf "🔎 search %s" ($search|jsonify (dict "prefix" " " "indent" "  ")) */}}<br>
+{{/* printf "🔎 search %s" ($search|jsonify (dict "prefix" " " "indent" "  ")) */}}
+
+
+<br/>
 
 {{ $matches := slice }}
 {{ range $s := $search }}
-    {{/* printf "🔎 searching for: [%s]" $s */}}
-    {{ range $item := where $.Site.Data.webmentions.links "target" $s }}
-        {{/* printf "✔ $item: %s" ( $item | jsonify ) */}}
-        {{ $matches = $matches | append $item }}
-    {{ else }}
+  {{/* printf "🔎 searching for: [%s]" $s */}}
+  {{ range $item := where $.Site.Data.webmentions.links "target" $s }}
+    {{/* printf "✔ $item: %s" ( $item | jsonify ) */}}
+    {{ $matches = $matches | append $item }}
+  {{ else }}
     {{/* printf "🔃 $s [%s] not found" $s */}}
-    {{ end }}
+  {{ end }}
 {{ end }}
 {{ if $matches }}
-    {{ $likes := len (where $matches "activity.type" "like") }}
-    {{- with $likes -}}<span class="webmention__stats"><i class="fas fa-heart">&nbsp;{{ . }}</i>&nbsp;likes</span>{{- end -}}
-    {{ $total := $likes }}
-    {{ $replies := len (where $matches "activity.type" "reply") }}
-    {{- with $replies -}}<span class="webmention__stats"><i class="fas fa-reply">&nbsp;{{ . }}</i>&nbsp;reply</span>{{- end -}}
-    {{ $total = add $likes $replies }}
-    {{ $mentions := len (where $matches "activity.type" "mention") }}
-    {{- with $mentions -}}<span class="webmention__stats"><i class="fas fa-bullhorn">&nbsp;{{ . }}</i>&nbsp;mentions</span>{{- end -}}
-    {{ $total = add $likes $mentions }}
-    {{ $reposts := len (where $matches "activity.type" "repost") }}
-    {{- with $reposts -}}<span class="webmention__stats"><i class="fas fa-retweet">&nbsp;{{ . }}</i>&nbsp;resposts</span>{{- end -}}
-    {{ $total = add $likes $reposts }}
-
+  {{ $likes := len (where $matches "activity.type" "like") }}
+  {{- with $likes -}}
+    <span class="webmention__stats">
+      <i class="fas fa-heart">&nbsp;{{ . }}</i>
+      &nbsp;likes
+    </span>
+  {{- end -}}
+  {{ $total := $likes }}
+  {{ $replies := len (where $matches "activity.type" "reply") }}
+  {{- with $replies -}}
+    <span class="webmention__stats">
+      <i class="fas fa-reply">&nbsp;{{ . }}</i>
+      &nbsp;reply
+    </span>
+  {{- end -}}
+  {{ $total = add $likes $replies }}
+  {{ $mentions := len (where $matches "activity.type" "mention") }}
+  {{- with $mentions -}}
+    <span class="webmention__stats">
+      <i class="fas fa-bullhorn">&nbsp;{{ . }}</i>
+      &nbsp;mentions
+    </span>
+  {{- end -}}
+  {{ $total = add $likes $mentions }}
+  {{ $reposts := len (where $matches "activity.type" "repost") }}
+  {{- with $reposts -}}
+    <span class="webmention__stats">
+      <i class="fas fa-retweet">&nbsp;{{ . }}</i>
+      &nbsp;resposts
+    </span>
+  {{- end -}}
+  {{ $total = add $likes $reposts }}
 
 {{- end -}}

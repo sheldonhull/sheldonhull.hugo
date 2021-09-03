@@ -1,0 +1,10 @@
+/*
+!layouts
+list.algolia.json
+baseof.html
+comment.html
+layouts/partials/rss/item.html
+layouts/partials/series.html
+layouts/posts/list.html
+layouts/archive/list.html
+layouts/microblog/list.html

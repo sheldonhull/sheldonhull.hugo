@@ -1,8 +1,6 @@
 {{- $content := .RawContent -}}
 
-
-
-{{/*https://github.com/crisrojas/Zettels/blob/master/layouts/partials/content.html*/}}
+{{/* https://github.com/crisrojas/Zettels/blob/master/layouts/partials/content.html */}}
 <!--
 
 	=======
@@ -16,14 +14,15 @@
 {{ $wikilinks := $content | findRE $wikiregex }}
 {{ $.Scratch.Add "content" .RawContent }}
 {{ range $wikilinks }}
-	{{ $content := . | replaceRE $wikiregex "$1" }}
-	{{ $content := $content | replaceRE "\\?" "\\?" }}
-	{{ $wikilink :=  printf "%s%s%s" $firstBracket $content $lastBracket }}
-	{{ $anchorized := $content | anchorize }}
-	{{ $link := printf "%s%s%s%s%s%s" "<a href=\"" $anchorized ".html" "\">" $content "</a>" }}
-	{{ $noteContent := $.Scratch.Get "content" | replaceRE $wikilink $link }}
-	{{ $.Scratch.Set "content" $noteContent }}
+  {{ $content := . | replaceRE $wikiregex "$1" }}
+  {{ $content := $content | replaceRE "\\?" "\\?" }}
+  {{ $wikilink :=  printf "%s%s%s" $firstBracket $content $lastBracket }}
+  {{ $anchorized := $content | anchorize }}
+  {{ $link := printf "%s%s%s%s%s%s" "<a href=\"" $anchorized ".html" "\">" $content "</a>" }}
+  {{ $noteContent := $.Scratch.Get "content" | replaceRE $wikilink $link }}
+  {{ $.Scratch.Set "content" $noteContent }}
 {{ end }}
+
 
 <!--
 	====
@@ -31,7 +30,6 @@
 	====
 
  -->
-
 
 <!--
 	===================================
@@ -51,6 +49,7 @@
 	New line
 -->
 {{ $tagregexH := "#([^#\\s\\,:}]+)#" }}
+
 
 <!--
 	======================
@@ -74,6 +73,7 @@
 {{ $content := $content | replaceRE $tagregexH "<a class=\"hashtag\" onclick=\"focusTag(this)\">$1</a>"  | safeHTML }}
 {{ $content := $content | replaceRE $tagregex "\n<a class=\"hashtag\" onclick=\"focusTag(this)\">$1</a>"  | safeHTML }}
 
+
 <!--
 	======================
 	Misc regex replacement
@@ -89,24 +89,20 @@
 {{ $content := $content | replaceRE "::([^/]+?)::" "<mark>$1</mark>" }}
 {{ $content := $content | replaceRE "==([^/]+?)==" "<mark>$1</mark>" }}
 
-
-
-
 {{- if .Ruby -}}
-    {{- $content = partial "function/ruby.html" $content -}}
+  {{- $content = partial "function/ruby.html" $content -}}
 {{- end -}}
 
 {{- if .Fraction -}}
-    {{- $content = partial "function/fraction.html" $content -}}
+  {{- $content = partial "function/fraction.html" $content -}}
 {{- end -}}
 
 {{- if .Fontawesome -}}
-    {{- $content = partial "function/fontawesome.html" $content -}}
+  {{- $content = partial "function/fontawesome.html" $content -}}
 {{- end -}}
 
 {{- $content = partial "function/checkbox.html" $content -}}
 
 {{- $content = partial "function/escape.html" $content -}}
-
 
 {{- return $content -}}

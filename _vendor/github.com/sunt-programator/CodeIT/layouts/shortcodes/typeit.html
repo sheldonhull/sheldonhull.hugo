@@ -9,10 +9,10 @@
     {{- $content = replaceRE `<div class="highlight"><pre class="chroma"><code[^<>]*>(?s)(.*)</code></pre></div>` "$1" $content -}}
     {{- /* parsing markdown links */ -}}
     {{- $content = replaceRE `(<span[^<>]*>)([^<>]*)\[([^<>]+)\]\(([^<>]+)\)([^<>]*)(</span>)` "$1$2$6<a href=$4>$3</a>$1$5$6" $content -}}
-    {{- /* replace " " to "&nbsp;" and replace "\n" to "<br />" */ -}}
-    {{- $content = replaceRE ` ` "&nbsp;" $content | replaceRE `(<\w+)&nbsp;` "$1 " | replaceRE `\n` "<br />" -}}
-    {{- /* fix "<br />" location error which is a bug of Typeit HTML parser */ -}}
-    {{- $content = replaceRE `<br /></span>` "</span><br />" $content -}}
+    {{- /* replace " " to "&nbsp;" and replace "\n" to "<br/>" */ -}}
+    {{- $content = replaceRE ` ` "&nbsp;" $content | replaceRE `(<\w+)&nbsp;` "$1 " | replaceRE `\n` "<br/>" -}}
+    {{- /* fix "<br/>" location error which is a bug of Typeit HTML parser */ -}}
+    {{- $content = replaceRE `<br/></span>` "</span><br/>" $content -}}
     {{- $classList = $classList | append "highlight" -}}
 {{- else -}}
     {{- $content = $content | .Page.RenderString -}}

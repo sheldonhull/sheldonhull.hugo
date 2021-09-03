@@ -1,4 +1,4 @@
-{{/*https://github.com/crisrojas/Zettels/blob/master/layouts/partials/backlinks.html*/}}
+{{/* https://github.com/crisrojas/Zettels/blob/master/layouts/partials/backlinks.html */}}
 <!--
 Search for [[wikilink]] instead of "wikilink" when finding backlinks to prevent false positives: Otherwise, for a note whose filename/title is "now", every note containing the word "now" would be appended as a backlink)
 Regex not working for notes with colons on filename because hugo .File.BaseFileName returns a string with colons removed.
@@ -12,38 +12,42 @@ Regex not working for notes with colons on filename because hugo .File.BaseFileN
 {{- $.Scratch.Add "backlinks" slice -}}
 
 {{- range .Site.RegularPages -}}
-	{{ if (findRE $wikilink .Content) }}
+  {{ if (findRE $wikilink .Content) }}
 
-		{{ $.Scratch.Set "title" "" }}
-		<!-- If bear mode is on we'll show the filename instead of the yaml title -->
-		{{ if eq (.Param "bear") true }}
-			{{ $.Scratch.Set "title" .File.BaseFileName }}
-		{{ else }}
-			{{ $.Scratch.Set "title" .Title }}
-		{{ end }}
-		{{ $title := $.Scratch.Get "title" }}
-		{{ $.Scratch.Add "backlinks" (dict .Permalink $title) }}
-	{{ end }}
+    {{ $.Scratch.Set "title" "" }}
+    <!-- If bear mode is on we'll show the filename instead of the yaml title -->
+    {{ if eq (.Param "bear") true }}
+      {{ $.Scratch.Set "title" .File.BaseFileName }}
+    {{ else }}
+      {{ $.Scratch.Set "title" .Title }}
+    {{ end }}
+    {{ $title := $.Scratch.Get "title" }}
+    {{ $.Scratch.Add "backlinks" (dict .Permalink $title) }}
+  {{ end }}
 {{- end -}}
 
 {{- $backlinks := $.Scratch.Get "backlinks" -}}
 {{ if gt (len $backlinks) 0 }}
-<table>
-<tr><th>backlinks</th></tr>
+  <table>
+    <tr>
+      <th>backlinks</th>
+    </tr>
 
-{{ range $index,$item :=  $backlinks }}
-	<!-- <tr><td><a href="{{ (index $item "1") }}">{{ (index $item "0") }}</a></td></tr> -->
-	{{ range $link,$title := $item }}
-	<!-- {{/* reflect.IsMap $backlinks */}} → false -->
-	<!-- <code>{{/* printf "%v" $backlinks | jsonify */}}</code> -->
-		<tr><td><a href="{{ $link }}">{{ $title }}</a></td></tr>
-	<!-- <code>{{/* $key  */}}</code> -->
-	<!--<code>{{/* $value  */}}</code> -->
-	{{ end }}
-{{ end }}
-</table>
+    {{ range $index,$item :=  $backlinks }}
+      <!-- <tr><td><a href="{{ (index $item "1") }}">{{ (index $item "0") }}</a></td></tr> -->
+      {{ range $link,$title := $item }}
+        <!-- {{/* reflect.IsMap $backlinks */}} → false -->
+        <!-- <code>{{/* printf "%v" $backlinks | jsonify */}}</code> -->
+        <tr>
+          <td><a href="{{ $link }}">{{ $title }}</a></td>
+        </tr>
+        <!-- <code>{{/* $key */}}</code> -->
+        <!--<code>{{/* $value */}}</code> -->
+      {{ end }}
+    {{ end }}
+  </table>
 {{- end -}}
 
 {{ if le (len $backlinks) 0 }}
-{{/* no backlinks detected */}}
+  {{/* no backlinks detected */}}
 {{ end }}

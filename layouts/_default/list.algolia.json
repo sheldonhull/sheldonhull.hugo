@@ -1,4 +1,5 @@
-{{- if .Site.Params.search -}}
+{{/* prettier-ignore-start */}}
+{{ if .Site.Params.search }}
     {{- $index := slice -}}
     {{- $pages := .Site.RegularPages -}}
     {{- if .Site.Params.page.hiddenFromSearch -}}
@@ -41,6 +42,6 @@
             {{- end -}}
         {{- end -}}
     {{- end -}}
-
     {{- $index | jsonify | safeJS -}}
-{{- end -}}
+{{ end -}}
+{{/* prettier-ignore-end */}}
