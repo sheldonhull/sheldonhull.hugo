@@ -334,3 +334,83 @@ grep -rnw $HOME -e 'Start-ThreadJob'
 | `ripgrep` | 5m6s       |
 | `grep`    | 1h+timeout |
 {{< /admonition >}}
+
+## Using yq to edit yaml files for Datadog service
+
+> [GitHub - mikefarah/yq: yq is a portable command-line YAML processor](https://github.com/mikefarah/yq)
+
+I've use yq to edit yaml files programatically, such as datadog configuration files.
+
+Here's a few samples on how to use this tool, using datadog agent config files as an example.
+
+### Quick Install of Datadog Service
+
+```shell
+DD_HOST_TAGS="type:custom-server,stage:dev"
+DD_HOSTNAME="custom-server"
+
+DD_AGENT_MAJOR_VERSION=7 DD_API_KEY=FancyAPIKey DD_SITE="datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script.sh)"
+sudo chmod -R 777 /etc/datadog-agent/
+```
+
+### Start and stop the datadog services
+
+```shell
+sudo systemctl stop datadog-agent
+sudo systemctl start datadog-agent
+```
+
+### Edit Default Datadog Config File
+
+Next, configure the main configuration with custom tags and host name, including additional ec2 tags, metadata, and a custom tag to show the specific load test this is capturing.
+
+```shell
+config=/etc/datadog-agent/datadog.yaml
+nametag=mycustom-server
+testname=bigloadtest
+
+echo "set the basic config for app"
+yq eval "
+.hostname = \"$nametag\" |
+.process_config.enabled = true |
+.tags = [\"scope:loadtest\",\"testname:$testname\"] |
+.env = \"dev\" |
+.cloud_provider_metadata = [\"aws\"] |
+.collect_ec2_tags = true" --inplace $config
+yq eval ".hostname, .process_config.enabled, .tags, .env, .cloud_provider_metadata ,.collect_ec2_tags" $config
+```
+
+### Enable Datadog Network Monitoring
+
+```shell
+echo "set the process level config to search for ssh/sshd metrics"
+sudo cp /etc/datadog-agent/system-probe.yaml.example /etc/datadog-agent/system-probe.yaml
+netconfig=/etc/datadog-agent/system-probe.yaml
+yq eval '.network_config.enabled' $netconfig
+yq eval --inplace  '
+.network_config.enabled = true
+' $netconfig
+yq eval '.network_config.enabled' $netconfig
+```
+
+### Enable Datadog Process Level Tracking
+
+Enable process level tracking, with specific matching on `ssh, sshd`.
+
+```shell
+echo "set the process level config to search for ssh/sshd metrics"
+sudo cp /etc/datadog-agent/conf.d/process.d/conf.yaml.example  /etc/datadog-agent/conf.d/process.d/conf.yaml
+processconfig=/etc/datadog-agent/conf.d/process.d/conf.yaml
+yq eval '.instances' $processconfig
+yq eval --inplace  '
+.instances[0].name = "ssh" |
+.instances[0].search_string = ["ssh","sshd"]
+' $processconfig
+yq eval --inplace  '
+.instances[1].name = "myprocess" |
+.instances[1].search_string = ["myprocess"]
+' $processconfig
+yq eval '.instances' $processconfig
+```
+
+You can do a lot with `yq`.
