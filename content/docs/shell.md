@@ -308,3 +308,29 @@ getent passwd {1000..60000}
 [How To List Users In Linux](https://linuxize.com/post/how-to-list-users-in-linux/)
 
 [^why-0600]: [Why are ssh keys 600 and not 400 by default? authorized_keys immutable? : linux4noobs](https://www.reddit.com/r/linux4noobs/comments/bjpbnl/why_are_ssh_keys_600_and_not_400_by_default/)
+
+## Search Contents of a File
+
+Using `ripgrep` you can search very quickly through file contents.
+
+In this example, I found a text string in a PowerShell file that VSCode wasn't able to find after 1-2 mins due to the size of the directory.
+
+```shell
+rg -l -c "Start-ThreadJob" *.ps1
+```
+
+{{< admonition type="Note" title="Benchmark" open=true >}}
+
+I ran a quick test to see how ripgrep performed compared to normal grep search.
+Grep wasn't optimized, and by default is single threaded.
+Ripgrep is multithreaded, automatically honors gitignore and more.
+
+```shell
+grep -rnw $HOME -e 'Start-ThreadJob'
+```
+
+| Tool      | Time       |
+| --------- | ----       |
+| `ripgrep` | 5m6s       |
+| `grep`    | 1h+timeout |
+{{< /admonition >}}
