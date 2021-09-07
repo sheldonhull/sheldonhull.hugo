@@ -58,20 +58,27 @@ languages:
           url: /creative/
           title: ''
           weight: 5
+        - identifier: 100daysofcode
+          pre: ''
+          post: ''
+          name: 100DaysOfCode
+          url: /tags/100daysofcode/
+          title: ''
+          weight: 6
         - identifier: tags
           pre: ''
           post: ''
           name: tags
           url: /tags/
           title: ''
-          weight: 6
+          weight: 7
         - identifier: github
           pre: <i class='fab fa-github fa-fw'></i>
           post: ''
           name: ''
           url: https://github.com/sheldonhull/
           title: GitHub
-          weight: 7
+          weight: 8
     params:
       description: A personal dev blog
       keywords:

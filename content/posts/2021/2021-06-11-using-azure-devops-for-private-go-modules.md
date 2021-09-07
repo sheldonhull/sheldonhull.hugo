@@ -1,9 +1,10 @@
 ---
+
 date: 2021-06-11T16:35:44-05:00
 title: Using Azure DevOps for Private Go Modules
 slug: using-azure-devops-for-private-go-modules
 summary: How to use Azure DevOps for private Go modules
-tags: [azure-devops, go, devops]
+tags: [azure-devops, golang, devops]
 toc: true
 typora-root-url: ../../../static
 typora-copy-images-to: ../../../static/images
@@ -55,7 +56,7 @@ I've never had that need, so I'm ok with my `dev.azure.com` references being res
 
 | Type                              | Command                                                                                                               | GitConfig                                                                                      |
 | --------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Support All Azure DevOps (Public) | `git config --global url."git@ssh.dev.azure.com:v3/<organization>/".insteadOf "https://dev.azure.com/<organization>"` | `[url "git@ssh.dev.azure.com:v3"]<br/>	`<br><br>`insteadOf = https://dev.azure.com`            |
+| Support All Azure DevOps (Public) | `git config --global url."git@ssh.dev.azure.com:v3/<organization>/".insteadOf "https://dev.azure.com/<organization>"` | `[url "git@ssh.dev.azure.com:v3"]<br/>`<br><br>`insteadOf = https://dev.azure.com`            |
 | :zap: What I Used for  Private Org    | `git config --global url."git@ssh.dev.azure.com:v3/<organization>/".insteadOf "https://dev.azure.com/`                | `[url "git@ssh.dev.azure.com:v3/<organization>/"]`<br><br>`insteadOf = https://dev.azure.com/` |
 
 {{< admonition type="Info" title="Organization in Dependency Path" open="true">}}
