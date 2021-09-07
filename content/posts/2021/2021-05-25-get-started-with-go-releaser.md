@@ -10,11 +10,13 @@ tags:
 - tech
 - development
 - azure-devops
-- go
+- golang
 - devops
 draft: true
 toc: true
+
 # images: [/images/]
+
 ---
 
 ## GoReleaser
@@ -24,9 +26,9 @@ I'm a believer in setting up your project from the very beginning to support CIC
 The key things for this to work:
 
 - Use a task runner for actions.
-  - This allows the CICD job to call the same essential job you run locally.
-  - It reduces effort in maintaining a CICD job with inline scripts by having it call the same commands you run locally.
-  - The CICD service doesn't become super critical to your job, as it's just running your task commands, rather than relying on difficult to debug plugins.
+    - This allows the CICD job to call the same essential job you run locally.
+    - It reduces effort in maintaining a CICD job with inline scripts by having it call the same commands you run locally.
+    - The CICD service doesn't become super critical to your job, as it's just running your task commands, rather than relying on difficult to debug plugins.
 - Use versioning such as GitVersion[^gitversion] or svu[^svu] to allow automatic metadata parsing
 - Use tools like GoReleaser[^goreleaser]
 
@@ -63,6 +65,7 @@ If you need to build some Docker images with no Go binaries involved, then you w
 As of now, I've not gotten docker images unassociated with Go binaries to build and publish.
 
 {{< /admonition >}}
+
 ## Basic Start
 
 ```yaml
