@@ -6,7 +6,8 @@
   command = '''
 sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
 ./bin/task init
-./bin/task webmentions
+./bin/task webmentions:fetch
+./bin/task webmentions:commit
 ./bin/task build-public
 ./bin/task algolia'''
   publish = "public"
