@@ -4,14 +4,12 @@ date: 2021-02-13T09:53:31Z
 typora-root-url: ../../../static
 typora-copy-images-to:  ../../../static/images
 tags:
-  - tech
-  - development
-  - microblog
+- tech
+- development
+- microblog
 ---
 
-<blockquote class="twitter-tweet">
-<p lang="en" dir="ltr">Saying that we do knowledge work but have no time for learning is like saying we do farm work but have no time for planting.</p>&mdash; Allen Holub (@allenholub) <a href="https://twitter.com/allenholub/status/1360389911266820096?ref_src=twsrc%5Etfw">February 13, 2021</a>
-</blockquote>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Saying that we do knowledge work but have no time for learning is like saying we do farm work but have no time for planting.</p>&mdash; Allen Holub (@allenholub) <a href="https://twitter.com/allenholub/status/1360389911266820096?ref_src=twsrc%5Etfw">February 13, 2021</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 It's really hard to prioritize when life gets busy, but it's important that continued improvement is a priority.
