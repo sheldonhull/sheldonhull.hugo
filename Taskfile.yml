@@ -252,7 +252,7 @@ tasks:
         bhugo
     preconditions:
       - test -f .bhugo
-# TODO: Add task for imageoptim preprocessing on staged files only
+  # TODO: Add task for imageoptim preprocessing on staged files only
   install-tools:
     desc: Install extra build tools that aren't needed as part of a CICD normally
     cmds:
@@ -288,7 +288,7 @@ tasks:
       - go install github.com/owenrumney/squealer/cmd/squealer@latest
       - go install github.com/evilmartians/lefthook@master
       - lefthook install --aggressive
-  webmentions:
+  webmentions:fetch:
     desc: Generate local datafile of webmentions
     cmds:
       - |
@@ -301,6 +301,22 @@ tasks:
         cat tmp.json > {{ .WEBMENTION_FILE }}
         rm tmp.json
         popd
+  preconditions:
+    - '[ ! -z "$WEBMENTION_IO_TOKEN" ]'
+  webmentions:commit:
+    desc: ensure updated webmentions sync back to repo
+    cmds:
+      - |
+        FILE=./data/webmentions.json
+        git fetch
+        git pull --rebase
+        git add $FILE && git commit -m"chore(webmentions): update webmentions [skip ci]" $FILE
+        git push
+    preconditions:
+      - '[ ! -z "$WEBMENTION_IO_TOKEN" ]'
+      # - '[[ -z "${WEBMENTION_IO_TOKEN}" ]] || echo -e "    ❗ WEBMENTION_IO_TOKEN env variable required to run this command with correct results"'
+      # '[ -z "${WEBMENTION_IO_TOKEN}" ]'
+      # ; then echo "match"; else; echo -e "    ❗ WEBMENTION_IO_TOKEN env variable required to run this command with correct results"; fi'
   sharedbrain:
     desc: use shared brain tool to generate markdown links from wiki links
     cmds:
@@ -314,4 +330,4 @@ tasks:
   fmt:
     desc: run formatters
     cmds:
-    - yarn prettier --write # ./layouts/
+      - yarn prettier --write # ./layouts/
