@@ -307,10 +307,17 @@ tasks:
     desc: ensure updated webmentions sync back to repo
     cmds:
       - |
+        if test "$NETLIFY" = true; then
+            echo "NETLIFY: [$NETLIFY] detected, setting git config manually"
+            git config user.email "no-reply@netlify.com"
+            git config user.name "Netlify CI"
+        else
+          echo "NETLIFY: [$NETLIFY] env variable is not set"
+        fi
         FILE=./data/webmentions.json
         git fetch
-        git pull --rebase
         git add $FILE && git commit -m"chore(webmentions): update webmentions [skip ci]" $FILE
+        git pull --rebase
         git push
     preconditions:
       - '[ ! -z "$WEBMENTION_IO_TOKEN" ]'
