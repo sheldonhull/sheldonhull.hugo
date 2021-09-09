@@ -11,10 +11,10 @@ ci-checks:
 
 pre-push:
   commands:
-      squealer:
-        tags: security
-        name: squealer
-        run: squealer --config-file squealer.yml # run: bundle audit
+    squealer:
+      tags: security
+      name: squealer
+      run: squealer --config-file squealer.yml # run: bundle audit
 # github.com/owenrumney/squealer/cmd/squealer@latest
 
 pre-commit:
@@ -32,7 +32,7 @@ pre-commit:
       glob: '*.md'
       run: |
         echo "⚡ markdownlint on: {files}"
-        markdownlint-cli2-fix "{files}"
+        yarn run markdownlint-cli2-fix "{files}"
         # markdownlint-cli2  "{files}"
         #"**/*.md" "#node_modules"
     # yamllint: go install github.com/gechr/yamlfmt
@@ -62,9 +62,13 @@ pre-commit:
         imageoptim {files}
       # --imagealpha
 
-   #DIFF: git diff-index --name-only HEAD
-   # git ls-files *.png --modified # only run on newly staged files
-      # {files}
+    hugo:
+      tags: build
+      name: hugo-build
+      run: mage hugo:build
+    #DIFF: git diff-index --name-only HEAD
+    # git ls-files *.png --modified # only run on newly staged files
+    # {files}
     # shellcheck:
     #   tags: gotool
     #   name: shellcheck

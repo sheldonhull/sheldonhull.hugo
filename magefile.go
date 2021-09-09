@@ -1,4 +1,5 @@
-//+build mage
+//go:build mage
+// +build mage
 
 package main
 
@@ -24,8 +25,9 @@ import (
 
 // codeConfigFile is the file that contains the code config.
 const (
-	codeConfigFile      = "100daysofcode.toml"
-	permissionReadWrite = 0666
+	codeConfigFile        = "100daysofcode.toml"
+	permissionReadWrite   = 0o666
+	hugoPublicDestination = "public"
 )
 
 // CodeConfig contains the values for 100 days of code progress.
@@ -203,6 +205,21 @@ func (Hugo) Serve() error {
 	return nil
 }
 
+// Run Hugo Build.
+func (Hugo) Build() error {
+	pterm.DefaultSection.Printf("Hugo Build")
+	url := getBuildUrl()
+	hugoargs := []string{"-b", url, "--quiet", "--enableGitInfo", "-d", "_site", "--buildFuture", "--buildDrafts", "--destination", hugoPublicDestination}
+	// "--disableFastRender"
+	pterm.Info.Printf("hugo: %v\n", hugoargs)
+	pterm.Info.Println("Open Posts with", url+"/posts")
+	if err := sh.RunV("hugo", hugoargs...); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 // replaceCodeVariables replaces the variables in the generated file based on values in the code config toml file.
 func replaceCodeVariables(file string) error {
 	cfg, err := loadCodeConfig()
@@ -297,7 +314,7 @@ func Init() error {
 		pterm.DisableStyling()
 	}
 	pterm.DefaultSection.Printf("Initialize setup")
-	actioncounter := 3
+	actioncounter := 4
 
 	p, _ := pterm.DefaultProgressbar.
 		WithTotal(actioncounter).
@@ -343,6 +360,15 @@ func Init() error {
 	pterm.Success.Println("✅ install webmentions")
 	p.Increment()
 
+	p.Title = "yarn install"
+	if err := sh.Run("yarn", "install"); err != nil {
+		pterm.Error.Printf("yarn install %q", err)
+
+		return err
+	}
+	pterm.Success.Println("✅ yarn install")
+	p.Increment()
+
 	return nil
 }
 
@@ -365,7 +391,7 @@ func Serve() error {
 	return nil
 }
 
-// Fmt runs code formatting for project
+// Fmt runs code formatting for project.
 func Fmt() error {
 	pterm.DefaultSection.Printf("prettier go-templates")
 	if err := sh.RunV("yarn", "prettier", "--write", "."); err != nil {
