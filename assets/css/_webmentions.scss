@@ -65,8 +65,12 @@
 
 .webmention {
   display: block;
-}
 
+
+}
+.inline {
+  display: inline;
+}
 .webmention__meta,
 .webmention__author {
   display: flex;
@@ -154,76 +158,90 @@ summary.h4 {
 .webmention__stats {
   font-size: 1.5em;
   color: $global-font-secondary-color;
-  [theme="dark"] {
-   color: $global-font-secondary-color-dark;
-   i {
-     filter: drop-shadow(0 0 10px #03edf9);
-   }
+
+
+  .smaller {
+    font-size: 0.7em;
   }
 
+  [theme="dark"] {
+    color: $global-font-secondary-color-dark;
+
+    i {
+      filter: drop-shadow(0 0 10px #03edf9);
+    }
+  }
 }
-
-
+[theme="light"] {
+  .subtle {
+    color: $global-font-secondary-color ;
+  }
+}
+[theme="dark"] {
+  .subtle {
+    color: $global-font-secondary-color-dark;
+  }
+}
 // MXX.DEV
 /* Webmention Section */
 
 // .webmentions {
-//   display: block;
-//   text-align: left;
-// }
+  //   display: block;
+  //   text-align: left;
+  // }
 
-// .webmentions__facepile {
-//   display: flex;
-//   align-items: center;
-//   flex-wrap: wrap;
-// }
+  // .webmentions__facepile {
+    //   display: flex;
+    //   align-items: center;
+    //   flex-wrap: wrap;
+    // }
 
-// .webmentions__face {
-//   width: 2rem;
-//   height: 2rem;
-//   border-radius: 50%;
-//   object-fit: cover;
-//   flex: none;
-// }
+    // .webmentions__face {
+      //   width: 2rem;
+      //   height: 2rem;
+      //   border-radius: 50%;
+      //   object-fit: cover;
+      //   flex: none;
+      // }
 
-// .webmentions__list {
-//   list-style-type: none;
-//   padding: 0;
-// }
+      // .webmentions__list {
+        //   list-style-type: none;
+        //   padding: 0;
+        // }
 
-// .webmentions__item {
-//   margin-bottom: 2rem;
-// }
+        // .webmentions__item {
+          //   margin-bottom: 2rem;
+          // }
 
-// /* Single Webmention */
+          // /* Single Webmention */
 
-// .webmention {
-//   display: block;
-// }
+          // .webmention {
+            //   display: block;
+            // }
 
-// .webmention__meta,
-// .webmention__author {
-//   display: flex;
-//   align-items: center;
-//   flex-wrap: wrap;
-// }
+            // .webmention__meta,
+            // .webmention__author {
+              //   display: flex;
+              //   align-items: center;
+              //   flex-wrap: wrap;
+              // }
 
-// .webmention__meta {
-//   margin-bottom: .5rem;
-// }
+              // .webmention__meta {
+                //   margin-bottom: .5rem;
+                // }
 
-// .webmention__author {
-//   margin-right: .25rem;
-// }
+                // .webmention__author {
+                  //   margin-right: .25rem;
+                  // }
 
-// .webmention__author__photo {
-//   height: 3rem;
-//   width: 3rem;
-//   border-radius: 50%;
-//   object-fit: cover;
-//   margin-right: .5rem;
-// }
+                  // .webmention__author__photo {
+                    //   height: 3rem;
+                    //   width: 3rem;
+                    //   border-radius: 50%;
+                    //   object-fit: cover;
+                    //   margin-right: .5rem;
+                    // }
 
-// .webmention__pubdate {
-//   font-style: italic;
-// }
+                    // .webmention__pubdate {
+                      //   font-style: italic;
+                      // }

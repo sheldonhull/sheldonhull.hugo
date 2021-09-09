@@ -94,10 +94,10 @@
         "archetypes": true,
         "archive": false,
         "artifacts": true,
-        "assets": true,
+        "assets": false,
         "build": true,
         "build.ps1": true,
-        "config.yml": true,
+        "config.yml": false,
         "data": true,
         "GitVersion.yml": true,
         "go-algolia": true,
@@ -134,7 +134,9 @@
         "static/cms": true,
         "static/javascript": true,
         "static/files": true,
-        "static/admin": true
+        "static/admin": true,
+        "**/yarn.lock": true,
+        "**/archive": false
     },
     "explorerExclude.backup": null,
 }
