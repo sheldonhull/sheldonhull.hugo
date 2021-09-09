@@ -8,10 +8,10 @@ summary:
 typora-root-url: ../../../static
 typora-copy-images-to:  ../../../static/images
 tags:
-  - development
-  - cool-tools
-  - golang
-  - automation
+- development
+- cool-tools
+- golang
+- automation
 toc: true
 series: ["Development Workflow Tooling"]
 ---
@@ -33,8 +33,8 @@ PowerShell prompt is sorta like mixing Python & fish/bash in a happy marriage.
 - A rich language (not just scripting) for interacting with AWS using AWS.Tools.
 - A rich object-oriented pipeline that can handle very complex actions in one-liners based on object-oriented pipelines.
 - Intuitive and consistent mostly for command discovery.
-  - a common complaint from bash pros.
-  - The point of the verbosity `Verb-Noun` is discoverability. `tar` for example is a bit harder to figure out than `Expand-Archive -Path foo -DestinationPath foo`
+    - a common complaint from bash pros.
+    - The point of the verbosity `Verb-Noun` is discoverability. `tar` for example is a bit harder to figure out than `Expand-Archive -Path foo -DestinationPath foo`
 - A language with a robust testing framework for unit, integration, infrastructure, or any other kinda testing you want! (Pester is awesome)
 
 ## What PowerShell Isn't
@@ -102,6 +102,8 @@ With this `$InstanceCollection` variable, we now have access to an easily used o
 - Sort those: `$InstanceCollection.Name | Sort-Object` (or use alias shorthand such as `sort`)
 - For each of this results start the instances: `$InstanceCollection | Start-EC2Instance`
 
+## Practical Examples
+
 Beyond that, we can do many things with the rich eco-system of prebuilt modules.
 
 Here are some example of some rich one-liners using the power of the object based pipeline.
@@ -113,6 +115,14 @@ Here are some example of some rich one-liners using the power of the object base
 - Use a cli tool to flip to yaml (you can use native tooling often without much issue!): `$InstanceCollection | ConvertTo-Json -Depth 10 | cfn-flip | Out-File ./instance-collection.yml`
 
 Now build a test (mock syntax), that passes or fails based on the status of the instances
+
+{{< admonition type="Note" title="Disclaimer" open=true >}}
+
+I'm sure there's great tooling with `jq`, `yq`, excel clis and other libraries that can do similar work.
+
+My point is that it's pretty straight forward to explore this in PowerShell as object-based pipelines are a lot less work with complex objects than text based parsing.
+
+{{< /admonition >}}
 
 ```powershell
 Describe "Instance Status Check" {

@@ -142,7 +142,7 @@ tasks:
       ALGOLIA_INDEX_FILE: public/algolia.json
       ALGOLIA_INDEX_NAME: sheldonhull.com
     cmds:
-      - npm run algolia
+      - yarn run algolia
   theme-update:
     desc: rebase on remote theme to pull in the upstream changes
     cmds:
