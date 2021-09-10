@@ -616,6 +616,18 @@ RUN echo "⚙️ installing go" && mkdir -p ./tmpinstaller/ && wget "https://raw
 ENV PATH=$PATH:/go/bin # this might be required for codespaces
 ```
 
+### Install Dotnet
+
+Had issues using the instructions from site, but found a working snippet from this [github doc](https://github.com/dotnet/dotnet-docker/blob/main/documentation/scenarios/installing-dotnet.md)
+
+```dockerfile
+ARG DOT_NET_CHANNEL=2.1
+USER root
+RUN curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin -Channel ${DOT_NET_CHANNEL} -Runtime dotnet -InstallDir /usr/share/dotnet \
+    && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
+USER ${USERNAME}
+```
+
 ## Codespaces & Remote Containers
 
 Using remote containers is great for isolation of unique work and a clean environment.
