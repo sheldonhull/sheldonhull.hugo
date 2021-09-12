@@ -76,7 +76,7 @@ Using defaults you can create a simple diagram such as this:
 
 From the github issues and my own customizations, I added a few additions to make the edge (ie, lines) flow easier to work with.
 
-![vpc-diagram-simple-with-helpers](../../../static/images/diagrams-as-code-02-aws-vpc-example-with-helper.png)
+![vpc-diagram-simple-with-helpers](/images/diagrams-as-code-02-aws-vpc-example-with-helper.png)
 
 {{< gist sheldonhull "cc8abcb86c9463b0c74bb9e4d82ffac9" "02.helpers.py">}}
 
@@ -86,7 +86,7 @@ I went through the AWS Reference Architecture Diagrams [^aws-diagrams] and used 
 
 Take a look at the AWS PDF[^pull-request-continuous-integration-reference-architecture] and compare.
 
-![complex-example](../../../static/images/diagrams-as-code-03-complex.png)
+![complex-example](/images/diagrams-as-code-03-complex.png)
 
 {{< gist sheldonhull "cc8abcb86c9463b0c74bb9e4d82ffac9" "03-diagram-complex.py">}}
 
