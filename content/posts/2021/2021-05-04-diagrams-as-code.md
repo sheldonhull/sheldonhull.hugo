@@ -68,7 +68,7 @@ To find available nodes and shapes, you'll need to look at the diagram docs[^dia
 
 Using defaults you can create a simple diagram such as this:
 
-![vpc-diagram-simple](../../../static/images/diagrams-as-code-01-diagram-vpc-example.png)
+![vpc-diagram-simple](/images/diagrams-as-code-01-diagram-vpc-example.png)
 
 {{< gist sheldonhull "cc8abcb86c9463b0c74bb9e4d82ffac9" "01-diagram-vpc-example.py">}}
 
