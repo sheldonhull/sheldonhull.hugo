@@ -40,7 +40,8 @@
         "mage",
         "tasks",
         "project",
-        "docker"
+        "docker",
+        "deps"
     ],
     "conventionalCommits.emojiFormat": "emoji",
     "[yaml]": {
