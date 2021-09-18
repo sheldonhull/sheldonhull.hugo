@@ -183,3 +183,5 @@ go.tar.gz
 **/*/gists.json
 tmp.json
 _site/
+
+mage_output_file.go
