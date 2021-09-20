@@ -4,7 +4,7 @@ go 1.16
 
 require (
 	github.com/client9/misspell v0.3.4
-	github.com/gechr/yamlfmt v0.0.0-20210621194800-dee2f38f283e
+	github.com/gechr/yamlfmt v0.0.0-20210915105541-eaf4428b4c2f
 	github.com/gobeam/stringy v0.0.4
 	github.com/golangci/golangci-lint v1.42.0
 	github.com/magefile/mage v1.11.0
