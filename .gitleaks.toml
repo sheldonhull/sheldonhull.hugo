@@ -195,6 +195,6 @@ title = "gitleaks config"
 	files = '''(?i)(id_rsa|passwd|id_rsa.pub|pgpass|pem|key|shadow)'''
 
 # Global allowlist
-[allowlist]
-	description = "image allowlists"
-	files = ['''(.*?)(jpg|gif|doc|pdf|bin)$''']
+[[rules]]
+description = "image allowlists"
+files = ['''(.*?)(jpg|gif|doc|pdf|bin)$''']

@@ -400,3 +400,20 @@ func Fmt() error {
 	}
 	return nil
 }
+
+// Devcontainer runs devcontainer commands for codespaces or local dev builds.
+type Devcontainer mg.Namespace
+
+// Build the devcontainer.
+func (Devcontainer) Build() error {
+	pterm.Info.Println("build devcontainer")
+	c := []string{
+		"build", "--pull", "--rm", "-f", ".devcontainer/Dockerfile", "-t", "sheldonhullhugo:latest", ".devcontainer",
+	}
+	if err := sh.Run("docker", c...); err != nil {
+		pterm.Error.Println(err)
+		return err
+	}
+	pterm.Success.Println("DevContainer")
+	return nil
+}
