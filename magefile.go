@@ -23,6 +23,14 @@ import (
 	"github.com/sheldonhull/magetools/tooling"
 )
 
+// nodeCommand defaults to yarn, but if npm only is being used then this can be replaced with npm.
+const nodeCommand = "yarn"
+
+var (
+	yarn   = sh.RunCmd(nodeCommand) //nolint:gochecknoglobals // build helper ok to be global
+	gitcmd = sh.RunCmd("git")       //nolint:gochecknoglobals // build helper ok to be global
+)
+
 // codeConfigFile is the file that contains the code config.
 const (
 	codeConfigFile        = "100daysofcode.toml"
@@ -45,6 +53,9 @@ type CodeConfig struct {
 
 // Hugo namespace groups the hugo commands.
 type Hugo mg.Namespace
+
+// Git namespace groups all the Git actions.
+type Git mg.Namespace
 
 // New namespace groups the new post generatation commands.
 type New mg.Namespace
@@ -314,7 +325,7 @@ func Init() error {
 		pterm.DisableStyling()
 	}
 	pterm.DefaultSection.Printf("Initialize setup")
-	actioncounter := 4
+	actioncounter := 5
 
 	p, _ := pterm.DefaultProgressbar.
 		WithTotal(actioncounter).
@@ -360,15 +371,41 @@ func Init() error {
 	pterm.Success.Println("✅ install webmentions")
 	p.Increment()
 
-	p.Title = "yarn install"
+	if err := (Js{}.Init()); err != nil {
+		return err
+	}
+	p.Increment()
+
+	return nil
+}
+
+type Js mg.Namespace
+
+func (Js) Init() error {
+	pterm.Info.Println("Enabling 'berry' for updated version of Yarn")
+	pterm.Info.Println("https://yarnpkg.com/getting-started/qa#why-should-you-upgrade-to-yarn-modern")
+	if err := yarn("set", "version", "berry"); err != nil {
+		pterm.Error.Println(err)
+		return err
+	}
+	pterm.Success.Println("set version berry")
+	if err := yarn("set", "version", "latest"); err != nil {
+		pterm.Error.Println(err)
+		return err
+	}
+	pterm.Success.Println("set version latest")
+	if err := yarn("install", "--silent"); err != nil {
+		pterm.Error.Println(err)
+		return err
+	}
+
 	if err := sh.Run("yarn", "install"); err != nil {
 		pterm.Error.Printf("yarn install %q", err)
 
 		return err
 	}
-	pterm.Success.Println("✅ yarn install")
-	p.Increment()
 
+	pterm.Success.Println("✅ yarn install")
 	return nil
 }
 
@@ -415,5 +452,20 @@ func (Devcontainer) Build() error {
 		return err
 	}
 	pterm.Success.Println("DevContainer")
+	return nil
+}
+
+// 💾 Commit will run git-cz to guide through commit prompt with -A.
+func (Git) Commit() error {
+	pterm.DefaultSection.Printf("git commit")
+	if err := gitcmd("add", "-A"); err != nil {
+		pterm.Error.Printf("git commit %q", err)
+		return err
+	}
+	if err := sh.RunV("yarn", "commit"); err != nil {
+		pterm.Error.Printf("yarn commit %q", err)
+		return err
+	}
+	pterm.Success.Println("✅ git commit")
 	return nil
 }

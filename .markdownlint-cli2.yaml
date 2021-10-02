@@ -2,7 +2,7 @@
 #
 # An example .markdownlint-cli2.yaml file
 # https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
-
+# CLI: https://github.com/DavidAnson/markdownlint-cli2/README.md
 # Disable some built-in rules
 config:
   no-trailing-spaces: false

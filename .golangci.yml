@@ -11,6 +11,7 @@ linters:
    - noctx
    - wsl
    - lll
+   - nlreturn
   #   - prealloc
   # presets:
   #   - bugs
