@@ -3354,9 +3354,9 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"markdownlint-cli2@npm:0.3.1, markdownlint-cli2@npm:^0.3.0":
-  version: 0.3.1
-  resolution: "markdownlint-cli2@npm:0.3.1"
+"markdownlint-cli2@npm:0.3.2":
+  version: 0.3.2
+  resolution: "markdownlint-cli2@npm:0.3.2"
   dependencies:
     globby: ~11.0.4
     markdownlint: ~0.24.0
@@ -3368,7 +3368,7 @@ fsevents@~2.3.2:
   bin:
     markdownlint-cli2: markdownlint-cli2.js
     markdownlint-cli2-fix: markdownlint-cli2-fix.js
-  checksum: b43650e86d89053f17979529166f892cb7ef7951491d80c6fcf780ca6dfced37aa9b358c585bdf75f2706a64cbe7a10f88a0972bbf0d2e5bcbc691e162146a1a
+  checksum: 1648e31aa372511bd604769ecc6de390ca2da15e27d70cf177447b9f3434714195973b8e3565c5b682a297c5456ee6dc10307fb12824d48a042efb84c41a9955
   languageName: node
   linkType: hard
 
@@ -4248,7 +4248,7 @@ resolve@^1.14.2:
     imageoptim-cli: ^3.0.2
     instantsearch.js: ^4.2.0
     lunr: ^2.3.6
-    markdownlint-cli2: ^0.3.0
+    markdownlint-cli2: 0.3.2
     moment: ^2.24.0
     netlify-plugin-webmentions: 1.1.1
     prettier: 2.3.2
