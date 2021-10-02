@@ -273,6 +273,8 @@ tasks:
         # echo "Need command added for non-darwin system
         # {{end}}
       - |
+        yarn set version berry
+        yarn set version latest
         yarn install
         # brew reinstall node
 
