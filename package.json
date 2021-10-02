@@ -17,7 +17,7 @@
     "imageoptim-cli": "^3.0.2",
     "markdownlint-cli2": "^0.3.0",
     "netlify-plugin-webmentions": "1.1.1",
-    "prettier": "2.3.2",
+    "prettier": "2.4.1",
     "prettier-plugin-go-template": "0.0.11"
   },
   "scripts": {
