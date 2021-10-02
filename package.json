@@ -1,24 +1,12 @@
 {
   "name": "sheldonhull.hugo",
-  "version": "1.0.0",
-  "description": "To Update submodules and download",
-  "main": "index.js",
-  "dependencies": {
-    "algoliasearch": "^4.0.3",
-    "atomic-algolia": "^0.3.19",
-    "dotenv": "^10.0.0",
-    "hugo-lunr": "0.0.4",
-    "instantsearch.js": "^4.2.0",
-    "lunr": "^2.3.6",
-    "moment": "^2.24.0",
-    "vanilla-lazyload": "^17.0.0"
-  },
+  "packageManager": "yarn@3.0.2",
   "devDependencies": {
     "imageoptim-cli": "^3.0.2",
-    "markdownlint-cli2": "^0.3.0",
-    "netlify-plugin-webmentions": "1.1.1",
-    "prettier": "2.3.2",
-    "prettier-plugin-go-template": "0.0.11"
+    "markdownlint-cli2": "^0.3.2",
+    "netlify-plugin-webmentions": "^1.1.1",
+    "prettier": "^2.4.1",
+    "prettier-plugin-go-template": "^0.0.11"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -32,11 +20,13 @@
     "url": "git+https://github.com/sheldonhull/sheldonhull.hugo.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Sheldon Hull",
   "bugs": {
     "url": "https://github.com/sheldonhull/sheldonhull.hugo/issues"
   },
   "homepage": "https://github.com/sheldonhull/sheldonhull.hugo#readme",
-  "packageManager": "yarn@3.0.2"
+  "description": "blog tasks and packages. Built with hugo, but I do use some other tooling",
+  "dependencies": {
+    "dotenv": "^10.0.0"
+  }
 }

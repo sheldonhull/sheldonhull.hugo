@@ -8,7 +8,7 @@ env:
   HUGO: hugo
   DEFAULT_BUILD_SERVER: http://127.0.0.1:1313 #localhost:1313
   DEFAULT_HUGO_DESTINATION: _site
-  HUGO_VERSION: 0.80.0
+  HUGO_VERSION: 0.88.1
   GITHUB_REPO: github.com/sheldonhull/sheldonhull.hugo
   DOCKER_BUILDKIT: 1
   # AWS_SDK_LOAD_CONFIG: 1
