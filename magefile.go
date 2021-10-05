@@ -57,9 +57,6 @@ type Hugo mg.Namespace
 // Git namespace groups all the Git actions.
 type Git mg.Namespace
 
-// New namespace groups the new post generatation commands.
-type New mg.Namespace
-
 // hugo alias is a shortcut for calling hugo binary
 // var hugobin = sh.RunV("hugo") // go is a keyword :(
 
@@ -258,8 +255,8 @@ func replaceCodeVariables(file string) error {
 	return nil
 }
 
-// NewPost creates a new post in the Hugo format.
-func (New) Post() error {
+// Post creates a new post in the Hugo format.
+func Post() error {
 	var title string
 
 	prompt := promptui.Select{
