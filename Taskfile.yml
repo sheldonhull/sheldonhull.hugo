@@ -273,6 +273,7 @@ tasks:
         # echo "Need command added for non-darwin system
         # {{end}}
       - |
+        npm install --global yarn
         yarn set version berry
         yarn set version latest
         yarn install
@@ -336,7 +337,7 @@ tasks:
         #GO111MODULE=off go install github.com/sheldonhull/sharedbrain #@main
         # GO111MODULE=off go get -u -v github.com/sheldonhull/sharedbrain
         sharedbrain -content ./content/posts  -dest ./content/posts
-  fmt:
-    desc: run formatters
-    cmds:
-      - yarn prettier --write # ./layouts/
+  # fmt:
+  #   desc: run formatters
+  #   cmds:
+  #     - yarn prettier --write # ./layouts/
