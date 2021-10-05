@@ -24,10 +24,15 @@ sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
 ###############################
 [context.deploy-preview]
   command = '''
+npm install -g yarn
+yarn set version berry
+yarn set version latest
 sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
 ./bin/task init
 ./bin/task echo-debug
-./bin/task build'''
+./bin/task build
+
+'''
 publish = "preview"
 
 [context.deploy-preview.environment]
