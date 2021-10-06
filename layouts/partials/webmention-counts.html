@@ -13,11 +13,11 @@
 {{/* If any aliases for page include those in search */}}
 {{ range $alias := .Params.Aliases }}
   {{/* printf "👀 alias: [%v]" $alias */}}
-  <br/>
+  <br />
   {{ $aliasPath := print ($siteURLforWMs) "/" ($alias) }}
   {{ $aliasPath := replaceRE "^www." "https://www." $aliasPath }}
   {{/* printf "👀 aliaspath: [%v]" $aliasPath */}}
-  <br/>
+  <br />
   {{ $search = $search | append $aliasPath }}
   {{ $search = $search | append (replaceRE ".com/" ".com/blog/" $aliasPath) }}
   {{ $search = $search | append (replaceRE ".com/" ".com/microblog/" $aliasPath) }}
@@ -26,7 +26,7 @@
 {{/* printf "🔎 search %s" ($search|jsonify (dict "prefix" " " "indent" "  ")) */}}
 
 
-<br/>
+<br />
 
 {{ $matches := slice }}
 {{ range $s := $search }}

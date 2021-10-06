@@ -1,3 +1,4 @@
+{{/* prettier-ignore-start */}}
 {{- define "title" }}
   {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }}
   -
@@ -60,3 +61,4 @@
     {{- end -}}
   </div>
 {{- end -}}
+{{/* prettier-ignore-end */}}

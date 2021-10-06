@@ -1,89 +1,105 @@
 {{- if ne .Site.Params.footer.enable false -}}
-<footer class="footer">
-  <div class="footer-container">
-    {{- /* Custom Content */ -}}
-    {{- with .Site.Params.footer.custom -}}
-    <div class="footer-line">
-      {{- safeHTML . -}}
+  <footer class="footer">
+    <div class="footer-container">
+      {{- /* Custom Content */ -}}
+      {{- with .Site.Params.footer.custom -}}
+        <div class="footer-line">
+          {{- safeHTML . -}}
+        </div>
+      {{- end -}}
+
+      {{- /* Hugo and CodeIT */ -}}
+      {{- if ne .Site.Params.footer.hugo false -}}
+        <div class="footer-line">
+          {{- $hugo := printf `<a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer"
+            title="Hugo %v">Hugo</a>` hugo.Version
+          -}}
+          {{- $theme := .Scratch.Get "version" | printf `<a href="https://github.com/sunt-programator/CodeIT"
+            target="_blank" rel="noopener noreferrer" title="CodeIT %v"><i class="fas fa-laptop-code fa-fw"></i> CodeIT</a>`
+          -}}
+          {{- dict "Hugo" $hugo "Theme" $theme | T "poweredBySome" | safeHTML }}
+        </div>
+      {{- end -}}
+
+
+      <div class="footer-line">
+        {{- /* Copyright year */ -}}
+        {{- if ne .Site.Params.footer.copyright false -}}
+          <i class="far fa-copyright fa-fw"></i>
+          {{- with .Site.Params.footer.since -}}
+            <span itemprop="copyrightYear">
+              {{- if lt . now.Year }}{{ . }} -{{ end }}{{ now.Year -}}
+            </span>
+          {{- else -}}
+            <span itemprop="copyrightYear">{{ now.Year }}</span>
+          {{- end -}}
+        {{- end -}}
+
+        {{- /* Author */ -}}
+        {{- if ne .Site.Params.footer.author false -}}
+          <span class="author" itemprop="copyrightHolder"
+            >&nbsp;<a
+              href="{{ $.Site.Author.link | default .Site.Home.RelPermalink }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              >{{ .Site.Author.name }}</a
+            ></span
+          >
+        {{- end -}}
+
+        {{- /* License */ -}}
+        {{- with .Site.Params.footer.license -}}
+          &nbsp;|&nbsp;<span class="license">{{ . | safeHTML }}</span>
+        {{- end -}}
+
+        {{- /* ICP */ -}}
+        {{- with .Site.Params.footer.icp -}}
+          <span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br" />
+          <span class="icp">{{ . | safeHTML }}</span>
+        {{- end -}}
+      </div>
     </div>
-    {{- end -}}
-
-    {{- /* Hugo and CodeIT */ -}}
-    {{- if ne .Site.Params.footer.hugo false -}}
-    <div class="footer-line">
-      {{- $hugo := printf `<a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer"
-        title="Hugo %v">Hugo</a>` hugo.Version -}}
-      {{- $theme := .Scratch.Get "version" | printf `<a href="https://github.com/sunt-programator/CodeIT"
-        target="_blank" rel="noopener noreferrer" title="CodeIT %v"><i class="fas fa-laptop-code fa-fw"></i> CodeIT</a>`
-      -}}
-      {{- dict "Hugo" $hugo "Theme" $theme | T "poweredBySome" | safeHTML }}
+    <div>
+      <hr style="width:50%" />
+      <img
+        src="https://api.netlify.com/api/v1/badges/cc815d05-9008-4078-8e4f-bad42eb3281a/deploy-status"
+        )
+        alt="Deployment status"
+      />
+      {{- partial "webmentions-site.html" . -}}
+      <br />
+      {{- partial "mailbrew-subscribe.html" -}}
+      <br />
+      {{- partial "buymeacoffee.html" . -}}
     </div>
-    {{- end -}}
-
-    <div class="footer-line">
-      {{- /* Copyright year */ -}}
-      {{- if ne .Site.Params.footer.copyright false -}}
-      <i class="far fa-copyright fa-fw"></i>
-      {{- with .Site.Params.footer.since -}}
-      <span itemprop="copyrightYear">
-        {{- if lt . now.Year }}{{ . }} - {{ end }}{{ now.Year -}}
-      </span>
-      {{- else -}}
-      <span itemprop="copyrightYear">{{ now.Year }}</span>
-      {{- end -}}
-      {{- end -}}
-
-      {{- /* Author */ -}}
-      {{- if ne .Site.Params.footer.author false -}}
-      <span class="author" itemprop="copyrightHolder">&nbsp;<a
-          href="{{ $.Site.Author.link | default .Site.Home.RelPermalink }}" target="_blank" rel="noopener noreferrer">{{
-          .Site.Author.name }}</a></span>
-      {{- end -}}
-
-      {{- /* License */ -}}
-      {{- with .Site.Params.footer.license -}}
-      &nbsp;|&nbsp;<span class="license">{{ . | safeHTML }}</span>
-      {{- end -}}
-
-      {{- /* ICP */ -}}
-      {{- with .Site.Params.footer.icp -}}
-      <span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br" />
-      <span class="icp">{{ . | safeHTML }}</span>
-      {{- end -}}
-    </div>
-  </div>
-  <div>
-    <hr style="width:50%">
-    <img src="https://api.netlify.com/api/v1/badges/cc815d05-9008-4078-8e4f-bad42eb3281a/deploy-status" )
-      alt="Deployment status" />
-    {{- partial "webmentions-site.html" . -}}
-    <br>
-    {{- partial "mailbrew-subscribe.html" -}}
-    <br>
-    {{- partial "buymeacoffee.html" . -}}
-  </div>
-</footer>
+  </footer>
 {{- end -}}
 {{ if and .Site.IsServer $.Params.debug }}
-<div class="debugprintsection">
-  <div>
-    <h1>.Context</h1>{{ partial "debugprint.html" . }}
+  <div class="debugprintsection">
+    <div>
+      <h1>.Context</h1>
+      {{ partial "debugprint.html" . }}
+    </div>
+    <div>
+      <h1>.Params Context</h1>
+      {{ partial "debugprint.html" .Params }}
+    </div>
+    <div>
+      <h1>Site Context</h1>
+      {{ partial "debugprint.html" site }}
+    </div>
+    {{/* partial "debugprint.html" site.Menus */}}
+    <div>
+      <h1>.Resources</h1>
+      {{ partial "debugprint.html" .Resources }}
+    </div>
+    <div>
+      <h1>.File</h1>
+      {{ partial "debugprint.html" .File }}
+    </div>
+    <div>
+      <h1>$.Site</h1>
+      {{ partial "debugprint.html" $.Site }}
+    </div>
   </div>
-  <div>
-    <h1>.Params Context</h1>{{ partial "debugprint.html" .Params }}
-  </div>
-  <div>
-    <h1>Site Context</h1>{{ partial "debugprint.html" site }}
-  </div>
-  {{/* partial "debugprint.html" site.Menus */}}
-  <div>
-    <h1>.Resources</h1>{{ partial "debugprint.html" .Resources }}
-  </div>
-  <div>
-    <h1>.File</h1>{{ partial "debugprint.html" .File }}
-  </div>
-  <div>
-    <h1>$.Site</h1>{{ partial "debugprint.html" $.Site }}
-  </div>
-</div>
 {{ end }}
