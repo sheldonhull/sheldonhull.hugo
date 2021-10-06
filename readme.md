@@ -79,12 +79,12 @@ The primary changes I've made that I couldn't easily contribute back upstream...
 - More shortcodes
 - Draft Go project in this repo for replacing atomic-algolia with my own Go CLI. On hold till I need/have time to experiment more with this. I got the npm package to run for atomic-algolia so this isn't a priority right now.
 - Custom layouts/Shortcodes (leveraging others work across the web):
-    - Series support so I can bind together an automatic index of linked posts with a header at the top.
-    - Mailbrew embed/subscription based form (really great service!) so I can send weekly newsletters.
-    - Custom implementation of [fancybox](http://fancyapps.com/fancybox/3/) which provides a really nice slick UI for photo gallery. Only 2 galleries right now but maybe will expand more as photo interest increases. Not doing a lot of photography right now.
-    - mermaid diagram embed
-    - asciicinema embed. Limited use so far, but really like it for demonstrating automation and terminal work in comparison to gifs.
-    - Rendering the site locally for dev work shows colorful tags for future scheduled/draft posts to make them pop out when I'm reviewing content.
+  - Series support so I can bind together an automatic index of linked posts with a header at the top.
+  - Mailbrew embed/subscription based form (really great service!) so I can send weekly newsletters.
+  - Custom implementation of [fancybox](http://fancyapps.com/fancybox/3/) which provides a really nice slick UI for photo gallery. Only 2 galleries right now but maybe will expand more as photo interest increases. Not doing a lot of photography right now.
+  - mermaid diagram embed
+  - asciicinema embed. Limited use so far, but really like it for demonstrating automation and terminal work in comparison to gifs.
+  - Rendering the site locally for dev work shows colorful tags for future scheduled/draft posts to make them pop out when I'm reviewing content.
 
 ## Things I Want to Do With Site Still
 
@@ -113,6 +113,19 @@ Maybe you'll find it inspiring as a jump start of your own.
 
 Regardless, hope you have a good journey with it yourself.
 I've had since 2013 blogging now and it's pretty cool to see how things have evolved over time.
+
+## WSL2
+
+In WSL2:
+
+    sudo apt-get install build-essential
+    echo "Brew install in ubuntu might take 5 or more minutes"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/shull/.zprofile
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    brew install gcc
+    brew install hugo
+    source ~/.zshrc
 
 ## Other Credits
 
