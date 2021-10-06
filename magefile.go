@@ -20,6 +20,12 @@ import (
 	"github.com/pelletier/go-toml/v2"
 	"github.com/pterm/pterm"
 	"github.com/sheldonhull/magetools/ci"
+
+	// mage:import
+	_ "github.com/sheldonhull/magetools/gittools"
+
+	// mage:import
+	_ "github.com/sheldonhull/magetools/gotools"
 	"github.com/sheldonhull/magetools/tooling"
 )
 
@@ -56,6 +62,12 @@ type Hugo mg.Namespace
 
 // Git namespace groups all the Git actions.
 type Git mg.Namespace
+
+// Ci contains specific trimmed actions for running in CI system such as netlify.
+type Ci mg.Namespace
+
+// Js contains yarn oriented tasks.
+type Js mg.Namespace
 
 // hugo alias is a shortcut for calling hugo binary
 // var hugobin = sh.RunV("hugo") // go is a keyword :(
@@ -320,8 +332,9 @@ func WebMentions() error {
 func Init() error {
 	if ci.IsCI() {
 		pterm.DisableStyling()
+		pterm.DefaultSection.Println("[CI SYSTEM] Initialize setup")
 	}
-	pterm.DefaultSection.Printf("Initialize setup")
+	pterm.DefaultSection.Println("Init()")
 	actioncounter := 5
 
 	p, _ := pterm.DefaultProgressbar.
@@ -341,17 +354,9 @@ func Init() error {
 	// 	pterm.Error.Printf("InstallTools %q", err)
 	// 	return err
 	// }
-	p.Title = "hugo mod clean"
-	if err := sh.Run("hugo", "mod", "clean"); err != nil {
-		pterm.Error.Printf("hugo mod clean %q", err)
-
-		return err
-	}
-	pterm.Success.Println("✅ hugo mod clean")
-	p.Increment()
 
 	p.Title = "hugo mod tidy"
-	if err := sh.Run("hugo", "mod", "tidy"); err != nil {
+	if err := tooling.SpinnerStdOut("hugo", []string{"mod", "tidy"}, nil); err != nil {
 		pterm.Error.Printf("hugo mod tidy %q", err)
 
 		return err
@@ -360,9 +365,8 @@ func Init() error {
 	p.Increment()
 
 	p.Title = "install webmentions"
-	if err := tooling.InstallTools([]string{"github.com/nekr0z/webmention.io-backup@master"}); err != nil {
+	if err := tooling.SilentInstallTools([]string{"github.com/nekr0z/webmention.io-backup@master"}); err != nil {
 		pterm.Error.Printf("install webmentions tool %q", err)
-
 		return err
 	}
 	pterm.Success.Println("✅ install webmentions")
@@ -375,8 +379,6 @@ func Init() error {
 
 	return nil
 }
-
-type Js mg.Namespace
 
 func (Js) Init() error {
 	pterm.Info.Println("Enabling 'berry' for updated version of Yarn")
@@ -452,17 +454,28 @@ func (Devcontainer) Build() error {
 	return nil
 }
 
-// 💾 Commit will run git-cz to guide through commit prompt with -A.
-func (Git) Commit() error {
-	pterm.DefaultSection.Printf("git commit")
-	if err := gitcmd("add", "-A"); err != nil {
-		pterm.Error.Printf("git commit %q", err)
+// // 💾 Commit will run git-cz to guide through commit prompt with -A.
+// func (Git) Commit() error {
+// 	pterm.DefaultSection.Printf("git commit")
+// 	if err := gitcmd("add", "-A"); err != nil {
+// 		pterm.Error.Printf("git commit %q", err)
+// 		return err
+// 	}
+// 	if err := sh.RunV("yarn", "commit"); err != nil {
+// 		pterm.Error.Printf("yarn commit %q", err)
+// 		return err
+// 	}
+// 	pterm.Success.Println("✅ git commit")
+// 	return nil
+// }
+
+func (Hugo) Clean() error {
+	pterm.DefaultSection.Println("hugo mod clean")
+
+	if err := sh.Run("hugo", "mod", "clean"); err != nil {
+		pterm.Error.Printf("hugo mod clean %q", err)
 		return err
 	}
-	if err := sh.RunV("yarn", "commit"); err != nil {
-		pterm.Error.Printf("yarn commit %q", err)
-		return err
-	}
-	pterm.Success.Println("✅ git commit")
+	pterm.Success.Println("✅ hugo mod clean")
 	return nil
 }
