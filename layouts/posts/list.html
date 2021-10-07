@@ -22,25 +22,25 @@
 
             {{- range $pg := $pages_paginated.PageGroups -}}
                 <h1 class="group-title">{{ .Key }}</h1>
-            {{- /* Static TOC */ -}}
-            {{- $toc := true -}}
-            {{- if ne $toc false -}}
-            {{- $toc_auto := true -}}
-            {{- $toc_keepStatic := true -}}
-                <div class="details toc" id="toc-static"  kept="{{ if $toc_keepStatic }}true{{ end }}">
-                    <div class="details-summary toc-title">
-                        <span>{{ T "contents" }}</span>
-                        <span><i class="details-icon fas fa-angle-right"></i></span>
-                  </div>
-                  <div class="details-content toc-content" id="toc-content-static">
-                      <nav>
-                      {{- range $pg.Pages -}}
-                      <ul><a href="{{ .RelPermalink}}/">{{ .Title }}</a></ul>
-                        {{- end -}}
-                        </nav>
+                {{- /* Static TOC */ -}}
+                {{- $toc := true -}}
+                {{- if ne $toc false -}}
+                    {{- $toc_auto := true -}}
+                    {{- $toc_keepStatic := true -}}
+                    <div class="details toc" id="toc-static"  kept="{{ if $toc_keepStatic }}true{{ end }}">
+                        <div class="details-summary toc-title">
+                            <span>{{ T "contents" }}</span>
+                            <span><i class="details-icon fas fa-angle-right"></i></span>
+                      </div>
+                      <div class="details-content toc-content" id="toc-content-static">
+                          <nav>
+                          {{- range $pg.Pages -}}
+                            <ul><a href="{{ .RelPermalink}}/">{{ .Title }}</a></ul>
+                          {{- end -}}
+                          </nav>
+                        </div>
                     </div>
-                </div>
-            {{- end -}}
+                {{- end -}}
                 {{- range $pg.Pages -}}
 
 

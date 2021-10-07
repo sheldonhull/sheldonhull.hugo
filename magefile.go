@@ -427,10 +427,16 @@ func Serve() error {
 	return nil
 }
 
-// Fmt runs code formatting for project.
-func Fmt() error {
+// 🧹 Fmt runs code formatting for project mostly against Go templates.
+func (Hugo) Fmt() error {
 	pterm.DefaultSection.Printf("prettier go-templates")
-	if err := sh.RunV("yarn", "prettier", "--write", "."); err != nil {
+	if err := sh.RunV("yarn", "prettier",
+		"--write",
+		"--loglevel",
+		"log",
+		"--no-error-on-unmatched-pattern",
+		"--write \"{.html,.htm}\"",
+		"."); err != nil {
 		pterm.Error.Printf("prettier go-templates %q", err)
 		return err
 	}
