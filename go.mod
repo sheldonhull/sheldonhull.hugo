@@ -7,6 +7,7 @@ require (
 	github.com/Antonboom/errname v0.1.5 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
 	github.com/client9/misspell v0.3.4
+	github.com/dnb-org/debug v1.3.1 // indirect
 	github.com/gechr/yamlfmt v0.0.0-20210915105541-eaf4428b4c2f
 	github.com/go-critic/go-critic v0.5.7 // indirect
 	github.com/gobeam/stringy v0.0.4
@@ -30,13 +31,14 @@ require (
 	github.com/pterm/pterm v0.12.31
 	github.com/quasilyte/regex/syntax v0.0.0-20210819130434-b3f0c404a727 // indirect
 	github.com/sanposhiho/wastedassign/v2 v2.0.7 // indirect
-	github.com/sheldonhull/magetools v0.0.0-20211004211340-86f5017ee1ea
+	github.com/sheldonhull/magetools v0.0.0-20211006224623-0ae962c19730
 	github.com/ssgreg/nlreturn/v2 v2.2.1 // indirect
 	github.com/stretchr/objx v0.3.0 // indirect
+	github.com/sunt-programator/CodeIT v0.2.0 // indirect
 	github.com/tetafro/godot v1.4.11 // indirect
 	github.com/timakin/bodyclose v0.0.0-20210704033933-f49887972144 // indirect
 	github.com/tomarrell/wrapcheck/v2 v2.3.1 // indirect
-	golang.org/x/sys v0.0.0-20211004093028-2c5d950f24ef // indirect
+	golang.org/x/sys v0.0.0-20211006225509-1a26e0398eed // indirect
 	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
 	mvdan.cc/gofumpt v0.1.1
 	mvdan.cc/unparam v0.0.0-20211002134041-24922b6997ca // indirect

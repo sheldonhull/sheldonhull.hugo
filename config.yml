@@ -219,6 +219,7 @@ params:
       <a rel="license external nofollow noopener noreferrer"
       href="https://www.sheldonhull.com/main/license" target="_blank">CC
       BY-NC 4.0</a>
+  paginate: 100
   section:
     paginate: 100
     dateFormat: 2006-01-02
