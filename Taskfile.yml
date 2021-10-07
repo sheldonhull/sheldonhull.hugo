@@ -319,6 +319,10 @@ tasks:
         fi
         FILE=./data/webmentions.json
         git fetch
+        echo "Add this file: git add $FILE"
+        echo "Let's look at the git status to make sure no other files showing unstaged changes"
+        echo "git status --porcelain"
+        git status --porcelain
         git add $FILE && git commit -m"chore(webmentions): update webmentions [skip ci]" $FILE
         git pull --rebase
         git push
