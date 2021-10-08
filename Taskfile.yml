@@ -291,6 +291,18 @@ tasks:
       - go install github.com/owenrumney/squealer/cmd/squealer@latest
       - go install github.com/evilmartians/lefthook@master
       - lefthook install --aggressive
+  webmentions:ci:
+    desc: run the webmention tasks with auto stash and push for ci
+    cmds:
+      - |
+        git stash save "stash all changes so webmentions can be pushed"
+        git stash list
+      - task: webmentions:fetch
+      - task: webmentions:commit
+      - |
+        git stash pop
+        echo "git stash pop to bring back any changes pending"
+
   webmentions:fetch:
     desc: Generate local datafile of webmentions
     cmds:
@@ -304,6 +316,7 @@ tasks:
         cat tmp.json > {{ .WEBMENTION_FILE }}
         rm tmp.json
         popd
+      - task: webmentions:commit
   preconditions:
     - '[ ! -z "$WEBMENTION_IO_TOKEN" ]'
   webmentions:commit:
@@ -326,6 +339,7 @@ tasks:
         git add $FILE && git commit -m"chore(webmentions): update webmentions [skip ci]" $FILE
         # git pull --rebase
         git push
+
     preconditions:
       - '[ ! -z "$WEBMENTION_IO_TOKEN" ]'
       # - '[[ -z "${WEBMENTION_IO_TOKEN}" ]] || echo -e "    ❗ WEBMENTION_IO_TOKEN env variable required to run this command with correct results"'
