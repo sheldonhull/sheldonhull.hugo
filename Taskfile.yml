@@ -324,7 +324,7 @@ tasks:
         echo "git status --porcelain"
         git status --porcelain
         git add $FILE && git commit -m"chore(webmentions): update webmentions [skip ci]" $FILE
-        git pull --rebase
+        # git pull --rebase
         git push
     preconditions:
       - '[ ! -z "$WEBMENTION_IO_TOKEN" ]'
