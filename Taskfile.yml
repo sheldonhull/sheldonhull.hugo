@@ -340,7 +340,7 @@ tasks:
         git add $FILE && git commit -m"chore(webmentions): update webmentions [skip ci]" $FILE
         # git pull --rebase
         git remote add origin https://github.com/sheldonhull/sheldonhull.hugo
-        git push
+        git push origin HEAD:main
 
     preconditions:
       - '[ ! -z "$WEBMENTION_IO_TOKEN" ]'
