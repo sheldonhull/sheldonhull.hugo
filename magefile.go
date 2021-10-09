@@ -22,7 +22,7 @@ import (
 	"github.com/sheldonhull/magetools/ci"
 
 	// mage:import
-	_ "github.com/sheldonhull/magetools/gittools"
+	"github.com/sheldonhull/magetools/gittools"
 
 	// mage:import
 	_ "github.com/sheldonhull/magetools/gotools"
@@ -79,14 +79,16 @@ const contentDir = "content/posts"
 
 // tools is a list of Go tools to install to avoid polluting global modules.
 var toolList = []string{ //nolint:gochecknoglobals // ok to be global for tooling setup
-	"github.com/goreleaser/goreleaser@v0.174.1",
-	"golang.org/x/tools/cmd/goimports@master",
-	"github.com/sqs/goreturns@master",
-	"github.com/golangci/golangci-lint/cmd/golangci-lint@master",
-	"github.com/dustinkirkland/golang-petname/cmd/petname@master",
+	// "github.com/goreleaser/goreleaser@v0.174.1",
+	// "golang.org/x/tools/cmd/goimports@master",
+	// "github.com/sqs/goreturns@master",
+	// "github.com/golangci/golangci-lint/cmd/golangci-lint@master",
+	// "github.com/dustinkirkland/golang-petname/cmd/petname@master",
 	"github.com/nekr0z/webmention.io-backup@latest",
 	"github.com/dnb-org/debug@latest",
-	"github.com/sunt-programator/CodeIT@latest",
+	// "github.com/sunt-programator/CodeIT@latest",
+	"github.com/magefile/mage@latest",
+	"github.com/iwittkau/mage-select",
 }
 
 // 🧹 Cleanup artifacts.
@@ -372,6 +374,9 @@ func Init() error {
 	pterm.Success.Println("✅ install webmentions")
 	p.Increment()
 
+	if err := (gittools.Gittools{}.Init()); err != nil {
+		return err
+	}
 	if err := (Js{}.Init()); err != nil {
 		return err
 	}

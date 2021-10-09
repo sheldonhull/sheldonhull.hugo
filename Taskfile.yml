@@ -10,6 +10,7 @@ env:
   DEFAULT_HUGO_DESTINATION: _site
   HUGO_VERSION: 0.88.1
   GITHUB_REPO: github.com/sheldonhull/sheldonhull.hugo
+  GITHUB_REPO_URL: https://github.com/sheldonhull/sheldonhull.hugo
   DOCKER_BUILDKIT: 1
   # AWS_SDK_LOAD_CONFIG: 1
   # AWS_REGION:  # Override for local developement work
@@ -338,6 +339,7 @@ tasks:
         git status --porcelain
         git add $FILE && git commit -m"chore(webmentions): update webmentions [skip ci]" $FILE
         # git pull --rebase
+        git remote add origin https://github.com/sheldonhull/sheldonhull.hugo
         git push
 
     preconditions:

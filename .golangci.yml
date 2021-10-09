@@ -12,6 +12,9 @@ linters:
    - wsl
    - lll
    - nlreturn
+   - goreturns
+   - gofmt
+   - goreturns
   #   - prealloc
   # presets:
   #   - bugs
