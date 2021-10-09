@@ -24,6 +24,7 @@ require (
 	github.com/manifoldco/promptui v0.8.0
 	github.com/mattn/go-colorable v0.1.11 // indirect
 	github.com/mgechev/revive v1.1.2 // indirect
+	github.com/nekr0z/webmention.io-backup v1.3.1-0.20210928193322-387500a2b54e // indirect
 	github.com/pelletier/go-toml/v2 v2.0.0-beta.3
 	github.com/polyfloyd/go-errorlint v0.0.0-20210903085826-e4f368f0ae69 // indirect
 	github.com/prometheus/common v0.31.1 // indirect
