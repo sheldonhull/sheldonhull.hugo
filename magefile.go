@@ -42,6 +42,8 @@ const (
 	codeConfigFile        = "100daysofcode.toml"
 	permissionReadWrite   = 0o666
 	hugoPublicDestination = "public"
+	// datadir contains datafiles that are used for generating pages, webmentions json exports, and more.
+	datadir = "data"
 )
 
 // CodeConfig contains the values for 100 days of code progress.
@@ -242,6 +244,40 @@ func (Hugo) Build() error {
 	return nil
 }
 
+// Output relevant detail on build environment.
+func hugoEnvInfo() {
+	pterm.DefaultSection.Printf("Hugo Env Info")
+	primary := pterm.NewStyle(pterm.FgLightWhite, pterm.BgGray, pterm.Bold)
+	tbl := pterm.TableData{
+		{"Setting", os.Getenv("Value")},
+		{"HUGO_ENABLEGITINFO", os.Getenv("HUGO_ENABLEGITINFO")},
+		{"HUGO_BASEURL", os.Getenv("HUGO_BASEURL")},
+		{"HUGO_MINIFY", os.Getenv("HUGO_MINIFY")},
+		{"HUGO_DESTINATION", os.Getenv("HUGO_DESTINATION")},
+	}
+	if err := pterm.DefaultTable.WithHasHeader().
+		WithBoxed(true).
+		WithHeaderStyle(primary).
+		WithData(tbl).Render(); err != nil {
+		pterm.Error.Printf("pterm.DefaultTable.WithHasHeader of variable information failed. Continuing...\n%v", err)
+	}
+}
+
+// Run Hugo Build for Public
+func (Hugo) BuildPublic() error {
+	hugoEnvInfo()
+	pterm.DefaultSection.Printf("Hugo Build for Public")
+	url := getBuildUrl()
+	hugoargs := []string{"-b", url, "--quiet", "--enableGitInfo", "-d", os.Getenv("HUGO_DESTINATION"), "--destination", hugoPublicDestination, "-b", url}
+	pterm.Info.Printf("hugo: %v\n", hugoargs)
+	pterm.Info.Println("Open Posts with", url+"/posts")
+	if err := sh.RunV("hugo", hugoargs...); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 // replaceCodeVariables replaces the variables in the generated file based on values in the code config toml file.
 func replaceCodeVariables(file string) error {
 	cfg, err := loadCodeConfig()
@@ -327,8 +363,17 @@ func Post() error {
 }
 
 // WebMentions refreshes the local webmentions json data file.
-func WebMentions() error {
-	return nil
+func Webmentions() error {
+	pterm.DefaultSection.Printf("Webmentions refresh")
+	webMentionFile := filepath.Join(datadir, "webmentions.json")
+	if os.Getenv("WEBMENTION_IO_TOKEN") == "" {
+		pterm.Error.Println("WEBMENTION_IO_TOKEN is required to refresh webmentions and was not detected")
+	}
+	return sh.RunV("webmention.io-backup", "-f", webMentionFile, "-t", os.Getenv("WEBMENTION_IO_TOKEN"))
+}
+
+func Algolia() error {
+	return sh.RunV("yarn", "run", "algolia")
 }
 
 func Init() error {
@@ -373,10 +418,12 @@ func Init() error {
 	}
 	pterm.Success.Println("✅ install webmentions")
 	p.Increment()
-
-	if err := (gittools.Gittools{}.Init()); err != nil {
-		return err
+	if !ci.IsCI() {
+		if err := (gittools.Gittools{}.Init()); err != nil {
+			return err
+		}
 	}
+
 	if err := (Js{}.Init()); err != nil {
 		return err
 	}

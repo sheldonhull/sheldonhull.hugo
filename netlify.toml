@@ -4,11 +4,16 @@
 [build]
   #command = "git status --porcelain &&  git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo"
   command = '''
-sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
-./bin/task init
-./bin/task webmentions:ci
-./bin/task build-public
-./bin/task algolia'''
+
+# sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
+# ./bin/task init
+# ./bin/task webmentions:ci
+go run mage.go -v init
+go run mage.go -v hugo:buildpublic
+# ./bin/task build-public
+go run mage.go -v algolia
+
+'''
   publish = "public"
 
 [build.environment]
