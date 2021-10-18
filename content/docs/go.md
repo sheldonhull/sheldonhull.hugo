@@ -73,7 +73,7 @@ Go Modules are primarily a dependency management solution.
 A module:
 
 - Is primarily a dependency management tool, not a project organization tool.
-- Is imported to get access to public exported members in your own project. 
+- Is imported to get access to public exported members in your own project.
 - One module can have `n` binaries produced.
 
 - A module can be used in a monorepo or single CLI tool.
@@ -83,7 +83,7 @@ A module doesn't:
 - Handle build or binary path metadata.
 - Have any relationship to the produced artifacts.
 
-### Module Tips 
+### Module Tips
 
 - Use canconical import path (aka) `github.com/sheldonhull/mygomod` if you want to support `go install` commands.
 
@@ -99,7 +99,6 @@ A module doesn't:
 ## Pre-Commit
 
 ## Using Lefthook
-
 
 ## Using Pre-Commit Tooling
 
@@ -146,6 +145,39 @@ go tool cover -html=./artifacts/cover.out -o ./artifacts/coverage.html
 gopherbadger -md="README.md,coverage.md" -tags 'unit'
 ```
 
+## Effective Go
+
+Principles I've gleaned over-time and am quoting or bookmarking.
+
+##### Don't hide the cost
+
+> Source: Bill Kennedy in Ultimate Go [^readability]
+
+If we are doing construction to a variable, we use value construction.
+Avoid pointer semantic construction if not in the return.
+
+Example:
+
+```go
+// clear visible cost of the allocation by value construction and passing of pointer back up the call stack
+func createSomething() *something {
+  u := something{
+    name: "example",
+  }
+  return &u // <--- This makes clear the cost and allocation back up the callstack.
+}
+// cost is obscured by construction being a pointer
+// and returning a value that is not clear to reader if value or pointer
+func createSomething()*something {
+  u := &something{
+    name: "example",
+  }
+  return u // <--- Not good. Hides the cost, and require reading function further to find that this is a pointer.
+}
+```
+
+Making cost obvious and visible is a big priority for readable maintainable code with a team.
+
 ## Running External Commands
 
 ## Repos
@@ -161,3 +193,4 @@ gopherbadger -md="README.md,coverage.md" -tags 'unit'
 
 [^go-r1-day-41]: [go-r1-day-41](/go-r1-day-41)
 [^gopherbadge]: [GitHub - jpoles1/gopherbadger: Generate coverage badge images using Go!](https://github.com/jpoles1/gopherbadger)
+[^readability]: [Readability - Ultimate Go]((<https://github.com/ardanlabs/gotraining/tree/master/topics/go#readability>)
