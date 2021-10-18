@@ -1,0 +1,41 @@
+// this workspace is for performing website edits
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"explorer.sortOrder": "modified",
+		"conventionalCommits.scopes": [
+			"blog",
+			"build",
+			"netlifycms",
+			"microblog",
+			"style",
+			"config",
+			"docs",
+			"codespaces",
+			"brag",
+			"forestry",
+			"vscode",
+			"webmentions",
+			"layout",
+			"archetypes",
+			"rss",
+			"creative",
+			"100DaysOfCode",
+			"mage",
+			"tasks",
+			"project",
+			"docker",
+			"deps"
+		],
+		"conventionalCommits.emojiFormat": "emoji",
+		"git.autoRepositoryDetection": false,
+		"git.ignoredRepositories": [
+			"codeit"
+		],
+		"conventionalCommits.showNewVersionNotes": true
+	}
+}
