@@ -41,7 +41,8 @@
         "tasks",
         "project",
         "docker",
-        "deps"
+        "deps",
+        "go"
     ],
     "conventionalCommits.emojiFormat": "emoji",
     "[yaml]": {

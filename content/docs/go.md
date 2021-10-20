@@ -145,6 +145,94 @@ go tool cover -html=./artifacts/cover.out -o ./artifacts/coverage.html
 gopherbadger -md="README.md,coverage.md" -tags 'unit'
 ```
 
+## VSCode
+
+### Custom Tasks
+
+#### Default Shells
+
+This can ensure default behavior is processed on each OS, customizing the shell to use.
+
+```json
+{
+  "version": "2.0.0",
+  "presentation": {
+    "echo": false,
+    "reveal": "always",
+    "focus": false,
+    "panel": "dedicated",
+    "showReuseMessage": true
+  },
+  "linux": {
+    "options": {
+      "shell": {
+        "executable": "/usr/local/bin/zsh",
+        "args": [
+          "-l",
+          "-c"
+        ],
+      }
+    },
+    "type": "shell"
+  },
+  "windows": {
+    "options": {
+      "shell": {
+        "executable": "pwsh"
+      }
+    },
+    "type": "shell"
+  },
+  "osx": {
+    "options": {
+      "shell": {
+        "executable": "/usr/local/bin/zsh",
+        "args": [
+          "-l",
+          "-c"
+        ]
+      }
+    },
+    "type": "shell"
+  },
+  "tasks": []
+}
+```
+
+#### Run Lint
+
+Add this to your `.vscode/tasks.json` file and you'll get the full linting output in your problems pane.
+
+By default, the `golangci-lint` config should include `--fast` to avoid impact to your editing.
+
+This will ensure all tasks that a pre-commit check or CI check will be run and provided in the problems panel.
+
+```json
+"tasks": [
+    {
+      "label": "go-lint-all",
+      "detail": "This runs the full range of checks and the VSCode problem matcher will pull all of them in. Without this, the default behavior of VSCode is to run with --fast to reduce impact to IDE.",
+      "type": "shell",
+      "command": "golangci-lint",
+      "args": [
+        "run",
+        "--out-format",
+        "colored-line-number"
+      ],
+      "problemMatcher": [
+        "$go"
+      ],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "dedicated",
+        "showReuseMessage": true,
+        "clear": true
+      }
+    },
+```
+
 ## Effective Go
 
 Principles I've gleaned over-time and am quoting or bookmarking.
