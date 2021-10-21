@@ -233,11 +233,44 @@ This will ensure all tasks that a pre-commit check or CI check will be run and p
     },
 ```
 
+## Run Nicely Formatted Test Output
+
+While the testing extension is great, sometimes I just want to see a console summary.
+This task uses [Tparse](https://github.com/mfridman/tparse) and provides a nicely formatted summary (including coverage numbers, cached tests, and more).
+
+Install tparse with: `go install github.com/mfridman/tparse@latest`.
+
+Run manually like this: `GOTESTS='slow' go test ./... -v -cover -json | tparse -all`
+
+```json
+{
+  "label": "go-test-formatted-output",
+  "type": "shell",
+  "command": "go",
+  "options": {
+    "env": {
+      "GOTEST": "slow integration",
+    }
+  },
+  "args": [
+    "test",
+    "./...",
+    "-v",
+    "-cover",
+    "-json",
+    "|",
+    "tparse",
+    "-all"
+  ],
+  "problemMatcher": []
+},
+```
+
 ## Effective Go
 
 Principles I've gleaned over-time and am quoting or bookmarking.
 
-##### Don't hide the cost
+### Don't hide the cost
 
 > Source: Bill Kennedy in Ultimate Go [^readability]
 
