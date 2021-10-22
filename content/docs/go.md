@@ -235,6 +235,8 @@ This will ensure all tasks that a pre-commit check or CI check will be run and p
 
 ## Run Nicely Formatted Test Output
 
+### Tparse
+
 While the testing extension is great, sometimes I just want to see a console summary.
 This task uses [Tparse](https://github.com/mfridman/tparse) and provides a nicely formatted summary (including coverage numbers, cached tests, and more).
 
@@ -265,6 +267,12 @@ Run manually like this: `GOTESTS='slow' go test ./... -v -cover -json | tparse -
   "problemMatcher": []
 },
 ```
+
+### Gotestsum
+
+Install with: `go install gotest.tools/gotestsum@latest`.
+
+Then run like this: `gotestsum` or try the alternative formats like: `gotestsum --format dots-v2` or `--format pkgname`, or `--format testname`.
 
 ## Effective Go
 
