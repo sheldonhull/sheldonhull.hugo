@@ -32,7 +32,7 @@ require (
 	github.com/pterm/pterm v0.12.31
 	github.com/quasilyte/regex/syntax v0.0.0-20210819130434-b3f0c404a727 // indirect
 	github.com/sanposhiho/wastedassign/v2 v2.0.7 // indirect
-	github.com/sheldonhull/magetools v0.0.0-20211006224623-0ae962c19730
+	github.com/sheldonhull/magetools v0.0.0-20211022014639-fdf0dadfc6a2
 	github.com/ssgreg/nlreturn/v2 v2.2.1 // indirect
 	github.com/stretchr/objx v0.3.0 // indirect
 	github.com/sunt-programator/CodeIT v0.2.0 // indirect

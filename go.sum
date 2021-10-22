@@ -750,6 +750,7 @@ github.com/sheldonhull/magetools v0.0.0-20211004211340-86f5017ee1ea h1:Rbli5P8sX
 github.com/sheldonhull/magetools v0.0.0-20211004211340-86f5017ee1ea/go.mod h1:XVdKcgY3uWbsr5xcpT6hHSok6wT0SplPqAvqdPz+5WE=
 github.com/sheldonhull/magetools v0.0.0-20211006224623-0ae962c19730 h1:GY7KqRCMDEl7fQpESBIaeZ0gP14fYu3IIhov+jBclsc=
 github.com/sheldonhull/magetools v0.0.0-20211006224623-0ae962c19730/go.mod h1:XVdKcgY3uWbsr5xcpT6hHSok6wT0SplPqAvqdPz+5WE=
+github.com/sheldonhull/magetools v0.0.0-20211022014639-fdf0dadfc6a2/go.mod h1:FFsjnEm0jmzumDwslmyM5Efaeq8rfByAQaAhHdYcj9g=
 github.com/shirou/gopsutil/v3 v3.21.7/go.mod h1:RGl11Y7XMTQPmHh8F0ayC6haKNBgH4PXMJuTAcMOlz4=
 github.com/shurcooL/go v0.0.0-20180423040247-9e1955d9fb6e/go.mod h1:TDJrrUr11Vxrven61rcy3hJMUqaf/CLWYhHNPmT14Lk=
 github.com/shurcooL/go-goon v0.0.0-20170922171312-37c2f522c041/go.mod h1:N5mDOmsrJOB+vfqUK+7DmDyjhSLIIBnXo9lvZJj3MWQ=
