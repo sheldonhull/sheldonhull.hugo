@@ -34,7 +34,7 @@ require (
 	github.com/polyfloyd/go-errorlint v0.0.0-20210903085826-e4f368f0ae69 // indirect
 	github.com/prometheus/common v0.31.1 // indirect
 	github.com/prometheus/procfs v0.7.3 // indirect
-	github.com/pterm/pterm v0.12.32
+	github.com/pterm/pterm v0.12.33
 	github.com/quasilyte/regex/syntax v0.0.0-20210819130434-b3f0c404a727 // indirect
 	github.com/sanposhiho/wastedassign/v2 v2.0.7 // indirect
 	github.com/sheldonhull/magetools v0.0.0-20211022031014-9250be339daa
