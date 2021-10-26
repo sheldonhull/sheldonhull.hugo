@@ -16,7 +16,7 @@ languages:
     languageCode: en
     languageName: English
     hasCJKLanguage: false
-    paginate: null
+    paginate: 100
     googleAnalytics: UA-40198001-3
     copyright: >-
       This work is licensed under a Creative Commons Attribution-NonCommercial
@@ -117,7 +117,7 @@ languages:
           disclaimer: ''
         posts:
           enable: false
-          paginate: 6
+          paginate: 10
       social:
         GitHub: sheldonhull
         Linkedin: ''
@@ -217,7 +217,7 @@ params:
     icp: ''
     license: >-
       <a rel="license external nofollow noopener noreferrer"
-      href="https://www.sheldonhull.com/main/license" target="_blank">CC
+      href="https://www.sheldonhull.com/license" target="_blank">CC
       BY-NC 4.0</a>
   section:
     paginate: 100
@@ -398,7 +398,6 @@ params:
     polyfill: false
     objectFit: false
 markup:
-
   # From Hugo Docs: https://xyproto.github.io/splash/docs/
   # Using https://pygments.org/docs/styles/ supported and converted into the hugo highlighter chroma https://pygments.org/demo/
   highlight:
@@ -480,7 +479,7 @@ RSSSection:
 
 module:
   imports:
-      # Debug Helper for Layouts: https://github.com/kaushalmodi/hugo-debugprint
+    # Debug Helper for Layouts: https://github.com/kaushalmodi/hugo-debugprint
     - path: github.com/dnb-org/debug
       # github.com/kaushalmodi/hugo-debugprint
       # github.com/dnb-hugo/debugprint

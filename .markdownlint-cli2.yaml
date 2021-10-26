@@ -1,8 +1,8 @@
 ---
 #
 # An example .markdownlint-cli2.yaml file
-#
-
+# https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+# CLI: https://github.com/DavidAnson/markdownlint-cli2/README.md
 # Disable some built-in rules
 config:
   no-trailing-spaces: false
@@ -12,6 +12,8 @@ config:
   no-hard-tabs: true
   whitespace: true
   no-bare-urls: true
+
+
   fenced-code-language: true
   no-inline-html: false
   MD004:
@@ -19,11 +21,13 @@ config:
   MD025: false
   MD041: false
   MD013: false
-  MD046: false
+  MD046:
+    style: consistent
   MD010: false
+
   #MD032: false
 # Include a custom rule package
-customRules:
+# customRules:
   # - markdownlint-rule-titlecase
 
 # Fix any fixable errors

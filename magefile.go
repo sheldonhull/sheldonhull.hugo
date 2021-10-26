@@ -20,7 +20,21 @@ import (
 	"github.com/pelletier/go-toml/v2"
 	"github.com/pterm/pterm"
 	"github.com/sheldonhull/magetools/ci"
+
+	// mage:import
+	"github.com/sheldonhull/magetools/gittools"
+
+	// mage:import
+	_ "github.com/sheldonhull/magetools/gotools"
 	"github.com/sheldonhull/magetools/tooling"
+)
+
+// nodeCommand defaults to yarn, but if npm only is being used then this can be replaced with npm.
+const nodeCommand = "yarn"
+
+var (
+	yarn   = sh.RunCmd(nodeCommand) //nolint:gochecknoglobals // build helper ok to be global
+	gitcmd = sh.RunCmd("git")       //nolint:gochecknoglobals // build helper ok to be global
 )
 
 // codeConfigFile is the file that contains the code config.
@@ -28,6 +42,8 @@ const (
 	codeConfigFile        = "100daysofcode.toml"
 	permissionReadWrite   = 0o666
 	hugoPublicDestination = "public"
+	// datadir contains datafiles that are used for generating pages, webmentions json exports, and more.
+	datadir = "data"
 )
 
 // CodeConfig contains the values for 100 days of code progress.
@@ -46,8 +62,14 @@ type CodeConfig struct {
 // Hugo namespace groups the hugo commands.
 type Hugo mg.Namespace
 
-// New namespace groups the new post generatation commands.
-type New mg.Namespace
+// Git namespace groups all the Git actions.
+type Git mg.Namespace
+
+// Ci contains specific trimmed actions for running in CI system such as netlify.
+type Ci mg.Namespace
+
+// Js contains yarn oriented tasks.
+type Js mg.Namespace
 
 // hugo alias is a shortcut for calling hugo binary
 // var hugobin = sh.RunV("hugo") // go is a keyword :(
@@ -59,14 +81,16 @@ const contentDir = "content/posts"
 
 // tools is a list of Go tools to install to avoid polluting global modules.
 var toolList = []string{ //nolint:gochecknoglobals // ok to be global for tooling setup
-	"github.com/goreleaser/goreleaser@v0.174.1",
-	"golang.org/x/tools/cmd/goimports@master",
-	"github.com/sqs/goreturns@master",
-	"github.com/golangci/golangci-lint/cmd/golangci-lint@master",
-	"github.com/dustinkirkland/golang-petname/cmd/petname@master",
+	// "github.com/goreleaser/goreleaser@v0.174.1",
+	// "golang.org/x/tools/cmd/goimports@master",
+	// "github.com/sqs/goreturns@master",
+	// "github.com/golangci/golangci-lint/cmd/golangci-lint@master",
+	// "github.com/dustinkirkland/golang-petname/cmd/petname@master",
 	"github.com/nekr0z/webmention.io-backup@latest",
 	"github.com/dnb-org/debug@latest",
-	"github.com/sunt-programator/CodeIT@latest",
+	// "github.com/sunt-programator/CodeIT@latest",
+	"github.com/magefile/mage@latest",
+	"github.com/iwittkau/mage-select",
 }
 
 // 🧹 Cleanup artifacts.
@@ -220,6 +244,40 @@ func (Hugo) Build() error {
 	return nil
 }
 
+// Output relevant detail on build environment.
+func hugoEnvInfo() {
+	pterm.DefaultSection.Printf("Hugo Env Info")
+	primary := pterm.NewStyle(pterm.FgLightWhite, pterm.BgGray, pterm.Bold)
+	tbl := pterm.TableData{
+		{"Setting", os.Getenv("Value")},
+		{"HUGO_ENABLEGITINFO", os.Getenv("HUGO_ENABLEGITINFO")},
+		{"HUGO_BASEURL", os.Getenv("HUGO_BASEURL")},
+		{"HUGO_MINIFY", os.Getenv("HUGO_MINIFY")},
+		{"HUGO_DESTINATION", os.Getenv("HUGO_DESTINATION")},
+	}
+	if err := pterm.DefaultTable.WithHasHeader().
+		WithBoxed(true).
+		WithHeaderStyle(primary).
+		WithData(tbl).Render(); err != nil {
+		pterm.Error.Printf("pterm.DefaultTable.WithHasHeader of variable information failed. Continuing...\n%v", err)
+	}
+}
+
+// Run Hugo Build for Public
+func (Hugo) BuildPublic() error {
+	hugoEnvInfo()
+	pterm.DefaultSection.Printf("Hugo Build for Public")
+	url := getBuildUrl()
+	hugoargs := []string{"-b", url, "--quiet", "--enableGitInfo", "-d", os.Getenv("HUGO_DESTINATION"), "--destination", hugoPublicDestination, "-b", url}
+	pterm.Info.Printf("hugo: %v\n", hugoargs)
+	pterm.Info.Println("Open Posts with", url+"/posts")
+	if err := sh.RunV("hugo", hugoargs...); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 // replaceCodeVariables replaces the variables in the generated file based on values in the code config toml file.
 func replaceCodeVariables(file string) error {
 	cfg, err := loadCodeConfig()
@@ -247,8 +305,8 @@ func replaceCodeVariables(file string) error {
 	return nil
 }
 
-// NewPost creates a new post in the Hugo format.
-func (New) Post() error {
+// Post creates a new post in the Hugo format.
+func Post() error {
 	var title string
 
 	prompt := promptui.Select{
@@ -305,16 +363,26 @@ func (New) Post() error {
 }
 
 // WebMentions refreshes the local webmentions json data file.
-func WebMentions() error {
-	return nil
+func Webmentions() error {
+	pterm.DefaultSection.Printf("Webmentions refresh")
+	webMentionFile := filepath.Join(datadir, "webmentions.json")
+	if os.Getenv("WEBMENTION_IO_TOKEN") == "" {
+		pterm.Error.Println("WEBMENTION_IO_TOKEN is required to refresh webmentions and was not detected")
+	}
+	return sh.RunV("webmention.io-backup", "-f", webMentionFile, "-t", os.Getenv("WEBMENTION_IO_TOKEN"))
+}
+
+func Algolia() error {
+	return sh.RunV("yarn", "run", "algolia")
 }
 
 func Init() error {
 	if ci.IsCI() {
 		pterm.DisableStyling()
+		pterm.DefaultSection.Println("[CI SYSTEM] Initialize setup")
 	}
-	pterm.DefaultSection.Printf("Initialize setup")
-	actioncounter := 4
+	pterm.DefaultSection.Println("Init()")
+	actioncounter := 5
 
 	p, _ := pterm.DefaultProgressbar.
 		WithTotal(actioncounter).
@@ -333,17 +401,9 @@ func Init() error {
 	// 	pterm.Error.Printf("InstallTools %q", err)
 	// 	return err
 	// }
-	p.Title = "hugo mod clean"
-	if err := sh.Run("hugo", "mod", "clean"); err != nil {
-		pterm.Error.Printf("hugo mod clean %q", err)
-
-		return err
-	}
-	pterm.Success.Println("✅ hugo mod clean")
-	p.Increment()
 
 	p.Title = "hugo mod tidy"
-	if err := sh.Run("hugo", "mod", "tidy"); err != nil {
+	if err := tooling.SpinnerStdOut("hugo", []string{"mod", "tidy"}, nil); err != nil {
 		pterm.Error.Printf("hugo mod tidy %q", err)
 
 		return err
@@ -352,23 +412,51 @@ func Init() error {
 	p.Increment()
 
 	p.Title = "install webmentions"
-	if err := tooling.InstallTools([]string{"github.com/nekr0z/webmention.io-backup@master"}); err != nil {
+	if err := tooling.SilentInstallTools([]string{"github.com/nekr0z/webmention.io-backup@master"}); err != nil {
 		pterm.Error.Printf("install webmentions tool %q", err)
-
 		return err
 	}
 	pterm.Success.Println("✅ install webmentions")
 	p.Increment()
+	if !ci.IsCI() {
+		if err := (gittools.Gittools{}.Init()); err != nil {
+			return err
+		}
+	}
 
-	p.Title = "yarn install"
+	if err := (Js{}.Init()); err != nil {
+		return err
+	}
+	p.Increment()
+
+	return nil
+}
+
+func (Js) Init() error {
+	pterm.Info.Println("Enabling 'berry' for updated version of Yarn")
+	pterm.Info.Println("https://yarnpkg.com/getting-started/qa#why-should-you-upgrade-to-yarn-modern")
+	if err := yarn("set", "version", "berry"); err != nil {
+		pterm.Error.Println(err)
+		return err
+	}
+	pterm.Success.Println("set version berry")
+	if err := yarn("set", "version", "latest"); err != nil {
+		pterm.Error.Println(err)
+		return err
+	}
+	pterm.Success.Println("set version latest")
+	if err := yarn("install", "--silent"); err != nil {
+		pterm.Error.Println(err)
+		return err
+	}
+
 	if err := sh.Run("yarn", "install"); err != nil {
 		pterm.Error.Printf("yarn install %q", err)
 
 		return err
 	}
-	pterm.Success.Println("✅ yarn install")
-	p.Increment()
 
+	pterm.Success.Println("✅ yarn install")
 	return nil
 }
 
@@ -391,12 +479,61 @@ func Serve() error {
 	return nil
 }
 
-// Fmt runs code formatting for project.
-func Fmt() error {
+// 🧹 Fmt runs code formatting for project mostly against Go templates.
+func (Hugo) Fmt() error {
 	pterm.DefaultSection.Printf("prettier go-templates")
-	if err := sh.RunV("yarn", "prettier", "--write", "."); err != nil {
+	if err := sh.RunV("yarn", "prettier",
+		"--write",
+		"--loglevel",
+		"log",
+		"--no-error-on-unmatched-pattern",
+		"--write \"{.html,.htm}\"",
+		"."); err != nil {
 		pterm.Error.Printf("prettier go-templates %q", err)
 		return err
 	}
+	return nil
+}
+
+// Devcontainer runs devcontainer commands for codespaces or local dev builds.
+type Devcontainer mg.Namespace
+
+// Build the devcontainer.
+func (Devcontainer) Build() error {
+	pterm.Info.Println("build devcontainer")
+	c := []string{
+		"build", "--pull", "--rm", "-f", ".devcontainer/Dockerfile", "-t", "sheldonhullhugo:latest", ".devcontainer",
+	}
+	if err := sh.Run("docker", c...); err != nil {
+		pterm.Error.Println(err)
+		return err
+	}
+	pterm.Success.Println("DevContainer")
+	return nil
+}
+
+// // 💾 Commit will run git-cz to guide through commit prompt with -A.
+// func (Git) Commit() error {
+// 	pterm.DefaultSection.Printf("git commit")
+// 	if err := gitcmd("add", "-A"); err != nil {
+// 		pterm.Error.Printf("git commit %q", err)
+// 		return err
+// 	}
+// 	if err := sh.RunV("yarn", "commit"); err != nil {
+// 		pterm.Error.Printf("yarn commit %q", err)
+// 		return err
+// 	}
+// 	pterm.Success.Println("✅ git commit")
+// 	return nil
+// }
+
+func (Hugo) Clean() error {
+	pterm.DefaultSection.Println("hugo mod clean")
+
+	if err := sh.Run("hugo", "mod", "clean"); err != nil {
+		pterm.Error.Printf("hugo mod clean %q", err)
+		return err
+	}
+	pterm.Success.Println("✅ hugo mod clean")
 	return nil
 }

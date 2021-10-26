@@ -7,14 +7,16 @@ slug: powershell
 permalink: /docs/powershell
 comments: true
 tags:
-  - development
-  - powershell
+
+- development
+- powershell
 toc:
   enable: true
   keepStatic: false
   auto: true
 typora-root-url: ../../static
 typora-copy-images-to:  ../../static/images
+
 ---
 
 {{< admonition type="info" title="Any requests?" >}}
@@ -646,7 +648,7 @@ if ($totalFailed -gt 0)
 
 ```
 
-### Use Test Artifact
+### Use Test Artifacts
 
 Use the artifact generated in the Azure Pipelines yaml to publish pipeline test results.
 

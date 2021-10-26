@@ -11,13 +11,17 @@ linters:
    - noctx
    - wsl
    - lll
+   - nlreturn
+   - goreturns
+   - gofmt
+   - goreturns
   #   - prealloc
   # presets:
   #   - bugs
   #   - unused
 
     # bugs|comment|complexity|error|format|import|metalinter|module|performance|sql|style|test|unused
-  fast: true
+  # fast: true
 
 run:
   skip-dirs:
@@ -25,6 +29,8 @@ run:
     - build
     - artifacts
     - _tools
+    - vendor
+    - _vendor
   # lint magefile, but ignore tools.go
   build-tags:
     - mage

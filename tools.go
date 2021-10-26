@@ -1,5 +1,6 @@
 //nolint
-//+build tools
+//go:build tools
+// +build tools
 
 package tools
 
@@ -11,12 +12,11 @@ import (
 	_ "github.com/client9/misspell/cmd/misspell"
 	_ "github.com/gechr/yamlfmt"
 	_ "github.com/gobeam/stringy"
-	_ "github.com/golangci/golangci-lint/cmd/golangci-lint"
 	_ "github.com/magefile/mage/mg"
 	_ "github.com/magefile/mage/sh"
 	_ "github.com/pterm/pterm"
-	_ "mvdan.cc/gofumpt/gofumports"
+	_ "github.com/sheldonhull/magetools/gittools"
+	_ "github.com/sheldonhull/magetools/gotools"
 	// _ "github.com/sunt-programator/CodeIT"
 	// _ "github.com/dnb-org/debug"
-
 )

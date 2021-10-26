@@ -1,6 +1,6 @@
 # sheldonhull.hugo
 
-![Gopher Avatar](static/images/sheldonhull_gopher_avatar.png)
+<img width="200" height="200" src="static/images/sheldonhull_gopher_avatar.png" alt="Sheldon Hull Gopher Avatar" />
 
 ## Overview
 
@@ -23,7 +23,7 @@ Why?
 ## install
 
 - Open in codespaces or in local docker container and then run `task init` to ensure all tooling and submodules are initialized
-- ✨ *NEW 2021-07*: `go mod tidy` and then `mage` to see a list of available tasks.
+- ✨ *NEW 2021-07*: `go run mage.go init` and then `mage` to see a list of available tasks.
 
 ## Building & Tooling
 
@@ -113,6 +113,28 @@ Maybe you'll find it inspiring as a jump start of your own.
 
 Regardless, hope you have a good journey with it yourself.
 I've had since 2013 blogging now and it's pretty cool to see how things have evolved over time.
+
+## WSL2
+
+In WSL2:
+
+    sudo apt-get install build-essential
+    echo "Brew install in ubuntu might take 5 or more minutes"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/shull/.zprofile
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    brew install gcc
+    brew install hugo
+    source ~/.zshrc
+
+## Docker
+
+Preliminary docker support for running hugo this way instead of brew install can be done with:
+
+      HUGO_VERSION=0.82 \
+		  && docker-compose -f "docker-compose.hugo.yml" down --remove-orphans --volumes \
+		  && docker-compose -f "docker-compose.hugo.yml" build --build-arg HUGO_VERSION=$HUGO_VERSION \
+		  && docker-compose -f "docker-compose.hugo.yml" up
 
 ## Other Credits
 

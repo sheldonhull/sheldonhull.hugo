@@ -3,6 +3,10 @@
 # Refer for explanation to following link:
 # https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md
 #
+# skip_output:
+# - meta
+# - success
+# - summary
 
 # Install go get github.com/evilmartians/lefthook
 # This will run the key security checks that will have redacted secrets on output
@@ -11,36 +15,56 @@ ci-checks:
 
 pre-push:
   commands:
-    squealer:
-      tags: security
-      name: squealer
-      run: squealer --config-file squealer.yml # run: bundle audit
+    # squealer:
+    #   tags: security
+    #   name: squealer
+    #   run: squealer --config-file squealer.yml # run: bundle audit
 # github.com/owenrumney/squealer/cmd/squealer@latest
 
 pre-commit:
-  parallel: false
+  # parallel: false
   tags: lint
   commands:
-    squealer:
-      name: squealer go
-      run: squealer --config-file squealer.yml # run: bundle audit
-
-    markdownlint:
-      tags: npm
-      name: markdownlint
-      files: git diff-index --name-only HEAD #git ls-files **/*/*.md  -m
-      glob: '*.md'
+    # squealer:
+    #   name: squealer go
+    #   run: squealer --config-file squealer.yml # run: bundle audit
+    gitleaks:
+      tags: security gotool
+      name: gitleaks-scan
+      # run: docker run -v ${PWD}:/repo zricethezav/gitleaks:latest --path="/repo" --pretty -v
       run: |
-        echo "⚡ markdownlint on: {files}"
-        yarn run markdownlint-cli2-fix "{files}"
-        # markdownlint-cli2  "{files}"
-        #"**/*.md" "#node_modules"
+        gitleaks --unstaged --config-path=./.gitleaks.toml -vq | gojq
+
+    # not windows compatible yet
+    markdownlint-and-build:
+      piped: true
+      tags: docker
+      commands:
+        markdownlint:
+          name: markdownlint
+          # files: git diff-index --name-only HEAD #git ls-files **/*.md -m #git diff-index --name-only HEAD #git ls-files **/*/*.md  -m
+          glob: '*.md'
+          run: |
+            echo "⚡ markdownlint on: {files}"
+            for file in {files}
+            do
+              echo "🔨 markdownlint: $file"
+              docker run --rm -v ${PWD}:/workdir --entrypoint="markdownlint-cli2-fix" davidanson/markdownlint-cli2:latest "$file"
+            done
+          hugo:
+            tags: build
+            name: hugo-build
+            run: MAGEFILE_HASHFAST=1 mage hugo:build
+    #yarn run markdownlint-cli2-fix "{files}"
+    # markdownlint-cli2  "{files}"
+    #"**/*.md" "#node_modules"
+    # docker run --rm -v ${PWD}:/workdir --entrypoint="markdownlint-cli2-fix" davidanson/markdownlint-cli2:latest "**/*.md" "#node_modules"
     # yamllint: go install github.com/gechr/yamlfmt
     yamlfmt:
       tags: yaml
-      files: git diff-index --name-only HEAD #git ls-files **/*/*.md  -m
+      # files: git diff-index --name-only HEAD #git ls-files **/*/*.md  -m
       glob: '*.yaml|*.yml'
-      run: yamlfmt {files}
+      run: yamlfmt {staged_files}
     # markdownlint:
     #   tags: docker
     #   name: markdownlint
@@ -55,17 +79,13 @@ pre-commit:
     imageoptim:
       tags: image npm
       name: imageoptim
-      files: git diff-index --name-only HEAD
+      # files: git diff-index --name-only HEAD
       glob: '*.png'
       run: |
-        echo "⚡ imageoptim on: {files}"
-        imageoptim {files}
+        echo "⚡ imageoptim on: {staged_files}"
+        yarn imageoptim {staged_files}
       # --imagealpha
 
-    hugo:
-      tags: build
-      name: hugo-build
-      run: mage hugo:build
     #DIFF: git diff-index --name-only HEAD
     # git ls-files *.png --modified # only run on newly staged files
     # {files}

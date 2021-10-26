@@ -185,3 +185,11 @@ tmp.json
 _site/
 
 mage_output_file.go
+
+# What Files Should Be Ignored with Yarn 2
+# https://github.com/yarnpkg/berry/issues/454
+# Not using zero installs, it's ok to have that done by dev.
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+.pnp.*

@@ -9,10 +9,12 @@ slug: go
 permalink: /docs/go
 comments: true
 tags:
+
 - development
 - golang
 typora-root-url: ../../static
 typora-copy-images-to:  ../../static/images
+
 ---
 
 ## Starter Template
@@ -58,7 +60,47 @@ func run(args []string, stdout io.Writer) error {
 }
 ```
 
+## Testing
+
+- Go test will automatically ignore directories and files starting with `.` or `_`, see [go command - cmd/go - pkg.go.dev](https://pkg.go.dev/cmd/go#hdr-Package_lists_and_patterns).
+
+## Modules
+
+### What are Go Modules?
+
+Go Modules are primarily a dependency management solution.
+
+A module:
+
+- Is primarily a dependency management tool, not a project organization tool.
+- Is imported to get access to public exported members in your own project.
+- One module can have `n` binaries produced.
+
+- A module can be used in a monorepo or single CLI tool.
+
+A module doesn't:
+
+- Handle build or binary path metadata.
+- Have any relationship to the produced artifacts.
+
+### Module Tips
+
+- Use canconical import path (aka) `github.com/sheldonhull/mygomod` if you want to support `go install` commands.
+
+- Use  `mymod.local` if no need to support remote imports or installs.
+    - This allows `gofumpt` and tooling to correctly sort the imports from standard library apart from your own imports, without requiring canonical name format.
+- Stick with one module in the repo if possible, to simplify tooling, linting, and testing. This is important in monorepos as much of the tooling that uses paths like `go test ./...` will not work with multi-module repos in a project.
+
+### Project & Build Tooling
+
+- Use `devtools.go` to create a list of cli tools that should be installed with Mage.
+- Use `tools.go` to put `_ "remotemodulename"` in, and identify clearly that a tool such as Stringer or linters are not dependencies for the primary module, but instead are tooling dependencies.
+
 ## Pre-Commit
+
+## Using Lefthook
+
+## Using Pre-Commit Tooling
 
 Here's how to setup [pre-commit](https://bit.ly/3szdwNf) for Go projects.
 
@@ -103,6 +145,168 @@ go tool cover -html=./artifacts/cover.out -o ./artifacts/coverage.html
 gopherbadger -md="README.md,coverage.md" -tags 'unit'
 ```
 
+## VSCode
+
+### Custom Tasks
+
+#### Default Shells
+
+This can ensure default behavior is processed on each OS, customizing the shell to use.
+
+```json
+{
+  "version": "2.0.0",
+  "presentation": {
+    "echo": false,
+    "reveal": "always",
+    "focus": false,
+    "panel": "dedicated",
+    "showReuseMessage": true
+  },
+  "linux": {
+    "options": {
+      "shell": {
+        "executable": "/usr/local/bin/zsh",
+        "args": [
+          "-l",
+          "-c"
+        ],
+      }
+    },
+    "type": "shell"
+  },
+  "windows": {
+    "options": {
+      "shell": {
+        "executable": "pwsh"
+      }
+    },
+    "type": "shell"
+  },
+  "osx": {
+    "options": {
+      "shell": {
+        "executable": "/usr/local/bin/zsh",
+        "args": [
+          "-l",
+          "-c"
+        ]
+      }
+    },
+    "type": "shell"
+  },
+  "tasks": []
+}
+```
+
+#### Run Lint
+
+Add this to your `.vscode/tasks.json` file and you'll get the full linting output in your problems pane.
+
+By default, the `golangci-lint` config should include `--fast` to avoid impact to your editing.
+
+This will ensure all tasks that a pre-commit check or CI check will be run and provided in the problems panel.
+
+```json
+"tasks": [
+    {
+      "label": "go-lint-all",
+      "detail": "This runs the full range of checks and the VSCode problem matcher will pull all of them in. Without this, the default behavior of VSCode is to run with --fast to reduce impact to IDE.",
+      "type": "shell",
+      "command": "golangci-lint",
+      "args": [
+        "run",
+        "--out-format",
+        "colored-line-number"
+      ],
+      "problemMatcher": [
+        "$go"
+      ],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "dedicated",
+        "showReuseMessage": true,
+        "clear": true
+      }
+    },
+```
+
+## Run Nicely Formatted Test Output
+
+### Tparse
+
+While the testing extension is great, sometimes I just want to see a console summary.
+This task uses [Tparse](https://github.com/mfridman/tparse) and provides a nicely formatted summary (including coverage numbers, cached tests, and more).
+
+Install tparse with: `go install github.com/mfridman/tparse@latest`.
+
+Run manually like this: `GOTESTS='slow' go test ./... -v -cover -json | tparse -all`
+
+```json
+{
+  "label": "go-test-formatted-output",
+  "type": "shell",
+  "command": "go",
+  "options": {
+    "env": {
+      "GOTEST": "slow integration",
+    }
+  },
+  "args": [
+    "test",
+    "./...",
+    "-v",
+    "-cover",
+    "-json",
+    "|",
+    "tparse",
+    "-all"
+  ],
+  "problemMatcher": []
+},
+```
+
+### Gotestsum
+
+Install with: `go install gotest.tools/gotestsum@latest`.
+
+Then run like this: `gotestsum` or try the alternative formats like: `gotestsum --format dots-v2` or `--format pkgname`, or `--format testname`.
+
+## Effective Go
+
+Principles I've gleaned over-time and am quoting or bookmarking.
+
+### Don't hide the cost
+
+> Source: Bill Kennedy in Ultimate Go [^readability]
+
+If we are doing construction to a variable, we use value construction.
+Avoid pointer semantic construction if not in the return.
+
+Example:
+
+```go
+// clear visible cost of the allocation by value construction and passing of pointer back up the call stack
+func createSomething() *something {
+  u := something{
+    name: "example",
+  }
+  return &u // <--- This makes clear the cost and allocation back up the callstack.
+}
+// cost is obscured by construction being a pointer
+// and returning a value that is not clear to reader if value or pointer
+func createSomething()*something {
+  u := &something{
+    name: "example",
+  }
+  return u // <--- Not good. Hides the cost, and require reading function further to find that this is a pointer.
+}
+```
+
+Making cost obvious and visible is a big priority for readable maintainable code with a team.
+
 ## Running External Commands
 
 ## Repos
@@ -118,3 +322,4 @@ gopherbadger -md="README.md,coverage.md" -tags 'unit'
 
 [^go-r1-day-41]: [go-r1-day-41](/go-r1-day-41)
 [^gopherbadge]: [GitHub - jpoles1/gopherbadger: Generate coverage badge images using Go!](https://github.com/jpoles1/gopherbadger)
+[^readability]: [Readability - Ultimate Go]((<https://github.com/ardanlabs/gotraining/tree/master/topics/go#readability>)
