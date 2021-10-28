@@ -42,7 +42,8 @@
         "project",
         "docker",
         "deps",
-        "go"
+        "go",
+        "precommit"
     ],
     "conventionalCommits.emojiFormat": "emoji",
     "[yaml]": {
