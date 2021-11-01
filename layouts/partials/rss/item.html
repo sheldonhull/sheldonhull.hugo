@@ -27,7 +27,7 @@
         {{ "<![CDATA[" | safeHTML }}
         {{ with $params.featuredimage }}
             <div class="featured-image">
-                <img src="{{ . | relURL }}" referrerpolicy="no-referrer">
+                <img src="{{ . | absURL }}" referrerpolicy="no-referrer">
             </div>
         {{ end }}
         {{ $content := .Page.Description }}

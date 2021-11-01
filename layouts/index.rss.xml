@@ -1,4 +1,4 @@
-
+{{/* prettier-ignore-start */}}
 {{ $mainSections := .Site.Params.mainSections }}
 {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
 {{/* range $section | first 2 */}}
@@ -14,10 +14,7 @@
         <link>
             {{- .Permalink -}}
         </link>
-        <description>
-            {{- .Site.Params.description | default .Site.Title -}}
-            This feed combines all main sections: {{ $mainSections | printf "%v" }}
-        </description>
+        <description>{{- .Site.Params.description | default .Site.Title -}}This feed combines all main sections: {{ $mainSections | printf "%v" }} </description>
         <generator>Hugo -- gohugo.io</generator>
         {{- with .Site.LanguageCode -}}
             <language>
@@ -50,3 +47,4 @@
         {{- end -}}
     </channel>
 </rss>
+{{/* prettier-ignore-end */}}
