@@ -6,11 +6,13 @@ slug: my-goland-log
 summary:
   A post I'll maintain with questions or problems I faced in adopting development in Goland
 tags:
+
 - tech
 - development
 - goland
 - golang
 toc: true
+series: ['goland']
 
 # images: [/images/]
 
@@ -29,12 +31,12 @@ However, doing Go development, I'd like to better explore Jetbrains Goland and s
 
 I'll log updates and issues here as I work through it in the hope that it might provide you better information if you are considering Goland as well.
 
-| Emoji | Definition |
-| --- | --- |
-| 🔴 | Not solved yet|
-| 🟠 | Issue or behavior unclear |
-| 🚩 | It's an issue I believe I understand but don't like the answer to |
-| ✅ | Understand and no issues with behavior |
+| Emoji | Definition                                                        |
+| ----- | ----------------------------------------------------------------- |
+| 🔴     | Not solved yet                                                    |
+| 🟠     | Issue or behavior unclear                                         |
+| 🚩     | It's an issue I believe I understand but don't like the answer to |
+| ✅     | Understand and no issues with behavior                            |
 
 ## Goland Log
 
