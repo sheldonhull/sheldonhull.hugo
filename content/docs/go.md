@@ -17,6 +17,16 @@ typora-copy-images-to:  ../../static/images
 
 ---
 
+## Top Reference Material
+
+Here's the reference material I use to help guide me on basic style, design, and general idiomatic Go practices.
+
+| Resource                                                                                                            | Description                                                                 |
+| ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| [Go Style Guide](https://golang.org/doc/style.html)                                                                 | A guide to writing Go code.                                                 |
+| [Uber Go Styleguide](https://github.com/uber-go/guide/blob/master/style.md)                                         | A thorough stylistic guide (opinionated, but great explanations on why)     |
+| [Practical Go - Dave Cheney](https://dave.cheney.net/practical-go/presentations/qcon-china.html#_identifier_length) | A great practical guide from a well-respected authority in the Go community |
+
 ## Starter Template
 
 I saved this as a snippet for vscode to get up and running quickly with something better than the defaults for handling `func main` isolation. I've been working on modifying this a bit as I don't really like using args, but am trying not to overcomplicate things as a new gopher.
