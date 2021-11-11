@@ -10,7 +10,7 @@ require (
 	github.com/magefile/mage v1.11.0
 	github.com/manifoldco/promptui v0.8.0
 	github.com/mattn/go-colorable v0.1.11 // indirect
-	github.com/pelletier/go-toml/v2 v2.0.0-beta.3
+	github.com/pelletier/go-toml/v2 v2.0.0-beta.4
 	github.com/pterm/pterm v0.12.33
 	github.com/sheldonhull/magetools v0.0.0-20211022031014-9250be339daa
 	golang.org/x/sys v0.0.0-20211025201205-69cdffdb9359 // indirect
