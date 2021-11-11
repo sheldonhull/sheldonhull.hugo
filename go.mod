@@ -3,9 +3,6 @@ module github.com/sheldonhull/sheldonhull.hugo
 go 1.16
 
 require (
-	github.com/alecthomas/chroma v0.9.4 // indirect
-	github.com/client9/misspell v0.3.4
-	github.com/gechr/yamlfmt v0.0.0-20210915105541-eaf4428b4c2f
 	github.com/gobeam/stringy v0.0.4
 	github.com/gookit/color v1.5.0 // indirect
 	github.com/juju/ansiterm v0.0.0-20210929141451-8b71cc96ebdc // indirect
