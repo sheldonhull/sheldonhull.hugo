@@ -5,11 +5,8 @@ go 1.16
 require (
 	github.com/gobeam/stringy v0.0.4
 	github.com/gookit/color v1.5.0 // indirect
-	github.com/juju/ansiterm v0.0.0-20210929141451-8b71cc96ebdc // indirect
-	github.com/kr/text v0.2.0 // indirect
 	github.com/magefile/mage v1.11.0
-	github.com/manifoldco/promptui v0.8.0
-	github.com/mattn/go-colorable v0.1.11 // indirect
+	github.com/manifoldco/promptui v0.9.0
 	github.com/pelletier/go-toml/v2 v2.0.0-beta.4
 	github.com/pterm/pterm v0.12.33
 	github.com/sheldonhull/magetools v0.0.0-20211022031014-9250be339daa
