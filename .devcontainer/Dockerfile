@@ -60,6 +60,7 @@ ENV PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
 # RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install golang
 # RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc@5
 RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install hugo chezmoi golang node yarn
+ENV GOROOT=/home/linuxbrew/.linuxbrew/opt/go/libexec
 # RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install git-town
 #RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install go-task/tap/go-task
 
