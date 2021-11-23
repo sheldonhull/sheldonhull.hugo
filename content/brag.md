@@ -11,16 +11,21 @@ toc:
   enabled: false
 ---
 
-I put this together as a personal accomplishments page to better keep track of things I've accomplished in a more summarized way.
+Why a brag page?
 
-It's really easy to lose track of stuff like this, so I'll try to keep this updated with major wins here.
-Initially, it's just kinda a LinkedIn professional profile equivalent, but I'm going to try keep track of some "levelups" and wins here as time goes by.
+It's a way to show keep track of some key accomplishments I've achieved, almost like "levels-ups".
 
-Thanks for stopping by!
+While I'm starting this as more like a resume style format, I plan on keeping this updated as I go.
+
+Thanks for stopping by and letting me brag a little!
+
+- Add a comment to this page to say hi!
+- Or [↗ Ask me Anything](https://github.com/sheldonhull/sheldonhull.hugo/discussions/new?category=ama)
 
 ## Page Metrics
 
 Check out these google analytic metrics if you want to see a pretty chart.
+Who doesn't love pretty graphs.
 
 :(fas fa-chart-line fa-fw): [Metrics]({{< relref "metrics" >}})
 
@@ -31,13 +36,27 @@ Check out these google analytic metrics if you want to see a pretty chart.
 
 ## What Makes Me Worth Considering?
 
-I'm someone who believes in "cradle to grave" ownership.
-With a strong background in cloud operations, I look at software development from the deployment and operations side heavily, and this impacts the design and development approach.
-I'm also pretty darn good at automating & offloading work to computers so that my work can scale and be reused over on many projects.
+### What makes a good engineer?
 
-I'm a consumate tweaker, so being part of a team that embraces experimentation and pushing for improvement while delivering value is a good fit.
+- 💯 Emotional Intelligence & Soft Skills
+- A sense of ownership and drive to deliver, from "cradle to grave" mentality.
+- Adaptability, willingness to learn and change.
+    - I'm a big advocate on continual learning, which hopefully my blog shows!
+    - Repeating the same `n` years of experience over and over is something to be avoided.
+    - I tend to embrace change and want to continue to improve.
 
-{{< admonition type="Example" title="Example" open=false >}}
+### What I'm a Good Fit For
+
+- Pairing up with strong engineers.
+I'm not a fan of lone wolf.
+A strong engineering team of "good developers" will out perform the so called "10x" developer and be better for the company both logistically and culturally.
+- Generalist experience valued, while allowing for expertise and deeper knowledge.
+- Remote-First environments that value asynchronous communication and strong writing abilities.
+    - I'm a big fan of Gitlabs Handbook First approach, and have advocated for and done documentation as code, architectural decision records, and other written forms of decision making in most of my career.
+- Go! I'm a Gopher, and have been investing in excellence and quality in Go for the last season in my career.
+I care about delivery value quickly, while I also care about the "craft" of well-designed and maintainable code.
+
+{{< admonition type="Example" title="How I Tend To Think Through Systems" open=false >}}
 
 Someone might look at deploying a webservice and spin up an EC2 linux webserver and call it done.
 
@@ -75,11 +94,13 @@ h2 {
 }
 </style>
 <div class="row">
-<div class="column"><h2>Lots of Experience</h2></div>
-<div class="column"><h2>Exposure & Fundamentals</h2></div>
+<div class="column"><h2>Primary Technologies</h2></div>
+<div class="column"><h2>Exposure/Have Used</h2></div>
 <div class="column"><h2>Things I'd Love to Work More On</h2></div>
 <div class="row">
   <div class="column">
+  :(fas fa-angle-right fa-fw): Go<br>
+  :(fas fa-angle-right fa-fw): Containerization/Docker<br>
   :(fas fa-angle-right fa-fw): AWS<br>
   :(fas fa-angle-right fa-fw): PowerShell (CrossPlatform), .NET Framework<br>
   :(fas fa-angle-right fa-fw): SQL (Dev, Design & Operations)<br>
@@ -88,21 +109,21 @@ h2 {
   :(fas fa-angle-right fa-fw): Technical Docs<br>
   :(fas fa-angle-right fa-fw): DevOps<br>
   :(fas fa-angle-right fa-fw): Observability<br>
-  :(fas fa-angle-right fa-fw): Containerization<br>
   :(fas fa-angle-right fa-fw): Windows<br>
   </div>
   <div class="column">
-  :(fas fa-angle-right fa-fw): Go<br>
+  :(fas fa-angle-right fa-fw): Azure<br>
   :(fas fa-angle-right fa-fw): Linux<br>
   :(fas fa-angle-right fa-fw): C#/.NET<br>
   :(fas fa-angle-right fa-fw): Serverless<br>
   :(fas fa-angle-right fa-fw): Python<br>
-  :(fas fa-angle-right fa-fw): Serverless<br>
   </div>
   <div class="column">
   :(fas fa-angle-right fa-fw): Go<br>
+  :(fas fa-angle-right fa-fw): Linux<br>
   :(fas fa-angle-right fa-fw): Serverless<br>
   :(fas fa-angle-right fa-fw): Microservices<br>
+  :(fas fa-angle-right fa-fw): Distributed Systems & Data<br>
   :(fas fa-angle-right fa-fw): Developer Tooling<br>
   :(fas fa-angle-right fa-fw): Containerization<br>
   </div>

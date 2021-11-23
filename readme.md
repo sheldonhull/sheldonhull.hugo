@@ -136,6 +136,17 @@ Preliminary docker support for running hugo this way instead of brew install can
 		  && docker-compose -f "docker-compose.hugo.yml" build --build-arg HUGO_VERSION=$HUGO_VERSION \
 		  && docker-compose -f "docker-compose.hugo.yml" up
 
+## Troubleshooting
+
+### Devcontainers
+
+### Go Compile Version Does Not Match Go Tool Version
+
+Probably because I'm using `linuxbrew` mixed in with other docker/goup scripts.
+
+- Use linuxbrew version: `export GOROOT=/home/linuxbrew/.linuxbrew/opt/go/libexec`
+- Otherwise, remove Go from linux brew setup. (recommended, but no time)
+
 ## Other Credits
 
 - [webmentions](https://github.com/PlaidWeb/webmention.js)
