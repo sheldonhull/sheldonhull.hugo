@@ -1,6 +1,6 @@
 ---
 permalink: "/metrics/"
-layout: single
+layout: wide
 title: metrics
 slug: metrics
 summary: general metrics on site
@@ -19,9 +19,5 @@ Does anyone else care? Nope!
 It's my digital garden, and a fancy graph shows me some others might be getting some use out of my sharing after all. :grin:
 
 {{< rawhtml >}}
-<iframe style="border: none; height: 600px; width: 100%;" src="https://vizydrop.com/shared/drop/609c94d23d20b978f43b4aff?authkey=cfcd41bb1ce888c4a8ab"></iframe>
-{{< /rawhtml >}}
-
-{{< rawhtml >}}
-<iframe style="border: none; height: 600px; width: 100%;" src="https://vizydrop.com/shared/drop/609c9c99ad154c7cce728e27?authkey=bfe9ce04aa4c7a8630a8"></iframe>
+<iframe width="1400" height="1500" src="https://datastudio.google.com/embed/reporting/56c93495-f6f7-4851-913b-4f41320e522b/page/c2P1" frameborder="0" style="border:0" allowfullscreen></iframe>
 {{< /rawhtml >}}
