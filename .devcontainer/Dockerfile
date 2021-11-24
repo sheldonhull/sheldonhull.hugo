@@ -59,7 +59,9 @@ ENV PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
 #RUN brew postinstall gcc
 # RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install golang
 # RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc@5
-RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install hugo chezmoi golang node yarn
+RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install hugo chezmoi node yarn caddy #go installed via goup now
+RUN curl -sSf https://raw.githubusercontent.com/owenthereal/goup/master/install.sh | sh -s -- '--skip-prompt'
+
 ENV GOROOT=/home/linuxbrew/.linuxbrew/opt/go/libexec
 # RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install git-town
 #RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install go-task/tap/go-task
