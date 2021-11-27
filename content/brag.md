@@ -244,4 +244,28 @@ It did teach me to handle high stress situations and do pretty decent at negotat
 :(fas fa-info-circle fa-fw): Preferred OS: any. Right now using macOS for development, and working in Docker containers when possible<br>
 :(fas fa-info-circle fa-fw): Terminal: Iterm2 & _I :heart: pwsh_
 
+### Projects
+
+I'm a big believer in #LearnInPublic approach, and have written for years on my blog on a variety of topics, demonstrating my ability to learn new technology and investment in continued excellence in my craft. This should help demonstrate my strengths in written communication.
+
+**A few highlights:**
+
+- [Brag - A page with more detail and links than the resume](https://www.sheldonhull.com/brag?ref=bragpage)
+- [Go - My Go references docs with tips/templates/practices](https://www.sheldonhull.com/docs/go?ref=bragpage)
+- [Go Articles - **A variety of posts (over 104 at time of resume)**](https://www.sheldonhull.com/tags/golang?ref=bragpage)
+- [Using Azure DevOps for Private Go Modules - **featured by Azure DevOps Blog**](https://www.sheldonhull.com/using-azure-devops-for-private-go-modules?ref=bragpage)
+
+Open Source Contributions:
+
+While the majority of my work is NDA, I try to contribute when possible upstream as well as publish when possible.
+
+A few projects on GitHub:
+
+- [sheldonhull - landing page (updated with Github Actions)](https://github.com/sheldonhull)
+- [My blog, documented setup and used as a knowledge base](https://github.com/sheldonhull/sheldonhull.hugo)
+- [Go Semantic Linebreaks - A simple CLI for line normalization, planning to use Goldmark for structured text parsing when time permits](https://github.com/sheldonhull/go-semantic-linebreaks)
+- [Magetools - Go based task library for common tasks. I use this instead of Makefiles, as it leverages Mage and the cross-platform power of Go for automation.](https://github.com/sheldonhull/magetools)
+- [CI-Configuration Files: Common lint/tooling configuration to minimize setup of new projects.](https://github.com/sheldonhull/ci-configuration-files)
+
+I also contribute back to various projects I use when possible: [PR's I've Authored on GitHub](https://github.com/search?q=type%3Apr+author%3Asheldonhull&type=Issues)
 _As always, any posts on this site are not a reflection of my past or present employer._
