@@ -19,6 +19,12 @@ While I'm starting this as more like a resume style format, I plan on keeping th
 
 Thanks for stopping by and letting me brag a little!
 
+## Recruiter?
+
+If you are recruiter, then this might be useful: [Recruiters]({{< relref "recruiters.md" >}} "recruiters")
+
+## Touching Base
+
 - Add a comment to this page to say hi!
 - Or [↗ Ask me Anything](https://github.com/sheldonhull/sheldonhull.hugo/discussions/new?category=ama)
 
