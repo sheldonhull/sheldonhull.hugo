@@ -354,9 +354,11 @@ params:
         - https://fonts.googleapis.com/css?family=Raleway&display=swap
       js:
         - <script src="/js/webmentions.js" async></script>
+        # - <script src="/js/jquery.timeago.js" async></script>
         # - <script src="/javascript/app.js" async></script>
         - <script src="/js/mailbrew-html-embed-script.js" async></script>
         - <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+        - <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
     seo:
       images: []
       publisher:

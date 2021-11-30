@@ -18,7 +18,7 @@ To ensure I'm on the same page, I've summarized a few roles I'm typically gettin
 
 There is a large difference in expectations for different roles so let me see if I can help make sure I'm a good fit.
 
-## Feedback
+{{< admonition type="Question" title="Any feedback?" open=true >}}
 
 The goal of this page was to simplify assessing if I'm a match through all the jargon you have to deal with.
 
@@ -28,38 +28,64 @@ I'd appreciate any feedback on this having been useful, or if it wasn't what I c
 - Or [↗ Ask me Anything](https://github.com/sheldonhull/sheldonhull.hugo/discussions/new?category=ama) (public)
 - [LinkedIn](https://www.linkedin.com/in/sheldonhull) (private DM's enabled)
 
+{{< /admonition >}}
+
+## TL;DR[^tldr]
+
+Since I respect that you even took time to check this out.... here's the gist of it:
+
+- I started my journey in development {{< timeago date="2011-06-01T00:00:00" >}}
+- I'm in UTC-5 (Texas).
+- I've got a background in cloud operations, database administration & architecture, development (Go, .NET), and have touched a lot of tech.
+- I'm a continual learner and always looking to challenge myself, with an above average ability to adapt to change and new technology.
+- I pride myself on strong emotional intelligence and a positive attitude that allows me to work cross-functionality with engineering and non-engineering folks.
+- I'm open to development focused roles that expect a large portion of work to be code driven.
+- I'm not looking for build & release engineering roles, aka DevOps Engineer titled roles.
+
+[^tldr]: Too Long, Didn't Read: basically the short gist of the matter for a quick few second evaluation.
+
 ## Brag Page
 
 More project and experience related information: [Brag]({{< relref "brag.md" >}} "brag")
 
-## Types of Roles
+## Types of Roles I'm Open To
 
+- Go (Golang) language exposure is desired.[^languagesdontmatter]
 - Full-Time roles, no contractor to hire.
 - Not a consultancy company or managed service provider.
 - Start-up is ok, as long as post series a/b since I need a bit of stability.
 - Remote First Organization.
     - I'm not willing to relocate.
     - I'll consider Remote-Friendly, if the organization has a solid remote work culture with deliberate efforts to treat remote and local workers equally. (Culture that values writing, async work, and healthy remote communication patterns).
+    - Plus if "digital nomad" policy in place to support working temporarily on work visa in a foreign locale with proper notice.[^digitalnomad]
 - Technology focused company with a strong-engineering culture.
     - No gambling or mobile gaming companies.
     - No medical/healthcare focused[^med].
     - No banking.[^banking]
 
-[^med]: The rate of change and "redtape" is necessarily very slow in the medical field, making it more difficult to adopt modernized CI/CD (not impossible, but difficult). Looking for a company with more capability to move quickly.
+[^tiers]: [Trimodal Tiers - This is EU specific, but it applies to US-based companies as well](https://blog.pragmaticengineer.com/software-engineering-salaries-in-the-netherlands-and-europe/)
+[^languagesdontmatter]: An engineer with a generalist focus can learn any language and should be able to bring on new hard-skills quickly. However, at the same time nothing replaces time with an ecosystem to build idiomatic and well-written code. As a result, my efforts for more backend effort have been heavily focused on using Go and I'd like to continue that path.
+[^med]: The rate of change and "redtape" is necessarily very slow in the medical field, making it more difficult to adopt modernized CI/CD (not impossible, but difficult). Looking for a company with more capability to move quickly. If the medical company is more technology focused and moving with agility I'd consider that a possible exception.
 [^banking]: I've done financial/mortgage and that's fine, but right now I'm more focused on technology oriented companies, though I'm willing to consider a financial services company if technology is a core value they offer (like Simple Bank did).
+[^digitalnomad]: I'm US based, but plan on doing a little traveling for some stays in EU in a few years. Knowing that the company as an international presence or is setup to handle someone relocating for 6 months would be great.
 
-## Target Companies
+## What I'm Looking For In A Company
 
 I assess companies based on the [Pragmatic Engineer Checklist](https://blog.pragmaticengineer.com/the-developer-culture-test/)
 
-- Pays at Tier 2-3[^tiers]: Globally competitive rates
-    - > "Generous profit-sharing means at least 15-20% of annual salary in good years."
+- Pays at Tier 2-3[^tiers]: Globally competitive rates[^competitive]
+    - Equity is a significant form of the compensation (when public) with a reasonable vesting schedule.
     - Locale adjustment is a negative, but if the compensation is still at a "Tier 3" company, I'll still consider it.
-- Engineering organizations that expect a high level of autonomy.
-- High talent bar.
+- Engineering organizations that expect a high level of autonomy.[^ticketfocused]
+- High talent bar & desire for collaboration.[^collaboration]
+    - Plus for companies that value demonstrated ability to obtain new hard-skills over expecting in-depth knowledge matching all requirements on day 1.
 - High value placed on continual learning and improvement.
 - High value on work-life balance.
 - Value placed on contributions back to open source and writing (as I regularly blog and engage open source projects).
+
+[^collaboration]: I'm a strong advocate for a good team with collaboration, emotional intelligence, and strong engineering skills trumps any "10x" or "100x" rockstar engineer.
+[^competitive]: You can check-out <levels.fyi> as a great resource to compare rates that aren't geographic restricted for tech companies, if you weren't aware of it.
+[^ticketfocused]: I've been part of teams that just fufilled a "ticket" list, and I'm more interested in collaboration on the work to help provide expertise and knowledge as part of the role.
 
 ## Roles You Might Be Trying to Fill
 
@@ -105,14 +131,17 @@ This is what AWS titles someone doing a mix of Development and Operational work,
 
 ## Cloud Engineer
 
-This is a role typically focused either on building services with AWS, or a relabled DevOps Engineer
+This can often be 2 types of roles.
 
-**If Terraform and other infrastructure work is needed as _part_ of the overall development, I'd be a good fit since I have a lot of infrastructure experience and have deep dived into Terraform, used Pulumi, and other infrastructure-as-software style tools.**
+- Developer with a strong focus on cloud services and core service building and expectation to be working mostly in a langage like Go.
+- Or basically another term for DevOps Engineer.
+
+**If the role is focused on building services, expects strong coding in Go, and overall is developer focused, this might be a good fit.**
+
+If the role is purely focused on infrastructure development using tools such as Terraform, and doesn't involve any other services or development, it's probably not the right fit.
 
 I believe in a development team owning the majority of the core stack, including infrastructure for the application.
 This would be part of the standard development planning as services were built.
-
-If the role is a relabeled DevOps Engineer, with the primary focus being purely infrastructure automation, then this might not be a good role (see DevOps Engineer section for detail).
 
 {{< /admonition >}}
 
@@ -138,33 +167,34 @@ There still tends to be a specialization of frontend or backend, due to the comp
 
 ### Senior DevOps Engineer
 
-**If the role involves a large amount of application or systems development (eg 60%+), and isn't focused on release engineering & CICD automation only, then I might be a good fit.**
+**If the role involves a large amount of application or systems development (eg 60%+), expects coding in Go for backend services/serverless solutions, and focuses on more than build & release automation, then this might be a good fit, despite the title.**
 
-Most postings probably are looking for more of a general practice build & release engineer with some operations and this is not the role I'm looking for.
+The reason I put more detail here is I've demonstrated strong aptitude in my roles for what most companies want to term a DevOps Engineer.
 
-While I have a lot of experience in DevOps practices, and a passion to see them achieved, I'm not looking for a DevOps Engineer role.
+While I do have a passion for SRE/DevOps principles[^devopsprinciples] I want to be engaged in a development team that implements these principles as development occurs, and not in another silo apart from development.
 
-I believe in applying these DevOps practices while doing development, and that a dedicated DevOps engineer role is not the right fit.
-Often, DevOps Engineer roles aren't held to a higher coding standard as a SWE with a focus on "glue" code doing automation work.
+Having been part of teams where the "DevOps" person wasn't involved directly in development, I've determined that for my long-term effectiveness, growth as an engineer, and overall satisfaction, that I'm not looking for dedicated DevOps Engineer titled roles.
 
-I practice algorithm & code challenges, and want to be working more with technically challenging services over building automation oriented scripts.
+{{< admonition type="Note" title="There are rare exceptions" open=true >}}
 
-In a rare few cases, a DevOps Engineer role is used by HR/Recruiting to find folks with cross-functional soft and hard skills, while still doing active development.
+That said, in a rare few cases, a DevOps Engineer role is used by HR/Recruiting to find folks with cross-functional soft and hard skills, while still doing active development.
+For example, at LinkedIn, DevOps Engineering roles are very technically demanding with code, core services and internal apps being built and more.
 
 In my experience, that's a unicorn role, that rarely exists though. 😀
 
-Example:
-
-- DevOps Engineer: recommend branching strategy to team, or setup practices.
-- Developer With DevOps skill: implement Trunk Based development in team and accelerate team velocity, while being embedded in the team itself.
+{{< /admonition >}}
 
 #### About This Role
 
 This term is standard by companies, but it's often actually considered an anti-pattern by many in the development community.
 
+The industry has made this term a common practice, but in most places it really could be called a: `Build & Release Engineer`.
+
 *Why?*
 
 DevOps is a term that represents the "Development + Operations" siloes being eliminated so that both Development + Operations are regularly collaborating.
+
+See [Anti-Type E: Rebranded SysAdmin](https://web.devopstopologies.com/#anti-type-e) or [Anti-Type B: DevOps Team Silo](https://web.devopstopologies.com/#anti-type-b) which help clarify why this is not effective, as well as see some effective models.
 
 [AWS - What Is DevOps?](https://aws.amazon.com/devops/what-is-devops/) says:
 
@@ -174,8 +204,7 @@ DevOps is a term that represents the "Development + Operations" siloes being eli
 
 This means that specialization is still needed in both, but the goal is ensure clear pathways for communication.
 
-The industry as made this term a common practice, but in most places it really could be called a: `Build & Release Engineer`.
-
+[^devopsprinciples]: I've implemented a lot of things such as implementing Trunk Based Development workflows, automating CI locally and at server, releases, runbooks, and a lot more.
 {{< /admonition >}}
 
 ## Skills You Might Be Looking For
@@ -218,5 +247,3 @@ Python is great, I've used for various automation tasks and I'm a fan.
 
 However, my efforts are focused on Go right now, so a full-time Python dedicated role is not a good fit for where I'm focusing my efforts.
 {{< /admonition >}}
-
-[^tiers]: [Trimodal Tiers - This is EU specific, but it applies to US-based companies as well](https://blog.pragmaticengineer.com/software-engineering-salaries-in-the-netherlands-and-europe/)
