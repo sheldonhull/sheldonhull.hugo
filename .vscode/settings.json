@@ -138,7 +138,7 @@
         "static/javascript": true,
         "static/files": true,
         "static/admin": true,
-        "**/yarn.lock": true,
+        "**/yarn.lock": false,
         "**/archive": false
     },
     "explorerExclude.backup": null,
