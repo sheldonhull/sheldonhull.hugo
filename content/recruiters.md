@@ -32,20 +32,33 @@ I'd appreciate any feedback on this having been useful, or if it wasn't what I c
 
 More project and experience related information: [Brag]({{< relref "brag.md" >}} "brag")
 
+## Types of Roles
+
+- Full-Time roles, no contractor to hire.
+- Not a consultancy company or managed service provider.
+- Start-up is ok, as long as post series a/b since I need a bit of stability.
+- Remote First Organization.
+    - I'm not willing to relocate.
+    - I'll consider Remote-Friendly, if the organization has a solid remote work culture with deliberate efforts to treat remote and local workers equally. (Culture that values writing, async work, and healthy remote communication patterns).
+- Technology focused company with a strong-engineering culture.
+    - No gambling or mobile gaming companies.
+    - No medical/healthcare focused[^med].
+    - No banking.[^banking]
+
+[^med]: The rate of change and "redtape" is necessarily very slow in the medical field, making it more difficult to adopt modernized CI/CD (not impossible, but difficult). Looking for a company with more capability to move quickly.
+[^banking]: I've done financial/mortgage and that's fine, but right now I'm more focused on technology oriented companies, though I'm willing to consider a financial services company if technology is a core value they offer (like Simple Bank did).
+
 ## Target Companies
 
 I assess companies based on the [Pragmatic Engineer Checklist](https://blog.pragmaticengineer.com/the-developer-culture-test/)
 
-- Pay at Tier 2-3[^tiers]: Globally competitive rates
+- Pays at Tier 2-3[^tiers]: Globally competitive rates
     - > "Generous profit-sharing means at least 15-20% of annual salary in good years."
     - Locale adjustment is a negative, but if the compensation is still at a "Tier 3" company, I'll still consider it.
 - Engineering organizations that expect a high level of autonomy.
 - High talent bar.
 - High value placed on continual learning and improvement.
 - High value on work-life balance.
-- Remote First Organization
-    - I'm not willing to relocate
-    - I'll consider Remote-Friendly, if the organization has a solid remote work culture with deliberate efforts to treat remote and local workers equally. (Culture that values writing, async work, and healthy remote communication patterns).
 - Value placed on contributions back to open source and writing (as I regularly blog and engage open source projects).
 
 ## Roles You Might Be Trying to Fill
