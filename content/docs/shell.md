@@ -414,3 +414,26 @@ yq eval '.instances' $processconfig
 ```
 
 You can do a lot with `yq`.
+
+## Parse Kubernetes Secrets Using JQ
+
+Using jq, you can parse out secrets from base64 encoded values for some quick scripting.
+
+> NOTE: This uses [sttr](https://github.com/abhimanyu003/sttr) but you can modify to whatever your platform provides (zsh `base64 -decode` or pwsh `[System.Convert]::FromBase64String($Base64String)`))
+> If you have Go installed (everyone should! 😀) then run `go install github.com/abhimanyu003/sttr@latest`.
+
+This example parses an encoded json string to help registry an Azure Container Registry from a Kubernetes stored secret.
+
+```shell
+namespace="mynamespace"
+secretname="mysecretname"
+
+kubectl config set-context --current --namespace=$namespace
+configEncoded=$(kubectl get secret $secretname -o jsonpath='{.data.\.dockerconfigjson}')
+configDecoded=$(sttr base64-decode $config)
+registry=$(echo $configDecoded | jq '.auths | keys[]')
+echo -e "👉 registry: $registry"
+creds=$(echo $configDecoded | jq .auths.${registry}.auth --raw-output)
+echo -e "👉 username:password: $( sttr base64-decode $creds )"
+```
+

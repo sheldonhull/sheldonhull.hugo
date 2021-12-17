@@ -193,3 +193,4 @@ mage_output_file.go
 !.yarn/releases
 !.yarn/plugins
 .pnp.*
+.artifacts

@@ -56,6 +56,11 @@ repos:
         # args: [--branch, develop, --branch, master, --branch, main]
       - id: requirements-txt-fixer
       - id: check-toml
+  - repo: https://gitlab.com/bmares/check-json5
+    rev: v1.0.0
+    hooks:
+      - id: check-json5
+      # stages: ['commit']
   # https://pre-commit.com/#supported-languages
   - repo: local
     hooks:
@@ -64,13 +69,13 @@ repos:
       #   name: Scan for secrets
       #   entry: gitleaks --pretty -v
       #   language: system
-      - id: gitleaks
-        name: gitleaks-scan
-        entry: zsh -c docker run -v ${PWD}:/repo zricethezav/gitleaks:latest --path="/repo" --pretty -v
-        language: system
-      - id: markdownlint
-        name: markdownlint-autofix
-        entry: zsh -c docker run -i --rm -v ${PWD}:/work tmknom/markdownlint:latest --fix --config ./settings/.markdownlint.yaml content/docs
+      # - id: gitleaks
+      #   name: gitleaks-scan
+      #   entry: zsh -c docker run -v ${PWD}:/repo zricethezav/gitleaks:latest --path="/repo" --pretty -v
+      #   language: system
+      # - id: markdownlint
+      #   name: markdownlint-autofix
+      #   entry: zsh -c docker run -i --rm -v ${PWD}:/work tmknom/markdownlint:latest --fix --config ./settings/.markdownlint.yaml content/docs
         language: system
       - id: shellcheck
         name: shellcheck
@@ -80,3 +85,17 @@ repos:
     rev: v0.0.3
     hooks:
       - id: format-sql
+
+
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.3.2
+    hooks:
+      - id: markdownlint-cli2
+  - repo: local
+    hooks:
+      - id: gitleaks
+        name: gitleaks
+        entry: gitleaks --commit=latest --no-git --format json --path=. --report=.artifacts/gitleaks.json --quiet
+        language: system
+        pass_filenames: false
+        stages: [push]
