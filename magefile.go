@@ -439,18 +439,18 @@ func (Js) Init() error {
 		pterm.Error.Println(err)
 		return err
 	}
-	pterm.Success.Println("set version berry")
-	if err := yarn("set", "version", "latest"); err != nil {
-		pterm.Error.Println(err)
-		return err
-	}
+	// pterm.Success.Println("set version berry")
+	// if err := yarn("set", "version", "latest"); err != nil {
+	// 	pterm.Error.Println(err)
+	// 	return err
+	// }
 	pterm.Success.Println("set version latest")
 	if err := yarn("install", "--silent"); err != nil {
 		pterm.Error.Println(err)
 		return err
 	}
 
-	if err := sh.Run("yarn", "install"); err != nil {
+	if err := sh.RunV("yarn", "install"); err != nil {
 		pterm.Error.Printf("yarn install %q", err)
 
 		return err
