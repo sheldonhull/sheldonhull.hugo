@@ -8,7 +8,7 @@ require (
 	github.com/manifoldco/promptui v0.9.0
 	github.com/pelletier/go-toml/v2 v2.0.0-beta.4
 	github.com/pterm/pterm v0.12.33
-	github.com/sheldonhull/magetools v0.0.0-20211224021314-3678cf210b50
+	github.com/sheldonhull/magetools v0.0.0-20211227214443-9013a2838de5
 )
 
 require (
