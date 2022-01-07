@@ -411,8 +411,8 @@ func Init() error {
 	pterm.Success.Println("✅ hugo mod tidy")
 	p.Increment()
 
-	p.Title = "install webmentions"
-	if err := tooling.SilentInstallTools([]string{"github.com/nekr0z/webmention.io-backup@master"}); err != nil {
+	p.Title = "install webmentions (with version in mod file)"
+	if err := tooling.SilentInstallTools([]string{"github.com/nekr0z/webmention.io-backup"}); err != nil {
 		pterm.Error.Printf("install webmentions tool %q", err)
 		return err
 	}

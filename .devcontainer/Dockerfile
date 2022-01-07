@@ -29,7 +29,7 @@ FROM mcr.microsoft.com/vscode/devcontainers/universal:1-${VARIANT} as BASE
 #     && apt-get -qqy install --no-install-recommends powershell curl wget
 USER root
 RUN useradd -m -s /bin/bash linuxbrew && \
-    echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
+  echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
 
 USER linuxbrew
 COPY --from=DOCKERBREW /home/linuxbrew/.linuxbrew /home/linuxbrew/.linuxbrew
@@ -37,7 +37,7 @@ COPY --from=DOCKERBREW /home/linuxbrew/.linuxbrew /home/linuxbrew/.linuxbrew
 
 USER root
 RUN apt update && apt-get -qqy install build-essential curl file git gcc --no-install-recommends \
-    && rm -rf /var/lib/apt/lists/*
+  && rm -rf /var/lib/apt/lists/*
 RUN sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
 
 # RUN bash -c "$(wget -qO- git.io/chezmoi)" && mv ./bin/chezmoi /usr/local/bin/chezmoi && rm -rf ./bin
@@ -51,7 +51,7 @@ ENV PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
 #   #curl --quiet -L https://nixos.org/nix/install | sh && echo "✅ installed nixos"
 # RUN nix-env -iA nixpkgs.git-town && echo "✅ installed git-town" \
 #     && nix-env -iA nixpkgs.go && echo "✅ installed go" \
-    # && nix-env -iA nixpkgs.hugo && echo "✅ installed hugo"
+# && nix-env -iA nixpkgs.hugo && echo "✅ installed hugo"
 #RUN curl -L "https://github.com/whalebrew/whalebrew/releases/download/0.3.0/whalebrew-$(uname -s)-$(uname -m)" -o /usr/local/bin/whalebrew; chmod +x /usr/local/bin/whalebrew
 # RUN bash -c brew --version
 #RUN bash -c brew update
@@ -60,9 +60,12 @@ ENV PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
 # RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install golang
 # RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install gcc@5
 RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install hugo chezmoi node yarn caddy #go installed via goup now
-RUN curl -sSf https://raw.githubusercontent.com/owenthereal/goup/master/install.sh | sh -s -- '--skip-prompt'
+#ENV GOOROOT=/home/codespace/.go/current/bin
+RUN curl -sSf https://raw.githubusercontent.com/owenthereal/goup/master/install.sh | sh -s -- '--skip-prompt' \
+  && go install github.com/magefile/mage@latest && echo "✅ mage installed" \
+  && go install github.com/iwittkau/mage-select@latest && echo "✅ mage-select installed"
+#ENV GOROOT=/home/linuxbrew/.linuxbrew/opt/go/libexec
 
-ENV GOROOT=/home/linuxbrew/.linuxbrew/opt/go/libexec
 # RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install git-town
 #RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install go-task/tap/go-task
 
@@ -79,7 +82,7 @@ ENV GOROOT=/home/linuxbrew/.linuxbrew/opt/go/libexec
 
 # Install git
 # RUN . /home/codespace/.nix-profile/etc/profile.d/nix.sh \
-  # && nix-env -i git git-lfs
+# && nix-env -i git git-lfs
 
 # This requires dotnet install so bypassing as not critical
 # RUN HOMEBREW_NO_AUTO_UPDATE=1 brew install gitversion
@@ -95,6 +98,3 @@ ENV GOROOT=/home/linuxbrew/.linuxbrew/opt/go/libexec
 # && nix-env -iA nixpkgs.hugo \
 # && nix-env -iA nixpkgs.chezmoi \
 # && nix-env -iA nixpkgs.nodejs
-
-# RUN go install github.com/magefile/mage@latest && echo "✅ mage installed" \
-#     && go install github.com/iwittkau/mage-select@latest && echo "✅ mage-select installed"
