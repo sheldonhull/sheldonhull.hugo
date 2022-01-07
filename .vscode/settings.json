@@ -115,7 +115,7 @@
     "node_modules": true,
     "nodesource_setup.sh": true,
     "package-lock.json": true,
-    "package.json": true,
+    "package.json": false,
     "public": true,
     "readme.md": true,
     "RequiredModules.psd1": false,
