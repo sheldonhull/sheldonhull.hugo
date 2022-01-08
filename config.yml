@@ -79,6 +79,13 @@ languages:
           url: https://github.com/sheldonhull/
           title: GitHub
           weight: 8
+        - identifier: github
+          pre: <i class='fas fa-keyboard fa-fw'></i>
+          post: 'try ctrl+k'
+          name: ''
+          url:
+          title: tip
+          weight: 8
     params:
       description: A personal dev blog
       keywords:
@@ -352,6 +359,7 @@ params:
     library:
       css:
         - https://fonts.googleapis.com/css?family=Raleway&display=swap
+        - https://fonts.googleapis.com/css?family=Material+Icons&display=swap
       js:
         - <script src="/js/webmentions.js" async></script>
         # - <script src="/js/jquery.timeago.js" async></script>
@@ -359,6 +367,7 @@ params:
         - <script src="/js/mailbrew-html-embed-script.js" async></script>
         - <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
         - <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
+        - <script type="module" src="https://unpkg.com/ninja-keys?module"></script>
     seo:
       images: []
       publisher:
