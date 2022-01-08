@@ -10,34 +10,23 @@ ARG VARIANT="focal"
 FROM homebrew/brew:latest AS DOCKERBREW
 FROM mcr.microsoft.com/vscode/devcontainers/universal:1-${VARIANT} as BASE
 
-# RUN sudo apt-get -yqq update \
-#     && sudo apt-get install -y wget apt-transport-https software-properties-common
-
-# # Download the Microsoft repository GPG keys
-# && wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb \
-# # Register the Microsoft repository GPG keys
-# && sudo dpkg -i packages-microsoft-prod.deb \
-# # Update the list of products
-# && sudo apt-get update \
-# # Enable the "universe" repositories
-# && sudo add-apt-repository universe \
-# # Install PowerShell
-# && sudo apt-get install -y powershell
-# RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb \
-#     && dpkg -i packages-microsoft-prod.deb \
-#     && apt-get -qqy update \
-#     && apt-get -qqy install --no-install-recommends powershell curl wget
 USER root
 RUN useradd -m -s /bin/bash linuxbrew && \
   echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
 
 USER linuxbrew
 COPY --from=DOCKERBREW /home/linuxbrew/.linuxbrew /home/linuxbrew/.linuxbrew
-# #RUN   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 USER root
-RUN apt update && apt-get -qqy install build-essential curl file git gcc --no-install-recommends \
+ENV ADDITIONAL_APPS build-essential \
+  curl \
+  file \
+  git \
+  gcc
+
+RUN apt update && apt-get -qqy install  --no-install-recommends ${ADDITIONAL_APPS} \
   && rm -rf /var/lib/apt/lists/*
+
 RUN sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin
 
 # RUN bash -c "$(wget -qO- git.io/chezmoi)" && mv ./bin/chezmoi /usr/local/bin/chezmoi && rm -rf ./bin

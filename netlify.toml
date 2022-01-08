@@ -4,15 +4,7 @@
 [build]
 #command = "git status --porcelain &&  git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo"
 command = '''
-
-# sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
-# ./bin/task init
-# ./bin/task webmentions:ci
-go run mage.go -v init
-go run mage.go -v hugo:buildpublic
-# ./bin/task build-public
-go run mage.go -v algolia
-
+go run mage.go -v init hugo:buildpublic algolia
 '''
   publish = "public"
 
@@ -28,14 +20,7 @@ go run mage.go -v algolia
 ###############################
 [context.deploy-preview]
   command = '''
-npm install -g yarn
-yarn set version berry
-# yarn set version latest
-sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
-./bin/task init
-./bin/task echo-debug
-./bin/task build
-
+go run mage.go init build
 '''
 publish = "preview"
 
@@ -51,10 +36,8 @@ publish = "preview"
 [context.branch-deploy]
   publish = "branch"
   command = '''
-sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
-./bin/task init
-./bin/task echo-debug
-./bin/task build'''
+go run mage.go init build
+'''
 
 [context.branch-deploy.environment]
 HUGO_GOOGLEANALYTICS = "dev"

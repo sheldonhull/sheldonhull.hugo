@@ -433,30 +433,17 @@ func Init() error {
 }
 
 func (Js) Init() error {
-	pterm.Info.Println("Enabling 'berry' for updated version of Yarn")
-	pterm.Info.Println("https://yarnpkg.com/getting-started/qa#why-should-you-upgrade-to-yarn-modern")
-	if err := yarn("set", "version", "berry"); err != nil {
-		pterm.Error.Println(err)
+
+	if err := sh.Run("npm","install","--global","yarn","--force"); err != nil {
 		return err
 	}
-	// pterm.Success.Println("set version berry")
-	// if err := yarn("set", "version", "latest"); err != nil {
-	// 	pterm.Error.Println(err)
-	// 	return err
-	// }
-	pterm.Success.Println("set version latest")
+
 	if err := yarn("install", "--silent"); err != nil {
 		pterm.Error.Println(err)
 		return err
 	}
-
-	if err := sh.RunV("yarn", "install"); err != nil {
-		pterm.Error.Printf("yarn install %q", err)
-
-		return err
-	}
-
 	pterm.Success.Println("✅ yarn install")
+
 	return nil
 }
 
