@@ -51,7 +51,8 @@
 	"capybara1.vscode-url-title-resolver",
 	"lukapetrovic.image-resizer",
 	"fabiospampinato.vscode-optimize-images",
-	"pflannery.vscode-versionlens"
+	"pflannery.vscode-versionlens",
+	"arrterian.nix-env-selector"
 ],
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [

@@ -10,7 +10,8 @@
         "sibiraj-s.vscode-scss-formatter",
         "tomasvergara.vscode-fontawesome-gallery",
         "fabiospampinato.vscode-optimize-images",
-        "pflannery.vscode-versionlens"
+        "pflannery.vscode-versionlens",
+        "arrterian.nix-env-selector"
     ],
     // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
     "unwantedRecommendations": []

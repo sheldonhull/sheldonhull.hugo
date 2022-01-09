@@ -1,43 +1,34 @@
 ARG VARIANT="focal"
 FROM mcr.microsoft.com/vscode/devcontainers/universal:1-${VARIANT} as BASE
+USER root
+RUN apt-get -yqq update && apt-get -qqy install  --no-install-recommends coreutils autoconf \
+    && rm -rf /var/lib/apt/lists/*
 
 ARG USERNAME=codespace
 
-USER root
-# Install Nix
-RUN addgroup --system nixbld \
-  && adduser ${USERNAME} nixbld \
-  && for i in $(seq 1 30); do useradd -ms /bin/bash nixbld$i &&  adduser nixbld$i nixbld; done \
-  && mkdir -m 0755 /nix && chown ${USERNAME} /nix \
-  && mkdir -p /etc/nix && echo 'sandbox = false' > /etc/nix/nix.conf
-
-# Install Nix
-CMD /bin/bash -l
 USER ${USERNAME}
-ENV USER ${USERNAME}
-WORKDIR /home/${USERNAME}
 
-RUN touch .bash_profile \
- && curl https://nixos.org/releases/nix/nix-2.3.14/install | sh
-
-RUN echo '. /home/${USERNAME}/.nix-profile/etc/profile.d/nix.sh' >> /home/${USERNAME}/.bashrc
-RUN mkdir -p /home/${USERNAME}/.config/nixpkgs && echo '{ allowUnfree = true; }' >> /home/${USERNAME}/.config/nixpkgs/config.nix
-
-# Install cachix
-RUN . /home/${USERNAME}/.nix-profile/etc/profile.d/nix.sh \
-  && nix-env -iA cachix -f https://cachix.org/api/v1/install \
-  && cachix use cachix
-
-# Install git
-RUN . /home/${USERNAME}/.nix-profile/etc/profile.d/nix.sh \
-  && nix-env -i git git-lfs
-
-# Install direnv
-RUN . /home/${USERNAME}/.nix-profile/etc/profile.d/nix.sh \
-  && nix-env -i direnv \
-  && direnv hook bash >> /home/${USERNAME}/.bashrc
-
-RUN  nix-env -iA nixpkgs.go \
-      && nix-env -iA nixpkgs.hugo \
-      && nix-env -iA nixpkgs.chezmoi \
-      && nix-env -iA nixpkgs.nodejs
+RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0 \
+    && . $HOME/.asdf/asdf.sh \
+    && asdf plugin add hugo \
+    && asdf plugin add direnv \
+    && asdf plugin add chezmoi \
+    && asdf plugin add nodejs \
+    && asdf plugin add yarn \
+    && asdf plugin add bat \
+    && asdf plugin add caddy \
+    && asdf plugin add delta \
+    && asdf plugin add fzf \
+    && asdf plugin add jq \
+    && asdf plugin add mage \
+    && asdf plugin add starship \
+    && asdf plugin add yq \
+    && asdf plugin add fd \
+    && asdf plugin add git-chglog \
+    && asdf plugin add github-cli \
+    && asdf plugin add go-sdk \
+    && asdf plugin add go-getter \
+    && asdf plugin add python\
+    && asdf plugin add git \
+    && asdf plugin add pre-commit \
+    && asdf install
