@@ -24,7 +24,8 @@ config:
   MD046:
     style: consistent
   MD010: false
-
+  MD003:
+    style: atx
   #MD032: false
 # Include a custom rule package
 # customRules:
