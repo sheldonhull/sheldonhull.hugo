@@ -27,6 +27,7 @@ import (
 	// mage:import
 	_ "github.com/sheldonhull/magetools/gotools"
 	"github.com/sheldonhull/magetools/tooling"
+	"github.com/sheldonhull/magetools/pkg/req"
 )
 
 // nodeCommand defaults to yarn, but if npm only is being used then this can be replaced with npm.
@@ -365,11 +366,17 @@ func Post() error {
 // WebMentions refreshes the local webmentions json data file.
 func Webmentions() error {
 	pterm.DefaultSection.Printf("Webmentions refresh")
-	webMentionFile := filepath.Join(datadir, "webmentions.json")
 	if os.Getenv("WEBMENTION_IO_TOKEN") == "" {
 		pterm.Error.Println("WEBMENTION_IO_TOKEN is required to refresh webmentions and was not detected")
+		return fmt.Errorf("WEBMENTION_IO_TOKEN is required to refresh webmentions and was not detected")
 	}
-	return sh.RunV("webmention.io-backup", "-f", webMentionFile, "-t", os.Getenv("WEBMENTION_IO_TOKEN"))
+	webMentionFile := filepath.Join(datadir, "webmentions.json")
+
+	binary, err := req.ResolveBinaryByInstall("webmention.io-backup","github.com/nekr0z/webmention.io-backup@latest")
+	if err != nil {
+		return err
+	}
+	return sh.RunV(binary, "-f", webMentionFile, "-t", os.Getenv("WEBMENTION_IO_TOKEN"))
 }
 
 func Algolia() error {
@@ -382,7 +389,7 @@ func Init() error {
 		pterm.DefaultSection.Println("[CI SYSTEM] Initialize setup")
 	}
 	pterm.DefaultSection.Println("Init()")
-	actioncounter := 5
+	actioncounter := 4
 
 	p, _ := pterm.DefaultProgressbar.
 		WithTotal(actioncounter).
@@ -411,13 +418,6 @@ func Init() error {
 	pterm.Success.Println("✅ hugo mod tidy")
 	p.Increment()
 
-	p.Title = "install webmentions (with version in mod file)"
-	if err := tooling.SilentInstallTools([]string{"github.com/nekr0z/webmention.io-backup"}); err != nil {
-		pterm.Error.Printf("install webmentions tool %q", err)
-		return err
-	}
-	pterm.Success.Println("✅ install webmentions")
-	p.Increment()
 	if !ci.IsCI() {
 		if err := (gittools.Gittools{}.Init()); err != nil {
 			return err
