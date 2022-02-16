@@ -56,7 +56,7 @@
     },
     "editor.autoIndent": "advanced",
   },
-  "go.inferGopath": true,
+  "go.inferGopath": false,
   "staticWebApps.appSubpath": "/",
   "staticWebApps.apiSubpath": "/",
   "staticWebApps.appArtifactSubpath": "build",

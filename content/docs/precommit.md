@@ -32,13 +32,32 @@ A cheatsheet for various pre-commit hooks and things that help with linting, for
 ### Install Precommit
 
 A bit more complicated, depending on the Docker image used and the python tooling installed.
-Assuming you have pip installed, then run `pip install pre-commit`
+Assuming you have pip installed, then run `pip install pre-commit --user`
 
 Here's some examples to get you started.
 
+## Skipping A Precommit Hook
+
+The pre-commit tasks can be overridden on a case by case basis.
+
+The syntax for skipping is simple, just run the task with the name of the hook excluded like this:
+
+      Don't commit to main.....................................................Passed
+      check json5..........................................(no files to check)Skipped
+      go-fmt...................................................................Passed
+      golangci-lint...........................................................Skipped
+      go-test-all..............................................................Failed
+      - hook id: gotest 👈👈👈👈👈👈👈👈  # Use the hook id, not the text of the title
+      - duration: 8.9s
+      - exit code: 2
+
+- To skip the example above: `SKIP='gotest' git commit -am"feat(fancy): my title" -m"- My Message Body" && git pull --rebase && git push`.
+- To skip multiple: `SKIP='gotest,go-fmt' git myaction`.
+
 ## Lefthook
 
-This is a newer toolkit, but as it's written in Go and I'm working with Go, this is my current choice.
+A great tool, but requires more work and not as fully featured as pre-commit.
+In most cases, I'd recommend pre-commit tooling over Lefthook.
 
 If you are just starting out this requires more hands on, but can result in faster checks and commits.
 
