@@ -8,7 +8,7 @@ jobs:
     name: Trigger Issue Labeling
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: damccorm/tag-ur-it@master
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
