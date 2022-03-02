@@ -194,3 +194,4 @@ mage_output_file.go
 !.yarn/plugins
 .pnp.*
 .artifacts
+.localhistory
