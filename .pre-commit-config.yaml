@@ -92,6 +92,8 @@ repos:
     rev: v0.4.0
     hooks:
       - id: markdownlint-cli2
+        types: [markdown]
+
   - repo: local
     hooks:
       - id: gitleaks
