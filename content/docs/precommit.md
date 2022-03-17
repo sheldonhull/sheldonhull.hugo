@@ -54,6 +54,39 @@ The syntax for skipping is simple, just run the task with the name of the hook e
 - To skip the example above: `SKIP='gotest' git commit -am"feat(fancy): my title" -m"- My Message Body" && git pull --rebase && git push`.
 - To skip multiple: `SKIP='gotest,go-fmt' git myaction`.
 
+## Filtering & Triggering Tricks
+
+Let's say you have a document directory and want to trigger a report or doc generation if anything in that changes.
+
+You can do this pretty elegantly with pre-commit.
+
+For example, let's add a mage task to generate docs when something in the package directory for go is updated.
+
+    repos:
+      # for specific updates that should result in an update to matched directories or files.
+      - repo: local
+        hooks:
+          - id: docs:generate
+            name: docs:generate
+            entry: mage docs:generate
+            language: system
+            files: ^pkg/
+            types: [file, go]
+
+The types is pretty useful to not just try and match on file names.
+
+Use `identify-cli` which is a python cli and package included when you install pre-commit.
+
+Run it against a directory or file and you'll get the outputs that pre-commit will accept.
+
+For example, against a markdown file: `identify-cli README.md` and you should get: `["file", "markdown", "non-executable", "text"]`. Any of these (or all) can be put to filter when the hook runs.
+
+Against a Go file: `["file", "go", "non-executable", "text"]`.
+
+{{< admonition type="Info" title="LeftHook" open=false >}}
+
+> Using pre-commit framework heavily, and no longer relying on Lefthook.
+
 ## Lefthook
 
 A great tool, but requires more work and not as fully featured as pre-commit.
@@ -210,3 +243,5 @@ Note that while they filter based on the files being Go related, they run agains
 <!-- links -->
 
 [^lefthook-fullguide]: [lefthook/full_guide.md at master · evilmartians/lefthook · GitHub](https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md#installation)
+
+{{< /admonition >}}
