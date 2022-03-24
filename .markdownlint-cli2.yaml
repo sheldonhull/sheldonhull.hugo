@@ -26,7 +26,9 @@ config:
   MD010: false
   MD003:
     style: atx
-  #MD032: false
+
+  # MD032 is too problematic with front matter 2022-03-24.
+  MD032: false
 # Include a custom rule package
 # customRules:
   # - markdownlint-rule-titlecase
@@ -35,15 +37,15 @@ config:
 fix: true
 
 # Define a custom front matter pattern
-frontMatter: "<head>[^]*<\/head>"
+frontMatter: <head>[^]*</head>
 
 # Define glob expressions to use (only valid at root)
 globs:
-  - "!*bout.md"
+  - '!*bout.md'
 
 # Define glob expressions to ignore
 ignores:
-  - "ignore*.md"
+  - ignore*.md
 
 # Use a plugin to recognize math
 # markdownItPlugins:
@@ -58,5 +60,4 @@ noProgress: true
 
 # Use a specific formatter (only valid at root)
 outputFormatters:
-  -
-    - markdownlint-cli2-formatter-default
+  -   - markdownlint-cli2-formatter-default
