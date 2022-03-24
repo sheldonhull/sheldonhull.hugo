@@ -1,7 +1,7 @@
 {
   "explorer.sortOrder": "modified",
   "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
   // "markdownlint.customRules": [".markdownlint.yaml"],
   "grammarly.userWords": [
