@@ -24,8 +24,8 @@ config:
   MD046:
     style: consistent
   MD010: false
-  MD003:
-    style: atx
+  MD003: false
+    #style: atx
 
   # MD032 is too problematic with front matter 2022-03-24.
   MD032: false

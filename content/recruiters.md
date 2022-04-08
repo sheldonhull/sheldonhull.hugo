@@ -62,12 +62,15 @@ More project and experience related information: [Brag]({{< relref "brag.md" >}}
     - No gambling or mobile gaming companies.
     - No medical/healthcare focused[^med].
     - No banking.[^banking]
+- No Leetcode style interviews.
+    - I'm working full-time and while I am working on this prep, I'm not going to reverse a Binary Tree or such right now. My background was non-typical so LC/Hackerrank puzzles are not a good indication of my abilities currently.[^leetcode]
 
 [^tiers]: [Trimodal Tiers - This is EU specific, but it applies to US-based companies as well](https://blog.pragmaticengineer.com/software-engineering-salaries-in-the-netherlands-and-europe/)
 [^languagesdontmatter]: An engineer with a generalist focus can learn any language and should be able to bring on new hard-skills quickly. However, at the same time nothing replaces time with an ecosystem to build idiomatic and well-written code. As a result, my efforts for more backend effort have been heavily focused on using Go and I'd like to continue that path.
 [^med]: The rate of change and "redtape" is necessarily very slow in the medical field, making it more difficult to adopt modernized CI/CD (not impossible, but difficult). Looking for a company with more capability to move quickly. If the medical company is more technology focused and moving with agility I'd consider that a possible exception.
 [^banking]: I've done financial/mortgage and that's fine, but right now I'm more focused on technology oriented companies, though I'm willing to consider a financial services company if technology is a core value they offer (like Simple Bank did).
 [^digitalnomad]: I'm US based, but plan on doing a little traveling for some stays in EU in a few years. Knowing that the company as an international presence or is setup to handle someone relocating for 6 months would be great.
+[^leetcode]: My Go experience is heavily biased towards SRE/DevOps work, Pulumi Kubernetes SDK, and such so. I have [algorithms-with-go](https://github.com/sheldonhull/algorithmswithgo.com) and have done a steady progression of learning on my blog. I'm not open to Leetcode until I feel I've had sufficient time to prep, so until this page is updated, I'm not interested in doing puzzles.
 
 ## What I'm Looking For In A Company
 
@@ -77,9 +80,10 @@ I assess companies based on the [Pragmatic Engineer Checklist](https://blog.prag
     - Equity is a significant form of the compensation (when public) with a reasonable vesting schedule.
     - Locale adjustment is a negative, but if the compensation is still at a "Tier 3" company, I'll still consider it.
 - Engineering organizations that expect a high level of autonomy.[^ticketfocused]
+    - I'm not great a being a "ticket cruncher", and prefer being able to contribute to the backlog and not just do a checklist.
 - High talent bar & desire for collaboration.[^collaboration]
     - Plus for companies that value demonstrated ability to obtain new hard-skills over expecting in-depth knowledge matching all requirements on day 1.
-- High value placed on continual learning and improvement.
+- High value placed on continual learning and improvement. (*HUGE* deal to me. I believe similar to Doordash's 1% better everyday philosophy)
 - High value on work-life balance.
 - Value placed on contributions back to open source and writing (as I regularly blog and engage open source projects).
 
@@ -107,7 +111,7 @@ See Skills section at the bottom if you want to assess if I'm a possible fit.
 
 **I'd be a good fit for the less common SRE roles that want SRE SWE, aka Site Reliability Engineers with Software Engineering skills[^sreswefocus].**
 
-#### About This Role
+#### About This Role - Site Reliability Engineer
 
 The industry has diluted the terminology and in the vast majority of SRE postings, they are looking for a "DevOps Engineer" style role or Systems Administration with a cloud Focus.
 
@@ -123,13 +127,13 @@ I'm interested in building & running systems, but want to ensure I'm involved in
 {{< admonition type="Info" title="Senior Systems Engineer" open=false >}}
 
 This can be a great fit if looking for a software engineering role to solve system problems.
-This is what AWS titles someone doing a mix of Development and Operational work, expecting a strong software engineer with skills in cloud development & operations.
+This is what AWS titles someone doing a mix of Development and Operational work, expecting a strong software engineer with skills in cloud development & operations. Platform Engineering/Dev Experience is also right up this area and a passion of mine.
 
 {{< /admonition >}}
 
 {{< admonition type="Info" title="Cloud/Platform Engineer" open=false >}}
 
-## Cloud Engineer
+### Cloud Engineer
 
 This can often be 2 types of roles.
 
@@ -143,6 +147,8 @@ If the role is purely focused on infrastructure development using tools such as 
 I believe in a development team owning the majority of the core stack, including infrastructure for the application.
 This would be part of the standard development planning as services were built.
 
+Platform Engineering is something I'm passionate about and believe is a good fit for my skillsets.
+
 {{< /admonition >}}
 
 {{< admonition type="Info" title="Full Stack Engineer" open=false >}}
@@ -155,7 +161,7 @@ I am up for picking up React/Angular as a new hard skill, though I won't have hi
 
 That said, quick hard skill acquisition is the key to a good engineer, so I'm always willing to take on new challenges.
 
-#### About This Role
+#### About This Role - Full STack
 
 Some folks have touched front-end through backend code, and are valued in a small team where many hats are worn.
 
@@ -184,7 +190,7 @@ In my experience, that's a unicorn role, that rarely exists though. 😀
 
 {{< /admonition >}}
 
-#### About This Role
+#### About This Role - DevOps Engineer
 
 This term is standard by companies, but it's often actually considered an anti-pattern by many in the development community.
 
