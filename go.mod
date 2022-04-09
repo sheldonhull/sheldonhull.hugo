@@ -8,13 +8,13 @@ require (
 	github.com/manifoldco/promptui v0.9.0
 	github.com/pelletier/go-toml/v2 v2.0.0-beta.6
 	github.com/pterm/pterm v0.12.37
-	github.com/sheldonhull/magetools v0.0.8
+	github.com/sheldonhull/magetools v0.0.9
 )
 
 require (
 	bitbucket.org/creachadair/shell v0.0.7 // indirect
 	github.com/atomicgo/cursor v0.0.1 // indirect
-	github.com/bitfield/script v0.18.3 // indirect
+	github.com/bitfield/script v0.18.4 // indirect
 	github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e // indirect
 	github.com/dustin/go-humanize v1.0.0 // indirect
 	github.com/gookit/color v1.5.0 // indirect
