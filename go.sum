@@ -62,8 +62,8 @@ github.com/otiai10/curr v0.0.0-20150429015615-9b4961190c95/go.mod h1:9qAhocn7zKJ
 github.com/otiai10/curr v1.0.0/go.mod h1:LskTG5wDwr8Rs+nNQ+1LlxRjAtTZZjtJW4rMXl6j4vs=
 github.com/otiai10/mint v1.3.0/go.mod h1:F5AjcsTsWUqX+Na9fpHb52P8pcRX2CI6A3ctIT91xUo=
 github.com/otiai10/mint v1.3.3/go.mod h1:/yxELlJQ0ufhjUwhshSj+wFjZ78CnZ48/1wtmBH1OTc=
-github.com/pelletier/go-toml/v2 v2.0.0-beta.6 h1:JFNqj2afbbhCqTiyN16D7Tudc/aaDzE2FBDk+VlBQnE=
-github.com/pelletier/go-toml/v2 v2.0.0-beta.6/go.mod h1:ke6xncR3W76Ba8xnVxkrZG0js6Rd2BsQEAYrfgJ6eQA=
+github.com/pelletier/go-toml/v2 v2.0.0-beta.7 h1:L4yIgTPTZBEmqW8Wkzkk59Ee8wsVRVct80l+lZBQuYw=
+github.com/pelletier/go-toml/v2 v2.0.0-beta.7/go.mod h1:r9LEWfGN8R5k0VXJ+0BkIe7MYkRdwZOjgMj2KwnJFUo=
 github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
@@ -83,8 +83,10 @@ github.com/sheldonhull/magetools v0.0.9/go.mod h1:39eo18+TJQ4braC8CAmfaFxEGrP4bq
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.6.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
-github.com/stretchr/testify v1.7.1-0.20210427113832-6241f9ab9942 h1:t0lM6y/M5IiUZyvbBTcngso8SZEZICH7is9B6g/obVU=
-github.com/stretchr/testify v1.7.1-0.20210427113832-6241f9ab9942/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
+github.com/stretchr/testify v1.7.1 h1:5TQK59W5E3v0r2duFAb7P95B6hEeOyEnHRa8MjYSMTY=
+github.com/stretchr/testify v1.7.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
+github.com/sunt-programator/CodeIT v0.2.0 h1:dhmzMOfOX4DAZ9UC83nENH8ktqe8Vuz1yfEVq0wMFe0=
+github.com/sunt-programator/CodeIT v0.2.0/go.mod h1:2SvxhSLzl0zKv9OynuFqwv7RWwi2ADghwJlcy93EwgM=
 github.com/xo/terminfo v0.0.0-20210125001918-ca9a967f8778 h1:QldyIu/L63oPpyvQmHgvgickp1Yw510KJOqX7H24mg8=
 github.com/xo/terminfo v0.0.0-20210125001918-ca9a967f8778/go.mod h1:2MuV+tbUrU1zIOPMxZ5EncGwgmMJsa+9ucAQZXxsObs=
 github.com/ztrue/tracerr v0.3.0 h1:lDi6EgEYhPYPnKcjsYzmWw4EkFEoA/gfe+I9Y5f+h6Y=
