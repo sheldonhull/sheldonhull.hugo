@@ -106,21 +106,20 @@ h2 {
 <div class="row">
   <div class="column">
   :(fas fa-angle-right fa-fw): Go<br>
-  :(fas fa-angle-right fa-fw): Containerization/Docker<br>
+  :(fas fa-angle-right fa-fw): Containerization/Docker/Kubernetes<br>
   :(fas fa-angle-right fa-fw): AWS<br>
   :(fas fa-angle-right fa-fw): PowerShell (CrossPlatform), .NET Framework<br>
-  :(fas fa-angle-right fa-fw): SQL (Dev, Design & Operations)<br>
-  :(fas fa-angle-right fa-fw): Infrastructure As Code<br>
+    :(fas fa-angle-right fa-fw): Infrastructure As Code<br>
   :(fas fa-angle-right fa-fw): GitHub/Actions/CI/Azure Pipelines<br>
   :(fas fa-angle-right fa-fw): Technical Docs<br>
-  :(fas fa-angle-right fa-fw): DevOps<br>
+  :(fas fa-angle-right fa-fw): CI/CD/Automation<br>
   :(fas fa-angle-right fa-fw): Observability<br>
+  :(fas fa-angle-right fa-fw): SQL (Dev, Design & Operations)<br>
   :(fas fa-angle-right fa-fw): Windows<br>
   </div>
   <div class="column">
   :(fas fa-angle-right fa-fw): Azure<br>
-  :(fas fa-angle-right fa-fw): Linux<br>
-  :(fas fa-angle-right fa-fw): C#/.NET<br>
+    :(fas fa-angle-right fa-fw): C#/.NET<br>
   :(fas fa-angle-right fa-fw): Serverless<br>
   :(fas fa-angle-right fa-fw): Python<br>
   </div>
@@ -141,19 +140,20 @@ h2 {
 
 :(fas fa-calendar-alt fa-fw): March 2021 - Current :(fas fa-grip-lines-vertical fa-fw): :(fas fa-lightbulb fa-fw): Thycotic :(fas fa-grip-lines-vertical fa-fw): :(fas fa-user-tag fa-fw): Senior Software Engineer (AWS/Go)
 
-⚡ Improved SLDC applying DevOps practices towards trunk based
-development and infra-as-code.<br>
+⚡ Built Helm and Pulumi stack for Kubernetes to provide continuous deployment, resulting in < 15 mins from PR merge to app live in Kubernetes.<br>
+⚡ Wrote Go task automation for team automating developer tooling setup (1 command to bootstrap), automatic updates of dependencies, security checks, configuration, go builds, container publishing and more.<br>
+⚡ Improved SLDC applying DevOps practices towards trunk based development and infra-as-code.<br>
+⚡ Did the majority of monorepo migration work and tooling to support single repository workflow for Angular & Go developers to simplify collaboration and development work.<br>
 ⚡ Supported PR Reviews and oversight of code from offshore team programming primarily in Go.<br>
-⚡ Go: added structured logging, APM integration to support observability<br>
+⚡ Go: added structured logging, APM integration to support observability, and codified health monitors and synthethic checks with Pulumi Datadog SDK<br>
 ⚡ AWS Architecture redesign for ECS Fargate container driven support
 of Go services, as well as supporting Docker configuration.<br>
-⚡ Go & Task tooling to support developer workflow improvements for
-pre-commit, building, and other tooling.<br>
+⚡ Go & Task tooling to support developer workflow improvements for pre-commit, building, and other tooling.<br>
 ⚡ Investigative work for Kubernetes and usage of microservices using Dapr.<br>
 
 *Things I Used*
 
-Go, AWS, Terraform, Terragrunt, Bash, Kubernetes, Dapr (Distributed Application Runtime) for Microservices.
+Go, AWS/Azure, Pulumi, Kubernetes, Terraform, Terragrunt, Bash, Kubernetes, Dapr (Distributed Application Runtime) for Microservices. Datadog
 
 *Public Artifacts*
 
