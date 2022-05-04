@@ -17,17 +17,22 @@ series: ['pulumi']
 
 ## What Pulumi Is
 
-- Pulumi is like a muscle car. Great if you want full control, power, and flexibility.
+- Pulumi is like a muscle car.
+Great if you want full control, power, and flexibility.
 - Pulumi is fast.
-- Has actual loops. Sorry `HCL`... Your loops are just confusing.[^2]
+- Has actual loops.
+Sorry `HCL`... Your loops are just confusing.[^2]
 
 ## What Pulumi Is Not
 
-- Pulumi is Not a minivan. `HCL` is something you _have_ to write, but if you like coding, you don't _want_ to write. It doesn't have the same ease/polish as `HCL`.
-- You will be traveling a gravel road in your minivan. It can handle it. However, there are things (just like `HCL` had/has over time) you'll run into that don't make sense or are bugs, but since it's younger than `HCL` there might not be immediate fixes.
+- Pulumi is like a rally car.
+You will be traveling a gravel road that might result in a few bumps and potholes.
+It can handle it.
+However, there are things (just like `HCL` had/has over time) you'll run into that don't make sense or are bugs, but since it's younger there might not be immediate fixes.
 
 ## When Would I Choose Terraform Over Pulumi?
 
+- If you prefer minivans over rally cars. (j/k)
 - If I want to leverage a prebuilt complex module, like those from the Terraform registry made by CloudPosse, Terraform could provide a better value for the time.
     - I hope that Pulumi eventually has a full "Crosswalk" support where folks begin sharing prebuilt stacks with best practices, but I feel it's an uphill road as a latecomer from Terraform.
 - When there is a module that provides the functionality you want, it might make sense to use it over rebuilding in Pulumi.
