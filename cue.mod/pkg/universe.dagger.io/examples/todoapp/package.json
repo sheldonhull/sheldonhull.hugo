@@ -9,8 +9,8 @@
     "@testing-library/user-event": "14.1.1",
     "gh-pages": "3.2.3",
     "nanoid": "3.3.3",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
     "react-scripts": "5.0.1"
   },
   "scripts": {
