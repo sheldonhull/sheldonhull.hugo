@@ -6,7 +6,7 @@ require (
 	github.com/gobeam/stringy v0.0.5
 	github.com/magefile/mage v1.13.0
 	github.com/manifoldco/promptui v0.9.0
-	github.com/pelletier/go-toml/v2 v2.0.0-beta.8
+	github.com/pelletier/go-toml/v2 v2.0.1
 	github.com/pterm/pterm v0.12.41
 	github.com/sheldonhull/magetools v0.0.10
 )
