@@ -26,6 +26,6 @@
   "homepage": "https://github.com/sheldonhull/sheldonhull.hugo#readme",
   "description": "blog tasks and packages. Built with hugo, but I do use some other tooling",
   "dependencies": {
-    "dotenv": "16.0.0"
+    "dotenv": "16.0.1"
   }
 }
