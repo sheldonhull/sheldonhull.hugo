@@ -37,7 +37,7 @@ ENV DOCKER_BUILDKIT=1
 ENV GOPATH=/home/${USERNAME}/go
 ENV PATH=/home/${USERNAME}/go/bin:$PATH
 ENV SHELL /usr/bin/zsh
-
+ENV MAGEFILE_HASHFAST=1
 COPY files/install-asdf.sh /tmp/install-asdf.sh
 COPY .tool-versions /home/${USERNAME}/.tool-versions
 RUN bash /tmp/install-asdf.sh
