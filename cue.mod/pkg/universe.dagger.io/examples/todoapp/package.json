@@ -5,7 +5,7 @@
   "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "5.16.4",
-    "@testing-library/react": "13.2.0",
+    "@testing-library/react": "13.3.0",
     "@testing-library/user-event": "14.2.0",
     "gh-pages": "4.0.0",
     "nanoid": "3.3.4",
