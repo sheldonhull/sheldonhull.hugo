@@ -143,17 +143,4 @@
   },
   "explorerExclude.backup": null,
   "peacock.color": "#a2e019",
-  "workbench.colorCustomizations": {
-    "sash.hoverBorder": "#b6ea42",
-    "statusBar.background": "#a2e019",
-    "statusBar.foreground": "#15202b",
-    "statusBarItem.hoverBackground": "#81b214",
-    "statusBarItem.remoteBackground": "#a2e019",
-    "statusBarItem.remoteForeground": "#15202b",
-    "tab.activeBorder": "#b6ea42",
-    "titleBar.activeBackground": "#a2e019",
-    "titleBar.activeForeground": "#15202b",
-    "titleBar.inactiveBackground": "#a2e01999",
-    "titleBar.inactiveForeground": "#15202b99"
-  },
 }

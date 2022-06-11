@@ -1,24 +1,19 @@
 #!/usr/env/bin bash
-if ! command -v asdf &> /dev/null
-then
+if ! command -v asdf &>/dev/null; then
     echo "ℹ️ asdf command not detected"
     git clone https://github.com/asdf-vm/asdf.git "$HOME/.asdf" --branch v0.9.0
-    source  "$HOME/.asdf/asdf.sh"
+    source "$HOME/.asdf/asdf.sh"
     asdf update
     echo "ℹ️ asdf installed: $(asdf version)"
-    echo "source \"$HOME/.asdf/asdf.sh\"" >> "${HOME}/.bashrc"
+    echo "source \"$HOME/.asdf/asdf.sh\"" >>"${HOME}/.bashrc"
     mkdir -p "$HOME/.config/fish"
-    echo "source \"$HOME/.asdf/asdf.sh\"" >> "${HOME}/.config/fish/config.fish"
+    echo "source \"$HOME/.asdf/asdf.sh\"" >>"${HOME}/.config/fish/config.fish"
 
 else
-    sourc "$HOME/.asdf/asdf.sh"
+    source "$HOME/.asdf/asdf.sh"
     asdf update
     echo "ℹ️ asdf installed: $(asdf version)"
 fi
-
-
-# echo '. $HOME/.asdf/asdf.sh' >> ${HOME}/.zshrc
-# echo '. $HOME/.asdf/asdf.sh' >> ${HOME}/.zshrc
 
 export ASDF_DATA_DIR="$HOME/.asdf"
 if [[ -e "$HOME/.asdf/asdf.sh" ]]; then
@@ -32,7 +27,5 @@ if [[ -e "$HOME/.asdf/asdf.sh" ]]; then
         asdf install "$PLUGIN" "$VERSION"
         # enable running tool outside of monorepo directory
         asdf global "$PLUGIN" "$VERSION"
-    done < "$HOME/.tool-versions"
+    done <"$HOME/.tool-versions"
 fi
-
-# done < "${DIR}/.tool-versions"

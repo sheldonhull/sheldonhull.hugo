@@ -1,5 +1,5 @@
 hugo 0.91.2
-direnv 2.30.3
+direnv 2.31.0
 chezmoi 2.9.5
 nodejs 17.3.0
 yarn 1.22.17
@@ -8,7 +8,7 @@ caddy 2.4.6
 delta 0.11.3
 fzf 0.29.0
 jq 1.6
-mage 1.12.1
+mage 1.13.0
 starship 1.1.1
 yq 4.9.8
 fd 8.3.1
