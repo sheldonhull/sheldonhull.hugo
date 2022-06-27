@@ -26,8 +26,8 @@ import (
 
 	// mage:import
 	_ "github.com/sheldonhull/magetools/gotools"
-	"github.com/sheldonhull/magetools/tooling"
 	"github.com/sheldonhull/magetools/pkg/req"
+	"github.com/sheldonhull/magetools/tooling"
 )
 
 // nodeCommand defaults to yarn, but if npm only is being used then this can be replaced with npm.
@@ -372,7 +372,7 @@ func Webmentions() error {
 	}
 	webMentionFile := filepath.Join(datadir, "webmentions.json")
 
-	binary, err := req.ResolveBinaryByInstall("webmention.io-backup","github.com/nekr0z/webmention.io-backup@latest")
+	binary, err := req.ResolveBinaryByInstall("webmention.io-backup", "github.com/nekr0z/webmention.io-backup@latest")
 	if err != nil {
 		return err
 	}
@@ -434,10 +434,12 @@ func Init() error {
 
 func (Js) Init() error {
 
-	if err := sh.Run("npm","install","--global","yarn","--force"); err != nil {
+	if err := sh.Run("npm", "install", "--global", "yarn", "--force"); err != nil {
 		return err
 	}
-
+	if err := sh.Run(yarn, "set", "version", "berry"); err != nil {
+		return err
+	}
 	if err := yarn("install", "--silent"); err != nil {
 		pterm.Error.Println(err)
 		return err
