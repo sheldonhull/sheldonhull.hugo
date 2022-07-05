@@ -7,17 +7,20 @@ require (
 	github.com/magefile/mage v1.13.0
 	github.com/manifoldco/promptui v0.9.0
 	github.com/pelletier/go-toml/v2 v2.0.2
-	github.com/pterm/pterm v0.12.41
+	github.com/pterm/pterm v0.12.42
 	github.com/sheldonhull/magetools v0.0.10
 )
 
 require (
+	atomicgo.dev/cursor v0.1.1 // indirect
+	atomicgo.dev/keyboard v0.2.8 // indirect
 	bitbucket.org/creachadair/shell v0.0.7 // indirect
-	github.com/atomicgo/cursor v0.0.1 // indirect
 	github.com/bitfield/script v0.18.4 // indirect
 	github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e // indirect
+	github.com/containerd/console v1.0.3 // indirect
 	github.com/dustin/go-humanize v1.0.0 // indirect
 	github.com/gookit/color v1.5.0 // indirect
+	github.com/lithammer/fuzzysearch v1.1.5 // indirect
 	github.com/logrusorgru/aurora v2.0.3+incompatible // indirect
 	github.com/mattn/go-runewidth v0.0.13 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
@@ -26,6 +29,7 @@ require (
 	golang.org/x/mod v0.5.1 // indirect
 	golang.org/x/sys v0.0.0-20220319134239-a9b59b0215f8 // indirect
 	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
+	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
 )
 
