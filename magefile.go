@@ -437,9 +437,9 @@ func (Js) Init() error {
 	if err := sh.Run("npm", "install", "--global", "yarn", "--force"); err != nil {
 		return err
 	}
-	if err := sh.Run(yarn, "set", "version", "berry"); err != nil {
-		return err
-	}
+	// if err := sh.Run("yarn", "set", "version", "berry"); err != nil {
+	// 	return err
+	// }
 	if err := yarn("install", "--silent"); err != nil {
 		pterm.Error.Println(err)
 		return err
