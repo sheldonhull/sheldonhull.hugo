@@ -7,7 +7,7 @@ require (
 	github.com/magefile/mage v1.13.0
 	github.com/manifoldco/promptui v0.9.0
 	github.com/pelletier/go-toml/v2 v2.0.2
-	github.com/pterm/pterm v0.12.42
+	github.com/pterm/pterm v0.12.45
 	github.com/sheldonhull/magetools v0.0.10
 )
 
