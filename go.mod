@@ -1,6 +1,6 @@
 module github.com/sheldonhull/sheldonhull.hugo
 
-go 1.17
+go 1.19
 
 require (
 	github.com/gobeam/stringy v0.0.5

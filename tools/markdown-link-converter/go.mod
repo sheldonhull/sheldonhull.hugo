@@ -1,6 +1,6 @@
 module github.com/sheldonhull/sheldonhull.hugo/tools/markdown-link-converter
 
-go 1.18
+go 1.19
 
 require (
 	github.com/mvdan/xurls v1.1.0 // indirect
