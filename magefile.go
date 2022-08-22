@@ -501,6 +501,20 @@ func (Devcontainer) Build() error {
 	return nil
 }
 
+// Build builds a docker container for the hugo project.
+func Build() error {
+
+	if err := sh.Run("docker", "build", "--pull", "--rm", "-f", ".devcontainer/Dockerfile", "-t", "sheldonhullhugo:latest", ".devcontainer"); err != nil {
+		pterm.Error.Printfln("🚫 docker devcontainer %q", err)
+		return err
+	}
+	if err := sh.Run("docker", "run", "--rm", "-it", "sheldonhullhugo:latest"); err != nil {
+		pterm.Error.Printfln("🚫 docker run %q", err)
+		return err
+	}
+
+}
+
 // // 💾 Commit will run git-cz to guide through commit prompt with -A.
 // func (Git) Commit() error {
 // 	pterm.DefaultSection.Printf("git commit")

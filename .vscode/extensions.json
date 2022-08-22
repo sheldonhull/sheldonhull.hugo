@@ -11,7 +11,8 @@
         "tomasvergara.vscode-fontawesome-gallery",
         "fabiospampinato.vscode-optimize-images",
         "pflannery.vscode-versionlens",
-        "arrterian.nix-env-selector"
+        "arrterian.nix-env-selector",
+        "eliostruyf.vscode-front-matter"
     ],
     // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
     "unwantedRecommendations": []
