@@ -1,7 +1,9 @@
 {
   "explorer.sortOrder": "modified",
   "[markdown]": {
-    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 26
   },
   // "markdownlint.customRules": [".markdownlint.yaml"],
   "grammarly.userWords": [
@@ -142,5 +144,7 @@
     "**/archive": false
   },
   "explorerExclude.backup": null,
-  "peacock.color": "#a2e019",
+  "frontMatter.dashboard.openOnStart": true,
+  "frontMatter.framework.startCommand": "hugo serve  --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc --cleanDestinationDir",
+  "frontMatter.preview.host": "http://localhost:1313",
 }
