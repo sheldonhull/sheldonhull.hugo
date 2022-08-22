@@ -512,7 +512,7 @@ func Build() error {
 		pterm.Error.Printfln("🚫 docker run %q", err)
 		return err
 	}
-
+	return nil
 }
 
 // // 💾 Commit will run git-cz to guide through commit prompt with -A.

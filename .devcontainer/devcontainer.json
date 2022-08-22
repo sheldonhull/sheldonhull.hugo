@@ -6,7 +6,10 @@
     "dockerfile": "Dockerfile",
     // Update 'VARIANT' to pick an Ubuntu version: focal, bionic
     "args": {
-      "VARIANT": "focal"
+      "VARIANT": "focal",
+      "GO_VERSION": "1.19",
+      "GOPATH": "/home/codespace/go",
+      "GOROOT": "/usr/local/go"
     }
   },
   // Set *default* container specific settings.json values on container create.
@@ -33,28 +36,28 @@
   },
   // Add the IDs of extensions you want installed when the container is created.
   "extensions": [
-	"bungcip.better-toml",
-	"davidanson.vscode-markdownlint",
-	"budparr.language-hugo-vscode",
-	"akmittal.hugofy",
-	"darkriszty.markdown-table-prettify",
-	"yzhang.markdown-all-in-one",
-	"vivaxy.vscode-conventional-commits",
-	"skn0tt.markdown-link-expander",
-	"mhutchie.git-graph",
-	"stylelint.vscode-stylelint",
-	"sibiraj-s.vscode-scss-formatter",
-	"znck.grammarly",
-	"ericadamski.carbon-now-sh",
-	"wmaurer.change-case",
-	"foxundermoon.shell-format",
-	"capybara1.vscode-url-title-resolver",
-	"lukapetrovic.image-resizer",
-	"fabiospampinato.vscode-optimize-images",
-	"pflannery.vscode-versionlens",
-	"arrterian.nix-env-selector",
-	"eliostruyf.vscode-front-matter"
-],
+    "bungcip.better-toml",
+    "davidanson.vscode-markdownlint",
+    "budparr.language-hugo-vscode",
+    "akmittal.hugofy",
+    "darkriszty.markdown-table-prettify",
+    "yzhang.markdown-all-in-one",
+    "vivaxy.vscode-conventional-commits",
+    "skn0tt.markdown-link-expander",
+    "mhutchie.git-graph",
+    "stylelint.vscode-stylelint",
+    "sibiraj-s.vscode-scss-formatter",
+    "znck.grammarly",
+    "ericadamski.carbon-now-sh",
+    "wmaurer.change-case",
+    "foxundermoon.shell-format",
+    "capybara1.vscode-url-title-resolver",
+    "lukapetrovic.image-resizer",
+    "fabiospampinato.vscode-optimize-images",
+    "pflannery.vscode-versionlens",
+    "arrterian.nix-env-selector",
+    "eliostruyf.vscode-front-matter"
+  ],
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [
     1313
