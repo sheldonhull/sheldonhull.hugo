@@ -56,7 +56,7 @@ ENV SHELL /usr/bin/zsh
 ENV MAGEFILE_HASHFAST=1
 
 RUN go install github.com/magefile/mage@latest && go install github.com/charmbracelet/glow@latest
-RUN python3 -m pip install --upgrade pip --user && python3 -m pip install pre-commit --user
+# RUN python3 -m pip install --upgrade pip --user && python3 -m pip install pre-commit --user
 
 
 COPY files/install-asdf.sh /tmp/install-asdf.sh
