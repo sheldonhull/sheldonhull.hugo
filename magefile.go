@@ -433,7 +433,6 @@ func Init() error {
 }
 
 func (Js) Init() error {
-
 	if err := sh.Run("npm", "install", "--global", "yarn", "--force"); err != nil {
 		return err
 	}
@@ -503,8 +502,7 @@ func (Devcontainer) Build() error {
 
 // Build builds a docker container for the hugo project.
 func Build() error {
-
-	if err := sh.Run("docker", "build", "--pull", "--rm", "-f", ".devcontainer/Dockerfile", "-t", "sheldonhullhugo:latest", ".devcontainer"); err != nil {
+	if err := sh.Run("docker", "buildx", "build", "-f", ".devcontainer/Dockerfile", "-t", "sheldonhullhugo:latest", ".devcontainer"); err != nil {
 		pterm.Error.Printfln("🚫 docker devcontainer %q", err)
 		return err
 	}

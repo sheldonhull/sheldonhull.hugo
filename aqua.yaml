@@ -1,0 +1,11 @@
+---
+# aqua - Declarative CLI Version Manager
+# https://aquaproj.github.io/
+registries:
+  - type: standard
+    ref: v3.64.0 # renovate: depName=aquaproj/aqua-registry
+packages:
+  - name: gohugoio/hugo@v0.104.2
+  - name: dagger/dagger
+    version: v0.2.35
+  - name: golang/go@go1.19.2

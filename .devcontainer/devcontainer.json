@@ -78,5 +78,19 @@
     "ALGOLIA_INDEX_NAME": "sheldonhull.com",
     "ALGOLIA_INDEX_FILE": "public/algolia.json",
     "WEBMENTION_IO_TOKEN": "${localEnv:WEBMENTION_IO_TOKEN}"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/go:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/hugo:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/common-utils:1": {
+      "version": "latest"
+    }
   }
 }

@@ -1,5 +1,4 @@
-ARG VARIANT="focal"
-FROM mcr.microsoft.com/vscode/devcontainers/universal:1-${VARIANT} as BASE
+FROM mcr.microsoft.com/devcontainers/base:debian as BASE
 ARG USERNAME=codespace
 ARG USE_MOBY="true"
 ARG ENABLE_NONROOT_DOCKER="true"
@@ -39,7 +38,7 @@ RUN  apt-get -yqq update && apt-get -yqq install --no-install-recommends coreuti
 # These will require root user level access, so run before switching to user scope
 COPY library-scripts/*.sh /tmp/library-scripts/
 RUN apt-get -yqq update \
-  && /bin/bash /tmp/library-scripts/docker-in-docker-debian.sh "${ENABLE_NONROOT_DOCKER}" "${USERNAME}" "${USE_MOBY}" "${DOCKER_VERSION}"  \
+  # && /bin/bash /tmp/library-scripts/docker-in-docker-debian.sh "${ENABLE_NONROOT_DOCKER}" "${USERNAME}" "${USE_MOBY}" "${DOCKER_VERSION}"  \
   && /bin/bash /tmp/library-scripts/go-updater.sh \
   && apt-get -yqq autoremove && apt-get -yqq clean && rm -rf /var/lib/apt/lists/* /tmp/library-scripts/
 
