@@ -1,28 +1,51 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.154.2/containers/ubuntu
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.241.1/containers/kubernetes-helm-minikube
 {
-  "name": "sheldonhull.hugo",
+  "name": "devcontainer",
+  "dockerFile": "Dockerfile",
   "build": {
-    "dockerfile": "Dockerfile",
-    // Update 'VARIANT' to pick an Ubuntu version: focal, bionic
     "args": {
-      "VARIANT": "focal",
-      "GO_VERSION": "1.19",
-      "GOPATH": "/home/codespace/go",
-      "GOROOT": "/usr/local/go"
+      "USERNAME": "vscode"
     }
   },
-  // Set *default* container specific settings.json values on container create.
+  "runArgs": [
+    "--cap-add=SYS_PTRACE",
+    "--security-opt",
+    "seccomp=unconfined",
+    "--privileged",
+    "--init"
+  ],
+  "mounts": [
+    "source=minikube-config,target=/home/vscode/.minikube,type=volume",
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.kube,target=/home/vscode/.kube/,type=bind,consistency=cached", // support for SSH keys
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh/,type=bind,consistency=cached", // support for SSH keys
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.envrc,target=/home/vscode/.envrc,type=bind,consistency=cached", // envrc from home to allow direnv to mount credentials
+    // cache gopath directory
+    "source=go-path,target=/home/vscode/go/,type=volume",
+    // caching for zsh history, zoxide and others, allowing it to persist after rebuild.
+    "source=zshcache,target=/home/vscode/.zsh.cache/,type=volume"
+  ],
+  "overrideCommand": false,
+  // Configure tool-specific properties.
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      // Add the IDs of extensions you want installed when the container is created.
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "spmeesseman.vscode-taskexplorer",
+        "ms-kubernetes-tools.kind-vscode",
+        "trunk.io",
+        "GitHub.vscode-pull-request-github",
+        "yzhang.markdown-all-in-one",
+        "sheldon-hull.extension-pack-go",
+        "zvik.command-runner"
+      ]
+    }
+  },
   "settings": {
     "terminal.integrated.profiles.linux": {
-      "pwsh": {
-        "args": [
-          // "--login",
-          "-NoLogo"
-        ],
-        "icon": "terminal-powershell",
-        "path": "pwsh"
-      },
       "zsh-login": {
         "args": [
           "-l"
@@ -31,66 +54,35 @@
         "path": "zsh"
       }
     },
-    "terminal.integrated.defaultProfile.linux": "zsh-login",
-    "explorer.sortOrder": "modified"
+    "terminal.integrated.defaultProfile.linux": "zsh-login"
   },
-  // Add the IDs of extensions you want installed when the container is created.
-  "extensions": [
-    "bungcip.better-toml",
-    "davidanson.vscode-markdownlint",
-    "budparr.language-hugo-vscode",
-    "akmittal.hugofy",
-    "darkriszty.markdown-table-prettify",
-    "yzhang.markdown-all-in-one",
-    "vivaxy.vscode-conventional-commits",
-    "skn0tt.markdown-link-expander",
-    "mhutchie.git-graph",
-    "stylelint.vscode-stylelint",
-    "sibiraj-s.vscode-scss-formatter",
-    "znck.grammarly",
-    "ericadamski.carbon-now-sh",
-    "wmaurer.change-case",
-    "foxundermoon.shell-format",
-    "capybara1.vscode-url-title-resolver",
-    "lukapetrovic.image-resizer",
-    "fabiospampinato.vscode-optimize-images",
-    "pflannery.vscode-versionlens",
-    "arrterian.nix-env-selector",
-    "eliostruyf.vscode-front-matter"
-  ],
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [
-    1313
-  ],
+  // "forwardPorts": [],
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": [
-    //"sh -c \"$(curl --location https: //taskfile.dev/install.sh)\" -- -d -b /usr/local/bin",
-    //"sudo pwsh -c ./build -task setup",
-    // "task init"
-    "mage init || echo 'could not run mage init in postCreateCommand'; source /home/codespace/.asdf/asdf.sh; asdf direnv setup --version latest --shell zsh || echo 'Failed to run asdf direnv setup, might need to do this manually';"
-  ]
-  // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-  ,
-  "remoteUser": "codespace",
+  // "postCreateCommand": "",
+  // Use 'postStartCommand' to run commands after the container is created like starting minikube.
+  "postStartCommand": "sudo chown -R vscode /home/vscode/go/ && export GOPATH=/home/vscode/go/ && export PATH=\"${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH\" && echo '🔨 aqua tooling download' && aqua install && echo '✅ aqua install complete' && echo '🔨 running go mod download' && go mod download && echo '✅ go mod download finished' && echo '🔨 downloading build tooling dependencies' && mage && echo '✅ build tooling dependencies complete'",
+  // Minikube does not like running as root, so use a non-root user.
+  "remoteUser": "vscode",
   "containerEnv": {
-    "ALGOLIA_APP_ID": "04HSGXXQD5",
-    "ALGOLIA_ADMIN_KEY": "${localEnv:ALGOLIA_ADMIN_KEY}",
-    "ALGOLIA_INDEX_NAME": "sheldonhull.com",
-    "ALGOLIA_INDEX_FILE": "public/algolia.json",
-    "WEBMENTION_IO_TOKEN": "${localEnv:WEBMENTION_IO_TOKEN}"
+    "GITHUB_OATH_TOKEN": "${env:GITHUB_OATH_TOKEN}",
+    "GOPATH": "/home/vscode/go/",
+    "PATH": "/home/vscode/.local/share/aquaproj-aqua/bin:${containerEnv:PATH}"
+  },
+  "initializeCommand": [
+    ".devcontainer/init"
+  ],
+  "hostRequirements": {
+    "storage": "32gb"
   },
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:1": {
-      "version": "latest"
-    },
-    "ghcr.io/devcontainers/features/go:1": {
-      "version": "latest"
-    },
-    "ghcr.io/devcontainers/features/hugo:1": {
-      "version": "latest"
-    },
     "ghcr.io/devcontainers/features/common-utils:1": {
-      "version": "latest"
+      "version": "latest",
+      "username": "vscode"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {
+      "version": "latest",
+      "dockerDashComposeVersion": "v2"
     }
   }
 }
