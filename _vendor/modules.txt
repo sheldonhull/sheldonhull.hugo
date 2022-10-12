@@ -1,2 +1,2 @@
-# github.com/dnb-org/debug v1.3.0
-# github.com/sunt-programator/CodeIT v0.1.2
+# github.com/davidsneighbour/hugo-debug v1.5.20
+# github.com/dillonzq/LoveIt v0.2.11

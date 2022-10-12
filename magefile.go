@@ -86,7 +86,7 @@ var toolList = []string{ //nolint:gochecknoglobals // ok to be global for toolin
 	// "github.com/golangci/golangci-lint/cmd/golangci-lint@master",
 	// "github.com/dustinkirkland/golang-petname/cmd/petname@master",
 	"github.com/nekr0z/webmention.io-backup@latest",
-	"github.com/dnb-org/debug@latest",
+	// "github.com/dnb-org/debug@latest",
 	// "github.com/sunt-programator/CodeIT@latest",
 	"github.com/magefile/mage@latest",
 	"github.com/iwittkau/mage-select",

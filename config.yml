@@ -491,11 +491,14 @@ RSSSection:
 module:
   imports:
     # Debug Helper for Layouts: https://github.com/kaushalmodi/hugo-debugprint
-    - path: github.com/dnb-org/debug
+    # - path: github.com/dnb-org/debug
+    - path: github.com/davidsneighbour/hugo-debug
       # github.com/kaushalmodi/hugo-debugprint
       # github.com/dnb-hugo/debugprint
       # ignoreConfig: true
       # ignoreImports: true
       disable: false
-    - path: github.com/sunt-programator/CodeIT
+    # - path: github.com/sunt-programator/CodeIT
+    #   disable: false
+    - path: github.com/dillonzq/LoveIt
       disable: false
