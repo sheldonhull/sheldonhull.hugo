@@ -437,3 +437,21 @@ creds=$(echo $configDecoded | jq .auths.${registry}.auth --raw-output)
 echo -e "👉 username:password: $( sttr base64-decode $creds )"
 ```
 
+## GitHub CLI
+
+View the logs of the last run (or toggle to error logs with the switch).
+
+```shell
+gh run view --log $(gh run list -L1 --json 'databaseId' --jq '.[].DatabaseId')
+```
+
+This can be chained together with other commands to quickly iterate on testing.
+When appropriate, you might avoid this by running [act](https://github.com/nektos/act) but I've had limited success with it due to various restrictions.
+
+```shell
+git commit -am 'ci: get github release working' && \
+  git push && \
+  gh workflow run release && \
+  sleep 5 && \
+  gh run watch -i1 || gh run view --log --job $(gh run list -L1 --json 'workflowDatabaseId' --jq '.[].workflowDatabaseId')
+```

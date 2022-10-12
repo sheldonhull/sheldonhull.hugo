@@ -13,6 +13,7 @@ import (
 	"time"
 
 	// mg contains helpful utility functions, like Deps.
+	"github.com/bitfield/script"
 	"github.com/gobeam/stringy"
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
@@ -419,9 +420,10 @@ func Init() error {
 	p.Increment()
 
 	if !ci.IsCI() {
-		if err := (gittools.Gittools{}.Init()); err != nil {
-			return err
-		}
+		pterm.DefaultSection.Printfln("Local Dev Tools")
+		mg.Deps(
+			(InstallTrunk),
+		)
 	}
 
 	if err := (Js{}.Init()); err != nil {
@@ -536,5 +538,14 @@ func (Hugo) Clean() error {
 		return err
 	}
 	pterm.Success.Println("✅ hugo mod clean")
+	return nil
+}
+
+// InstallTrunk installs trunk.io tooling.
+func InstallTrunk() error {
+	_, err := script.Exec("curl https://get.trunk.io -fsSL").Exec("bash").Stdout()
+	if err != nil {
+		return err
+	}
 	return nil
 }

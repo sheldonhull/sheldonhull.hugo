@@ -16,15 +16,20 @@ cli:
 plugins:
   sources:
     - id: trunk
-      ref: v0.0.4
+      ref: v0.0.5
       uri: https://github.com/trunk-io/plugins
 lint:
   enabled:
-    - actionlint@1.6.20
+    - black@22.10.0
+    - cue-fmt@0.4.3
+    - flake8@5.0.4
+    - isort@5.10.1
+    - svgo@2.8.0
+    - actionlint@1.6.21
     - git-diff-check@SYSTEM
-    - gitleaks@8.13.0
+    - gitleaks@8.14.1
     - gofmt@1.16.7
-    - golangci-lint@1.49.0
+    - golangci-lint@1.50.0
     - hadolint@2.10.0
     - markdownlint@0.32.2
     - prettier@2.7.1
@@ -38,7 +43,7 @@ lint:
   ignore:
     - linters: [ALL]
       paths:
-        - .devcontainer/library-scripts
+        # - .devcontainer/library-scripts
         - .devcontainer/init
         - _vendor/*
     # - linters: [markdownlint]
