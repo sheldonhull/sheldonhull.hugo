@@ -23,9 +23,6 @@ import (
 	"github.com/sheldonhull/magetools/ci"
 
 	// mage:import
-	"github.com/sheldonhull/magetools/gittools"
-
-	// mage:import
 	_ "github.com/sheldonhull/magetools/gotools"
 	"github.com/sheldonhull/magetools/pkg/req"
 	"github.com/sheldonhull/magetools/tooling"
