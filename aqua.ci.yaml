@@ -7,4 +7,3 @@ registries:
 packages:
   - name: magefile/mage@v1.14.0
   - name: gohugoio/hugo@v0.104.3
-  - name: golang/go@go1.18.7
