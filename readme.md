@@ -1,6 +1,6 @@
 # sheldonhull.hugo
 
-<img width="200" height="200" src="static/images/sheldonhull_gopher_avatar.png" alt="Sheldon Hull Gopher Avatar" />
+<img width="200" height="200" src="static/images/sheldon-avatar.jpg" alt="Sheldon Hull Gopher Avatar" />
 
 ## Overview
 
@@ -35,7 +35,7 @@ Why?
 - Secrets for Algolia Admin key are in Github Secrets with repo and loaded as well via devcontainer. Set this variable in your local environment if running only locally. See the `Taskfile.yml` for naming/details.
 - Automatic PR update of dependencies via renovate
 - Automatic PR via ImgBot PR for image optimization
-- I've adapted permalinks to support me putting content in yearly archive directories, but _not_ include them in the url. This reduces noise when creating/editing recent posts.
+- I've adapted permalinks to support me putting content in yearly archive directories, but *not* include them in the url. This reduces noise when creating/editing recent posts.
 
 ## Editing/Blogging
 
@@ -79,12 +79,12 @@ The primary changes I've made that I couldn't easily contribute back upstream...
 - More shortcodes
 - Draft Go project in this repo for replacing atomic-algolia with my own Go CLI. On hold till I need/have time to experiment more with this. I got the npm package to run for atomic-algolia so this isn't a priority right now.
 - Custom layouts/Shortcodes (leveraging others work across the web):
-    - Series support so I can bind together an automatic index of linked posts with a header at the top.
-    - Mailbrew embed/subscription based form (really great service!) so I can send weekly newsletters.
-    - Custom implementation of [fancybox](http://fancyapps.com/fancybox/3/) which provides a really nice slick UI for photo gallery. Only 2 galleries right now but maybe will expand more as photo interest increases. Not doing a lot of photography right now.
-    - mermaid diagram embed
-    - asciicinema embed. Limited use so far, but really like it for demonstrating automation and terminal work in comparison to gifs.
-    - Rendering the site locally for dev work shows colorful tags for future scheduled/draft posts to make them pop out when I'm reviewing content.
+  - Series support so I can bind together an automatic index of linked posts with a header at the top.
+  - Mailbrew embed/subscription based form (really great service!) so I can send weekly newsletters.
+  - Custom implementation of [fancybox](http://fancyapps.com/fancybox/3/) which provides a really nice slick UI for photo gallery. Only 2 galleries right now but maybe will expand more as photo interest increases. Not doing a lot of photography right now.
+  - mermaid diagram embed
+  - asciicinema embed. Limited use so far, but really like it for demonstrating automation and terminal work in comparison to gifs.
+  - Rendering the site locally for dev work shows colorful tags for future scheduled/draft posts to make them pop out when I'm reviewing content.
 
 ## Things I Want to Do With Site Still
 
@@ -132,9 +132,9 @@ In WSL2:
 Preliminary docker support for running hugo this way instead of brew install can be done with:
 
       HUGO_VERSION=0.82 \
-		  && docker-compose -f "docker-compose.hugo.yml" down --remove-orphans --volumes \
-		  && docker-compose -f "docker-compose.hugo.yml" build --build-arg HUGO_VERSION=$HUGO_VERSION \
-		  && docker-compose -f "docker-compose.hugo.yml" up
+    && docker-compose -f "docker-compose.hugo.yml" down --remove-orphans --volumes \
+    && docker-compose -f "docker-compose.hugo.yml" build --build-arg HUGO_VERSION=$HUGO_VERSION \
+    && docker-compose -f "docker-compose.hugo.yml" up
 
 ## Troubleshooting
 

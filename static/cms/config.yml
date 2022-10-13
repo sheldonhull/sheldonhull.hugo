@@ -28,7 +28,7 @@ backend:
 display_url: https://www.sheldonhull.com
 media_folder: static/images # Folder where user uploaded files should go
 public_folder: /images
-logo_url: https://www.sheldonhull.com/images/sheldonhull_gopher_avatar.png
+logo_url: https://www.sheldonhull.com/images/sheldon-avatar.jpg
 editor:
   preview: false
 publish_mode: editorial_workflow
@@ -267,7 +267,8 @@ collections:
     extension: md
     create: true # Allow users to create new documents in this collection
     slug: '{{area}}-r{{round}}-day-{{day_counter}}'
-    sortableFields: [commit_date, title, commit_author, date, area, round, day_counter]
+    sortableFields:
+      [commit_date, title, commit_author, date, area, round, day_counter]
     summary: '{{area}}-r{{round}}-d{{day_counter}}'
     identifier_field: title
     view_filters:

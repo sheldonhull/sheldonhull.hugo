@@ -15,28 +15,8 @@ robots: noindex
 justifyContent: true
 ---
 
-{{< terminal "sheldonhull@macbook" "~/ (pwsh)" >}}
-_________________________________
-
-< Welcome! Thanks for stopping by >
- ---------------------------------
-
- \
-  \
-     __
-    /  \
-    |  |
-    @  @
-    |  |
-    || |/
-    || ||
-    |\_/|
-    \___/
-{{< /terminal >}}
-
 Here you'll find mostly tech talk and musings, with other topics periodically.
+
 If you want to stay in touch, look at the bottom for the curated newsletter I send out.
 
-Cheers! 🙏🏻
-
-<hr>
+Lately, I update my [docs](docs) section more than blog posts. 👍🏻

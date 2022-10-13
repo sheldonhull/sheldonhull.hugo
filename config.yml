@@ -116,7 +116,7 @@ languages:
         profile:
           enable: true
           gravatarEmail: ''
-          avatarURL: /images/sheldonhull_gopher_avatar.png
+          avatarURL: /images/sheldon-avatar.jpg
           title: Sheldon Hull
           subtitle: ''
           typeit: true
@@ -145,7 +145,7 @@ languages:
         Codepen: ''
         FreeCodeCamp: ''
         Bitbucket: ''
-        Stackoverflow: users/68698/sheldonh
+        Stackoverflow: '' #users/68698/sheldonh
         Weibo: ''
         Odnoklassniki: ''
         VK: ''
@@ -182,7 +182,7 @@ languages:
         Googlescholar: ''
         Researchgate: ''
         Thingiverse: ''
-        Devto: sheldonhull
+        Devto: '' # sheldonhull
         Gitea: ''
         XMPP: ''
         Matrix: ''
@@ -203,12 +203,12 @@ params:
   fingerprint: ''
   dateFormat: 2006-01-02
   images:
-    - /images/sheldonhull_gopher_avatar.png
+    - /images/sheldon-avatar.jpg
   header:
     desktopMode: fixed
     mobileMode: auto
     title:
-      logo: /images/sheldonhull_gopher_avatar.png
+      logo: /images/sheldon-avatar.jpg
       name: sheldonhull.com
       #pre: '<i class="fas fa-terminal"></i>'  #<i class='fas fa-laptop-code fa-fw'></i>
       pre: <span id="logo-anima"><span class="arrow">></span><span class="dash">_</span></span>
@@ -372,7 +372,7 @@ params:
       images: []
       publisher:
         name: xxxx
-        logoUrl: images/sheldonhull_gopher_avatar.png
+        logoUrl: images/sheldon-avatar.jpg
   typeit:
     speed: 100
     cursorSpeed: 1000
@@ -385,8 +385,8 @@ params:
     pinterest: ''
     baidu: ''
   seo:
-    image: /images/sheldonhull_gopher_avatar.png
-    thumbnailUrl: /images/sheldonhull_gopher_avatar.png
+    image: /images/sheldon-avatar.jpg
+    thumbnailUrl: /images/sheldon-avatar.jpg
   analytics:
     enable: true
     google:
