@@ -149,6 +149,29 @@ RUN apt-get -yqq update --fix-missing && apt-get -yqq install pv \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
 ```
 
+### Check for And Install Tooling
+
+This can help give you an example of how to double check that some installed tools are available as part of a setup script.
+
+```shell
+if command -v ghq &>/dev/null; then
+    echo '✔️ ghq installed'
+else
+    warning "❌ failed to find ghq, attempting to setup via source"
+    go install github.com/x-motemen/ghq@latest || echo "✅ installed ghq"
+fi
+if command -v gum &>/dev/null; then
+    echo '✔️ gum installed'
+else
+    warning "❌ failed to find gum, attempting to setup via source"
+    go install github.com/charmbracelet/gum@latest || echo "✅ installed gum"
+fi
+if ! command -v gum &/dev/null; then
+  echo 'might need go binaries on path, trying now..., try adding the line to your .zshrc'
+  export PATH="$(go env GOPATH)/bin:${PATH}"
+fi
+```
+
 ## Conditional
 
 Only Proceed If First Condition Returns Nothing
@@ -443,9 +466,8 @@ echo -e "👉 username:password: $( sttr base64-decode $creds )"
 
 View the logs of the last run (or toggle to error logs with the switch).
 
-```shell
-gh run view --log $(gh run list -L1 --json 'databaseId' --jq '.[].DatabaseId')
-```
+- `gh run view --log $(gh run list -L1 --json 'databaseId' --jq '.[].DatabaseId')`
+- `gh run view $(gh run list --limit 1 --json databaseId --jq '.[0].databaseId' ) --log`
 
 This can be chained together with other commands to quickly iterate on testing.
 When appropriate, you might avoid this by running [act](https://github.com/nektos/act) but I've had limited success with it due to various restrictions.
@@ -464,7 +486,7 @@ This example uses [gum][gum-tool] to filter.
 Use `tab` when selecting in the multi-entry option.
 
 ```shell
-org=myorg
+org=$(gum input --prompt 'enter GitHub org: ')
 originallist=$( gh repo list $org --json 'name' --jq '.[].name' |  tr ' ' '\n' )
 repos="$( echo $originallist | gum filter --no-limit )"
 
@@ -482,7 +504,37 @@ do
         printf "✔️\n"
     # return # for testing
 done
+```
 
+## Clone All The Desired
+
+Uses gum[gum-repo] & [ghq][ghq-repo].
+See [setup directions](#check-for-and-install-tooling).
+
+### Configure ghq
+
+To configure `ghq` defaults run:
+
+```shell
+git config --global ghq.vcs git
+git config --global ghq.root $(gum input -prompt 'base git directory for repos: (recommend ~/git):  ' )
+```
+
+### Clone All Repos Selected
+
+```shell
+org=$(gum input --prompt 'enter GitHub org: ')
+originallist=$( gh repo list $org --json 'name' --jq '.[].name' |  tr ' ' '\n' )
+echo 'select repos (use tab to select, and type to filter)'
+repos="$( echo $originallist | gum filter --no-limit )"
+
+for repo in $( echo $repos | tr '\n' ' ') ;
+do
+    printf "processing %s ... " "${repo}"
+    ghq get "https://github.com/${org}/${repo}" &> /dev/null
+    printf "✔️\n"
+done
 ```
 
 [gum-tool]: [GitHub - charmbracelet/gum: A tool for glamorous shell scripts 🎀](https://github.com/charmbracelet/gum)
+[ghq-repo]: <https://github.com/x-motemen/ghq>
