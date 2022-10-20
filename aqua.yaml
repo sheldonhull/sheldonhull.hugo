@@ -24,4 +24,4 @@ packages:
   - name: gohugoio/hugo@v0.104.3
   - name: dagger/dagger
     version: v0.2.35
-  - name: golang/go@go1.19.2
+  - name: golang/go@go1.18.7
