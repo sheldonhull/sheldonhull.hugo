@@ -439,6 +439,8 @@ echo -e "👉 username:password: $( sttr base64-decode $creds )"
 
 ## GitHub CLI
 
+## View The Logs Of A Prior Run
+
 View the logs of the last run (or toggle to error logs with the switch).
 
 ```shell
@@ -455,3 +457,32 @@ git commit -am 'ci: get github release working' && \
   sleep 5 && \
   gh run watch -i1 || gh run view --log --job $(gh run list -L1 --json 'workflowDatabaseId' --jq '.[].workflowDatabaseId')
 ```
+
+### Use To Configure Settings on Many Repos At Once
+
+This example uses [gum][gum-tool] to filter.
+Use `tab` when selecting in the multi-entry option.
+
+```shell
+org=myorg
+originallist=$( gh repo list $org --json 'name' --jq '.[].name' |  tr ' ' '\n' )
+repos="$( echo $originallist | gum filter --no-limit )"
+
+for repo in $( echo $repos | tr '\n' ' ') ;
+do
+    printf "processing %s ... " "${repo}"
+    gh api \
+        --method PATCH \
+        -H "Accept: application/vnd.github+json" \
+        /repos/$org/$repo \
+        -F use_squash_pr_title_as_default=true \
+        -F squash_merge_commit_title=PR_TITLE \
+        -F squash_merge_commit_message=PR_BODY \
+        --silent
+        printf "✔️\n"
+    # return # for testing
+done
+
+```
+
+[gum-tool]: [GitHub - charmbracelet/gum: A tool for glamorous shell scripts 🎀](https://github.com/charmbracelet/gum)
