@@ -482,7 +482,7 @@ git commit -am 'ci: get github release working' && \
 
 ### Use To Configure Settings on Many Repos At Once
 
-This example uses [gum][gum-tool] to filter.
+This example uses [gum][^gum-tool] to filter.
 Use `tab` when selecting in the multi-entry option.
 
 ```shell
@@ -508,7 +508,7 @@ done
 
 ## Clone All The Desired
 
-Uses gum[gum-repo] & [ghq][ghq-repo].
+Uses gum[^gum-repo] & [ghq][^ghq-repo].
 See [setup directions](#check-for-and-install-tooling).
 
 ### Configure ghq
@@ -536,5 +536,5 @@ do
 done
 ```
 
-[gum-tool]: [GitHub - charmbracelet/gum: A tool for glamorous shell scripts 🎀](https://github.com/charmbracelet/gum)
-[ghq-repo]: <https://github.com/x-motemen/ghq>
+[^gum-tool]: [GitHub - charmbracelet/gum: A tool for glamorous shell scripts 🎀](https://github.com/charmbracelet/gum)
+[^ghq-repo]: [ghq - repo cloning tool](https://github.com/x-motemen/ghq)
