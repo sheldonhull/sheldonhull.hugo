@@ -1,0 +1,34 @@
+---
+packages:
+  - type: github_release
+    repo_owner: alihanyalcin
+    repo_name: gomup
+    link: https://github.com/alihanyalcin/gomup/releases/
+    asset: 'gomup_{{trimV .Version}}_{{.OS}}_{{.Arch}}.tar.gz'
+    description: gomUP is a tool to keep track of outdated dependencies and upgrade them to the latest version. Designed for monorepo Go projects and Go projects that contain multiple modules.
+    search_words:
+      - gomod
+      - module
+    replacements:
+      darwin: Darwin
+      linux: Linux
+      windows: Windows
+      386: i386
+      amd64: x86_64
+  - type: go_install
+    name: mage-select
+    path: github.com/iwittkau/mage-select
+    description: CLI frontend for mage based on promptui.
+    search_words:
+      - mage
+      - module
+      - go
+  - type: github_release
+    repo_owner: superorbital
+    repo_name: wordchain
+    link: https://github.com/superorbital/wordchain/releases/
+    asset: 'wordchain_{{.OS}}_{{.Arch}}'
+    description: A simple self-contained binary that can provide word-chains like `large-house` (think docker names or random pets) while still being very flexible and easy to use for a multitude of use cases.
+    search_words:
+      - random
+      - generator

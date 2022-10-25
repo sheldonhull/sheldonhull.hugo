@@ -4,6 +4,9 @@
 registries:
   - type: standard
     ref: v3.81.0 # renovate: depName=aquaproj/aqua-registry
+  - name: local
+    type: local
+    path: registry.yaml
 packages:
   - name: dagger/dagger
     version: v0.2.35
@@ -21,8 +24,8 @@ packages:
   - name: golang/tools/guru@v0.1.12
   - name: anchore/syft@v0.58.0
   - name: golang/vuln/govulncheck@b5628b3a3e55af77e5d5e2589064e35b438086a9
-  - name: gohugoio/hugo@v0.104.3
   - name: dagger/dagger
     version: v0.2.35
   - name: golang/go@go1.18.7
   - name: caddyserver/caddy@v2.6.2
+  - name: gohugoio/hugo/hugo-extended@v0.104.3
