@@ -3,6 +3,7 @@
     // Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
     // List of extensions which should be recommended for users of this workspace.
     "recommendations": [
+        "yzhang.markdown-all-in-one",
         "darkriszty.markdown-table-prettify",
         "davidanson.vscode-markdownlint",
         "budparr.language-hugo-vscode",
@@ -10,9 +11,6 @@
         "sibiraj-s.vscode-scss-formatter",
         "tomasvergara.vscode-fontawesome-gallery",
         "fabiospampinato.vscode-optimize-images",
-        "pflannery.vscode-versionlens",
-        "arrterian.nix-env-selector",
-        "eliostruyf.vscode-front-matter"
     ],
     // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
     "unwantedRecommendations": []

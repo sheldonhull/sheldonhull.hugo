@@ -26,24 +26,6 @@
     "source=zshcache,target=/home/vscode/.zsh.cache/,type=volume"
   ],
   "overrideCommand": false,
-  // Configure tool-specific properties.
-  "customizations": {
-    // Configure properties specific to VS Code.
-    "vscode": {
-      // Add the IDs of extensions you want installed when the container is created.
-      "extensions": [
-        "ms-azuretools.vscode-docker",
-        "ms-kubernetes-tools.vscode-kubernetes-tools",
-        "spmeesseman.vscode-taskexplorer",
-        "ms-kubernetes-tools.kind-vscode",
-        "trunk.io",
-        "GitHub.vscode-pull-request-github",
-        "yzhang.markdown-all-in-one",
-        "sheldon-hull.extension-pack-go",
-        "zvik.command-runner"
-      ]
-    }
-  },
   "settings": {
     "terminal.integrated.profiles.linux": {
       "zsh-login": {
@@ -73,7 +55,9 @@
     ".devcontainer/init"
   ],
   "hostRequirements": {
-    "storage": "32gb"
+        "storage": "32gb",
+        "cpus": 4,
+        "memory": "8gb"
   },
   "features": {
     "ghcr.io/devcontainers/features/common-utils:1": {

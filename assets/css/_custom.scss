@@ -27,22 +27,29 @@ $code-font-family: "JetBrainsMono", "Fira Code Retina", "Fira Code", Consolas,
 .highlight,
 .gist {
   font-family: $code-font-family;
+
   .table-wrapper {
     white-space: normal;
   }
 }
 
 [theme="dark"] {
+
   .h1-glow,
   .h2-glow,
   .h3-glow,
   .h4-glow,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
   .single-title,
   .headerLink,
   .header-title,
   .menu-item:not(#search-desktop) {
     filter: drop-shadow(0 0 10px #03edf9);
   }
+
   hr {
     filter: drop-shadow(0 0 10px #03edf9);
   }
@@ -52,12 +59,14 @@ $code-font-family: "JetBrainsMono", "Fira Code Retina", "Fira Code", Consolas,
     filter: drop-shadow(0 0 10px #03edf9);
   }
 }
+
 // Set the logo image to be rounded
 
 header .logo,
 header .header-title-pre {
   border-radius: 100%;
 }
+
 .archive .archive-item-date {
   width: 6em;
 }
@@ -65,6 +74,7 @@ header .header-title-pre {
 .fa-search {
   filter: none;
 }
+
 .header-title-pre {
   margin-left: 1em;
 }
@@ -72,20 +82,24 @@ header .header-title-pre {
 // Prefix My Headers With Nice Markdown styled headers for consistency
 .single {
   .content {
-    > h2 > .header-mark::before {
+    >h2>.header-mark::before {
       content: "#";
     }
-    > h3 > .header-mark::before {
+
+    >h3>.header-mark::before {
       content: "##";
     }
-    > h4 > .header-mark::before {
+
+    >h4>.header-mark::before {
       content: "###";
     }
-    > h5 > .header-mark::before {
+
+    >h5>.header-mark::before {
       content: "####";
     }
   }
 }
+
 // cool terminal blinking from pure css
 // https://codepen.io/snippy_valson/pen/xVJeQB
 #logo-anima {
@@ -112,11 +126,13 @@ header .header-title-pre {
       opacity: 0;
     }
   }
+
   @keyframes blink {
     to {
       opacity: 0;
     }
   }
+
   .arrow {
     font: $code-font-family;
     // color: white;
@@ -158,6 +174,7 @@ header .header-title-pre {
   //     top: -50px;
   // }
 }
+
 // Contrast on the homepage for summary is too low to be readable, so override with better constrasting font
 [theme="dark"] .home[posts] .summary .content {
   color: lighten($global-font-secondary-color-dark, 25%) !important;
@@ -186,6 +203,7 @@ header {
     }
   }
 }
+
 #header-desktop {
   display: block;
   position: fixed;
@@ -200,10 +218,10 @@ header {
 
 .home {
   .home-profile {
-        margin-bottom: 3em;
+    margin-bottom: 3em;
   }
 }
 
-.links{
-  display:block;
+.links {
+  display: block;
 }
