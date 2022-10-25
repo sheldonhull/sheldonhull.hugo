@@ -394,6 +394,11 @@ func Init() error {
 	// 	pterm.Error.Printf("InstallTools %q", err)
 	// 	return err
 	// }
+	ver, err := sh.Output("hugo", "version")
+	if err != nil {
+		return err
+	}
+	pterm.Info.Printfln("hugo version: %s", ver)
 
 	p.Title = "hugo mod tidy"
 	if err := tooling.SpinnerStdOut("hugo", []string{"mod", "tidy"}, nil); err != nil {
