@@ -417,7 +417,7 @@ markup:
     lineNos: true
     lineNumbersInTable: true
     noClasses: false
-    style: default
+    style: dracula
   goldmark:
     extensions:
       definitionList: true

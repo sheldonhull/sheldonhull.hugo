@@ -195,3 +195,5 @@ mage_output_file.go
 .pnp.*
 .artifacts
 .localhistory
+# not sure how i made aqua do this, but excluding
+.local
