@@ -17,11 +17,11 @@ packages:
   - name: goreleaser/goreleaser@v1.11.5
   - name: mvdan/gofumpt@v0.4.0
   - name: golang.org/x/tools/gopls@v0.10.1
-  - name: golang/tools/gorename@v0.1.12
-  - name: golang/tools/stringer@v0.1.12
-  - name: golang/tools/gomvpkg@v0.1.12
-  - name: golang/tools/godoc@v0.1.12
-  - name: golang/tools/guru@v0.1.12
+  - name: golang/tools/gorename@v0.2.0
+  - name: golang/tools/stringer@v0.2.0
+  - name: golang/tools/gomvpkg@v0.2.0
+  - name: golang/tools/godoc@v0.2.0
+  - name: golang/tools/guru@v0.2.0
   - name: anchore/syft@v0.60.3
   - name: golang/vuln/govulncheck@b5628b3a3e55af77e5d5e2589064e35b438086a9
   - name: dagger/dagger
