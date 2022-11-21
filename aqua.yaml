@@ -10,7 +10,7 @@ registries:
 packages:
   - name: dagger/dagger
     version: v0.2.35
-  - name: miniscruff/changie@v1.9.1
+  - name: miniscruff/changie@v1.10.0
   - name: direnv/direnv@v2.32.1
   - name: magefile/mage@v1.14.0
   - name: charmbracelet/glow@v1.4.1
