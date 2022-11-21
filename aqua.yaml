@@ -28,4 +28,4 @@ packages:
     version: v0.2.35
   - name: golang/go@go1.18.7
   - name: caddyserver/caddy@v2.6.2
-  - name: gohugoio/hugo/hugo-extended@v0.104.3
+  - name: gohugoio/hugo/hugo-extended@v0.105.0
