@@ -13,8 +13,8 @@ github.com/MarvinJWendt/testza v0.3.0/go.mod h1:eFcL4I0idjtIx8P9C6KkAuLgATNKpX4/
 github.com/MarvinJWendt/testza v0.4.2/go.mod h1:mSdhXiKH8sg/gQehJ63bINcCKp7RtYewEjXsvsVUPbE=
 github.com/MarvinJWendt/testza v0.4.3 h1:u2XaM4IqGp9dsdUmML8/Z791fu4yjQYzOiufOtJwTII=
 github.com/atomicgo/cursor v0.0.1/go.mod h1:cBON2QmmrysudxNBFthvMtN32r3jxVRIvzkUiF/RuIk=
-github.com/bitfield/script v0.20.2 h1:4DexsRtBILVMEn3EZwHbtJdDqdk43sXI8gM3F04JXgs=
-github.com/bitfield/script v0.20.2/go.mod h1:l3AZPVAtKQrL03bwh7nlNTUtgrgSWurpJSbtqspYrOA=
+github.com/bitfield/script v0.21.0 h1:/OMglZmed2JyzLkmxYvZQMWs18XjPZxDB/0ht0pxrBk=
+github.com/bitfield/script v0.21.0/go.mod h1:l3AZPVAtKQrL03bwh7nlNTUtgrgSWurpJSbtqspYrOA=
 github.com/chzyer/logex v1.1.10 h1:Swpa1K6QvQznwJRcfTfQJmTE72DqScAa40E+fbHEXEE=
 github.com/chzyer/logex v1.1.10/go.mod h1:+Ywpsq7O8HXn0nuIou7OrIPyXbp3wmkHB+jjWRnGsAI=
 github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e h1:fY5BOSpyZCqRo5OhCuC+XN+r/bBCmeuuJtjz+bCNIf8=
