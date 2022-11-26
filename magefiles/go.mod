@@ -3,7 +3,7 @@ module mage.local
 go 1.18
 
 require (
-	github.com/bitfield/script v0.21.0
+	github.com/bitfield/script v0.21.1
 	github.com/gobeam/stringy v0.0.5
 	github.com/magefile/mage v1.14.0
 	github.com/manifoldco/promptui v0.9.0
