@@ -9,7 +9,7 @@ atomicgo.dev/keyboard/keys
 # bitbucket.org/creachadair/shell v0.0.7
 ## explicit; go 1.16
 bitbucket.org/creachadair/shell
-# github.com/bitfield/script v0.21.1
+# github.com/bitfield/script v0.21.2
 ## explicit; go 1.12
 github.com/bitfield/script
 # github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e
