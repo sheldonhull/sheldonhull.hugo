@@ -22,7 +22,7 @@ packages:
   - name: golang/tools/gomvpkg@v0.3.0
   - name: golang/tools/godoc@v0.3.0
   - name: golang/tools/guru@v0.3.0
-  - name: anchore/syft@v0.62.0
+  - name: anchore/syft@v0.62.1
   - name: golang/vuln/govulncheck@b5628b3a3e55af77e5d5e2589064e35b438086a9
   - name: dagger/dagger
     version: v0.2.35
