@@ -1,0 +1,16 @@
+{
+  extends: [
+    'github>sheldonhull/renovate:renovate.json5',
+  ],
+  packageRules: [
+    {
+      matchPackageNames: [
+        // Netlify has go version set and if this mismatches can cause failures in builds like:
+        // `compile: version "go1.18.7" does not match go tool version "go1.19.3"`
+        'golang/go',
+
+      ],
+      enabled: false,
+    },
+  ],
+}

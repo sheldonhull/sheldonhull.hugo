@@ -7,7 +7,7 @@
 command = '''
 curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v1.1.2/aqua-installer | bash
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:${PATH}"
-aqua install --only-link
+aqua install --tags ci
 mage init hugo:buildpublic algolia
 '''
 publish = "public"
@@ -33,7 +33,7 @@ AQUA_LOG_LEVEL = "debug"
 command = '''
 curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v1.1.2/aqua-installer | bash
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:${PATH}"
-aqua install --only-link
+aqua install --tags ci
 mage init build
 '''
 publish = "preview"
@@ -52,7 +52,7 @@ publish = "branch"
 command = '''
 curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v1.1.2/aqua-installer | bash
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:${PATH}"
-aqua install --only-link
+aqua install --tags ci
 mage init build
 '''
 

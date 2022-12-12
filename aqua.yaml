@@ -13,6 +13,7 @@ packages:
   - name: miniscruff/changie@v1.10.0
   - name: direnv/direnv@v2.32.2
   - name: magefile/mage@v1.14.0
+    tags: ['ci']
   - name: charmbracelet/glow@v1.4.1
   - name: goreleaser/goreleaser@v1.13.0
   - name: mvdan/gofumpt@v0.4.0
@@ -26,6 +27,8 @@ packages:
   - name: golang/vuln/govulncheck@b5628b3a3e55af77e5d5e2589064e35b438086a9
   - name: dagger/dagger
     version: v0.2.35
-  - name: golang/go@go1.19.3
+    tags: ['ci']
+  - name: golang/go@go1.18.7
   - name: caddyserver/caddy@v2.6.2
   - name: gohugoio/hugo/hugo-extended@v0.107.0
+    tags: ['ci']
