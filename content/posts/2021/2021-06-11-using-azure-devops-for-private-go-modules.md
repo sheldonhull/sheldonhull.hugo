@@ -11,6 +11,12 @@ typora-copy-images-to: ../../../static/images
 modified: 2021-06-18T22:24:51-05:00
 ---
 
+{{< admonition type="Note" title="2022-12-14" open=true >}}
+
+Provided an example of how to handle private go modules in Azure Pipeline compatible method.
+
+{{< /admonition >}}
+
 ## TL;DR
 
 This took a few hours of work to iron out, so figured maybe I'd save someone time.
@@ -72,6 +78,39 @@ If you don't have restrictions on this, then you can do https with the following
 
 ```shell
 git config --global url."https://anythinggoeshere:$AZURE_DEVOPS_TOKEN@dev.azure.com".insteadOf "https://dev.azure.com"
+```
+
+## Azure Pipelines
+
+If you run into timeout issues with `go get`, I found this solution worked well.
+
+I provided `ORGANIZATION` as a value if you are on the legacy url scheme, it's easier to just set this as variable and not worry about parsing out the org name itself from the url to place it in there.
+I got stuck on this recently and was pointed to the answer in this great article [Using Go Modules With Private Azure Devops Repositories](https://seb-nyberg.medium.com/using-go-modules-with-private-azure-devops-repositories-4664b621f782).
+
+```yaml
+parameters:
+  - name: workingDirectory
+    type: string
+    default: $(Pipeline.Workspace)
+
+variables:
+    - name: ORGANIZATION
+      value: myorg
+steps:
+- checkout: self
+  fetchDepth: 0
+  path: $(Build.Repository.Name) # Note: you'll want to provide workingdirectory inputs for tasks if you have multi-repo checkout going on.
+- pwsh: |
+    git clone "https://$(ORGANIZATION):$(System.AccessToken)@dev.azure.com/$(ORGANIZATION)/$(System.TeamProject)/_git/$(Build.Repository.Name)"
+  displayName: git-checkout-with-pat
+# internal modules with go-get might fail without this.
+- pwsh: |
+    git config --global url."https://$(ORGANIZATION):$(System.AccessToken)@dev.azure.com".insteadOf "https://dev.azure.com"
+  displayName: ensure-system-token-used-for-other-internal-repos
+- pwsh: |
+    Write-Host "example, with working directory set"
+  displayName: exampleTask
+  workingDirectory: ${{ parameters.workingDirectory }}/$(Build.Repository.Name)
 ```
 
 ## Other References
