@@ -4,15 +4,15 @@
   "description": "LoveIt theme source file",
   "private": true,
   "devDependencies": {
-    "@algolia/cli": "^4.0.8",
-    "@babel/cli": "^7.17.10",
-    "@babel/core": "^7.17.10",
-    "@babel/preset-env": "^7.17.10",
-    "babelify": "^10.0.0",
-    "browserify": "^16.5.2",
-    "core-js": "^3.22.4",
-    "husky": "^7.0.0",
-    "segmentit": "^2.0.3"
+    "@algolia/cli": "4.0.8",
+    "@babel/cli": "7.20.7",
+    "@babel/core": "7.20.12",
+    "@babel/preset-env": "7.20.2",
+    "babelify": "10.0.0",
+    "browserify": "16.5.2",
+    "core-js": "3.27.2",
+    "husky": "7.0.4",
+    "segmentit": "2.0.3"
   },
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
