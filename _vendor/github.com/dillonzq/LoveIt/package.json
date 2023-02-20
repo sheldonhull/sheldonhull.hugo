@@ -9,9 +9,9 @@
     "@babel/core": "7.20.12",
     "@babel/preset-env": "7.20.2",
     "babelify": "10.0.0",
-    "browserify": "16.5.2",
+    "browserify": "17.0.0",
     "core-js": "3.27.2",
-    "husky": "7.0.4",
+    "husky": "8.0.3",
     "segmentit": "2.0.3"
   },
   "scripts": {
