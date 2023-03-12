@@ -48,7 +48,7 @@ languages:
           pre: ''
           post: ''
           name: docs
-          url: /docs/
+          url: https://notes.sheldonhull.com/
           title: ''
           weight: 4
         - identifier: creative

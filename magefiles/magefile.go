@@ -5,13 +5,18 @@ package main
 
 import (
 	"bytes"
+	"context"
+	"errors"
 	"fmt"
+	"io/fs"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 	"time"
 
 	// mg contains helpful utility functions, like Deps.
+	"dagger.io/dagger"
 	"github.com/bitfield/script"
 	"github.com/gobeam/stringy"
 	"github.com/magefile/mage/mg"
@@ -369,6 +374,9 @@ func Algolia() error {
 	return sh.RunV("yarn", "run", "algolia")
 }
 
+// Init initializes the project and tooling.
+//
+// This handles safely running download on resources and running tidy without conflicting the Go + Hugo module system.
 func Init() error {
 	if ci.IsCI() {
 		pterm.DisableStyling()
@@ -532,8 +540,55 @@ func (Hugo) Clean() error {
 }
 
 // InstallTrunk installs trunk.io tooling.
+//
+// It's late, and this code is terrible, but it works.
 func InstallTrunk() error {
-	_, err := script.Exec("curl https://get.trunk.io -fsSL").Exec("bash -s -- -y").Stdout()
+	_, err := exec.LookPath("trunk")
+	if err == nil {
+		pterm.Success.Println("trunk already installed")
+		return nil
+	}
+	if errors.Is(err, fs.ErrNotExist) {
+		_, err = script.Exec("curl https://get.trunk.io -fsSL").Exec("bash -s -- -y").Stdout()
+		if err != nil {
+			return err
+		}
+		return nil
+	}
+	return err
+}
+
+type Dagger mg.Namespace
+
+// Run Hugo Build via Dagger.
+func (Dagger) Build(ctx context.Context) error {
+	pterm.DefaultSection.Printf("Hugo Build")
+	url := getBuildUrl()
+	hugoargs := []string{"hugo", "-b", url, "--quiet", "--enableGitInfo", "-d", "_site", "--buildFuture", "--buildDrafts", "--destination", hugoPublicDestination}
+
+	fmt.Println("Building with Dagger")
+
+	// initialize Dagger client
+	// TODO: should this be a mage context value?
+	client, err := dagger.Connect(ctx, dagger.WithLogOutput(os.Stdout))
+	if err != nil {
+		return err
+	}
+	defer func() { client.Close() }()
+
+	src := client.Host().Directory(".")
+	hugoContainer := client.Container().From("klakegg/hugo:latest-ext")
+
+	hugoContainer = hugoContainer.
+		WithMountedDirectory(".", src).
+		WithWorkdir("/src")
+
+	pterm.Info.Printf("hugo: %v\n", hugoargs)
+	pterm.Info.Println("Open Posts with", url+"/posts")
+	hugoContainer.WithExec(hugoargs)
+	output := hugoContainer.Directory(hugoPublicDestination)
+
+	_, err = output.Export(ctx, hugoPublicDestination)
 	if err != nil {
 		return err
 	}

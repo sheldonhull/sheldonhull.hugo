@@ -12,7 +12,7 @@ runtimes:
     - python@3.10.3
     - go@1.19 # make sure this matches what's in go.mod for this to work correctly.
 cli:
-  version: 0.18.1-beta
+  version: 1.3.2
 plugins:
   sources:
     - id: trunk
@@ -20,23 +20,23 @@ plugins:
       uri: https://github.com/trunk-io/plugins
 lint:
   enabled:
-    - black@22.10.0
+    - black@22.12.0
     - cue-fmt@0.4.3
-    - flake8@5.0.4
-    - isort@5.10.1
-    - svgo@2.8.0
-    - actionlint@1.6.21
+    - flake8@6.0.0
+    - isort@5.11.4
+    - svgo@3.0.2
+    - actionlint@1.6.23
     - git-diff-check@SYSTEM
-    - gitleaks@8.14.1
-    - gofmt@1.16.7
-    - golangci-lint@1.50.0
-    - hadolint@2.10.0
-    - markdownlint@0.32.2
-    - prettier@2.7.1
-    - shellcheck@0.8.0
+    - gitleaks@8.15.3
+    - gofmt@1.19.3
+    - golangci-lint@1.50.1
+    - hadolint@2.12.0
+    - markdownlint@0.33.0
+    - prettier@2.8.3
+    - shellcheck@0.9.0
     - shfmt@3.5.0
-    - taplo@release-taplo-cli-0.7.0
-    - yamllint@1.28.0
+    - taplo@0.8.0
+    - yamllint@1.29.0
   threshold:
     - linters: [markdownlint]
       level: high
@@ -46,6 +46,10 @@ lint:
         # - .devcontainer/library-scripts
         - .devcontainer/init
         - _vendor/*
+        - node_modules/*
+        - public/*
+        - _site/*
+        - .local/*
     # - linters: [markdownlint]
     #   paths:
     #     # in progress changelog notes
