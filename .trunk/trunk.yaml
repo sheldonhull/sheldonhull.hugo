@@ -1,6 +1,7 @@
 ---
 actions:
   enabled:
+    - trunk-announce
     - trunk-cache-prune
     - trunk-upgrade-available
     - trunk-check-pre-push
@@ -8,31 +9,34 @@ actions:
 version: 0.1
 runtimes:
   enabled:
-    - node@16.14.2
-    - python@3.10.3
+    - rust@1.67.0
+    - node@18.12.1
+    - python@3.10.8
     - go@1.19 # make sure this matches what's in go.mod for this to work correctly.
 cli:
-  version: 1.3.2
+  version: 1.6.0
 plugins:
   sources:
     - id: trunk
-      ref: v0.0.5
+      ref: v0.0.12
       uri: https://github.com/trunk-io/plugins
 lint:
   enabled:
-    - black@22.12.0
+    - nixpkgs-fmt@1.3.0
+    - oxipng@8.0.0
+    - black@23.1.0
     - cue-fmt@0.4.3
     - flake8@6.0.0
-    - isort@5.11.4
+    - isort@5.12.0
     - svgo@3.0.2
     - actionlint@1.6.23
     - git-diff-check@SYSTEM
-    - gitleaks@8.15.3
+    - gitleaks@8.16.0
     - gofmt@1.19.3
-    - golangci-lint@1.50.1
+    - golangci-lint@1.51.2
     - hadolint@2.12.0
     - markdownlint@0.33.0
-    - prettier@2.8.3
+    - prettier@2.8.4
     - shellcheck@0.9.0
     - shfmt@3.5.0
     - taplo@0.8.0
