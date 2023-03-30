@@ -2,6 +2,7 @@
 actions:
   enabled:
     - trunk-announce
+    - trunk-announce
     - trunk-cache-prune
     - trunk-upgrade-available
     - trunk-check-pre-push
@@ -14,35 +15,52 @@ runtimes:
     - python@3.10.8
     - go@1.19 # make sure this matches what's in go.mod for this to work correctly.
 cli:
-  version: 1.6.0
-plugins:
-  sources:
-    - id: trunk
-      ref: v0.0.12
-      uri: https://github.com/trunk-io/plugins
+  version: 1.7.0
 lint:
   disabled:
     - cspell
   enabled:
-    - nixpkgs-fmt@1.3.0
-    - oxipng@8.0.0
-    - black@23.1.0
+    - black@23.3.0
     - cue-fmt@0.4.3
     - flake8@6.0.0
     - isort@5.12.0
     - svgo@3.0.2
     - actionlint@1.6.23
     - git-diff-check@SYSTEM
-    - gitleaks@8.16.0
+    - gitleaks@8.16.1
     - gofmt@1.19.3
-    - golangci-lint@1.51.2
+    - golangci-lint@SYSTEM
     - hadolint@2.12.0
     - markdownlint@0.33.0
-    - prettier@2.8.4
+    - prettier@2.8.7:
+        packages:
+          - prettier-plugin-go-template@0.0.13
     - shellcheck@0.9.0
     - shfmt@3.5.0
     - taplo@0.8.0
-    - yamllint@1.29.0
+    - yamllint@1.30.0
+  files:
+    - name: go-templates
+      extensions:
+        - gotmpl
+        - tpl
+        - yml
+      filenames:
+        - layouts/**/.html
+  definitions:
+    - name: prettier
+      files:
+        - go-templates
+        - typescript
+        - yaml
+        - css
+        - sass
+        - html
+        - markdown
+        - json
+        - javascript
+        - graphql
+        - prettier_supported_configs
   threshold:
     - linters: [markdownlint]
       level: high
@@ -63,3 +81,8 @@ lint:
     # - linters: [yamllint]
     #   paths:
     #     - .changes/unreleased/*.yaml
+plugins:
+  sources:
+    - id: trunk
+      ref: v0.0.13
+      uri: https://github.com/trunk-io/plugins
