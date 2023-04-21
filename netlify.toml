@@ -24,7 +24,7 @@ YARN_ENABLE_IMMUTABLE_INSTALLS = "false"
 NODE_VERSION = "14"
 NETLIFY_USE_YARN = "true"
 GO_VERSION = "1.19.5"                         # not having this installed can cause compilation conflicts
-AQUA_LOG_LEVEL = "debug"
+AQUA_LOG_LEVEL = "info"                       # "debug"
 
 # HUGO_VERSION
 ###############################
