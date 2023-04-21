@@ -1,5 +1,4 @@
 {
-  "explorer.sortOrder": "modified",
   "[markdown]": {
     "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
     "editor.fontSize": 14,
