@@ -8,8 +8,8 @@ registries:
     type: local
     path: registry.yaml
 packages:
-  - name: dagger/dagger
-    version: v0.2.35
+  - name: dagger/dagger@v0.5.0
+    tags: ['ci']
   - name: miniscruff/changie@v1.10.0
     tags: ['ci']
   - name: direnv/direnv@v2.32.2
@@ -18,9 +18,9 @@ packages:
   - name: charmbracelet/glow@v1.4.1
   - name: mvdan/gofumpt@v0.4.0
   - name: anchore/syft@v0.62.1
-  - name: dagger/dagger
-    version: v0.2.35
-    tags: ['ci']
+  # - name: dagger/dagger
+  #   version: v0.2.35
+  #
   - name: golang/go@go1.18.7
   - name: caddyserver/caddy@v2.6.2
   - name: gohugoio/hugo/hugo-extended@v0.107.0
