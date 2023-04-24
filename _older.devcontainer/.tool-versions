@@ -1,7 +1,7 @@
 hugo 0.111.3
 direnv 2.32.2
 chezmoi 2.9.5
-nodejs 18.12.1
+nodejs 18.16.0
 yarn 1.22.17
 bat 0.19.0
 caddy 2.4.6
