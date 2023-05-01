@@ -1,6 +1,6 @@
 {
   "name": "sheldonhull.hugo",
-  "packageManager": "yarn@3.3.0",
+  "packageManager": "yarn@3.5.0",
   "devDependencies": {
     "atomic-algolia": "0.3.19",
     "imageoptim-cli": "3.0.7",
