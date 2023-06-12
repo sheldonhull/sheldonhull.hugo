@@ -2,7 +2,7 @@ module github.com/sheldonhull/sheldonhull.hugo/m
 
 go 1.19
 
-require github.com/rs/zerolog v1.28.0
+require github.com/rs/zerolog v1.29.1
 
 require (
 	github.com/mattn/go-colorable v0.1.12 // indirect
