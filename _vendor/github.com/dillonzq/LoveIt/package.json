@@ -5,12 +5,12 @@
   "private": true,
   "devDependencies": {
     "@algolia/cli": "4.0.8",
-    "@babel/cli": "7.21.5",
-    "@babel/core": "7.22.1",
-    "@babel/preset-env": "7.22.4",
+    "@babel/cli": "7.22.5",
+    "@babel/core": "7.22.5",
+    "@babel/preset-env": "7.22.5",
     "babelify": "10.0.0",
     "browserify": "16.5.2",
-    "core-js": "3.30.2",
+    "core-js": "3.31.0",
     "husky": "7.0.4",
     "segmentit": "2.0.3"
   },
