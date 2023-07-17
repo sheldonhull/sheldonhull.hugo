@@ -12,7 +12,7 @@ packages:
     tags: ['ci']
   - name: miniscruff/changie@v1.10.0
     tags: ['ci']
-  - name: direnv/direnv@v2.32.2
+  - name: direnv/direnv@v2.32.3
   - name: magefile/mage@v1.14.0
     tags: ['ci']
   - name: charmbracelet/glow@v1.4.1
