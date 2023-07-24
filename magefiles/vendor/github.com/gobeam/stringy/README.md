@@ -1,5 +1,5 @@
 # Golang String manipulation helper package
-[![Build][Build-Status-Image]][Build-Status-Url] [![Go Report Card](https://goreportcard.com/badge/github.com/gobeam/stringy?branch=master&kill_cache=1)](https://goreportcard.com/report/github.com/gobeam/Stringy) [![GoDoc][godoc-image]][godoc-url]
+![Workflow](https://github.com/gobeam/stringy/actions/workflows/ci.yml/badge.svg) [![Build][Build-Status-Image]][Build-Status-Url] [![Go Report Card](https://goreportcard.com/badge/github.com/gobeam/stringy?branch=master&kill_cache=1)](https://goreportcard.com/report/github.com/gobeam/Stringy) [![GoDoc][godoc-image]][godoc-url]
 [![Coverage Status](https://coveralls.io/repos/github/gobeam/stringy/badge.svg)](https://coveralls.io/github/gobeam/stringy)
 
 Convert string to camel case, snake case, kebab case / slugify, custom delimiter, pad string, tease string and many other functionality with help of by Stringy package. You can convert camelcase to snakecase or kebabcase, or snakecase to camelcase and kebabcase and vice versa. This package was inspired from PHP [danielstjules/Stringy](https://github.com/danielstjules/Stringy).
@@ -54,7 +54,7 @@ Convert string to camel case, snake case, kebab case / slugify, custom delimiter
      </tr>
      <tr>
          <td><a href="#suffixstring-string">Suffix</a></td>
-         <td></td>
+         <td><a href="#acronym-string">Acronym</a></td>
          <td></td>
      </tr>
 </table>
@@ -329,7 +329,7 @@ ToUpper makes all string of user input to uppercase and it can be chained on fun
 
 #### UcFirst() string
 
-LcFirst simply returns result by lower casing first letter of string and it can be chained on function which return StringManipulation interface.
+UcFirst simply returns result by upper casing first letter of string and it can be chained on function which return StringManipulation interface.
 
 ```go
   contains := stringy.New("hello roshan")
@@ -354,6 +354,16 @@ Suffix makes sure string has been suffixed with a given string and avoids adding
 ```go
   pun := stringy.New("this really is a cliff")
   fmt.Println(pun.Suffix("hanger")) // this really is a cliffhanger
+```
+
+
+#### Acronym() string
+
+Acronym func returns acronym of input string. You can chain ToUpper() which with make result all upercase or ToLower() which will make result all lower case or Get which will return result as it is
+
+```go
+  acronym := stringy.New("Laugh Out Loud")
+	fmt.Println(acronym.Acronym().ToLower()) // lol
 ```
 
 
