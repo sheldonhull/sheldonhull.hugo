@@ -2311,9 +2311,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"imageoptim-cli@npm:3.0.7":
-  version: 3.0.7
-  resolution: "imageoptim-cli@npm:3.0.7"
+"imageoptim-cli@npm:3.1.7":
+  version: 3.1.7
+  resolution: "imageoptim-cli@npm:3.1.7"
   dependencies:
     chalk: 4.1.1
     commander: 8.3.0
@@ -2323,7 +2323,7 @@ __metadata:
     pretty-bytes: 5.6.0
   bin:
     imageoptim: dist/imageoptim
-  checksum: c2734480220abd1f7c9f39cf8894d52de26b629d4770e6547e28441a79cc2df12da1bdc2da71b295600e5f96158380cf8090984f74b172c7c1e0b4ae16c6b8b4
+  checksum: 947f28ec01684c790f1bd3c567fe00b69c9f9165b24bed844a15b74617325f33ac432fa31ee4ea7d3ade9d9683b6564210695d7051ec2fa3a97c64a9d2edfa9b
   languageName: node
   linkType: hard
 
@@ -2881,14 +2881,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-go-template@npm:0.0.13":
-  version: 0.0.13
-  resolution: "prettier-plugin-go-template@npm:0.0.13"
+"prettier-plugin-go-template@npm:0.0.15":
+  version: 0.0.15
+  resolution: "prettier-plugin-go-template@npm:0.0.15"
   dependencies:
     ulid: ^2.3.0
   peerDependencies:
-    prettier: ^2.0.0
-  checksum: ccba6514eaff1c4b831b416e04020149f88202e3750fb6e05ac909a3030fd4066713f2b79cf3dc63d905e7baf0de7f9df596dc9fc3384dafe237d78c97fc04a7
+    prettier: ^3.0.0
+  checksum: f244e93fe5a85f8250b9d991e2f74a6adf731e9e5215c57d95d800b84ed4f4b4242a9dbc5c14c5538d065aeb49df8b052ca7395bf6c64d262c4550cd4f124333
   languageName: node
   linkType: hard
 
@@ -3187,9 +3187,9 @@ __metadata:
   dependencies:
     atomic-algolia: 0.3.19
     dotenv: 16.3.1
-    imageoptim-cli: 3.0.7
+    imageoptim-cli: 3.1.7
     prettier: 2.8.8
-    prettier-plugin-go-template: 0.0.13
+    prettier-plugin-go-template: 0.0.15
   languageName: unknown
   linkType: soft
 
