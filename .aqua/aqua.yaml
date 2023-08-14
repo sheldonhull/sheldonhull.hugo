@@ -17,7 +17,7 @@ packages:
     tags: ['ci']
   - name: charmbracelet/glow@v1.4.1
   - name: mvdan/gofumpt@v0.4.0
-  - name: anchore/syft@v0.62.1
+  - name: anchore/syft@v0.86.1
   # - name: dagger/dagger
   #   version: v0.2.35
   #
