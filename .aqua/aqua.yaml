@@ -21,7 +21,8 @@ packages:
   # - name: dagger/dagger
   #   version: v0.2.35
   #
-  - name: golang/go@go1.19.5
+  - name: golang/go@go1.21.0
+    tags: ['first']
   - name: caddyserver/caddy@v2.7.3
   - name: gohugoio/hugo/hugo-extended@v0.107.0
     tags: ['ci']

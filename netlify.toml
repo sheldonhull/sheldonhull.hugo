@@ -8,6 +8,7 @@ command = '''
 curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v1.1.2/aqua-installer | bash
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:${PATH}"
 aqua policy allow
+aqua install --tags first
 aqua install --tags ci
 mage init hugo:buildpublic algolia
 '''
@@ -21,9 +22,9 @@ HUGO_MINIFY = "true"
 HUGO_DESTINATION = "public"
 YARN_VERSION = "3.2.3"
 YARN_ENABLE_IMMUTABLE_INSTALLS = "false"
-NODE_VERSION = "14"
+NODE_VERSION = "18"
 NETLIFY_USE_YARN = "true"
-GO_VERSION = "1.19.5"                         # not having this installed can cause compilation conflicts
+GO_VERSION = "1.21.0"                         # not having this installed can cause compilation conflicts
 AQUA_LOG_LEVEL = "info"                       # "debug"
 
 # HUGO_VERSION
@@ -35,6 +36,7 @@ command = '''
 curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v1.1.2/aqua-installer | bash
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:${PATH}"
 aqua policy allow
+aqua install --tags first
 aqua install --tags ci
 mage init build
 '''
@@ -55,6 +57,7 @@ command = '''
 curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v1.1.2/aqua-installer | bash
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:${PATH}"
 aqua policy allow
+aqua install --tags first
 aqua install --tags ci
 mage init build
 '''
