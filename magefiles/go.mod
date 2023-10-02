@@ -3,12 +3,12 @@ module mage.local
 go 1.18
 
 require (
-	dagger.io/dagger v0.7.4
+	dagger.io/dagger v0.8.7
 	github.com/bitfield/script v0.21.3
 	github.com/gobeam/stringy v0.0.6
 	github.com/magefile/mage v1.14.0
 	github.com/manifoldco/promptui v0.9.0
-	github.com/pelletier/go-toml/v2 v2.0.9
+	github.com/pelletier/go-toml/v2 v2.1.0
 	github.com/pterm/pterm v0.12.50
 	github.com/sheldonhull/magetools v0.0.14
 )
@@ -30,14 +30,13 @@ require (
 	github.com/lithammer/fuzzysearch v1.1.5 // indirect
 	github.com/logrusorgru/aurora v2.0.3+incompatible // indirect
 	github.com/mattn/go-runewidth v0.0.14 // indirect
+	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/vektah/gqlparser/v2 v2.5.6 // indirect
 	github.com/xo/terminfo v0.0.0-20210125001918-ca9a967f8778 // indirect
 	github.com/ztrue/tracerr v0.3.0 // indirect
-	golang.org/x/mod v0.12.0 // indirect
 	golang.org/x/sync v0.3.0 // indirect
-	golang.org/x/sys v0.10.0 // indirect
+	golang.org/x/sys v0.12.0 // indirect
 	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
 	golang.org/x/text v0.7.0 // indirect
-	golang.org/x/tools v0.11.0 // indirect
 )

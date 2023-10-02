@@ -4,10 +4,24 @@ package dagger
 
 import (
 	"context"
+	"fmt"
+	"reflect"
 
 	"dagger.io/dagger/internal/querybuilder"
 	"github.com/Khan/genqlient/graphql"
 )
+
+// assertNotNil panic if the given value is nil.
+// This function is used to validate that input with pointer type are not nil.
+// See https://github.com/dagger/dagger/issues/5696 for more context.
+func assertNotNil(argName string, value any) {
+	// We use reflect because just comparing value to nil is not working since
+	// the value is wrapped into a type when passed as parameter.
+	// E.g., nil become (*dagger.File)(nil).
+	if reflect.ValueOf(value).IsNil() {
+		panic(fmt.Sprintf("unexpected nil pointer for argument %q", argName))
+	}
+}
 
 // A global cache volume identifier.
 type CacheID string
@@ -102,7 +116,6 @@ type Container struct {
 
 	endpoint    *string
 	envVariable *string
-	exitCode    *int
 	export      *bool
 	hostname    *string
 	id          *ContainerID
@@ -137,12 +150,17 @@ type ContainerBuildOpts struct {
 	Target string
 	// Secrets to pass to the build.
 	//
-	// They will be mounted at /run/secrets/[secret-name].
+	// They will be mounted at /run/secrets/[secret-name] in the build container
+	//
+	// They can be accessed in the Dockerfile using the "secret" mount type
+	// and mount path /run/secrets/[secret-name]
+	// e.g. RUN --mount=type=secret,id=my-secret curl url?token=$(cat /run/secrets/my-secret)"
 	Secrets []*Secret
 }
 
 // Initializes this container from a Dockerfile build.
 func (r *Container) Build(context *Directory, opts ...ContainerBuildOpts) *Container {
+	assertNotNil("context", context)
 	q := r.q.Select("build")
 	for i := len(opts) - 1; i >= 0; i-- {
 		// `dockerfile` optional argument
@@ -286,73 +304,6 @@ func (r *Container) EnvVariables(ctx context.Context) ([]EnvVariable, error) {
 	return convert(response), nil
 }
 
-// ContainerExecOpts contains options for Container.Exec
-type ContainerExecOpts struct {
-	// Command to run instead of the container's default command (e.g., ["run", "main.go"]).
-	Args []string
-	// Content to write to the command's standard input before closing (e.g., "Hello world").
-	Stdin string
-	// Redirect the command's standard output to a file in the container (e.g., "/tmp/stdout").
-	RedirectStdout string
-	// Redirect the command's standard error to a file in the container (e.g., "/tmp/stderr").
-	RedirectStderr string
-	// Provide dagger access to the executed command.
-	// Do not use this option unless you trust the command being executed.
-	// The command being executed WILL BE GRANTED FULL ACCESS TO YOUR HOST FILESYSTEM.
-	ExperimentalPrivilegedNesting bool
-}
-
-// Retrieves this container after executing the specified command inside it.
-//
-// Deprecated: Replaced by WithExec.
-func (r *Container) Exec(opts ...ContainerExecOpts) *Container {
-	q := r.q.Select("exec")
-	for i := len(opts) - 1; i >= 0; i-- {
-		// `args` optional argument
-		if !querybuilder.IsZeroValue(opts[i].Args) {
-			q = q.Arg("args", opts[i].Args)
-		}
-		// `stdin` optional argument
-		if !querybuilder.IsZeroValue(opts[i].Stdin) {
-			q = q.Arg("stdin", opts[i].Stdin)
-		}
-		// `redirectStdout` optional argument
-		if !querybuilder.IsZeroValue(opts[i].RedirectStdout) {
-			q = q.Arg("redirectStdout", opts[i].RedirectStdout)
-		}
-		// `redirectStderr` optional argument
-		if !querybuilder.IsZeroValue(opts[i].RedirectStderr) {
-			q = q.Arg("redirectStderr", opts[i].RedirectStderr)
-		}
-		// `experimentalPrivilegedNesting` optional argument
-		if !querybuilder.IsZeroValue(opts[i].ExperimentalPrivilegedNesting) {
-			q = q.Arg("experimentalPrivilegedNesting", opts[i].ExperimentalPrivilegedNesting)
-		}
-	}
-
-	return &Container{
-		q: q,
-		c: r.c,
-	}
-}
-
-// Exit code of the last executed command. Zero means success.
-//
-// Will execute default command if none is set, or error if there's no default.
-//
-// Deprecated: Use Sync instead.
-func (r *Container) ExitCode(ctx context.Context) (int, error) {
-	if r.exitCode != nil {
-		return *r.exitCode, nil
-	}
-	q := r.q.Select("exitCode")
-
-	var response int
-
-	q = q.Bind(&response)
-	return response, q.Execute(ctx, r.c)
-}
-
 // ContainerExportOpts contains options for Container.Export
 type ContainerExportOpts struct {
 	// Identifiers for other platform specific containers.
@@ -463,18 +414,6 @@ func (r *Container) From(address string) *Container {
 	}
 }
 
-// Retrieves this container's root filesystem. Mounts are not included.
-//
-// Deprecated: Replaced by Rootfs.
-func (r *Container) FS() *Directory {
-	q := r.q.Select("fs")
-
-	return &Directory{
-		q: q,
-		c: r.c,
-	}
-}
-
 // Retrieves a hostname which can be used by clients to reach this container.
 //
 // Currently experimental; set _EXPERIMENTAL_DAGGER_SERVICES_DNS=0 to disable.
@@ -547,6 +486,7 @@ type ContainerImportOpts struct {
 // NOTE: this involves unpacking the tarball to an OCI store on the host at
 // $XDG_CACHE_DIR/dagger/oci. This directory can be removed whenever you like.
 func (r *Container) Import(source *File, opts ...ContainerImportOpts) *Container {
+	assertNotNil("source", source)
 	q := r.q.Select("import")
 	for i := len(opts) - 1; i >= 0; i-- {
 		// `tag` optional argument
@@ -808,6 +748,7 @@ type ContainerWithDirectoryOpts struct {
 
 // Retrieves this container plus a directory written at the given path.
 func (r *Container) WithDirectory(path string, directory *Directory, opts ...ContainerWithDirectoryOpts) *Container {
+	assertNotNil("directory", directory)
 	q := r.q.Select("withDirectory")
 	for i := len(opts) - 1; i >= 0; i-- {
 		// `exclude` optional argument
@@ -962,19 +903,6 @@ func (r *Container) WithExposedPort(port int, opts ...ContainerWithExposedPortOp
 	}
 }
 
-// Initializes this container from this DirectoryID.
-//
-// Deprecated: Replaced by WithRootfs.
-func (r *Container) WithFS(id *Directory) *Container {
-	q := r.q.Select("withFS")
-	q = q.Arg("id", id)
-
-	return &Container{
-		q: q,
-		c: r.c,
-	}
-}
-
 // ContainerWithFileOpts contains options for Container.WithFile
 type ContainerWithFileOpts struct {
 	// Permission given to the copied file (e.g., 0600).
@@ -991,6 +919,7 @@ type ContainerWithFileOpts struct {
 
 // Retrieves this container plus the contents of the given file copied to the given path.
 func (r *Container) WithFile(path string, source *File, opts ...ContainerWithFileOpts) *Container {
+	assertNotNil("source", source)
 	q := r.q.Select("withFile")
 	for i := len(opts) - 1; i >= 0; i-- {
 		// `permissions` optional argument
@@ -1054,6 +983,7 @@ type ContainerWithMountedCacheOpts struct {
 
 // Retrieves this container plus a cache volume mounted at the given path.
 func (r *Container) WithMountedCache(path string, cache *CacheVolume, opts ...ContainerWithMountedCacheOpts) *Container {
+	assertNotNil("cache", cache)
 	q := r.q.Select("withMountedCache")
 	for i := len(opts) - 1; i >= 0; i-- {
 		// `source` optional argument
@@ -1090,6 +1020,7 @@ type ContainerWithMountedDirectoryOpts struct {
 
 // Retrieves this container plus a directory mounted at the given path.
 func (r *Container) WithMountedDirectory(path string, source *Directory, opts ...ContainerWithMountedDirectoryOpts) *Container {
+	assertNotNil("source", source)
 	q := r.q.Select("withMountedDirectory")
 	for i := len(opts) - 1; i >= 0; i-- {
 		// `owner` optional argument
@@ -1118,6 +1049,7 @@ type ContainerWithMountedFileOpts struct {
 
 // Retrieves this container plus a file mounted at the given path.
 func (r *Container) WithMountedFile(path string, source *File, opts ...ContainerWithMountedFileOpts) *Container {
+	assertNotNil("source", source)
 	q := r.q.Select("withMountedFile")
 	for i := len(opts) - 1; i >= 0; i-- {
 		// `owner` optional argument
@@ -1142,15 +1074,25 @@ type ContainerWithMountedSecretOpts struct {
 	//
 	// If the group is omitted, it defaults to the same as the user.
 	Owner string
+	// Permission given to the mounted secret (e.g., 0600).
+	// This option requires an owner to be set to be active.
+	//
+	// Default: 0400.
+	Mode int
 }
 
 // Retrieves this container plus a secret mounted into a file at the given path.
 func (r *Container) WithMountedSecret(path string, source *Secret, opts ...ContainerWithMountedSecretOpts) *Container {
+	assertNotNil("source", source)
 	q := r.q.Select("withMountedSecret")
 	for i := len(opts) - 1; i >= 0; i-- {
 		// `owner` optional argument
 		if !querybuilder.IsZeroValue(opts[i].Owner) {
 			q = q.Arg("owner", opts[i].Owner)
+		}
+		// `mode` optional argument
+		if !querybuilder.IsZeroValue(opts[i].Mode) {
+			q = q.Arg("mode", opts[i].Mode)
 		}
 	}
 	q = q.Arg("path", path)
@@ -1216,6 +1158,7 @@ func (r *Container) WithNewFile(path string, opts ...ContainerWithNewFileOpts) *
 
 // Retrieves this container with a registry authentication for a given address.
 func (r *Container) WithRegistryAuth(address string, username string, secret *Secret) *Container {
+	assertNotNil("secret", secret)
 	q := r.q.Select("withRegistryAuth")
 	q = q.Arg("address", address)
 	q = q.Arg("username", username)
@@ -1228,9 +1171,10 @@ func (r *Container) WithRegistryAuth(address string, username string, secret *Se
 }
 
 // Initializes this container from this DirectoryID.
-func (r *Container) WithRootfs(id *Directory) *Container {
+func (r *Container) WithRootfs(directory *Directory) *Container {
+	assertNotNil("directory", directory)
 	q := r.q.Select("withRootfs")
-	q = q.Arg("id", id)
+	q = q.Arg("directory", directory)
 
 	return &Container{
 		q: q,
@@ -1240,6 +1184,7 @@ func (r *Container) WithRootfs(id *Directory) *Container {
 
 // Retrieves this container plus an env variable containing the given secret.
 func (r *Container) WithSecretVariable(name string, secret *Secret) *Container {
+	assertNotNil("secret", secret)
 	q := r.q.Select("withSecretVariable")
 	q = q.Arg("name", name)
 	q = q.Arg("secret", secret)
@@ -1261,6 +1206,7 @@ func (r *Container) WithSecretVariable(name string, secret *Secret) *Container {
 //
 // Currently experimental; set _EXPERIMENTAL_DAGGER_SERVICES_DNS=0 to disable.
 func (r *Container) WithServiceBinding(alias string, service *Container) *Container {
+	assertNotNil("service", service)
 	q := r.q.Select("withServiceBinding")
 	q = q.Arg("alias", alias)
 	q = q.Arg("service", service)
@@ -1283,6 +1229,7 @@ type ContainerWithUnixSocketOpts struct {
 
 // Retrieves this container plus a socket forwarded to the given Unix socket path.
 func (r *Container) WithUnixSocket(path string, source *Socket, opts ...ContainerWithUnixSocketOpts) *Container {
+	assertNotNil("source", source)
 	q := r.q.Select("withUnixSocket")
 	for i := len(opts) - 1; i >= 0; i-- {
 		// `owner` optional argument
@@ -1447,6 +1394,7 @@ func (r *Directory) With(f WithDirectoryFunc) *Directory {
 
 // Gets the difference between this directory and an another directory.
 func (r *Directory) Diff(other *Directory) *Directory {
+	assertNotNil("other", other)
 	q := r.q.Select("diff")
 	q = q.Arg("other", other)
 
@@ -1642,6 +1590,7 @@ type DirectoryWithDirectoryOpts struct {
 
 // Retrieves this directory plus a directory written at the given path.
 func (r *Directory) WithDirectory(path string, directory *Directory, opts ...DirectoryWithDirectoryOpts) *Directory {
+	assertNotNil("directory", directory)
 	q := r.q.Select("withDirectory")
 	for i := len(opts) - 1; i >= 0; i-- {
 		// `exclude` optional argument
@@ -1672,6 +1621,7 @@ type DirectoryWithFileOpts struct {
 
 // Retrieves this directory plus the contents of the given file copied to the given path.
 func (r *Directory) WithFile(path string, source *File, opts ...DirectoryWithFileOpts) *Directory {
+	assertNotNil("source", source)
 	q := r.q.Select("withFile")
 	for i := len(opts) - 1; i >= 0; i-- {
 		// `permissions` optional argument
@@ -1899,18 +1849,6 @@ func (r *File) XXX_GraphQLID(ctx context.Context) (string, error) {
 	return string(id), nil
 }
 
-// Retrieves a secret referencing the contents of this file.
-//
-// Deprecated: insecure, leaves secret in cache. Superseded by SetSecret
-func (r *File) Secret() *Secret {
-	q := r.q.Select("secret")
-
-	return &Secret{
-		q: q,
-		c: r.c,
-	}
-}
-
 // Gets the size of the file, in bytes.
 func (r *File) Size(ctx context.Context) (int, error) {
 	if r.size != nil {
@@ -2049,23 +1987,25 @@ func (r *Host) Directory(path string, opts ...HostDirectoryOpts) *Directory {
 	}
 }
 
-// Accesses an environment variable on the host.
-func (r *Host) EnvVariable(name string) *HostVariable {
-	q := r.q.Select("envVariable")
-	q = q.Arg("name", name)
-
-	return &HostVariable{
-		q: q,
-		c: r.c,
-	}
-}
-
 // Accesses a file on the host.
 func (r *Host) File(path string) *File {
 	q := r.q.Select("file")
 	q = q.Arg("path", path)
 
 	return &File{
+		q: q,
+		c: r.c,
+	}
+}
+
+// Sets a secret given a user-defined name and the file path on the host, and returns the secret.
+// The file is limited to a size of 512000 bytes.
+func (r *Host) SetSecretFile(name string, path string) *Secret {
+	q := r.q.Select("setSecretFile")
+	q = q.Arg("name", name)
+	q = q.Arg("path", path)
+
+	return &Secret{
 		q: q,
 		c: r.c,
 	}
@@ -2080,69 +2020,6 @@ func (r *Host) UnixSocket(path string) *Socket {
 		q: q,
 		c: r.c,
 	}
-}
-
-// HostWorkdirOpts contains options for Host.Workdir
-type HostWorkdirOpts struct {
-	// Exclude artifacts that match the given pattern (e.g., ["node_modules/", ".git*"]).
-	Exclude []string
-	// Include only artifacts that match the given pattern (e.g., ["app/", "package.*"]).
-	Include []string
-}
-
-// Retrieves the current working directory on the host.
-//
-// Deprecated: Use Directory with path set to '.' instead.
-func (r *Host) Workdir(opts ...HostWorkdirOpts) *Directory {
-	q := r.q.Select("workdir")
-	for i := len(opts) - 1; i >= 0; i-- {
-		// `exclude` optional argument
-		if !querybuilder.IsZeroValue(opts[i].Exclude) {
-			q = q.Arg("exclude", opts[i].Exclude)
-		}
-		// `include` optional argument
-		if !querybuilder.IsZeroValue(opts[i].Include) {
-			q = q.Arg("include", opts[i].Include)
-		}
-	}
-
-	return &Directory{
-		q: q,
-		c: r.c,
-	}
-}
-
-// An environment variable on the host environment.
-type HostVariable struct {
-	q *querybuilder.Selection
-	c graphql.Client
-
-	value *string
-}
-
-// A secret referencing the value of this variable.
-//
-// Deprecated: been superseded by SetSecret
-func (r *HostVariable) Secret() *Secret {
-	q := r.q.Select("secret")
-
-	return &Secret{
-		q: q,
-		c: r.c,
-	}
-}
-
-// The value of this variable.
-func (r *HostVariable) Value(ctx context.Context) (string, error) {
-	if r.value != nil {
-		return *r.value, nil
-	}
-	q := r.q.Select("value")
-
-	var response string
-
-	q = q.Bind(&response)
-	return response, q.Execute(ctx, r.c)
 }
 
 // A simple key value object that represents a label.
@@ -2314,6 +2191,7 @@ func (r *Project) XXX_GraphQLID(ctx context.Context) (string, error) {
 
 // Initialize this project from the given directory and config path
 func (r *Project) Load(source *Directory, configPath string) *Project {
+	assertNotNil("source", source)
 	q := r.q.Select("load")
 	q = q.Arg("source", source)
 	q = q.Arg("configPath", configPath)
@@ -2538,6 +2416,17 @@ func (r *Client) CacheVolume(key string) *CacheVolume {
 		q: q,
 		c: r.c,
 	}
+}
+
+// Checks if the current Dagger Engine is compatible with an SDK's required version.
+func (r *Client) CheckVersionCompatibility(ctx context.Context, version string) (bool, error) {
+	q := r.q.Select("checkVersionCompatibility")
+	q = q.Arg("version", version)
+
+	var response bool
+
+	q = q.Bind(&response)
+	return response, q.Execute(ctx, r.c)
 }
 
 // ContainerOpts contains options for Client.Container
