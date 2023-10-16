@@ -9,7 +9,7 @@ atomicgo.dev/keyboard/keys
 # bitbucket.org/creachadair/shell v0.0.7
 ## explicit; go 1.16
 bitbucket.org/creachadair/shell
-# dagger.io/dagger v0.8.7
+# dagger.io/dagger v0.8.8
 ## explicit; go 1.20
 dagger.io/dagger
 dagger.io/dagger/internal/engineconn
@@ -30,7 +30,7 @@ github.com/bitfield/script
 # github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e
 ## explicit
 github.com/chzyer/readline
-# github.com/containerd/console v1.0.3
+# github.com/containerd/console v1.0.4-0.20230313162750-1ae8d489ac81
 ## explicit; go 1.13
 github.com/containerd/console
 # github.com/dustin/go-humanize v1.0.0
@@ -42,9 +42,6 @@ github.com/gobeam/stringy
 # github.com/gookit/color v1.5.2
 ## explicit; go 1.16
 github.com/gookit/color
-# github.com/iancoleman/strcase v0.3.0
-## explicit; go 1.16
-github.com/iancoleman/strcase
 # github.com/itchyny/gojq v0.12.7
 ## explicit; go 1.16
 github.com/itchyny/gojq
@@ -83,8 +80,8 @@ github.com/pelletier/go-toml/v2/unstable
 ## explicit; go 1.18
 github.com/pterm/pterm
 github.com/pterm/pterm/internal
-# github.com/rivo/uniseg v0.2.0
-## explicit; go 1.12
+# github.com/rivo/uniseg v0.4.4
+## explicit; go 1.18
 github.com/rivo/uniseg
 # github.com/sheldonhull/magetools v0.0.14
 ## explicit; go 1.18
@@ -95,7 +92,6 @@ github.com/sheldonhull/magetools/tooling
 # github.com/vektah/gqlparser/v2 v2.5.6
 ## explicit; go 1.16
 github.com/vektah/gqlparser/v2/ast
-github.com/vektah/gqlparser/v2/formatter
 github.com/vektah/gqlparser/v2/gqlerror
 # github.com/xo/terminfo v0.0.0-20210125001918-ca9a967f8778
 ## explicit; go 1.15
@@ -112,10 +108,10 @@ golang.org/x/sys/internal/unsafeheader
 golang.org/x/sys/plan9
 golang.org/x/sys/unix
 golang.org/x/sys/windows
-# golang.org/x/term v0.0.0-20210927222741-03fcf44c2211
+# golang.org/x/term v0.12.0
 ## explicit; go 1.17
 golang.org/x/term
-# golang.org/x/text v0.7.0
+# golang.org/x/text v0.13.0
 ## explicit; go 1.17
 golang.org/x/text/cases
 golang.org/x/text/internal
