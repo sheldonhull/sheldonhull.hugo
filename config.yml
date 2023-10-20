@@ -58,13 +58,13 @@ languages:
           url: /creative/
           title: ''
           weight: 5
-        - identifier: 100daysofcode
-          pre: ''
-          post: ''
-          name: 100DaysOfCode
-          url: /tags/100daysofcode/
-          title: ''
-          weight: 6
+        # - identifier: 100daysofcode
+        #   pre: ''
+        #   post: ''
+        #   name: 100DaysOfCode
+        #   url: /tags/100daysofcode/
+        #   title: ''
+        #   weight: 6
         - identifier: tags
           pre: ''
           post: ''
