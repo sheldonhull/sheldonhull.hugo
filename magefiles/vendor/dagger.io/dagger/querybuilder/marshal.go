@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	gqlgen "github.com/99designs/gqlgen/graphql"
+	"golang.org/x/exp/slices"
 	"golang.org/x/sync/errgroup"
 )
 
@@ -29,31 +30,14 @@ const (
 	GraphQLMarshallerID     = "XXX_GraphQLID"
 )
 
-var (
-	gqlMarshaller reflect.Type
-
-	// Taken from codegen/generator/functions.go
-	customScalar = map[string]struct{}{
-		// IDs
-		"ContainerID":     {},
-		"FileID":          {},
-		"DirectoryID":     {},
-		"SecretID":        {},
-		"SocketID":        {},
-		"CacheID":         {},
-		"ModuleID":        {},
-		"FunctionID":      {},
-		"TypeDefID":       {},
-		"GeneratedCodeID": {},
-		// Others
-		"Platform": {},
-		"JSON":     {},
-	}
-)
-
-func init() {
-	gqlMarshaller = reflect.TypeOf((*GraphQLMarshaller)(nil)).Elem()
+type enum interface {
+	IsEnum()
 }
+
+var (
+	gqlMarshaller = reflect.TypeOf((*GraphQLMarshaller)(nil)).Elem()
+	enumT         = reflect.TypeOf((*enum)(nil)).Elem()
+)
 
 func MarshalGQL(ctx context.Context, v any) (string, error) {
 	return marshalValue(ctx, reflect.ValueOf(v))
@@ -72,19 +56,15 @@ func marshalValue(ctx context.Context, v reflect.Value) (string, error) {
 	case reflect.Int:
 		return fmt.Sprintf("%d", v.Int()), nil
 	case reflect.String:
-		name := t.Name()
+		if t.Implements(enumT) {
+			// enums render as their literal value
+			return v.String(), nil
+		}
+
 		// escape strings following graphQL spec
 		// https://github.com/graphql/graphql-spec/blob/main/spec/Section%202%20--%20Language.md#string-value
 		var buf bytes.Buffer
 		gqlgen.MarshalString(v.String()).MarshalGQL(&buf)
-
-		// distinguish enum const values and customScalars from string type
-		// GraphQL complains if you try to put a string literal in place of an enum: FOO vs "FOO"
-		// Enums do not follow the unicode escape
-		_, found := customScalar[t.Name()]
-		if name != "string" && !found {
-			return v.String(), nil //nolint:gosimple,staticcheck
-		}
 		return buf.String(), nil //nolint:gosimple,staticcheck
 	case reflect.Pointer:
 		if v.IsNil() {
@@ -118,12 +98,17 @@ func marshalValue(ctx context.Context, v reflect.Value) (string, error) {
 			i := i
 			eg.Go(func() error {
 				f := t.Field(i)
+				fv := v.Field(i)
 				name := f.Name
-				tag := strings.SplitN(f.Tag.Get("json"), ",", 2)[0]
-				if tag != "" {
-					name = tag
+				jsonTag := strings.Split(f.Tag.Get("json"), ",")
+				if jsonTag[0] != "" {
+					name = jsonTag[0]
 				}
-				m, err := marshalValue(gctx, v.Field(i))
+				isOptional := slices.Contains(jsonTag[1:], "omitempty")
+				if isOptional && IsZeroValue(fv.Interface()) {
+					return nil
+				}
+				m, err := marshalValue(gctx, fv)
 				if err != nil {
 					return err
 				}
