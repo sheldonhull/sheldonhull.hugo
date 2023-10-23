@@ -10,7 +10,7 @@ import (
 
 	"github.com/Khan/genqlient/graphql"
 
-	"dagger.io/dagger/internal/querybuilder"
+	"dagger.io/dagger/querybuilder"
 )
 
 // assertNotNil panic if the given value is nil.
@@ -26,7 +26,7 @@ func assertNotNil(argName string, value any) {
 }
 
 // A global cache volume identifier.
-type CacheID string
+type CacheVolumeID string
 
 // A unique container identifier. Null designates an empty container (scratch).
 type ContainerID string
@@ -36,6 +36,9 @@ type DirectoryID string
 
 // A file identifier.
 type FileID string
+
+// A reference to a FunctionArg.
+type FunctionArgID string
 
 // A reference to a Function.
 type FunctionID string
@@ -57,6 +60,9 @@ type Platform string
 // A unique identifier for a secret.
 type SecretID string
 
+// A unique service identifier.
+type ServiceID string
+
 // A content-addressed socket identifier.
 type SocketID string
 
@@ -71,33 +77,39 @@ type Void string
 // Key value object that represents a build argument.
 type BuildArg struct {
 	// The build argument name.
-	Name string `json:"name,omitempty"`
+	Name string `json:"name"`
 
 	// The build argument value.
-	Value string `json:"value,omitempty"`
+	Value string `json:"value"`
 }
 
 type FunctionCallInput struct {
 	// The name of the argument to the function
-	Name string `json:"name,omitempty"`
+	Name string `json:"name"`
 
 	// The value of the argument represented as a string of the JSON serialization.
-	Value JSON `json:"value,omitempty"`
-}
-
-type ModuleEnvironmentVariable struct {
-	Name string `json:"name,omitempty"`
-
-	Value string `json:"value,omitempty"`
+	Value JSON `json:"value"`
 }
 
 // Key value object that represents a Pipeline label.
 type PipelineLabel struct {
 	// Label name.
-	Name string `json:"name,omitempty"`
+	Name string `json:"name"`
 
 	// Label value.
-	Value string `json:"value,omitempty"`
+	Value string `json:"value"`
+}
+
+// Port forwarding rules for tunneling network traffic.
+type PortForward struct {
+	// Destination port for traffic.
+	Backend int `json:"backend"`
+
+	// Port to expose to clients. If unspecified, a default will be chosen.
+	Frontend int `json:"frontend"`
+
+	// Protocol to use for traffic.
+	Protocol NetworkProtocol `json:"protocol,omitempty"`
 }
 
 // A directory whose contents persist across runs.
@@ -105,16 +117,16 @@ type CacheVolume struct {
 	q *querybuilder.Selection
 	c graphql.Client
 
-	id *CacheID
+	id *CacheVolumeID
 }
 
-func (r *CacheVolume) ID(ctx context.Context) (CacheID, error) {
+func (r *CacheVolume) ID(ctx context.Context) (CacheVolumeID, error) {
 	if r.id != nil {
 		return *r.id, nil
 	}
 	q := r.q.Select("id")
 
-	var response CacheID
+	var response CacheVolumeID
 
 	q = q.Bind(&response)
 	return response, q.Execute(ctx, r.c)
@@ -127,7 +139,7 @@ func (r *CacheVolume) XXX_GraphQLType() string {
 
 // XXX_GraphQLIDType is an internal function. It returns the native GraphQL type name for the ID of this object
 func (r *CacheVolume) XXX_GraphQLIDType() string {
-	return "CacheID"
+	return "CacheVolumeID"
 }
 
 // XXX_GraphQLID is an internal function. It returns the underlying type ID
@@ -152,10 +164,8 @@ type Container struct {
 	q *querybuilder.Selection
 	c graphql.Client
 
-	endpoint      *string
 	envVariable   *string
 	export        *bool
-	hostname      *string
 	id            *ContainerID
 	imageRef      *string
 	label         *string
@@ -175,6 +185,59 @@ type WithContainerFunc func(r *Container) *Container
 // This is useful for reusability and readability by not breaking the calling chain.
 func (r *Container) With(f WithContainerFunc) *Container {
 	return f(r)
+}
+
+// Turn the container into a Service.
+//
+// Be sure to set any exposed ports before this conversion.
+func (r *Container) AsService() *Service {
+	q := r.q.Select("asService")
+
+	return &Service{
+		q: q,
+		c: r.c,
+	}
+}
+
+// ContainerAsTarballOpts contains options for Container.AsTarball
+type ContainerAsTarballOpts struct {
+	// Identifiers for other platform specific containers.
+	// Used for multi-platform image.
+	PlatformVariants []*Container
+	// Force each layer of the image to use the specified compression algorithm.
+	// If this is unset, then if a layer already has a compressed blob in the engine's
+	// cache, that will be used (this can result in a mix of compression algorithms for
+	// different layers). If this is unset and a layer has no compressed blob in the
+	// engine's cache, then it will be compressed using Gzip.
+	ForcedCompression ImageLayerCompression
+	// Use the specified media types for the image's layers. Defaults to OCI, which
+	// is largely compatible with most recent container runtimes, but Docker may be needed
+	// for older runtimes without OCI support.
+	MediaTypes ImageMediaTypes
+}
+
+// Returns a File representing the container serialized to a tarball.
+func (r *Container) AsTarball(opts ...ContainerAsTarballOpts) *File {
+	q := r.q.Select("asTarball")
+	for i := len(opts) - 1; i >= 0; i-- {
+		// `platformVariants` optional argument
+		if !querybuilder.IsZeroValue(opts[i].PlatformVariants) {
+			q = q.Arg("platformVariants", opts[i].PlatformVariants)
+		}
+		// `forcedCompression` optional argument
+		if !querybuilder.IsZeroValue(opts[i].ForcedCompression) {
+			q = q.Arg("forcedCompression", opts[i].ForcedCompression)
+		}
+		// `mediaTypes` optional argument
+		if !querybuilder.IsZeroValue(opts[i].MediaTypes) {
+			q = q.Arg("mediaTypes", opts[i].MediaTypes)
+		}
+	}
+
+	return &File{
+		q: q,
+		c: r.c,
+	}
 }
 
 // ContainerBuildOpts contains options for Container.Build
@@ -250,43 +313,6 @@ func (r *Container) Directory(path string) *Directory {
 	}
 }
 
-// ContainerEndpointOpts contains options for Container.Endpoint
-type ContainerEndpointOpts struct {
-	// The exposed port number for the endpoint
-	Port int
-	// Return a URL with the given scheme, eg. http for http://
-	Scheme string
-}
-
-// Retrieves an endpoint that clients can use to reach this container.
-//
-// If no port is specified, the first exposed port is used. If none exist an error is returned.
-//
-// If a scheme is specified, a URL is returned. Otherwise, a host:port pair is returned.
-//
-// Currently experimental; set _EXPERIMENTAL_DAGGER_SERVICES_DNS=0 to disable.
-func (r *Container) Endpoint(ctx context.Context, opts ...ContainerEndpointOpts) (string, error) {
-	if r.endpoint != nil {
-		return *r.endpoint, nil
-	}
-	q := r.q.Select("endpoint")
-	for i := len(opts) - 1; i >= 0; i-- {
-		// `port` optional argument
-		if !querybuilder.IsZeroValue(opts[i].Port) {
-			q = q.Arg("port", opts[i].Port)
-		}
-		// `scheme` optional argument
-		if !querybuilder.IsZeroValue(opts[i].Scheme) {
-			q = q.Arg("scheme", opts[i].Scheme)
-		}
-	}
-
-	var response string
-
-	q = q.Bind(&response)
-	return response, q.Execute(ctx, r.c)
-}
-
 // Retrieves entrypoint to be prepended to the arguments of all commands.
 func (r *Container) Entrypoint(ctx context.Context) ([]string, error) {
 	q := r.q.Select("entrypoint")
@@ -326,7 +352,8 @@ func (r *Container) EnvVariables(ctx context.Context) ([]EnvVariable, error) {
 		out := []EnvVariable{}
 
 		for i := range fields {
-			out = append(out, EnvVariable{name: &fields[i].Name, value: &fields[i].Value})
+			val := EnvVariable{name: &fields[i].Name, value: &fields[i].Value}
+			out = append(out, val)
 		}
 
 		return out
@@ -395,8 +422,6 @@ func (r *Container) Export(ctx context.Context, path string, opts ...ContainerEx
 //
 // This includes ports already exposed by the image, even if not
 // explicitly added with dagger.
-//
-// Currently experimental; set _EXPERIMENTAL_DAGGER_SERVICES_DNS=0 to disable.
 func (r *Container) ExposedPorts(ctx context.Context) ([]Port, error) {
 	q := r.q.Select("exposedPorts")
 
@@ -412,7 +437,8 @@ func (r *Container) ExposedPorts(ctx context.Context) ([]Port, error) {
 		out := []Port{}
 
 		for i := range fields {
-			out = append(out, Port{description: &fields[i].Description, port: &fields[i].Port, protocol: &fields[i].Protocol})
+			val := Port{description: &fields[i].Description, port: &fields[i].Port, protocol: &fields[i].Protocol}
+			out = append(out, val)
 		}
 
 		return out
@@ -451,21 +477,6 @@ func (r *Container) From(address string) *Container {
 		q: q,
 		c: r.c,
 	}
-}
-
-// Retrieves a hostname which can be used by clients to reach this container.
-//
-// Currently experimental; set _EXPERIMENTAL_DAGGER_SERVICES_DNS=0 to disable.
-func (r *Container) Hostname(ctx context.Context) (string, error) {
-	if r.hostname != nil {
-		return *r.hostname, nil
-	}
-	q := r.q.Select("hostname")
-
-	var response string
-
-	q = q.Bind(&response)
-	return response, q.Execute(ctx, r.c)
 }
 
 // A unique identifier for this container.
@@ -578,7 +589,8 @@ func (r *Container) Labels(ctx context.Context) ([]Label, error) {
 		out := []Label{}
 
 		for i := range fields {
-			out = append(out, Label{name: &fields[i].Name, value: &fields[i].Value})
+			val := Label{name: &fields[i].Name, value: &fields[i].Value}
+			out = append(out, val)
 		}
 
 		return out
@@ -944,8 +956,6 @@ type ContainerWithExposedPortOpts struct {
 // Exposed ports serve two purposes:
 //   - For health checks and introspection, when running services
 //   - For setting the EXPOSE OCI field when publishing the container
-//
-// Currently experimental; set _EXPERIMENTAL_DAGGER_SERVICES_DNS=0 to disable.
 func (r *Container) WithExposedPort(port int, opts ...ContainerWithExposedPortOpts) *Container {
 	q := r.q.Select("withExposedPort")
 	for i := len(opts) - 1; i >= 0; i-- {
@@ -1266,9 +1276,7 @@ func (r *Container) WithSecretVariable(name string, secret *Secret) *Container {
 // The service will be reachable from the container via the provided hostname alias.
 //
 // The service dependency will also convey to any files or directories produced by the container.
-//
-// Currently experimental; set _EXPERIMENTAL_DAGGER_SERVICES_DNS=0 to disable.
-func (r *Container) WithServiceBinding(alias string, service *Container) *Container {
+func (r *Container) WithServiceBinding(alias string, service *Service) *Container {
 	assertNotNil("service", service)
 	q := r.q.Select("withServiceBinding")
 	q = q.Arg("alias", alias)
@@ -1349,8 +1357,6 @@ type ContainerWithoutExposedPortOpts struct {
 }
 
 // Unexpose a previously exposed port.
-//
-// Currently experimental; set _EXPERIMENTAL_DAGGER_SERVICES_DNS=0 to disable.
 func (r *Container) WithoutExposedPort(port int, opts ...ContainerWithoutExposedPortOpts) *Container {
 	q := r.q.Select("withoutExposedPort")
 	for i := len(opts) - 1; i >= 0; i-- {
@@ -1468,11 +1474,6 @@ type DirectoryAsModuleOpts struct {
 	// If not set, the module source code is loaded from the root of the
 	// directory.
 	SourceSubpath string
-	// A pre-built runtime container to use instead of building one from the
-	// source code. This is useful for bootstrapping.
-	//
-	// You should ignore this unless you're building a Dagger SDK.
-	Runtime *Container
 }
 
 // Load the directory as a Dagger module
@@ -1482,10 +1483,6 @@ func (r *Directory) AsModule(opts ...DirectoryAsModuleOpts) *Module {
 		// `sourceSubpath` optional argument
 		if !querybuilder.IsZeroValue(opts[i].SourceSubpath) {
 			q = q.Arg("sourceSubpath", opts[i].SourceSubpath)
-		}
-		// `runtime` optional argument
-		if !querybuilder.IsZeroValue(opts[i].Runtime) {
-			q = q.Arg("runtime", opts[i].Runtime)
 		}
 	}
 
@@ -2072,19 +2069,20 @@ func (r *Function) With(f WithFunctionFunc) *Function {
 func (r *Function) Args(ctx context.Context) ([]FunctionArg, error) {
 	q := r.q.Select("args")
 
-	q = q.Select("defaultValue description name")
+	q = q.Select("id")
 
 	type args struct {
-		DefaultValue JSON
-		Description  string
-		Name         string
+		Id FunctionArgID
 	}
 
 	convert := func(fields []args) []FunctionArg {
 		out := []FunctionArg{}
 
 		for i := range fields {
-			out = append(out, FunctionArg{defaultValue: &fields[i].DefaultValue, description: &fields[i].Description, name: &fields[i].Name})
+			val := FunctionArg{id: &fields[i].Id}
+			val.q = querybuilder.Query().Select("loadFunctionArgFromID").Arg("id", fields[i].Id)
+			val.c = r.c
+			out = append(out, val)
 		}
 
 		return out
@@ -2259,6 +2257,7 @@ type FunctionArg struct {
 
 	defaultValue *JSON
 	description  *string
+	id           *FunctionArgID
 	name         *string
 }
 
@@ -2286,6 +2285,46 @@ func (r *FunctionArg) Description(ctx context.Context) (string, error) {
 
 	q = q.Bind(&response)
 	return response, q.Execute(ctx, r.c)
+}
+
+// The ID of the argument
+func (r *FunctionArg) ID(ctx context.Context) (FunctionArgID, error) {
+	if r.id != nil {
+		return *r.id, nil
+	}
+	q := r.q.Select("id")
+
+	var response FunctionArgID
+
+	q = q.Bind(&response)
+	return response, q.Execute(ctx, r.c)
+}
+
+// XXX_GraphQLType is an internal function. It returns the native GraphQL type name
+func (r *FunctionArg) XXX_GraphQLType() string {
+	return "FunctionArg"
+}
+
+// XXX_GraphQLIDType is an internal function. It returns the native GraphQL type name for the ID of this object
+func (r *FunctionArg) XXX_GraphQLIDType() string {
+	return "FunctionArgID"
+}
+
+// XXX_GraphQLID is an internal function. It returns the underlying type ID
+func (r *FunctionArg) XXX_GraphQLID(ctx context.Context) (string, error) {
+	id, err := r.ID(ctx)
+	if err != nil {
+		return "", err
+	}
+	return string(id), nil
+}
+
+func (r *FunctionArg) MarshalJSON() ([]byte, error) {
+	id, err := r.ID(context.Background())
+	if err != nil {
+		return nil, err
+	}
+	return json.Marshal(id)
 }
 
 // The name of the argument
@@ -2336,7 +2375,8 @@ func (r *FunctionCall) InputArgs(ctx context.Context) ([]FunctionCallArgValue, e
 		out := []FunctionCallArgValue{}
 
 		for i := range fields {
-			out = append(out, FunctionCallArgValue{name: &fields[i].Name, value: &fields[i].Value})
+			val := FunctionCallArgValue{name: &fields[i].Name, value: &fields[i].Value}
+			out = append(out, val)
 		}
 
 		return out
@@ -2527,18 +2567,6 @@ func (r *GeneratedCode) VcsIgnoredPaths(ctx context.Context) ([]string, error) {
 	return response, q.Execute(ctx, r.c)
 }
 
-// Set the directory containing the generated code
-func (r *GeneratedCode) WithCode(code *Directory) *GeneratedCode {
-	assertNotNil("code", code)
-	q := r.q.Select("withCode")
-	q = q.Arg("code", code)
-
-	return &GeneratedCode{
-		q: q,
-		c: r.c,
-	}
-}
-
 // Set the list of paths to mark generated in version control
 func (r *GeneratedCode) WithVCSGeneratedPaths(paths []string) *GeneratedCode {
 	q := r.q.Select("withVCSGeneratedPaths")
@@ -2679,6 +2707,29 @@ func (r *Host) File(path string) *File {
 	}
 }
 
+// HostServiceOpts contains options for Host.Service
+type HostServiceOpts struct {
+	// Upstream host to forward traffic to.
+	Host string
+}
+
+// Creates a service that forwards traffic to a specified address via the host.
+func (r *Host) Service(ports []PortForward, opts ...HostServiceOpts) *Service {
+	q := r.q.Select("service")
+	for i := len(opts) - 1; i >= 0; i-- {
+		// `host` optional argument
+		if !querybuilder.IsZeroValue(opts[i].Host) {
+			q = q.Arg("host", opts[i].Host)
+		}
+	}
+	q = q.Arg("ports", ports)
+
+	return &Service{
+		q: q,
+		c: r.c,
+	}
+}
+
 // Sets a secret given a user-defined name and the file path on the host, and returns the secret.
 // The file is limited to a size of 512000 bytes.
 func (r *Host) SetSecretFile(name string, path string) *Secret {
@@ -2687,6 +2738,48 @@ func (r *Host) SetSecretFile(name string, path string) *Secret {
 	q = q.Arg("path", path)
 
 	return &Secret{
+		q: q,
+		c: r.c,
+	}
+}
+
+// HostTunnelOpts contains options for Host.Tunnel
+type HostTunnelOpts struct {
+	// Map each service port to the same port on the host, as if the service were
+	// running natively.
+	//
+	// Note: enabling may result in port conflicts.
+	Native bool
+	// Configure explicit port forwarding rules for the tunnel.
+	//
+	// If a port's frontend is unspecified or 0, a random port will be chosen by
+	// the host.
+	//
+	// If no ports are given, all of the service's ports are forwarded. If native
+	// is true, each port maps to the same port on the host. If native is false,
+	// each port maps to a random port chosen by the host.
+	//
+	// If ports are given and native is true, the ports are additive.
+	Ports []PortForward
+}
+
+// Creates a tunnel that forwards traffic from the host to a service.
+func (r *Host) Tunnel(service *Service, opts ...HostTunnelOpts) *Service {
+	assertNotNil("service", service)
+	q := r.q.Select("tunnel")
+	for i := len(opts) - 1; i >= 0; i-- {
+		// `native` optional argument
+		if !querybuilder.IsZeroValue(opts[i].Native) {
+			q = q.Arg("native", opts[i].Native)
+		}
+		// `ports` optional argument
+		if !querybuilder.IsZeroValue(opts[i].Ports) {
+			q = q.Arg("ports", opts[i].Ports)
+		}
+	}
+	q = q.Arg("service", service)
+
+	return &Service{
 		q: q,
 		c: r.c,
 	}
@@ -2762,7 +2855,6 @@ type Module struct {
 	id                     *ModuleID
 	name                   *string
 	sdk                    *string
-	sdkRuntime             *string
 	serve                  *Void
 	sourceDirectorySubPath *string
 }
@@ -2789,7 +2881,10 @@ func (r *Module) Dependencies(ctx context.Context) ([]Module, error) {
 		out := []Module{}
 
 		for i := range fields {
-			out = append(out, Module{id: &fields[i].Id})
+			val := Module{id: &fields[i].Id}
+			val.q = querybuilder.Query().Select("loadModuleFromID").Arg("id", fields[i].Id)
+			val.c = r.c
+			out = append(out, val)
 		}
 
 		return out
@@ -2906,7 +3001,10 @@ func (r *Module) Objects(ctx context.Context) ([]TypeDef, error) {
 		out := []TypeDef{}
 
 		for i := range fields {
-			out = append(out, TypeDef{id: &fields[i].Id})
+			val := TypeDef{id: &fields[i].Id}
+			val.q = querybuilder.Query().Select("loadTypeDefFromID").Arg("id", fields[i].Id)
+			val.c = r.c
+			out = append(out, val)
 		}
 
 		return out
@@ -2923,7 +3021,7 @@ func (r *Module) Objects(ctx context.Context) ([]TypeDef, error) {
 	return convert(response), nil
 }
 
-// The SDK used by this module
+// The SDK used by this module. Either a name of a builtin SDK or a module ref pointing to the SDK's implementation.
 func (r *Module) SDK(ctx context.Context) (string, error) {
 	if r.sdk != nil {
 		return *r.sdk, nil
@@ -2936,39 +3034,15 @@ func (r *Module) SDK(ctx context.Context) (string, error) {
 	return response, q.Execute(ctx, r.c)
 }
 
-// The SDK runtime module image ref.
-func (r *Module) SDKRuntime(ctx context.Context) (string, error) {
-	if r.sdkRuntime != nil {
-		return *r.sdkRuntime, nil
-	}
-	q := r.q.Select("sdkRuntime")
-
-	var response string
-
-	q = q.Bind(&response)
-	return response, q.Execute(ctx, r.c)
-}
-
-// ModuleServeOpts contains options for Module.Serve
-type ModuleServeOpts struct {
-	Environment []ModuleEnvironmentVariable
-}
-
 // Serve a module's API in the current session.
 //
 //	Note: this can only be called once per session.
 //	In the future, it could return a stream or service to remove the side effect.
-func (r *Module) Serve(ctx context.Context, opts ...ModuleServeOpts) (Void, error) {
+func (r *Module) Serve(ctx context.Context) (Void, error) {
 	if r.serve != nil {
 		return *r.serve, nil
 	}
 	q := r.q.Select("serve")
-	for i := len(opts) - 1; i >= 0; i-- {
-		// `environment` optional argument
-		if !querybuilder.IsZeroValue(opts[i].Environment) {
-			q = q.Arg("environment", opts[i].Environment)
-		}
-	}
 
 	var response Void
 
@@ -3011,6 +3085,85 @@ func (r *Module) WithObject(object *TypeDef) *Module {
 	}
 }
 
+// Static configuration for a module (e.g. parsed contents of dagger.json)
+type ModuleConfig struct {
+	q *querybuilder.Selection
+	c graphql.Client
+
+	name *string
+	root *string
+	sdk  *string
+}
+
+// Modules that this module depends on.
+func (r *ModuleConfig) Dependencies(ctx context.Context) ([]string, error) {
+	q := r.q.Select("dependencies")
+
+	var response []string
+
+	q = q.Bind(&response)
+	return response, q.Execute(ctx, r.c)
+}
+
+// Exclude these file globs when loading the module root.
+func (r *ModuleConfig) Exclude(ctx context.Context) ([]string, error) {
+	q := r.q.Select("exclude")
+
+	var response []string
+
+	q = q.Bind(&response)
+	return response, q.Execute(ctx, r.c)
+}
+
+// Include only these file globs when loading the module root.
+func (r *ModuleConfig) Include(ctx context.Context) ([]string, error) {
+	q := r.q.Select("include")
+
+	var response []string
+
+	q = q.Bind(&response)
+	return response, q.Execute(ctx, r.c)
+}
+
+// The name of the module.
+func (r *ModuleConfig) Name(ctx context.Context) (string, error) {
+	if r.name != nil {
+		return *r.name, nil
+	}
+	q := r.q.Select("name")
+
+	var response string
+
+	q = q.Bind(&response)
+	return response, q.Execute(ctx, r.c)
+}
+
+// The root directory of the module's project, which may be above the module source code.
+func (r *ModuleConfig) Root(ctx context.Context) (string, error) {
+	if r.root != nil {
+		return *r.root, nil
+	}
+	q := r.q.Select("root")
+
+	var response string
+
+	q = q.Bind(&response)
+	return response, q.Execute(ctx, r.c)
+}
+
+// Either the name of a built-in SDK ('go', 'python', etc.) OR a module reference pointing to the SDK's module implementation.
+func (r *ModuleConfig) SDK(ctx context.Context) (string, error) {
+	if r.sdk != nil {
+		return *r.sdk, nil
+	}
+	q := r.q.Select("sdk")
+
+	var response string
+
+	q = q.Bind(&response)
+	return response, q.Execute(ctx, r.c)
+}
+
 // A definition of a custom object defined in a Module.
 type ObjectTypeDef struct {
 	q *querybuilder.Selection
@@ -3048,7 +3201,8 @@ func (r *ObjectTypeDef) Fields(ctx context.Context) ([]FieldTypeDef, error) {
 		out := []FieldTypeDef{}
 
 		for i := range fields {
-			out = append(out, FieldTypeDef{description: &fields[i].Description, name: &fields[i].Name})
+			val := FieldTypeDef{description: &fields[i].Description, name: &fields[i].Name}
+			out = append(out, val)
 		}
 
 		return out
@@ -3079,7 +3233,10 @@ func (r *ObjectTypeDef) Functions(ctx context.Context) ([]Function, error) {
 		out := []Function{}
 
 		for i := range fields {
-			out = append(out, Function{id: &fields[i].Id})
+			val := Function{id: &fields[i].Id}
+			val.q = querybuilder.Query().Select("loadFunctionFromID").Arg("id", fields[i].Id)
+			val.c = r.c
+			out = append(out, val)
 		}
 
 		return out
@@ -3196,11 +3353,10 @@ type ContainerOpts struct {
 	Platform Platform
 }
 
-// Loads a container from ID.
+// Creates a scratch container or loads one by ID.
 //
-// Null ID returns an empty container (scratch).
-// Optional platform argument initializes new containers to execute and publish as that platform.
-// Platform defaults to that of the builder's host.
+// Optional platform argument initializes new containers to execute and publish
+// as that platform. Platform defaults to that of the builder's host.
 func (r *Client) Container(opts ...ContainerOpts) *Container {
 	q := r.q.Select("container")
 	for i := len(opts) - 1; i >= 0; i-- {
@@ -3257,7 +3413,7 @@ type DirectoryOpts struct {
 	ID DirectoryID
 }
 
-// Load a directory by ID. No argument produces an empty directory.
+// Creates an empty directory or loads one by ID.
 func (r *Client) Directory(opts ...DirectoryOpts) *Directory {
 	q := r.q.Select("directory")
 	for i := len(opts) - 1; i >= 0; i-- {
@@ -3274,6 +3430,8 @@ func (r *Client) Directory(opts ...DirectoryOpts) *Directory {
 }
 
 // Loads a file by ID.
+//
+// Deprecated: Use LoadFileFromID instead.
 func (r *Client) File(id FileID) *File {
 	q := r.q.Select("file")
 	q = q.Arg("id", id)
@@ -3284,10 +3442,12 @@ func (r *Client) File(id FileID) *File {
 	}
 }
 
-// Load a function by ID
-func (r *Client) Function(id FunctionID) *Function {
+// Create a function.
+func (r *Client) Function(name string, returnType *TypeDef) *Function {
+	assertNotNil("returnType", returnType)
 	q := r.q.Select("function")
-	q = q.Arg("id", id)
+	q = q.Arg("name", name)
+	q = q.Arg("returnType", returnType)
 
 	return &Function{
 		q: q,
@@ -3295,20 +3455,12 @@ func (r *Client) Function(id FunctionID) *Function {
 	}
 }
 
-// GeneratedCodeOpts contains options for Client.GeneratedCode
-type GeneratedCodeOpts struct {
-	ID GeneratedCodeID
-}
-
-// Load GeneratedCode by ID, or create a new one if id is unset.
-func (r *Client) GeneratedCode(opts ...GeneratedCodeOpts) *GeneratedCode {
+// Create a code generation result, given a directory containing the generated
+// code.
+func (r *Client) GeneratedCode(code *Directory) *GeneratedCode {
+	assertNotNil("code", code)
 	q := r.q.Select("generatedCode")
-	for i := len(opts) - 1; i >= 0; i-- {
-		// `id` optional argument
-		if !querybuilder.IsZeroValue(opts[i].ID) {
-			q = q.Arg("id", opts[i].ID)
-		}
-	}
+	q = q.Arg("code", code)
 
 	return &GeneratedCode{
 		q: q,
@@ -3321,7 +3473,7 @@ type GitOpts struct {
 	// Set to true to keep .git directory.
 	KeepGitDir bool
 	// A service which must be started before the repo is fetched.
-	ExperimentalServiceHost *Container
+	ExperimentalServiceHost *Service
 }
 
 // Queries a git repository.
@@ -3358,7 +3510,7 @@ func (r *Client) Host() *Host {
 // HTTPOpts contains options for Client.HTTP
 type HTTPOpts struct {
 	// A service which must be started before the URL is fetched.
-	ExperimentalServiceHost *Container
+	ExperimentalServiceHost *Service
 }
 
 // Returns a file containing an http remote url content.
@@ -3378,20 +3530,87 @@ func (r *Client) HTTP(url string, opts ...HTTPOpts) *File {
 	}
 }
 
-// ModuleOpts contains options for Client.Module
-type ModuleOpts struct {
-	ID ModuleID
+// Load a CacheVolume from its ID.
+func (r *Client) LoadCacheVolumeFromID(id CacheVolumeID) *CacheVolume {
+	q := r.q.Select("loadCacheVolumeFromID")
+	q = q.Arg("id", id)
+
+	return &CacheVolume{
+		q: q,
+		c: r.c,
+	}
 }
 
-// Load a module by ID, or create a new one if id is unset.
-func (r *Client) Module(opts ...ModuleOpts) *Module {
-	q := r.q.Select("module")
-	for i := len(opts) - 1; i >= 0; i-- {
-		// `id` optional argument
-		if !querybuilder.IsZeroValue(opts[i].ID) {
-			q = q.Arg("id", opts[i].ID)
-		}
+// Loads a container from an ID.
+func (r *Client) LoadContainerFromID(id ContainerID) *Container {
+	q := r.q.Select("loadContainerFromID")
+	q = q.Arg("id", id)
+
+	return &Container{
+		q: q,
+		c: r.c,
 	}
+}
+
+// Load a Directory from its ID.
+func (r *Client) LoadDirectoryFromID(id DirectoryID) *Directory {
+	q := r.q.Select("loadDirectoryFromID")
+	q = q.Arg("id", id)
+
+	return &Directory{
+		q: q,
+		c: r.c,
+	}
+}
+
+// Load a File from its ID.
+func (r *Client) LoadFileFromID(id FileID) *File {
+	q := r.q.Select("loadFileFromID")
+	q = q.Arg("id", id)
+
+	return &File{
+		q: q,
+		c: r.c,
+	}
+}
+
+// Load a function argument by ID.
+func (r *Client) LoadFunctionArgFromID(id FunctionArgID) *FunctionArg {
+	q := r.q.Select("loadFunctionArgFromID")
+	q = q.Arg("id", id)
+
+	return &FunctionArg{
+		q: q,
+		c: r.c,
+	}
+}
+
+// Load a function by ID.
+func (r *Client) LoadFunctionFromID(id FunctionID) *Function {
+	q := r.q.Select("loadFunctionFromID")
+	q = q.Arg("id", id)
+
+	return &Function{
+		q: q,
+		c: r.c,
+	}
+}
+
+// Load a GeneratedCode by ID.
+func (r *Client) LoadGeneratedCodeFromID(id GeneratedCodeID) *GeneratedCode {
+	q := r.q.Select("loadGeneratedCodeFromID")
+	q = q.Arg("id", id)
+
+	return &GeneratedCode{
+		q: q,
+		c: r.c,
+	}
+}
+
+// Load a module by ID.
+func (r *Client) LoadModuleFromID(id ModuleID) *Module {
+	q := r.q.Select("loadModuleFromID")
+	q = q.Arg("id", id)
 
 	return &Module{
 		q: q,
@@ -3399,14 +3618,78 @@ func (r *Client) Module(opts ...ModuleOpts) *Module {
 	}
 }
 
-// Create a new function from the provided definition.
-func (r *Client) NewFunction(name string, returnType *TypeDef) *Function {
-	assertNotNil("returnType", returnType)
-	q := r.q.Select("newFunction")
-	q = q.Arg("name", name)
-	q = q.Arg("returnType", returnType)
+// Load a Secret from its ID.
+func (r *Client) LoadSecretFromID(id SecretID) *Secret {
+	q := r.q.Select("loadSecretFromID")
+	q = q.Arg("id", id)
 
-	return &Function{
+	return &Secret{
+		q: q,
+		c: r.c,
+	}
+}
+
+// Loads a service from ID.
+func (r *Client) LoadServiceFromID(id ServiceID) *Service {
+	q := r.q.Select("loadServiceFromID")
+	q = q.Arg("id", id)
+
+	return &Service{
+		q: q,
+		c: r.c,
+	}
+}
+
+// Load a Socket from its ID.
+func (r *Client) LoadSocketFromID(id SocketID) *Socket {
+	q := r.q.Select("loadSocketFromID")
+	q = q.Arg("id", id)
+
+	return &Socket{
+		q: q,
+		c: r.c,
+	}
+}
+
+// Load a TypeDef by ID.
+func (r *Client) LoadTypeDefFromID(id TypeDefID) *TypeDef {
+	q := r.q.Select("loadTypeDefFromID")
+	q = q.Arg("id", id)
+
+	return &TypeDef{
+		q: q,
+		c: r.c,
+	}
+}
+
+// Create a new module.
+func (r *Client) Module() *Module {
+	q := r.q.Select("module")
+
+	return &Module{
+		q: q,
+		c: r.c,
+	}
+}
+
+// ModuleConfigOpts contains options for Client.ModuleConfig
+type ModuleConfigOpts struct {
+	Subpath string
+}
+
+// Load the static configuration for a module from the given source directory and optional subpath.
+func (r *Client) ModuleConfig(sourceDirectory *Directory, opts ...ModuleConfigOpts) *ModuleConfig {
+	assertNotNil("sourceDirectory", sourceDirectory)
+	q := r.q.Select("moduleConfig")
+	for i := len(opts) - 1; i >= 0; i-- {
+		// `subpath` optional argument
+		if !querybuilder.IsZeroValue(opts[i].Subpath) {
+			q = q.Arg("subpath", opts[i].Subpath)
+		}
+	}
+	q = q.Arg("sourceDirectory", sourceDirectory)
+
+	return &ModuleConfig{
 		q: q,
 		c: r.c,
 	}
@@ -3442,6 +3725,8 @@ func (r *Client) Pipeline(name string, opts ...PipelineOpts) *Client {
 }
 
 // Loads a secret from its ID.
+//
+// Deprecated: Use LoadSecretFromID instead
 func (r *Client) Secret(id SecretID) *Secret {
 	q := r.q.Select("secret")
 	q = q.Arg("id", id)
@@ -3471,6 +3756,8 @@ type SocketOpts struct {
 }
 
 // Loads a socket by its ID.
+//
+// Deprecated: Use LoadSocketFromID instead.
 func (r *Client) Socket(opts ...SocketOpts) *Socket {
 	q := r.q.Select("socket")
 	for i := len(opts) - 1; i >= 0; i-- {
@@ -3486,19 +3773,9 @@ func (r *Client) Socket(opts ...SocketOpts) *Socket {
 	}
 }
 
-// TypeDefOpts contains options for Client.TypeDef
-type TypeDefOpts struct {
-	ID TypeDefID
-}
-
-func (r *Client) TypeDef(opts ...TypeDefOpts) *TypeDef {
+// Create a new TypeDef.
+func (r *Client) TypeDef() *TypeDef {
 	q := r.q.Select("typeDef")
-	for i := len(opts) - 1; i >= 0; i-- {
-		// `id` optional argument
-		if !querybuilder.IsZeroValue(opts[i].ID) {
-			q = q.Arg("id", opts[i].ID)
-		}
-	}
 
 	return &TypeDef{
 		q: q,
@@ -3566,6 +3843,155 @@ func (r *Secret) Plaintext(ctx context.Context) (string, error) {
 
 	q = q.Bind(&response)
 	return response, q.Execute(ctx, r.c)
+}
+
+type Service struct {
+	q *querybuilder.Selection
+	c graphql.Client
+
+	endpoint *string
+	hostname *string
+	id       *ServiceID
+	start    *ServiceID
+	stop     *ServiceID
+}
+
+// ServiceEndpointOpts contains options for Service.Endpoint
+type ServiceEndpointOpts struct {
+	// The exposed port number for the endpoint
+	Port int
+	// Return a URL with the given scheme, eg. http for http://
+	Scheme string
+}
+
+// Retrieves an endpoint that clients can use to reach this container.
+//
+// If no port is specified, the first exposed port is used. If none exist an error is returned.
+//
+// If a scheme is specified, a URL is returned. Otherwise, a host:port pair is returned.
+func (r *Service) Endpoint(ctx context.Context, opts ...ServiceEndpointOpts) (string, error) {
+	if r.endpoint != nil {
+		return *r.endpoint, nil
+	}
+	q := r.q.Select("endpoint")
+	for i := len(opts) - 1; i >= 0; i-- {
+		// `port` optional argument
+		if !querybuilder.IsZeroValue(opts[i].Port) {
+			q = q.Arg("port", opts[i].Port)
+		}
+		// `scheme` optional argument
+		if !querybuilder.IsZeroValue(opts[i].Scheme) {
+			q = q.Arg("scheme", opts[i].Scheme)
+		}
+	}
+
+	var response string
+
+	q = q.Bind(&response)
+	return response, q.Execute(ctx, r.c)
+}
+
+// Retrieves a hostname which can be used by clients to reach this container.
+func (r *Service) Hostname(ctx context.Context) (string, error) {
+	if r.hostname != nil {
+		return *r.hostname, nil
+	}
+	q := r.q.Select("hostname")
+
+	var response string
+
+	q = q.Bind(&response)
+	return response, q.Execute(ctx, r.c)
+}
+
+// A unique identifier for this service.
+func (r *Service) ID(ctx context.Context) (ServiceID, error) {
+	if r.id != nil {
+		return *r.id, nil
+	}
+	q := r.q.Select("id")
+
+	var response ServiceID
+
+	q = q.Bind(&response)
+	return response, q.Execute(ctx, r.c)
+}
+
+// XXX_GraphQLType is an internal function. It returns the native GraphQL type name
+func (r *Service) XXX_GraphQLType() string {
+	return "Service"
+}
+
+// XXX_GraphQLIDType is an internal function. It returns the native GraphQL type name for the ID of this object
+func (r *Service) XXX_GraphQLIDType() string {
+	return "ServiceID"
+}
+
+// XXX_GraphQLID is an internal function. It returns the underlying type ID
+func (r *Service) XXX_GraphQLID(ctx context.Context) (string, error) {
+	id, err := r.ID(ctx)
+	if err != nil {
+		return "", err
+	}
+	return string(id), nil
+}
+
+func (r *Service) MarshalJSON() ([]byte, error) {
+	id, err := r.ID(context.Background())
+	if err != nil {
+		return nil, err
+	}
+	return json.Marshal(id)
+}
+
+// Retrieves the list of ports provided by the service.
+func (r *Service) Ports(ctx context.Context) ([]Port, error) {
+	q := r.q.Select("ports")
+
+	q = q.Select("description port protocol")
+
+	type ports struct {
+		Description string
+		Port        int
+		Protocol    NetworkProtocol
+	}
+
+	convert := func(fields []ports) []Port {
+		out := []Port{}
+
+		for i := range fields {
+			val := Port{description: &fields[i].Description, port: &fields[i].Port, protocol: &fields[i].Protocol}
+			out = append(out, val)
+		}
+
+		return out
+	}
+	var response []ports
+
+	q = q.Bind(&response)
+
+	err := q.Execute(ctx, r.c)
+	if err != nil {
+		return nil, err
+	}
+
+	return convert(response), nil
+}
+
+// Start the service and wait for its health checks to succeed.
+//
+// Services bound to a Container do not need to be manually started.
+func (r *Service) Start(ctx context.Context) (*Service, error) {
+	q := r.q.Select("start")
+
+	return r, q.Execute(ctx, r.c)
+}
+
+// Stop the service.
+func (r *Service) Stop(ctx context.Context) (*Service, error) {
+	q := r.q.Select("stop")
+
+	return r, q.Execute(ctx, r.c)
 }
 
 type Socket struct {
@@ -3819,6 +4245,8 @@ func (r *TypeDef) WithOptional(optional bool) *TypeDef {
 
 type CacheSharingMode string
 
+func (CacheSharingMode) IsEnum() {}
+
 const (
 	Locked  CacheSharingMode = "LOCKED"
 	Private CacheSharingMode = "PRIVATE"
@@ -3826,6 +4254,8 @@ const (
 )
 
 type ImageLayerCompression string
+
+func (ImageLayerCompression) IsEnum() {}
 
 const (
 	Estargz      ImageLayerCompression = "EStarGZ"
@@ -3836,6 +4266,8 @@ const (
 
 type ImageMediaTypes string
 
+func (ImageMediaTypes) IsEnum() {}
+
 const (
 	Dockermediatypes ImageMediaTypes = "DockerMediaTypes"
 	Ocimediatypes    ImageMediaTypes = "OCIMediaTypes"
@@ -3843,12 +4275,16 @@ const (
 
 type NetworkProtocol string
 
+func (NetworkProtocol) IsEnum() {}
+
 const (
 	Tcp NetworkProtocol = "TCP"
 	Udp NetworkProtocol = "UDP"
 )
 
 type TypeDefKind string
+
+func (TypeDefKind) IsEnum() {}
 
 const (
 	Booleankind TypeDefKind = "BooleanKind"
