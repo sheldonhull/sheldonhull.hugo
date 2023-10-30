@@ -9,7 +9,7 @@ atomicgo.dev/keyboard/keys
 # bitbucket.org/creachadair/shell v0.0.7
 ## explicit; go 1.16
 bitbucket.org/creachadair/shell
-# dagger.io/dagger v0.9.0
+# dagger.io/dagger v0.9.1
 ## explicit; go 1.20
 dagger.io/dagger
 dagger.io/dagger/internal/engineconn

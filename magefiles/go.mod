@@ -3,7 +3,7 @@ module mage.local
 go 1.18
 
 require (
-	dagger.io/dagger v0.9.0
+	dagger.io/dagger v0.9.1
 	github.com/bitfield/script v0.21.3
 	github.com/gobeam/stringy v0.0.6
 	github.com/magefile/mage v1.14.0

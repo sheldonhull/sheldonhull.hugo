@@ -25,6 +25,42 @@ func assertNotNil(argName string, value any) {
 	}
 }
 
+// ptr returns a pointer to the given value.
+func ptr[T any](v T) *T {
+	return &v
+}
+
+type Optional[T comparable] struct {
+	value T
+	isSet bool
+}
+
+func Opt[T comparable](v T) Optional[T] {
+	return Optional[T]{value: v, isSet: true}
+}
+
+func (o Optional[T]) Get() (T, bool) {
+	var zero T
+	return o.value, o.isSet || o.value != zero
+}
+
+func (o Optional[T]) GetOr(defaultValue T) T {
+	value, ok := o.Get()
+	if !ok {
+		return defaultValue
+	}
+	return value
+}
+
+func (o *Optional[T]) MarshalJSON() ([]byte, error) {
+	return json.Marshal(&o.value)
+}
+
+func (o *Optional[T]) UnmarshalJSON(dt []byte) error {
+	o.isSet = true
+	return json.Unmarshal(dt, &o.value)
+}
+
 // A global cache volume identifier.
 type CacheVolumeID string
 
@@ -81,14 +117,6 @@ type BuildArg struct {
 
 	// The build argument value.
 	Value string `json:"value"`
-}
-
-type FunctionCallInput struct {
-	// The name of the argument to the function
-	Name string `json:"name"`
-
-	// The value of the argument represented as a string of the JSON serialization.
-	Value JSON `json:"value"`
 }
 
 // Key value object that represents a Pipeline label.
@@ -1612,6 +1640,17 @@ func (r *Directory) File(path string) *File {
 	}
 }
 
+// Returns a list of files and directories that matche the given pattern.
+func (r *Directory) Glob(ctx context.Context, pattern string) ([]string, error) {
+	q := r.q.Select("glob")
+	q = q.Arg("pattern", pattern)
+
+	var response []string
+
+	q = q.Bind(&response)
+	return response, q.Execute(ctx, r.c)
+}
+
 // The content-addressed identifier of the directory.
 func (r *Directory) ID(ctx context.Context) (DirectoryID, error) {
 	if r.id != nil {
@@ -2051,7 +2090,6 @@ type Function struct {
 	q *querybuilder.Selection
 	c graphql.Client
 
-	call        *JSON
 	description *string
 	id          *FunctionID
 	name        *string
@@ -2097,36 +2135,6 @@ func (r *Function) Args(ctx context.Context) ([]FunctionArg, error) {
 	}
 
 	return convert(response), nil
-}
-
-// FunctionCallOpts contains options for Function.Call
-type FunctionCallOpts struct {
-	Input []FunctionCallInput
-}
-
-// Execute this function using dynamic input+output types.
-//
-// Typically, it's preferable to invoke a function using a type
-// safe graphql query rather than using this call field. However,
-// call is useful for some advanced use cases where dynamically
-// loading arbitrary modules and invoking functions in them is
-// required.
-func (r *Function) Call(ctx context.Context, opts ...FunctionCallOpts) (JSON, error) {
-	if r.call != nil {
-		return *r.call, nil
-	}
-	q := r.q.Select("call")
-	for i := len(opts) - 1; i >= 0; i-- {
-		// `input` optional argument
-		if !querybuilder.IsZeroValue(opts[i].Input) {
-			q = q.Arg("input", opts[i].Input)
-		}
-	}
-
-	var response JSON
-
-	q = q.Bind(&response)
-	return response, q.Execute(ctx, r.c)
 }
 
 // A doc string for the function, if any
@@ -2593,6 +2601,21 @@ func (r *GeneratedCode) WithVCSIgnoredPaths(paths []string) *GeneratedCode {
 type GitRef struct {
 	q *querybuilder.Selection
 	c graphql.Client
+
+	commit *string
+}
+
+// The resolved commit id at this ref.
+func (r *GitRef) Commit(ctx context.Context) (string, error) {
+	if r.commit != nil {
+		return *r.commit, nil
+	}
+	q := r.q.Select("commit")
+
+	var response string
+
+	q = q.Bind(&response)
+	return response, q.Execute(ctx, r.c)
 }
 
 // GitRefTreeOpts contains options for GitRef.Tree
@@ -3472,6 +3495,10 @@ func (r *Client) GeneratedCode(code *Directory) *GeneratedCode {
 type GitOpts struct {
 	// Set to true to keep .git directory.
 	KeepGitDir bool
+	// Set SSH known hosts
+	SSHKnownHosts string
+	// Set SSH auth socket
+	SSHAuthSocket *Socket
 	// A service which must be started before the repo is fetched.
 	ExperimentalServiceHost *Service
 }
@@ -3483,6 +3510,14 @@ func (r *Client) Git(url string, opts ...GitOpts) *GitRepository {
 		// `keepGitDir` optional argument
 		if !querybuilder.IsZeroValue(opts[i].KeepGitDir) {
 			q = q.Arg("keepGitDir", opts[i].KeepGitDir)
+		}
+		// `sshKnownHosts` optional argument
+		if !querybuilder.IsZeroValue(opts[i].SSHKnownHosts) {
+			q = q.Arg("sshKnownHosts", opts[i].SSHKnownHosts)
+		}
+		// `sshAuthSocket` optional argument
+		if !querybuilder.IsZeroValue(opts[i].SSHAuthSocket) {
+			q = q.Arg("sshAuthSocket", opts[i].SSHAuthSocket)
 		}
 		// `experimentalServiceHost` optional argument
 		if !querybuilder.IsZeroValue(opts[i].ExperimentalServiceHost) {
