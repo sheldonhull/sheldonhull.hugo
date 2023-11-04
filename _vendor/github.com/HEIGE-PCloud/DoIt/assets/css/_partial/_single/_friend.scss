@@ -1,0 +1,77 @@
+.friend-link-div {
+    height: 92px;
+    margin-top: 5px;
+    width: 48%;
+    display: inline-block;
+    background: $friend-link-background-color;
+    vertical-align: top;
+    [theme="dark"] & {
+        background: $friend-link-background-color-dark;
+    }
+    [theme="black"] & {
+        background: $friend-link-background-color-black;
+    }
+    -webkit-transition: transform 0.4s ease;
+    -moz-transition: transform 0.4s ease;
+    -o-transition: transform 0.4s ease;
+    transition: transform 0.4s ease;
+    &:hover {
+        @include transform(scale(1.01));
+    }
+    .friend-link-avatar {
+        width: 92px;
+        float: left;
+        height: 100%;
+        img {
+            width: 56px;
+            height: 56px;
+            margin: 18px;
+            border-radius: 50%;
+        }
+    }
+    .friend-link-info {
+        margin: 18px 18px 18px 92px;
+        color: $friend-link-color;
+        [theme="dark"] & {
+            color: $friend-link-color-dark;
+        }
+        [theme="black"] & {
+            color: $friend-link-color-black;
+        }
+        &:hover {
+            color: $friend-link-hover-color;
+            [theme="dark"] & {
+                color: $friend-link-hover-color-dark;
+            }
+            [theme="black"] & {
+                color: $friend-link-hover-color-black;
+            }
+        }
+        .friend-name-div {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            .friend-name {
+                font-style: normal;
+            }
+        }
+        .friend-bio {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            color: $global-font-secondary-color;
+            [theme="dark"] & {
+                color: $global-font-secondary-color-dark;
+            }
+            [theme="black"] & {
+                color: $global-font-secondary-color-black;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .friend-link-div {
+        width: 100%;
+    }
+}

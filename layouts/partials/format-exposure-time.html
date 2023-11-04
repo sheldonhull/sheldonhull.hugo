@@ -1,0 +1,16 @@
+{{ $n   :=   "- . ," }}
+{{/* numFmt   options */}}
+{{ $p   :=   9 }}
+{{/* precision */}}
+{{ $e   :=   "" }}
+{{ if   eq (printf   "%T"   .) "float64" }}
+  {{ $r   :=   div   1   . }}
+  {{ if   math.ModBool (mul $r (pow   10 $p)) (mul (int $r) (pow   10 $p)) }}
+    {{ $e   =   printf   "1/%d s" (int $r) }}
+  {{ else }}
+    {{ $e   =   printf   "%s s" (lang.NumFmt $p   . $n ) }}
+  {{ end }}
+{{ else }}
+  {{ $e   =   printf   "%s s"   . }}
+{{ end }}
+{{ return $e }}

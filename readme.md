@@ -136,6 +136,10 @@ Preliminary docker support for running hugo this way instead of brew install can
     && docker-compose -f "docker-compose.hugo.yml" build --build-arg HUGO_VERSION=$HUGO_VERSION \
     && docker-compose -f "docker-compose.hugo.yml" up
 
+## Other Tools
+
+Use `brew install exiftool` for editing image `EXIF` data so image gallery doesn't have to read from sidecar files.
+
 ## Troubleshooting
 
 ### Devcontainers

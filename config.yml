@@ -2,7 +2,7 @@
 baseURL: https://www.sheldonhull.com
 defaultContentLanguage: en
 timeout: 60000 # in milliseconds, so 1 min to allow time to create resized images
-# theme: ["hugo-debugprint","codeit"]
+# theme: ['DoIt', 'hugo-shortcode-gallery']
 # themesDir: ../..
 title: sheldonhull.com
 enableRobotsTXT: true
@@ -10,6 +10,8 @@ enableGitInfo: true
 enableEmoji: true
 ignoreErrors:
   - error-remote-getjson
+imaging:
+  includeFields: '.*'
 languages:
   en:
     weight: 1
@@ -17,7 +19,6 @@ languages:
     languageName: English
     hasCJKLanguage: false
     paginate: 100
-    googleAnalytics: UA-40198001-3
     copyright: >-
       This work is licensed under a Creative Commons Attribution-NonCommercial
       4.0 International License.
@@ -87,6 +88,7 @@ languages:
           title: tip
           weight: 8
     params:
+      googleAnalytics: UA-40198001-3
       description: A personal dev blog
       keywords:
         - Theme
@@ -368,6 +370,7 @@ params:
         - <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
         - <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
         - <script type="module" src="https://unpkg.com/ninja-keys?module"></script>
+
     seo:
       images: []
       publisher:
@@ -478,8 +481,6 @@ outputs:
   taxonomy:
     - HTML
     - RSS
-  taxonomyTerm:
-    - HTML
 
 taxonomies:
   tag: tags
@@ -500,5 +501,7 @@ module:
       disable: false
     # - path: github.com/sunt-programator/CodeIT
     #   disable: false
-    - path: github.com/dillonzq/LoveIt
+    - path: github.com/HEIGE-PCloud/DoIt
+      disable: false
+    - path: github.com/mfg92/hugo-shortcode-gallery
       disable: false

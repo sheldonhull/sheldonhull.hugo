@@ -1,0 +1,50 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe.min.css"
+  integrity="sha512-LFWtdAXHQuwUGH9cImO9blA3a3GfQNkpF2uRlhaOpSbDevNyK1rmAjs13mtpjvWyi+flP7zYWboqY+8Mkd42xA=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe-lightbox.esm.min.js"
+  integrity="sha512-Z5y5T62siZB4wxN80Bfmi4QJpZVPKYGAQM1q3XoaUjrzj0ZaJ9W2w5oGF6byXLYQGn/Ytj3CntKdBkKryglHdA=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.2/photoswipe.esm.min.js"
+  integrity="sha512-1LN0vXZGZ/cFH0u75UBi7LiBPNtPjOYBrq3b9r/oFWNMtY1E0cbbkZ7hde75bqeSpLPwz1Yi+bqspde+ihTLMw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script type="module">
+  import PhotoSwipeLightbox from "photoswipe/dist/photoswipe-lightbox.esm.js";
+  const options = new PhotoSwipeLightbox({
+    gallery: "#gallery--responsive-images",
+    children: "a",
+    pswpModule: () => import("/photoswipe/photoswipe.esm.js"),
+
+  dataSource: [
+
+  {{ with .Page.Resources.ByType "image" }}
+    {{- range . -}}
+      {{- $img := . -}}
+      {
+        src: '{{ ($img.Resize "320x").RelPermalink | jsonify }}',
+        width: 320,
+        height: 320,
+        alt: 'test image 1'
+      }
+    {{- end -}}
+  {{ end }}
+  ]
+  });
+  const lightbox = new PhotoSwipeLightbox(options);
+  lightbox.init();
+
+document.querySelector('#btn-open-pswp-from-arr-lightbox').onclick = () => {
+  lightbox.loadAndOpen(0); // defines start slide index
+};
+
+
+</script>

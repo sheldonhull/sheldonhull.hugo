@@ -18,10 +18,10 @@
     "url": "https://github.com/davidsneighbour/hugo-debug/issues"
   },
   "dependencies": {
-    "mem": "9.0.2"
+    "mem": "^9.0.2"
   },
   "devDependencies": {
-    "@davidsneighbour/config": "1.0.48"
+    "@davidsneighbour/config": "^1.0.28"
   },
   "scripts": {
     "clean": "run-p clean:**",

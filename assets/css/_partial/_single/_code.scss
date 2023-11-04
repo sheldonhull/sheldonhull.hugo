@@ -163,7 +163,7 @@ pre,
     .table-wrapper {
       max-height: 0;
       overflow-y: hidden;
-      @include details-transition-open;
+      // @include details-transition-open;
     }
 
     &.open {
@@ -177,7 +177,7 @@ pre,
 
       .table-wrapper {
         max-height: $MAX_LENGTH;
-        @include details-transition-close;
+        // @include details-transition-close;
       }
 
       .arrow {
