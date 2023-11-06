@@ -3,7 +3,7 @@ module mage.local
 go 1.18
 
 require (
-	dagger.io/dagger v0.9.1
+	dagger.io/dagger v0.9.3
 	github.com/bitfield/script v0.21.3
 	github.com/gobeam/stringy v0.0.6
 	github.com/magefile/mage v1.14.0
@@ -35,7 +35,7 @@ require (
 	github.com/xo/terminfo v0.0.0-20210125001918-ca9a967f8778 // indirect
 	github.com/ztrue/tracerr v0.3.0 // indirect
 	golang.org/x/exp v0.0.0-20231006140011-7918f672742d // indirect
-	golang.org/x/sync v0.3.0 // indirect
+	golang.org/x/sync v0.4.0 // indirect
 	golang.org/x/sys v0.13.0 // indirect
 	golang.org/x/term v0.12.0 // indirect
 	golang.org/x/text v0.13.0 // indirect
