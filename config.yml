@@ -481,6 +481,8 @@ outputs:
   taxonomy:
     - HTML
     - RSS
+  taxonomyTerm:
+    - HTML
 
 taxonomies:
   tag: tags
