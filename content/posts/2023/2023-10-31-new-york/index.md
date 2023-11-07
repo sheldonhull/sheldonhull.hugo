@@ -4,6 +4,9 @@ slug: "new-york-first-visit"
 permalink: /new-york-first-visit/
 date: 2023-10-31
 toc: false
+tags:
+- travel
+- photography
 ---
 
 **Ella**: She's too tired right now to narrate, but there's a few funny highlights from her day.
