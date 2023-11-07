@@ -17,6 +17,7 @@ import (
 
 	// mg contains helpful utility functions, like Deps.
 	"dagger.io/dagger"
+	"github.com/alessio/shellescape"
 	"github.com/bitfield/script"
 	"github.com/gobeam/stringy"
 	"github.com/magefile/mage/mg"
@@ -186,7 +187,10 @@ func calculatePostDir(title string, kind string) (string, error) {
 	slugTitle := strings.Join([]string{dateString, kebabTitle}, "-") ///stringy.ToKebabCase(title)
 
 	pterm.Success.Printf("Slugify Title: %s\n", slugTitle)
-	filepath := filepath.Join(contentDir, fmt.Sprintf("%d", year), slugTitle+".md")
+	filepath := filepath.Join(contentDir, fmt.Sprintf("%d", year), slugTitle)
+	if kind != "blog-bundle" {
+		filepath = filepath + ".md"
+	}
 	pterm.Success.Printf("calculatePostDir: %s\n", slugTitle)
 
 	return filepath, nil
@@ -303,7 +307,7 @@ func Post() error {
 
 	prompt := promptui.Select{
 		Label: "Select Type of Post j/k to navigate",
-		Items: []string{"100DaysOfCode", "microblog", "blog"},
+		Items: []string{"100DaysOfCode", "microblog", "blog", "blog-bundle"},
 	}
 	_, result, err := prompt.Run()
 	if err != nil {
@@ -341,9 +345,14 @@ func Post() error {
 
 		return err
 	}
+
+	hugoRunArgs := []string{"new", fileName, "--kind", kind}
 	if err := sh.RunV("hugo", "new", fileName, "--kind", kind); err != nil {
+		pterm.Error.Printfln("hugo %v", shellescape.QuoteCommand(hugoRunArgs))
 		return err
 	}
+	pterm.Success.Printfln("hugo %v", shellescape.QuoteCommand(hugoRunArgs))
+
 	if kind == "code" {
 		bumpCounter()
 		if err := replaceCodeVariables(fileName); err != nil {
