@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory containing the files
-dir="content/posts/2023/2023-10-31-new-york/images"
+dir="content/posts/2023/2023-11-06-new-york/images"
 
 # Iterate over the PNG files in the directory
 for file in "$dir"/*.jpg; do
