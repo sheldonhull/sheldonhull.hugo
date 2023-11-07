@@ -2,12 +2,15 @@
 title: "New York - First Visit"
 slug: "new-york-first-visit"
 permalink: /new-york-first-visit/
-date: 2023-10-31
+date: 2023-11-06
+original_start: 2023-10-31
 toc: false
 tags:
 - travel
 - photography
 ---
+
+Now that I've left New York, here's what I had started capturing.
 
 **Ella**: She's too tired right now to narrate, but there's a few funny highlights from her day.
 One of the challenges I gave the kids was to find the first official New York City rat.
