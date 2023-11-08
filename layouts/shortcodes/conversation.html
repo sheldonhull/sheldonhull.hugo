@@ -1,0 +1,27 @@
+<!-- layouts/shortcodes/conversation.html -->
+<div class="conversation-card">
+  {{ $firstSpeaker := "" }}
+  {{ range split .Inner "\n" }}
+    {{ if findRE ".*:" . }}
+      {{ $lineParts := split . ":" }}
+      {{ $speaker := trim ( index $lineParts 0 ) " " }}
+      {{ $text := trim ( delimit (after 1 $lineParts) "" ) " " }}
+      {{ if eq $firstSpeaker "" }}
+        {{ $firstSpeaker = $speaker }}
+      {{ end }}
+      {{ if eq $speaker $firstSpeaker }}
+        <div class="dialogue left">
+          <strong>{{ $speaker | markdownify }}</strong>:
+          {{ $text | markdownify }}
+        </div>
+      {{ else }}
+        <div class="dialogue right">
+          <strong>{{ $speaker | markdownify }}</strong>:
+          {{ $text | markdownify }}
+        </div>
+      {{ end }}
+    {{ else }}
+      <p>{{ . | markdownify }}</p>
+    {{ end }}
+  {{ end }}
+</div>

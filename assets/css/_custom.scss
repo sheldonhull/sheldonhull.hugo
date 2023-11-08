@@ -1,4 +1,3 @@
-
 // @mixin details-transition-open {
 //   @include transition(max-height 0.8s cubic-bezier(0, 1, 0, 1) -0.1s);
 // }
@@ -23,6 +22,7 @@
 @import "_loader.scss";
 @import "_goplay.scss";
 @import "_code_highlighting.scss";
+@import "_conversation.scss";
 
 $global-font-family: Raleway, Maven Pro, Source Sans Pro, Trebuchet MS, Verdana,
   Verdana Ref, Segoe UI, Candara, Lucida Grande, Lucida Sans Unicode,
