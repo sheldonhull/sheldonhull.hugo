@@ -31,6 +31,11 @@ import (
 	"github.com/sheldonhull/magetools/tooling"
 )
 
+var Aliases = map[string]interface{}{
+	"build": Hugo.Build, // Not sure why the Hugo{}.Build isn't required, and just hugo right now.
+	"serve": Hugo.Serve,
+}
+
 // nodeCommand defaults to yarn, but if npm only is being used then this can be replaced with npm.
 const nodeCommand = "yarn"
 
@@ -72,6 +77,9 @@ type Ci mg.Namespace
 
 // Js contains yarn oriented tasks.
 type Js mg.Namespace
+
+// Devcontainer runs devcontainer commands for codespaces or local dev builds.
+type Devcontainer mg.Namespace
 
 // hugo alias is a shortcut for calling hugo binary
 // var hugobin = sh.RunV("hugo") // go is a keyword :(
@@ -492,9 +500,6 @@ func (Hugo) Fmt() error {
 	return nil
 }
 
-// Devcontainer runs devcontainer commands for codespaces or local dev builds.
-type Devcontainer mg.Namespace
-
 // Build the devcontainer.
 func (Devcontainer) Build() error {
 	pterm.Info.Println("build devcontainer")
@@ -509,18 +514,18 @@ func (Devcontainer) Build() error {
 	return nil
 }
 
-// Build builds a docker container for the hugo project.
-func Build() error {
-	if err := sh.Run("docker", "buildx", "build", "-f", ".devcontainer/Dockerfile", "-t", "sheldonhullhugo:latest", ".devcontainer"); err != nil {
-		pterm.Error.Printfln("🚫 docker devcontainer %q", err)
-		return err
-	}
-	if err := sh.Run("docker", "run", "--rm", "-it", "sheldonhullhugo:latest"); err != nil {
-		pterm.Error.Printfln("🚫 docker run %q", err)
-		return err
-	}
-	return nil
-}
+// // Build builds a docker container for the hugo project.
+// func (Devcontainer) Build() error {
+// 	if err := sh.Run("docker", "buildx", "build", "-f", ".devcontainer/Dockerfile", "-t", "sheldonhullhugo:latest", ".devcontainer"); err != nil {
+// 		pterm.Error.Printfln("🚫 docker devcontainer %q", err)
+// 		return err
+// 	}
+// 	if err := sh.Run("docker", "run", "--rm", "-it", "sheldonhullhugo:latest"); err != nil {
+// 		pterm.Error.Printfln("🚫 docker run %q", err)
+// 		return err
+// 	}
+// 	return nil
+// }
 
 // // 💾 Commit will run git-cz to guide through commit prompt with -A.
 // func (Git) Commit() error {
