@@ -7,6 +7,7 @@ tags:
 - travel
 - dadlife
 - microblog
+series: ['Trip To Europe']
 ---
 
 Somtimes you feel that you've done things right as a parent, even when things go awry.

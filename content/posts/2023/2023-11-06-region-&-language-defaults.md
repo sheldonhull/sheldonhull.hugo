@@ -10,7 +10,7 @@ tags:
 - travel
 typora-root-url: ../../../static
 typora-copy-images-to:  ../../../static/images
-series: ['Digital Nomad Observations']
+series: ['Digital Nomad Observations', 'Trip to Europe']
 ---
 
 Language defaults seem to be an interesting mix when it comes to websites.

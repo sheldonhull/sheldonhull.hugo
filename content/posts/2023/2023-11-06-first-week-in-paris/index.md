@@ -8,6 +8,7 @@ summary:
 tags:
 draft: true
 toc: true
+series: ['Trip to Europe']
 ---
 Karis' Entry:
 
