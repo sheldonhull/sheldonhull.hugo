@@ -457,7 +457,11 @@ mediaTypes:
   text/plain:
     suffixes:
       - md
+      - meta
 outputFormats:
+  Meta:
+    mediaType: text/plain
+    isPlainText: true
   MarkDown:
     mediaType: text/plain
     isPlainText: true
@@ -476,6 +480,7 @@ outputs:
   page:
     - HTML
     - MarkDown
+    - Meta
   section:
     - HTML
     - RSS
