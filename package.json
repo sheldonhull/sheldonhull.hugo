@@ -3,7 +3,7 @@
   "packageManager": "yarn@3.6.4",
   "devDependencies": {
     "atomic-algolia": "0.3.19",
-    "imageoptim-cli": "3.1.7",
+    "imageoptim-cli": "3.1.9",
     "prettier": "2.8.8",
     "prettier-plugin-go-template": "0.0.15"
   },
