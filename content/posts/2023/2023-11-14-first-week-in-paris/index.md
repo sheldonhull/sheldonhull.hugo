@@ -29,19 +29,24 @@ Then, as if on cue, a double rainbow appeared.
 It was amazing - the new double rainbow people!
 At a bus stop, I caught my first glimpse of the Eiffel Tower, that amazing landmark.
 We got closer, went around it, and let me tell you, it was amazing.
+We saw the Eiffel Tower from the top, and I got it all on the GoPro, but everything looks tiny through it, still it was cool.
 Then as it got dark and the lights went on, the Eiffel Tower became ten times more amazing, all sparkly and bright.
 Later at a bridge - not the most famous but still famous, and a beautiful carousel nearby - we didn't go on, but it sure was fun to look at.
 My mom took lots of pictures.
+But yeah, Jasper the cat was there when we got back at like 6 or 7 pm, and he's just the best, he's my new stuffy.
 
 <hr/>
 
 **Ella's Entry**: There were more than ten parakeets outside our window this morning!
 Then last night, we went to the Lotto Shop - a different one than before - and the parakeets were still the highlight for me.
-Oh, and we also went to what I call the Octotrium - I don't know, it's great.
-Climbing it was like there was no tomorrow.
-We saw the Eiffel Tower from the top, and I got it all on my GoPro - looked tiny from up there, but it was so cool.
-And there was this pocket out of nowhere, full of rats, yuck!
-But yeah, Jasper the cat was there when we got back at like 6 or 7 pm, and he's just the best.
+Oh, and we also went to a park dad stopped at for a few minutes on our walk home, at night.
+They had ropes and a big net.
+Saw a another rat.
+Climbed it like there was no tomorrow.
+And there was this trash can while we were walking and out of nowhere, a whole bunch of rats scurried off, yuck!
+I have a new stuffy bat.
+That's all for me.
+
 <hr/>
 
 **Karsten's Entry**: So, about today... We went shopping and saw the Arc de Triomphe, not necessarily in that order.
