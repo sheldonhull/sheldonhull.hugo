@@ -1,5 +1,5 @@
 #!/bin/bash
-directory="$HOME/Downloads/convertme"
+directory="${HOME}/Downloads/convert"
 
 # Define the directory containing the original files and the output directory for JPEG files
 original_directory="$directory"

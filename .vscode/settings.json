@@ -4,6 +4,9 @@
     "editor.fontSize": 14,
     "editor.lineHeight": 26
   },
+  "grammarly.files.include": [
+    "*.md"
+  ],
   // "markdownlint.customRules": [".markdownlint.yaml"],
   "grammarly.userWords": [
     "CLI",
@@ -146,4 +149,11 @@
   "frontMatter.dashboard.openOnStart": true,
   "frontMatter.framework.startCommand": "hugo serve  --verbose --enableGitInfo -d _site --buildFuture --buildDrafts --gc --cleanDestinationDir",
   "frontMatter.preview.host": "http://localhost:1313",
+  "grammarly.selectors": [
+    {
+      "language": "markdown",
+      "scheme": "file",
+      "pattern": "content/posts/2023/2023-11-06-first-week-in-paris/index.md"
+    }
+  ],
 }
