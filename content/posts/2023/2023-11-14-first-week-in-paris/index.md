@@ -38,11 +38,11 @@ But yeah, Jasper the cat was there when we got back at like 6 or 7 pm, and he's 
 <hr/>
 
 **Ella's Entry**: There were more than ten parakeets outside our window this morning!
-Then last night, we went to the Lotto Shop - a different one than before - and the parakeets were still the highlight for me.
+Then last night, we went to the Gellato Shop - a different one than before.
 Oh, and we also went to a park dad stopped at for a few minutes on our walk home, at night.
 They had ropes and a big net.
-Saw a another rat.
 Climbed it like there was no tomorrow.
+Saw another rat.
 And there was this trash can while we were walking and out of nowhere, a whole bunch of rats scurried off, yuck!
 I have a new stuffy bat.
 That's all for me.
