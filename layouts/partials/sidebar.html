@@ -7,13 +7,24 @@
 <div id="sidebar">
   <ul>
     {{ $pages := slice }}
+    {{ $processed := dict }} <!-- Initialize an empty map for processed pages -->
+
     {{ range $page := (where .Site.Pages "Section" "notes") }}
-      {{ $pages = $pages | append (dict "page" . "file_path" .File.Path) }}
+      {{/* Combine all properties into one dict for each page */}}
+      {{ $props := dict
+        "page" $page
+        "file_path" $page.File.Path
+        "child_item_count" (len $page.Pages)
+
+      }}
+      {{/* Append this dict of properties to the $pages slice */}}
+      {{ $pages = $pages | append $props }}
     {{ end }}
 
     {{ range sort $pages "file_path" }}
       <li>
-        {{ partial "sidebar-tree.html" .page }}
+        {{/* Now pass the entire dict of properties to the partial */}}
+        {{ partial "sidebar-tree.html" (dict "page" (index . "page") "processed" $processed "child_item_count" (index . "child_item_count") "other_property1" (index . "other_property1") "other_property2" (index . "other_property2")) }}
       </li>
     {{ end }}
   </ul>

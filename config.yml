@@ -373,7 +373,7 @@ params:
         - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
       js:
         - /js/sidebar.js
-        - <script src="/js/webmentions.js" async></script>
+        - /js/webmentions.js
         # - <script src="/js/jquery.timeago.js" async></script>
         # - <script src="/javascript/app.js" async></script>
         - <script src="/js/mailbrew-html-embed-script.js" async></script>
@@ -510,15 +510,25 @@ module:
   imports:
     # Debug Helper for Layouts: https://github.com/kaushalmodi/hugo-debugprint
     # - path: github.com/dnb-org/debug
-    - path: github.com/davidsneighbour/hugo-debug
+    - path: github.com/davidsneighbour/hugo-modules/modules/debug
       # github.com/kaushalmodi/hugo-debugprint
       # github.com/dnb-hugo/debugprint
       # ignoreConfig: true
       # ignoreImports: true
-      disable: false
+      disable: true
+      ignoreConfig: false
+      ignoreImports: false
+
     # - path: github.com/sunt-programator/CodeIT
     #   disable: false
     - path: github.com/HEIGE-PCloud/DoIt
       disable: false
     - path: github.com/mfg92/hugo-shortcode-gallery
       disable: false
+
+# https://kollitsch.dev/components/hugo-debug/
+dnb:
+  debug:
+    debuglevel: 8
+    disablenote: false
+    namespace: dnb

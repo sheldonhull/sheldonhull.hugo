@@ -22,6 +22,8 @@ github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSs
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davidsneighbour/hugo-debug v1.5.20 h1:pFeFy+hgASGnuibe3Ey/tf+WYB9hxp6imXGllTMzHrk=
 github.com/davidsneighbour/hugo-debug v1.5.20/go.mod h1:CmaePQn6TcdiP269YMmB0ShEZI47ySDpeWkBV8T2qcU=
+github.com/davidsneighbour/hugo-modules/modules/debug v1.2023.16 h1:Rej9W+VEKSbrhICLyoT6peOEkGYc/LigiBlKaD9RH8o=
+github.com/davidsneighbour/hugo-modules/modules/debug v1.2023.16/go.mod h1:1CSm9BmTu22gDukHrVGBpf8VGl5WhCClsv0nmCBQ4cE=
 github.com/dgryski/trifles v0.0.0-20200323201526-dd97f9abfb48/go.mod h1:if7Fbed8SFyPtHLHbg49SI7NAdJiC5WIA09pe59rfAA=
 github.com/dillonzq/LoveIt v0.2.11 h1:rIj8YX5oJHHyKazLLWBwvURCoVizsNBQJc6vVKX6AG8=
 github.com/dillonzq/LoveIt v0.2.11/go.mod h1:6IBQv4PKou3cERt0xcxud81O793taOmJqYKXn1eNPB4=

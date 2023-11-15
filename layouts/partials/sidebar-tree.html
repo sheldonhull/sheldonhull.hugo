@@ -1,16 +1,29 @@
-{{ $page := . }}
-{{ if and $page (le (len $page.Pages) 0) }}
-<ul class="sub-menu">
-  <a href="{{ $page.Permalink }}" class="direct-page">{{ .Title }}</a> {{/* TODO: make this work for single item directories and not nest */}}
-</ul>
-{{ else }}
-    {{ if $page.Section }}
-      <span class="directory">{{ .Title }}</span>
-    {{ else }}
-      {{ if $page }}
+{{ $currentPage := .page }}
+{{ $currentChildItemCount := .child_item_count }}
+
+{{ if $currentPage.IsSection }}
+  {{/* Check if the section is a standalone page (has an _index.md) or just a container */}}
+  {{ if eq $currentChildItemCount 0 }}
+    {{/* Section is a standalone page */}}
+    <li class="single-file-directory">
+      <a href="{{ $currentPage.RelPermalink }}">{{ $currentPage.Title }}</a>
+    </li>
+  {{ else }}
+    {{/* Section is a container for other pages */}}
+    <li class="directory">
+      <span>{{ $currentPage.Title }}</span>
       <ul class="sub-menu">
-        <li><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></li>
+        {{ range $child := $currentPage.Pages }}
+          {{/* Avoid processing the index page of the section again */}}
+          {{ if ne $child.File.BaseFileName "_index" }}
+            {{/* Render the child page */}}
+            {{ partial "sidebar-tree.html" (dict "page" $child "child_item_count" (len $child.Pages)) }}
+          {{ end }}
+        {{ end }}
       </ul>
-      {{ end }}
-    {{ end }}
+    </li>
+  {{ end }}
+{{ else }}
+  {{/* Regular page */}}
+  <li><a href="{{ $currentPage.RelPermalink }}">{{ $currentPage.Title }}</a></li>
 {{ end }}

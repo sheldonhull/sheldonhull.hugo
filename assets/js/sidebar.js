@@ -1,64 +1,54 @@
-// TODO: this isn't working likely due to not setting sibling
-// document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', function() {
+  var directories = document.querySelectorAll('.directory');
 
-//   const directories = document.querySelectorAll('.directory');
-//   directories.forEach(directory => {
-//     const subMenu = directory.nextElementSibling;
-//     subMenu.style.display = 'none'; // Collapse all menus by default
-//     directory.addEventListener('click', (event) => {
-//       event.preventDefault();
-//       subMenu.style.display = subMenu.style.display === 'none' ? 'block' : 'none';
-//     });
-//   });
+  directories.forEach(function(directory) {
+    var submenu = directory.nextElementSibling;
 
-//   // Expand current item and its parent directory
-//   const currentPath = window.location.pathname;
-//   const links = document.querySelectorAll('a');
-//   links.forEach(link => {
-//     const linkPath = new URL(link.href).pathname;
-//     if (linkPath === currentPath) {
-//       const parentSubMenu = link.closest('.sub-menu');
-//       if (parentSubMenu) {
-//         parentSubMenu.style.display = 'block'; // Expand parent submenu
-//       }
-//     }
-//   });
-// });
+    // Initial setup: collapse all submenus
+    submenu.style.display = 'none';
+
+    // Add click event listener to each directory
+    directory.addEventListener('click', function(event) {
+      event.preventDefault();
+      submenu.style.display = submenu.style.display === 'none' ? 'block' : 'none';
+    });
+  });
+
+  // Expand current directory (and its parents, if any)
+  var currentLink = document.querySelector(`a[href="${window.location.pathname}"]`);
+  var currentDirectory = currentLink.closest('.directory');
+  while (currentDirectory) {
+    currentDirectory.nextElementSibling.style.display = 'block';
+    currentDirectory = currentDirectory.parentElement.closest('.directory');
+  }
+});
+
 
 document.addEventListener('DOMContentLoaded', function() {
   var sidebar = document.getElementById('sidebar');
   var toggleButton = document.getElementById('sidebar-toggle');
   var isTouchDevice = false;
 
-  function toggleSidebar() {
+  function toggleSidebarAndAnimateButton() {
+    // Toggle the sidebar visibility
     sidebar.classList.toggle('visible');
+
+    // Add spin animation and remove after animation completes
+    toggleButton.classList.add('spin');
+    setTimeout(function() {
+      toggleButton.classList.remove('spin');
+    }, 300); // 300ms to match the duration of the spin animation
   }
 
   toggleButton.addEventListener('click', function(e) {
-    if (!isTouchDevice) {
-      toggleSidebar();
-    }
+    // if (!isTouchDevice) {
+      toggleSidebarAndAnimateButton();
+    // }
   });
 
   toggleButton.addEventListener('touchstart', function(e) {
     isTouchDevice = true;
-    toggleSidebar();
+    toggleSidebarAndAnimateButton();
     e.preventDefault(); // Prevents the click event from firing
-  });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-  var sidebar = document.getElementById('sidebar');
-  var toggleButton = document.getElementById('sidebar-toggle');
-
-  toggleButton.addEventListener('click', function() {
-    sidebar.classList.toggle('visible');
-  });
-
-  toggleButton.addEventListener('touchstart', function() {
-    toggleButton.classList.add('touch-active');
-    setTimeout(function() {
-      toggleButton.classList.remove('touch-active');
-    }, 300); // 300ms = duration of the spin animation
   });
 });
