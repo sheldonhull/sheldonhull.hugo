@@ -16,7 +16,12 @@
   overflow: auto;
   padding: 20px;
   transition: transform 0.3s ease-in-out;
-  transform: translateX(-100%);
+  transform: translateX(-100%); /* Hide by default */
+
+  &.visible {
+    transform: translateX(0); /* Show when .visible is added */
+  }
+
 
   ul {
     list-style-type: none;
