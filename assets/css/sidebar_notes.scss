@@ -21,7 +21,9 @@
   &.visible {
     transform: translateX(0); /* Show when .visible is added */
   }
-
+  @media screen and (min-width: 769px) {
+    transform: translateX(0); /* Show on larger screens */
+  }
 
   ul {
     list-style-type: none;
@@ -64,6 +66,10 @@
 }
 
 @media screen and (max-width: 768px) {
+
+  #sidebar.visible {
+    transform: translateX(0); /* Show when .visible is added on small screens */
+  }
   .page-container {
     padding: 20px;
   }
