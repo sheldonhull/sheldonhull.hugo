@@ -1,34 +1,40 @@
 .page-container {
   display: flex;
-  padding: 80px; // Increase top padding
+  padding: 80px;
 }
 
-.special.notes {
-  margin-left: 260px; // Adjust this value based on your sidebar's width + padding
+.special-notes {
+  margin-left: 260px;
 }
 
 #sidebar {
   width: 200px;
-  height: calc(100% - 160px); // Adjust this value based on your increased padding
+  height: calc(100% - 160px);
   position: fixed;
-  left: 40px; // Adjust this value to increase/decrease left padding
-  top: 80px; // Increase top padding
+  left: 40px;
+  top: 80px;
   overflow: auto;
   padding: 20px;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
 
   ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+
     ul {
-      padding-left: 20px; // Add this line
+      padding-left: 20px;
     }
-    &.not-nested{
-      padding-left: 0px; // Add this line
+
+    &.not-nested {
+      padding-left: 0px;
     }
+
     li {
       margin-bottom: 10px;
-      display:block;
+      display: block;
+
       span, a {
         text-decoration: none;
 
@@ -36,22 +42,39 @@
           color: inherit;
         }
 
-        &.directory {
-          &:before {
-            content: '\f07c'; // Font Awesome directory icon
-            font-family: 'Font Awesome 5 Free';
-            padding-right: 5px;
-          }
+        &.directory:before {
+          content: '\f07c'; // Font Awesome directory icon
+          font-family: 'Font Awesome 5 Free';
+          padding-right: 5px;
         }
 
-        &.direct-page {
-          &:before {
-            content: '\f15c';
-            font-family: 'Font Awesome 5 Free';
-            padding-right: 5px;
-          }
+        &.direct-page:before {
+          content: '\f15c';
+          font-family: 'Font Awesome 5 Free';
+          padding-right: 5px;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page-container {
+    padding: 20px;
+  }
+
+  .special-notes {
+    margin-left: 0;
+  }
+
+  #sidebar {
+    position: absolute;
+    left: 0;
+    z-index: 1000;
+    transform: translateX(-100%);
+
+    &.visible {
+      transform: translateX(0);
     }
   }
 }
