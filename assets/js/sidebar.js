@@ -25,12 +25,17 @@
 //   });
 // });
 
-
 document.addEventListener('DOMContentLoaded', function() {
   var sidebar = document.getElementById('sidebar');
   var toggleButton = document.getElementById('sidebar-toggle');
 
   toggleButton.addEventListener('click', function() {
-    sidebar.classList.toggle('visible');
+    // Check if the sidebar is currently visible
+    if (sidebar.classList.contains('visible')) {
+      sidebar.classList.remove('visible');
+    } else {
+      sidebar.classList.add('visible');
+    }
   });
 });
+
