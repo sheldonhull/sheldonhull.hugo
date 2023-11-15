@@ -39,3 +39,18 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  var sidebar = document.getElementById('sidebar');
+  var toggleButton = document.getElementById('sidebar-toggle');
+
+  toggleButton.addEventListener('click', function() {
+    sidebar.classList.toggle('visible');
+    
+    // Add spin class and remove after animation
+    toggleButton.classList.add('spin');
+    setTimeout(function() {
+      toggleButton.classList.remove('spin');
+    }, 500); // 500ms = duration of the spin animation
+  });
+});
+
