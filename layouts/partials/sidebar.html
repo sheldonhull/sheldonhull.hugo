@@ -1,15 +1,32 @@
-{{ $pages := slice }}
-{{ range $page := (where .Site.Pages "Section" "notes") }}
-  {{ $pages = $pages | append (dict "page" . "file_path" .File.Path) }}
-{{ end }}
+{{/* Sidebar Toggle Button using Font Awesome */}}
+<button id="sidebar-toggle" style="position: fixed; top: 20px; left: 20px; z-index: 1100;">
+  <i class="fas fa-bars"></i> <!-- Font Awesome Icon -->
+</button>
 
+{{/* Sidebar Content */}}
 <div id="sidebar">
   <ul>
+    {{ $pages := slice }}
+    {{ range $page := (where .Site.Pages "Section" "notes") }}
+      {{ $pages = $pages | append (dict "page" . "file_path" .File.Path) }}
+    {{ end }}
+
     {{ range sort $pages "file_path" }}
       <li>
         {{ partial "sidebar-tree.html" .page }}
       </li>
     {{ end }}
-
   </ul>
 </div>
+
+{{/* JavaScript to Toggle Sidebar Visibility */}}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var sidebar = document.getElementById('sidebar');
+    var toggleButton = document.getElementById('sidebar-toggle');
+
+    toggleButton.addEventListener('click', function() {
+      sidebar.classList.toggle('visible');
+    });
+  });
+</script>
