@@ -28,14 +28,22 @@
 document.addEventListener('DOMContentLoaded', function() {
   var sidebar = document.getElementById('sidebar');
   var toggleButton = document.getElementById('sidebar-toggle');
+  var isTouchDevice = false;
 
-  toggleButton.addEventListener('click', function() {
-    // Check if the sidebar is currently visible
-    if (sidebar.classList.contains('visible')) {
-      sidebar.classList.remove('visible');
-    } else {
-      sidebar.classList.add('visible');
+  function toggleSidebar() {
+    sidebar.classList.toggle('visible');
+  }
+
+  toggleButton.addEventListener('click', function(e) {
+    if (!isTouchDevice) {
+      toggleSidebar();
     }
+  });
+
+  toggleButton.addEventListener('touchstart', function(e) {
+    isTouchDevice = true;
+    toggleSidebar();
+    e.preventDefault(); // Prevents the click event from firing
   });
 });
 
@@ -45,12 +53,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   toggleButton.addEventListener('click', function() {
     sidebar.classList.toggle('visible');
-    
-    // Add spin class and remove after animation
-    toggleButton.classList.add('spin');
+  });
+
+  toggleButton.addEventListener('touchstart', function() {
+    toggleButton.classList.add('touch-active');
     setTimeout(function() {
-      toggleButton.classList.remove('spin');
-    }, 500); // 500ms = duration of the spin animation
+      toggleButton.classList.remove('touch-active');
+    }, 300); // 300ms = duration of the spin animation
   });
 });
-
