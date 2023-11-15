@@ -1,0 +1,57 @@
+.page-container {
+  display: flex;
+  padding: 80px; // Increase top padding
+}
+
+.special.notes {
+  margin-left: 260px; // Adjust this value based on your sidebar's width + padding
+}
+
+#sidebar {
+  width: 200px;
+  height: calc(100% - 160px); // Adjust this value based on your increased padding
+  position: fixed;
+  left: 40px; // Adjust this value to increase/decrease left padding
+  top: 80px; // Increase top padding
+  overflow: auto;
+  padding: 20px;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    ul {
+      padding-left: 20px; // Add this line
+    }
+    &.not-nested{
+      padding-left: 0px; // Add this line
+    }
+    li {
+      margin-bottom: 10px;
+      display:block;
+      span, a {
+        text-decoration: none;
+
+        &:hover {
+          color: inherit;
+        }
+
+        &.directory {
+          &:before {
+            content: '\f07c'; // Font Awesome directory icon
+            font-family: 'Font Awesome 5 Free';
+            padding-right: 5px;
+          }
+        }
+
+        &.direct-page {
+          &:before {
+            content: '\f15c';
+            font-family: 'Font Awesome 5 Free';
+            padding-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}

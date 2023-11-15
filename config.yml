@@ -45,13 +45,20 @@ languages:
           url: /about/
           title: ''
           weight: 3
-        - identifier: docs
+        - identifier: notes
           pre: ''
           post: ''
-          name: docs
-          url: https://notes.sheldonhull.com/
+          name: notes
+          url: /notes/
           title: ''
           weight: 4
+        # - identifier: docs
+        #   pre: ''
+        #   post: ''
+        #   name: docs
+        #   url: https://notes.sheldonhull.com/
+        #   title: ''
+        #   weight: 4
         - identifier: creative
           pre: ''
           post: ''
@@ -80,13 +87,13 @@ languages:
           url: https://github.com/sheldonhull/
           title: GitHub
           weight: 8
-        - identifier: github
-          pre: <i class='fas fa-keyboard fa-fw'></i>
-          post: 'try ctrl+k'
-          name: ''
-          url:
-          title: tip
-          weight: 8
+        # - identifier: github
+        #   pre: <i class='fas fa-keyboard fa-fw'></i>
+        #   post: 'try ctrl+k'
+        #   name: ''
+        #   url:
+        #   title: tip
+        #   weight: 8
     params:
       googleAnalytics: UA-40198001-3
       description: A personal dev blog
@@ -199,6 +206,7 @@ params:
   debug: false
   mainSections:
     - posts
+    - notes # NOTE: not sure if this causes issues
   version: 0.2.X
   defaultTheme: dark
   gitRepo: https://github.com/sheldonhull/sheldonhull.hugo
@@ -364,13 +372,14 @@ params:
         - https://fonts.googleapis.com/css?family=Material+Icons&display=swap
         - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
       js:
+        - /js/sidebar.js
         - <script src="/js/webmentions.js" async></script>
         # - <script src="/js/jquery.timeago.js" async></script>
         # - <script src="/javascript/app.js" async></script>
         - <script src="/js/mailbrew-html-embed-script.js" async></script>
         - <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
         - <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
-        - <script type="module" src="https://unpkg.com/ninja-keys?module"></script>
+        # - <script type="module" src="https://unpkg.com/ninja-keys?module"></script>
 
     seo:
       images: []

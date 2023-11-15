@@ -1,0 +1,16 @@
+{{ $page := . }}
+{{ if and $page (le (len $page.Pages) 0) }}
+<ul class="sub-menu">
+  <a href="{{ $page.Permalink }}" class="direct-page">{{ .Title }}</a> {{/* TODO: make this work for single item directories and not nest */}}
+</ul>
+{{ else }}
+    {{ if $page.Section }}
+      <span class="directory">{{ .Title }}</span>
+    {{ else }}
+      {{ if $page }}
+      <ul class="sub-menu">
+        <li><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></li>
+      </ul>
+      {{ end }}
+    {{ end }}
+{{ end }}

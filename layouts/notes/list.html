@@ -1,0 +1,19 @@
+{{- define "title" }}
+  {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }}
+  -
+  {{ .Site.Title -}}
+{{- end -}}
+
+{{- define "content" -}}
+  <div class="page archive wide">
+    {{- /* Title */ -}}
+    <h2 class="single-title animated pulse faster">
+      {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
+    </h2>
+    {{ partial "sidebar.html" . }}
+
+    {{- /* Paginate */ -}}
+    {{ $pages := (where .Site.RegularPages.ByTitle "Section" "notes" ) }}
+    {{ $section := .Section }}
+  </div>
+{{- end -}}

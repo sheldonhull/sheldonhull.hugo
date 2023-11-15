@@ -1,0 +1,15 @@
+{{ $pages := slice }}
+{{ range $page := (where .Site.Pages "Section" "notes") }}
+  {{ $pages = $pages | append (dict "page" . "file_path" .File.Path) }}
+{{ end }}
+
+<div id="sidebar">
+  <ul>
+    {{ range sort $pages "file_path" }}
+      <li>
+        {{ partial "sidebar-tree.html" .page }}
+      </li>
+    {{ end }}
+
+  </ul>
+</div>
