@@ -81,6 +81,9 @@ type Js mg.Namespace
 // Devcontainer runs devcontainer commands for codespaces or local dev builds.
 type Devcontainer mg.Namespace
 
+// Job is a mage namespace for running sets of tasks
+type Job mg.Namespace
+
 // hugo alias is a shortcut for calling hugo binary
 // var hugobin = sh.RunV("hugo") // go is a keyword :(
 
@@ -433,6 +436,13 @@ func Init() error {
 	}
 	pterm.Success.Println("✅ hugo mod tidy")
 	p.Increment()
+	if !ci.IsCI() {
+		pterm.DefaultSection.Printfln("since it's not in CI, let's vendor the hugo tooling to make sure it's up to date")
+		if err := tooling.SpinnerStdOut("hugo", []string{"mod", "vendor"}, nil); err != nil {
+			pterm.Error.Printf("hugo mod vendor %q", err)
+			return err
+		}
+	}
 
 	if !ci.IsCI() {
 		pterm.DefaultSection.Printfln("Local Dev Tools")

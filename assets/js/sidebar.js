@@ -1,3 +1,4 @@
+// automatic collapse and expand of the sidebar based on location
 document.addEventListener('DOMContentLoaded', function() {
 
   var directories = document.querySelectorAll('li[data-issection="1"]');
@@ -74,9 +75,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // }
   });
 
+  // toggleButton.addEventListener('touchstart', function(e) {
+  //   isTouchDevice = true;
+  //   toggleSidebarAndAnimateButton();
+  //   e.preventDefault(); // Prevents the click event from firing
+  // });
   toggleButton.addEventListener('touchstart', function(e) {
     isTouchDevice = true;
     toggleSidebarAndAnimateButton();
-    e.preventDefault(); // Prevents the click event from firing
-  });
+  }, { passive: true });
+
 });

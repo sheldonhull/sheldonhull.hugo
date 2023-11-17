@@ -3,7 +3,8 @@
   "baseUrl": ".",
   "paths": {
    "*": [
-    "../_vendor/github.com/HEIGE-PCloud/DoIt/assets/*"
+    "../_vendor/github.com/HEIGE-PCloud/DoIt/assets/*",
+    "../_vendor/github.com/bep/turbo/v7/src/*"
    ]
   }
  }

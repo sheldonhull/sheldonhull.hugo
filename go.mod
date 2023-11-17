@@ -10,6 +10,7 @@ require (
 	github.com/davidsneighbour/hugo-debug v1.5.20 // indirect
 	github.com/davidsneighbour/hugo-modules/modules/debug v1.2023.16 // indirect
 	github.com/dillonzq/LoveIt v0.2.11 // indirect
+	github.com/gohugoio/hugo-mod-jslibs/turbo/v7 v7.20300.20000 // indirect
 	github.com/iancoleman/strcase v0.2.0 // indirect
 	github.com/mfg92/hugo-shortcode-gallery v0.0.0-20231103123849-a02ed1699264 // indirect
 	github.com/vektah/gqlparser/v2 v2.5.1 // indirect

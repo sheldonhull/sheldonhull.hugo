@@ -79,7 +79,7 @@
         // Add a page icon before the directory name
         &::before {
           content: '\f15b'; // FontAwesome file icon unicode
-          font-family: 'Font Awesome 5 Free';
+          font-family: 'Font Awesome 6 Free';
           padding-right: 0.5em;
         }
       }
@@ -91,23 +91,23 @@
           color: inherit;
         }
         &.directory:before, &.direct-page:before {
-          font-family: 'Font Awesome 5 Free';
+          font-family: 'Font Awesome 6 Free';
           padding-right: 5px;
         }
         &.directory:before {
           content: '\f07b'; // Font Awesome closed folder icon
-          font-family: 'Font Awesome 5 Free';
+          font-family: 'Font Awesome 6 Free';
           font-weight: 900;
           padding-right: 5px;
         }
         &.directory.expanded:before {
           content: '\f07c'; // Font Awesome open folder icon
           font-weight: 400;
-          font-family: 'Font Awesome 5 Free';
+          font-family: 'Font Awesome 6 Free';
         }
 
         &.direct-page:before {
-          font-family: 'Font Awesome 5 Free';
+          font-family: 'Font Awesome 6 Free';
           content: '\f15c';
         }
       }

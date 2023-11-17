@@ -27,6 +27,8 @@ github.com/davidsneighbour/hugo-modules/modules/debug v1.2023.16/go.mod h1:1CSm9
 github.com/dgryski/trifles v0.0.0-20200323201526-dd97f9abfb48/go.mod h1:if7Fbed8SFyPtHLHbg49SI7NAdJiC5WIA09pe59rfAA=
 github.com/dillonzq/LoveIt v0.2.11 h1:rIj8YX5oJHHyKazLLWBwvURCoVizsNBQJc6vVKX6AG8=
 github.com/dillonzq/LoveIt v0.2.11/go.mod h1:6IBQv4PKou3cERt0xcxud81O793taOmJqYKXn1eNPB4=
+github.com/gohugoio/hugo-mod-jslibs/turbo/v7 v7.20300.20000 h1:A1O4fBEbGDuP6tJt4P7UHCfzOMqsA3ZdfHp3HFBzn7c=
+github.com/gohugoio/hugo-mod-jslibs/turbo/v7 v7.20300.20000/go.mod h1:/SsloeYAzaYNJdMTWvDcg1LtpRfPCFZoqGGwbSJM84c=
 github.com/gorilla/websocket v1.4.2/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
 github.com/hashicorp/golang-lru v0.5.0/go.mod h1:/m3WP610KZHVQ1SGc6re/UDhFvYD7pJ4Ao+sR/qLZy8=
 github.com/iancoleman/strcase v0.2.0 h1:05I4QRnGpI0m37iZQRuskXh+w77mr6Z41lwQzuHLwW0=

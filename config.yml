@@ -525,6 +525,8 @@ module:
       disable: false
     - path: github.com/mfg92/hugo-shortcode-gallery
       disable: false
+    - path: github.com/gohugoio/hugo-mod-jslibs/turbo/v7
+      disable: false
 
 # https://kollitsch.dev/components/hugo-debug/
 dnb:

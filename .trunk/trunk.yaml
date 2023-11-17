@@ -74,11 +74,11 @@ lint:
       paths:
         # - .devcontainer/library-scripts
         - .devcontainer/init
-        - _vendor/*
-        - node_modules/*
-        - public/*
-        - _site/*
-        - .local/*
+        - _vendor/**
+        - node_modules/**
+        - public/**
+        - _site/**
+        - .local/**
         - '*.png'
         - '*.jpg'
         - '*.jpeg'
