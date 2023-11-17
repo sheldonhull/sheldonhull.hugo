@@ -32,6 +32,10 @@
   padding: 20px;
   transition: transform 0.3s ease-in-out; // Smooth transition for sidebar
 
+  li[data-issection="1"] ul {
+    display: none;
+  }
+
   // handle hiding by default on mobile
   @media screen and (max-width: 768px) {
     transform: translateX(-100%);
@@ -80,7 +84,7 @@
         }
       }
 
-
+      // https://fontawesome.com/v5/docs/web/advanced/css-pseudo-elements
       span, a {
         text-decoration: none;
         &:hover {
@@ -91,15 +95,25 @@
           padding-right: 5px;
         }
         &.directory:before {
-          content: '\f07c';
+          content: '\f07b'; // Font Awesome closed folder icon
+          font-family: 'Font Awesome 5 Free';
+          font-weight: 900;
+          padding-right: 5px;
         }
+        &.directory.expanded:before {
+          content: '\f07c'; // Font Awesome open folder icon
+          font-weight: 400;
+          font-family: 'Font Awesome 5 Free';
+        }
+
         &.direct-page:before {
+          font-family: 'Font Awesome 5 Free';
           content: '\f15c';
         }
       }
     }
-  }
 
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -124,6 +138,7 @@
     margin-left: 0;
   }
 }
+
 
 // @media screen and (min-width: 769px) {
 //   #sidebar {

@@ -1,29 +1,25 @@
 {{ $currentPage := .page }}
-{{ $currentChildItemCount := .child_item_count }}
+{{ $parentPage := .parent }}
+{{ $class := .class }}
 
 {{ if $currentPage.IsSection }}
-  {{/* Check if the section is a standalone page (has an _index.md) or just a container */}}
-  {{ if eq $currentChildItemCount 0 }}
-    {{/* Section is a standalone page */}}
-    <li class="single-file-directory">
-      <a href="{{ $currentPage.RelPermalink }}">{{ $currentPage.Title }}</a>
-    </li>
-  {{ else }}
-    {{/* Section is a container for other pages */}}
-    <li class="directory">
-      <span>{{ $currentPage.Title }}</span>
+  <li data-issection="1">
+    <a href="{{ $currentPage.RelPermalink }}" class="{{ $class }}">{{ $currentPage.Title }}</a>
+    {{ if ne $class "single-file-directory" }}
       <ul class="sub-menu">
         {{ range $child := $currentPage.Pages }}
           {{/* Avoid processing the index page of the section again */}}
           {{ if ne $child.File.BaseFileName "_index" }}
             {{/* Render the child page */}}
-            {{ partial "sidebar-tree.html" (dict "page" $child "child_item_count" (len $child.Pages)) }}
+            {{ partial "sidebar-tree.html" (dict "page" $child "parent" $currentPage "class" "directory") }}
           {{ end }}
         {{ end }}
       </ul>
-    </li>
-  {{ end }}
+    {{ end }}
+  </li>
 {{ else }}
-  {{/* Regular page */}}
-  <li><a href="{{ $currentPage.RelPermalink }}">{{ $currentPage.Title }}</a></li>
+  {{/* Regular page - only render if the page's parent is the same as the passed parent page */}}
+  {{ if eq $currentPage.Parent $parentPage }}
+    <li><a href="{{ $currentPage.RelPermalink }}" class="direct-page">{{ $currentPage.Title }}</a></li>
+  {{ end }}
 {{ end }}
