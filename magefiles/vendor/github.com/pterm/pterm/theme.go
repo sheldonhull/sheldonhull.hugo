@@ -30,6 +30,9 @@ var (
 		TableStyle:              Style{FgDefault},
 		TableHeaderStyle:        Style{FgLightCyan},
 		TableSeparatorStyle:     Style{FgGray},
+		HeatmapStyle:            Style{FgDefault},
+		HeatmapHeaderStyle:      Style{FgLightCyan},
+		HeatmapSeparatorStyle:   Style{FgDefault},
 		SectionStyle:            Style{Bold, FgYellow},
 		BulletListTextStyle:     Style{FgDefault},
 		BulletListBulletStyle:   Style{FgGray},
@@ -43,6 +46,10 @@ var (
 		BarLabelStyle:           Style{FgLightCyan},
 		BarStyle:                Style{FgCyan},
 		TimerStyle:              Style{FgGray},
+		Checkmark: Checkmark{
+			Checked:   Green("✓"),
+			Unchecked: Red("✗"),
+		},
 	}
 )
 
@@ -77,6 +84,9 @@ type Theme struct {
 	TableStyle              Style
 	TableHeaderStyle        Style
 	TableSeparatorStyle     Style
+	HeatmapStyle            Style
+	HeatmapHeaderStyle      Style
+	HeatmapSeparatorStyle   Style
 	SectionStyle            Style
 	BulletListTextStyle     Style
 	BulletListBulletStyle   Style
@@ -89,6 +99,7 @@ type Theme struct {
 	BoxTextStyle            Style
 	BarLabelStyle           Style
 	BarStyle                Style
+	Checkmark               Checkmark
 }
 
 // WithPrimaryStyle returns a new theme with overridden value.

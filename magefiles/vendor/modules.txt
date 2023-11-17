@@ -1,14 +1,14 @@
-# atomicgo.dev/cursor v0.1.1
+# atomicgo.dev/cursor v0.2.0
 ## explicit; go 1.15
 atomicgo.dev/cursor
-# atomicgo.dev/keyboard v0.2.8
+# atomicgo.dev/keyboard v0.2.9
 ## explicit; go 1.15
 atomicgo.dev/keyboard
 atomicgo.dev/keyboard/internal
 atomicgo.dev/keyboard/keys
-# bitbucket.org/creachadair/shell v0.0.7
-## explicit; go 1.16
-bitbucket.org/creachadair/shell
+# atomicgo.dev/schedule v0.1.0
+## explicit; go 1.18
+atomicgo.dev/schedule
 # dagger.io/dagger v0.9.3
 ## explicit; go 1.20
 dagger.io/dagger
@@ -27,7 +27,7 @@ github.com/adrg/xdg/internal/pathutil
 # github.com/alessio/shellescape v1.4.2
 ## explicit; go 1.14
 github.com/alessio/shellescape
-# github.com/bitfield/script v0.21.3
+# github.com/bitfield/script v0.22.0
 ## explicit; go 1.12
 github.com/bitfield/script
 # github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e
@@ -42,22 +42,22 @@ github.com/dustin/go-humanize
 # github.com/gobeam/stringy v0.0.6
 ## explicit; go 1.14
 github.com/gobeam/stringy
-# github.com/gookit/color v1.5.2
-## explicit; go 1.16
+# github.com/gookit/color v1.5.4
+## explicit; go 1.18
 github.com/gookit/color
-# github.com/itchyny/gojq v0.12.7
-## explicit; go 1.16
+# github.com/itchyny/gojq v0.12.12
+## explicit; go 1.18
 github.com/itchyny/gojq
-# github.com/itchyny/timefmt-go v0.1.3
-## explicit; go 1.14
+# github.com/itchyny/timefmt-go v0.1.5
+## explicit; go 1.17
 github.com/itchyny/timefmt-go
-# github.com/lithammer/fuzzysearch v1.1.5
+# github.com/lithammer/fuzzysearch v1.1.8
 ## explicit; go 1.15
 github.com/lithammer/fuzzysearch/fuzzy
 # github.com/logrusorgru/aurora v2.0.3+incompatible
 ## explicit
 github.com/logrusorgru/aurora
-# github.com/magefile/mage v1.14.0
+# github.com/magefile/mage v1.15.0
 ## explicit; go 1.12
 github.com/magefile/mage/mg
 github.com/magefile/mage/sh
@@ -66,7 +66,7 @@ github.com/magefile/mage/sh
 github.com/manifoldco/promptui
 github.com/manifoldco/promptui/list
 github.com/manifoldco/promptui/screenbuf
-# github.com/mattn/go-runewidth v0.0.14
+# github.com/mattn/go-runewidth v0.0.15
 ## explicit; go 1.9
 github.com/mattn/go-runewidth
 # github.com/mitchellh/go-homedir v1.1.0
@@ -79,8 +79,8 @@ github.com/pelletier/go-toml/v2/internal/characters
 github.com/pelletier/go-toml/v2/internal/danger
 github.com/pelletier/go-toml/v2/internal/tracker
 github.com/pelletier/go-toml/v2/unstable
-# github.com/pterm/pterm v0.12.50
-## explicit; go 1.18
+# github.com/pterm/pterm v0.12.70
+## explicit; go 1.21
 github.com/pterm/pterm
 github.com/pterm/pterm/internal
 # github.com/rivo/uniseg v0.4.4
@@ -96,8 +96,8 @@ github.com/sheldonhull/magetools/tooling
 ## explicit; go 1.16
 github.com/vektah/gqlparser/v2/ast
 github.com/vektah/gqlparser/v2/gqlerror
-# github.com/xo/terminfo v0.0.0-20210125001918-ca9a967f8778
-## explicit; go 1.15
+# github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e
+## explicit; go 1.19
 github.com/xo/terminfo
 # github.com/ztrue/tracerr v0.3.0
 ## explicit
@@ -114,7 +114,7 @@ golang.org/x/sync/errgroup
 golang.org/x/sys/plan9
 golang.org/x/sys/unix
 golang.org/x/sys/windows
-# golang.org/x/term v0.12.0
+# golang.org/x/term v0.13.0
 ## explicit; go 1.17
 golang.org/x/term
 # golang.org/x/text v0.13.0
@@ -128,3 +128,10 @@ golang.org/x/text/language
 golang.org/x/text/runes
 golang.org/x/text/transform
 golang.org/x/text/unicode/norm
+# mvdan.cc/sh/v3 v3.6.0
+## explicit; go 1.18
+mvdan.cc/sh/v3/expand
+mvdan.cc/sh/v3/fileutil
+mvdan.cc/sh/v3/pattern
+mvdan.cc/sh/v3/shell
+mvdan.cc/sh/v3/syntax
