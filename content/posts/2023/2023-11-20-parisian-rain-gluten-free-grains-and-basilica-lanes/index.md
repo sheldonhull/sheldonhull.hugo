@@ -9,7 +9,6 @@ tags:
 - travel
 - family
 - dadlife
-draft: true
 toc: true
 ---
 
