@@ -29,6 +29,9 @@ import (
 
 	"github.com/sheldonhull/magetools/pkg/req"
 	"github.com/sheldonhull/magetools/tooling"
+
+	//mage:import image
+	_ "mage.local/image"
 )
 
 var Aliases = map[string]interface{}{
@@ -225,7 +228,20 @@ func getBuildUrl() string {
 func (Hugo) Serve() error {
 	pterm.DefaultSection.Printf("Hugo Serve")
 	url := getBuildUrl()
-	hugoargs := []string{"serve", "-b", url, "--verbose", "--enableGitInfo", "-d", "_site", "--buildFuture", "--buildDrafts", "--gc", "--cleanDestinationDir", "--disableFastRender"}
+	hugoargs := []string{
+		"serve",
+		"-b",
+		url,
+		"--verbose",
+		"--enableGitInfo",
+		"-d",
+		"_site",
+		"--buildFuture",
+		"--buildDrafts",
+		"--gc",
+		"--cleanDestinationDir",
+		"--disableFastRender",
+	}
 	// "--disableFastRender"
 	pterm.Info.Printf("hugo: %v", hugoargs)
 	pterm.Info.Println("Open Posts with", url+"/posts")
@@ -240,7 +256,18 @@ func (Hugo) Serve() error {
 func (Hugo) Build() error {
 	pterm.DefaultSection.Printf("Hugo Build")
 	url := getBuildUrl()
-	hugoargs := []string{"-b", url, "--quiet", "--enableGitInfo", "-d", "_site", "--buildFuture", "--buildDrafts", "--destination", hugoPublicDestination}
+	hugoargs := []string{
+		"-b",
+		url,
+		"--quiet",
+		"--enableGitInfo",
+		"-d",
+		"_site",
+		"--buildFuture",
+		"--buildDrafts",
+		"--destination",
+		hugoPublicDestination,
+	}
 	// "--disableFastRender"
 	pterm.Info.Printf("hugo: %v\n", hugoargs)
 	pterm.Info.Println("Open Posts with", url+"/posts")
@@ -266,7 +293,10 @@ func hugoEnvInfo() {
 		WithBoxed(true).
 		WithHeaderStyle(primary).
 		WithData(tbl).Render(); err != nil {
-		pterm.Error.Printf("pterm.DefaultTable.WithHasHeader of variable information failed. Continuing...\n%v", err)
+		pterm.Error.Printf(
+			"pterm.DefaultTable.WithHasHeader of variable information failed. Continuing...\n%v",
+			err,
+		)
 	}
 }
 
@@ -275,7 +305,18 @@ func (Hugo) BuildPublic() error {
 	hugoEnvInfo()
 	pterm.DefaultSection.Printf("Hugo Build for Public")
 	url := getBuildUrl()
-	hugoargs := []string{"-b", url, "--quiet", "--enableGitInfo", "-d", os.Getenv("HUGO_DESTINATION"), "--destination", hugoPublicDestination, "-b", url}
+	hugoargs := []string{
+		"-b",
+		url,
+		"--quiet",
+		"--enableGitInfo",
+		"-d",
+		os.Getenv("HUGO_DESTINATION"),
+		"--destination",
+		hugoPublicDestination,
+		"-b",
+		url,
+	}
 	pterm.Info.Printf("hugo: %v\n", hugoargs)
 	pterm.Info.Println("Open Posts with", url+"/posts")
 	if err := sh.RunV("hugo", hugoargs...); err != nil {
@@ -300,7 +341,12 @@ func replaceCodeVariables(file string) error {
 	}
 
 	output := bytes.Replace(input, []byte("VAR_LANGUAGE"), []byte(cfg.Language), -1)
-	output = bytes.Replace(output, []byte("VAR_DAYCOUNTER"), []byte((fmt.Sprintf("%d", cfg.Counter))), -1)
+	output = bytes.Replace(
+		output,
+		[]byte("VAR_DAYCOUNTER"),
+		[]byte((fmt.Sprintf("%d", cfg.Counter))),
+		-1,
+	)
 	output = bytes.Replace(output, []byte("VAR_ROUND"), []byte((fmt.Sprintf("%d", cfg.Round))), -1)
 
 	if err := os.WriteFile(file, output, permissionReadWrite); err != nil {
@@ -378,12 +424,19 @@ func Post() error {
 func Webmentions() error {
 	pterm.DefaultSection.Printf("Webmentions refresh")
 	if os.Getenv("WEBMENTION_IO_TOKEN") == "" {
-		pterm.Error.Println("WEBMENTION_IO_TOKEN is required to refresh webmentions and was not detected")
-		return fmt.Errorf("WEBMENTION_IO_TOKEN is required to refresh webmentions and was not detected")
+		pterm.Error.Println(
+			"WEBMENTION_IO_TOKEN is required to refresh webmentions and was not detected",
+		)
+		return fmt.Errorf(
+			"WEBMENTION_IO_TOKEN is required to refresh webmentions and was not detected",
+		)
 	}
 	webMentionFile := filepath.Join(datadir, "webmentions.json")
 
-	binary, err := req.ResolveBinaryByInstall("webmention.io-backup", "github.com/nekr0z/webmention.io-backup@latest")
+	binary, err := req.ResolveBinaryByInstall(
+		"webmention.io-backup",
+		"github.com/nekr0z/webmention.io-backup@latest",
+	)
 	if err != nil {
 		return err
 	}
@@ -437,7 +490,9 @@ func Init() error {
 	pterm.Success.Println("✅ hugo mod tidy")
 	p.Increment()
 	if !ci.IsCI() {
-		pterm.DefaultSection.Printfln("since it's not in CI, let's vendor the hugo tooling to make sure it's up to date")
+		pterm.DefaultSection.Printfln(
+			"since it's not in CI, let's vendor the hugo tooling to make sure it's up to date",
+		)
 		if err := tooling.SpinnerStdOut("hugo", []string{"mod", "vendor"}, nil); err != nil {
 			pterm.Error.Printf("hugo mod vendor %q", err)
 			return err
@@ -588,7 +643,19 @@ type Dagger mg.Namespace
 func (Dagger) Build(ctx context.Context) error {
 	pterm.DefaultSection.Printf("Hugo Build")
 	url := getBuildUrl()
-	hugoargs := []string{"hugo", "-b", url, "--quiet", "--enableGitInfo", "-d", "_site", "--buildFuture", "--buildDrafts", "--destination", hugoPublicDestination}
+	hugoargs := []string{
+		"hugo",
+		"-b",
+		url,
+		"--quiet",
+		"--enableGitInfo",
+		"-d",
+		"_site",
+		"--buildFuture",
+		"--buildDrafts",
+		"--destination",
+		hugoPublicDestination,
+	}
 
 	fmt.Println("Building with Dagger")
 
