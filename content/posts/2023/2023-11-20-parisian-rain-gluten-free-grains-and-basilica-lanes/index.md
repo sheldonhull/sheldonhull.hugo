@@ -10,6 +10,7 @@ tags:
 - family
 - dadlife
 toc: true
+series: ['Trip To Europe']
 ---
 
 ## A Trip to the Bakery

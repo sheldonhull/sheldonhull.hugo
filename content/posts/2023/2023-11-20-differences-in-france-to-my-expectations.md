@@ -6,7 +6,7 @@ slug: differences-in-france-to-my-expectations
 tags:
 - microblog
 - travel
-
+series: ['Trip To Europe']
 ---
 
 ## Greeting The Shop Keeper

@@ -14,6 +14,7 @@ tags:
   - family
   - dadlife
 toc: true
+series: ['Trip To Europe']
 ---
 
 ## Exploring Mont Saint-Michel
