@@ -243,13 +243,14 @@ const PhotoSwipeDynamicCaption = window.PhotoSwipeDynamicCaption; // load using 
 ></script>
 
 <script>
-$(document).ready(function () {
-  $("#{{ $galleryname}}").justifiedGallery({
-    // rowHeight: 200,
-    lastRow: "nojustify",
-    margins: 5,
+$(window).on('load', function () {
+  $("#{{ $galleryname }}").justifiedGallery({
+    // your options here
+    lastRow: 'nojustify',
+    margins: 5
   });
 });
+
 </script>
 {{/* Alternative after everything is loaded, but it means page readjusts slowly and is visible more
 
