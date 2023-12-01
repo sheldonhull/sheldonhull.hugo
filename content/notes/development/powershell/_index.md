@@ -21,11 +21,13 @@ With magic like this, why use bash!
 
 <img src="images/powershell-avatar.svg">https://github.com/PowerShell/PowerShell</img>
 
-!!! info "Any requests?"
+{{< admonition type="info" title="Any requests?" open=true >}}
 
-    If you have any requests or improvements for this content, please comment below. It will open a GitHub issue for chatting further.
-    I'd be glad to improve with any additional quick help and in general like to know if anything here in particular was helpful to someone.
-    Cheers! 👍
+If you have any requests or improvements for this content, please comment below. It will open a GitHub issue for chatting further.
+I'd be glad to improve with any additional quick help and in general like to know if anything here in particular was helpful to someone.
+Cheers! 👍
+
+{{< /admonition >}}
 
 ## Requirements
 
@@ -292,9 +294,11 @@ Not all are idiomatic to the language, but can be useful to know about.
 I recommend when possible to default to `$Items | ForEach-Object { }` as your default approach.
 This ensures a pipeline driven solution that can be enhanced later or piped to other cmdlets that are compatible with the pipeline.
 
-!!! warning "Gotcha"
+{{< admonition type="warning" title="Gotcha" open=true >}}
 
-    This is a cmdlet, not a PowerShell language feature. This means that the behavior of break, continue, and return all operate differently in this ForEach-Object process block than when doing a `foreach` loop.
+This is a cmdlet, not a PowerShell language feature. This means that the behavior of break, continue, and return all operate differently in this ForEach-Object process block than when doing a `foreach` loop.
+
+{{< /admonition >}}
 
 These are ranked in the order I recommend using by default.
 
@@ -330,7 +334,7 @@ $Items.ForEach{ $_.Name.ToString().ToLower() }
 
 - This is the standard `foreach` loop.
 - It is the easiest to use and understand for someone new to PowerShell, but highly recommend that it is used in exceptions and try to stick with `ForEach-Object` as your default for idiomatic PowerShell if you are learning.
-- Standard break, continue, return behavior is a bit easier to understand.
+- Standard break, continue, return behavior is easier to understand.
 
 ### foreach loop
 

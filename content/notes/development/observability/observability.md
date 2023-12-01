@@ -22,7 +22,7 @@ For example, the CI/Pipeline integration is based on a model of who's contributi
 
 This snippet will assess unique contributors in the repo and based on a rough [On-Demand pricing] you can find on the website, roughly approx the impact to enabling this feature directly against this repository.
 
-??? example "Figuring Out Pricing Based On Contributors in Git"
+{{< admonition type="example" title="Figuring Out Pricing Based On Contributors in Git" open=false >}}
 
 ```powershell title="CalcDatadogPricing.ps1"
     $DatadogPerContributorPricing = 8 # Get from datadog pricing site
@@ -48,5 +48,7 @@ This snippet will assess unique contributors in the repo and based on a rough [O
     Write-Host '==== Pricing Consideration for Observability on Repo Based on Contributors Per Month ====' -ForegroundColor Green
     Write-Host "$($report | Format-Table -AutoSize -Wrap | Out-String)" -ForegroundColor DarkGray
 ```
+
+{{< /admonition >}}
 
 [On-Demand Pricing]: https://www.datadoghq.com/pricing/?product=ci-visibility#products

@@ -10,4 +10,4 @@ A no-frills language that maximizes productivity and readability for both indivi
 
 My "Go To" for solving problems!
 
-![gopher-unicorns](images/gopher_unicorn.png 'github.com/ashleymcnamara/gophers')
+![gopher-unicorns](/images/notes/gopher_unicorn.png 'github.com/ashleymcnamara/gophers')

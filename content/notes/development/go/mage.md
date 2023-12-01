@@ -61,4 +61,4 @@ Mage replaces the need for Bash or PowerShell scripts in your repo for core auto
   This can help troubleshooting any environment or project issues if you maintain and add a list of checks being run.
   Using Pterm you can make this into a nice table output like this:
 
-![Mage Doctor Output](images/2022-06-11-16.52.33-mage-doctor.png 'Mage Doctor Output')
+![Mage Doctor Output](/images/notes/2022-06-11-16.52.33-mage-doctor.png 'Mage Doctor Output')

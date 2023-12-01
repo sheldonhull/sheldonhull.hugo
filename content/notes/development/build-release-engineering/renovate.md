@@ -11,11 +11,13 @@ slug: renovate
 
 ### For Azure DevOps
 
-!!! note "Git Safe Directory"
+{{< admonition type="note" title="Git Safe Directory" open=true >}}
 
-    This doesn't mount to the host `/tmp`, unlike examples in GitHub, because it flags the directory as owned by the docker user (likely root), which causes Git's safe directory feature to block.
+This doesn't mount to the host `/tmp`, unlike examples in GitHub, because it flags the directory as owned by the docker user (likely root), which causes Git's safe directory feature to block.
 
-    Easier to just disable mounting to the host in this scenario, as `git config --global --add safe.directory /tmp/renovate/repos/*` didn't seem to work.
+Easier to just disable mounting to the host in this scenario, as `git config --global --add safe.directory /tmp/renovate/repos/*` didn't seem to work.
+
+{{< /admonition >}}
 
 Set the environment variables: `export AZURE_DEVOPS_ORG=foo`, and the other `AZURE_DEVOPS_EXT_PAT`, and finally replace `PROJECTNAME/REPO`.
 

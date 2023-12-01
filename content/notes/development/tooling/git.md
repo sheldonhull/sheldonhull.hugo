@@ -16,10 +16,12 @@ typora-root-url: ../../static
 typora-copy-images-to: ../../static/images
 ---
 
-!!! Note
+{{< admonition type="note" title="Note" open=true >}}
 
-    This is a mix of git, github, azure devops repos, and other workflow tips that help me work more quickly.
-    Comments are welcome with any corrections or suggestions.
+This is a mix of git, github, azure devops repos, and other workflow tips that help me work more quickly.
+Comments are welcome with any corrections or suggestions.
+
+{{< /admonition >}}
 
 ## Install Homebrew
 
@@ -128,7 +130,7 @@ You can configure this as a VSCode snippet for quick access by including this:
 
 ## Working With Changes
 
-> All the commits the branch has that the master doesn't. [^first-commit]
+All the commits the branch has that the master doesn't. [^first-commit]
 
 ```shell
 git log master..$(git branch --show-current) --oneline

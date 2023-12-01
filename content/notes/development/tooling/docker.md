@@ -414,195 +414,38 @@ Tweaks to the `devcontainer.json` support mounting aws local credentials into th
   "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/codespace/.ssh/,type=bind,consistency=cached"
   ]
 
-!!! Warning "cannot create /home/$USERNAME/.ssh/known_hosts: Permission denied"
+{{< admonition type="warning" title="cannot create /home/$USERNAME/.ssh/known_hosts: Permission denied" open=true >}}
 
-    If this fails, try this in your Dockerfile.
-    Not sure this is required, but did help in one test case, so I'm pinning here.
+If this fails, try this in your Dockerfile.
+Not sure this is required, but did help in one test case, so I'm pinning here.
 
-        RUN mkdir -p /home/$USERNAME/.ssh/ && touch /home/$USERNAME/.ssh/known_hosts
+    RUN mkdir -p /home/$USERNAME/.ssh/ && touch /home/$USERNAME/.ssh/known_hosts
 
-#### dotnet
+{{< /admonition >}}
 
-    # Install DOTNET tooling for benefit of tools like gitversion
-    RUN echo "downloading microsoft prod packages source" && wget https://packages.microsoft.com/config/ubuntu/20.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && dpkg -i packages-microsoft-prod.deb
-    # RUN sudo dpkg --purge packages-microsoft-prod && sudo dpkg -i packages-microsoft-prod.deb && sudo apt-get update
-    RUN echo "Installing dotnet sdk" && apt-get update \
-      && apt-get  -yyq install apt-transport-https --no-install-recommends \
-      && apt-get  -yyq update \
-      && apt-get  -yyq install dotnet-sdk-5.0 --no-install-recommends  \
-      && rm -rf /var/lib/apt/lists/*
+{{< admonition type="warning" title="Failure" open=true >}}
 
-#### GitVersion
+"Prompted for SSH Password When Cloning Repo Via SSH In Volume"
 
-    RUN echo "installing gitversion for automatic semver versioning" && dotnet tool install --global GitVersion.Tool
+Fixed my issues with a combination of help from:
 
-#### Mage
-
-Go based Make alternative.
-
-    RUN go version && go install github.com/magefile/mage@latest \
-        # mage-select provides a nice little mage task selector menu
-        && go install github.com/iwittkau/mage-select@latest
-
-#### Security Tools for Lefthook
-
-    RUN go install github.com/evilmartians/lefthook@latest \
-    && go install github.com/owenrumney/squealer/cmd/squealer@latest \
-    && go install -v github.com/zricethezav/gitleaks@latest
-
-#### Terminal Tools
-
-    RUN curl -sf https: //gobinaries.com/chriswalz/bit | sh && echo "installed bit-git" &&
-        \ curl -fsSL https://starship.rs/install.sh | sudo bash -s -- --force && echo "completed setup of starship.rs"
-
-#### powershell
-
-Configure pwsh profile
-
-    # Ensure default profile directory exists for preferences to be saved and loaded as desired
-    RUN pwsh -nologo -c 'New-Item -Path ($Profile | Split-Path -Parent) -ItemType Directory'
-
-## Installation Snippets
-
-### Markdown Lint
-
-Use the docker image of markdownlint to quickly fix basic formatting issues that can cause occasional issues with various markdown renderers.
-
-    docker run -i --rm -v ${PWD}:/work tmknom/markdownlint --fix --config .markdownlint.yaml /work/
-
-Use a config like this to tweak the rules to your desired settings
-
-    # name this file .markdownlint.yaml in your root directory or put in settings directory and pass --config in the setup.
-
-    comment: my-markdown-linting-rules
-    default: true
-    # MD003:
-    #   style:
-    MD007:
-      indent: 4
-    no-hard-tabs: true
-    whitespace: true
-    no-bare-urls: true
-    fenced-code-language: true
-    no-inline-html: false
-    MD004:
-      style: dash
-    MD025:
-    MD041: false
-    MD013: false
-    MD046: false
-      style: consistent
-
-### Gitversion
-
-Generate semver versioning from commit history automatically, removing need to manually manage semver.
-
-This results in a version history built by the actual commits and merges.
-
-Override allowed using `git tag -a 0.1.0 -m"initial commit" && git push --tags`
-
-| Description                                                                                         | Code                                                                                                                                                    |
-| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Pull gitversion                                                                                     | `docker pull gittools/gitversion:latest`                                                                                                                |
-| Run gitversion (calculate current semver from git history) using config from `build/GitVersion.yml` | `docker run --rm -v ${pwd}:/repo gittools/gitversion:latest /repo /config ./build/GitVersion.yml /showvariable FullSemVer /nofetch`                     |
-| Output Build Server Variables for use in Azure DevOps                                               | `docker run --rm -v ${pwd}:/repo gittools/gitversion:latest /repo /config ./build/GitVersion.yml /showvariable FullSemVer /nofetch /output buildserver` |
-
-You can use those output variables in your Azure Pipeline to update the build name to include Semver versioning, or pass it into a task to use for building any app.
-
-    name: build-$(GitVersion.FullSemVer).$(Build.Reason).$(SourceBranchName).$(Date:yyyyMMdd)-$(Rev:.r)
-
-    steps:
-    - bash: |
-        echo "This is your new version: $VERSION"
-      displayName: PublishSomething
-      env:
-        VERSION: $(GitVersion.FullSemVer)
-    - pwsh: |
-      Write-Host "This is your new $ENV:VERSION"
-      displayName: PublishingSomethingElse
-      env:
-        VERSION: $(GitVersion.FullSemVer)
-
-I normally start with `Mainline` development mode, but if you want to customize this to drive behavior off of conventional commits or other branching and delivery methods, there's a wide range of customization at you can review at: [GitVersion Incrementing](https://gitversion.net/docs/reference/version-increments)
-
-    ---
-    mode: Mainline
-    branches: {}
-    ignore:
-      sha: []
-    merge-message-formats: {}
-
-#### Install AWS CLI & Session Manager Plugin
-
-This is for arm64 based ubuntu containers.
-
-    RUN apt-get -yqq update --fix-missing && apt-get -yqq install pv \
-        && mkdir -p ./tmpinstall && curl --silent "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "./tmpinstall/awscliv2.zip" \
-        && COUNT=`unzip -q -l "./tmpinstall/awscliv2.zip" | wc -l` \
-        && mkdir -p ./tmpinstall/aws \
-        && unzip "./tmpinstall/awscliv2.zip" -d "./tmpinstall/"  | pv -l -s $COUNT >/dev/null \
-        && ./tmpinstall/aws/install --update | (pv --timer --name "🤖 awscli")  \
-        && rm -rf ./tmpinstall/ \
-        && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
-
-
-
-    RUN echo "✅ installing session manager plugin" && mkdir -p ./tmpinstall \
-        && curl --silent "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "./tmpinstall/session-manager-plugin.deb" \
-        && dpkg -i ./tmpinstall/session-manager-plugin.deb \
-        && rm -rf ./tmpinstall/
-
-### Install Go
-
-    RUN echo "⚙️ installing go" && mkdir -p ./tmpinstaller/ && wget "https://raw.githubusercontent.com/udhos/update-golang/master/update-golang.sh" -O ./tmpinstaller/update-golang.sh \
-        && wget -q https://raw.githubusercontent.com/udhos/update-golang/master/update-golang.sh.sha256 -O ./tmpinstaller/hash.txt  \
-        && chmod +r ./tmpinstaller/hash.txt && pushd ./tmpinstaller && sha256sum --check hash.txt && popd \
-        && chmod +x ./tmpinstaller/update-golang.sh && sudo bash ./tmpinstaller/update-golang.sh && rm -rf ./tmpinstaller && echo "✅ go installed"
-    ENV PATH=$PATH:/go/bin # this might be required for codespaces
-
-### Install Dotnet
-
-Had issues using the instructions from site, but found a working snippet from this [github doc](https://github.com/dotnet/dotnet-docker/blob/main/documentation/scenarios/installing-dotnet.md)
-
-    ARG DOT_NET_CHANNEL=2.1
-    USER root
-    RUN curl -sSL <https://dot.net/v1/dotnet-install.sh> | bash /dev/stdin -Channel ${DOT_NET_CHANNEL} -Runtime dotnet -InstallDir /usr/share/dotnet \
-        && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
-    USER ${USERNAME}
-
-## Codespaces & Remote Containers
-
-Using remote containers is great for isolation of unique work and a clean environment.
-I tend to use the Universal Image provided by Codespaces, which includes Go, .NET, PowerShell, Python, NodeJS, and more.
-
-### Troubleshooting Cloning a Repo In Volume
-
-!!! Failure "Prompted for SSH Password When Cloning Repo Via SSH In Volume"
-
-    Fixed my issues with a combination of help from:
-
-    - [Git SSH public key authentication failed with git on Azure DevOps - Stack Overflow](https://stackoverflow.com/a/60939986/68698) helped a lot.
-    - [Git · macOS Setup Guide](https://sourabhbajaj.com/mac-setup/Git/)
+- [Git SSH public key authentication failed with git on Azure DevOps - Stack Overflow](https://stackoverflow.com/a/60939986/68698) helped a lot.
+- [Git · macOS Setup Guide](https://sourabhbajaj.com/mac-setup/Git/)
 
 I updated my `~/.ssh/config` to the following, and was able to clone without being prompted for a password.
 
-    Host *
-        AddKeysToAgent yes
-        UseKeychain yes
-        IdentityFile ~/.ssh/id_rsa
+```bash
+Host *
+    AddKeysToAgent yes
+    UseKeychain yes
+    IdentityFile ~/.ssh/id_rsa
 
-    Host ssh.dev.azure.com
-        PubkeyAcceptedKeyTypes=ssh-rsa
-        IdentityFile ~/.ssh/id_rsa
-        IdentitiesOnly yes
+Host ssh.dev.azure.com
+    PubkeyAcceptedKeyTypes=ssh-rsa
+    IdentityFile ~/.ssh/id_rsa
+    IdentitiesOnly yes
+```
 
 - `ssh-add -K ~/.ssh/id_rsa` to finish up.
 
-## Docker Snippets
-
-Run a disposable devcontainer with default image to do some experimentation in an interactive prompt.
-
-    docker run --rm --init --privileged -it mcr.microsoft.com/vscode/devcontainers/universal:linux /bin/zsh
-
-[^stack-overflow-answer-cached-or-delegated]: [How do I add :cached or :delegated into a docker-compose.yml volumes list? - Stack Overflow](https://stackoverflow.com/a/63437557/68698)
-[^docker-buildx]: [Docker Buildx | Docker Documentation](https://docs.docker.com/buildx/working-with-buildx/#overview)
+{{< /admonition >}}

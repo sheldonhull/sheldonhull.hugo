@@ -129,7 +129,6 @@ brew list $package &>/dev/null || brew install $package
 
 package=git-delta
 brew list $package &>/dev/null || brew install $package
-
 ```
 
 ### Reduce Noise With Progress Bar
@@ -263,15 +262,17 @@ To make your script more portable, by respecting the users env preferences try:
 - `#!/usr/bin/env zsh`
 - `#!/usr/bin/env sh`
 
-!!! Abstract "bash.cyberciti.biz reference"
+{{< admonition type="abstract" title="bash.cyberciti.biz reference" open=true >}}
 
-    Some good info on this from [Shebang](https://bash.cyberciti.biz/guide/Shebang#.2Fusr.2Fbin.2Fenv_bash)
+Some good info on this from [Shebang](https://bash.cyberciti.biz/guide/Shebang#.2Fusr.2Fbin.2Fenv_bash)
 
-    :(fas fa-code fa-fw): If you do not specify an interpreter line, the default is usually the `/bin/sh`
+:(fas fa-code fa-fw): If you do not specify an interpreter line, the default is usually the `/bin/sh`
 
-    :(fas fa-code fa-fw): For a system boot script, use `/bin/sh`
+:(fas fa-code fa-fw): For a system boot script, use `/bin/sh`
 
-    :(fas fa-code fa-fw): The `/usr/bin/env` run a program such as a bash in a modified environment. It makes your bash script portable. The advantage of #!/usr/bin/env bash is that it will use whatever bash executable appears first in the running user's `$PATH` variable.
+:(fas fa-code fa-fw): The `/usr/bin/env` run a program such as a bash in a modified environment. It makes your bash script portable. The advantage of #!/usr/bin/env bash is that it will use whatever bash executable appears first in the running user's `$PATH` variable.
+
+{{< /admonition >}}
 
 ## SSH
 
@@ -288,17 +289,19 @@ chmod 0600 ~/.ssh/id_rsa
 
 For why 0600 see footnote.[^why-0600]
 
-!!! Tip "Troubleshooting macOS permissions"
+{{< admonition type="tip" title="Troubleshooting macOS permissions" open=true >}}
 
-    I've had issues with macOS adding an `@` with ACL issues on the ssh key's when downloaded.
+I've had issues with macOS adding an `@` with ACL issues on the ssh key's when downloaded.
 
-    To resolve this, just copy the contents of the ssh key to a new file and remove the original.
+To resolve this, just copy the contents of the ssh key to a new file and remove the original.
 
-    ```shell
-    cat original_key.pem > key.pem
-    ```
+```shell
+cat original_key.pem > key.pem
+```
 
 [How To List Users In Linux](https://linuxize.com/post/how-to-list-users-in-linux/)
+
+{{< /admonition >}}
 
 [^why-0600]: [Why are ssh keys 600 and not 400 by default? authorized_keys immutable? : linux4noobs](https://www.reddit.com/r/linux4noobs/comments/bjpbnl/why_are_ssh_keys_600_and_not_400_by_default/)
 
@@ -312,20 +315,22 @@ In this example, I found a text string in a PowerShell file that VSCode wasn't a
 rg -l -c "Start-ThreadJob" *.ps1
 ```
 
-!!! Note "Benchmark"
+{{< admonition type="note" title="Benchmark" open=true >}}
 
-    I ran a quick test to see how ripgrep performed compared to normal grep search.
-    Grep wasn't optimized, and by default is single threaded.
-    Ripgrep is multithreaded, automatically honors gitignore and more.
+I ran a quick test to see how ripgrep performed compared to normal grep search.
+Grep wasn't optimized, and by default is single threaded.
+Ripgrep is multithreaded, automatically honors gitignore and more.
 
-    ```shell
-    grep -rnw $HOME -e 'Start-ThreadJob'
-    ```
+```shell
+grep -rnw $HOME -e 'Start-ThreadJob'
+```
 
-    | Tool      | Time       |
-    | --------- | ----       |
-    | `ripgrep` | 5m6s       |
-    | `grep`    | 1h+timeout |
+| Tool      | Time       |
+| --------- | ----       |
+| `ripgrep` | 5m6s       |
+| `grep`    | 1h+timeout |
+
+{{< /admonition >}}
 
 ## Using yq to edit yaml files for Datadog service
 
@@ -422,7 +427,7 @@ secretname="mysecretname"
 
 kubectl config set-context --current --namespace=$namespace
 configEncoded=$(kubectl get secret $secretname -o jsonpath='{.data.\.dockerconfigjson}')
-configDecoded=$(sttr base64-decode $config)
+configDecoded=$(sttr base64-decode $configEncoded)
 registry=$(echo $configDecoded | jq '.auths | keys[]')
 echo -e "👉 registry: $registry"
 creds=$(echo $configDecoded | jq .auths.${registry}.auth --raw-output)

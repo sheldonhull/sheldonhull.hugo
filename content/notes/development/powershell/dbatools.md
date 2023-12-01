@@ -15,11 +15,13 @@ typora-root-url: ../../static
 typora-copy-images-to: ../../static/images
 ---
 
-!!! info "Requests or Suggestions"
+{{< admonition type="info" title="Requests or Suggestions" open=true >}}
 
-    If you have any requests or improvements for this content, please comment below. It will open a GitHub issue for chatting further.
-    I'd be glad to improve with any additional quick help and in general like to know if anything here in particular was helpful to someone.
-    Cheers! 👍
+If you have any requests or improvements for this content, please comment below. It will open a GitHub issue for chatting further.
+I'd be glad to improve with any additional quick help and in general like to know if anything here in particular was helpful to someone.
+Cheers! 👍
+
+{{< /admonition >}}
 
 ## Setup
 

@@ -13,3 +13,5 @@ Content related to various programming languages and their toolchains.
 | [Shell](shell/index.md)           | When you need some adhoc magic that you don't care about testing, cross-platform consistency, and readability |
 
 [^is-even]: Good luck finding an "is-even" package in the Go ecosystem. No hand holding here!
+
+
