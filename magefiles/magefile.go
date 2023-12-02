@@ -12,6 +12,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"regexp"
 	"strings"
 	"time"
 
@@ -198,7 +199,10 @@ func calculatePostDir(title string, kind string) (string, error) {
 	dateString := fmt.Sprintf("%d-%02d-%02d", year, month, day)
 	str := stringy.New(title)
 	kebabTitle := str.KebabCase().Get()
-	slugTitle := strings.Join([]string{dateString, kebabTitle}, "-") ///stringy.ToKebabCase(title)
+	pattern := regexp.MustCompile(`\W+`)
+
+	replacedText := pattern.ReplaceAllString(kebabTitle, "-")
+	slugTitle := strings.Join([]string{dateString, replacedText}, "-") ///stringy.ToKebabCase(title)
 
 	pterm.Success.Printf("Slugify Title: %s\n", slugTitle)
 	filepath := filepath.Join(contentDir, fmt.Sprintf("%d", year), slugTitle)
