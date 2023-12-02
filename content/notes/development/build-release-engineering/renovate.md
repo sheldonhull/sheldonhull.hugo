@@ -47,7 +47,7 @@ Options like the creation of closed pull requests can be configured by flags or 
 For Azure DevOps Pipelines, see the example below.
 For GitHub, consider using the Renovatebot GitHub app for a smoother integration, which also checks the status by default every 3 hours.
 
-{{< admonition type="example" title="local debugging" open=false >}}
+{{< admonition type="example" title="local debugging" open=true >}}
 
 ```shell
 # Change recreation if you are testing and need to abandon, then recreate
@@ -63,7 +63,8 @@ docker run --rm \
 ```
 
 {{< /admonition >}}
-{{< admonition type="example" title="config.js" open=false >}}
+
+{{< admonition type="example" title="config.js" open=true >}}
 
 ```javascript
 const pipelineToken = process.env.RENOVATE_TOKEN;
@@ -104,9 +105,9 @@ module.exports = {
 };
 ```
 
-{{< /admonition >}
+{{< /admonition >}}
 
-{{< admonition type="example" title="renovate.azure-pipelines.yml" open=false >}}
+{{< admonition type="example" title="renovate.azure-pipelines.yml" open=true >}}
 
 ```yaml
 ---
@@ -143,4 +144,4 @@ jobs:
 
 ```
 
-{{< /admontion >}}
+{{< /admonition >}}
