@@ -52,7 +52,7 @@ Many commands expect powershell, which runs on macOS and Linux as well. Just run
 
 ## Git Aliases
 
-Everyone has there own brand of craziness with git aliases.
+Everyone has their own brand of craziness with git aliases.
 
 Here's a few I've found helpful.
 
@@ -84,7 +84,7 @@ Install gitversion via: `dotnet tool install --global GitVersion.Tool`
 yolo  = !pwsh -noprofile -nologo -c 'Import-Module Nameit && git add . && git commit -am\"[wip] $(dotnet-gitversion /showvariable FullSemVer) - $((NameIt\\Invoke-Generate '[adjective]-[noun]' -Culture EN).ToLower())\" --no-verify && git town sync && git log --oneline -1'
 ```
 
-For quickly ammending the last commit on your own private branch, you can combine these two commands to overwrite your branch with the latest changes instead of versioning.
+For quickly amending the last commit on your own private branch, you can combine these two commands to overwrite your branch with the latest changes instead of versioning.
 
 ```config
 pushf = !git push --force-with-lease
@@ -106,7 +106,7 @@ git rm --cached $File
 
 ## Renaming Branch
 
-If you want to align with GitHub recommendeding naming of changing `master` to `main`, then this command will help you fix the local branches to correctly point `master` to the remote `main` branch.
+If you want to align with GitHub recommended naming of changing `master` to `main`, then this command will help you fix the local branches to correctly point `master` to the remote `main` branch.
 
 ```shell
 git branch -m master main
@@ -144,7 +144,7 @@ git log master..$(git branch --show-current) --oneline
 
 ## Forks
 
-- Add remote for fork, typically covered with `upstream` name: `git remote add upstream {repolink}.
+- Add remote for fork, typically covered with the `upstream` name: `git remote add upstream {repolink}.
 - Reset a forked branch to match the remote upstream resource: `git reset --hard upstream/master`
 
 ## Resources

@@ -19,9 +19,9 @@ typora-copy-images-to: ../../static/images
 
 I saved this as a snippet for vscode to get up and running quickly with something better than the defaults for handling `func main` isolation. I've been working on modifying this a bit as I don't really like using args, but am trying not to overcomplicate things as a new gopher.
 
-I tend to like better flag parsing than using args, but it's still a better pattern to get functions isolated from main to easily test.
+I prefer better flag parsing rather than using args. This pattern isolates functions from the main function to make them easily testable.
 
-The gist that I've taken from this and discussions in the community is ensure that `main` is where program termination is dedicated instead of handling this in your functions. This isolation of logic from main ensures you can more easily setup your tests as well, since `func main()` isn't testable.
+The gist is to ensure that `main` is where program termination happens, instead of handling this in your functions. This isolation of logic from main ensures you can more easily set up your tests since `func main()` isn't testable.
 
 ```go
 package main

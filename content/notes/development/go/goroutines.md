@@ -13,8 +13,8 @@ lastmod: 2023-03-17 18:00
 
 ## Using Goroutines with CLI Tools
 
-Running cli tools via goroutines can allow speeding up slow actions like code generation.
-I prefer to run these type of actions with a buffered channel to allow throttling the requests to avoid my laptop from catching on fire. 🔥
+Running CLI tools via goroutines can speed up slow actions like code generation.
+I prefer to run these types of actions with a buffered channel to throttle the requests and avoid overloading my laptop. 🔥
 
 Here's an example using Pterm output for reporting progress (no progress bar)[^race-conditions].
 
@@ -24,42 +24,42 @@ Here's an example using Pterm output for reporting progress (no progress bar)[^r
 package main
 
 import (
-	"sync"
+ "sync"
 
-	"github.com/bitfield/script"
-	"github.com/pterm/pterm"
+ "github.com/bitfield/script"
+ "github.com/pterm/pterm"
 )
 
 func main() {
-	pterm.DisableColor()
-	concurrentLimit := 4
-	type runMe struct {
-		title   string
-		command string
-	}
-	runCommands := []runMe{
-		{title: "commandtitle", command: "echo 'foo'"},
-	}
-	var wg sync.WaitGroup
-	buffChan := make(chan struct{}, concurrentLimit)
-	wg.Add(len(runCommands))
-	pterm.Info.Printfln("running cli [%d]", len(runCommands))
-	for _, r := range runCommands {
-		r := r
-		go func(r runMe) {
-			buffChan <- struct{}{}
-			defer wg.Done()
-			if _, err := script.Exec(r.command).Stdout(); err != nil {
-				pterm.Error.Printfln("[%s] unable to run: %s, err: %s", r.title, r.command, err)
-			} else {
-				pterm.Success.Printfln("[%s]", r.title)
-			}
-			<-buffChan
-		}(r)
-	}
-	wg.Wait()
+ pterm.DisableColor()
+ concurrentLimit := 4
+ type runMe struct {
+  title   string
+  command string
+ }
+ runCommands := []runMe{
+  {title: "commandtitle", command: "echo 'foo'"},
+ }
+ var wg sync.WaitGroup
+ buffChan := make(chan struct{}, concurrentLimit)
+ wg.Add(len(runCommands))
+ pterm.Info.Printfln("running cli [%d]", len(runCommands))
+ for _, r := range runCommands {
+  r := r
+  go func(r runMe) {
+   buffChan <- struct{}{}
+   defer wg.Done()
+   if _, err := script.Exec(r.command).Stdout(); err != nil {
+    pterm.Error.Printfln("[%s] unable to run: %s, err: %s", r.title, r.command, err)
+   } else {
+    pterm.Success.Printfln("[%s]", r.title)
+   }
+   <-buffChan
+  }(r)
+ }
+ wg.Wait()
 }
 
 ```
 
-[^race-conditions]: Since things are running concurrently a single bar isn't quite accurate. There are libraries out there that report correctly with goroutines, but pterm as of 2023-03 isn't one of them yet. It's being worked on.
+[^race-conditions]: Since things are running concurrently, a single bar isn't quite accurate. There are libraries that report correctly with goroutines, but as of 2023-03, pterm isn't one of them. However, it's under development.

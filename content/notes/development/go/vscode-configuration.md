@@ -10,7 +10,7 @@ date: 2023-03-06 14:49
 
 #### Default Shells
 
-This can ensure default behavior is processed on each OS, customizing the shell to use.
+This ensures that default behavior is processed on each OS by customizing the shell to use.
 
 ```json
 {
@@ -54,11 +54,11 @@ This can ensure default behavior is processed on each OS, customizing the shell 
 
 #### Run Lint
 
-Add this to your `.vscode/tasks.json` file and you'll get the full linting output in your problems pane.
+Add this to your `.vscode/tasks.json` file to get the full linting output in your problems pane.
 
-By default, the `golangci-lint` config should include `--fast` to avoid impact to your editing.
+By default, the `golangci-lint` config includes `--fast` to avoid impacting your editing.
 
-This will ensure all tasks that a pre-commit check or CI check will be run and provided in the problems panel.
+This ensures all tasks that a pre-commit check or CI check will run and provided in the problems panel.
 
 ```json
 "tasks": [
@@ -90,12 +90,12 @@ This will ensure all tasks that a pre-commit check or CI check will be run and p
 
 ### Tparse
 
-While the testing extension is great, sometimes I just want to see a console summary.
+While the testing extension is great, sometimes you might want to see a console summary.
 This task uses [Tparse](https://github.com/mfridman/tparse) and provides a nicely formatted summary (including coverage numbers, cached tests, and more).
 
 Install tparse with: `go install github.com/mfridman/tparse@latest`.
 
-Run manually like this: `GOTESTS='slow' go test ./... -v -cover -json | tparse -all`
+To run manually: `GOTESTS='slow' go test ./... -v -cover -json | tparse -all`
 
 ```json
 {

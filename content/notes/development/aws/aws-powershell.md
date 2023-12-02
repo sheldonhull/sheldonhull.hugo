@@ -7,9 +7,9 @@ title: AWS PowerShell
 ### Install AWS.Tools
 
 Going forward, use AWS.Tools modules for newer development.
-It's much faster to import and definitely a better development experience in alignment with .NET SDK namespace approach.
+It is much faster to import and definitely offer a better development experience in alignment with the .NET SDK namespace approach.
 
-Use their installer module to simplify versioning and avoid conflicts with automatic cleanup of prior SDK versions.
+Use the installer module to simplify versioning and avoid conflicts with automatic clean-up of prior SDK versions.
 
 ```powershell
 install-module 'AWS.Tools.Installer' -Scope CurrentUser
@@ -48,7 +48,7 @@ $Secret = Get-SECSecretValue -SecretId 'service-accounts/my-secret-id' -ProfileN
 
 ### Generate a Temporary Key
 
-Useful for needing to generate some time sensitive access credentials when connected via SSM Session and needing to access another account's resources.
+This is useful when you need to generate some time-sensitive access credentials while connected via an SSM Session and needing to access another account's resources.
 
 ```powershell
 Import-Module aws.tools.common, aws.tools.SecurityToken
@@ -84,7 +84,7 @@ $startProcessSplat = @{
 }
 Start-Process @startProcessSplat
 
-Write-Host "Cleaning up ssmagent download"
+Write-Host "Cleaning up SSM Agent download"
 Remove-Item $InstallerFile -Force
 Restart-Service AmazonSSMAgent
 ```

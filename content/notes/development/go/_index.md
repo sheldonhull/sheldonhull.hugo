@@ -6,8 +6,8 @@ title: go
 
 # Go
 
-A no-frills language that maximizes productivity and readability for both individuals and teams.
+A no-frills language maximizing productivity and readability for both individuals and teams.
 
-My "Go To" for solving problems!
+My "Go To" for problem-solving!
 
 ![gopher-unicorns](/images/notes/gopher_unicorn.png 'github.com/ashleymcnamara/gophers')

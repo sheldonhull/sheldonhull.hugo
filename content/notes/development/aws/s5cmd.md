@@ -9,9 +9,9 @@ title: Syncing Files Using S5Cmd
 Older versions of PowerShell (4.0) and the older AWSTools don't have the required ability to sync down a folder from a key prefix.
 This also performs much more quickly for a quick sync of files like backups to a local directory for initiating restores against.
 
-In testing down by the tool creator, they showed this could saturate a network for an EC2 with full download speed and be up to 40x faster than using CLI with the benefit of being a small self-contained Go binary as well.
+In testing by the tool creator, it was shown that this could saturate a network for an EC2 with full download speed and be up to 40x faster than using CLI with the benefit of being a small self-contained Go binary.
 
-Once the download of the tooling is complete you can run a copy from s3 down to a local directory by doing something similar to this, assuming you have rights to the bucket.
+Once the download of the tooling is complete, you can run a copy from S3 down to a local directory with a command similar to below, assuming you have access rights to the bucket.
 If you don't have rights, you'll want to set environment variables for the access key and secret key such as:
 
 ```powershell
@@ -25,9 +25,9 @@ $cred = Get-STSSessionToken -DurationInSeconds ([timespan]::FromHours(8).TotalSe
 "@
 ```
 
-You can copy that string into your remote session to get the access tokens recognized by the s5cmd tool and allow you to grab files from another AWS account S3 bucket.
+You can copy that string into your remote session to get the access tokens recognized by the s5cmd tool and allow you to grab files from another AWS account's S3 bucket.
 
-> NOTE: To sync a full "directory" in s3, you need to leave the asteriks at the end of the key as demonstrated.
+> NOTE: To sync a full "directory" in S3, you need to leave the asterisks at the end of the key as demonstrated.
 
 ### Windows
 
@@ -48,7 +48,7 @@ $s5cmd = Join-Path $ToolsDir 's5cmd.exe'
 &$s5cmd version
 ```
 
-#### Windows Sync A Directory From To Local
+#### Windows Sync A Directory From S3 to Local
 
 ```powershell
 $ErrorActionPreference = 'Stop'
@@ -58,9 +58,9 @@ $KeyPrefix = 'mykeyprefix/anothersubkey/*'
 $Directory = "C:\temp\adhoc-s3-sync-$(Get-Date -Format 'yyyy-MM-dd')\$KeyPrefix"
 New-Item $Directory -ItemType Directory -Force -ErrorAction SilentlyContinue
 $s5cmd = Join-Path $ToolsDir 's5cmd.exe'
-Write-Host "This is what is going to run: `n&$s5cmd cp `"s3://$bucketname/$KeyPrefix`" $Directory"
+Write-Host "This is what is going to run: `n&$s5cmd cp `"s3://$BucketName/$KeyPrefix`" $Directory"
 Read-Host 'Enter to continue if this makes sense, or cancel (ctrl+c)'
 
 
-&$s5cmd cp "s3://$bucketname/$KeyPrefix" $Directory
+&$s5cmd cp "s3://$BucketName/$KeyPrefix" $Directory
 ```

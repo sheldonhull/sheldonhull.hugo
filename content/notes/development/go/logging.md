@@ -4,7 +4,7 @@ title: Go Logging
 
 ## Logging
 
-At this stage, I'm using [zerolog](https://github.com/rs/zerolog) as I found it very easy to get moving with structured logs.
+At this stage, I'm using [zerolog](https://github.com/rs/zerolog) as I found it very easy to get started with structured logs.
 
 The output of this demo looks pretty good!
 

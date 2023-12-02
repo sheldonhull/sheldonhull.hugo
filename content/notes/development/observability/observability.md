@@ -15,22 +15,22 @@ typora-copy-images-to: ../../static/images
 
 ## Datadog
 
-### Evaluate Impact on Pricing Based On Contributors In A Repository
+### Evaluate Impact on Pricing Based On Contributors in a Repository
 
-Some of the pricing models reflect based on the number of active contributors in a repository.
-For example, the CI/Pipeline integration is based on a model of who's contributing.
+Some pricing models reflect based on the number of active contributors in a repository.
+For example, the CI/Pipeline integration is based on a model of active contributors.
 
-This snippet will assess unique contributors in the repo and based on a rough [On-Demand pricing] you can find on the website, roughly approx the impact to enabling this feature directly against this repository.
+This snippet will assess unique contributors in the repo and based on a rough [On-Demand pricing] you can find on the website, it will approximate the impact of enabling this feature directly against this repository.
 
 {{< admonition type="example" title="Figuring Out Pricing Based On Contributors in Git" open=false >}}
 
 ```powershell title="CalcDatadogPricing.ps1"
-    $DatadogPerContributorPricing = 8 # Get from datadog pricing site
+    $DatadogPerContributorPricing = 8 # Get from Datadog pricing site
     $LookBack = -6
     $month = Get-Date -Format 'MM'
     $year = Get-Date -Format 'yyyy'
     $since = "$((Get-Date -Day 1 -Month $month -Year $year).AddMonths($LookBack).AddDays(-1).ToString('yyyy-MM'))"
-    $until = "$((Get-Date).AddMonths(1).AddDays(-1).ToString('yyyy-MM')))"
+    $until = "$((Get-Date).AddMonths(1).AddDays(-1).ToString('yyyy-MM'))"
 
     # $contributors =
     $stats = &git log --date="format-local:%Y-%m" --pretty=format:"%ad %ae" --since="$since" --until="$until" |
@@ -52,3 +52,4 @@ This snippet will assess unique contributors in the repo and based on a rough [O
 {{< /admonition >}}
 
 [On-Demand Pricing]: https://www.datadoghq.com/pricing/?product=ci-visibility#products
+

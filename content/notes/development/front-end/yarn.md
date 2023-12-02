@@ -10,8 +10,8 @@ lastmod: 2023-03-08 13:58
 
 ## Setup
 
-- `npm install -g yarn`
-- Now set the version to latest in the project by running: `yarn set version berry`.
+- Run `npm install -g yarn` to install Yarn globally.
+- Set the version to the latest in the project by running: `yarn set version berry`.
 
 ## Gitignore[^yarn-gitignore]
 
@@ -40,3 +40,4 @@ lastmod: 2023-03-08 13:58
     ```
 
 [^yarn-gitignore]: https://yarnpkg.com/getting-started/qa/#which-files-should-be-gitignored
+

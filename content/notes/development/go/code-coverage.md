@@ -6,7 +6,7 @@ title: Code Coverage
 
 ### Codecov
 
-Using codecov works great for Github repos.
+Codecov works great for Github repositories.
 
 ### Use gopherbadge
 
@@ -14,7 +14,7 @@ Using codecov works great for Github repos.
 go install github.com/jpoles1/gopherbadger@master
 ```
 
-- Set `![gopherbadger-tag-do-not-edit]()` in the readme, and then this gets replaced with a code coverage percentage badge.
+- Set `![gopherbadger-tag-do-not-edit]()` in the readme. This will be replaced with a code coverage percentage badge.
 - Generate the required code coverage reports using:
 
 ```shell

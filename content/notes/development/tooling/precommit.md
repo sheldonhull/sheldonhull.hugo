@@ -23,7 +23,7 @@ A cheatsheet for various pre-commit hooks and things that help with linting, for
 ## The Frameworks
 
 - [GitHub - evilmartians/lefthook: Fast and powerful Git hooks manager for any type of projects.](https://github.com/evilmartians/lefthook/) is a newer project based in Go.
-- [pre-commit](https://pre-commit.com/) is python based, very mature and supported.
+- [pre-commit](https://pre-commit.com/) is python-based, very mature and supported.
 
 ## Precommit
 
@@ -32,11 +32,11 @@ A cheatsheet for various pre-commit hooks and things that help with linting, for
 A bit more complicated, depending on the Docker image used and the python tooling installed.
 Assuming you have pip installed, then run `pip install pre-commit --user`
 
-Here's some examples to get you started.
+Here are some examples to get you started.
 
 ## Skipping A Precommit Hook
 
-The pre-commit tasks can be overridden on a case by case basis.
+The pre-commit tasks can be overridden on a case-by-case basis.
 
 The syntax for skipping is simple, just run the task with the name of the hook excluded like this:
 
@@ -71,13 +71,13 @@ For example, let's add a mage task to generate docs when something in the packag
             files: ^pkg/
             types: [file, go]
 
-The types is pretty useful to not just try and match on file names.
+The types are pretty useful, not just to try and match on file names.
 
 Use `identify-cli` which is a python cli and package included when you install pre-commit.
 
 Run it against a directory or file and you'll get the outputs that pre-commit will accept.
 
-For example, against a markdown file: `identify-cli README.md` and you should get: `["file", "markdown", "non-executable", "text"]`. Any of these (or all) can be put to filter when the hook runs.
+For example, against a markdown file: `identify-cli README.md` and you should get: `["file", "markdown", "non-executable", "text"]`. Any of these (or all) can be used to filter when the hook runs.
 
 Against a Go file: `["file", "go", "non-executable", "text"]`.
 
@@ -89,32 +89,32 @@ Using pre-commit framework heavily, and no longer relying on Lefthook.
 
 ## Lefthook
 
-A great tool, but requires more work and not as fully featured as pre-commit.
+A great tool, but requires more work and is not as fully featured as pre-commit.
 In most cases, I'd recommend pre-commit tooling over Lefthook.
 
-If you are just starting out this requires more hands on, but can result in faster checks and commits.
+If you are just starting out, this requires more hands-on work but can result in faster checks and commits.
 
-My advice would be to maybe start with pre-commit if you want plug and play, and lefthook if you want to control the pre-commits explicitly and optimize for performance.
+My advice would be to start with pre-commit if you want plug and play, and lefthook if you want to control the pre-commits explicitly and optimize for performance.
 
 As long as you have the Go SDK installed, just run `go install github.com/evilmartians/lefthook@master`.
 
-This framework is a little "rougher" and less supported than pre-commit framework, but for simple self-maintained hooks I've preferred this as it much faster, and so I end up using it more.
+This framework is a little "rougher" and less supported than pre-commit framework, but for simple self-maintained hooks, I've preferred this as it is much faster, and so I end up using it more.
 
 Other installation methods are located at the installation guide [^lefthook-fullguide]
 
 ### Lefhook Tips
 
-- Originally I broke out lefthook into multiple files, so I could drop them into a directory, but now I stick with one.
-  Since it still requires editing the main file to extend and point to another file, I've found a single file simplier to maintain.
-- Disable parallel for anything formatting files or possible not thread safe.
-  While parallel seems great, most of the pre-commit tasks should run quickly, and formatting and linting files at the same time could lead into conflicts or problems.
-  Use parallel for seperate language test runs perhaps, like running Python tests and Go tests since those shouldn't conflict.
-- `piped: true` is useful but hides the underlying tasks in the summary, so I suggest avoid unless you have tasks that really should step by step feed into each other.
-  In this case, maybe you should have this just be part of your task run, such as `mage lint fmt` rather than 2 seperate pre-commit hooks.
+- Originally, I broke out lefthook into multiple files so I could drop them into a directory, but now I stick with one.
+  Since it still requires editing the main file to extend and point to another file, I've found a single file simpler to maintain.
+- Disable parallel operation for anything formatting files or possibly not thread safe.
+  While parallel operation seems great, most of the pre-commit tasks should run quickly, and formatting and linting files at the same time could lead to conflicts or problems.
+  Use parallel operation for separate language test runs perhaps, like running Python tests and Go tests since those shouldn't conflict.
+- `piped: true` is useful but hides the underlying tasks in the summary, so I suggest avoid unless you have tasks that really should feed into each other step by step.
+  In this case, maybe you should have this just be part of your task run, such as `mage lint fmt` rather than two separate pre-commit hooks.
 
 ### Using Lefthook
 
-Here's some updated configurations I've started using.
+Here are some updated configurations I've started using.
 
 #### Output
 
@@ -133,9 +133,9 @@ Reduce the noise:
 These are basic quick checks for markdown (docs as code).
 This illustrates one of the challenges in pre-commit framework tooling.
 
-Ideally, you want the pre-commit checks to only touch the files that changed to make things quick, but this requires some work-arounds, since not all tools support a comma delimited list of files passed in.
+Ideally, you want the pre-commit checks to only touch the files that changed to make things quick, but this requires some workarounds, since not all tools support a comma-delimited list of files passed in.
 
-One big improvement to lefthook, would be supporting `for_each` operator, so that cross-platform looping on matched files could be run, instead of having to parse inside the script here.
+One big improvement to lefthook would be supporting a `for_each` operator, so that cross-platform looping on matched files could be run, instead of having to parse inside the script here.
 I'm pretty sure that this would be more compatible with various platforms as well, since this I believe uses your native shell, so you'd have to be in WSL2 in Windows, for example, for the bash-like syntax to work.
 
 See [ci-configuration-files](https://github.com/sheldonhull/ci-configuration-files/.markdownlint-cli2.yaml) for markdown lint config examples.
@@ -160,8 +160,6 @@ Install `gojq` or replace with `jq` if you have it.
         markdownlintcheck:
           files: git diff-index --name-only HEAD
           exclude: '_licenses/*'
-          # exclude: '_licenses/*'
-          # files: git diff-index --name-only HEAD #git ls-files **/*.md -m #git diff-index --name-only HEAD #git ls-files **/*/*.md  -m
           glob: '*{.md}'
           run: |
             echo "⚡ markdownlint on: {files}"
@@ -170,7 +168,6 @@ Install `gojq` or replace with `jq` if you have it.
               echo "🔨 markdownlint: $file"
               docker run --rm -v ${PWD}:/workdir --entrypoint="markdownlint-cli2" davidanson/markdownlint-cli2:latest "$file"
             done
-        # REQUIREMENTS: go install github.com/itchyny/gojq/cmd/gojq@latest # cross platform alternative to jq
         shellcheck:
           tags: gotool gojq
           name: shellcheck
@@ -203,7 +200,7 @@ Install `gojq` or replace with `jq` if you have it.
           tags: go lint fmt
           files: git diff-index --name-only HEAD
           exclude: '.licenses/*'
-          glob: '*.{go,mod,sum}' #'*.go|*.mod|*.sum'
+          glob: '*.{go,mod,sum}'
           commands:
             fmt:
               run: CI=1 MAGEFILE_HASHFAST=1 mage fmt
@@ -212,9 +209,9 @@ Install `gojq` or replace with `jq` if you have it.
 
 #### Pre-Push Checks
 
-Most of these Mage oriented tasks from my magetools repo.
+Most of these Mage-oriented tasks are from my magetools repo.
 
-Note that while they filter based on the files being Go related, they run against the entire repo.
+Note that while they filter based on the files being Go-related, they run against the entire repo.
 
     pre-push:
       parallel: false
@@ -223,9 +220,7 @@ Note that while they filter based on the files being Go related, they run agains
           files: git diff-index --name-only HEAD
           exclude: '.licenses/*'
           glob: '*.{go,mod,sum}'
-          # run: CI=1 MAGEFILE_HASHFAST=1 mage fmt      # alias for task that can contain formatting for all fmt tasks if you wish
-          # run: CI=1 MAGEFILE_HASHFAST=1 mage go:fmt   # gofumpt based formatting
-          run: CI=1 MAGEFILE_HASHFAST=1 mage go:wrap  # golines based formatting
+          run: CI=1 MAGEFILE_HASHFAST=1 mage go:wrap
         lint:
           files: git diff-index --name-only HEAD
           exclude: '.licenses/*'
@@ -235,7 +230,7 @@ Note that while they filter based on the files being Go related, they run agains
           files: git diff-index --name-only HEAD
           exclude: '.licenses/*'
           glob: '*.{go,mod,sum}'
-          run: CI=1 MAGEFILE_HASHFAST=1 GOTEST_FLAGS='-tags integration' mage go:test
+          run: CI=1 MAGEFILE_HASHFAST=1 mage go:test
         gitleaks:
           tags: security gotool linux macos nowindows
           run: CI=1 MAGEFILE_HASHFAST=1 mage secrets:check

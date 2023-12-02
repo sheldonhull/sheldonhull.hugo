@@ -31,13 +31,13 @@ Cheers! 👍
 
 ## Requirements
 
-- Going forward most examples will focus on Powershell (>= v7), the modern successor to Windows PowerShell & PowerShell Core. Install this easily through chocolatey. Just install chocolatey, and then run `choco upgrade powershell powershell-core -y --source chocolatey` and you should have both 5.1 and core ready to go if your Windows version supports it. If you are on Windows 7 as a developer, there is no :taco: for you, just get upgraded already. Linux has it's own set of directions.
+- Going forward most examples will focus on Powershell (>= v7), the modern successor to Windows PowerShell & PowerShell Core. Install this easily through chocolatey. Just install chocolatey, and then run `choco upgrade powershell powershell-core -y --source chocolatey` and you should have both 5.1 and core ready to go if your Windows version supports it. If you are on Windows 7 as a developer, there are no tacos for you, just get upgraded already. Linux has its own set of directions.
 - Anything manipulating system might need admin, so run as admin in prompt.
 - `Install-Module PSFramework` // I use this module for better logging and overall improvements in my quality of life. It's high quality, used by big projects like DbaTools and developed by a Powershell MVP with lots of testing. Forget regular `Write-Verbose` commands and just use the `Write-PSFMessage -Level Verbose -Message 'TacoBear'` instead.
 
 ### PSFramework
 
-I use [PSFramework](http://bit.ly/2LHNpkE) on all my instances, as it's fantastic expansion to some core areas with PowerShell. This great module (along with other ancillary supporting ones like `PSModuleDevelopment` are well tested and usable for solving some issues in a much more elegant and robust manner than what is natively offered.
+I use [PSFramework](http://bit.ly/2LHNpkE) on all my instances, as it's a fantastic expansion to some core areas with PowerShell. This great module (along with other ancillary supporting ones like `PSModuleDevelopment`) are well tested and usable for solving some issues in a much more elegant and robust manner than what is natively offered.
 
 A few key elements it can help with are:
 
@@ -57,7 +57,7 @@ A few key elements it can help with are:
 | Type               | Example                                                | Output                      | Notes                                                               |
 | ------------------ | ------------------------------------------------------ | --------------------------- | ------------------------------------------------------------------- |
 | Formatting Switch  | 'select {0} from sys.tables' -f 'name'                 | select name from sys.tables | Same concept as .NET \[string]::Format(). Token based replacement   |
-| .NET String Format | \[string]::Format('select {0} from sys.tables','name') | select name from sys.tables | Why would you do this? Because you want to showoff your .NET chops? |
+| .NET String Format | \[string]::Format('select {0} from sys.tables','name') | select name from sys.tables | Why would you do this? Because you want to show off your .NET chops? |
 
 ## Math & Number Conversions
 
@@ -67,7 +67,7 @@ A few key elements it can help with are:
 
 ## Date & Time Conversion
 
-Converting dates to Unix Epoc time can be challenging without using the correct .NET classes. There is some built in functionality for converting dates such as `(Get-Date).ToUniversalTime() -UFormat '%s'` but this can have problems with time zone offsets. A more consistent approach would be to leverage the following. This was very helpful to me in working with Grafana and InfluxDb which commonly leverage Unix Epoc time format with seconds or milliseconds precision.
+Converting dates to Unix Epoc time can be challenging without using the correct .NET classes. There is some built in functionality for converting dates such as `(Get-Date).ToUniversalTime() -UFormat '%s'`, but this can have problems with time zone offsets. A more consistent approach would be to leverage the following. This was very helpful to me when working with Grafana and InfluxDb which commonly use Unix Epoc time format with seconds or milliseconds precision.
 
 ```powershell
 $CurrentTime = [DateTimeOffset]::new([datetime]::now,[DateTimeOffset]::Now.Offset);
@@ -101,7 +101,7 @@ For example, if pulling service account credentials for SQL Server in AWS, you c
 ```powershell
 Import-module AWS.Tools.SecretsManager
 Write-Warning "Poor Example"
-Write-Warning "This exposes the credential in local memory and potentionally logging. It is for demo purposes"
+Write-Warning "This exposes the credential in local memory and potentially logging. It is for demo purposes"
 $SecretString = (Get-SECSecretValue 'service-accounts/sql-admin' -ProfileName 'myprofile').SecretString | ConvertFrom-Json -Depth 1
 $SecretString.UserName
 $SecretString.Password
@@ -114,7 +114,7 @@ ForEach-Object {
 }
 ```
 
-The SecretsManagement powershell module supports a variety of backends such as 1Password, Thycotic Secrets Server, Lastpass, and more.
+SecretsManagement powershell module supports a variety of backends such as 1Password, Thycotic Secrets Server, Lastpass, and more.
 
 [↗️ List of Secrets Management Modules](https://www.powershellgallery.com/packages?q=Tags%3A%22SecretManagement%22)
 
@@ -139,7 +139,7 @@ $results
 
 ## Load Functions from a Folder
 
-Prefer to use modules, but for quick adhoc work, you can organize your work in a folder and use a subfolder called functions. I find this better than trying to create one large script file with multiple functions in it.
+Prefer to use modules, but for quick ad hoc work, you can organize your work in a folder and use a subfolder called functions. I find this better than trying to create one large script file with multiple functions in it.
 
 ```powershell
 $FunctionsFolder = Join-Path $toolsDir 'functions'
@@ -182,7 +182,7 @@ PSFramework makes this easy to work with by simply referencing the object proper
 (Get-EC2Instance -Filter $ec2Filter).Instances | Select-PSFObject InstanceId, 'State.Code as StateCode', 'State.Name as StateName'
 ```
 
-The result is exactly you'd you need to work with
+The result is exactly what you'd need to work with
 
 | InstanceId | StateCode | StateName |
 | ---------- | --------- | --------- |
@@ -192,7 +192,7 @@ The result is exactly you'd you need to work with
 
 ### Get / Set Accessors in PowerShell
 
-In C# you use get/set accessors to have more control over your properties. In PowerShell, thanks to PSFramework, you can simplify object pipelines by using `Select-PSFObject` to do the equivalent and have a scripted property that handles a script block to provide a scripted property on your object.
+In C# you use get / set accessors to have more control over your properties. In PowerShell, thanks to PSFramework, you can simplify object pipelines by using `Select-PSFObject` to do the equivalent and have a scripted property that handles a script block to provide a scripted property on your object.
 
 For example, in leveraging AWS Profiles, I wanted to get a region name mapped to a specific profile as a default region. You can do this in a couple steps using `ForEach-Object` and leverage `[pscustomobject]`, or you can simplify it greatly by running `Select-PSFObject` like this:
 
@@ -230,7 +230,7 @@ Get-S3Object -BucketName 'tacoland' | Select-PSFObject -ScriptProperty @{
 ## Parallel Tips & Tricks
 
 If you are using `-Parallel` with the newer runspaces feature in PowerShell 7 or greater, then long running operations such as queries or operations that take a while might be difficult to track progress on.
-In my case, I wanted to be able to see the progress for build process running in parallel and found using the synchronized hashtable I was able to do this.
+In my case, I wanted to be able to see the progress for build process running in parallel and found using synchronized hashtable I was able to do this.
 
 ```powershell
 $hash = [hashtable]::Synchronized(@{})
@@ -255,7 +255,7 @@ Progress: 6 <---- parallel, no promise of which runspace finishes first
 Progress: 5
 ```
 
-A more advanced way to use this might be to help guage how long something might take to complete when running parallel SQL Server queries.
+A more advanced way to use this might be to help gauge how long something might take to complete when running parallel SQL Server queries.
 
 ```powershell
 #################################################################
@@ -360,8 +360,8 @@ Install it with: `Install-Module Microsoft.PowerShell.ConsoleGuiTools -Scope Cur
 
 ```powershell
 # Gather filtered list of EC2 Instances from AWS and then provide a console gui to select and filter the results further
-$Filters = @([Amazon.EC2.Model.Filter]::new('tag:{{TAGHERE}}','{{TAG VALUE}}')
-(Get-EC2Instance -Filter $Filters)).Instances| Select-PSFObject InstanceId, PublicIpAddress,PrivateIpAddress,Tags,'State.Code as StateCode', 'State.Name as StateName'  -ScriptProperty @{
+$Filters = @([Amazon.EC2.Model.Filter]::new('tag:{{TAGHERE}}','{{TAG VALUE}}'))
+(Get-EC2Instance -Filter $Filters).Instances| Select-PSFObject InstanceId, PublicIpAddress,PrivateIpAddress,Tags,'State.Code as StateCode', 'State.Name as StateName'  -ScriptProperty @{
     Name = @{
         get  = {
             $this.Tags.GetEnumerator().Where{$_.Key -eq 'Name'}.Value

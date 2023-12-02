@@ -2,7 +2,7 @@
 title: task
 date: 2020-10-30
 toc: true
-summary: A cheatsheet with snippets for Task a cross-platform task runner alternative to Make.
+summary: A cheatsheet with snippets for Task, a cross-platform task runner alternative to Make.
 slug: task
 comments: true
 tags:
@@ -24,8 +24,8 @@ typora-copy-images-to: ../../static/images
 
 {{< admonition type="warning" title="Gotchas" open=true >}}
 
-OS Specific Limitations exist for Windows.
-For instance, without wrapping with a `pwsh -c` command you might get a failure with `mkdir`.
+OS-specific limitations exist for Windows.
+For instance, without wrapping with a `pwsh -c` command, you might get a failure with `mkdir`.
 
 See prior issue [Command can not be run in Windows · Issue #319 · go-task/task · GitHub](https://github.com/go-task/task/issues/319#issuecomment-626221222) for more information.
 
@@ -50,7 +50,7 @@ env:
 
 ## Common Variable Setup
 
-The following are console escape sequences to provide some nice formatting for the output
+The following are console escape sequences to provide some nice formatting for the output.
 
 ```yaml
 vars:
@@ -77,7 +77,7 @@ vars:
 
 ## Common Base Config
 
-This is stuff I'd normally paste to get me started on a task file.
+This is content I'd typically paste to get started on a task file.
 
 ```yaml
 tasks:
@@ -105,7 +105,7 @@ tasks:
         echo "todo"
 ```
 
-## console logging
+## Console Logging
 
 ```yaml
 test -f nonexistentfile ||         echo -e "{{.red}}file does not exist: [{{ .NONEXISTENTFILE }}]  {{.nocolor}}"
@@ -115,7 +115,7 @@ test -f nonexistentfile ||         echo -e "{{.red}}file does not exist: [{{ .NO
 
 I use this framework to simplify my project linting and checks.
 
-You can load this as a seperate base file by creating it in the same root directory of your project with the name: `Taskfile.precommit.yml` and include it as the base config shows.
+You can load this as a separate base file by creating it in the same root directory of your project with the name: `Taskfile.precommit.yml` and include it as the base config shows.
 
 ```yaml
 ---
@@ -141,12 +141,12 @@ tasks:
         pip install pre-commit || echo -e "{{.light_cyan}} 🔥 you need python installed to run this  {{.nocolor}}"
         {{else}}
         echo "setting up precommit. This requires brew (works on Linux & macOS)"
-        echo "if fails install linux brew with following command"
+        echo "if fails install Linux brew with the following command"
         if brew --version &>/dev/null ; then
-          echo -e  "{{.green}} ✅ Command succeeded, validated homebrew installed {{.nocolor}}"
+          echo -e  "{{.green}} ✅ Command succeeded. Homebrew is installed {{.nocolor}}"
         else
           echo -e "{{.red}} ❗ Command failed. Homebrew not detected {{.nocolor}}"
-          echo -e "{{.red}}❗ install homebrew on Linux or macOS (not root) using the following command and try again: {{.nocolor}}"
+          echo -e "{{.red}}❗ Install homebrew on Linux or macOS (not root) using the following command and try again: {{.nocolor}}"
           echo -e "{{.orange}} /bin/bash -c ""\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"" {{.nocolor}}"
         fi
         export HOMEBREW_NO_AUTO_UPDATE=1
@@ -157,7 +157,7 @@ tasks:
 
 ## Install Tool From GitHub Release
 
-Without using any external dependency tooling, here's a way to add a task that might need to grab a binary) using `jq` and `curl`.
+Without using any external dependency tooling, here's a way to add a task that might need to grab a binary, using `jq` and `curl`.
 
 ```yaml
 init:ci:
@@ -187,7 +187,7 @@ init:ci:
 
 ## Initialize Project Tooling
 
-I think any project requiring non-standardized tooling should have this setup in a standard `init` style command that makes it easy to get up and running, assuming that the basic SDK tooling is installed of course. To solve SDK's and other lower level tooling, you'll want to use Docker with Codespaces or other methods to ensure tooling setup is standardized and easy (Ansible, Docker, etc.)
+All projects requiring non-standardized tooling should have this setup in a standard `init` style command that makes it easy to get up and running, assuming that the basic SDK tooling is installed of course. To solve SDK's and other lower-level tooling, you'll want to use Docker with Codespaces or other methods to ensure tooling setup is standardized and easy (Ansible, Docker, etc.).
 
 ```yaml
 init:
@@ -209,9 +209,9 @@ init:ci:
       go install github.com/goreleaser/goreleaser@latest
 ```
 
-This would be how I'd setup a project.
+This would be how I'd set up a project.
 
-Notice the seperation of `ci` and `dev` tooling.
+Notice the separation of `ci` and `dev` tooling.
 
 This is important if you don't want to needlessly add duration to your CI checks.
 

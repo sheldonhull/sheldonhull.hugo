@@ -11,14 +11,14 @@ lastmod: 2023-03-21 19:14
 {{< admonition type="example" title="Help Me With Using Goldmark For Markdown Parsing" open=false >}}
 
 This failed repeatedly.
-The code examples were promising but made up quite a few methods and approaches that were non-existent in the actual code base and had no code examples matching in the repo.
-Goldmark doesn't have a lot of use examples compared to many projects, so I think the quality of the suggestions degraded with a broader question.
+The code examples were promising but invoked quite a few methods and approaches that were non-existent in the actual code base and had no corresponding code examples in the repo.
+Goldmark doesn't have as many use examples compared to many projects, so I think the quality of the suggestions degraded with a broader question.
 
-It _looked_ great, but with improper method signatures it really suffered.
+It _looked_ great, but with incorrect method signatures, it really suffered.
 
 ![example image](/images/notes/ray-so-export-developement-ai-chat-goldmark.png "Goldmark Fail")
 
-I think for this to succeed I'm going to have to it focus on a specific code block and not a function in it's entirety.
+I think for this to succeed I'm going to have it focus on a specific code block and not a function in its entirety.
 
 {{< /admonition >}}
 
@@ -28,20 +28,20 @@ I think for this to succeed I'm going to have to it focus on a specific code blo
 
 {{< admonition type="example" title="Help Me Jump Start an API Server With TDD Support and Zerolog" open=false >}}
 
-> What's a good bootstrap template for golang rest api server.
+> What's a good bootstrap template for golang rest api server?
 > I want to include TDD approach that abstracts the http server into a cmd file and allows me to mock http for tests.
 > Use zerolog for logging with context.
 
-Key points I think this did well with.
+Key points I think it did well with:
 
-1. It structured it reasonsably.
+1. It structured it reasonably.
 2. It provided a jump start test file to do TDD with based on `httptest`.
 3. It was intelligent enough to add `zerolog` url handling logging using my preferred package.
 
 I could see how this could really help jump start intelligently templating out a project much better than just raw boilerplate.
 
-Instead of having to maintain cookiecutter style templates, you might see the future allowing being really specific and generating customized code along with infra to support a quicker iteration on development.
-Of course, everything should be vetted and scanned, but it's a pretty incredible experience and worth using copilot/chatGPT to occasionally accelerate development.
+Instead of having to maintain cookie-cutter style templates, you might see the future allowing being very specific and generating customized code along with infra to support quicker iteration on development.
+Of course, everything should be vetted and scanned, but it's a pretty incredible experience worth using copilot/chatGPT to occasionally accelerate development.
 
 ChatGPT's answer:
 

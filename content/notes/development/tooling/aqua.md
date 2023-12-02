@@ -1,6 +1,6 @@
 ---
 title: aqua
-description: A cli version manager for the discriminating cli connoisseur.
+description: A CLI version manager for the discriminating CLI connoisseur.
 date: 2023-04-04 12:56
 tags:
   - cli
@@ -11,13 +11,13 @@ lastmod: 2023-04-04 13:10
 
 ## Aqua Overview
 
-A cli version manager for the discriminating cli connoisseur, this tool is great to install binaries both at global level and project level.
+A CLI version manager for the discriminating CLI connoisseur, this tool is great to install binaries both at a global level and a project level.
 If you are using `asdf`, I highly recommend this as an alternative, with the caveat of it not managing python, ruby, or other runtimes.
-It's focused on cli development tools, and providing a global or project level version configuration that automatically installs on demand.
+It's focused on CLI development tools, and providing a global or project-level version configuration that automatically installs on demand.
 
-Aqua runs as a proxy for the invoked cli's, which means it [automatically handles installing the called tool](https://aquaproj.github.io/docs/tutorial/lazy-install) if it's missing on demand, further cutting down initial setup time.
+Aqua runs as a proxy for the invoked CLIs, which means it [automatically handles installing the called tool](https://aquaproj.github.io/docs/tutorial/lazy-install) if it's missing, on demand, further cutting down initial setup time.
 
-You can even use in [docker images](https://aquaproj.github.io/docs/guides/build-container-image) or CI and have a single version pinned file helping the local and CI tools be similar.
+You can even use it in [docker images](https://aquaproj.github.io/docs/guides/build-container-image) or CI and have a single version pinned file helping the local and CI tools be similar.
 
 It's more secure than `asdf` by [default](https://aquaproj.github.io/docs/reference/restriction/#aqua-doesnt-support-running-any-external-commands-to-install-tools).
 
@@ -25,13 +25,14 @@ It's more secure than `asdf` by [default](https://aquaproj.github.io/docs/refere
 
 [Quick Start](https://aquaproj.github.io/docs/tutorial) includes install commands to setup.
 
-I use curl based install mostly: [Install](https://aquaproj.github.io/docs/tutorial/#install-aqua)
+I use curl-based install mostly: [Install](https://aquaproj.github.io/docs/tutorial/#install-aqua)
 
 === "install with brew"
 
       ```shell title="brew install"
       brew install aquaproj/aqua/aqua
       ```
+
 === "install with go"
 
       ```shell title="pwsh go install"
@@ -46,12 +47,12 @@ I use curl based install mostly: [Install](https://aquaproj.github.io/docs/tutor
       export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
       ```
 
-      The options below are one for max flexibility in honoring the XDG_Directory standard, the other just assumes `.local`.
+      The options below are one for max flexibility in honoring the XDG_Directory standard; the other just assumes `.local`.
 
       ```powershell title="$PROFILE"
       $ENV:XDG_CONFIG_HOME = $ENV:XDG_CONFIG_HOME ? $ENV:XDG_CONFIG_HOME : (Join-Path $HOME '.config')
       $ENV:XDG_CACHE_HOME = $ENV:XDG_CACHE_HOME ? $ENV:XDG_CACHE_HOME : (Join-Path $HOME '.cache')
-      $ENV:XDG_DATA_HOME = $ENV:XDG_DATA_HOME ? $ENV:XDG_DATA_HOME : ($HOME, '.local', 'share' -join [IO.Path]::DirectorySeparatorChar)
+      $ENV:XDG_DATA_HOME = $ENV:XDG_DATA_HOME ? $ENV:XDG_DATA_HOME : (Join-Path $HOME '.local' 'share')
 
       $ENV:PATH = ([io.path]::Combine($HOME,'.local','share','aquaproj-aqua', 'bin')), $ENV:PATH -join [IO.Path]::PathSeparator
       # OR FOR MAX FLEXIBILITY
@@ -92,7 +93,7 @@ Run `aqua policy allow "${XDG_CONFIG_HOME:-$HOME/.config}/aqua/aqua-policy.yaml"
 
 ## Example Global Config
 
-Here's an example of what I drop into the global config for managing my global default for Go and other common cli tools.
+Here's an example of what I drop into the global config for managing my global default for Go and other common CLI tools.
 
 === "aqua.yaml"
 
@@ -201,7 +202,7 @@ Here's an example of what I drop into the global config for managing my global d
           $ENV:PATH = ([io.path]::Combine($HOME,'.local','share','aquaproj-aqua', 'bin')), $ENV:PATH -join [IO.Path]::PathSeparator
         }
         catch {
-          Write-Warning "unable to load aqua: $($_.Exception.Message)"
+          Write-Warning "Unable to load aqua: $($_.Exception.Message)"
         }
         Write-Host "aqua version: $(& aqua version)"
         &aqua update-aqua
@@ -214,3 +215,4 @@ Here's an example of what I drop into the global config for managing my global d
         $ENV:PATH = (Join-Path $HOME '.config' @('aquaproj-aqua','bin')), $ENV:PATH -join [IO.Path]::PathSeparator
         mage # ..... 👈 invoke commands now that things are installed
     ```
+

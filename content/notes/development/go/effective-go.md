@@ -14,33 +14,33 @@ Here's the reference material I use to help guide me on basic style, design, and
 
 ## Effective Go
 
-Principles I've gleaned over-time and am quoting or bookmarking.
+Principles I've gleaned over time and am quoting or bookmarking.
 
 ### Don't hide the cost
 
 > Source: Bill Kennedy in Ultimate Go [^readability]
 
-If we are doing construction to a variable, we use value construction.
-Avoid pointer semantic construction if not in the return.
+If we are doing construction on a variable, we use value construction.
+Avoid pointer semantic construction if it's not being returned.
 
 Example:
 
 ```go
-// clear visible cost of the allocation by value construction and passing of pointer back up the call stack
+// Clearly visible cost of the allocation by value construction and passing of pointer back up the call stack
 func createSomething() *something {
   u := something{
     name: "example",
   }
-  return &u // <--- This makes clear the cost and allocation back up the callstack.
+  return &u // <-- This makes clear the cost and allocation back up the callstack.
 }
-// cost is obscured by construction being a pointer
-// and returning a value that is not clear to reader if value or pointer
-func createSomething()*something {
+// The cost is obscured by construction being a pointer
+// and returning a value that is not clear to the reader if it's a value or pointer
+func createSomething() *something {
   u := &something{
     name: "example",
   }
-  return u // <--- Not good. Hides the cost, and require reading function further to find that this is a pointer.
+  return u // <-- Not good. Hides the cost, and requires reading the function further to find out that this is a pointer.
 }
 ```
 
-Making cost obvious and visible is a big priority for readable maintainable code with a team.
+Making the cost obvious and visible is a high priority for creating readable, maintainable code in a team context.
