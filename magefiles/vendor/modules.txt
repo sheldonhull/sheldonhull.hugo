@@ -9,8 +9,8 @@ atomicgo.dev/keyboard/keys
 # atomicgo.dev/schedule v0.1.0
 ## explicit; go 1.18
 atomicgo.dev/schedule
-# dagger.io/dagger v0.9.3
-## explicit; go 1.20
+# dagger.io/dagger v0.9.4
+## explicit; go 1.21
 dagger.io/dagger
 dagger.io/dagger/internal/engineconn
 dagger.io/dagger/querybuilder
