@@ -260,7 +260,7 @@ params:
       auto: false
     code:
       copy: true
-      maxShownLines: 20
+      maxShownLines: 10
     math:
       enable: false
       blockLeftDelimiter: ''
