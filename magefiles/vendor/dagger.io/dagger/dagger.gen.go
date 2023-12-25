@@ -928,9 +928,21 @@ func (r *Container) WithDirectory(path string, directory *Directory, opts ...Con
 	}
 }
 
+// ContainerWithEntrypointOpts contains options for Container.WithEntrypoint
+type ContainerWithEntrypointOpts struct {
+	// Don't remove the default arguments when setting the entrypoint.
+	KeepDefaultArgs bool
+}
+
 // Retrieves this container but with a different command entrypoint.
-func (r *Container) WithEntrypoint(args []string) *Container {
+func (r *Container) WithEntrypoint(args []string, opts ...ContainerWithEntrypointOpts) *Container {
 	q := r.q.Select("withEntrypoint")
+	for i := len(opts) - 1; i >= 0; i-- {
+		// `keepDefaultArgs` optional argument
+		if !querybuilder.IsZeroValue(opts[i].KeepDefaultArgs) {
+			q = q.Arg("keepDefaultArgs", opts[i].KeepDefaultArgs)
+		}
+	}
 	q = q.Arg("args", args)
 
 	return &Container{
@@ -941,7 +953,7 @@ func (r *Container) WithEntrypoint(args []string) *Container {
 
 // ContainerWithEnvVariableOpts contains options for Container.WithEnvVariable
 type ContainerWithEnvVariableOpts struct {
-	// Replace ${VAR} or $VAR in the value according to the current environment
+	// Replace `${VAR}` or $VAR in the value according to the current environment
 	// variables defined in the container (e.g., "/opt/bin:$PATH").
 	Expand bool
 }
@@ -1034,8 +1046,9 @@ type ContainerWithExposedPortOpts struct {
 // Expose a network port.
 //
 // Exposed ports serve two purposes:
-//   - For health checks and introspection, when running services
-//   - For setting the EXPOSE OCI field when publishing the container
+//
+// - For health checks and introspection, when running services
+// - For setting the EXPOSE OCI field when publishing the container
 func (r *Container) WithExposedPort(port int, opts ...ContainerWithExposedPortOpts) *Container {
 	q := r.q.Select("withExposedPort")
 	for i := len(opts) - 1; i >= 0; i-- {
@@ -1419,6 +1432,38 @@ func (r *Container) WithWorkdir(path string) *Container {
 	}
 }
 
+// Retrieves this container with unset default arguments for future commands.
+func (r *Container) WithoutDefaultArgs() *Container {
+	q := r.q.Select("withoutDefaultArgs")
+
+	return &Container{
+		q: q,
+		c: r.c,
+	}
+}
+
+// ContainerWithoutEntrypointOpts contains options for Container.WithoutEntrypoint
+type ContainerWithoutEntrypointOpts struct {
+	// Don't remove the default arguments when unsetting the entrypoint.
+	KeepDefaultArgs bool
+}
+
+// Retrieves this container with an unset command entrypoint.
+func (r *Container) WithoutEntrypoint(opts ...ContainerWithoutEntrypointOpts) *Container {
+	q := r.q.Select("withoutEntrypoint")
+	for i := len(opts) - 1; i >= 0; i-- {
+		// `keepDefaultArgs` optional argument
+		if !querybuilder.IsZeroValue(opts[i].KeepDefaultArgs) {
+			q = q.Arg("keepDefaultArgs", opts[i].KeepDefaultArgs)
+		}
+	}
+
+	return &Container{
+		q: q,
+		c: r.c,
+	}
+}
+
 // Retrieves this container minus the given environment variable.
 func (r *Container) WithoutEnvVariable(name string) *Container {
 	q := r.q.Select("withoutEnvVariable")
@@ -1503,6 +1548,30 @@ func (r *Container) WithoutRegistryAuth(address string) *Container {
 func (r *Container) WithoutUnixSocket(path string) *Container {
 	q := r.q.Select("withoutUnixSocket")
 	q = q.Arg("path", path)
+
+	return &Container{
+		q: q,
+		c: r.c,
+	}
+}
+
+// Retrieves this container with an unset command user.
+//
+// Should default to root.
+func (r *Container) WithoutUser() *Container {
+	q := r.q.Select("withoutUser")
+
+	return &Container{
+		q: q,
+		c: r.c,
+	}
+}
+
+// Retrieves this container with an unset working directory.
+//
+// Should default to "/".
+func (r *Container) WithoutWorkdir() *Container {
+	q := r.q.Select("withoutWorkdir")
 
 	return &Container{
 		q: q,
