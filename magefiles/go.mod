@@ -5,7 +5,7 @@ go 1.21
 toolchain go1.21.4
 
 require (
-	dagger.io/dagger v0.9.7
+	dagger.io/dagger v0.9.8
 	github.com/alessio/shellescape v1.4.2
 	github.com/bitfield/script v0.22.0
 	github.com/gobeam/stringy v0.0.6
@@ -37,9 +37,9 @@ require (
 	github.com/vektah/gqlparser/v2 v2.5.6 // indirect
 	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
 	github.com/ztrue/tracerr v0.3.0 // indirect
-	golang.org/x/exp v0.0.0-20231006140011-7918f672742d // indirect
-	golang.org/x/sync v0.4.0 // indirect
-	golang.org/x/sys v0.13.0 // indirect
+	golang.org/x/exp v0.0.0-20231110203233-9a3e6036ecaa // indirect
+	golang.org/x/sync v0.6.0 // indirect
+	golang.org/x/sys v0.14.0 // indirect
 	golang.org/x/term v0.13.0 // indirect
 	golang.org/x/text v0.13.0 // indirect
 	mvdan.cc/sh/v3 v3.6.0 // indirect
