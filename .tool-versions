@@ -16,7 +16,7 @@ git-chglog 0.15.1
 github-cli 2.40.1
 go-sdk 1.19
 go-getter 1.5.10
-python 3.12.1
+python 3.12.2
 git 2.34.1
 pre-commit 2.21.0
 golang 1.19
