@@ -1,13 +1,12 @@
-
 ###############################
 # PUBLISH/PUBLIC
 ###############################
 [build]
 #command = "git status --porcelain &&  git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo"
 command = '''
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v1.1.2/aqua-installer | bash
+curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v2.3.0/aqua-installer | bash
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:${PATH}"
-aqua policy allow
+aqua policy allow .aqua/aqua-policy.yaml
 aqua install --tags first
 aqua install --tags ci
 mage init hugo:buildpublic algolia
@@ -24,7 +23,7 @@ YARN_VERSION = "3.2.3"
 YARN_ENABLE_IMMUTABLE_INSTALLS = "false"
 NODE_VERSION = "18"
 NETLIFY_USE_YARN = "true"
-GO_VERSION = "1.21.3"                         # not having this installed can cause compilation conflicts
+GO_VERSION = "1.22.1"                         # not having this installed can cause compilation conflicts
 AQUA_LOG_LEVEL = "info"                       # "debug"
 
 # HUGO_VERSION
@@ -33,9 +32,9 @@ AQUA_LOG_LEVEL = "info"                       # "debug"
 ###############################
 [context.deploy-preview]
 command = '''
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v1.1.2/aqua-installer | bash
-export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:${PATH}"
-aqua policy allow
+curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v2.3.0/aqua-installer | bash
+export PATH="$(aqua root-dir)/bin:$PATH"
+aqua policy allow .aqua/aqua-policy.yaml
 aqua install --tags first
 aqua install --tags ci
 mage init build
@@ -54,9 +53,9 @@ HUGO_DESTINATION = "preview"
 [context.branch-deploy]
 publish = "branch"
 command = '''
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v1.1.2/aqua-installer | bash
-export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:${PATH}"
-aqua policy allow
+curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v2.3.0/aqua-installer | bash
+export PATH="$(aqua root-dir)/bin:$PATH"
+aqua policy allow .aqua/aqua-policy.yaml
 aqua install --tags first
 aqua install --tags ci
 mage init build
