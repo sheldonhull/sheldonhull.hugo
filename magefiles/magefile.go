@@ -460,7 +460,7 @@ func Init() error {
 		pterm.DefaultSection.Println("[CI SYSTEM] Initialize setup")
 	}
 	pterm.DefaultSection.Println("Init()")
-	actioncounter := 4
+	actioncounter := 3
 
 	p, _ := pterm.DefaultProgressbar.
 		WithTotal(actioncounter).
@@ -484,14 +484,14 @@ func Init() error {
 		return err
 	}
 	pterm.Info.Printfln("hugo version: %s", ver)
+	// NOTE: this shouldn't be required, as it's vendored, this adds more needless time.
+	// p.Title = "hugo mod tidy"
+	// if err := tooling.SpinnerStdOut("hugo", []string{"mod", "tidy"}, nil); err != nil {
+	// 	pterm.Error.Printf("hugo mod tidy %q", err)
 
-	p.Title = "hugo mod tidy"
-	if err := tooling.SpinnerStdOut("hugo", []string{"mod", "tidy"}, nil); err != nil {
-		pterm.Error.Printf("hugo mod tidy %q", err)
-
-		return err
-	}
-	pterm.Success.Println("✅ hugo mod tidy")
+	// 	return err
+	// }
+	// pterm.Success.Println("✅ hugo mod tidy")
 	p.Increment()
 	if !ci.IsCI() {
 		pterm.DefaultSection.Printfln(
