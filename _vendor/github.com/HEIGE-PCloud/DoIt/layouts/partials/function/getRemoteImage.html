@@ -1,12 +1,12 @@
 {{- $resource := 0 -}}
-{{- $suffixValid := false -}}
-{{- $imgSuffix := slice ".jpeg" ".jpg" ".png" ".gif" ".bmp" ".tif" ".tiff" ".webp" -}}
-{{- $url := strings.TrimSuffix "/" (. | lower) -}}
-{{- range $imgSuffix -}}
-    {{- $suffixValid = or (eq (path.Ext $url) .) $suffixValid -}}
+{{- $suffixList := site.Params.suffixValidationList | default (slice ".jpeg" ".jpg" ".png" ".gif" ".bmp" ".tif" ".tiff" ".webp" ".avif" ".svg") -}}
+
+{{- $valid := false -}}
+{{- if not (eq $suffixList false) -}}
+    {{- $valid = (dict "Path" . "Suffixes" $suffixList | partial "function/suffixValidation.html") -}}
 {{- end -}}
 
-{{- if $suffixValid -}}
+{{- if (eq $suffixList false) | or $valid -}}
     {{- with $remoteResource := resources.GetRemote . -}}
         {{- with .Err -}}
             {{- warnf "%s" . -}}
@@ -17,5 +17,4 @@
         {{- end -}}
     {{- end -}}
 {{- end -}}
-
 {{- return $resource -}}

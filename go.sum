@@ -4,6 +4,8 @@ github.com/99designs/gqlgen v0.17.2/go.mod h1:K5fzLKwtph+FFgh9j7nFbRUdBKvTcGnsta
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/HEIGE-PCloud/DoIt v0.4.0 h1:nEiTroblsCyDo4K7LK7MhFVWUESnKuxqmzpdSk/i3M0=
 github.com/HEIGE-PCloud/DoIt v0.4.0/go.mod h1:SyEBjqY19ONqToU6wtTjPO84tNuPsMTQ+E/iX20addA=
+github.com/HEIGE-PCloud/DoIt v0.4.1-0.20240310144030-982b0811e4a9 h1:mCCnP+zP+QwLGuLk1TThf7cAzq+1c0Dg49DJO8adNNw=
+github.com/HEIGE-PCloud/DoIt v0.4.1-0.20240310144030-982b0811e4a9/go.mod h1:gC0tjEUJLRfQJ7k1sq49V5gm4sRm0c2AUgPkcfZrPKQ=
 github.com/Khan/genqlient v0.5.0 h1:TMZJ+tl/BpbmGyIBiXzKzUftDhw4ZWxQZ+1ydn0gyII=
 github.com/Khan/genqlient v0.5.0/go.mod h1:EpIvDVXYm01GP6AXzjA7dKriPTH6GmtpmvTAwUUqIX8=
 github.com/adrg/xdg v0.4.0 h1:RzRqFcjH4nE5C6oTAxhBtoE2IRyjBSa62SCbyPidvls=

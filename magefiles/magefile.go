@@ -236,7 +236,7 @@ func (Hugo) Serve() error {
 		"serve",
 		"-b",
 		url,
-		"--verbose",
+		"--logLevel", "info",
 		"--enableGitInfo",
 		"-d",
 		"_site",

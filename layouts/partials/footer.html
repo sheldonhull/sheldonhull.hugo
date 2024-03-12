@@ -70,7 +70,7 @@
     </div>
   </footer>
 {{- end -}}
-{{ if and .Site.IsServer $.Params.debug }}
+{{ if and hugo.IsServer $.Params.debug }}
   <div class="debugprintsection">
     <div>
       <h1>.Context</h1>

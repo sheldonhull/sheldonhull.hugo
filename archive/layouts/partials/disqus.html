@@ -9,7 +9,7 @@
         </button>
       <div id="disqus-comments">
         {{ $isDummyName := eq . "yourdiscussshortname" }}
-        {{ $isServer := $.Site.IsServer }}
+        {{ $isServer := huo.IsServer }}
         {{ if or $isDummyName $isServer }}
           <div id="disabled-comments"><p><em>Disqus comments are disabled.</em></p></div>
           <script type="application/javascript">

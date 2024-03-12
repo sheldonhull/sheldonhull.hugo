@@ -84,11 +84,17 @@
                 {{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
                     <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
                 {{- end -}}
-                {{- with .Site.Params.dateformat | default "2006-01-02" | .Lastmod.Format -}}
-                    <i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
+                {{- if $params.enableLastMod | default true -}}
+                    {{- with .Site.Params.dateformat | default "2006-01-02" | .Lastmod.Format -}}
+                        <i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
+                    {{- end -}}
                 {{- end -}}
-                <i class="fas fa-pencil-alt fa-fw"></i>&nbsp;{{ T "wordCount" .WordCount }}&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
+                {{- if $params.enableWordCount | default true -}}
+                    <i class="fas fa-pencil-alt fa-fw"></i>&nbsp;{{ T "wordCount" .WordCount }}&nbsp;
+                {{- end -}}
+                {{- if $params.enableReadingTime | default true -}}
+                    <i class="far fa-clock fa-fw"></i>&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
+                {{- end -}}
                 {{- $comment := .Scratch.Get "comment" | default dict -}}
                 {{- /* Visitor Count */ -}}
                 {{- if $comment.enable | and $comment.valine.enable | and $comment.valine.visitor -}}
@@ -103,9 +109,15 @@
                 {{- end -}}
                 {{- if $comment.enable | and $comment.twikoo.enable | and $comment.twikoo.visitor -}}
                     <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
-                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class="leancloud-visitors-count" id=twikoo_visitors></span>&nbsp;{{ T "views" }}
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class="leancloud-visitors-count" id="twikoo_visitors"></span>&nbsp;{{ T "views" }}
                     </span>&nbsp;
                 {{- end -}}
+                {{- if $comment.enable | and $comment.artalk.enable | and $comment.artalk.pageview -}}
+                    <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class="leancloud-visitors-count" id="ArtalkPV"></span>&nbsp;{{ T "views" }}
+                    </span>&nbsp;
+                 {{- end -}}
+
                 {{- /* Comment Count */ -}}
                 {{- if $comment.enable | and $comment.waline.enable | and $comment.waline.comment -}}
                     <span id="{{ .RelPermalink }}" class="comment_count" data-flag-title="{{ .Title }}">
@@ -115,6 +127,11 @@
                 {{- if $comment.enable | and $comment.twikoo.enable | and $comment.twikoo.commentCount -}}
                     <span id="{{ .RelPermalink }}" class="comment_count" data-flag-title="{{ .Title }}">
                         <i class="far fa-comments fa-fw"></i>&nbsp;<span class="twikoo-comment-count" id="twikoo-comment-count"></span>&nbsp;{{ T "comments" }}
+                    </span>&nbsp;
+                {{- end -}}
+                {{- if $comment.enable | and $comment.artalk.enable | and $comment.artalk.commentCount -}}
+                    <span id="{{ .RelPermalink }}" class="comment_count" data-flag-title="{{ .Title }}">
+                        <i class="far fa-comments fa-fw"></i>&nbsp;<span class="artalk-comment-count" id="ArtalkCount"></span>&nbsp;{{ T "comments" }}
                     </span>&nbsp;
                 {{- end -}}
                 {{- /* License */ -}}
@@ -129,25 +146,9 @@
 
         {{- /* Featured image */ -}}
         {{- $image := $params.featuredimage -}}
-        {{- $width := "auto" -}}
-        {{- $height := "auto" -}}
-        {{- with .Resources.GetMatch (printf "**%s" $params.featuredimage) -}}
-            {{- if eq .ResourceType "image" -}}
-                {{- $image = .RelPermalink -}}
-                {{- $width = .Width -}}
-                {{- $height = .Height -}}
-            {{- else -}}
-                {{- warnf "invalid featured image detected!" -}}
-            {{- end -}}
-        {{- end -}}
-        {{- with .Resources.GetMatch "featured-image" -}}
-            {{- $image = .RelPermalink -}}
-            {{- $width = .Width -}}
-            {{- $height = .Height -}}
-        {{- end -}}
         {{- with $image -}}
             <div class="featured-image">
-                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Width" $width "Height" $height "Loading" "eager" | partial "plugin/image.html" -}}
+                {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Loading" "eager" "Optim" true | partial "plugin/image.html" -}}
             </div>
         {{- end -}}      
         {{- /* Series list */ -}}

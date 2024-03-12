@@ -56,8 +56,10 @@ libFiles:
   sharerJS: sharer.js@0.4.2/sharer.min.js
   # twemoji@13.1.0 https://github.com/twitter/twemoji
   twemojiJS: twemoji@13.1.0/dist/twemoji.min.js
-  # twikoo@1.4.10 https://github.com/imaegoo/twikoo
-  twikooJS: twikoo@1.4.10/dist/twikoo.all.min.js
+  # twikoo@1.6.16 https://github.com/imaegoo/twikoo
+  twikooAllJS: twikoo@1.6.16/dist/twikoo.all.min.js
+  # twikoo@1.6.16 https://github.com/imaegoo/twikoo
+  twikooJS: twikoo@1.6.16/dist/twikoo.min.js
   # typeit@7.0.4 https://github.com/alexmacarthur/typeit
   typeitJS: typeit@7.0.4/dist/typeit.min.js
   # valine@1.4.16 https://github.com/xCss/Valine
@@ -76,3 +78,10 @@ libFiles:
   walineCSS: "@waline/client@2.3.2/dist/waline.css"
   # tablesort@5.3.0 https://github.com/tristen/tablesort
   tablesort: "tablesort@5.3.0/src/tablesort.min.js"
+  # artalk
+  artalkJS: "artalk@2.5.5/dist/Artalk.js"
+  artalkCSS: "artalk@2.5.5/dist/Artalk.css"
+  artalkLiteJS: "artalk@2.5.5/dist/ArtalkLite.js"
+  artalkLiteCSS: "artalk@2.5.5/dist/ArtalkLite.css"
+  artalkPluginKaTeXJS: "@artalk/plugin-katex@0.1.5/dist/artalk-plugin-katex.js"
+  artalkPluginLightboxJS: "@artalk/plugin-lightbox@0.1.1/dist/artalk-plugin-lightbox.js"

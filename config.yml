@@ -256,8 +256,8 @@ params:
     rssFullText: true
     toc:
       enable: true
-      keepStatic: false
-      auto: false
+      keepStatic: true
+      auto: true
     code:
       copy: true
       maxShownLines: 10
@@ -445,10 +445,6 @@ markup:
   tableOfContents:
     startLevel: 2
     endLevel: 6
-author:
-  name: Sheldon Hull
-  email: ''
-  link: ''
 sitemap:
   changefreq: weekly
   filename: sitemap.xml
@@ -496,8 +492,6 @@ outputs:
   taxonomy:
     - HTML
     - RSS
-  taxonomyTerm:
-    - HTML
 
 taxonomies:
   tag: tags
