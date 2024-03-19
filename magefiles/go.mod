@@ -5,13 +5,13 @@ go 1.21
 toolchain go1.21.4
 
 require (
-	dagger.io/dagger v0.9.8
+	dagger.io/dagger v0.10.2
 	github.com/alessio/shellescape v1.4.2
 	github.com/bitfield/script v0.22.0
 	github.com/gobeam/stringy v0.0.6
 	github.com/magefile/mage v1.15.0
 	github.com/manifoldco/promptui v0.9.0
-	github.com/pelletier/go-toml/v2 v2.1.1
+	github.com/pelletier/go-toml/v2 v2.2.0
 	github.com/pterm/pterm v0.12.71
 	github.com/sheldonhull/magetools v0.0.14
 )
