@@ -17,7 +17,7 @@ typora-copy-images-to:  ../../../static/images
 
 I tried [Steampipe](https://steampipe.io/) out for the first time today.
 
-> :(fab fa-twitter fa-fw): [Follow Steampipe On Twitter](https://twitter.com/steampipeio)
+> {{< fa-icon brands  twitter fa-fw >}} [Follow Steampipe On Twitter](https://twitter.com/steampipeio)
 
 I'm seriously impressed.
 
@@ -35,26 +35,26 @@ First example: [DescribeImage](https://github.com/turbot/steampipe-plugin-aws/bl
 This is the magic happening in the code.
 
 ```go
-	resp, err := svc.DescribeImages(&ec2.DescribeImagesInput{
-		Owners: []*string{aws.String("self")},
-	})
-	for _, image := range resp.Images {
-		d.StreamListItem(ctx, image)
-	}
+ resp, err := svc.DescribeImages(&ec2.DescribeImagesInput{
+  Owners: []*string{aws.String("self")},
+ })
+ for _, image := range resp.Images {
+  d.StreamListItem(ctx, image)
+ }
 ```
 
 This is the same SDK I used, but instead of having to build out all the calls, there is a huge library of data already returned.
 
 ```go
-	req, publicImages := client.DescribeImagesRequest(&ec2.DescribeImagesInput{
-		Filters: []*ec2.Filter{
-			{
-				Name:   aws.String("is-public"),
-				Values: []*string{aws.String("true")},
-			},
-		},
-	},
-	)
+ req, publicImages := client.DescribeImagesRequest(&ec2.DescribeImagesInput{
+  Filters: []*ec2.Filter{
+   {
+    Name:   aws.String("is-public"),
+    Values: []*string{aws.String("true")},
+   },
+  },
+ },
+ )
 ```
 
 There is no need to reinvent the wheel.
@@ -70,20 +70,20 @@ For example, to gather:
 
 ```sql
 SELECT
-	ec2.instance_id,
-	ami.name,
-	ami.image_id,
-	ami.state,
-	ami.image_location,
-	ami.creation_date,
-	extract('day' FROM now()) - extract('day' FROM ami.creation_date) AS creation_age,
-	ami.public,
-	ami.root_device_name
+ ec2.instance_id,
+ ami.name,
+ ami.image_id,
+ ami.state,
+ ami.image_location,
+ ami.creation_date,
+ extract('day' FROM now()) - extract('day' FROM ami.creation_date) AS creation_age,
+ ami.public,
+ ami.root_device_name
 FROM
-	aws_ec2_ami_shared AS ami
-	INNER JOIN aws_ec2_instance AS ec2 ON ami.image_id = ec2.image_id
+ aws_ec2_ami_shared AS ami
+ INNER JOIN aws_ec2_instance AS ec2 ON ami.image_id = ec2.image_id
 WHERE
-	ami.owner_id = '137112412989'
+ ami.owner_id = '137112412989'
   AND ami.creation_date > now() - INTERVAL '4 week'
 ```
 

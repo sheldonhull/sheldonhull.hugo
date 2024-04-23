@@ -49,10 +49,10 @@ This limits both the blast radius and time of any compromise.
 The problem with this path, is one of effort.
 
 - If using AWS SSO: You'd have to
-    - login to your portal
-    - open target account section
-    - get programmatic credentials for the account
-    - paste them into your `~/.aws/credentials` file
+  - login to your portal
+  - open target account section
+  - get programmatic credentials for the account
+  - paste them into your `~/.aws/credentials` file
 - If not using SSO, you'd have to use the CLI or appropriate sdk to generate your credentials on demand and then set.
 
 The key is that all of these approaches aren't easy as the default.
@@ -122,7 +122,7 @@ They are active in engaging for feedback, so this is built with actual user feed
 I had an hour call with one of the developers talking about authentication approaches that helped me appreciate how much they want to engage their uses in a true Agile development pattern.
 Not only did I learn a bunch, but ended up being able to provide a few ideas for future consideration.
 Great discussion with @andreacavagna01.
-Give Andrea a follow on :(fab fa-twitter): [twitter](https://twitter.com/a_cava94) and :(fab fa-github): [GitHub](https://github.com/andreacavagna01)!
+Give Andrea a follow on {{< fa-icon brands  twitter >}} [twitter](https://twitter.com/a_cava94) and {{< fa-icon brands github >}} [GitHub](https://github.com/andreacavagna01)!
 
 I can see a larger market than developers if a company rolled it out to users, as it would simplify access by analysts, developers, security team members, and others.
 

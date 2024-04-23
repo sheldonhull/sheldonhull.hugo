@@ -689,3 +689,26 @@ func (Dagger) Build(ctx context.Context) error {
 	}
 	return nil
 }
+
+// Upgrade runs Hugo upgrade commands to refresh the modules and ensure vendored.
+func (Hugo) Upgrade() error {
+	pterm.DefaultSection.Println("Hugo Upgrade")
+	pterm.Warning.Println("This is a work in progress, and not fully functional yet.")
+	// run go work use
+	if err := sh.RunV("go", "work", "use"); err != nil {
+		pterm.Error.Printf("go work use %q", err)
+		return err
+	}
+
+	if err := sh.RunV("hugo", "mod", "get", "-u", "-v"); err != nil {
+		pterm.Error.Printf("hugo upgrade %q", err)
+		return err
+	}
+	// vendor
+	if err := sh.RunV("hugo", "mod", "vendor"); err != nil {
+		pterm.Error.Printf("hugo upgrade %q", err)
+		return err
+	}
+	pterm.Success.Println("✅ hugo upgrade")
+	return nil
+}

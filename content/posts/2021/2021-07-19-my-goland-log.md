@@ -40,7 +40,7 @@ I'll log updates and issues here as I work through it in the hope that it might 
 
 ## Goland Log
 
-{{< admonition type="Question" title=":(fas fa-vials): Testing" open=false >}}
+{{< admonition type="Question" title="{{< fa-icon solid  vials >}} Testing" open=false >}}
 
 🔴 Not certain yet how to run multi-module repo based tests through project (VSCode supports with experimental flag).
 
@@ -68,7 +68,7 @@ I tried this, and while tedious to click through the first time, It's easier to 
 
 {{< /admonition >}}
 
-{{< admonition type="Question" title=":(fas fa-running): Run Configurations" open=false >}}
+{{< admonition type="Question" title="{{< fa-icon solid  running >}} Run Configurations" open=false >}}
 
 🔴 Not able to set dynamic `$FileDir$` in the run configurations it seems.
 
@@ -79,14 +79,14 @@ This is confusing.
 
 {{< /admonition >}}
 
-{{< admonition type="Question" title=":(fas fa-search): Linting" open=false >}}
+{{< admonition type="Question" title="{{< fa-icon solid  search >}} Linting" open=false >}}
 
 🟠 Working on `golangci-lint` integration.
 There is an extension and I've also configured the FileWatcher to run on save, but neither is working as seamlessly as VSCode setting as the `gopls` linter tool.
 
 {{< /admonition >}}
 
-{{< admonition type="Question" title=":(fas fas fa-tools): Refactoring & Fixes" open=false >}}
+{{< admonition type="Question" title="{{< fa-icon solid  fas fa-tools >}} Refactoring & Fixes" open=false >}}
 
 🟠 Can't find a way to assign intentions to a keyboard shortcut.
 For example, `Add a Go Comment header` requires a click on a lightbulb icon, and can't find a way to allow this to be triggered by a keyboard shortcut.

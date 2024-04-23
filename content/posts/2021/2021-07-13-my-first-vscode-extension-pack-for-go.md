@@ -16,7 +16,7 @@ typora-copy-images-to:  ../../../static/images
 
 Took a swing at creating my own extension pack for Go.
 
-> :(fab fa-github fa-fw):  [sheldonhull/extension-pack-go - GitHub](https://github.com/sheldonhull/extension-pack-go)
+> {{< fa-icon brands  github fa-fw >}}  [sheldonhull/extension-pack-go - GitHub](https://github.com/sheldonhull/extension-pack-go)
 
 This was a good chance to familarize myself with the eco-system and simplify sharing a preset group of extensions.
 

@@ -33,10 +33,10 @@ If you are recruiter, then this might be useful: [Recruiters]({{< relref "recrui
 Check out these google analytic metrics if you want to see a pretty chart.
 Who doesn't love pretty graphs.
 
-:(fas fa-chart-line fa-fw): [Metrics]({{< relref "metrics" >}})
+{{< fa-icon solid  chart-line >}} [Metrics]({{< relref "metrics" >}})
 
 <div>
-<i class="fas fa-chart-bar fa-fw"></i>
+<i class="fas fa-chart-bar"></i>
 <a href="https://webmentions.sheldonhull.com/" target="_blank">Webmention Analytics</a>
 </div>
 
@@ -47,9 +47,9 @@ Who doesn't love pretty graphs.
 - 💯 Emotional Intelligence & Soft Skills
 - A sense of ownership and drive to deliver, from "cradle to grave" mentality.
 - Adaptability, willingness to learn and change.
-    - I'm a big advocate on continual learning, which hopefully my blog shows!
-    - Repeating the same `n` years of experience over and over is something to be avoided.
-    - I tend to embrace change and want to continue to improve.
+  - I'm a big advocate on continual learning, which hopefully my blog shows!
+  - Repeating the same `n` years of experience over and over is something to be avoided.
+  - I tend to embrace change and want to continue to improve.
 
 ### What I'm a Good Fit For
 
@@ -58,7 +58,7 @@ I'm not a fan of lone wolf.
 A strong engineering team of "good developers" will out perform the so called "10x" developer and be better for the company both logistically and culturally.
 - Generalist experience valued, while allowing for expertise and deeper knowledge.
 - Remote-First environments that value asynchronous communication and strong writing abilities.
-    - I'm a big fan of Gitlabs Handbook First approach, and have advocated for and done documentation as code, architectural decision records, and other written forms of decision making in most of my career.
+  - I'm a big fan of Gitlabs Handbook First approach, and have advocated for and done documentation as code, architectural decision records, and other written forms of decision making in most of my career.
 - Go! I'm a Gopher, and have been investing in excellence and quality in Go for the last season in my career.
 I care about delivery value quickly, while I also care about the "craft" of well-designed and maintainable code.
 
@@ -105,32 +105,32 @@ h2 {
 <div class="column"><h2>Things I'd Love to Work More On</h2></div>
 <div class="row">
   <div class="column">
-  :(fas fa-angle-right fa-fw): Go<br>
-  :(fas fa-angle-right fa-fw): Containerization/Docker/Kubernetes<br>
-  :(fas fa-angle-right fa-fw): AWS<br>
-  :(fas fa-angle-right fa-fw): PowerShell (CrossPlatform), .NET Framework<br>
-    :(fas fa-angle-right fa-fw): Infrastructure As Code<br>
-  :(fas fa-angle-right fa-fw): GitHub/Actions/CI/Azure Pipelines<br>
-  :(fas fa-angle-right fa-fw): Technical Docs<br>
-  :(fas fa-angle-right fa-fw): CI/CD/Automation<br>
-  :(fas fa-angle-right fa-fw): Observability<br>
-  :(fas fa-angle-right fa-fw): SQL (Dev, Design & Operations)<br>
-  :(fas fa-angle-right fa-fw): Windows<br>
+  {{< fa-icon solid  angle-right >}} Go<br>
+  {{< fa-icon solid  angle-right >}} Containerization/Docker/Kubernetes<br>
+  {{< fa-icon solid  angle-right >}} AWS<br>
+  {{< fa-icon solid  angle-right >}} PowerShell (CrossPlatform), .NET Framework<br>
+    {{< fa-icon solid  angle-right >}} Infrastructure As Code<br>
+  {{< fa-icon solid  angle-right >}} GitHub/Actions/CI/Azure Pipelines<br>
+  {{< fa-icon solid  angle-right >}} Technical Docs<br>
+  {{< fa-icon solid  angle-right >}} CI/CD/Automation<br>
+  {{< fa-icon solid  angle-right >}} Observability<br>
+  {{< fa-icon solid  angle-right >}} SQL (Dev, Design & Operations)<br>
+  {{< fa-icon solid  angle-right >}} Windows<br>
   </div>
   <div class="column">
-  :(fas fa-angle-right fa-fw): Azure<br>
-    :(fas fa-angle-right fa-fw): C#/.NET<br>
-  :(fas fa-angle-right fa-fw): Serverless<br>
-  :(fas fa-angle-right fa-fw): Python<br>
+  {{< fa-icon solid  angle-right >}} Azure<br>
+    {{< fa-icon solid  angle-right >}} C#/.NET<br>
+  {{< fa-icon solid  angle-right >}} Serverless<br>
+  {{< fa-icon solid  angle-right >}} Python<br>
   </div>
   <div class="column">
-  :(fas fa-angle-right fa-fw): Go<br>
-  :(fas fa-angle-right fa-fw): Linux<br>
-  :(fas fa-angle-right fa-fw): Serverless<br>
-  :(fas fa-angle-right fa-fw): Microservices<br>
-  :(fas fa-angle-right fa-fw): Distributed Systems & Data<br>
-  :(fas fa-angle-right fa-fw): Developer Tooling<br>
-  :(fas fa-angle-right fa-fw): Containerization<br>
+  {{< fa-icon solid  angle-right >}} Go<br>
+  {{< fa-icon solid  angle-right >}} Linux<br>
+  {{< fa-icon solid  angle-right >}} Serverless<br>
+  {{< fa-icon solid  angle-right >}} Microservices<br>
+  {{< fa-icon solid  angle-right >}} Distributed Systems & Data<br>
+  {{< fa-icon solid  angle-right >}} Developer Tooling<br>
+  {{< fa-icon solid  angle-right >}} Containerization<br>
   </div>
 </div>
 
@@ -138,7 +138,7 @@ h2 {
 
 {{< admonition type="info" title="Current // Senior Developer" open=false >}}
 
-:(fas fa-calendar-alt fa-fw): March 2021 - Current :(fas fa-grip-lines-vertical fa-fw): :(fas fa-lightbulb fa-fw): Thycotic :(fas fa-grip-lines-vertical fa-fw): :(fas fa-user-tag fa-fw): Senior Software Engineer (AWS/Go)
+{{< fa-icon solid  calendar-alt >}} March 2021 - Current {{< fa-icon solid grip-lines-vertical >}} {{< fa-icon regular lightbulb >}} Thycotic {{< fa-icon solid grip-lines-vertical >}} Senior Software Engineer (AWS/Go)
 
 ⚡ Built Helm and Pulumi stack for Kubernetes to provide continuous deployment, resulting in < 15 mins from PR merge to app live in Kubernetes.<br>
 ⚡ Wrote Go task automation for team automating developer tooling setup (1 command to bootstrap), automatic updates of dependencies, security checks, configuration, go builds, container publishing and more.<br>
@@ -160,21 +160,21 @@ Go, AWS/Azure, Pulumi, Kubernetes, Terraform, Terragrunt, Bash, Kubernetes, Dapr
 Work under NDA.
 Public related blog posts on general technology topics where posted on blog as well as some general studies on applying Go with TDD and algorithm studies are listed here.
 
-:(fas fa-code-branch): [Magetools](https://github.com/sheldonhull/magetools)<br>
-:(fas fa-code-branch): [100DaysOfCode for Go](https://www.sheldonhull.com/tags/100daysofcode/)<br/>
-:(fas fa-code-branch): [Learn Go With Tests - Applied](https://github.com/sheldonhull/learn-go-with-tests-applied)<br>
+{{< fa-icon solid  code-branch >}} [Magetools](https://github.com/sheldonhull/magetools)<br>
+{{< fa-icon solid  code-branch >}} [100DaysOfCode for Go](https://www.sheldonhull.com/tags/100daysofcode/)<br/>
+{{< fa-icon solid  code-branch >}} [Learn Go With Tests - Applied](https://github.com/sheldonhull/learn-go-with-tests-applied)<br>
 
 {{< /admonition >}}
 
 {{< admonition type="info" title="2014 - 2021 Senior Developer" open=false >}}
 
-:(fas fa-calendar-alt fa-fw): 2014 - 2021 :(fas fa-grip-lines-vertical fa-fw): :(fas fa-lightbulb fa-fw): Altus Group :(fas fa-grip-lines-vertical fa-fw): :(fas fa-user-tag fa-fw): Senior Developer (Database & Dev Operations)
+{{< fa-icon solid  calendar-alt >}} 2014 - 2021 {{< fa-icon solid grip-lines-vertical >}} {{< fa-icon regular lightbulb >}} Altus Group {{< fa-icon solid grip-lines-vertical >}} Senior Developer (Database & Dev Operations)
 
 ### Some Highlights
 
-:(fas fa-info-circle fa-fw): Senior Individual Contributor with cross-team impact functioning as Database/Site Reliability Engineer
+{{< fa-icon solid  info-circle >}} Senior Individual Contributor with cross-team impact functioning as Database/Site Reliability Engineer
 
-:(fas fa-info-circle fa-fw): Started with focus on SQL Server development, architecture, and performance tuning.
+{{< fa-icon solid  info-circle >}} Started with focus on SQL Server development, architecture, and performance tuning.
 Migrated to Development operations team during tenure and operated on development through operations.
 Heavy focus on production reliability for data tier.
 Additional focus on automation for non-release tasks, such as Terraform deployments, AWS SSM management, automated runbook creation and more.
@@ -204,20 +204,20 @@ more.
 
 *Public Artifacts*
 
-:(fas fa-user-secret fa-fw): Product related work under NDA
+{{< fa-icon solid  user-secret >}} Product related work under NDA
 
-:(fas fa-rss fa-fw): Blog posts on various general concepts related to Databases, DevOps, PowerShell, AWS, and technology
+{{< fa-icon solid  rss >}} Blog posts on various general concepts related to Databases, DevOps, PowerShell, AWS, and technology
 
-:(fas fa-file-alt fa-fw): [Implementation Guide](https://d34bfwpm2i2eri.cloudfront.net)
+{{< fa-icon solid  file-alt >}} [Implementation Guide](https://d34bfwpm2i2eri.cloudfront.net)
 This was a major effort in migrating content from an outdated large word doc to static generated website with analytics. Load testing, sizing guides, and more were improved. All docs for SQL Server and load test summaries were due to my efforts. CI driven via markdown file updates made this a quick process to keep things up to date. 👍
 
 {{< /admonition >}}
 
-{{< admonition type="info" title="2011–2014 SQL Server Developer" open=false >}}
+{{< admonition type="info" title="2011-2014 SQL Server Developer" open=false >}}
 
-:(fas fa-calendar-alt fa-fw): 2011-2014 :(fas fa-grip-lines-vertical fa-fw): :(fas fa-lightbulb fa-fw): Selene Finance :(fas fa-grip-lines-vertical fa-fw): :(fas fa-user-tag fa-fw): SQL Developer
+{{< fa-icon solid  calendar-alt >}} 2011-2014 {{< fa-icon solid grip-lines-vertical >}} {{< fa-icon regular lightbulb >}} Selene Finance {{< fa-icon solid grip-lines-vertical >}} SQL Developer
 
-:(fas fa-info-circle fa-fw): Initially rehired for Asset Analyst work, was recruited into development team after learning SQL.
+{{< fa-icon solid  info-circle >}} Initially rehired for Asset Analyst work, was recruited into development team after learning SQL.
 Continued with full SQL Server development
 
 ⚡ Relational database design performance, development, and
@@ -229,13 +229,13 @@ production support<br>
 
 In case you are bored, I've done this as well:
 
-:(fas fa-info-circle fa-fw): Freddie Mac: Loss Mitigation during mortgage crisis<br>
-:(fas fa-info-circle fa-fw): Litton Loan Servicing: Loss Mitigation during mortgage crisis<br>
-:(fas fa-info-circle fa-fw): Greentree Servicing: Mortgage Collections <br>
-:(fas fa-info-circle fa-fw): Synergetic Communications: Mortgage Collections<br>
-:(fas fa-info-circle fa-fw): Vanderbilt Mortgage: Mortgage Collections<br>
-:(fas fa-info-circle fa-fw): Worked at a private school teaching<br>
-:(fas fa-info-circle fa-fw): Worked at a Library & Migrated an entire small military base library from one building the other. The darn dewy decimal system is what I blame for my eyes now. :grin:<br>
+{{< fa-icon solid  info-circle >}} Freddie Mac: Loss Mitigation during mortgage crisis<br>
+{{< fa-icon solid  info-circle >}} Litton Loan Servicing: Loss Mitigation during mortgage crisis<br>
+{{< fa-icon solid  info-circle >}} Greentree Servicing: Mortgage Collections <br>
+{{< fa-icon solid  info-circle >}} Synergetic Communications: Mortgage Collections<br>
+{{< fa-icon solid  info-circle >}} Vanderbilt Mortgage: Mortgage Collections<br>
+{{< fa-icon solid  info-circle >}} Worked at a private school teaching<br>
+{{< fa-icon solid  info-circle >}} Worked at a Library & Migrated an entire small military base library from one building the other. The darn dewy decimal system is what I blame for my eyes now. :grin:<br>
 
 I'm really glad I'm not working in the mortgage industry & collections oriented roles anymore.
 
@@ -245,10 +245,10 @@ It did teach me to handle high stress situations and do pretty decent at negotat
 
 ### Trivia
 
-:(fas fa-info-circle fa-fw): First Programming Language: vba :laughing:<br>
-:(fas fa-info-circle fa-fw): Dark Or Light: join the dark side<br>
-:(fas fa-info-circle fa-fw): Preferred OS: any. Right now using macOS for development, and working in Docker containers when possible<br>
-:(fas fa-info-circle fa-fw): Terminal: Iterm2 & _I :heart: pwsh_
+{{< fa-icon solid  info-circle >}} First Programming Language: vba :laughing:<br>
+{{< fa-icon solid  info-circle >}} Dark Or Light: join the dark side<br>
+{{< fa-icon solid  info-circle >}} Preferred OS: any. Right now using macOS for development, and working in Docker containers when possible<br>
+{{< fa-icon solid  info-circle >}} Terminal: Iterm2 & *I :heart: pwsh*
 
 ### Projects
 
@@ -274,4 +274,4 @@ A few projects on GitHub:
 - [CI-Configuration Files: Common lint/tooling configuration to minimize setup of new projects.](https://github.com/sheldonhull/ci-configuration-files)
 
 I also contribute back to various projects I use when possible: [PR's I've Authored on GitHub](https://github.com/search?q=type%3Apr+author%3Asheldonhull&type=Issues)
-_As always, any posts on this site are not a reflection of my past or present employer._
+*As always, any posts on this site are not a reflection of my past or present employer.*

@@ -251,7 +251,6 @@ params:
     lightgallery: true
     ruby: true
     fraction: true
-    fontawesome: true
     linkToMarkdown: true
     rssFullText: true
     toc:

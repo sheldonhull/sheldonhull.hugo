@@ -15,7 +15,7 @@ toc: false
 
 Comments on this site are welcome on any topic, or open a general discussision on: [Discussions](https://github.com/sheldonhull/sheldonhull.hugo/discussions)
 
-:(fab fa-twitter fa-fw): <a href="https://twitter.com/messages/compose?recipient_id=247477081&text=connecting%20from%20your%20site..."
+{{< fa-icon brands  twitter fa-fw >}} <a href="https://twitter.com/messages/compose?recipient_id=247477081&text=connecting%20from%20your%20site..."
   class="twitter-dm-button" data-screen-name="@sheldon_hull">
 Direct Message Me</a>
 

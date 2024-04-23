@@ -2,7 +2,7 @@ module mage.local
 
 go 1.21
 
-toolchain go1.21.4
+toolchain go1.22.1
 
 require (
 	dagger.io/dagger v0.9.8

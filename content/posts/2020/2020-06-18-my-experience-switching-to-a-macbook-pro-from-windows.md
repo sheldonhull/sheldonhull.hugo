@@ -50,58 +50,58 @@ Overall, that made it a much better developer onboarding experience than trying 
 
 ## Painpoints
 
-:(fas fa-external-link-alt): DisplayLink installation was painful for docking usage.
+{{< fa-icon solid  external-link-alt >}} DisplayLink installation was painful for docking usage.
 Gotta be careful during updates.
 
-:(fas fa-bullseye): No aeropeek
+{{< fa-icon solid  bullseye >}} No aeropeek
 
-:(fas fa-window-restore): No automatic window snapping without third party apps
+{{< fa-icon solid  window-restore >}} No automatic window snapping without third party apps
 
-:(fas fa-keyboard): Text editing shortcuts
+{{< fa-icon solid  keyboard >}} Text editing shortcuts
 
-:(fas fa-home): Absolutely despise the changed home/end and selection behavior.
+{{< fa-icon solid  home >}} Absolutely despise the changed home/end and selection behavior.
 Trying to remap this is painful.
 I've limited my remapping to try and adjust to the way it works natively, but it's difficult.
 VSCode remapping for certain actions is also tricky, but possible.
 
 ## Wins
 
-:(fas fa-search): So far I've found Finder to be really good and much more intuitive than Explorer in Windows.
+{{< fa-icon solid  search >}} So far I've found Finder to be really good and much more intuitive than Explorer in Windows.
 
-:(fas fa-folder): The consistency of app placement makes finding things to run quick, whereas in Windows, finding the app can be a beast at times.
+{{< fa-icon solid  folder >}} The consistency of app placement makes finding things to run quick, whereas in Windows, finding the app can be a beast at times.
 Think about this from a new Windows developer perspective. Go to Program Files (x86), or Program Files, but some go into AppData, and then settings in ProgramData, but sometimes that program prefers to put some of the configuration data in the Program directory and sometimes in ProgramData.... unless they want to put it in AppData.... and then Local/Roaming etc. It gets really really confusing quick.
 That's why tools like _Everything_ are so helpful!
 
-:(fab fa-docker): Docker startup is 🚀 FAST. I'm talking about an update for Docker, and install restart and in a few seconds it's back up and running.
+{{< fa-icon brands  docker >}} Docker startup is 🚀 FAST. I'm talking about an update for Docker, and install restart and in a few seconds it's back up and running.
 I've been so used to it being minutes on Windows.
 Mounted drive performance isn't great, but neither is it on Windows.
 
-:(fas fa-beer): I love Chocolatey & Scoop on Windows, but I'm seeing some advantages to a central repository containing all the packages, instead of each package being the responsibility of maintainers to keep up to date.
+{{< fa-icon solid  beer >}} I love Chocolatey & Scoop on Windows, but I'm seeing some advantages to a central repository containing all the packages, instead of each package being the responsibility of maintainers to keep up to date.
 This makes the contribution phase much more difficult in Chocolatey. I've written very complex Choco packages for my company, but haven't yet setup a community one, whereas Brew, Scoop, and others have a central repository that you can easily submit a push request to with improvements or new additions without having to manage the autorefresh of the packages.
 A minor, but important distinction to me, as the ease of contributing must be there for more people to engage in it.
 {{< typeit  >}}Brew is _stellar_.{{< /typeit >}}
 
-:(fab fa-windows): Not having Windows as my OS has helped me go cold turkey as much as possible on running more workloads in Docker.
+{{< fa-icon brands  windows >}} Not having Windows as my OS has helped me go cold turkey as much as possible on running more workloads in Docker.
 Visual Studio Docker workspaces are absolutely incredible, and paired with a good tool like `InvokeBuild` with PowerShell, you have a stellar setup than can easily bootstrap itself on a new machine with ease.
 
 ## Quirks
 
-:(fas fa-mouse): As of this time, mouse cursor not auto-hiding in full screen video without work arounds on certain sites.
+{{< fa-icon solid  mouse >}} As of this time, mouse cursor not auto-hiding in full screen video without work arounds on certain sites.
 
-:(fas fa-long-arrow-alt-right): Experimenting with some apps resulted in 2 full system crashes in first 3 weeks of using, so stability while good wasn't as stellar as I was hoping. Just like Windows, it all depends on what you are running.
+{{< fa-icon solid  long-arrow-alt-right >}} Experimenting with some apps resulted in 2 full system crashes in first 3 weeks of using, so stability while good wasn't as stellar as I was hoping. Just like Windows, it all depends on what you are running.
 
-:(fas fa-long-arrow-alt-right): Massive lag on bluetooth and even Logitech Unifying receiver based mouse and keyboard, enough to make them unusable.
+{{< fa-icon solid  long-arrow-alt-right >}} Massive lag on bluetooth and even Logitech Unifying receiver based mouse and keyboard, enough to make them unusable.
 Others seem to have had similar issues when I searched.
 
-:(fas fa-long-arrow-alt-right): Need to buy a powered hub to expand ports, as only USB-C resulting in all my peripherals not working.
+{{< fa-icon solid  long-arrow-alt-right >}} Need to buy a powered hub to expand ports, as only USB-C resulting in all my peripherals not working.
 
-:(fas fa-long-arrow-alt-right): Docks don't provide enough power for a macbook pro at times.
+{{< fa-icon solid  long-arrow-alt-right >}} Docks don't provide enough power for a macbook pro at times.
 Gone are the days of a slick dock that my laptop locks into.
 Get used to running cables.
 
-:(fas fa-long-arrow-alt-right): Had to google "how to remove bonks" to get the annoying keyboard sound effect from driving my insane. This required editing: `/DefaultKeyBinding.dict`. Seriously, this was just silly.
+{{< fa-icon solid  long-arrow-alt-right >}} Had to google "how to remove bonks" to get the annoying keyboard sound effect from driving my insane. This required editing: `/DefaultKeyBinding.dict`. Seriously, this was just silly.
 
-:(fas fa-long-arrow-alt-right): I find the power button the mac annoying.
+{{< fa-icon solid  long-arrow-alt-right >}} I find the power button the mac annoying.
 Tends to have a mind of it's own when I'm thinking "just start darn you!"
 
 ## Development Experience

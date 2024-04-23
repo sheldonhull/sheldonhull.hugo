@@ -17,6 +17,4 @@ justifyContent: true
 
 Here you'll find mostly tech talk and musings, with other topics periodically.
 
-If you want to stay in touch, look at the bottom for the curated newsletter I send out.
-
-Lately, I update my [docs](docs) section more than blog posts. 👍🏻
+Lately, I update my [notes](notes) section more than blog posts. 👍🏻

@@ -67,13 +67,13 @@ What I discovered is that it's the default rule except where marked otherwise.
 
 In other words... the right hand vehicle gets priority except for:
 
-:(fas fa-triangle-exclamation fa-fw): There are lane markings or sigange for them indicating
+🚩 There are lane markings or sigange for them indicating
 
-:(fas fa-triangle-exclamation fa-fw): stop lights
+🚩 stop lights
 
-:(fas fa-triangle-exclamation fa-fw): a specific yellow diamond sign up the road indicating priority road
+🚩 a specific yellow diamond sign up the road indicating priority road
 
-:(fas fa-triangle-exclamation fa-fw): a special roundabout sign indicating to yield
+🚩 a special roundabout sign indicating to yield
 
 In other words, I probably ran past this situation without realizing it on a country road and otherwise, it was normal driving.
 Seems like a terrible rule, considering it's overridden so much that the benefit of not having to put signs in rural places results in a lot of guessing if you have priority in all other places.
@@ -98,13 +98,13 @@ In comparison, I found the Louvre's sculptures more impactful than the palace's 
 
 ## Level-Up & Bucket List Item
 
-:(fas fa-check fa-fw): Drive a BMW on European back roads with classical music[^2]
+{{< fa-icon solid  check fa-fw >}} Drive a BMW on European back roads with classical music[^2]
 
 ## Achievement Unlocked
 
-:(fas fa-award fa-fw): Parallel parked on an insanely busy road in a very tight parking space the first time.
+{{< fa-icon solid  award fa-fw >}} Parallel parked on an insanely busy road in a very tight parking space the first time.
 
-:(fas fa-award fa-fw): Drove in foreign country without being able to understand the language.
+{{< fa-icon solid  award fa-fw >}} Drove in foreign country without being able to understand the language.
 
 ## Karsten's Post
 
