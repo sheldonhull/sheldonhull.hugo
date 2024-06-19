@@ -6,11 +6,8 @@ package main
 import (
 	"bytes"
 	"context"
-	"errors"
 	"fmt"
-	"io/fs"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"regexp"
 	"strings"
@@ -19,7 +16,6 @@ import (
 	// mg contains helpful utility functions, like Deps.
 	"dagger.io/dagger"
 	"github.com/alessio/shellescape"
-	"github.com/bitfield/script"
 	"github.com/gobeam/stringy"
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
@@ -30,6 +26,9 @@ import (
 
 	"github.com/sheldonhull/magetools/pkg/req"
 	"github.com/sheldonhull/magetools/tooling"
+
+	// mage:import
+	"github.com/sheldonhull/magetools/trunk"
 
 	//mage:import image
 	_ "mage.local/image"
@@ -98,7 +97,7 @@ const contentDir = "content/posts"
 
 // tools is a list of Go tools to install to avoid polluting global modules.
 var toolList = []string{ //nolint:gochecknoglobals // ok to be global for tooling setup
-	"github.com/nekr0z/webmention.io-backup@latest",
+	// "github.com/nekr0z/webmention.io-backup@latest", installing via aqua pinned version nnow
 }
 
 // 🧹 Cleanup artifacts.
@@ -471,7 +470,7 @@ func Init() error {
 	defer func() {
 		p.Title = "init complete"
 		_, _ = p.Stop()
-		pterm.Success.Printf("init complete: %s\n", p.GetElapsedTime().String())
+		pterm.Success.Printfln("init complete: %s\n", p.GetElapsedTime().String())
 	}()
 
 	// Tools(tools) // what great naming this is.
@@ -498,7 +497,7 @@ func Init() error {
 			"since it's not in CI, let's vendor the hugo tooling to make sure it's up to date",
 		)
 		if err := tooling.SpinnerStdOut("hugo", []string{"mod", "vendor"}, nil); err != nil {
-			pterm.Error.Printf("hugo mod vendor %q", err)
+			pterm.Error.Printfln("hugo mod vendor %q", err)
 			return err
 		}
 	}
@@ -506,7 +505,7 @@ func Init() error {
 	if !ci.IsCI() {
 		pterm.DefaultSection.Printfln("Local Dev Tools")
 		mg.Deps(
-			(InstallTrunk),
+			(trunk.Trunk{}.Init),
 		)
 	}
 
@@ -514,7 +513,7 @@ func Init() error {
 		return err
 	}
 	p.Increment()
-
+	_, _ = p.Stop()
 	return nil
 }
 
@@ -620,25 +619,6 @@ func (Hugo) Clean() error {
 	}
 	pterm.Success.Println("✅ hugo mod clean")
 	return nil
-}
-
-// InstallTrunk installs trunk.io tooling.
-//
-// It's late, and this code is terrible, but it works.
-func InstallTrunk() error {
-	_, err := exec.LookPath("trunk")
-	if err == nil {
-		pterm.Success.Println("trunk already installed")
-		return nil
-	}
-	if errors.Is(err, fs.ErrNotExist) {
-		_, err = script.Exec("curl https://get.trunk.io -fsSL").Exec("bash -s -- -y").Stdout()
-		if err != nil {
-			return err
-		}
-		return nil
-	}
-	return err
 }
 
 type Dagger mg.Namespace

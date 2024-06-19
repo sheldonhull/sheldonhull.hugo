@@ -24,11 +24,12 @@ packages:
       - module
       - go
   - type: github_release
-    repo_owner: superorbital
-    repo_name: wordchain
-    link: https://github.com/superorbital/wordchain/releases/
-    asset: 'wordchain_{{.OS}}_{{.Arch}}'
-    description: A simple self-contained binary that can provide word-chains like `large-house` (think docker names or random pets) while still being very flexible and easy to use for a multitude of use cases.
+    name: webmention.io-backup
+    repo_owner: nekr0z
+    repo_name: webmention.io-backup
+    link: https://github.com/nekr0z/webmention.io-backup
+    asset: 'webmention.io-backup-{{trimV .Version}}-{{.OS}}-{{.Arch}}.tar.gz'
+    format: tar.gz
+    description: a little tool to backup webmentions stored in webmention.io, audited, so check any updates due to foreign resources
     search_words:
-      - random
-      - generator
+      - webmentions
