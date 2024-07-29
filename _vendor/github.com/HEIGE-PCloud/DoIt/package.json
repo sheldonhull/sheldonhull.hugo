@@ -41,7 +41,7 @@
     "tablesort": "5.3.0",
     "twemoji": "14.0.2",
     "twikoo": "1.6.38",
-    "valine": "1.5.1"
+    "valine": "1.5.2"
   },
   "devDependencies": {
     "concurrently": "8.2.2",
