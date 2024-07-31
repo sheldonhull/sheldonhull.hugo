@@ -11,13 +11,10 @@ toc:
   enabled: false
 ---
 
-Why a brag page?
+_Why a brag page?_
 
-It's a way to show keep track of some key accomplishments I've achieved, almost like "levels-ups".
-
-While I'm starting this as more like a resume style format, I plan on keeping this updated as I go.
-
-Thanks for stopping by and letting me brag a little!
+I'm a big fan of the #LearnInPublic approach, and this page is a way to share a bit more about me than a traditional resume.
+It's a bit more personal, and I hope it helps you get a better sense of who I am and what I'm about.
 
 ## Recruiter?
 
@@ -27,40 +24,39 @@ If you are recruiter, then this might be useful: [Recruiters]({{< relref "recrui
 
 - Add a comment to this page to say hi!
 - Or [↗ Ask me Anything](https://github.com/sheldonhull/sheldonhull.hugo/discussions/new?category=ama)
-
-## Page Metrics
-
-Check out these google analytic metrics if you want to see a pretty chart.
-Who doesn't love pretty graphs.
-
-{{< fa-icon solid  chart-line >}} [Metrics]({{< relref "metrics" >}})
-
-<div>
-<i class="fas fa-chart-bar"></i>
-<a href="https://webmentions.sheldonhull.com/" target="_blank">Webmention Analytics</a>
-</div>
+- [Email Me](mailtol:touching.base@mail.sheldonhull.com)
 
 ## What Makes Me Worth Considering?
 
-### What makes a good engineer?
-
-- 💯 Emotional Intelligence & Soft Skills
+- 💯 Emotional Intelligence & Soft Skills are critical to success.
+- As an individual contributor, I understand the importance of influence-based leadership.
 - A sense of ownership and drive to deliver, from "cradle to grave" mentality.
 - Adaptability, willingness to learn and change.
-  - I'm a big advocate on continual learning, which hopefully my blog shows!
   - Repeating the same `n` years of experience over and over is something to be avoided.
-  - I tend to embrace change and want to continue to improve.
+  - I'm on the right side of the scale when it comes to embracing change and continual iteration to improve.
 
-### What I'm a Good Fit For
+### What Environment I'm A Good Fit For
 
-- Pairing up with strong engineers.
+- A culture that:
+  - Balances autonomy with collaboration, and shipping frequently while caring about reliability.
+  - Assumes the best of it's team members.
+- Pairing up with strong engineers, as I'd rather be around folks smarter than me to grow.
 I'm not a fan of lone wolf.
 A strong engineering team of "good developers" will out perform the so called "10x" developer and be better for the company both logistically and culturally.
 - Generalist experience valued, while allowing for expertise and deeper knowledge.
 - Remote-First environments that value asynchronous communication and strong writing abilities.
   - I'm a big fan of Gitlabs Handbook First approach, and have advocated for and done documentation as code, architectural decision records, and other written forms of decision making in most of my career.
+  - You'll find I'm exceedingly strong at codifying knowledge, which I believe is a priority for effectively scaling knowledge beyond a single person on a team.
 - Go! I'm a Gopher, and have been investing in excellence and quality in Go for the last season in my career.
 I care about delivery value quickly, while I also care about the "craft" of well-designed and maintainable code.
+
+### What Type Of Work I'm Looking For
+
+- Roles that provide technical challenges beyond basics.
+I had a SME focus on database engineering earlier in my career, and moved to a generalist focus.
+I'd like to dive deeper into areas such as distributed systems, application scaling & resliency, and automation.
+- A role where I can impact and ship.
+- Linux as the primary OS for production, not Windows.[^1]
 
 {{< admonition type="Example" title="How I Tend To Think Through Systems" open=false >}}
 
@@ -100,26 +96,25 @@ h2 {
 }
 </style>
 <div class="row">
-<div class="column"><h2>Primary Technologies</h2></div>
+<div class="column"><h2>Very Familiar</h2></div>
 <div class="column"><h2>Exposure/Have Used</h2></div>
 <div class="column"><h2>Things I'd Love to Work More On</h2></div>
 <div class="row">
   <div class="column">
+  {{< fa-icon solid  angle-right >}} Azure & AWS<br>
   {{< fa-icon solid  angle-right >}} Go<br>
-  {{< fa-icon solid  angle-right >}} Containerization/Docker/Kubernetes<br>
-  {{< fa-icon solid  angle-right >}} AWS<br>
-  {{< fa-icon solid  angle-right >}} PowerShell (CrossPlatform), .NET Framework<br>
-    {{< fa-icon solid  angle-right >}} Infrastructure As Code<br>
+  {{< fa-icon solid  angle-right >}} Linux<br>
+  {{< fa-icon solid  angle-right >}} Infra As Code (pulumi, terraform, etc)<br>
+  {{< fa-icon solid  angle-right >}} Kubernetes/Docker<br>
   {{< fa-icon solid  angle-right >}} GitHub/Actions/CI/Azure Pipelines<br>
   {{< fa-icon solid  angle-right >}} Technical Docs<br>
-  {{< fa-icon solid  angle-right >}} CI/CD/Automation<br>
-  {{< fa-icon solid  angle-right >}} Observability<br>
+  {{< fa-icon solid  angle-right >}} CI/CD/Automation (Dagger, Mage/Go, Pwsh, Bash) <br>
+  {{< fa-icon solid  angle-right >}} Observability (Datadog, Sumologic, etc)<br>
   {{< fa-icon solid  angle-right >}} SQL (Dev, Design & Operations)<br>
-  {{< fa-icon solid  angle-right >}} Windows<br>
+  {{< fa-icon solid  angle-right >}} PowerShell (CrossPlatform), .NET Framework<br>
   </div>
   <div class="column">
-  {{< fa-icon solid  angle-right >}} Azure<br>
-    {{< fa-icon solid  angle-right >}} C#/.NET<br>
+  {{< fa-icon solid  angle-right >}} C#/.NET<br>
   {{< fa-icon solid  angle-right >}} Serverless<br>
   {{< fa-icon solid  angle-right >}} Python<br>
   </div>
@@ -136,9 +131,26 @@ h2 {
 
 ## Professional Profile
 
-{{< admonition type="info" title="Current // Senior Developer" open=false >}}
+### Roles
 
-{{< fa-icon solid  calendar-alt >}} March 2021 - Current {{< fa-icon solid grip-lines-vertical >}} {{< fa-icon regular lightbulb >}} Thycotic {{< fa-icon solid grip-lines-vertical >}} Senior Software Engineer (AWS/Go)
+{{< admonition type="info" title="Current // Staff Software Engineer" open=true >}}
+
+{{< fa-icon solid  calendar-alt >}} April 2024 - Current {{< fa-icon solid grip-lines-vertical >}} {{< fa-icon regular lightbulb >}} Delinea {{< fa-icon solid grip-lines-vertical >}} Staff Software Engineer - Developer Experience Team
+
+⚡ Recieved stellar ratings & recognization from management, resulting in a promotion to Staff Engineer.<br>
+⚡ Joined the Developer Experience Team, a small team focused on solving developer pain points and improving the developer experience as the company continued to grow in both staffing, and platform complexity.<br>
+⚡ This role has a larger scope impact for work, including presentations for engineering on various topics.<br>
+⚡ Began with effort to consolidate and improve the scattered docs into a solid devex site, improve onboarding and guidance for supply chain security tooling, and other initiatives to improve the developer experience.<br>
+
+#### Public Artifacts
+
+This role didn't have the work in public GitHub repos, unlike prior teams, so not able to provide much examples, other than blog posts.
+
+{{< /admonition >}}
+
+{{< admonition type="info" title="2021-2024 Senior Developer" open=false >}}
+
+{{< fa-icon solid  calendar-alt >}} March 2021 - April 2024 {{< fa-icon solid grip-lines-vertical >}} {{< fa-icon regular lightbulb >}} Delinea {{< fa-icon solid grip-lines-vertical >}} Senior Software Engineer (AWS/Go)
 
 ⚡ Built Helm and Pulumi stack for Kubernetes to provide continuous deployment, resulting in < 15 mins from PR merge to app live in Kubernetes.<br>
 ⚡ Wrote Go task automation for team automating developer tooling setup (1 command to bootstrap), automatic updates of dependencies, security checks, configuration, go builds, container publishing and more.<br>
@@ -151,11 +163,11 @@ of Go services, as well as supporting Docker configuration.<br>
 ⚡ Go & Task tooling to support developer workflow improvements for pre-commit, building, and other tooling.<br>
 ⚡ Investigative work for Kubernetes and usage of microservices using Dapr.<br>
 
-*Things I Used*
+_Things I Used_
 
 Go, AWS/Azure, Pulumi, Kubernetes, Terraform, Terragrunt, Bash, Kubernetes, Dapr (Distributed Application Runtime) for Microservices. Datadog
 
-*Public Artifacts*
+_Public Artifacts_
 
 Work under NDA.
 Public related blog posts on general technology topics where posted on blog as well as some general studies on applying Go with TDD and algorithm studies are listed here.
@@ -195,14 +207,14 @@ members.<br>
 ⚡ Database Performance tuning, architectural design, and development.
 ⚡ Initial observability tooling advocate.
 
-*Things I Used*
+#### Things I Used
 
 MSSQL Server, PowerShell, AWS, AWS SDK, Terraform, Lambda, S3,
 Athena, Chatops w/Slack, ECS, Docker, Datadog, Grafana, InfluxDB,
 Telegraf. Python, C#, Excel when I absolutely no other choice, ...and a lot
 more.
 
-*Public Artifacts*
+#### Public Artifacts
 
 {{< fa-icon solid  user-secret >}} Product related work under NDA
 
@@ -247,17 +259,18 @@ It did teach me to handle high stress situations and do pretty decent at negotat
 
 {{< fa-icon solid  info-circle >}} First Programming Language: vba :laughing:<br>
 {{< fa-icon solid  info-circle >}} Dark Or Light: join the dark side<br>
-{{< fa-icon solid  info-circle >}} Preferred OS: any. Right now using macOS for development, and working in Docker containers when possible<br>
-{{< fa-icon solid  info-circle >}} Terminal: Iterm2 & *I :heart: pwsh*
+{{< fa-icon solid  info-circle >}} Preferred OS: any. Right now using macOS for development<br>
+{{< fa-icon solid  info-circle >}} Terminal: Warp & zsh
 
 ### Projects
 
-I'm a big believer in #LearnInPublic approach, and have written for years on my blog on a variety of topics, demonstrating my ability to learn new technology and investment in continued excellence in my craft. This should help demonstrate my strengths in written communication.
+I'm a big believer in #LearnInPublic approach, and have written for years on my blog on a variety of topics, demonstrating my ability to learn new technology and investment in continued excellence in my craft.
+This should help demonstrate my strengths in written communication.
 
 **A few highlights:**
 
 - [Brag - A page with more detail and links than the resume](https://www.sheldonhull.com/brag?ref=bragpage)
-- [Go - My Go references docs with tips/templates/practices](https://www.sheldonhull.com/docs/go?ref=bragpage)
+- [Go - My Go references docs with tips/templates/practices](https://www.sheldonhull.com/docs/go?ref=bragpage) which I've updated periodically.
 - [Go Articles - **A variety of posts (over 104 at time of resume)**](https://www.sheldonhull.com/tags/golang?ref=bragpage)
 - [Using Azure DevOps for Private Go Modules - **featured by Azure DevOps Blog**](https://www.sheldonhull.com/using-azure-devops-for-private-go-modules?ref=bragpage)
 
@@ -267,11 +280,13 @@ While the majority of my work is NDA, I try to contribute when possible upstream
 
 A few projects on GitHub:
 
+- [DelineaXPM](https://github.com/DelineaXPM): I setup the majority of the DevOps Secrets Vault automation, revamped all the public facing repos with Go based automation for testing, development, and templatized CI/CD.
 - [sheldonhull - landing page (updated with Github Actions)](https://github.com/sheldonhull)
+- [az-pr](https://github.com/sheldonhull/az-pr) for experimentation on a TUI based PR creation tool for Azure DevOps.
 - [My blog, documented setup and used as a knowledge base](https://github.com/sheldonhull/sheldonhull.hugo)
-- [Go Semantic Linebreaks - A simple CLI for line normalization, planning to use Goldmark for structured text parsing when time permits](https://github.com/sheldonhull/go-semantic-linebreaks)
 - [Magetools - Go based task library for common tasks. I use this instead of Makefiles, as it leverages Mage and the cross-platform power of Go for automation.](https://github.com/sheldonhull/magetools)
-- [CI-Configuration Files: Common lint/tooling configuration to minimize setup of new projects.](https://github.com/sheldonhull/ci-configuration-files)
 
 I also contribute back to various projects I use when possible: [PR's I've Authored on GitHub](https://github.com/search?q=type%3Apr+author%3Asheldonhull&type=Issues)
-*As always, any posts on this site are not a reflection of my past or present employer.*
+_As always, any posts on this site are not a reflection of my past or present employer._
+
+[^1]: I have nothing against Windows, it's great, but I've chosen to pivot away from Windows Server in my career and focus on Linux.

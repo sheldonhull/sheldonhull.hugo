@@ -1,5 +1,4 @@
 ---
-
 permalink: "/recruiters/"
 layout: wide
 title: "Sheldon Hull // Developer"
@@ -7,8 +6,7 @@ slug: "recruiters"
 summary: Quick overview of who I am and what I'm looking for targeted at recruiters.
 comments: false
 robots: noindex
-toc:
-  enabled: false
+toc: true
 ---
 
 ## Hi, I'm Sheldon
@@ -55,35 +53,35 @@ More project and experience related information: [Brag]({{< relref "brag.md" >}}
 - Not a consultancy company or managed service provider.
 - Start-up is ok, as long as post series a/b since I need a bit of stability.
 - Remote First Organization.
-    - I'm not willing to relocate.
-    - I'll consider Remote-Friendly, if the organization has a solid remote work culture with deliberate efforts to treat remote and local workers equally. (Culture that values writing, async work, and healthy remote communication patterns).
-    - Plus if "digital nomad" policy in place to support working temporarily on work visa in a foreign locale with proper notice.[^digitalnomad]
+  - I'm not willing to relocate _at the current time_.
+  - I'll consider Remote-Friendly, if the organization has a solid remote work culture with deliberate efforts to treat remote and local workers equally. (Culture that values writing, async work, and healthy remote communication patterns).
+  - Plus if "digital nomad" policy in place to support working temporarily on work visa in a foreign locale with proper notice.
 - Technology focused company with a strong-engineering culture.
-    - No gambling or mobile gaming companies.
-    - No medical/healthcare focused[^med].
-    - No banking.[^banking]
+  - No gambling or mobile gaming companies.
+  - No medical/healthcare focused[^med].
+  - No banking.[^banking]
 - No Leetcode style interviews.
-    - I'm working full-time and while I am working on this prep, I'm not going to reverse a Binary Tree or such right now. My background was non-typical so LC/Hackerrank puzzles are not a good indication of my abilities currently.[^leetcode]
+  - I'm working full-time and while I am working on this prep, I'm not going to reverse a Binary Tree or such right now.
+    My background was non-typical so LC/Hackerrank puzzles are not a good indication of my abilities currently.[^leetcode]
 
 [^tiers]: [Trimodal Tiers - This is EU specific, but it applies to US-based companies as well](https://blog.pragmaticengineer.com/software-engineering-salaries-in-the-netherlands-and-europe/)
 [^languagesdontmatter]: An engineer with a generalist focus can learn any language and should be able to bring on new hard-skills quickly. However, at the same time nothing replaces time with an ecosystem to build idiomatic and well-written code. As a result, my efforts for more backend effort have been heavily focused on using Go and I'd like to continue that path.
 [^med]: The rate of change and "redtape" is necessarily very slow in the medical field, making it more difficult to adopt modernized CI/CD (not impossible, but difficult). Looking for a company with more capability to move quickly. If the medical company is more technology focused and moving with agility I'd consider that a possible exception.
 [^banking]: I've done financial/mortgage and that's fine, but right now I'm more focused on technology oriented companies, though I'm willing to consider a financial services company if technology is a core value they offer (like Simple Bank did).
-[^digitalnomad]: I'm US based, but plan on doing a little traveling for some stays in EU in a few years. Knowing that the company as an international presence or is setup to handle someone relocating for 6 months would be great.
-[^leetcode]: My Go experience is heavily biased towards SRE/DevOps work, Pulumi Kubernetes SDK, and such so. I have [algorithms-with-go](https://github.com/sheldonhull/algorithmswithgo.com) and have done a steady progression of learning on my blog. I'm not open to Leetcode until I feel I've had sufficient time to prep, so until this page is updated, I'm not interested in doing puzzles.
+[^leetcode]: My Go experience is heavily biased towards SRE/DevOps work, Pulumi Kubernetes SDK, and such so. I have [algorithms-with-go](https://github.com/sheldonhull/algorithmswithgo.com) and have done a steady progression of learning on my blog. I'm not open to Leetcode until I feel I've had sufficient time to prep, so until this page is updated, I'm not going to excel at data structure/algo based interviews.
 
 ## What I'm Looking For In A Company
 
 I assess companies based on the [Pragmatic Engineer Checklist](https://blog.pragmaticengineer.com/the-developer-culture-test/)
 
 - Pays at Tier 2-3[^tiers]: Globally competitive rates[^competitive]
-    - Equity is a significant form of the compensation (when public) with a reasonable vesting schedule.
-    - Locale adjustment is a negative, but if the compensation is still at a "Tier 3" company, I'll still consider it.
+  - Equity is a significant form of the compensation (when public) with a reasonable vesting schedule.
+  - Locale adjustment is a negative, but if the compensation is still at a "Tier 3" company, I'll still consider it.
 - Engineering organizations that expect a high level of autonomy.[^ticketfocused]
-    - I'm not great a being a "ticket cruncher", and prefer being able to contribute to the backlog and not just do a checklist.
+  - I'm not great a being a "ticket cruncher", and prefer being able to contribute to the backlog and not just do a checklist.
 - High talent bar & desire for collaboration.[^collaboration]
-    - Plus for companies that value demonstrated ability to obtain new hard-skills over expecting in-depth knowledge matching all requirements on day 1.
-- High value placed on continual learning and improvement. (*HUGE* deal to me. I believe similar to Doordash's 1% better everyday philosophy)
+  - Plus for companies that value demonstrated ability to obtain new hard-skills over expecting in-depth knowledge matching all requirements on day 1.
+- High value placed on continual learning and improvement. (_HUGE_ deal to me. I believe similar to Doordash's 1% better everyday philosophy)
 - High value on work-life balance.
 - Value placed on contributions back to open source and writing (as I regularly blog and engage open source projects).
 
@@ -93,15 +91,17 @@ I assess companies based on the [Pragmatic Engineer Checklist](https://blog.prag
 
 ## Roles You Might Be Trying to Fill
 
-{{< admonition type="Info" title="Senior Software Engineer" open=false >}}
+{{< admonition type="Info" title="Senior/Staff Software Engineer" open=false >}}
 
-### Senior Software Engineer
+### Senior & Staff Software Engineer
 
 This is the role I'm normally matched against.
 
 This is about as specific as saying "A developer", so it depends on the role.
 
 See Skills section at the bottom if you want to assess if I'm a possible fit.
+
+I do believe in leadership and mentoring, so prefer a role that gives room for this to growth.
 
 {{< /admonition >}}
 
@@ -196,7 +196,7 @@ This term is standard by companies, but it's often actually considered an anti-p
 
 The industry has made this term a common practice, but in most places it really could be called a: `Build & Release Engineer`.
 
-*Why?*
+_Why?_
 
 DevOps is a term that represents the "Development + Operations" siloes being eliminated so that both Development + Operations are regularly collaborating.
 
