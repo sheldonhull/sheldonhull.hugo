@@ -10,7 +10,7 @@ fzf 0.29.0
 jq 1.6
 mage 1.13.0
 starship 1.1.1
-yq 4.43.1
+yq 4.44.3
 fd 8.3.1
 git-chglog 0.15.1
 github-cli 2.55.0
