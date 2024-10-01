@@ -18,9 +18,6 @@ packages:
   - name: charmbracelet/glow@v1.5.1
   - name: mvdan/gofumpt@v0.6.0
   - name: anchore/syft@v1.0.1
-  # - name: dagger/dagger
-  #   version: v0.2.35
-  #
   - name: golang/go@go1.22.1
   - name: caddyserver/caddy@v2.7.6
   - name: gohugoio/hugo/hugo-extended@v0.123.8
