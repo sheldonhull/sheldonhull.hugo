@@ -1,5 +1,5 @@
 hugo 0.134.3
-direnv 2.34.0
+direnv 2.35.0
 chezmoi 2.9.5
 nodejs 18.20.4
 yarn 1.22.17
