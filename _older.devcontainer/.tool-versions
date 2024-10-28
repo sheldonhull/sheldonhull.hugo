@@ -13,7 +13,7 @@ starship 1.1.1
 yq 4.44.3
 fd 8.3.1
 git-chglog 0.15.1
-github-cli 2.57.0
+github-cli 2.60.1
 golang 1.19
 go-sdk 1.19
 go-getter 1.5.10
