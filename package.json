@@ -1,6 +1,6 @@
 {
   "name": "sheldonhull.hugo",
-  "packageManager": "yarn@3.8.6",
+  "packageManager": "yarn@3.8.7",
   "devDependencies": {
     "atomic-algolia": "0.3.19",
     "imageoptim-cli": "3.1.9",
@@ -26,6 +26,6 @@
   "homepage": "https://github.com/sheldonhull/sheldonhull.hugo#readme",
   "description": "blog tasks and packages. Built with hugo, but I do use some other tooling",
   "dependencies": {
-    "dotenv": "16.4.5"
+    "dotenv": "16.4.7"
   }
 }
