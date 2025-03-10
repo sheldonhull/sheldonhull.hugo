@@ -6,7 +6,7 @@ authors = ["Sheldon Hull <sheldonhull@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
 python = "3.13.2"
-diagrams = "0.24.1"
+diagrams = "0.24.3"
 
 #[tool.poetry.dev-dependencies]
 #pytest = "^6.2.3"
