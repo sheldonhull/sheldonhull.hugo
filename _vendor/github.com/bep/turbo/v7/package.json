@@ -74,6 +74,6 @@
     "lint": "eslint . --ext .ts"
   },
   "engines": {
-    "node": "v22.14.0"
+    "node": "v22.15.0"
   }
 }
