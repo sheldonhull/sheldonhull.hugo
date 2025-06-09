@@ -5,7 +5,7 @@ description = "Diagrams for blog posts"
 authors = ["Sheldon Hull <sheldonhull@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
-python = "3.13.3"
+python = "3.13.4"
 diagrams = "0.24.4"
 
 #[tool.poetry.dev-dependencies]
