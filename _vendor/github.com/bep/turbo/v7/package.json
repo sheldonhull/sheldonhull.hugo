@@ -44,7 +44,7 @@
     "@typescript-eslint/parser": "5.62.0",
     "@web/dev-server-esbuild": "0.4.4",
     "@web/test-runner": "0.20.2",
-    "@web/test-runner-playwright": "0.11.0",
+    "@web/test-runner-playwright": "0.11.1",
     "arg": "5.0.2",
     "body-parser": "1.20.3",
     "chai": "4.5.0",
