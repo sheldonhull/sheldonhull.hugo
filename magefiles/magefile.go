@@ -457,7 +457,29 @@ func Webmentions() error {
 }
 
 func Algolia() error {
-	return sh.RunV("yarn", "run", "algolia")
+	pterm.DefaultSection.Printf("Algolia")
+	
+	// Set required environment variables for atomic-algolia
+	env := map[string]string{
+		"ALGOLIA_APP_ID":     "04HSGXXQD5",
+		"ALGOLIA_INDEX_FILE": "public/algolia.json",
+		"ALGOLIA_INDEX_NAME": "sheldonhull.com",
+	}
+	
+	// Check if algolia.json exists
+	if _, err := os.Stat("public/algolia.json"); os.IsNotExist(err) {
+		pterm.Warning.Println("public/algolia.json not found, skipping algolia update")
+		return nil
+	}
+	
+	// Check if ALGOLIA_ADMIN_KEY is available
+	if os.Getenv("ALGOLIA_ADMIN_KEY") == "" {
+		pterm.Warning.Println("ALGOLIA_ADMIN_KEY not set, skipping algolia update (this is expected for preview builds)")
+		return nil
+	}
+	
+	pterm.Info.Println("Running atomic-algolia to update search index")
+	return sh.RunWithV(env, "yarn", "run", "algolia")
 }
 
 // Init initializes the project and tooling.
