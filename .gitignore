@@ -37,7 +37,7 @@ e2e/*.map
 ### Hugo ###
 # Generated files by hugo
 /public/
-/resources/_gen/
+/resources/_gen/assets
 
 # Executable may be added to repository
 hugo.exe
