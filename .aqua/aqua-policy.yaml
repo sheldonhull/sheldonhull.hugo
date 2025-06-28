@@ -2,7 +2,7 @@
 # aqua Policy
 # https://aquaproj.github.io/
 registries:
-# Example
+  # Example
   - name: local
     type: local
     path: registry.yaml
@@ -11,4 +11,3 @@ registries:
 packages:
   - registry: local # allow all packages in the Registry
   - registry: standard
-    version: semver("1.5.0") # specific version since I want to audit any upsteam upgrades explicitly
