@@ -1,4 +1,0 @@
-# 2019-04-17T10:23:53-06:00
-
-Today I learned how to create a microblog / microblogs section in my hugo layout by frakensteining together some styling tweaks to part of [jnjosh.com](https://jnjosh.com/microblogs/) hugo theme. :taco:
-

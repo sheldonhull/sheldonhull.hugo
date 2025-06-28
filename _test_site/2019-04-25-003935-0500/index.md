@@ -1,4 +1,0 @@
-# 2019-04-25 00:39:35 -0500
-
-Finally upgraded my graphics card and hardrive. EVGA RTX 2080 and a Samsung Evo 970 NVMe 2TB SSD breathed new life into my PC. Running 100hz 3440x1440 ultrawide on a 10 year old AMD 6950 was just not doing the trick.
-

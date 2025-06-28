@@ -1,6 +1,0 @@
-# 2019-05-17T15:59:50-05:00
-
-Kids learn so quick. It&#39;s amazing how fast my son has picked up #origami. He often has to wait for his slow-poke dad.
-
-![origami with son](/images/IMG_20190511_164708_origami_with_son.jpg)
-

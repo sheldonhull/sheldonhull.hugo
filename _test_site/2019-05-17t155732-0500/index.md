@@ -1,4 +1,0 @@
-# 2019-05-17T15:57:32-05:00
-
-Really enjoying my experience with Terraform from the last month. If you have any resources in the cloud you have to deploy and you are having to do them manually, you should take a look. It&#39;s very easy to get going with the basics and the time it can save as you build up Terrachops (patent pending) can be tremendous.
-
