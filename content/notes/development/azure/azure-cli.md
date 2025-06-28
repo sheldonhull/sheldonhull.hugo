@@ -1,9 +1,9 @@
 ---
 title: Azure CLI
-date: 2024-03-11 16:45
+date: 2024-03-11T16:45:00
 tags:
   - azure
-lastmod: 2024-03-11 16:45
+lastmod: 2024-03-11T16:45:00
 toc: true
 layout: wide
 ---

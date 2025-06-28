@@ -1,11 +1,11 @@
 ---
 title: direnv
 description: Direnv for loading environment variables for projects.
-date: 2023-03-24 14:46
+date: 2023-03-24T14:46:00
 tags:
   - tooling
 categories: ""
-lastmod: 2023-03-24 14:52
+lastmod: 2023-03-24T14:52:00
 ---
 
 ## Example Direnv

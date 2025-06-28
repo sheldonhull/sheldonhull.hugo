@@ -4,7 +4,7 @@ summary: accidentally copying a database to a ntfs compressed volume can result 
   some unpleasant aftertaste. If you get the error The requested operation could not
   be completed due to a file system limitation you are probably at the right place.
 last_modified_at: "2019-02-21"
-published: true
+draft: false
 typora-root-url: ../../../static
 typora-copy-images-to:  ../../../static/images
 tags:

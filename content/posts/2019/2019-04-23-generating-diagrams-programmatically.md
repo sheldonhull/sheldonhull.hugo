@@ -1,5 +1,5 @@
 ---
-date: 2019-04-23 19:15:24 -0500
+date: 2019-04-23T19:15:24-05:00
 title: Generating Diagrams Programmatically
 slug: generating-diagrams-programmatically
 summary: " mermaid to generate diagrams programmatically can help you if you need
