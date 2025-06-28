@@ -152,5 +152,3 @@ Probably because I'm using `linuxbrew` mixed in with other docker/goup scripts.
 - Otherwise, remove Go from linux brew setup. (recommended, but no time)
 
 ## Other Credits
-
-- [webmentions](https://github.com/PlaidWeb/webmention.js)

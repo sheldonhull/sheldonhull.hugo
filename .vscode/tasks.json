@@ -224,17 +224,6 @@
         "showReuseMessage": false
       },
       "detail": "variable output"
-    },
-    {
-      "label": "webmentions",
-      "type": "shell",
-      "command": "task webmentions",
-      "problemMatcher": "$msCompile",
-      "presentation": {
-        "echo": false,
-        "showReuseMessage": false
-      },
-      "detail": " Generate local datafile of webmentions"
-    },
+    }
   ]
 }

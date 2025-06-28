@@ -40,8 +40,6 @@
         {{ end }}
         {{ $content | replaceRE `<figure[^>]*>.*</figure>` "" | replaceRE `<img[^>]*( /)?>` "" | safeHTML }}
         {{ "]]>" | safeHTML }}
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 {{/* prettier-ignore-end */}}

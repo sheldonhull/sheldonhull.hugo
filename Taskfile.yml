@@ -16,7 +16,6 @@ env:
   # AWS_REGION:  # Override for local developement work
 vars:
   DATA_DIR: ./data
-  WEBMENTION_FILE: webmentions.json
   GIT_COMMIT:
     sh: git log -n 1 --format=%h
   TODAY: '{{now | date "2006-01-02"}}' # https://golang.org/src/time/format.go
@@ -61,7 +60,6 @@ tasks:
         echo -e "{{.light_gray}}TODAY                {{.nocolor}}: {{ .orange}}{{ .TODAY }} {{ .nocolor }}"
         echo -e "{{.light_gray}}TODAY_UTC            {{.nocolor}}: {{ .orange}}{{ .TODAY_UTC }} {{ .nocolor }}"
         echo -e "{{.light_gray}}GIT_COMMIT           {{.nocolor}}: {{ .orange}}{{ .GIT_COMMIT }} {{ .nocolor }}"
-        echo -e "{{.light_gray}}WEBMENTION_IO_TOKEN  {{.nocolor}}: {{ .orange}}{{ if empty .WEBMENTION_IO_TOKEN }}💥 not set{{end}}{{else}}✅ token detected{{end}} {{ .nocolor }}"
 
   serve:
     desc: Build and run hugo
@@ -292,66 +290,6 @@ tasks:
       - go install github.com/owenrumney/squealer/cmd/squealer@latest
       - go install github.com/evilmartians/lefthook@master
       - lefthook install --aggressive
-  webmentions:ci:
-    desc: run the webmention tasks with auto stash and push for ci
-    cmds:
-      - |
-        git stash save "💾 stash all changes so webmentions can be pushed"
-        git stash list
-      - task: webmentions:fetch
-      - task: webmentions:commit
-      - |
-        git stash pop
-        echo "✅ git stash pop to bring back any changes pending"
-        git stash drop
-        echo "✅ git stash drop to clear temp git webmentions stash"
-
-
-  webmentions:fetch:
-    desc: Generate local datafile of webmentions
-    cmds:
-      - |
-        go get -v github.com/nekr0z/webmention.io-backup@master
-        mkdir {{ .DATA_DIR }} 2>/dev/null || echo -e "{{ .dark_gray}}created DATA_DIR: {{ .DATA_DIR }}{{.nocolor}}"
-        pushd {{ .DATA_DIR }}
-        $(go env GOPATH)/bin/webmention.io-backup -f "{{ .WEBMENTION_FILE }}" -t "{{ .WEBMENTION_IO_TOKEN }}"
-        echo -e "{{ .green }} ✅ results persisted to: {{ .WEBMENTION_FILE }}{{ .nocolor }}"
-        jq "." {{ .WEBMENTION_FILE }} > tmp.json
-        cat tmp.json > {{ .WEBMENTION_FILE }}
-        rm tmp.json
-        popd
-      - task: webmentions:commit
-  preconditions:
-    - '[ ! -z "$WEBMENTION_IO_TOKEN" ]'
-  webmentions:commit:
-    desc: ensure updated webmentions sync back to repo
-    cmds:
-      - |
-        if test "$NETLIFY" = true; then
-            echo "NETLIFY: [$NETLIFY] detected, setting git config manually"
-            git config user.email "no-reply@netlify.com"
-            git config user.name "Netlify CI"
-        else
-          echo "NETLIFY: [$NETLIFY] env variable is not set"
-        fi
-        FILE=./data/webmentions.json
-        git fetch
-        echo "Add this file: git add $FILE"
-        echo "Let's look at the git status to make sure no other files showing unstaged changes"
-        echo "git status --porcelain"
-        git status --porcelain
-        git add $FILE
-        if ! git diff-index --quiet HEAD; then
-          git commit -m"chore(webmentions): update webmentions [skip ci]" $FILE
-          git remote add origin https://github.com/sheldonhull/sheldonhull.hugo || echo "✅ origin already exists"
-          git push origin HEAD:main && echo "✅ push"
-        fi
-
-    preconditions:
-      - '[ ! -z "$WEBMENTION_IO_TOKEN" ]'
-      # - '[[ -z "${WEBMENTION_IO_TOKEN}" ]] || echo -e "    ❗ WEBMENTION_IO_TOKEN env variable required to run this command with correct results"'
-      # '[ -z "${WEBMENTION_IO_TOKEN}" ]'
-      # ; then echo "match"; else; echo -e "    ❗ WEBMENTION_IO_TOKEN env variable required to run this command with correct results"; fi'
   sharedbrain:
     desc: use shared brain tool to generate markdown links from wiki links
     cmds:

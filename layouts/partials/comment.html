@@ -7,8 +7,6 @@
 
 
     <div id="comments">
-        {{- /* Webmentions Comment System*/ -}}
-        {{- partial "webmentions.html" . -}}
         {{- if $comment.enable -}}
         {{- /* Disqus Comment System */ -}}
         {{- $disqus := $comment.disqus | default dict -}}
