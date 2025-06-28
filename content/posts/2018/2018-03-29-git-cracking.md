@@ -4,7 +4,6 @@ summary: Git can be an interesting learning curve if you are coming from TFS (Te
   Foundation Server). However, there are some great things about using Git if you
   can wrap you head around the terminology
 last_modified_at: 2018-03-29
-published: true
 typora-root-url: ../../../static
 typora-copy-images-to:  ../../../static/images
 tags:

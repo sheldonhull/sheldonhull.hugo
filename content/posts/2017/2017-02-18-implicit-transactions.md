@@ -1,6 +1,5 @@
 ---
 date: "2017-02-18T00:00:00Z"
-published: false
 typora-root-url: ../../../static
 typora-copy-images-to:  ../../../static/images
 tags:

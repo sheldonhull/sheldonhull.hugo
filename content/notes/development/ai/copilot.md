@@ -3,7 +3,7 @@ title: copilot
 tags:
   - copilot
   - coding
-lastmod: 2023-03-08 19:52
+lastmod: 2023-03-08T19:52:00+00:00
 ---
 
 ## Examples of Where Copilot Failed

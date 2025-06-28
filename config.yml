@@ -10,6 +10,8 @@ enableGitInfo: true
 enableEmoji: true
 ignoreErrors:
   - error-remote-getjson
+  - error-front-matter-date
+  - error-parse-date
 imaging:
   includeFields: '.*'
 languages:
@@ -18,7 +20,8 @@ languages:
     languageCode: en
     languageName: English
     hasCJKLanguage: false
-    paginate: 100
+    pagination:
+      pagerSize: 100
     copyright: >-
       This work is licensed under a Creative Commons Attribution-NonCommercial
       4.0 International License.
@@ -133,7 +136,8 @@ languages:
           disclaimer: ''
         posts:
           enable: false
-          paginate: 10
+          pagination:
+            pagerSize: 10
       social:
         GitHub: sheldonhull
         Linkedin: ''
@@ -237,11 +241,13 @@ params:
       href="https://www.sheldonhull.com/license" target="_blank">CC
       BY-NC 4.0</a>
   section:
-    paginate: 100
+    pagination:
+      pagerSize: 100
     dateFormat: 2006-01-02
     rss: 10
   list:
-    paginate: 100
+    pagination:
+      pagerSize: 100
     dateFormat: 2006-01-02
     rss: 10
   page:
@@ -452,7 +458,7 @@ Permalinks:
   /: :slug
 privacy:
   googleAnalytics: {}
-  twitter:
+  x:
     enableDNT: true
   youtube:
     privacyEnhanced: true

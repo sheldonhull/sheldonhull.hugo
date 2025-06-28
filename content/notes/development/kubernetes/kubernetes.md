@@ -1,13 +1,13 @@
 ---
 title: kubernetes
 description: A reference for Kubernetes
-date: 2023-04-05 12:23
+date: 2023-04-05T12:23:00+00:00
 preview: ""
 draft: false
 tags:
   - kubernetes
 categories: []
-lastmod: 2023-04-05 12:31
+lastmod: 2023-04-05T12:31:00+00:00
 ---
 
 ## Deployment Tips

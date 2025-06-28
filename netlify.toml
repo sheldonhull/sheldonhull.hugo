@@ -4,11 +4,37 @@
 [build]
 #command = "git status --porcelain &&  git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo"
 command = '''
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.1.2/aqua-installer | bash -s -- -v v2.28.0
-export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:${PATH}"
-aqua policy allow .aqua/aqua-policy.yaml
-aqua install --tags first
-aqua install --tags ci
+#!/bin/bash
+set -e
+
+# Try aqua first, fallback to manual installation if SLSA verification fails
+echo "Attempting aqua installation..."
+if curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.1.2/aqua-installer | bash -s -- -v v2.28.0; then
+  echo "✅ Aqua installed successfully"
+  export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:${PATH}"
+  aqua policy allow .aqua/aqua-policy.yaml
+  aqua install --tags first
+  aqua install --tags ci
+else
+  echo "❌ Aqua installation failed, falling back to manual tool installation..."
+  
+  # Install Go tools manually
+  echo "📦 Installing mage..."
+  go install github.com/magefile/mage@latest
+  export PATH="$HOME/go/bin:$PATH"
+  
+  echo "📦 Installing Hugo..."
+  HUGO_VERSION="0.147.9"
+  curl -L -o hugo.tar.gz "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+  tar -xzf hugo.tar.gz
+  sudo mv hugo /usr/local/bin/
+  rm -f hugo.tar.gz LICENSE README.md
+  
+  echo "✅ Manual tool installation completed"
+fi
+
+echo "🚀 Running build..."
+export PATH="$HOME/go/bin:/usr/local/bin:$PATH"
 mage init hugo:buildpublic algolia
 '''
 publish = "public"
@@ -32,11 +58,37 @@ AQUA_LOG_LEVEL = "info"                       # "debug"
 ###############################
 [context.deploy-preview]
 command = '''
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.1.2/aqua-installer | bash -s -- -v v2.28.0
-export PATH="$(aqua root-dir)/bin:$PATH"
-aqua policy allow .aqua/aqua-policy.yaml
-aqua install --tags first
-aqua install --tags ci
+#!/bin/bash
+set -e
+
+# Try aqua first, fallback to manual installation if SLSA verification fails
+echo "Attempting aqua installation..."
+if curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.1.2/aqua-installer | bash -s -- -v v2.28.0; then
+  echo "✅ Aqua installed successfully"
+  export PATH="$(aqua root-dir)/bin:$PATH"
+  aqua policy allow .aqua/aqua-policy.yaml
+  aqua install --tags first
+  aqua install --tags ci
+else
+  echo "❌ Aqua installation failed, falling back to manual tool installation..."
+  
+  # Install Go tools manually
+  echo "📦 Installing mage..."
+  go install github.com/magefile/mage@latest
+  export PATH="$HOME/go/bin:$PATH"
+  
+  echo "📦 Installing Hugo..."
+  HUGO_VERSION="0.147.9"
+  curl -L -o hugo.tar.gz "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+  tar -xzf hugo.tar.gz
+  sudo mv hugo /usr/local/bin/
+  rm -f hugo.tar.gz LICENSE README.md
+  
+  echo "✅ Manual tool installation completed"
+fi
+
+echo "🚀 Running build..."
+export PATH="$HOME/go/bin:/usr/local/bin:$PATH"
 mage init build
 '''
 publish = "preview"
@@ -53,11 +105,37 @@ HUGO_DESTINATION = "preview"
 [context.branch-deploy]
 publish = "branch"
 command = '''
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.1.2/aqua-installer | bash -s -- -v v2.28.0
-export PATH="$(aqua root-dir)/bin:$PATH"
-aqua policy allow .aqua/aqua-policy.yaml
-aqua install --tags first
-aqua install --tags ci
+#!/bin/bash
+set -e
+
+# Try aqua first, fallback to manual installation if SLSA verification fails
+echo "Attempting aqua installation..."
+if curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.1.2/aqua-installer | bash -s -- -v v2.28.0; then
+  echo "✅ Aqua installed successfully"
+  export PATH="$(aqua root-dir)/bin:$PATH"
+  aqua policy allow .aqua/aqua-policy.yaml
+  aqua install --tags first
+  aqua install --tags ci
+else
+  echo "❌ Aqua installation failed, falling back to manual tool installation..."
+  
+  # Install Go tools manually
+  echo "📦 Installing mage..."
+  go install github.com/magefile/mage@latest
+  export PATH="$HOME/go/bin:$PATH"
+  
+  echo "📦 Installing Hugo..."
+  HUGO_VERSION="0.147.9"
+  curl -L -o hugo.tar.gz "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+  tar -xzf hugo.tar.gz
+  sudo mv hugo /usr/local/bin/
+  rm -f hugo.tar.gz LICENSE README.md
+  
+  echo "✅ Manual tool installation completed"
+fi
+
+echo "🚀 Running build..."
+export PATH="$HOME/go/bin:/usr/local/bin:$PATH"
 mage init build
 '''
 

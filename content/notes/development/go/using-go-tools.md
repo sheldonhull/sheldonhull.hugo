@@ -1,7 +1,7 @@
 ---
 title: Using Go Tools
-date: 2023-04-19 18:12
-lastmod: 2023-04-19 18:12
+date: 2023-04-19T18:12:00+00:00
+lastmod: 2023-04-19T18:12:00+00:00
 ---
 
 This is primarily focused on folks who don't use Go tooling everyday, but want to use the Go tools.

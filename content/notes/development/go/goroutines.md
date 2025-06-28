@@ -2,7 +2,7 @@
 title: goroutines
 tags:
   - go
-lastmod: 2023-03-17 18:00
+lastmod: 2023-03-17T18:00:00+00:00
 ---
 ## Resources
 
