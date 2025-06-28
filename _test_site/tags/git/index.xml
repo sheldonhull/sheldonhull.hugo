@@ -1,0 +1,757 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Git - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/git/</link>
+        <description>Git - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 09 Apr 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/git/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        git
+    </title>
+    <link>
+        https://www.sheldonhull.com/notes/development/tooling/git/
+    </link>
+    <pubDate>
+        Fri, 09 Apr 2021 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/notes/development/tooling/git/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <div
+    class="details admonition note
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      Note
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">This is a mix of git, github, azure devops repos, and other workflow tips that help me work more quickly.
+Comments are welcome with any corrections or suggestions.</div>
+    </div>
+  </div>
+<h2 id="install-homebrew" class="headerLink">
+    <a href="#install-homebrew" class="header-mark"></a>Install Homebrew</h2><p>Works on Linux and macOS now 👏.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">/bin/bash -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Many commands expect powershell, which runs on macOS and Linux as well. Just run <code>brew install powershell</code> to grab it and most of this will work without any further changes unless specified.</p>
+<h2 id="tools-ive-relied-on" class="headerLink">
+    <a href="#tools-ive-relied-on" class="header-mark"></a>Tools I&rsquo;ve Relied On</h2><h3 id="cli" class="headerLink">
+    <a href="#cli" class="header-mark"></a>CLI</h3><ul>
+<li><a href="https://bit.ly/2OR6zIf" target="_blank" rel="noopener noreferrer">Git-Town</a></li>
+<li><a href="https://bit.ly/37F8vu1" target="_blank" rel="noopener noreferrer">Bit</a></li>
+</ul>
+<h3 id="vscode" class="headerLink">
+    <a href="#vscode" class="header-mark"></a>VSCode</h3><ul>
+<li><a href="https://bit.ly/3pEu8AJ" target="_blank" rel="noopener noreferrer">Git Graph</a></li>
+<li><a href="https://bit.ly/3dBaUcZ" target="_blank" rel="noopener noreferrer">Git Lens</a></li>
+<li><a href="https://bit.ly/3uI5PoH" target="_blank" rel="noopener noreferrer">vivaxy/vscode-conventional-commits: 💬Conventional Commits for VSCode.</a></li>
+</ul>
+<h3 id="github" class="headerLink">
+    <a href="#github" class="header-mark"></a>GitHub</h3><ul>
+<li><a href="https://bit.ly/3boywik" target="_blank" rel="noopener noreferrer">GitHub CLI</a></li>
+</ul>
+<h2 id="git-aliases" class="headerLink">
+    <a href="#git-aliases" class="header-mark"></a>Git Aliases</h2><p>Everyone has their own brand of craziness with git aliases.</p>
+<p>Here&rsquo;s a few I&rsquo;ve found helpful.</p>
+<h3 id="azure-devops-boards" class="headerLink">
+    <a href="#azure-devops-boards" class="header-mark"></a>Azure DevOps Boards</h3><p>This one will create an autocompleted ready to go pull request in azure repos using the last commit title and description. If you create your commit correctly for the last one, this will ensure no extra rework required to generate the title and body of the PR, as well as the cleaned up squash message on approval.</p>
+<p>Install the Azure CLI and the <code>devops</code> extension will be installed automatically upon using: <code>brew install az</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">az devops configure --defaults <span class="nv">organization</span><span class="o">=</span>https://dev.azure.com/MyOrganization/ <span class="nv">project</span><span class="o">=</span>my-project-name
+</span></span><span class="line"><span class="cl">az devops configure --use-git-aliases
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Azure DevOps Repos
+</span></span><span class="line"><span class="cl">new-pr = !pwsh -noprofile -nologo -c &#39;&amp;az repos pr create --title \&#34;$(git log  -1 --pretty=format:\&#34;%s\&#34;)\&#34; --description \&#34;$(git log -1  --pretty=format:\&#34;%b\&#34;)\&#34; --auto-complete true --delete-source-branch true --squash --merge-commit-message \&#34;$(git log  -1 --pretty=format:\&#34;%s\&#34;)\&#34; --output table --open --detect&#39;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="general-commit" class="headerLink">
+    <a href="#general-commit" class="header-mark"></a>General Commit</h3><p>You only live once&hellip;rebase and sync from origin, commit all your changes, and generate a commit message using PowerShell NameIt module.</p>
+<p>Install module via: <code>Install-Module Nameit -Scope CurrentUser</code></p>
+<p>Install gitversion via: <code>dotnet tool install --global GitVersion.Tool</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">yolo</span>  <span class="o">=</span> <span class="o">!</span><span class="n">pwsh</span> <span class="o">-</span><span class="n">noprofile</span> <span class="o">-</span><span class="n">nologo</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;Import-Module Nameit &amp;&amp; git add . &amp;&amp; git commit -am</span><span class="se">\&#34;</span><span class="s1">[wip] $(dotnet-gitversion /showvariable FullSemVer) - $((NameIt</span><span class="se">\\</span><span class="s1">Invoke-Generate &#39;</span><span class="p">[</span><span class="n">adjective</span><span class="p">]</span><span class="o">-</span><span class="p">[</span><span class="n">noun</span><span class="p">]</span><span class="s1">&#39; -Culture EN).ToLower())</span><span class="se">\&#34;</span><span class="s1"> --no-verify &amp;&amp; git town sync &amp;&amp; git log --oneline -1&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>For quickly amending the last commit on your own private branch, you can combine these two commands to overwrite your branch with the latest changes instead of versioning.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pushf = !git push --force-with-lease
+</span></span><span class="line"><span class="cl">fixup = !git commit -a --amend --no-edit
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="cleanup" class="headerLink">
+    <a href="#cleanup" class="header-mark"></a>Cleanup</h2><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remove file from git without deleting</td>
+<td><code>git rm --cached ./filepath.txt</code></td>
+</tr>
+<tr>
+<td>remove directory from git without deleting</td>
+<td><code>git rm --cached -r ./mydirectory</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="remove-files-already-committed" class="headerLink">
+    <a href="#remove-files-already-committed" class="header-mark"></a>Remove files already committed</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git rm --cached <span class="nv">$File</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="renaming-branch" class="headerLink">
+    <a href="#renaming-branch" class="header-mark"></a>Renaming Branch</h2><p>If you want to align with GitHub recommended naming of changing <code>master</code> to <code>main</code>, then this command will help you fix the local branches to correctly point <code>master</code> to the remote <code>main</code> branch.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git branch -m master main
+</span></span><span class="line"><span class="cl">git fetch origin
+</span></span><span class="line"><span class="cl">git branch -u origin/main main
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>You can configure this as a VSCode snippet for quick access by including this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">    <span class="err">,</span><span class="s2">&#34;rename-master-to-main&#34;</span><span class="err">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;prefix&#34;</span><span class="p">:</span> <span class="s2">&#34;rename-master-to-main&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;body&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;git branch -m master main&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;git fetch origin&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;git branch -u origin/main main&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;rename-master-to-main&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="working-with-changes" class="headerLink">
+    <a href="#working-with-changes" class="header-mark"></a>Working With Changes</h2><p>All the commits the branch has that the master doesn&rsquo;t. <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git log master..<span class="k">$(</span>git branch --show-current<span class="k">)</span> --oneline
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="cleanup-tags" class="headerLink">
+    <a href="#cleanup-tags" class="header-mark"></a>Cleanup Tags</h2><ol>
+<li>Remove tags on remote first: <code>git push --no-verify --delete MyTagName</code></li>
+<li>Remove every local tag in your repo: <code>git tag -d $(git tag)</code></li>
+<li>Pull latest tags: <code>git fetch origin --prune --prune-tags</code></li>
+</ol>
+<h2 id="forks" class="headerLink">
+    <a href="#forks" class="header-mark"></a>Forks</h2><ul>
+<li>Add remote for fork, typically covered with the <code>upstream</code> name: `git remote add upstream {repolink}.</li>
+<li>Reset a forked branch to match the remote upstream resource: <code>git reset --hard upstream/master</code></li>
+</ul>
+<h2 id="resources" class="headerLink">
+    <a href="#resources" class="header-mark"></a>Resources</h2><table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitFixUm <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></td>
+<td>FlowChart Style Help</td>
+</tr>
+</tbody>
+</table>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://stackoverflow.com/questions/18407526/git-how-to-find-first-commit-of-specific-branch" target="_blank" rel="noopener noreferrer">git-how-to-find-first-commit-of-specific-branch</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://sethrobertson.github.io/GitFixUm" target="_blank" rel="noopener noreferrer">GitFixUm</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Git Workflow With Git Town
+    </title>
+    <link>
+        https://www.sheldonhull.com/git-workflow-with-git-town/
+    </link>
+    <pubDate>
+        Tue, 23 Feb 2021 22:23:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/git-workflow-with-git-town/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="resources" class="headerLink">
+    <a href="#resources" class="header-mark"></a>Resources</h2><p><a href="https://bit.ly/2OR6zIf" target="_blank" rel="noopener noreferrer">Git-Town</a></p>
+<h2 id="painful-but-powerful" class="headerLink">
+    <a href="#painful-but-powerful" class="header-mark"></a>Painful But Powerful</h2><p>Let&rsquo;s get this out of the way.</p>
+<p>Git isn&rsquo;t intuitive.</p>
+<p>It has quite a bit of a learning curve.</p>
+<p>However, with this flexibility comes great flexibility.
+This tool has powered so much of modern open-source development.</p>
+<h2 id="optimize-for-the-pain" class="headerLink">
+    <a href="#optimize-for-the-pain" class="header-mark"></a>Optimize for the Pain</h2><p>To improve the development experience some tools can help provide structure.</p>
+<p>This won&rsquo;t be an attempt to compare every git GUI, or push any specific tooling.
+It&rsquo;s more sharing my experience and what I&rsquo;ve found helps accelerate my usage.</p>
+<h2 id="tools-ive-relied-on" class="headerLink">
+    <a href="#tools-ive-relied-on" class="header-mark"></a>Tools I&rsquo;ve Relied On</h2><ul>
+<li><a href="https://bit.ly/2OR6zIf" target="_blank" rel="noopener noreferrer">Git-Town</a></li>
+<li><a href="https://bit.ly/37F8vu1" target="_blank" rel="noopener noreferrer">Bit</a></li>
+<li><a href="https://bit.ly/3boywik" target="_blank" rel="noopener noreferrer">GitHub CLI</a></li>
+<li><a href="https://bit.ly/3pEu8AJ" target="_blank" rel="noopener noreferrer">Git Graph</a></li>
+<li><a href="https://bit.ly/3dBaUcZ" target="_blank" rel="noopener noreferrer">Git Lens</a></li>
+</ul>
+<p>I&rsquo;m not going to go into full detail on each, but check these out to help expedite your workflow.</p>
+<h2 id="the-challenge-in-keeping-up-to-date-with-main" class="headerLink">
+    <a href="#the-challenge-in-keeping-up-to-date-with-main" class="header-mark"></a>The Challenge In Keeping Up To Date With Main</h2><p>I use what&rsquo;s normally called <code>trunk-based</code> development.
+This entails regularly moving commits from branches into the main branch, often rebasing while maintaining it in a functional state.</p>
+<p>I&rsquo;ll create a feature branch, bug fix, or refactor branch and then merge this to <code>main</code> as soon as functional.</p>
+<p>I prefer a rebase approach on my branches, and when many ci/fix type commits, to squash this into a single unit of work as the results of the PR.
+This can result in &ldquo;merge hell&rdquo; as you try rebase on a busy repo.</p>
+<h2 id="enter-git-town" class="headerLink">
+    <a href="#enter-git-town" class="header-mark"></a>Enter Git Town</h2><p>This tool solves so many of the basic workflow issues, that it&rsquo;s become one of the most impactful tools to my daily work.</p>
+<div
+    class="details admonition Tip
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      Enable Aliases
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">The examples that follow use <code>git sync</code>, <code>git hack feat/new-feature</code>, etc as examples because I&rsquo;ve run the command <code>git-town alias true</code> which enables the alias configuration for git town, reducing verbosity.
+Instead of <code>git town sync</code>, you can run <code>git sync</code>.</div>
+    </div>
+  </div>
+<h3 id="example-1-create-a-branch-for-a-new-unit-of-work-while-you-are-already-on-another-branch" class="headerLink">
+    <a href="#example-1-create-a-branch-for-a-new-unit-of-work-while-you-are-already-on-another-branch" class="header-mark"></a>Example 1: Create a Branch for a New Unit of Work While You Are Already On Another Branch</h3><p>Normally this would require:</p>
+<ol>
+<li>Stash/Push current work</li>
+<li>Checkout master</li>
+<li>Fetch latest and pull with rebase</li>
+<li>Resolve any conflicts from rebase</li>
+<li>Create the new branch from main</li>
+<li>Switch to the new branch</li>
+</ol>
+<p>With Git Town</p>
+<ol>
+<li><code>git hack feat/new-feature</code></li>
+</ol>
+<h3 id="example-2-sync-main" class="headerLink">
+    <a href="#example-2-sync-main" class="header-mark"></a>Example 2: Sync Main</h3><p>The following steps would be performed by: <code>git sync</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[master] git fetch --prune --tags
+</span></span><span class="line"><span class="cl">[master] git add -A
+</span></span><span class="line"><span class="cl">[master] git stash
+</span></span><span class="line"><span class="cl">[master] git rebase origin/master
+</span></span><span class="line"><span class="cl">[master] git push --tags
+</span></span><span class="line"><span class="cl">[master] git stash pop
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="example-3-new-branch-from-main" class="headerLink">
+    <a href="#example-3-new-branch-from-main" class="header-mark"></a>Example 3: New Branch From Main</h3><p>Easy to quickly ensure you are up to date with remote and generate a new branch with your current uncommitted changes.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">town</span> <span class="n">hack</span> <span class="n">fix</span><span class="p">/</span><span class="nb">quick-fix</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[master] git fetch --prune --tags
+</span></span><span class="line"><span class="cl">[master] git add -A
+</span></span><span class="line"><span class="cl">[master] git stash
+</span></span><span class="line"><span class="cl">[master] git rebase origin/master
+</span></span><span class="line"><span class="cl">[master] git branch feat/demo-feature master
+</span></span><span class="line"><span class="cl">[master] git checkout feat/demo-feature
+</span></span><span class="line"><span class="cl">[feat/demo-feature] git stash pop
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="example-4-quickly-create-a-pr-while-on-a-branch-for-seperate-set-of-changes" class="headerLink">
+    <a href="#example-4-quickly-create-a-pr-while-on-a-branch-for-seperate-set-of-changes" class="header-mark"></a>Example 4: Quickly Create a PR While On A Branch for Seperate Set of Changes</h3><p>This workflow is far too tedious to do without tooling like this.</p>
+<p>Let&rsquo;s say I&rsquo;m on a branch doing some work, and then I recognize that another bug, doc improvements, or other change unrelated to my current work would be good to submit.</p>
+<p>With git town, it&rsquo;s as simple as:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">town</span> <span class="n">hack</span> <span class="n">feat</span><span class="p">/</span><span class="nb">improve-docs</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I can stage individual lines using VSCode for this fix if I want to, and then after committing:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[feat/demo-feature] git fetch --prune --tags
+</span></span><span class="line"><span class="cl">[feat/demo-feature] git add -A
+</span></span><span class="line"><span class="cl">[feat/demo-feature] git stash
+</span></span><span class="line"><span class="cl">[feat/demo-feature] git checkout master
+</span></span><span class="line"><span class="cl">[master] git rebase origin/master
+</span></span><span class="line"><span class="cl">[master] git branch feat/demo-feature-2 master
+</span></span><span class="line"><span class="cl">[master] git checkout feat/demo-feature-2
+</span></span><span class="line"><span class="cl">[feat/demo-feature-2] git stash pop
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">town</span> <span class="nb">new-pull</span><span class="n">-request</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="example-5-ship-it" class="headerLink">
+    <a href="#example-5-ship-it" class="header-mark"></a>Example 5: Ship It</h3><p>When not using a PR-driven workflow, such as solo projects, then you can still branch and get your work over to main to keep a cleaner history with:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">town</span> <span class="n">ship</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This command ensures all the sync features are run, while then initiating a squash of your branch, allow you to edit the squash message, rebase merge this onto main, and finally clean-up the stale branch.</p>
+<h3 id="more-examples" class="headerLink">
+    <a href="#more-examples" class="header-mark"></a>More Examples</h3><p>Check out the documentation from the creators: <a href="https://bit.ly/3kjgsKy" target="_blank" rel="noopener noreferrer">Git Town Tutorials</a></p>
+<h2 id="other-cool-features" class="headerLink">
+    <a href="#other-cool-features" class="header-mark"></a>Other Cool Features</h2><ul>
+<li>Automatically prune stale branches after PR merge when syncing</li>
+<li>Handles perennial branches if you are using Git Flow methodology.</li>
+<li>Extensible for other git providers.</li>
+<li>Rename a local branch + remote branch in a single command</li>
+<li>Handles a lot of edge cases and failures</li>
+</ul>
+<h2 id="wrap-up" class="headerLink">
+    <a href="#wrap-up" class="header-mark"></a>Wrap-Up</h2><p>When using git, leveraging some tooling like this can accelerate your workflow.
+I don&rsquo;t think you need to be an expert in git to use this, as it helps simplify many workflows that are just too tedious to be diligent on when running manually.</p>
+<p>You can also do much of this with git aliases, but Git Town has a pretty robust feature-set with a testing framework in place, edge condition handling, and it&rsquo;s fast.
+Consider using it you&rsquo;d like to improve your git workflow while simplifying all the effort to do it right.</p>
+<h2 id="backlinks" class="headerLink">
+    <a href="#backlinks" class="header-mark"></a>Backlinks</h2><ul>
+<li><a href="./2021-06-18-git-hub-desktop-quick-look/" rel="">Git Hub Desktop Quick Look</a>
+<ul>
+<li>Update from <code>main</code> already built in.
+This is fantastic, and I can see how this provides a UI to do something similar to <a href="https://www.git-town.com/" target="_blank" rel="noopener noreferrer">Git Town</a> which I blogged on earlier here: <a href="./2021-02-23-git-workflow-with-git-town/" rel="">2021-02-23-git-workflow-with-git-town</a></li>
+</ul>
+</li>
+</ul>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Delta Improves the Git Diff Experience
+    </title>
+    <link>
+        https://www.sheldonhull.com/delta-improves-the-git-diff-experience/
+    </link>
+    <pubDate>
+        Tue, 15 Sep 2020 12:30:23 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/delta-improves-the-git-diff-experience/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Checkout <a href="https://github.com/dandavison/delta" target="_blank" rel="noopener noreferrer">delta</a> for a much-improved git diff experience.
+I typically use VSCode or a GUI based editor because I find the diff view pretty messy by default.</p>
+<p>This new diff view is a perfect example of a simple CLI tool that improves a development workflow by just fixing something I didn&rsquo;t know could easily be fixed. 😀</p>
+<p><figure><a class="lightgallery" href="/images/2020-09-15-git-delta.png" title="delta diff viewer" data-thumbnail="/images/2020-09-15-git-delta.png">
+        
+    </a></figure></p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        2020-07-06T12:00:00-05:00
+    </title>
+    <link>
+        https://www.sheldonhull.com/2020-07-06t12-00/
+    </link>
+    <pubDate>
+        Mon, 06 Jul 2020 12:00:00 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/2020-07-06t12-00/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Windows users, nice little win for making the great git-town tool even more accessible. 🎉</p>
+<ul>
+<li>install scoop: <code>iwr -useb get.scoop.sh | iex</code></li>
+<li><code>scoop install git-town</code></li>
+</ul>
+<p>This is one of my favorite tools for git workflow. If you use GitHub flow to keep a simple workflow, it&rsquo;s a life saver.</p>
+<p>For example, on a branch and need to start a new bit of work to keep your commits atomic? <code>switch to master &gt; stash pending work &gt; pull latest with rebase &gt; create new branch &gt; push branch</code> to remote OR <code>git town hack feat/tacos</code>. Need to squash commits and ship to master? <code>git town ship</code> What about prune all those remote branches that have been merged? <code>git town prune-branches</code> This is one of my favorite git productivity tools (and it&rsquo;s written in Go 👍  so cross platform and fast)</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Improved Windows Terminal Setup
+    </title>
+    <link>
+        https://www.sheldonhull.com/improved-windows-terminal-setup/
+    </link>
+    <pubDate>
+        Mon, 20 Apr 2020 07:00:00 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/improved-windows-terminal-setup/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>I&rsquo;ve long been a Cmder/ConEmu user for Windows as it&rsquo;s provided a much-needed improvement of the standard Windows terminal.</p>
+<p>I&rsquo;ve started trying to use the newer Windows Terminal project to benefit from the improved performance and support, and found getting it up and running with any customizations was a little time consuming and confusing. This wasn&rsquo;t something I&rsquo;d hand off to someone who wasn&rsquo;t looking for experimentation.</p>
+<p>So here it goes! Rather than hunting all around to get a nice start on some default prompts, I&rsquo;ve linked to some gists that can help you get up and running quickly with a few extra perks.</p>
+<h2 id="getting-started" class="headerLink">
+    <a href="#getting-started" class="header-mark"></a>Getting Started</h2><p>This will help you get the terminal installed, along with downloading some settings I&rsquo;ve already pre-setup with keybindings and more.</p>
+<p>To customize your own keybindings, you can go to the <a href="https://github.com/microsoft/terminal/blob/master/doc/cascadia/SettingsSchema.md" target="_blank" rel="noopener noreferrer">profiles.json</a> documentation.</p>
+<script src="https://gist.github.com/sheldonhull/93d8060e6f86e0c46535ef6699d6e0c8.js?file=install-settings.ps1"></script>
+
+<h2 id="improve-your-experience" class="headerLink">
+    <a href="#improve-your-experience" class="header-mark"></a>Improve Your Experience</h2><p>After install, you can run the next command to help you get a better font setup with full support for ligatures and more.</p>
+<script src="https://gist.github.com/sheldonhull/93d8060e6f86e0c46535ef6699d6e0c8.js?file=install-font.ps1"></script>
+
+<p>And after this, if you don&rsquo;t have a nice PowerShell prompt experience, this will help give you a great start. This contains a few things, including <a href="https://starship.rs" target="_blank" rel="noopener noreferrer">starship</a>. This is really useful as it has a library of prompt enhancements baked in. For example, if you are have an AWS profile active, it will display that for reference. It can display an active terraform workspace, git branch info, python virtual environment and more. Definitely a nice quick productivity booster with no real configuration needed to get going.</p>
+<script src="https://gist.github.com/sheldonhull/93d8060e6f86e0c46535ef6699d6e0c8.js?file=configure-profile-prompt.ps1"></script>
+
+<p>If you are wondering why I didn&rsquo;t leave the pretty awesome <code>&quot;useAcrylic&quot;: true</code> on for my main pwsh session, it&rsquo;s because I found the background contrast reduction made it hard to read some darker colors on the prompt.</p>
+<p>Be sure to try out the retro pwsh theme for some nice eye candy.</p>
+<h2 id="the-result" class="headerLink">
+    <a href="#the-result" class="header-mark"></a>The result</h2><p>PowerShell Protip: Note the suggested completion based on prior commands in the pwsh prompt. This is some great prerelease work on a better PSReadline experience with Powershell.</p>
+<p><figure><a class="lightgallery" href="/images/windows-terminal-01.png" title="image of windows terminal" data-thumbnail="/images/windows-terminal-01.png">
+        
+    </a></figure></p>
+<p><figure><a class="lightgallery" href="/images/windows-terminal-02.png" title="images of windows terminal" data-thumbnail="/images/windows-terminal-02.png">
+        
+    </a></figure></p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Quickly Create Github Release via Cli
+    </title>
+    <link>
+        https://www.sheldonhull.com/quickly-create-github-release-via-cli/
+    </link>
+    <pubDate>
+        Wed, 26 Feb 2020 07:00:00 -0600
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/quickly-create-github-release-via-cli/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="intro" class="headerLink">
+    <a href="#intro" class="header-mark"></a>Intro</h2><p>I&rsquo;ve been trying to improve modularization with Terraform.
+Using Terraform Cloud, you get a private module repository.
+The modules are linked to tags in git.</p>
+<p>I&rsquo;ve wanted additionally to specifically create releases for the versions in addition to the tags, to make tracking of usable versions a little cleaner.</p>
+<p>There are several ways to do this, including using the GitHub API, npm modules, and more.
+I wanted a simple CLI tool to do this and ran across this great Go utility that worked seamlessly for me.</p>
+<p>I&rsquo;ve used the <a href="http://bit.ly/2w1fZYu" target="_blank" rel="noopener noreferrer">Hub cli</a> but the create release syntax never really worked for me.</p>
+<h2 id="github-release" class="headerLink">
+    <a href="#github-release" class="header-mark"></a>github-release</h2><p><a href="http://bit.ly/32qoDM9" target="_blank" rel="noopener noreferrer">Github-release</a> is a simple golang cli that worked great for me.
+Note that this is a fork.
+This fork is more up to date than the original.</p>
+<p>With go installed just run this to get it installed and available in <code>PATH</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">go</span> <span class="n">get</span> <span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">itchio</span><span class="p">/</span><span class="n">gothub</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>To simplify GitHub access, ensure you set an environment variable for your user called GITHUB_TOKEN.</p>
+<p>With PowerShell you can do it quickly like this (you might need to close and reopen vscode/terminal for this to be recognized)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl">    <span class="p">[</span><span class="no">System.Environment</span><span class="p">]::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s1">&#39;GITHUB_TOKEN&#39;</span><span class="p">,</span><span class="s1">&#39;tokenhere&#39;</span><span class="p">,</span><span class="s1">&#39;User&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="usage" class="headerLink">
+    <a href="#usage" class="header-mark"></a>Usage</h2><p>To use this, you can chain together some steps and see how it can save you time on creating a GitHub release.</p>
+<script src="https://gist.github.com/sheldonhull/53055bbff368a4ebe4e0794076a56c37.js"></script>
+
+<p>This helped me get moving faster ⚡ on using Github releases without the tedious work to create.
+If this helped you or have any feedback, drop a comment below and let me know!
+The comments are powered by Utterances which will open a Github issue to discuss further. 👍</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Git Cracking
+    </title>
+    <link>
+        https://www.sheldonhull.com/git-cracking/
+    </link>
+    <pubDate>
+        Thu, 29 Mar 2018 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/git-cracking/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <div
+    class="details admonition info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-info-circle fa-fw"
+      ></i>
+      Resources
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><ul>
+<li><a href="http://bit.ly/2J6a4mW" target="_blank" rel="noopener noreferrer">GitKraken</a></li>
+<li><a href="http://bit.ly/2pPQeUU" target="_blank" rel="noopener noreferrer">Source Tree</a></li>
+<li><a href="http://bit.ly/2pOPLm6" target="_blank" rel="noopener noreferrer">Posh-Git</a></li>
+<li><a href="http://bit.ly/2GnxzpH" target="_blank" rel="noopener noreferrer">Cmder</a></li>
+</ul>
+</div>
+    </div>
+  </div>
+<h2 id="git-some-pain" class="headerLink">
+    <a href="#git-some-pain" class="header-mark"></a>Git Some Pain</h2><p>Having come from a Team Foundation Server background, I found Git to be a bit confusing. The problem is primarily the big difference in a distributed version control system vs non-distributed. In addition to that complexity the terminology is not exactly intuitive. A lot of phrases like <code>PULL</code> have different results depending on what step you are in.</p>
+<h3 id="heres-your-sign" class="headerLink">
+    <a href="#heres-your-sign" class="header-mark"></a>Here&rsquo;s Your Sign</h3><p>Here&rsquo;s my version of &ldquo;Here&rsquo;s Your Sign&rdquo; For Newbie Git Users That Are Coming from TFS Background</p>
+<p>You Must a TFS&rsquo;er using Git when&hellip;</p>
+<ul>
+<li>You commit changes, and refresh the TFS Source Control Server website trying to see your changes&hellip; but nothing &hellip; ever&hellip; changes.</li>
+<li>You pull changes to get things locally, but then get confused about why you are submitting a <code>pull request</code> to give someone else changes?</li>
+<li>You want to use a GUI</li>
+<li>You use force options often because: 1) You are used to forcing <code>Get Latest</code> to fix esoteric issues 2) Force makes things work better in TFS (no comment)</li>
+<li>You are googling ways to forcibly reset your respository to one version because you don&rsquo;t know what the heck is out of sync and are tired of merging your own mistakes.</li>
+<li>You think branching is a big deal</li>
+<li>You think it&rsquo;s magical that you can download a Git repo onto a phone, edit, commit, and all without a Visual Studio Installation taking up half your lifespan.</li>
+</ul>
+<p>I claim I&rsquo;m innocent of any of those transgressions.
+And yes, I use command line through Cmder to get pretend some geek cred, then I go back to my GUI. :-) I have more to learn before I become a Git command line pro. I need pictures.</p>
+<h2 id="the-key-difference-from-tfs" class="headerLink">
+    <a href="#the-key-difference-from-tfs" class="header-mark"></a>The Key Difference From TFS</h2><p>The biggest difference to wrap my head around, was that I was working with a DVCS (Distributed Version Control System). This is a whole different approach than TFS, though they have many overlaps. I won&rsquo;t go into the pros/cons list in detail but here&rsquo;s the basics I&rsquo;ve <em>pulled</em> (pun intended) from this.</p>
+<h3 id="pros" class="headerLink">
+    <a href="#pros" class="header-mark"></a>Pros</h3><ul>
+<li>I can save my work constantly in a local commit before I need to send remotely (almost like if I did shelves for each piece of work, and finally when <code>pushing</code> to server I&rsquo;d be sending all my work with history/combined history)</li>
+<li>File Based Workspace. Local Workspaces in TFS have benefit of recognizing additions and other changes, but it&rsquo;s tedious to do. Git makes this much cleaner.</li>
+<li>Branching! Wow. This is the best. I honestly don&rsquo;t mess around with branching in TFS. It has more overhead from what I&rsquo;ve seen, and is not some lightweight process that&rsquo;s constantly used for experimentation. (Comment if you feel differently, I&rsquo;m not a pro at TFS branching). With Git, I finally realized that instead of sitting on work that was in progress and might break something I could branch, experiment and either merge or discard all very easily. This is probably my favorite thing. I&rsquo;ll be using this a lot more.</li>
+</ul>
+<h3 id="cons" class="headerLink">
+    <a href="#cons" class="header-mark"></a>Cons</h3><ul>
+<li>The wording.</li>
+<li>More complicated merging and branching seem a little more complex with DVCS than non distributed like TFS, but that&rsquo;s just my high level impression. YMMV</li>
+</ul>
+<h2 id="gitkraken" class="headerLink">
+    <a href="#gitkraken" class="header-mark"></a>GitKraken</h2><p><a href="http://bit.ly/2J6a4mW" target="_blank" rel="noopener noreferrer">GitKraken</a>, a Git GUI to solve your learning woes.</p>
+<h3 id="git-gui-goodness" class="headerLink">
+    <a href="#git-gui-goodness" class="header-mark"></a>Git GUI Goodness</h3><p>I&rsquo;m a Powershell prompt addict. I prefer command line when possible.
+However, I think GitKraken helped make this process a bit easier for me.
+I was using <code>posh-git</code> and Cmder initially, then Vscode with GitLens.
+However, other than basic commit/pull, I&rsquo;ve found myself relying on GitKraken a lot more, as it&rsquo;s just fast, intuitive and easier to understand with my addled brain.
+<em>I&rsquo;d rather leave energy for figuring out how to get <a href="/bad-idea-jeans-query-optimization-through-minification/" rel="">Query Optimization Through Minification</a></em></p>
+<h3 id="timeline" class="headerLink">
+    <a href="#timeline" class="header-mark"></a>Timeline</h3><p>To be honest, their timeline view and the navigation and staging of the changes seemed pretty intuitive to me compared to what I&rsquo;d seen in other tools. Overall, I found it easier to wrap my head around the concepts of Git with it, and less fear of merging changes from remote as I was able to easily review and accept changes through it&rsquo;s built in merging tool.</p>
+<p><figure><a class="lightgallery" href="/images/2018-03-26_9-08-39-GitKrakenTimeline.png" title="GitKraken" data-thumbnail="/images/2018-03-26_9-08-39-GitKrakenTimeline.png">
+        
+    </a></figure></p>
+<h3 id="overall-impression" class="headerLink">
+    <a href="#overall-impression" class="header-mark"></a>Overall Impression</h3><p>Overall impression is positive. I&rsquo;d say it&rsquo;s a nice solution to help with understanding and getting up and running faster than some other solutions, or using Git via command line along. While that&rsquo;s a worthy goal, being able to easily review changes, amend commits, pull and merge remote changes from multiple sources, and other things, I&rsquo;m not sure a newbie could do all at any time near what a little effort in GitKraken would provide. So overall, it&rsquo;s a win. I&rsquo;ve used it for this blog and am pretty darn happy with it. The cost for professional if using in a work environment with the need for better profile handling, integration with VSTS and other services is a reasonable cost. For those just working with some Github open source repos and Jekyll blogs, they have a free community version, so it&rsquo;s a win!</p>
+<h2 id="a-free-alternative" class="headerLink">
+    <a href="#a-free-alternative" class="header-mark"></a>A Free Alternative</h2><p>Source Tree from Atlassian is a pretty solid product as well that I&rsquo;ve used. Unfortunatelym I&rsquo;ve had stability issues with it lately, and it lacks the most important feature required for all good code tools&hellip; a dark theme :-)&hellip; on Windows at least as of now. No success getting dark theme traction except on Mac. -1 demerits for this omission! Overall it has promise, but it tends towards so many options it can be daunting. I&rsquo;d lean towards the implementation by GitKraken being much cleaner, designed for simplicity and flexibility.</p>
+<p><em>Disclaimer: I like to review developer software from time to time, and occcasionally recieve a copy to continue using. This does not impact my reviews whatsoever, as I only use the stuff I find helpful that might be worth sharing. Good software makes the world go round!</em></p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

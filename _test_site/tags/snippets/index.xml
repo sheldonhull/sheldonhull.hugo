@@ -1,0 +1,84 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Snippets - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/snippets/</link>
+        <description>Snippets - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 17 Jun 2020 22:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/snippets/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        2020-06-17T22:32:32&#43;00:00
+    </title>
+    <link>
+        https://www.sheldonhull.com/2020-06-17t223232-0000/
+    </link>
+    <pubDate>
+        Wed, 17 Jun 2020 22:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/2020-06-17t223232-0000/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Here&rsquo;s a cool way to visualize runspaces and how they work asynchronously.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$IndentLevel</span> <span class="p">=</span> <span class="mf">2</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Get-Random</span><span class="p">;</span> <span class="vm">@</span><span class="p">(</span><span class="mf">1</span><span class="p">.</span><span class="mf">.100</span><span class="p">)</span> <span class="p">|</span> <span class="nb">ForEach-Object</span> <span class="n">-Parallel</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$i</span> <span class="p">=</span> <span class="nv">$_</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Start-Sleep</span> <span class="n">-Milliseconds</span> <span class="p">(</span><span class="nb">Get-Random</span> <span class="n">-Minimum</span> <span class="mf">100</span> <span class="n">-Maximum</span> <span class="mf">1500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;{0,</span><span class="p">$(</span><span class="nv">$i</span> <span class="p">*</span> <span class="nv">$using</span><span class="err">:</span><span class="n">IndentLevel</span><span class="p">)</span><span class="s2">}&#34;</span> <span class="o">-f</span> <span class="nv">$i</span> <span class="p">|</span> <span class="nb">Write-Host</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The random delay can help show how some tasks finish out of order.
+For example, running that might result in this in the console:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">       4
+</span></span><span class="line"><span class="cl"> 1
+</span></span><span class="line"><span class="cl">     3
+</span></span><span class="line"><span class="cl">   2
+</span></span><span class="line"><span class="cl">             7
+</span></span><span class="line"><span class="cl">         5
+</span></span><span class="line"><span class="cl">                 9
+</span></span><span class="line"><span class="cl">           6
+</span></span><span class="line"><span class="cl">                  10
+</span></span><span class="line"><span class="cl">               8
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

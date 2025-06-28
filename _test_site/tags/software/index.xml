@@ -1,0 +1,111 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Software - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/software/</link>
+        <description>Software - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 05 Jul 2021 07:00:00 -0500</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/software/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Luminar AI
+    </title>
+    <link>
+        https://www.sheldonhull.com/luminar-ai/
+    </link>
+    <pubDate>
+        Mon, 05 Jul 2021 07:00:00 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/luminar-ai/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <div
+    class="details admonition Note
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      Update
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>Customer service bumped my older version of Luminar 3 to 4.
+The issues with distortion on the preview screen aren&rsquo;t there with version 4.</p>
+<p>The new AI enhancements aren&rsquo;t there, so it&rsquo;s missing some of the new features.
+For now I&rsquo;m going to try and use this as my daily driver for images and see how it goes.</p>
+<p>Positive experience so far, though I still miss the fluid experience of Lightroom&rsquo;s preview modes.</p>
+</div>
+    </div>
+  </div>
+<h2 id="my-credentials" class="headerLink">
+    <a href="#my-credentials" class="header-mark"></a>My Credentials</h2><p>None. 😀</p>
+<p>I&rsquo;m a software engineer working with AWS mostly.</p>
+<p>I&rsquo;d be considered a &ldquo;prosumer&rdquo; with video and photography, in that I use high quality gear when possible, have comfort with professional video editing software, and have used Photoshop, Lightroom, Gimp, and other tools of a similar nature.</p>
+<p>This is a quick review from someone who found Lightroom to overall a freeing experiencing in photography workflow.</p>
+<p>For my occasional usage, I&rsquo;m not excited to pay the subscription fee, so my Lightroom 6 standalone license is all I&rsquo;ve continued with.</p>
+<h2 id="scope" class="headerLink">
+    <a href="#scope" class="header-mark"></a>Scope</h2><ul>
+<li>
+<p>Casual impressions only.</p>
+</li>
+<li>
+<p>This is not in-depth review from a photography specialist.</p>
+</li>
+<li>
+<p>My focus is:</p>
+<ul>
+<li>user experience</li>
+<li>application stability</li>
+<li>lock-in</li>
+<li>library management (the one thing Lightroom seems to do better than any other app I&rsquo;ve tried)</li>
+</ul>
+</li>
+</ul>
+<h2 id="first-look" class="headerLink">
+    <a href="#first-look" class="header-mark"></a>First Look</h2><p>The very first look of the library view was pretty bad.</p>
+<p>I&rsquo;m not certain what&rsquo;s going on, but the raw file previews in the library view loaded in a way that made my daughter look like she was being viewed through one of those warping mirrors.</p>
+<p><figure><a class="lightgallery" href="/images/2021-05-24-16.46.05-luminar-ai.png" title="2021-05-24-16.46.05-Luminar AI" data-thumbnail="/images/2021-05-24-16.46.05-luminar-ai.png" data-sub-html="<h2>library preview distorted in AI edition</h2><p>2021-05-24-16.46.05-Luminar AI</p>">
+        
+    </a><figcaption class="image-caption">library preview distorted in AI edition</figcaption>
+    </figure></p>
+<p>The library management workflow was pretty snappy, so I was overall happy with that.</p>
+<p>I do miss Lightroom Survey view, but no other app has had that kind of compare interface that I&rsquo;ve discovered so far.</p>
+<h2 id="templates" class="headerLink">
+    <a href="#templates" class="header-mark"></a>Templates</h2><p>The template presets for portrait did well out of the gate.</p>
+<p>I was even able to enhance the eyes and change the color of the eyes completely with a few clicks.</p>
+<p>A few preset adjustments such as &ldquo;Face AI&rdquo; allowed editing the light on the face to help brighten just the face without any need to mask.</p>
+<h2 id="editing" class="headerLink">
+    <a href="#editing" class="header-mark"></a>Editing</h2><p>🔳 Many of the AI powered tools were gimmicky to me.</p>
+<p>🔳 Mystical, Glow, Dramatic, all tended to be pretty over the top when max, though perhaps a little touch of each might work.</p>
+<p>✅ The composition auto leveler was nice.</p>
+<p>✅ Enhance tool was subtle and tasteful</p>
+<p>✅ The ability to apply a preset then jump tweaking the presets applied changes was intuitive and well done.</p>
+<p>✅ The erase tool did great at removing a sign from a brick wall with seconds of effort.</p>
+<h2 id="overall-verdict" class="headerLink">
+    <a href="#overall-verdict" class="header-mark"></a>Overall Verdict</h2><p>Overall good quick intuitive workflow.</p>
+<p>Value propisition is more difficult to determine.</p>
+<p>I had Luminar 2018 and Luminar 3. Both weren&rsquo;t a great experience on the PC and never really got much value from them.</p>
+<p>I could see this being a viable raw editing workflow for me though, considering the overall license cost would be significantly less than many other competitors.</p>
+<p><figure><a class="lightgallery" href="/images/2021-05-24-18.20.37-luminar-ai.png" title="2021-05-24-18.20.37-Luminar AI" data-thumbnail="/images/2021-05-24-18.20.37-luminar-ai.png" data-sub-html="<h2>All Photos View</h2><p>2021-05-24-18.20.37-Luminar AI</p>">
+        
+    </a><figcaption class="image-caption">All Photos View</figcaption>
+    </figure></p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

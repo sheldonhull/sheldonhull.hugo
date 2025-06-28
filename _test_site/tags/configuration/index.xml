@@ -1,0 +1,62 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Configuration - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/configuration/</link>
+        <description>Configuration - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 24 May 2017 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/configuration/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Running InfluxDB as a service in Windows
+    </title>
+    <link>
+        https://www.sheldonhull.com/running-influx-db-as-a-service-in-windows/
+    </link>
+    <pubDate>
+        Wed, 24 May 2017 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/running-influx-db-as-a-service-in-windows/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="run-as-a-service" class="headerLink">
+    <a href="#run-as-a-service" class="header-mark"></a>Run as a Service</h2><p>As part of the process to setup some metrics collections for sql-server based on perfmon counters I&rsquo;ve been utilizing InfluxDB. Part of getting started on this is ensuring InfluxDB runs as a service instead of requiring me to launch the exe manually. For more information on InfluxDb, see my other post: <a href="/running-influx-db-as-a-service-in-windows/" rel="">Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev</a></p>
+<p>This of course, did not go without it&rsquo;s share of investigation since I&rsquo;m working with a compiled executable that was originally built in <code>GO</code>. I had issues registering InfluxDB as a service. This is typically due to enviromental/path variables. In my powershell launch of <code>InfluxD.exe</code> I typically used a script like the following:</p>
+<script src="https://gist.github.com/sheldonhull/6f4e11d60244af00edac438cb9ae6ea5.js"></script>
+
+<p>I investigated running as a service and found a great reminder on using NSSM for this: <a href="http://bit.ly/2pDW65t" target="_blank" rel="noopener noreferrer">Running Go executables &hellip; as windows services &rsquo; Ricard Clau</a> I went and downloaded NSSM again and first setup and register of the service went without a hitch, unlike my attempt at running <code>New-service -name 'InfluxDB' -BinaryPathName 'C:\Influx\influxdb\InfluxD.exe' -DisplayName 'InfluxDB' -StartupType Automatic -Credential (get-credential)</code>. I&rsquo;m pretty sure the core issue was the <code>PATH</code> variables and other related enviromental paths were not setup with &ldquo;working directory&rdquo; being the InfluxDB which would be expected by it.</p>
+<h2 id="nssm---non-sucking-service-managerhttpbitly2pdtr25" class="headerLink">
+    <a href="#nssm---non-sucking-service-managerhttpbitly2pdtr25" class="header-mark"></a><a href="http://bit.ly/2pDTR25" target="_blank" rel="noopener noreferrer">NSSM - Non-Sucking Service Manager</a></h2><p>Using <code>nssm install</code> provided the GUI which I used in this case. Using the following command I was able to see the steps taken to install, which would allow reproducing the install from a .bat file very easily.</p>
+<pre><code>set-location C:\tools
+.\nssm.exe dump InfluxDB
+</code></pre>
+<p>This resulted in the following output:</p>
+<pre><code>C:\tools\nssm.exe install InfluxDB C:\Influx\influxdb\influxd.exe
+C:\tools\nssm.exe set InfluxDB AppDirectory C:\Influx\influxdb
+C:\tools\nssm.exe set InfluxDB AppExit Default Restart
+C:\tools\nssm.exe set InfluxDB AppEvents Start/Pre C:\Influx\influxdb\influx.exe
+C:\tools\nssm.exe set InfluxDB AppEvents Start/Post C:\Influx\influxdb\influx.exe
+C:\tools\nssm.exe set InfluxDB AppNoConsole 1
+C:\tools\nssm.exe set InfluxDB AppRestartDelay 60000
+C:\tools\nssm.exe set InfluxDB DisplayName InfluxDB
+C:\tools\nssm.exe set InfluxDB ObjectName SERVICENAME &quot;PASSWORD&quot;
+C:\tools\nssm.exe set InfluxDB Start SERVICE_AUTO_START
+C:\tools\nssm.exe set InfluxDB Type SERVICE_WIN32_OWN_PROCESS
+</code></pre>
+<p>Pretty awesome! It&rsquo;s a nice change to have something perfectly the first time with no issues.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

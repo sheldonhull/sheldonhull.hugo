@@ -1,0 +1,8 @@
+# 2019-05-31T19:00:42.000&#43;00:00
+
+I&#39;d read about Terraform 0.12 and thought it was much further out, so moved on with regret from evaluating the massive number of improvements. Just found out it was released, and `choco upgrade terraform -y` provided me with a delightful `0.12` upgrade. If you haven&#39;t explored it yet, go do it!
+
+Things like loops, no longer having to reference any variable with string interpolation, and more promises to make this a big productivity improvement for those enjoying Terraform.
+
+If you aren&#39;t using any _Infrastructure-As-Code_ approach right now, you&#39;ll find it initially a little confusing, but get past that and you&#39;ll wonder how you ever lived without it.
+

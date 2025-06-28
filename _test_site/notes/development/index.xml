@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development on sheldonhull.com</title>
+    <link>https://www.sheldonhull.com/notes/development/</link>
+    <description>Recent content in Development on sheldonhull.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <atom:link href="https://www.sheldonhull.com/notes/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>observability</title>
+      <link>https://www.sheldonhull.com/notes/development/observability/observability/</link>
+      <pubDate>Thu, 13 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.sheldonhull.com/notes/development/observability/observability/</guid>
+      <description>Some notes related to observability, monitoring, and alerting.</description>
+    </item>
+    <item>
+      <title>shell</title>
+      <link>https://www.sheldonhull.com/notes/development/shell/shell/</link>
+      <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.sheldonhull.com/notes/development/shell/shell/</guid>
+      <description>A cheatsheet for some bash stuff. I really ♥️ pwsh&amp;hellip; but acknowledge it&amp;rsquo;s not everyone&amp;rsquo;s cup of tea. This page helps me get by with being a terrible basher</description>
+    </item>
+    <item>
+      <title>kubernetes</title>
+      <link>https://www.sheldonhull.com/notes/development/kubernetes/kubernetes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.sheldonhull.com/notes/development/kubernetes/kubernetes/</guid>
+      <description>Deployment Tips What imagePullPolicy should I use? Even if the imagePullPolicy property is set to Always, it&amp;rsquo;s still efficient, provided the registry is reliably accessible, due to the caching semantics of the underlying image provider.image-policy&#xA;Troubleshooting Error: ImagePullBackOff As elucidated in a Stack Overflow answer, pre-pulled-images were the solution to my problem.&#xA;Complexities can arise from using abstraction tools. The predefined image policies exert a greater influence on the behavior than initially expected.</description>
+    </item>
+    <item>
+      <title>Level-Up</title>
+      <link>https://www.sheldonhull.com/notes/development/level-up/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.sheldonhull.com/notes/development/level-up/</guid>
+      <description>LanguagesTracking my progress.&#xA;VBA1 SQL Batch PowerShell Python Pandas &amp;amp; Data Science Building a web server Building a TUI Go Automation &amp;amp; DevOps Lambda/Serverless Charm TUI Partial components Full reactive &amp;ldquo;Elm&amp;rdquo; based design CLI helper tools DDD (Domain-Driven Design) for complex projects Designing APIs with versioning support (such as v1/v2 running concurrently) Kubernetes Operator Shell2 TypeScript Building a raycast extension Building a VSCode extension Rust - Someday! Zig Infra Use Pulumi to deploy an entire cluster with backups and everything from scratch.</description>
+    </item>
+  </channel>
+</rss>

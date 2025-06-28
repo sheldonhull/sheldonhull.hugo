@@ -1,0 +1,41 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Digital Nomad Observations - Series - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/series/digital-nomad-observations/</link>
+        <description>Digital Nomad Observations - Series - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 06 Nov 2023 13:56:58 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/series/digital-nomad-observations/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Region &amp; Language Defaults
+    </title>
+    <link>
+        https://www.sheldonhull.com/region-and-language-defaults/
+    </link>
+    <pubDate>
+        Mon, 06 Nov 2023 13:56:58 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/region-and-language-defaults/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Language defaults seem to be an interesting mix when it comes to websites.
+The results that show up for a different search region can also be different based on Google&rsquo;s docs <a href="https://support.google.com/websearch/answer/873?hl=en&amp;co=GENIE.Platform%3DDesktop&amp;sjid=15123736862072240189-EU" target="_blank" rel="noopener noreferrer">Search Region</a></p>
+<p>One video streaming site refused to show me subtitles in English without me using a VPN to appear as a US member.
+My quick search through some posts on reddit and the like show this can be a really inconsistent mess depending on the site.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

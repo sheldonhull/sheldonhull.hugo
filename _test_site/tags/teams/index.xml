@@ -1,0 +1,41 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Teams - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/teams/</link>
+        <description>Teams - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 30 Jul 2020 12:00:00 -0500</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/teams/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        random-microsoft-teams-quirks-01
+    </title>
+    <link>
+        https://www.sheldonhull.com/random-microsoft-teams-quirks-01/
+    </link>
+    <pubDate>
+        Thu, 30 Jul 2020 12:00:00 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/random-microsoft-teams-quirks-01/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <ul>
+<li>Using <code>cmd+=</code> results in zooming to 120%,145%,170%</li>
+<li>Using <code>cmd+-</code> results in zooming out to 85%, 70%, 60%</li>
+</ul>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

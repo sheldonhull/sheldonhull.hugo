@@ -1,0 +1,466 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Tooling - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/tooling/</link>
+        <description>Tooling - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://www.sheldonhull.com/tags/tooling/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        aqua
+    </title>
+    <link>
+        https://www.sheldonhull.com/notes/development/tooling/aqua/
+    </link>
+    <pubDate>
+        Mon, 01 Jan 0001 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/notes/development/tooling/aqua/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="aqua-overview" class="headerLink">
+    <a href="#aqua-overview" class="header-mark"></a>Aqua Overview</h2><p>A CLI version manager for the discriminating CLI connoisseur, this tool is great to install binaries both at a global level and a project level.
+If you are using <code>asdf</code>, I highly recommend this as an alternative, with the caveat of it not managing python, ruby, or other runtimes.
+It&rsquo;s focused on CLI development tools, and providing a global or project-level version configuration that automatically installs on demand.</p>
+<p>Aqua runs as a proxy for the invoked CLIs, which means it <a href="https://aquaproj.github.io/docs/tutorial/lazy-install" target="_blank" rel="noopener noreferrer">automatically handles installing the called tool</a> if it&rsquo;s missing, on demand, further cutting down initial setup time.</p>
+<p>You can even use it in <a href="https://aquaproj.github.io/docs/guides/build-container-image" target="_blank" rel="noopener noreferrer">docker images</a> or CI and have a single version pinned file helping the local and CI tools be similar.</p>
+<p>It&rsquo;s more secure than <code>asdf</code> by <a href="https://aquaproj.github.io/docs/reference/restriction/#aqua-doesnt-support-running-any-external-commands-to-install-tools" target="_blank" rel="noopener noreferrer">default</a>.</p>
+<h2 id="quick-start" class="headerLink">
+    <a href="#quick-start" class="header-mark"></a>Quick Start</h2><p><a href="https://aquaproj.github.io/docs/tutorial" target="_blank" rel="noopener noreferrer">Quick Start</a> includes install commands to setup.</p>
+<p>I use curl-based install mostly: <a href="https://aquaproj.github.io/docs/tutorial/#install-aqua" target="_blank" rel="noopener noreferrer">Install</a></p>
+<h3 id="install-with-brew" class="headerLink">
+    <a href="#install-with-brew" class="header-mark"></a>&ldquo;install with brew&rdquo;</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">brew install aquaproj/aqua/aqua
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="install-with-go" class="headerLink">
+    <a href="#install-with-go" class="header-mark"></a>&ldquo;install with go&rdquo;</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pwsh -NoLogo -Command <span class="s2">&#34;go install github.com/aquaproj/aqua/v2/cmd/aqua@latest&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="update-your-path" class="headerLink">
+    <a href="#update-your-path" class="header-mark"></a>Update Your Path</h2><h3 id="macoslinux" class="headerLink">
+    <a href="#macoslinux" class="header-mark"></a>&ldquo;macOS/Linux&rdquo;</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">AQUA_ROOT_DIR</span><span class="k">:-</span><span class="si">${</span><span class="nv">XDG_DATA_HOME</span><span class="k">:-</span><span class="nv">$HOME</span><span class="p">/.local/share</span><span class="si">}</span><span class="p">/aquaproj-aqua</span><span class="si">}</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The options below are one for max flexibility in honoring the XDG_Directory standard; the other just assumes <code>.local</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$ENV:XDG_CONFIG_HOME</span> <span class="p">=</span> <span class="nv">$ENV:XDG_CONFIG_HOME</span> <span class="p">?</span> <span class="nv">$ENV:XDG_CONFIG_HOME</span> <span class="err">:</span> <span class="p">(</span><span class="nb">Join-Path</span> <span class="nv">$HOME</span> <span class="s1">&#39;.config&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$ENV:XDG_CACHE_HOME</span> <span class="p">=</span> <span class="nv">$ENV:XDG_CACHE_HOME</span> <span class="p">?</span> <span class="nv">$ENV:XDG_CACHE_HOME</span> <span class="err">:</span> <span class="p">(</span><span class="nb">Join-Path</span> <span class="nv">$HOME</span> <span class="s1">&#39;.cache&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$ENV:XDG_DATA_HOME</span> <span class="p">=</span> <span class="nv">$ENV:XDG_DATA_HOME</span> <span class="p">?</span> <span class="nv">$ENV:XDG_DATA_HOME</span> <span class="err">:</span> <span class="p">(</span><span class="nb">Join-Path</span> <span class="nv">$HOME</span> <span class="s1">&#39;.local&#39;</span> <span class="s1">&#39;share&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$ENV:PATH</span> <span class="p">=</span> <span class="p">([</span><span class="no">io.path</span><span class="p">]::</span><span class="n">Combine</span><span class="p">(</span><span class="nv">$HOME</span><span class="p">,</span><span class="s1">&#39;.local&#39;</span><span class="p">,</span><span class="s1">&#39;share&#39;</span><span class="p">,</span><span class="s1">&#39;aquaproj-aqua&#39;</span><span class="p">,</span> <span class="s1">&#39;bin&#39;</span><span class="p">)),</span> <span class="nv">$ENV:PATH</span> <span class="n">-join</span> <span class="p">[</span><span class="no">IO.Path</span><span class="p">]::</span><span class="n">PathSeparator</span>
+</span></span><span class="line"><span class="cl"><span class="c"># OR FOR MAX FLEXIBILITY</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$ENV:PATH</span> <span class="p">=</span> <span class="p">([</span><span class="no">io.path</span><span class="p">]::</span><span class="n">Combine</span><span class="p">(</span><span class="nv">$ENV:XDG_DATA_HOME</span><span class="p">,</span> <span class="s1">&#39;aquaproj-aqua&#39;</span><span class="p">,</span> <span class="s1">&#39;bin&#39;</span><span class="p">)),</span> <span class="nv">$ENV:PATH</span> <span class="n">-join</span> <span class="p">[</span><span class="no">IO.Path</span><span class="p">]::</span><span class="n">PathSeparator</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="windows" class="headerLink">
+    <a href="#windows" class="header-mark"></a>&ldquo;windows&rdquo;</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">[</span><span class="no">Environment</span><span class="p">]::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s1">&#39;PATH&#39;</span><span class="p">,</span> <span class="p">((</span><span class="nb">Join-Path</span> <span class="nv">$ENV:LOCALAPPDATA</span> <span class="s1">&#39;aquaproj-aqua&#39;</span> <span class="s1">&#39;bin&#39;</span><span class="p">)</span> <span class="p">,</span> <span class="nv">$ENV:PATH</span> <span class="n">-join</span> <span class="p">[</span><span class="no">IO.Path</span><span class="p">]::</span><span class="n">PathSeparator</span><span class="p">),</span> <span class="s1">&#39;Machine&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$ENV:PATH</span> <span class="p">=</span> <span class="p">((</span><span class="nb">Join-Path</span> <span class="nv">$ENV:LOCALAPPDATA</span> <span class="s1">&#39;aquaproj-aqua&#39;</span> <span class="s1">&#39;bin&#39;</span><span class="p">)</span> <span class="p">,</span> <span class="nv">$ENV:PATH</span> <span class="n">-join</span> <span class="p">[</span><span class="no">IO.Path</span><span class="p">]::</span><span class="n">PathSeparator</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="global-tooling-setup" class="headerLink">
+    <a href="#global-tooling-setup" class="header-mark"></a>Global Tooling Setup</h2><p>To create these files, navigate to the directory and run <code>aqua init &amp;&amp; aqua init-policy</code>.</p>
+<p>Run <code>aqua policy allow &quot;${XDG_CONFIG_HOME:-$HOME/.config}/aqua/aqua-policy.yaml&quot;</code> to allow global tooling that&rsquo;s customized.</p>
+<h3 id="linuxdarwin" class="headerLink">
+    <a href="#linuxdarwin" class="header-mark"></a>&ldquo;linux/darwin&rdquo;</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">AQUA_ROOT_DIR</span><span class="k">:-</span><span class="si">${</span><span class="nv">XDG_DATA_HOME</span><span class="k">:-</span><span class="nv">$HOME</span><span class="p">/.local/share</span><span class="si">}</span><span class="p">/aquaproj-aqua</span><span class="si">}</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">AQUA_GLOBAL_CONFIG</span><span class="o">=</span><span class="si">${</span><span class="nv">XDG_CONFIG_HOME</span><span class="k">:-</span><span class="nv">$HOME</span><span class="p">/.config</span><span class="si">}</span>/aqua/aqua.yaml
+</span></span><span class="line"><span class="cl"><span class="c1"># export AQUA_POLICY_CONFIG=${XDG_CONFIG_HOME:-$HOME/.config}/aqua/aqua-policy.yaml</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="windows-1" class="headerLink">
+    <a href="#windows-1" class="header-mark"></a>&ldquo;windows&rdquo;</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl">  <span class="nv">$RootLocation</span> <span class="p">=</span> <span class="nv">$ENV:AQUA_ROOT_DIR</span> <span class="p">??</span> <span class="p">(</span><span class="nb">Join-Path</span> <span class="nv">$ENV:XDG_DATA_HOME</span>  <span class="s1">&#39;aquaproj-aqua&#39;</span> <span class="s1">&#39;bin&#39;</span><span class="p">)</span> <span class="p">??</span> <span class="p">(</span><span class="nb">Join-Path</span> <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.local/share&#34;</span>  <span class="s1">&#39;aquaproj-aqua&#39;</span> <span class="s1">&#39;bin&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$RootLocationWithBin</span> <span class="p">=</span> <span class="nb">Join-Path</span> <span class="nv">$RootLocation</span> <span class="s1">&#39;bin&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$ENV:PATH</span> <span class="p">=</span> <span class="nv">$RootLocationWithBin</span><span class="p">,</span> <span class="nv">$ENV:PATH</span> <span class="n">-join</span> <span class="p">[</span><span class="no">IO.Path</span><span class="p">]::</span><span class="n">PathSeparator</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="example-global-config" class="headerLink">
+    <a href="#example-global-config" class="header-mark"></a>Example Global Config</h2><p>Here&rsquo;s an example of what I drop into the global config for managing my global default for Go and other common CLI tools.</p>
+<h3 id="aquayaml" class="headerLink">
+    <a href="#aquayaml" class="header-mark"></a>&ldquo;aqua.yaml&rdquo;</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># aqua - Declarative CLI Version Manager</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># https://aquaproj.github.io/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">checksum</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">require_checksum</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">registries</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">standard</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ref: v4.15.0 # renovate</span><span class="p">:</span><span class="w"> </span><span class="l">depName=aquaproj/aqua-registry</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">local</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">local</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">registry.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">packages</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">golang/go@go1.20.4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">git-town/git-town@v7.9.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">golangci/golangci-lint@v1.52.2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">itchyny/gojq@v0.12.12</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">dandavison/delta@0.15.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">junegunn/fzf@0.40.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">sharkdp/bat@v0.23.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">magefile/mage@v1.15.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">starship/starship@v1.14.2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">BurntSushi/ripgrep@13.0.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">sharkdp/fd@v8.7.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">x-motemen/ghq@v1.4.2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">helm/helm@v3.12.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-sigs/kind@v0.19.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes/kubectl</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l">v1.25.2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Schniz/fnm@v1.33.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ajeetdsouza/zoxide@v0.9.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">miniscruff/changie@v1.12.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">direnv/direnv@v2.32.3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># ... more packages here like minikube, charm tooling like gum, etc. All lazy installed `--only-link` or pre-installed with normal `aqua i`.</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="registryyaml" class="headerLink">
+    <a href="#registryyaml" class="header-mark"></a>&ldquo;registry.yaml&rdquo;</h3><p>This is the custom location for packages not in the standard registry.
+While I recommend contributing upstream (it&rsquo;s really simple), sometimes less shareable tools for specific needs make sense to include here.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">packages</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">go_install</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mage-select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">github.com/iwittkau/mage-select</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">CLI frontend for mage based on promptui.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">search_words</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">mage</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">module</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">go</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">github_release</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">repo_owner</span><span class="p">:</span><span class="w"> </span><span class="l">alihanyalcin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">repo_name</span><span class="p">:</span><span class="w"> </span><span class="l">gomup</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">link</span><span class="p">:</span><span class="w"> </span><span class="l">https://github.com/alihanyalcin/gomup/releases/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">asset</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;gomup_{{trimV .Version}}_{{.OS}}_{{.Arch}}.tar.gz&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">gomUP is a tool to keep track of outdated dependencies and upgrade them to the latest version. Designed for monorepo Go projects and Go projects that contain multiple modules.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">search_words</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">gomod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">module</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">replacements</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">darwin</span><span class="p">:</span><span class="w"> </span><span class="l">Darwin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">linux</span><span class="p">:</span><span class="w"> </span><span class="l">Linux</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">windows</span><span class="p">:</span><span class="w"> </span><span class="l">Windows</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">386</span><span class="p">:</span><span class="w"> </span><span class="l">i386</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">amd64</span><span class="p">:</span><span class="w"> </span><span class="l">x86_64</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="aqua-policyyaml" class="headerLink">
+    <a href="#aqua-policyyaml" class="header-mark"></a>&ldquo;aqua-policy.yaml&rdquo;</h3><p>Used to allow the custom tooling that aqua can handle outside the standard packages.
+For example, custom <code>cargo install</code> or <code>go install</code> packages.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># aqua Policy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># https://aquaproj.github.io/docs/tutorial-extras/policy-as-code</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">registries</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">standard</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l">semver(&#34;&gt;= 3.0.0&#34;)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">local</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">local</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">registry.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">packages</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">registry</span><span class="p">:</span><span class="w"> </span><span class="l">standard</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">registry</span><span class="p">:</span><span class="w"> </span><span class="l">local</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="using-with-ci" class="headerLink">
+    <a href="#using-with-ci" class="header-mark"></a>Using With CI</h2><h3 id="azure-pipelines" class="headerLink">
+    <a href="#azure-pipelines" class="header-mark"></a>&ldquo;azure pipelines&rdquo;</h3><p>This is focused on <code>ubuntu-latest</code> as the windows agent has some quirks not addressed in this format.
+This still uses <code>pwsh</code> on the ubuntu agent to avoid me having to rework logic for 2 platforms.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl">- <span class="nt">bash</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">    echo &#34;##vso[task.prependpath]${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">    export PATH=&#34;${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">    curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v2.3.0/aqua-installer | bash -s</span><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l">install-aqua</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl">- <span class="nt">pwsh</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">    &amp;curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v2.1.1/aqua-installer | bash -s -- -v v2.3.6
+</span></span></span><span class="line"><span class="cl"><span class="sd">    try {
+</span></span></span><span class="line"><span class="cl"><span class="sd">      $ENV:PATH = ([io.path]::Combine($HOME,&#39;.local&#39;,&#39;share&#39;,&#39;aquaproj-aqua&#39;, &#39;bin&#39;)), $ENV:PATH -join [IO.Path]::PathSeparator
+</span></span></span><span class="line"><span class="cl"><span class="sd">    }
+</span></span></span><span class="line"><span class="cl"><span class="sd">    catch {
+</span></span></span><span class="line"><span class="cl"><span class="sd">      Write-Warning &#34;Unable to load aqua: $($_.Exception.Message)&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">    }
+</span></span></span><span class="line"><span class="cl"><span class="sd">    Write-Host &#34;aqua version: $(&amp; aqua version)&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">    &amp;aqua update-aqua
+</span></span></span><span class="line"><span class="cl"><span class="sd">    Write-Host &#34;aqua version (after update): $(&amp; aqua version)&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">    $env:PATH = (Join-Path $(aqua root-dir) &#39;bin&#39;), $env:PATH -join [IO.Path]::PathSeparator
+</span></span></span><span class="line"><span class="cl"><span class="sd">    Write-Host &#34;run aqua install --tags first&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">    &amp;aqua install --tags first
+</span></span></span><span class="line"><span class="cl"><span class="sd">    Write-Host &#34;install remaining aqua tools&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">    aqua install --tags MYCUSTOM TAG # 👈 narrow down what you invoke
+</span></span></span><span class="line"><span class="cl"><span class="sd">    $ENV:PATH = (Join-Path $HOME &#39;.config&#39; @(&#39;aquaproj-aqua&#39;,&#39;bin&#39;)), $ENV:PATH -join [IO.Path]::PathSeparator
+</span></span></span><span class="line"><span class="cl"><span class="sd">    mage # ..... 👈 invoke commands now that things are installed</span><span class="w">    
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        direnv
+    </title>
+    <link>
+        https://www.sheldonhull.com/notes/development/tooling/direnv/
+    </link>
+    <pubDate>
+        Mon, 01 Jan 0001 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/notes/development/tooling/direnv/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="example-direnv" class="headerLink">
+    <a href="#example-direnv" class="header-mark"></a>Example Direnv</h2><ul>
+<li>Load <code>.envrc</code> from your home directory.</li>
+<li>Check for <code>aqua</code> tool for the project and warn if not found, to allow tooling to be installed.</li>
+<li>Ensure <code>$GOPATH/bin</code> is available in path so that Go tooling can be resolved.
+Put it at the end of PATH so that aqua-based tooling takes precedence.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">source_env <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">DIRENV_WARN_TIMEOUT</span><span class="o">=</span><span class="s1">&#39;10s&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># OPTIONAL: export PATH=&#34;${PATH}:${GOPATH}/bin&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">MAGEFILE_ENABLE_COLOR</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">INFO_COLOR</span><span class="o">=</span><span class="s2">&#34;\033[1;30;40m&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">RESET_COLOR</span><span class="o">=</span><span class="s2">&#34;\033[0m&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">WARNING_COLOR</span><span class="o">=</span><span class="s2">&#34;\033[33m&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">END_WARNING_COLOR</span><span class="o">=</span><span class="s2">&#34;\033[0m&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">WORKING_COLOR</span><span class="o">=</span><span class="s2">&#34;\033[94m&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">BACKGROUND_GREEN</span><span class="o">=</span><span class="s2">&#34;\033[94m&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">RESET_BACKGROUND</span><span class="o">=</span><span class="s2">&#34;\033[0;49m&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">BACKGROUND_LIGHT_GREEN</span><span class="o">=</span><span class="s2">&#34;\033[1;102;30m&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">BACKGROUND_BLUE</span><span class="o">=</span><span class="s2">&#34;\033[44;30m&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">BACKGROUND_LIGHT_YELLOW</span><span class="o">=</span><span class="s2">&#34;\033[1;103;30m&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nb">command</span> -v aqua &gt;/dev/null 2&gt;<span class="p">&amp;</span>1<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">printf</span> <span class="s2">&#34;</span><span class="si">${</span><span class="nv">INFO_COLOR</span><span class="si">}</span><span class="s2">✔️ aqua detected</span><span class="si">${</span><span class="nv">RESET_COLOR</span><span class="si">}</span><span class="s2">\n&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">printf</span> <span class="s2">&#34;❌ </span><span class="si">${</span><span class="nv">WARNING_COLOR</span><span class="si">}</span><span class="s2">aqua command not recognized</span><span class="si">${</span><span class="nv">RESET_COLOR</span><span class="si">}</span><span class="s2">\n&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">printf</span> <span class="s2">&#34;\t</span><span class="si">${</span><span class="nv">WORKING_COLOR</span><span class="si">}</span><span class="s2">👉 Please install aqua to automatically set up all dev tools for the project:</span><span class="si">${</span><span class="nv">RESET_COLOR</span><span class="si">}${</span><span class="nv">BACKGROUND_GREEN</span><span class="si">}</span><span class="s2">https://aquaproj.github.io/docs/tutorial</span><span class="si">${</span><span class="nv">RESET_COLOR</span><span class="si">}</span><span class="s2">\n&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">printf</span> <span class="s2">&#34;\tYou&#39;ll need to make sure the following statement is in your profile (.zshrc, .bashrc, .profile, etc)\n&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">printf</span> <span class="s2">&#34;\t</span><span class="si">${</span><span class="nv">INFO_COLOR</span><span class="si">}${</span><span class="nv">BACKGROUND_LIGHT_YELLOW</span><span class="si">}</span><span class="s2">export PATH=\&#34;\${AQUA_ROOT_DIR:-\${XDG_DATA_HOME:-\$HOME/.local/share}/aquaproj-aqua}/bin:\$PATH\&#34;</span><span class="si">${</span><span class="nv">RESET_COLOR</span><span class="si">}</span><span class="s2">\n&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

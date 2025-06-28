@@ -1,0 +1,240 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Smo - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/smo/</link>
+        <description>Smo - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 09 Aug 2017 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/smo/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Exploring SQL Server With Powershell And SMO Basics
+    </title>
+    <link>
+        https://www.sheldonhull.com/exploring-sql-server-with-powershell-and-smo-basics/
+    </link>
+    <pubDate>
+        Wed, 09 Aug 2017 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/exploring-sql-server-with-powershell-and-smo-basics/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h1 id="sqlserver-powershell-cmdlets-2017---initialize-look" class="headerLink">
+    <a href="#sqlserver-powershell-cmdlets-2017---initialize-look" class="header-mark"></a>SqlServer Powershell Cmdlets 2017 - Initialize Look</h1><p>Diving into the Sql Server Management Objects library can be a pretty interesting process.
+You get to work with database objects as in a new way, and begin manipulating and execute code in a much different approach than purely using T-SQL.
+Powershell offers a unique way to interact with prebuilt cmdlets, and you can explore leveraging .NET in powershell as well to have a powerful toolkit of options.
+This post is a not focused on a full walk-through, but instead to communicate some of the exploration I&rsquo;ve done, to help if you are beginning to explore more database automation and management.
+I plan on doing some basic walk-throughs for the powershell newbie in the future, so if you are confused about anything powershell related feel free to post a comment and I&rsquo;ll add it to my list of stuff to walk through.</p>
+<h2 id="cmdlets-vs-net-approach" class="headerLink">
+    <a href="#cmdlets-vs-net-approach" class="header-mark"></a>cmdlets vs .NET approach</h2><p>What I&rsquo;ve found interesting is there are really 2 main approaches to interacting with SQL Server.
+You can directly invoke the SMO dlls and access the methods, properties, and extensibility this offers.
+This requires more .NET knowledge as you would be directly working with the SMO namespace, in a way that is almost the same as what you code in C#. The other approach is to leverage cmdlets.
+The cmdlets try to abstract away a lot of the complexities that working directly with the SMO namespace for ease of use and automation, and to simplify the process for those not as comfortable with coding in C# or directly leverage the SMO namespace in C#</p>
+<p>If purely focused on automation and little experience working with .NET then <strong>cmdlet&rsquo;s</strong> will be by far the way to go.
+There is a serious learning curve in working with .NET directly vs prebuilt cmdlets.
+If desiring to expand your .NET knowledge, as well find that the prebuilt cmdlets don&rsquo;t offer the behavior you are trying to achieve, then exploring the SMO namespace for directly invoking the methods and accessing properties can be valuable.
+The learning curve is more intense, so just be prepared for that if you are new to working with .NET directly in Powershell.</p>
+<h2 id="dbatoolsio--other-sources" class="headerLink">
+    <a href="#dbatoolsio--other-sources" class="header-mark"></a>dbatools.io &amp; other sources</h2><p>When possible, I personally am going to recommend to leverage a package like dbatools instead of rolling your own.
+Dbatools.io is a powerful project that I&rsquo;ve recently begun to explore more.
+This well rounded package gives you a powerful powershell set of commands that can help you set server properties, obtain default paths, backup, restore, migrate entire sets of databases to a new location and more.
+To code all of this from scratch would be a massive project.
+I&rsquo;d recommend considering dbatools.io and just getting involved in that project if you have something to contribute.
+I found it really helpful to quickly setup some default server options without having to configure manually myself.</p>
+<h2 id="exploring-sql-path-provider" class="headerLink">
+    <a href="#exploring-sql-path-provider" class="header-mark"></a>Exploring SQL Path Provider</h2><p>Trying to find the path initially can be challenging.
+However, by opening SSMS up, right clicking, and launching the powershell window you&rsquo;ll be able to easily find the correct path to get the server level object.
+This allows you to leverage default methods in powershell like Get-ChildItem for iterating through objects.
+It treats the navigated SQL server path basically as a &ldquo;file structure&rdquo; allowing some interesting actions to be performed.
+One of these is a different approach to killing connections to a particular database.
+I found this great pointer by reading <a href="http://www.midnightdba.com/DBARant/killing-spids-in-powershell/" target="_blank" rel="noopener noreferrer">Killing SPIDS in Powershell</a> from MidnightDBA</p>
+<p>Review that article for scripts focused on the termination of running spids.
+For an adhoc purpose the scripts MidnightDba provided are excellent and would allow quickly executing a kill script on connections from ssms &gt; powershell prompt.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">import-module</span> <span class="n">-name</span> <span class="n">sqlserver</span> <span class="n">-disablenamechecking</span> <span class="n">-verbose:</span><span class="vm">$false</span> <span class="n">-debug:</span><span class="vm">$false</span>
+</span></span><span class="line"><span class="cl"><span class="nb">CD </span><span class="n">SQLSERVER</span><span class="err">:</span><span class="p">\</span><span class="n">SQL</span><span class="p">\</span><span class="nv">$ServerName</span> <span class="n">-Verbose:</span><span class="vm">$false</span> <span class="n">-Debug:</span><span class="vm">$false</span>
+</span></span><span class="line"><span class="cl"><span class="nb">dir </span><span class="s1">&#39; ?{$_.Name -eq &#34;$DatabaseName&#34;} &#39;</span> <span class="p">%{</span><span class="nv">$_</span><span class="p">.</span><span class="py">KillAllProcesses</span><span class="p">(</span><span class="nv">$DatabaseName</span><span class="p">)}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I approach this with a different method in one final script using just the SMO server method KillAllProcesses.
+For some tasks I&rsquo;ve found it really helpful to have a simple 1 line kill statement thanks to MidnightDba&rsquo;s pointer with the statements similar to the one above.
+Using Microsoft&rsquo;s documented method shows another example of how to use to restart the service.
+This was one modified approach I took.
+I prefer not to use this type of approach as working with <code>get-childitem</code> with server objects to me as a little unintuitive.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="cm">&lt;#
+</span></span></span><span class="line"><span class="cl"><span class="cm">        .LINK https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services#PowerShellProcedure
+</span></span></span><span class="line"><span class="cl"><span class="cm">#&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$ErrorActionPreference</span> <span class="p">=</span> <span class="s1">&#39;continue&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="o">-not</span> <span class="p">(</span><span class="nb">Get-InstalledModule</span> <span class="n">SqlServer</span><span class="p">))</span> <span class="p">{</span> <span class="nb">install-package</span> <span class="n">SqlServer</span> <span class="n">-scope</span> <span class="n">CurrentUser</span> <span class="n">-verbose:</span><span class="vm">$false</span> <span class="n">-Force</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="no">datetime</span><span class="p">]</span><span class="nv">$StepTimer</span> <span class="p">=</span> <span class="p">[</span><span class="no">datetime</span><span class="p">]::</span><span class="n">Now</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$private:ServerName</span> <span class="p">=</span> <span class="nv">$env:ServerName</span>
+</span></span><span class="line"><span class="cl"><span class="nb">import-module</span> <span class="n">-name</span> <span class="n">sqlserver</span> <span class="n">-disablenamechecking</span> <span class="n">-verbose:</span><span class="vm">$false</span> <span class="n">-debug:</span><span class="vm">$false</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Get a reference to the ManagedComputer class.</span>
+</span></span><span class="line"><span class="cl"><span class="nb">CD </span><span class="n">SQLSERVER</span><span class="err">:</span><span class="p">\</span><span class="n">SQL</span><span class="p">\</span><span class="nv">$private:ServerName</span> <span class="n">-Verbose:</span><span class="vm">$false</span> <span class="n">-Debug:</span><span class="vm">$false</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$Wmi</span> <span class="p">=</span> <span class="p">(</span><span class="nb">get-item</span> <span class="n">-debug:</span><span class="vm">$false</span> <span class="n">-verbose:</span><span class="vm">$false</span> <span class="p">.).</span><span class="py">ManagedComputer</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$DfltInstance</span> <span class="p">=</span> <span class="nv">$Wmi</span><span class="p">.</span><span class="n">Services</span><span class="p">[</span><span class="s1">&#39;MSSQLSERVER&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#Display the state of the service.</span>
+</span></span><span class="line"><span class="cl"><span class="nb">write-host</span> <span class="s2">&#34;Stopping Instance: </span><span class="p">$(</span><span class="nv">$DfltInstance</span><span class="p">.</span><span class="py">ServiceState</span><span class="p">.</span><span class="n">value__</span><span class="p">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$DfltInstance</span><span class="p">.</span><span class="py">Stop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span><span class="p">(</span><span class="nv">$DfltInstance</span><span class="p">.</span><span class="py">ServiceState</span><span class="p">.</span><span class="py">value__</span> <span class="o">-ne</span> <span class="mf">1</span><span class="p">)</span> <span class="c">#1 stopped</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Start-Sleep</span> <span class="n">-seconds</span> <span class="mf">5</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$DfltInstance</span><span class="p">.</span><span class="py">Refresh</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">write-host</span> <span class="s2">&#34;... state: </span><span class="p">$(</span><span class="nv">$DfltInstance</span><span class="p">.</span><span class="n">ServiceState</span><span class="p">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c">## Start the service.</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$DfltInstance</span><span class="p">.</span><span class="py">Refresh</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">write-host</span> <span class="s2">&#34;Current Service State: </span><span class="p">$(</span><span class="nv">$DfltInstance</span><span class="p">.</span><span class="n">ServiceState</span><span class="p">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">write-host</span> <span class="s2">&#34;Initiating Service Start&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$DfltInstance</span><span class="p">.</span><span class="py">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span><span class="p">(</span><span class="nv">$DfltInstance</span><span class="p">.</span><span class="py">ServiceState</span><span class="p">.</span><span class="py">value__</span> <span class="o">-ne</span> <span class="mf">4</span><span class="p">)</span> <span class="c">#4 running</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Start-Sleep</span> <span class="n">-seconds</span> <span class="mf">5</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$DfltInstance</span><span class="p">.</span><span class="py">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$DfltInstance</span><span class="p">.</span><span class="py">Refresh</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">write-host</span> <span class="s2">&#34;... state: </span><span class="p">$(</span><span class="nv">$DfltInstance</span><span class="p">.</span><span class="n">ServiceState</span><span class="p">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">write-host</span><span class="p">(</span> <span class="s2">&#34;{0:hh\:mm\:ss\.fff} {1}: finished&#34;</span> <span class="o">-f</span> <span class="p">[</span><span class="no">timespan</span><span class="p">]::</span><span class="n">FromMilliseconds</span><span class="p">(((</span><span class="nb">Get-Date</span><span class="p">)-</span><span class="nv">$StepTimer</span><span class="p">).</span><span class="n">TotalMilliseconds</span><span class="p">),</span><span class="s1">&#39;SQL Service Restart&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="database-as-an-object" class="headerLink">
+    <a href="#database-as-an-object" class="header-mark"></a>Database as an Object</h2><p>Getting the database as an object proved to be easy though, if a little confusing to navigate initially.
+$s = SqlServer\Get-SqlDatabase -ServerInstance $ServerInstance -Verbose</p>
+<p>Once the object is obtained, you can begin scripting objects, change database properties and more very easily.
+I found this method an interesting alternative to invoking using .NET accelerators as it was a quick way to easily get a database level object to work with.
+However, some of the limitations of not having the server level object immediately available made me end up preferring the .NET accelerator version which could look like this.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="k">param</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$ServerName</span> <span class="p">=</span> <span class="s1">&#39;localhost&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">,</span><span class="nv">$DatabaseName</span> <span class="p">=</span> <span class="s1">&#39;tempdb&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$s</span> <span class="p">=</span> <span class="p">[</span><span class="no">Microsoft.SqlServer.Management.Smo.Server</span><span class="p">]::</span><span class="n">New</span><span class="p">(</span><span class="nv">$ServerName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$d</span> <span class="p">=</span> <span class="p">[</span><span class="no">Microsoft.SqlServer.Management.Smo.Database</span><span class="p">]::</span><span class="n">New</span><span class="p">(</span><span class="nv">$s</span><span class="p">,</span> <span class="nv">$DatabaseName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$s</span><span class="p">.</span><span class="py">EnumProcesses</span><span class="p">()</span> <span class="s1">&#39; format-table -AutoSize
+</span></span></span><span class="line"><span class="cl"><span class="s1">$d.EnumObjects() &#39;</span> <span class="nb">Out-GridView</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Interestingly, to actually access the many of the database properties you actually would call it via reference to the server object with SMO calls instead of the cmdlet.
+Trying $d.PrimaryFilePath doesn&rsquo;t work as I believe it&rsquo;s initiating the instance of a new database object for creation instead of referencing the initialization of a new object to an existing database.
+I found documentation a bit challenging to immediately sift through to get an answer, so YMMV.
+Someone coming from a .NET focused background might find the process a little more clear, but for me it did take some work to correctly identify the behavior.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c">#doesn&#39;t work.</span>
+</span></span><span class="line"><span class="cl"><span class="n">Probably</span> <span class="n">trying</span> <span class="n">to</span> <span class="n">initialize</span> <span class="n">new</span> <span class="n">object</span> <span class="k">for</span> <span class="n">creating</span> <span class="n">a</span> <span class="n">db</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$d</span> <span class="p">=</span> <span class="p">[</span><span class="no">Microsoft.SqlServer.Management.Smo.Database</span><span class="p">]::</span><span class="n">New</span><span class="p">(</span><span class="nv">$s</span><span class="p">,</span> <span class="nv">$db</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$d</span><span class="p">.</span><span class="py">PrimaryFilePath</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#works to access current existing object</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$s</span><span class="p">.</span><span class="n">Databases</span><span class="p">[</span><span class="nv">$db</span><span class="p">].</span><span class="py">PrimaryFilePath</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="exploring-properties" class="headerLink">
+    <a href="#exploring-properties" class="header-mark"></a>Exploring Properties</h3><p>If you want to explore properties of an object, try using the ever faithful get-member</p>
+<p>Depending on the type of object, you can additionally explore them with GetEnumerator, GetProperties, etc.
+You&rsquo;ll find intellisense helpful as you explore more.
+For instance, here&rsquo;s a walkthrough on the various ways you might explore the object and find you need to dig into it to get the full detail of what you have access to.
+<script src="https://gist.github.com/sheldonhull/e3ed8534b1565c67d6d59163b0921d59.js"></script>
+</p>
+<h2 id="comparing-restoring-a-database-with-cmdlet-vs-smo" class="headerLink">
+    <a href="#comparing-restoring-a-database-with-cmdlet-vs-smo" class="header-mark"></a>Comparing Restoring a Database with Cmdlet vs SMO</h2><h3 id="using-dbatools-cmdlet" class="headerLink">
+    <a href="#using-dbatools-cmdlet" class="header-mark"></a>using dbatools cmdlet</h3><p>An example of how simple using dbatools cmdlet can make restoring a database copy</p>
+<script src="https://gist.github.com/sheldonhull/7314ffa3fc830f36a2eda8ee7e27f7c4.js"></script>
+
+<h3 id="rolling-your-own-wheel" class="headerLink">
+    <a href="#rolling-your-own-wheel" class="header-mark"></a>rolling your own wheel</h3><p>Now compare this to the complexity of running your own invocation of the SMO namespace and requires a lot more coding.
+Since dbatools wraps up a lot of the functionality, I&rsquo;ve actually migrated to leveraging this toolkit for these dba related tasks instead of trying to reinvent the wheel.
+<script src="https://gist.github.com/sheldonhull/08fe28dd236a239f25821378268ef8e5.js"></script>
+</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

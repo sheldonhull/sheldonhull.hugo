@@ -1,0 +1,1111 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Pulumi - Series - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/series/pulumi/</link>
+        <description>Pulumi - Series - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 12 Apr 2022 16:55:16 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/series/pulumi/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        The Pulumi Verdict So Far
+    </title>
+    <link>
+        https://www.sheldonhull.com/the-pulumi-verdict-so-far/
+    </link>
+    <pubDate>
+        Tue, 12 Apr 2022 16:55:16 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/the-pulumi-verdict-so-far/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="what-pulumi-is" class="headerLink">
+    <a href="#what-pulumi-is" class="header-mark"></a>What Pulumi Is</h2><ul>
+<li>Pulumi is like a muscle car.
+Great if you want full control, power, and flexibility.</li>
+<li>Pulumi is fast.</li>
+<li>Has actual loops.
+Sorry <code>HCL</code>&hellip; Your loops are just confusing.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></li>
+</ul>
+<h2 id="what-pulumi-is-not" class="headerLink">
+    <a href="#what-pulumi-is-not" class="header-mark"></a>What Pulumi Is Not</h2><ul>
+<li>Pulumi is like a rally car.
+You will be traveling a gravel road that might result in a few bumps and potholes.
+It can handle it.
+However, there are things (just like <code>HCL</code> had/has over time) you&rsquo;ll run into that don&rsquo;t make sense or are bugs, but since it&rsquo;s younger there might not be immediate fixes.</li>
+</ul>
+<h2 id="when-would-i-choose-terraform-over-pulumi" class="headerLink">
+    <a href="#when-would-i-choose-terraform-over-pulumi" class="header-mark"></a>When Would I Choose Terraform Over Pulumi?</h2><ul>
+<li>If you prefer minivans over rally cars. (j/k)</li>
+<li>If I want to leverage a prebuilt complex module, like those from the Terraform registry made by CloudPosse, Terraform could provide a better value for the time.
+<ul>
+<li>I hope that Pulumi eventually has a full &ldquo;Crosswalk&rdquo; support where folks begin sharing prebuilt stacks with best practices, but I feel it&rsquo;s an uphill road as a latecomer from Terraform.</li>
+</ul>
+</li>
+<li>When there is a module that provides the functionality you want, it might make sense to use it over rebuilding in Pulumi.</li>
+<li>If you expect no one in your org will support Pulumi, you might use it for a few things here and there, but it&rsquo;s a tough road unless others are interested and willing to try it out.</li>
+</ul>
+<h2 id="when-would-i-choose-pulumi-over-terraform" class="headerLink">
+    <a href="#when-would-i-choose-pulumi-over-terraform" class="header-mark"></a>When Would I choose Pulumi over Terraform?</h2><ul>
+<li>If you lean towards &ldquo;developer&rdquo; over &ldquo;infrastructure&rdquo; engineering in your skillset, meaning you are comfortable writing in the primary languages Pulumi supports. I feel it requires a bit more coding (esp with Typed languages) understanding upfront, while <code>HCL</code> is something you can pick up without requiring general-purpose coding knowledge.</li>
+<li>If you are solid with Go, Python, C#, or Typescript, but not quite as advanced as <code>HCL</code>.</li>
+<li>If you understand infrastructure. This is key. Terraform modules tend to hold your hand and do a lot of good things for you out of the box. Pulumi is like giving you the lego pieces to build whatever you want, but not a step-by-step assembly guide.</li>
+<li>When you have the autonomy to select a combination of tools in your role.</li>
+<li>When you want to use looping constructs and other language functions without dealing with the limits of confusion of <code>HCL</code>.</li>
+<li>If you want to deviate from very basic <code>yaml</code> and <code>tfvar</code> inputs, then Pulumi can be more flexible with the range of libraries and built-in configuration functionality Pulumi offers.</li>
+<li>If you want to store encrypted secrets in your <code>yaml</code> for simplicity and velocity, Pulumi does this very elegantly.</li>
+<li>If you want to manage complex naming conventions, then using a struct with methods is fantastic, allowing you to enforce naming and self-document using Go&rsquo;s documentation functionality (and IntelliSense).</li>
+</ul>
+<h2 id="other-notes" class="headerLink">
+    <a href="#other-notes" class="header-mark"></a>Other Notes</h2><h3 id="support" class="headerLink">
+    <a href="#support" class="header-mark"></a>Support</h3><ul>
+<li>Pulumi: Expect delays. I believe many of those helping are not doing support in Slack or GitHub full-time. This can make the unique challenges faced in edge cases difficult to allocate time to support. I believe this would change if the enterprise support tier was engaged, so if it&rsquo;s an org-wide rollout, then consider this.</li>
+<li>Terraform: In contrast, I&rsquo;ve had <em>absymally</em> low engagement from Terraform in forums and GitHub. I think both prioritize (rightly) the Enterprise clients, which leaves the lower tier subscribers a bit on their own/crowdsourced support at times. They should close their forums down and rely on GitHub unless engagement changes. The best part about Terraform, is you often don&rsquo;t need support since so many community members use it.</li>
+</ul>
+<h2 id="components" class="headerLink">
+    <a href="#components" class="header-mark"></a>Components</h2><p>Components allow you to provide similar functionality to the org as Terraform modules.
+If you are rolling this out to an org, consider becoming familiar with this and simplify other development teams&rsquo; usage by having the core components provided with all the best practices, tagging, and naming convention preset.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>My top post of all time to this day is a post on using terraform <code>for_each</code>.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Using Randomization for Pulumi Kubernetes Resources
+    </title>
+    <link>
+        https://www.sheldonhull.com/using-randomization-for-pulumi-kubernetes-resources/
+    </link>
+    <pubDate>
+        Thu, 24 Mar 2022 21:15:37 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/using-randomization-for-pulumi-kubernetes-resources/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="logical-names" class="headerLink">
+    <a href="#logical-names" class="header-mark"></a>Logical Names</h2><p>Pulumi requires unique logical names (URN) for tracking the state of resources.
+I ran into an issue with this once I expanded to a multi-cluster deployment since Pulumi began erroring on the logical name not being unique.
+Let&rsquo;s say you are defining a service:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">corev1</span><span class="p">.</span><span class="nf">NewService</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">ctx</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="s">&#34;myservice&#34;</span><span class="p">,</span> <span class="c1">// 👈👈👈👈 this is the logical name
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="o">&amp;</span><span class="nx">corev1</span><span class="p">.</span><span class="nx">ServiceArgs</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">ApiVersion</span><span class="p">:</span> <span class="nx">pulumi</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;v1&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">Kind</span><span class="p">:</span>       <span class="nx">pulumi</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;Service&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">Metadata</span><span class="p">:</span>	<span class="o">&amp;</span><span class="nx">metav1</span><span class="p">.</span><span class="nx">ObjectMetaArgs</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">Namespace</span><span class="p">:</span> <span class="nx">pulumi</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="nx">myNamespace</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">Name</span><span class="p">:</span>      <span class="nx">pulumi</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="nx">myAppName</span><span class="p">),</span> <span class="c1">// 👈👈👈👈 This is the physical name
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>You can normally omit the <code>Metadata.Name</code> and Pulumi will autogenerate this with a randomized suffix for you.
+This allows a style of &ldquo;create before destroy&rdquo; deployments you don&rsquo;t get with native kubectl apply style commands.
+Things get a little messy here as overriding the logical name requires a normal <code>String</code>.</p>
+<p>To allow maximum uniqueness, you can concatenate values in the logical name so that it&rsquo;s unique as you desire, such as <code>resourcename + cluster</code> for example.</p>
+<h2 id="using-random" class="headerLink">
+    <a href="#using-random" class="header-mark"></a>Using Random</h2><p>Having used Terraform&rsquo;s random provider in the past, and found it incredibly helpful to stop relying on the uniqueness of names that I have to manage, I tried initially to do this with the Pulumi terraform version of random.
+It didn&rsquo;t work out too well.
+In the end, I realized this is where just having the power of the language itself makes perfect sense.
+I had a pointer from someone in this <a href="https://github.com/pulumi/pulumi/discussions/9207#discussioncomment-2372172" target="_blank" rel="noopener noreferrer">github discussion</a> about using the <code>petname</code> package itself, but I didn&rsquo;t like that idea as it was a bit unwieldy and not designed for importing as a package.
+Trying to use the resource results in a problem as <code>pulumi.StringOutput</code> can&rsquo;t be used with string concantenation.
+Instead, you have to use the <code>ApplyT</code> and pass around the string output to other inputs accepting <code>pulumi.StringPtr</code> type.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">petname</span><span class="p">.</span><span class="nf">ID</span><span class="p">().</span><span class="nf">ApplyT</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">id</span> <span class="nx">pulumi</span><span class="p">.</span><span class="nx">ID</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%v&#34;</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}).(</span><span class="nx">pulumi</span><span class="p">.</span><span class="nx">StringOutput</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This doesn&rsquo;t work because the output is still a <code>pulumi.StringOutput</code> and not a <code>string</code>.</p>
+<p>This would work for things like the physical name, but you can&rsquo;t get the string output as it&rsquo;s to be considered like a &ldquo;promise&rdquo; and not resolved till the end of the plan.
+Logical names require strings, not <code>pulumi.String</code>.</p>
+<h2 id="go-makes-it-simple" class="headerLink">
+    <a href="#go-makes-it-simple" class="header-mark"></a>Go Makes it Simple</h2><p>I did a little searching for correctly converting strings into int hashes, and with the volume of deployments, a collision risk is ridiculously low (something like 1 in 1 billion?).</p>
+<p>Here&rsquo;s how I went about it.
+You can adapt this for your Pulumi plan.
+I went back to one of my favorites, <a href="https://github.com/brianvoe/gofakeit" target="_blank" rel="noopener noreferrer">gofakeit</a> which provides a fantastic package for generating data.
+What&rsquo;s cool about this is that the generators offer a global <code>Seed</code> option so you can reliably regenerate the same random data.</p>
+<h3 id="setup" class="headerLink">
+    <a href="#setup" class="header-mark"></a>Setup</h3><p><a href="https://github.com/brianvoe" target="_blank" rel="noopener noreferrer">@brianvoe on github</a> did a great job with this <code>gofakeit</code> package.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">go get <span class="s2">&#34;github.com/brianvoe/gofakeit/v6&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Add this to your imports</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/brianvoe/gofakeit/v6&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now for the hashing, I found a great MIT licensed library I grabbed two functions from here: <a href="https://github.com/shomali11/util/blob/master/xhashes/xhashes.go" target="_blank" rel="noopener noreferrer">util</a> by <a href="https://github.com/shomali11" target="_blank" rel="noopener noreferrer">@shomali11 on github</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// FNV64a hashes using fnv64a algorithm
+</span></span></span><span class="line"><span class="cl"><span class="c1">//
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Sourced from: https://github.com/shomali11/util/blob/master/xhashes/xhashes.go
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">FNV64a</span><span class="p">(</span><span class="nx">text</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">uint64</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">algorithm</span> <span class="o">:=</span> <span class="nx">fnv</span><span class="p">.</span><span class="nf">New64a</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nf">uint64Hasher</span><span class="p">(</span><span class="nx">algorithm</span><span class="p">,</span> <span class="nx">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// uint64Hasher returns a uint64
+</span></span></span><span class="line"><span class="cl"><span class="c1">//
+</span></span></span><span class="line"><span class="cl"><span class="c1">// Sourced from: https://github.com/shomali11/util/blob/master/xhashes/xhashes.go
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">uint64Hasher</span><span class="p">(</span><span class="nx">algorithm</span> <span class="nx">hash</span><span class="p">.</span><span class="nx">Hash64</span><span class="p">,</span> <span class="nx">text</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">uint64</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">algorithm</span><span class="p">.</span><span class="nf">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">text</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">algorithm</span><span class="p">.</span><span class="nf">Sum64</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I set up a few methods on a configuration struct.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// Clusters returns a list of clusters.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Clusters</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Name</span> <span class="kt">string</span> <span class="s">`json:&#34;name,omitempty&#34;`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// setSeed sets the gofakeit global state to a specific
+</span></span></span><span class="line"><span class="cl"><span class="c1">// seed value based on the string input.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">setSeed</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">calcSeed</span> <span class="o">:=</span> <span class="nf">FNV64a</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">v</span> <span class="o">:=</span> <span class="nb">int64</span><span class="p">(</span><span class="nx">calcSeed</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">gofakeit</span><span class="p">.</span><span class="nf">Seed</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// animalString returns a string formatted with `{DescriptiveAdjective}-{Animal}`.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">animalString</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">animal</span> <span class="o">:=</span> <span class="nx">gofakeit</span><span class="p">.</span><span class="nf">Animal</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">adjective</span> <span class="o">:=</span> <span class="nx">gofakeit</span><span class="p">.</span><span class="nf">AdjectiveDescriptive</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">ToLower</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nf">Join</span><span class="p">([]</span><span class="kt">string</span><span class="p">{</span><span class="nx">adjective</span><span class="p">,</span> <span class="nx">animal</span><span class="p">},</span> <span class="s">&#34;-&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now, once you load a configuration into the struct using the Pulumi configuration package, you can obtain a randomized petname on demand, that will be repeatable and only change if the cluster name is different.</p>
+<div
+    class="details admonition Tip
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      If your uniqueness requirements change...
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">If your business requirements for uniqueness change, such as a combination of <code>resource+cluster</code> now needing to be deployed in duplication across another namespace (for example for provisioning development environments on demand)&hellip; you can just change the input seed from cluster to a combination of other values and you&rsquo;ll generate new unique seeds from there.</div>
+    </div>
+  </div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// PetName returns a unique petname for logical resources to be uniquely named in the Pulumi state file.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// This is formatted as `adjective-animal`.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// For logical name purposes, use the PetNameSuffix method instead.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Clusters</span><span class="p">)</span> <span class="nf">PetName</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Calculate a seed value based on cluster name and then generate a random petname for the reosurces so that the logical names stay truly unique even in multi-cluster environments.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nf">setSeed</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">randomPet</span> <span class="o">:=</span> <span class="nf">animalString</span><span class="p">()</span> <span class="c1">// Random based on seed, so should be repeatable for different deploys.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">return</span> <span class="nx">randomPet</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// PetName returns a unique petname suffix for easy string concantenation for logical resources.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// This is formatted as `-adjective-animal` with a preceding.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// You&#39;d join like `_, err = appsv1.NewDeployment(ctx, &#34;myapp&#34; + config.PetNameSuffix(), nil)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">Clusters</span><span class="p">)</span> <span class="nf">PetNameSuffix</span><span class="p">()</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// Calculate a seed value based on cluster name and then generate a random petname for the reosurces so that the logical names stay truly unique even in multi-cluster environments.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nf">setSeed</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="s">&#34;-&#34;</span> <span class="o">+</span> <span class="nf">animalString</span><span class="p">()</span> <span class="c1">// Random based on seed, so should be repeatable for different deploys.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="quick-and-dirty-option" class="headerLink">
+    <a href="#quick-and-dirty-option" class="header-mark"></a>Quick and Dirty Option</h2><p>If you just want to do it all in <code>main()</code> and ignore the frowning of the &ldquo;best practice police&rdquo; just inline it.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">calcSeed</span> <span class="o">:=</span> <span class="nf">FNV64a</span><span class="p">(</span><span class="nx">cluster</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">v</span> <span class="o">:=</span> <span class="nb">int64</span><span class="p">(</span><span class="nx">calcSeed</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">gofakeit</span><span class="p">.</span><span class="nf">Seed</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">animal</span> <span class="o">:=</span> <span class="nx">gofakeit</span><span class="p">.</span><span class="nf">Animal</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">adjective</span> <span class="o">:=</span> <span class="nx">gofakeit</span><span class="p">.</span><span class="nf">AdjectiveDescriptive</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">randomPetCalc</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">ToLower</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nf">Join</span><span class="p">([]</span><span class="kt">string</span><span class="p">{</span><span class="nx">adjective</span><span class="p">,</span> <span class="nx">animal</span><span class="p">},</span> <span class="s">&#34;-&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Random Pet Calculated at Runtime: %s\n&#34;</span><span class="p">,</span> <span class="nx">randomPetCalc</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="using-in-loop" class="headerLink">
+    <a href="#using-in-loop" class="header-mark"></a>Using in Loop</h2><p>Note that this would probably have issues if you were trying to update the seed in goroutines as I believe it&rsquo;s a global variable.
+However, it works great when you need to do something like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">cluster</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">clusterList</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">suffix</span> <span class="o">:=</span> <span class="nx">cluster</span><span class="p">.</span><span class="nf">PetNameSuffix</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">err</span> <span class="p">=</span> <span class="nx">ingress</span><span class="p">.</span><span class="nf">NetworkingIngress</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">suffix</span><span class="p">)</span> <span class="c1">// ... etc
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="wrap-up" class="headerLink">
+    <a href="#wrap-up" class="header-mark"></a>Wrap-Up</h2><p>I got here thanks to the help of folks in the Pulumi slack + Github discussions.
+I&rsquo;ve found it&rsquo;s a common question.
+I recommended they beef up some good examples of using the random provider like this.
+However, I&rsquo;m not certain it fits Pulumi&rsquo;s &ldquo;promise&rdquo; model quite the same as it was with Terraform.
+I&rsquo;m not versed enough in the architecture to understand why it worked for Terraform but not with Pulumi, but this &ldquo;workaround&rdquo; using normal Go code seems to work fine.
+I&rsquo;m really appreciating the value of having access to a full fledged programming language in my infrastructure work, including Kubernetes, even if this entails a little more complexity up front.</p>
+<h2 id="further-reading" class="headerLink">
+    <a href="#further-reading" class="header-mark"></a>Further Reading</h2><ul>
+<li><a href="https://github.com/pulumi/pulumi/discussions/9207" target="_blank" rel="noopener noreferrer">Using random resource in plans with Go? · Discussion #9207 · pulumi/pulumi · GitHub</a></li>
+<li><a href="https://github.com/pulumi/pulumi/discussions/9205" target="_blank" rel="noopener noreferrer">How do you approach passing around ID&rsquo;s for resources without it becoming a hot mess? · Discussion #9205 · pulumi/pulumi · GitHub</a></li>
+<li><a href="https://github.com/pulumi/pulumi/discussions/9216" target="_blank" rel="noopener noreferrer">Unique ComponentResource Names With Random Suffix · Discussion #9216 · pulumi/pulumi · GitHub</a></li>
+<li><a href="https://github.com/pulumi/pulumi/discussions/9250" target="_blank" rel="noopener noreferrer">Using ComponentResource as logical namespace · Discussion #9250 · pulumi/pulumi · GitHub</a></li>
+<li><a href="https://github.com/pulumi/pulumi/issues/5234#issuecomment-697966379" target="_blank" rel="noopener noreferrer">Cannot use Output as logical resource name · Issue #5234 · pulumi/pulumi · GitHub</a></li>
+<li><a href="https://www.pulumi.com/docs/intro/concepts/inputs-outputs/" target="_blank" rel="noopener noreferrer">Inputs and Outputs | Pulumi Docs</a></li>
+</ul>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Remove Pending Operations From Pulumi State
+    </title>
+    <link>
+        https://www.sheldonhull.com/remove-pending-operations-from-pulumi-state/
+    </link>
+    <pubDate>
+        Thu, 24 Mar 2022 18:39:42 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/remove-pending-operations-from-pulumi-state/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>If you need to work through some issues with a deployment and remove a pending operation in Pulumi state file, you can do this pretty easily manually, or save a quick bit of scrolling and use <code>gojq</code> (or <code>jq</code> if you want).</p>
+<ul>
+<li>Export: <code>pulumi stack export --file state.json</code></li>
+<li>Align formatting: <code>cat state.json | gojq &gt; stateFormatted.json</code></li>
+<li>Remove pending operation: <code>cat stateFormatted.json | gojq '.deployment.pending_operations = []' &gt; stateNew.json</code></li>
+<li>Now you can compare the results without any whitespace variance.</li>
+<li>Import: <code>pulumi stack import --file stateNew.json</code></li>
+</ul>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Pulumi Secrets
+    </title>
+    <link>
+        https://www.sheldonhull.com/pulumi-secrets/
+    </link>
+    <pubDate>
+        Fri, 11 Mar 2022 23:49:22 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/pulumi-secrets/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="chicken-or-the-egg" class="headerLink">
+    <a href="#chicken-or-the-egg" class="header-mark"></a>Chicken or The Egg</h2><p>Secrets with infrastructure are a problem.</p>
+<ul>
+<li>I want to source control my secrets, and deploy via CD.</li>
+<li>I want to use infrastructure-as-code to define my configuration, including secrets.</li>
+</ul>
+<p>But I don&rsquo;t want to expose the values at any stage during this.
+I want to keep them in a secret store, and only expose them when I need them, but I still want to manage them via code.</p>
+<p>For a while I&rsquo;ve done a blend of loading local environment variables or creating manually in a vault, and then using in other ways.</p>
+<p>Terraform makes this tricky IMO, as if you want to create a secret like an Azure DevOps library variable, SSM parameter, or other value, you need to go and add this into Terraform cloud as a secret value, use a third party cli that helps do this for you, or some other work around.</p>
+<h2 id="other-alternatives" class="headerLink">
+    <a href="#other-alternatives" class="header-mark"></a>Other alternatives</h2><p>There are tools that allow you to encrypt your files in git, but it adds another layer of complexity, and often isn&rsquo;t cross-platform compatible.</p>
+<h2 id="pulumi-secret-encryption" class="headerLink">
+    <a href="#pulumi-secret-encryption" class="header-mark"></a>Pulumi Secret Encryption</h2><p>Pulumi&rsquo;s solution seems like a non-brainer ingenious way to solve this.</p>
+<p>When using their remote state storage, you can use the cli to easily flag a value as a secret, and the value is encrypted in your yaml configuration (you can configure one outside of the yaml too if you wish I think).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pulumi config <span class="nb">set</span> --secret --secret-key<span class="o">=</span>my-secret-key my-secret-value
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="some-practical-examples" class="headerLink">
+    <a href="#some-practical-examples" class="header-mark"></a>Some Practical Examples</h2><p>I wanted to embed some encrypted kubeconfigs for designated clusters to do deployments.</p>
+<p>Assuming you have a directory of some service account kubeconfigs, you could run this shell script and add encrypted configurations for each of your clusters that pulumi could then read.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">pulumicwd</span><span class="o">=</span>pulumi/myfancyproject
+</span></span><span class="line"><span class="cl"><span class="nv">pulumistack</span><span class="o">=</span>myfancyproject/dev
+</span></span><span class="line"><span class="cl"><span class="nv">ClusterIndex</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="k">$(</span>ls .mykubeconfigs/kubeconfig-svc-account--*.yaml<span class="k">)</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;Processing </span><span class="nv">$i</span><span class="s2">: ClusterIndex: </span><span class="nv">$ClusterIndex</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">kubecontent</span><span class="o">=</span><span class="k">$(</span>cat <span class="nv">$i</span> <span class="p">|</span> gojq --compact-output --yaml-input<span class="k">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">clustername</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$kubecontent</span> <span class="p">|</span> gojq <span class="s1">&#39;.clusters[0].name&#39;</span> --raw-output<span class="k">)</span>
+</span></span><span class="line"><span class="cl">  pulumi --cwd <span class="nv">$pulumicwd</span> --stack <span class="nv">$pulumistack</span> config <span class="nb">set</span> --path <span class="s2">&#34;clusters[</span><span class="si">${</span><span class="nv">ClusterIndex</span><span class="si">}</span><span class="s2">].name&#34;</span>  <span class="nv">$clustername</span>
+</span></span><span class="line"><span class="cl">  cat <span class="nv">$i</span> <span class="p">|</span> gojq --compact-output --yaml-input <span class="p">|</span> pulumi --cwd <span class="nv">$pulumicwd</span> --stack <span class="nv">$pulumistack</span> config <span class="nb">set</span> --secret --path <span class="s2">&#34;clusters[</span><span class="si">${</span><span class="nv">ClusterIndex</span><span class="si">}</span><span class="s2">].kubeconfig&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">ClusterIndex</span><span class="o">=</span><span class="k">$((</span>ClusterIndex+1<span class="k">))</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;All done, the magic has been done, toast your kubeconfigs and send Sheldon a coffee. ☕ (and copilot for helping write this so quickly)&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This would result in the following pulumi yaml being part of your stack:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">config</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">myfancyproject:clusters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">clustername</span><span class="p">:</span><span class="w"> </span><span class="l">clusteeeeergobrrrr01</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">kubeconfig</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">secure</span><span class="p">:</span><span class="w"> </span><span class="l">mumbojumbencryptedtexthere</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">clustername</span><span class="p">:</span><span class="w"> </span><span class="l">clusteeeeergobrrrr02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">kubeconfig</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">secure</span><span class="p">:</span><span class="w"> </span><span class="l">mumbojumbencryptedtexthere</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="consuming-this-in-go" class="headerLink">
+    <a href="#consuming-this-in-go" class="header-mark"></a>Consuming This in Go</h2><p>What&rsquo;s cool is it&rsquo;s so freaking easy to work with it still in Pulumi.
+Since the encryption is per stack, as long as you are in the right stack, and as long as you specify explicitly that the value you want to load is a secret, you can just work with it almost as usual.</p>
+<p>In fact, all it takes is flipping <code>RequireObject</code> to <code>RequiredSecretObject</code>.</p>
+<p>Not everything is easy in Pulumi&hellip; for sure, but they freaking nailed this.</p>
+<h3 id="create-a-config-object" class="headerLink">
+    <a href="#create-a-config-object" class="header-mark"></a>Create A Config Object</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Clusters</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Name</span>       <span class="kt">string</span> <span class="s">`json:&#34;name,omitempty&#34;`</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Kubeconfig</span> <span class="kt">string</span> <span class="s">`json:&#34;kubeconfig,omitempty&#34;`</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="use-structured-secret-configuration-in-pulumi-plan" class="headerLink">
+    <a href="#use-structured-secret-configuration-in-pulumi-plan" class="header-mark"></a>Use Structured Secret Configuration In Pulumi Plan</h3><p>Now that we have a config object, use Pulumi&rsquo;s configuration package to load the config directly into a pointer to a struct.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">import</span> 	<span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">kubernetes</span> <span class="s">&#34;github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">pulumi</span> <span class="s">&#34;github.com/pulumi/pulumi/sdk/v3/go/pulumi&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">config</span> <span class="s">&#34;github.com/pulumi/pulumi/sdk/v3/go/pulumi/config&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">pulumi</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">ctx</span> <span class="o">*</span><span class="nx">pulumi</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">configClusters</span> <span class="o">:=</span> <span class="p">[]</span><span class="nx">Clusters</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// config.RequireObject(&#34;clusters&#34;, &amp;configClusters) // wouldn&#39;t give encrypted values, so we do the next line
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">config</span><span class="p">.</span><span class="nf">RequireSecretObject</span><span class="p">(</span><span class="s">&#34;clusters&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">configClusters</span><span class="p">)</span> <span class="c1">// wouldn&#39;t give encrypted values, so we do the next line
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">cluster</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">configClusters</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">_</span> <span class="p">=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nx">Log</span><span class="p">.</span><span class="nf">Info</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;starting up on cluster: %s... it go brrrr&#34;</span><span class="p">,</span> <span class="nx">cluster</span><span class="p">.</span><span class="nx">Name</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">pulumi</span><span class="p">.</span><span class="nx">LogArgs</span><span class="p">{})</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">pargs</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">kubernetes</span><span class="p">.</span><span class="nx">ProviderArgs</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">pargs</span><span class="p">.</span><span class="nx">Kubeconfig</span> <span class="p">=</span> <span class="nx">cluster</span><span class="p">.</span><span class="nx">Kubeconfig</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">myProvider</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">kubernetes</span><span class="p">.</span><span class="nf">NewProvider</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="s">&#34;k8&#34;</span><span class="p">,</span> <span class="nx">pargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// now pass this myProvider to resources as the provider to use.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Passing the provider is done per resources like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">appsv1</span><span class="p">.</span><span class="nf">NewDeployment</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">ctx</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;my-deployment-name&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">	<span class="o">&amp;</span><span class="nx">appsv1</span><span class="p">.</span><span class="nx">DeploymentArgs</span><span class="p">{},</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">pulumi</span><span class="p">.</span><span class="nf">Provider</span><span class="p">(</span><span class="nx">prov</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="security-is-per-stack" class="headerLink">
+    <a href="#security-is-per-stack" class="header-mark"></a>Security Is Per Stack</h2><p>Now&hellip; let&rsquo;s say you get worried about someone cloning this file and doing some devious with it.</p>
+<p>They go along and generate a new yaml file, grab your encrypted values, use pulumi to decrypt and then go and drop your cluster.</p>
+<p>Ain&rsquo;t gonna happen.
+The paranoid part of my DevOpsy brain thinks like this.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">error: failed to decrypt encrypted configuration value &#39;cluster:kubeconfig&#39;: [400] Message authentication failed
+</span></span><span class="line"><span class="cl">This can occur when a secret is copied from one stack to another. Encryption of secrets is done per-stack and
+</span></span><span class="line"><span class="cl">it is not possible to share an encrypted configuration value across stacks.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>To me this felt like a failure I really was happy to see. Thank you Pulumi!</p>
+<p>Best part is no freaking <code>echo $val | base64 -d</code>&hellip; <code>&lt;looking at you kubernetes secret values&gt;</code>.</p>
+<h2 id="side-note-on-configuration" class="headerLink">
+    <a href="#side-note-on-configuration" class="header-mark"></a>Side Note On Configuration</h2><p>I used a more complex config struct for the main naming convention enforcement and it worked great to simplify naming consistency.
+Might do an article on this sometime if anyone finds it useful.</p>
+<p>Example:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// ServiceDeployName returns a string formatted like `myapi-dev-myapp-{SUFFIX}` where suffix is provided on call.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="p">(</span><span class="nx">d</span> <span class="o">*</span><span class="nx">SvcConfig</span><span class="p">)</span> <span class="nf">ServiceDeployName</span><span class="p">(</span><span class="nx">sharedConfig</span> <span class="o">*</span><span class="nx">SharedConfig</span><span class="p">,</span> <span class="nx">suffix</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">ToLower</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">strings</span><span class="p">.</span><span class="nf">Join</span><span class="p">([]</span><span class="kt">string</span><span class="p">{</span><span class="nx">d</span><span class="p">.</span><span class="nx">Rolename</span><span class="p">,</span> <span class="nx">sharedConfig</span><span class="p">.</span><span class="nx">Environment</span><span class="p">,</span> <span class="nx">d</span><span class="p">.</span><span class="nx">Deployment</span><span class="p">,</span> <span class="nx">suffix</span><span class="p">},</span> <span class="s">&#34;-&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">	<span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This provided solid intellisense all the way through it and made it really easy to refactor naming all by updating my config package.</p>
+<h2 id="disclaimer" class="headerLink">
+    <a href="#disclaimer" class="header-mark"></a>Disclaimer</h2><p>I&rsquo;m a fan of role based access like AWS Role assumption, using limited generated access tokens, etc (see <a href="/simplify-aws-developer-security-with-leapp/" title="simplify-aws-developer-security-with-leapp" rel="">article on Leapp for a great example for local dev workflows</a>)</p>
+<p>However, practically, you might have services or apps that you need to manage that the cost of setting all that up is very high, for example you do the majority of your work in AWS, but you have a development Kubernetes cluster and want to setup a limited service account to do some Gitpod stuff.
+You use this service account for limited scope permissions for deployments only, and this might be a great case of just embedding the kubeconfig directly into a Pulumi plan.</p>
+<p>Maybe you need your PAT embedded for a provider, now just add as an encrypted value to your stack and get work shipped.</p>
+<p>Improve later with more robust handling, but this will cut down the overhead of getting infra-as-code for a lot of the smaller projects!</p>
+<h2 id="futher-reading" class="headerLink">
+    <a href="#futher-reading" class="header-mark"></a>Futher Reading</h2><ul>
+<li><a href="https://www.pulumi.com/docs/intro/concepts/secrets/" target="_blank" rel="noopener noreferrer">Pulumi &amp; Secrets</a></li>
+</ul>
+<h2 id="tools-used-or-mentioned" class="headerLink">
+    <a href="#tools-used-or-mentioned" class="header-mark"></a>Tools Used Or Mentioned</h2><ul>
+<li><a href="https://www.pulumi.com/" target="_blank" rel="noopener noreferrer">Pulumi</a></li>
+<li><a href="https://github.com/itchyny/gojq" target="_blank" rel="noopener noreferrer">Gojq</a></li>
+<li><a href="https://copilot.github.com/" target="_blank" rel="noopener noreferrer">Copilot - It actually wrote 50% of the shell script example. I ❤️ Copilot</a></li>
+<li><a href="https://linux.die.net/man/1/base64" target="_blank" rel="noopener noreferrer">base64 cli</a></li>
+<li><a href="https://kubernetes.io/" target="_blank" rel="noopener noreferrer">Kubernetes</a></li>
+<li><a href="https://www.pulumi.com/docs/intro/concepts/config/#structured-configuration" target="_blank" rel="noopener noreferrer">Pulumi Structured Configuration</a> &amp; associated Go Package: <a href="https://github.com/pulumi/pulumi/tree/master/sdk/go/pulumi/config" target="_blank" rel="noopener noreferrer">Config</a></li>
+</ul>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Pulumi Round 2
+    </title>
+    <link>
+        https://www.sheldonhull.com/pulumi-round-2/
+    </link>
+    <pubDate>
+        Fri, 28 Jan 2022 19:40:41 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/pulumi-round-2/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>This is not a comprehensive article, but more a log of the issues and wins as I work through Pulumi adoption.</p>
+<h2 id="tldr" class="headerLink">
+    <a href="#tldr" class="header-mark"></a>tl;dr</h2><ul>
+<li>Pulumi is pretty powerful.</li>
+<li>Once you get beyond the basics, it requires a lot of effort since the tooling doesn&rsquo;t have as many examples as I&rsquo;d hope.
+This is especially true for Kubernetes.
+It&rsquo;s a lot easier to get moving on other providers.</li>
+<li>It&rsquo;s more intensive of a pilot to do complex things IMO than Terraform, because you aren&rsquo;t getting pre-built modules that just have all the stack done automatically (at least in Go).<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></li>
+<li>Certain things that were painful in Terraform just work in Pulumi.
+For example, renaming the underlying org was super easy, removing stuck items from state, and other actions that with Terraform are much trickier.</li>
+</ul>
+<h2 id="where-i-started" class="headerLink">
+    <a href="#where-i-started" class="header-mark"></a>Where I Started</h2><ul>
+<li>I have replicated basically what Helm gives you for an external api template out of the box and am doing this in Pulumi.</li>
+<li>This uses the Pulumi config and loads into a config struct.</li>
+<li>I&rsquo;m running CICD with this to build and deploy a container, and finally run a task to run Pulumi against a Kubernetes cluster to apply an updated deployment based on that new semver tag.</li>
+</ul>
+<h2 id="challenge-1-authenticating-via-k8-namespace-scoped-service-account" class="headerLink">
+    <a href="#challenge-1-authenticating-via-k8-namespace-scoped-service-account" class="header-mark"></a>Challenge 1: Authenticating Via K8 Namespace Scoped Service Account</h2><p>Figuring out the balance between default provider that inherits your Kubeconfig and being more explicit by configuring this myself has been a challenge.</p>
+<p>I took two days to work through the proper Service account level authorization, but finally with the help of a little <a href="https://github.com/magefile/mage" target="_blank" rel="noopener noreferrer">Mage</a> I have a running login task that wraps up a sequence of steps for me to authenticate purely based on K8 Service account credentials.</p>
+<ul>
+<li>TODO: Also plan on checking out the Azure Key Vault integration, as this is pretty neat. You can set it as the backend provider for your secret rather than Pulumi.</li>
+</ul>
+<h3 id="attempting-to-embed-service-account-credentials-in-stack" class="headerLink">
+    <a href="#attempting-to-embed-service-account-credentials-in-stack" class="header-mark"></a>Attempting to Embed Service Account Credentials in Stack</h3><p>Pulumi does per stack level encryption of secrets, so I thought this might be really nice to setup and try.
+This would mean any of my team could run the plan with the specific service account credentials already embedded to quickly apply a development fix or test against a development enviornment.</p>
+<p>This is in constrast this to building a kubeconfig locally and pointing to that.
+That works, but does feel more brittle.</p>
+<p>I tried this:</p>
+<pre><code>pulumi --cwd pulumi/myproject --stack=myorg/myproject/dev config set --secret --path 'kubernetes:kubeconfig' &quot;$(cat /workspaces/myproject/.cached/.kube/tmp.kube.config)&quot;
+</code></pre>
+<blockquote>
+<p>NOTE: Optionally use without <code>--path</code>.</p>
+</blockquote>
+<p>This temporary configuration I generated via the kubectl commands for setup.</p>
+<p>Now I see:</p>
+<pre><code>config:
+    kubernetes:cluster: mycluster
+    kubernetes:context: mycontext
+    kubernetes:kubeconfig:
+        secure: mysupersecretencryptedvaluebyPulumipus
+</code></pre>
+<p>Next I made some changes to the Pulumi plan that checked for <code>KUBECONFIG</code> and allowed the override as usual, however if not provided it defaulted to the value stored in the configuration.
+Will think on that and probably remove the extra code later.</p>
+<p>Didn&rsquo;t get this to work, so I reverted back to passing in the generated kubeconfig file instead.
+This was set by a command like this:</p>
+<pre><code>pulumi --cwd pulumi/myproject --stack=myorg/myproject/dev config set --path 'kubernetes:kubeconfig' /workspaces/myproject/.cached/.kube/tmp.kube.config
+</code></pre>
+<p>Failure.</p>
+<p>I still kept getting the dreaded:</p>
+<pre><code>configured Kubernetes cluster is unreachable: failed to parse kubeconfig data in kubernetes:config:kubeconfig
+</code></pre>
+<p>I tried <code>KUBECONFIG=/workspaces/myproject/.cached/.kube/tmp.kube.config pulumi --cwd pulumi/myproject --stack=myorg/myproject/dev up --diff</code> and it detected the new <code>kubernetes:kubeconfig</code> and put in the state.</p>
+<p>✅ BOOM! Once I did this refresh of the state, it seemed to properly allow me to connect.</p>
+<p>I found that ensuring <code>KUBECONFIG=path pulumi ...</code> helped a lot, but I think the KUBECONFIG path in the state file also mattered and had to be refreshed.</p>
+<p>Ok&hellip; to ensure this was the issue I did this test:</p>
+<ol>
+<li>Stop using my credential and point to the service account generated kubeconfig.</li>
+<li>Run <code>KUBECONFIG={newkubeconfig} pulumi destroy</code>.
+<ol>
+<li>It detected the change when running up, I just didn&rsquo;t apply.</li>
+</ol>
+</li>
+<li>Deletion worked.</li>
+</ol>
+<p>To me this points towards the <code>KUBECONFIG</code> correctly being used when passed into the provider, so I can run without refreshing the state even though a refresh/up will indicated it detected the change.</p>
+<p>I probably need to trim this code, but to support KUBECONFIG explicitly being provided I did something like this:</p>
+<script src="https://gist.github.com/sheldonhull/764d2702bf9e783fca0263bbabd598a7.js"></script>
+
+<h2 id="challenge-handle-config-values-that-change" class="headerLink">
+    <a href="#challenge-handle-config-values-that-change" class="header-mark"></a>Challenge: Handle config values that change</h2><p>I thought maybe I could dynamically set the kubeconfig at runtime using the <code>--config</code> flag.
+I looked in the GitHub repo and couldn&rsquo;t find any examples, and the cli doesn&rsquo;t provide any I could see.</p>
+<p>Here&rsquo;s a little taste of what I ran:</p>
+<pre><code>    Pulumi up --diff --refresh --config 'kubernetes:kubeconfig /workspaces/myproject/.cached/.kube/tmp.kube.config'
+    Pulumi up --diff --refresh --config 'kubernetes:kubeconfig' '/workspaces/myproject/.cached/.kube/tmp.kube.config'
+    Pulumi up --diff --refresh --config 'kubernetes:kubeconfig: /workspaces/myproject/.cached/.kube/tmp.kube.config'
+    Pulumi up --diff --refresh --config 'kubernetes:kubeconfig','/workspaces/myproject/.cached/.kube/tmp.kube.config'
+    Pulumi up --diff --refresh --config 'kubernetes:kubeconfig,/workspaces/myproject/.cached/.kube/tmp.kube.config'
+    Pulumi up --diff --refresh --config 'kubernetes:kubeconfig' /workspaces/myproject/.cached/.kube/tmp.kube.config
+    Pulumi up --diff --refresh --config '{ &quot;kubernetes:kubeconfig&quot;: /workspaces/myproject/.cached/.kube/tmp.kube.config
+    Pulumi up --diff --refresh --config '{ &quot;kubernetes:kubeconfig&quot;: &quot;/workspaces/myproject/.cached/.kube/tmp.kube.config&quot; }'
+    Pulumi up --diff --refresh --config '&quot;kubernetes:kubeconfig&quot;: &quot;/workspaces/myproject/.cached/.kube/tmp.kube.config&quot;'
+    Pulumi up --diff --refresh --config kubernetes:kubeconfig /workspaces/myproject/.cached/.kube/tmp.kube.config
+</code></pre>
+<p>The variety of changes this made the kubeconfig were entertaining at least.
+I moved on, as this didn&rsquo;t seem to be a valid way to work.</p>
+<p>Pretty sure the cli was laughing at me.</p>
+<pre><code>    config:
+        kubernetes:cluster: mycluster
+        kubernetes:context: mycluster
+        kubernetes:kubeconfig,/workspaces/myproject/.cached/.kube/tmp.kube.config: &quot;&quot;
+        kubernetes:namespace: mynamespace
+</code></pre>
+<h2 id="challenge-how-do-i-use-replace" class="headerLink">
+    <a href="#challenge-how-do-i-use-replace" class="header-mark"></a>Challenge: How Do I Use Replace?</h2><p>While mostly intuitive, the darn cli docs are missing some jump start examples.
+I&rsquo;m pretty sure most of us want examples, and I&rsquo;d like to see exhaustive examples on the docs page.</p>
+<p>I tried to force a replacement of a deployment:</p>
+<pre><code>    pulumi up --diff --replace 'myproject-dev-deployment'    ❌ NOT FOUND
+    pulumi up --diff --replace 'kubernetes:apps:Deployment'  ❌ NOT FOUND
+</code></pre>
+<blockquote>
+<p><code>--replace stringArray</code> Specify resources to replace. Multiple resources can be specified using &ndash;replace urn1 &ndash;replace urn2 <a href="https://www.pulumi.com/docs/reference/cli/pulumi_up/" target="_blank" rel="noopener noreferrer">pulumi up docs</a></p>
+</blockquote>
+<p>Not sure of the urn, as I couldn&rsquo;t find in the state file.
+Decided to go with destroy 🔥 and redeploy to be (not)safe.
+Hey it&rsquo;s a dev environment after all!</p>
+<h2 id="mapping-from-yaml" class="headerLink">
+    <a href="#mapping-from-yaml" class="header-mark"></a>Mapping from Yaml</h2><p>Ran into an edge case. I set config values that had a slash.</p>
+<pre><code>myconfig:
+    subsection:
+        io/foo: 123
+</code></pre>
+<p>This seemed to read all the zero values and couldn&rsquo;t obtain them.
+I went and replaced all of these with a command like: <code>pulumi --cwd pulumi/myproject --stack=myorg/myproject/dev config set --path 'data.podannotations.myservice.myport' 80</code>.</p>
+<p>No luck.
+Figured it might be something to do with maps, but I couldn&rsquo;t find anything with Go having issues with the key value having a slash or such.</p>
+<p>Gave this a shot and 🎉 it worked.</p>
+<pre><code>type MyConfig struct {
+    Onlyyaml          bool   `yaml:&quot;onlyyaml&quot;`
+    SpecialNested     struct {
+        Enabled              bool   `yaml:&quot;enabled&quot;`
+    } `yaml:&quot;specialnested,inline&quot;` // 👈 inline is needed
+}
+</code></pre>
+<p>This parsed the value:</p>
+<pre><code>config:
+    specialnested:
+        enabled: true
+</code></pre>
+<p>Now I know. I didn&rsquo;t see anything about using this when reading the docs, so that&rsquo;s another one that shows it requires expertise in both Pulumi + the native language to figure out what&rsquo;s wrong.</p>
+<blockquote>
+<p>Embedded structs are not treated as embedded in YAML by default. To do that add the &ldquo;,inline&rdquo; annotation below. <a href="https://pkg.go.dev/gopkg.in/yaml.v2#Unmarshal" target="_blank" rel="noopener noreferrer">Unmarshal for yaml.v2</a></p>
+</blockquote>
+<p>I couldn&rsquo;t find the exact package being used due to time, but it&rsquo;s possible that this was forked off the original package here: <a href="https://pkg.go.dev/github.com/pulumi/go-yaml" target="_blank" rel="noopener noreferrer">pulumi-go-yaml</a>.</p>
+<h2 id="task-runner" class="headerLink">
+    <a href="#task-runner" class="header-mark"></a>Task Runner</h2><p>I standardize all my projects, personal and work with Mage.</p>
+<p>Was pretty easy to integrate with pulumi, even though their CLI is pretty awesome and easy to use..
+However, I prefer all tools that aren&rsquo;t one off&rsquo;s have a simple standardized way to execute.</p>
+<p>For me this entailed: <code>mage pulumi:diff myproject dev</code> and it ensured all the command line flags and such were setup.</p>
+<p>I put some sample tasks on my magetools repo: <a href="https://github.com/sheldonhull/magetools/tree/main/examples/pulumi" target="_blank" rel="noopener noreferrer">Magetools - Examples - Pulumi</a>.</p>
+<p>Some examples from that:</p>
+<pre><code>// Pulumi namespace contains task to help with running Pulumi tools.
+type Pulumi mg.Namespace
+
+// Get returns the fully qualified Pulumi stack name, including the org, project, and stage.
+// This looks like `myorg/project/stage`.
+func GetPulumiStackName(project, stage string) string {
+    mtu.CheckPtermDebug()
+    return strings.Join([]string{PulumiOrg, project, stage}, &quot;/&quot;)
+}
+
+
+// 🚀 Up 👉 Parameters(project, stack string): Eg: `mage pulumi:up myproject dev`.
+// Runs pulumi up/apply to target.
+//
+// Example: `mage pulumi:up myproject dev`.
+func (Pulumi) Up(project, stage string) error {
+    mtu.CheckPtermDebug()
+    return sh.RunV(
+        &quot;pulumi&quot;,
+        &quot;--cwd&quot;,
+        filepath.Join(PulumiProjectDir, project),
+        &quot;--stack=&quot;+GetPulumiStackName(project, stage),
+        &quot;up&quot;,
+        &quot;--yes&quot;,
+        &quot;--emoji&quot;,
+    )
+}
+</code></pre>
+<h2 id="my-feedback" class="headerLink">
+    <a href="#my-feedback" class="header-mark"></a>My Feedback</h2><ul>
+<li><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V86c0-3.3 2.7-6 6-6h340c3.3 0 6 2.7 6 6v340c0 3.3-2.7 6-6 6z"/></svg> Provide several examples for using the flags, such as <code>--config</code> as I couldn&rsquo;t figure out how to pass the string array in a way that made sense.</li>
+<li><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V86c0-3.3 2.7-6 6-6h340c3.3 0 6 2.7 6 6v340c0 3.3-2.7 6-6 6z"/></svg> I&rsquo;ve seen others post on issues as well about confusion with the provider. Much of the examples rely on the default provider.
+For me that was problematic when I wanted to try and work locally but then use a service account credential only for pulumi to test.
+Make some more examples on how to easily do that.</li>
+<li><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V86c0-3.3 2.7-6 6-6h340c3.3 0 6 2.7 6 6v340c0 3.3-2.7 6-6 6z"/></svg> Provide help on Stack Overflow, Github Discussions, or a dedicated discourse to promote visibility and knowledge resharing on solutions. Preference would be Github discussions as it&rsquo;s easy to find help inline with issues.
+Slack is a terrible place to find info in comparison and responses can be erratic and slow (which I get considering how stretched everyone must be!)</li>
+<li><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-6 400H54c-3.3 0-6-2.7-6-6V86c0-3.3 2.7-6 6-6h340c3.3 0 6 2.7 6 6v340c0 3.3-2.7 6-6 6z"/></svg> Maybe the logger makes sense for automation api or something else, but I&rsquo;d love to see the default logger support structured logging (say through zerolog) or something a bit less clunky.
+Having to replace the string values like this made from some clunky logging code. <code>_ = ctx.Log.Error(fmt.Sprintf(&quot;Unable to read Kubeconfig override: %q, %v&quot;, kubeConfigOverride, err), nil)</code>.
+I&rsquo;d like to just call: <code>pulumi.Log.Info().Str(&quot;myval&quot;,strval).Msg(&quot;this is important&quot;)</code>.</li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>They are making progress on this with Crosswalk, but Go isn&rsquo;t in there at this time.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        First Pass With Pulumi
+    </title>
+    <link>
+        https://www.sheldonhull.com/first-pass-with-pulumi/
+    </link>
+    <pubDate>
+        Tue, 10 Aug 2021 20:43:06 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/first-pass-with-pulumi/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="why" class="headerLink">
+    <a href="#why" class="header-mark"></a>Why</h2><p>Instead of learning a new domain specific language that wraps up cloud provider API&rsquo;s, this let&rsquo;s the developer use their preferred programming language, while solving several problems that using the API&rsquo;s directly don&rsquo;t solve.</p>
+<ul>
+<li>Ensure the deployment captures a state file of the changes made.</li>
+<li>Workflow around the previews and deployments.</li>
+<li>Easily automated policy checks and tests.</li>
+</ul>
+<p>This can be a really useful tool to bring infrastructure code maintainability directly into the the lifecycle of the application.</p>
+<p>It&rsquo;s subjective to those in DevOps whether this would also apply for &ldquo;Day 0-2&rdquo; type operations, which are typically less frequently changed resources such as account settings, VPC, and other more static resources.</p>
+<p>However, with a team experienced with Go or other tooling, I could see that this would provide a way to have much more programmatic control, loops, and other external libraries used, without resorting to the HCL DSL way of doing resource looping and inputs.</p>
+<h2 id="first-pass" class="headerLink">
+    <a href="#first-pass" class="header-mark"></a>First Pass</h2><p>First impression was very positive!</p>
+<p>Basic steps:</p>
+<ul>
+<li><code>brew install pulumi</code></li>
+<li><code>pulumi new aws-go</code></li>
+<li>Entered name of test stack such as <code>aws-vpc</code>.</li>
+<li>Copied the VPC snippet from their docs and then plugged in my own tag for naming, which by default wasn&rsquo;t included.</li>
+<li>Reproduced the example for <code>pulumi.String()</code>.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;flag&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">petname</span> <span class="s">&#34;github.com/dustinkirkland/golang-petname&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;github.com/pulumi/pulumi/sdk/v3/go/pulumi/config&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">words</span>     <span class="p">=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">Int</span><span class="p">(</span><span class="s">&#34;words&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#34;The number of words in the pet name&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">separator</span> <span class="p">=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;separator&#34;</span><span class="p">,</span> <span class="s">&#34;-&#34;</span><span class="p">,</span> <span class="s">&#34;The separator between words in the pet name&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">pulumi</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">ctx</span> <span class="o">*</span><span class="nx">pulumi</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">conf</span> <span class="o">:=</span> <span class="nx">config</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">stage</span> <span class="o">:=</span> <span class="nx">conf</span><span class="p">.</span><span class="nf">Require</span><span class="p">(</span><span class="s">&#34;stage&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">petname</span> <span class="o">:=</span> <span class="nx">petname</span><span class="p">.</span><span class="nf">Generate</span><span class="p">(</span><span class="o">*</span><span class="nx">words</span><span class="p">,</span> <span class="o">*</span><span class="nx">separator</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ec2</span><span class="p">.</span><span class="nf">NewVpc</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">stage</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">ec2</span><span class="p">.</span><span class="nx">VpcArgs</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">CidrBlock</span><span class="p">:</span> <span class="nx">pulumi</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;10.0.0.0/16&#34;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">Tags</span><span class="p">:</span> <span class="nx">pulumi</span><span class="p">.</span><span class="nx">StringMap</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="s">&#34;Name&#34;</span><span class="p">:</span> <span class="nx">pulumi</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nf">Join</span><span class="p">([]</span><span class="kt">string</span><span class="p">{</span><span class="nx">stage</span><span class="p">,</span> <span class="nx">petname</span><span class="p">},</span> <span class="s">&#34;-&#34;</span><span class="p">)),</span>
+</span></span><span class="line"><span class="cl">			<span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="p">})</span>
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl">	<span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="positive-observations" class="headerLink">
+    <a href="#positive-observations" class="header-mark"></a>Positive Observations</h2><ul>
+<li>Running <code>pulumi destroy</code> left the stack in the console for full plan history and auditing.
+To remove the stack from the web you&rsquo;d run: <code>pulumi stack rm dev</code>.
+This is similar to how terraform cloud workspaces work and gives confidence of easier auditing by default.</li>
+<li>The console experience and browser integration was beautifully done.</li>
+<li><code>pulumi preview --emoji</code> provided a very clean and succint summary of changes.</li>
+<li><code>pulumi up</code> also was very clean, and allowed a selection to expand the details as well.</li>
+<li>Browser for stack provides full metadata detail, resource breakdown, audit history, and more.</li>
+</ul>
+<p><figure><a class="lightgallery" href="/images/2021-08-10-15.47.41-pulumi-preview.png" title="Great Console Preview &amp;amp; Interaction Experience" data-thumbnail="/images/2021-08-10-15.47.41-pulumi-preview.png" data-sub-html="<h2>Great Console Preview &amp; Interaction Experience</h2><p>Great Console Preview &amp;amp; Interaction Experience</p>">
+        
+    </a><figcaption class="image-caption">Great Console Preview & Interaction Experience</figcaption>
+    </figure></p>
+<ul>
+<li>
+<p>The Pulumi docs for Azure DevOps were pretty solid!
+Full detail and walk through.
+As an experienced PowerShell developer, I was pleasantly suprised by quality PowerShell code that overall was structured well.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+</li>
+<li>
+<p>Set some values via yaml easily by: <code>'pulumi config set --path 'stage' 'dev'</code> which results in:</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">config</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">mystack:stage</span><span class="p">:</span><span class="w"> </span><span class="l">dev</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">aws:region</span><span class="p">:</span><span class="w"> </span><span class="l">myregion</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>This is then read via:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">conf</span> <span class="o">:=</span> <span class="nx">config</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">stage</span> <span class="o">:=</span> <span class="nx">conf</span><span class="p">.</span><span class="nf">Require</span><span class="p">(</span><span class="s">&#34;stage&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="things-to-improve" class="headerLink">
+    <a href="#things-to-improve" class="header-mark"></a>Things To Improve</h2><ul>
+<li>Missing the benefit of Terraform module registry.</li>
+<li>Pulumi Crosswalk sounds pretty awesome to help with this.
+However, I wasn&rsquo;t able to find the equivalent of a &ldquo;crosswalk module library&rdquo; to browse so that part might be a future improvement.</li>
+</ul>
+<p>This document link: <a href="https://www.pulumi.com/docs/guides/crosswalk/aws/vpc/" target="_blank" rel="noopener noreferrer">AWS Virtual Private Cloud (VPC) | Pulumi</a> seemed great as a tutorial, but wasn&rsquo;t clear immediately on how I could use with Go.</p>
+<p>I looked at the <a href="https://pkg.go.dev/github.com/pulumi/pulumi-aws/sdk/v4@v4.15.0/go/aws" target="_blank" rel="noopener noreferrer">aws · pkg.go.dev</a> but didn&rsquo;t see any equivalent to the documented <code>awsx</code> package shown from nodejs library.</p>
+<p>Finally, found my answer.</p>
+<blockquote>
+<p>Pulumi Crosswalk for AWS is currently supported only in Node.js (JavaScript or TypeScript) languages. Support for other languages, including Python, is on the future roadmap. <a href="https://www.pulumi.com/docs/guides/crosswalk/aws/#what-languages-are-supported" target="_blank" rel="noopener noreferrer">Pulumi Crosswalk for AWS | Pulumi</a></p>
+</blockquote>
+<p>I wish this was put as a big disclaimer right up at the top of the crosswalk section to ensure it was very clear.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>This feels very similar in style to the AWS SDK which doesn&rsquo;t allow just string values, but requires pointers to strings and thus wraps up the strings with expressions such as <code>aws.String(</code>.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Subjective, but I noticed boolean values instead of switches, which would slightly simplify the build scripts, but is more of a &ldquo;nit&rdquo; than a critical issue. Using if blocks instead of switch might also clean things up, but overall the script was pretty well written, which seems rare in vendor provided PowerShell examples. 👏&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

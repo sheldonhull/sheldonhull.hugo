@@ -1,0 +1,110 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Monitoring - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/monitoring/</link>
+        <description>Monitoring - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 08 Aug 2017 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/monitoring/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Capturing Perfmon Counters With Telegraf
+    </title>
+    <link>
+        https://www.sheldonhull.com/capturing-perfmon-counters-with-telegraf/
+    </link>
+    <pubDate>
+        Tue, 08 Aug 2017 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/capturing-perfmon-counters-with-telegraf/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="setting-up-telegraf-to-capture-metrics" class="headerLink">
+    <a href="#setting-up-telegraf-to-capture-metrics" class="header-mark"></a>Setting up Telegraf to Capture Metrics</h2><p>I had a lot of issues with getting the GO enviroment setup in windows, this time and previous times. For using telegraf, I&rsquo;d honestly recommend just leveraging the compiled binary provided.</p>
+<p>Once downloaded, generate a new config file by running the first command and then the next to install as service. (I tried doing through NSSM originally and it failed to work with telegraf fyi)</p>
+<script src="https://gist.github.com/sheldonhull/583210cfb588d1958b5c2ba67515ec29.js"></script>
+
+<p>Once this service was setup and credentials entered, it&rsquo;s ready to run as a service in the background, sending whatever you&rsquo;ve configured to the destination of choice.</p>
+<p>In my test in Amazon Web Services, using EC2 with Windows Server 2016, I had no issues once EC2 issues were resolved to allow the services to start sending their metrics and show me the load being experienced across all in Grafana.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        InfluxDB and Annotations
+    </title>
+    <link>
+        https://www.sheldonhull.com/influx-db-and-annotations/
+    </link>
+    <pubDate>
+        Mon, 07 Aug 2017 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/influx-db-and-annotations/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <div
+    class="details admonition info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-info-circle fa-fw"
+      ></i>
+      Updated: 2020-04-29
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">broken image links removed</div>
+    </div>
+  </div>
+<p>This post assumes you&rsquo;ve already setup InfluxDB and have Grafana running.</p>
+<h2 id="inserting-annotations" class="headerLink">
+    <a href="#inserting-annotations" class="header-mark"></a>Inserting annotations</h2><p>Annotations are not a special type of resource, instead it&rsquo;s just another metric that you query with a feature in Grafana to display on other metrics. This means the same insert Line Protocol applies to the Annotation.</p>
+<p>This post on maxchadwick.xyz greatly helped me get started: <a href="http://bit.ly/2pgmwtH" target="_blank" rel="noopener noreferrer">Creating Grafana Annotations with InfluxDb Max Chadwick</a></p>
+<p>Per Max&rsquo;s original post it supports html as well, so you could link for example to a build, test result, or anything else you want to link to from your performance statistics.</p>
+<script src="https://gist.github.com/sheldonhull/e95ca6d909f741ebe80fa28c6da4de5b.js"></script>
+
+<p>This provides an annotation on your timeline in a nice format for browsing through the timeline. I can see usage cases for identifying specific activity or progress in tests, helping coorelate the performance metrics with known activity steps from a build, script, or other related tasks. You could have an type of activity trigger this powershell insert, providing a lot of flexibility to help relate useful metrics to your monitoring.</p>
+<p>My personal use case has been to ensure load testing start/end times and other significant points of time in a test are easily visible in the same timeline I&rsquo;m reviewing metrics on.</p>
+<p>Warning: I did experience performance degradation with Grafana and many annotations on a timeline. I found just disabling the annotations kept this from occurring, so you only pull them when youd them.</p>
+<h2 id="adding-annotations-to-grafana" class="headerLink">
+    <a href="#adding-annotations-to-grafana" class="header-mark"></a>Adding Annotations to Grafana</h2><p>Now that you have the results being inserted into InfluxDB, you can query these in Grafana as annonations to overlay your graphs.</p>
+<h2 id="potential-uses" class="headerLink">
+    <a href="#potential-uses" class="header-mark"></a>Potential Uses</h2><p>I could see a whole lot of uses for this!</p>
+<ul>
+<li>insert at build related activity</li>
+<li>Windows update</li>
+<li>Specific Database Related Maintenance like Ola Hallengren&rsquo;s index optimize or database integrity check</li>
+</ul>
+<p>Monitoring always loses it&rsquo;s value when you have a limited picture of what is happening. Triggering relevant details for stuff that might help analyze activity might be the key to immediately gaining an understanding on what is causing a spike of activity, or of better evaluating the timeline of a load test.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

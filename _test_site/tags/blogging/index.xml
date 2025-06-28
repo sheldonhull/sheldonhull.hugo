@@ -1,0 +1,72 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Blogging - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/blogging/</link>
+        <description>Blogging - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 05 May 2020 20:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/blogging/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        2020-05-05T20:12:01&#43;00:00
+    </title>
+    <link>
+        https://www.sheldonhull.com/2020-05-05t201201-0000/
+    </link>
+    <pubDate>
+        Tue, 05 May 2020 20:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/2020-05-05t201201-0000/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Finally got <a href="https://forestry.io/blog/search-with-algolia-in-hugo/" target="_blank" rel="noopener noreferrer">atomic algolia</a> to work in CICD for my hugo blog. I&rsquo;ve tried tackling this in many ways over time, but this finally just worked with plug and play ease thanks to just adding a line to the hugo build <code>netlify.toml</code> file.</p>
+<p>If you want to try this out, assuming you&rsquo;ve already got an algolia index, json file generated and all&hellip; then just:</p>
+<ol>
+<li>Setup env variables in netlify build</li>
+<li>Add the following line to your netlify production build script</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Starting atomic-algolia update&#34;</span>
+</span></span><span class="line"><span class="cl">npm run algolia
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>You should get the following output from your netlify build if everything went right. No hits to algolia if you didn&rsquo;t change your indexes! 🎉</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">3:13:47 PM: &gt; sheldonhull.hugo@1.0.0 algolia /opt/build/repo
+</span></span><span class="line"><span class="cl">3:13:47 PM: &gt; atomic-algolia
+</span></span><span class="line"><span class="cl">3:13:47 PM: [Algolia] Adding 0 hits to sheldonhull.com
+</span></span><span class="line"><span class="cl">3:13:47 PM: [Algolia] Updating 0 hits to sheldonhull.com
+</span></span><span class="line"><span class="cl">3:13:47 PM: [Algolia] Removing 0 hits from sheldonhull.com
+</span></span><span class="line"><span class="cl">3:13:47 PM: [Algolia] 156 hits unchanged in sheldonhull.com
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

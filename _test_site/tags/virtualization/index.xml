@@ -1,0 +1,40 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Virtualization - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/virtualization/</link>
+        <description>Virtualization - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 11 Aug 2017 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/virtualization/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Fixing VirtualBox Only Showing 32bit Windows OS Options
+    </title>
+    <link>
+        https://www.sheldonhull.com/fixing-virtual-box-only-showing-32bit-windows-os-options/
+    </link>
+    <pubDate>
+        Fri, 11 Aug 2017 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/fixing-virtual-box-only-showing-32bit-windows-os-options/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Original help was identified from this article <a href="http://www.fixedbyvonnie.com/2014/11/virtualbox-showing-32-bit-guest-versions-64-bit-host-os/" target="_blank" rel="noopener noreferrer">Why is VirtualBox only showing 32 bit guest versions on my 64 bit host OS?</a></p>
+<p>In browsing through the comments, I saw mention that the root issue is that Hypervisor running interferes with Virtualboxes virtual management, so I disabled Hypervisor service, repaired the install, and rebooted. I also disabled automatic start for Hypervisor.
+This resolved the issue without requiring the uninstallation of the Hypervisor feature in Windows.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,251 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Ai - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/ai/</link>
+        <description>Ai - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 01 Oct 2024 17:26:01 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/ai/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Gpt for Diagnostics
+    </title>
+    <link>
+        https://www.sheldonhull.com/gpt-for-diagnostics/
+    </link>
+    <pubDate>
+        Tue, 01 Oct 2024 17:26:01 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/gpt-for-diagnostics/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Testing a new setup with Fossi Audio BT20A-PRO paired with my old Polk RTI-A1 bookshelf speakers.
+I was tired of hearing muddy music through Alexa.</p>
+<p>One of them was giving me problems and was pretty erratic.</p>
+<p>The right channel sounded really thin, but the next day after trying different cables, it sounded muddy.</p>
+<p>This is where tools like ChatGPT provide a great starting point.
+Describing the problem revealed my speaker was bi-ampable, and tightening the jumper/bridge plate solved it.</p>
+<p>I&rsquo;ve had some success using this approach with basic car troubleshooting too.</p>
+<p>It&rsquo;s like having an eager subject matter expert in your pocket.
+As long as you take it with a grain of salt and don&rsquo;t rely on it too much, you can get great results ✨.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Automate the Boring Stuff With Ai Like Twitter Annoyances
+    </title>
+    <link>
+        https://www.sheldonhull.com/automate-the-boring-stuff-with-ai-like-twitter-annoyances/
+    </link>
+    <pubDate>
+        Wed, 19 Jun 2024 19:10:06 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/automate-the-boring-stuff-with-ai-like-twitter-annoyances/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>I wanted to remove all the clutter in my Twitter profile, and found the interests section.
+A massive number of detected interests are there, and most aren&rsquo;t actually anything I care about. (Yahoo, eCommerce Technology, and more)</p>
+<p>Each click sends an API request to remove, and there&rsquo;s no way I was going to go through years of content to click.
+I pasted in the div from inspect element and with a few additional prompts to improve it, generated a snippet to past in the Chrome developer console that:</p>
+<ul>
+<li>Clicks each item for me, with some graceful cooldown logic since API throttling nearly immediately occurred.</li>
+<li>Logs the total items to process at the start.</li>
+<li>Logs the start of each request with the format Starting request x/y.</li>
+<li>Logs a successful uncheck with a ✔ emoji and the format ✔ Successfully unchecked x/y.</li>
+<li>Logs if an item is already unchecked.</li>
+<li>Estimates the remaining time to complete the process and logs it after each action.</li>
+<li>At the end of the process, logs that all items have been processed.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">checkboxes</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;input[type=&#34;checkbox&#34;]&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">total</span> <span class="o">=</span> <span class="nx">checkboxes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">delay</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span> <span class="c1">// Delay between uncheck actions to allow for UI updates and not to trigger rate limits
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Total checkboxes to process: </span><span class="si">${</span><span class="nx">total</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">scrollToElement</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">element</span><span class="p">.</span><span class="nx">scrollIntoView</span><span class="p">({</span> <span class="nx">behavior</span><span class="o">:</span> <span class="s1">&#39;smooth&#39;</span><span class="p">,</span> <span class="nx">block</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">uncheckCheckbox</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">index</span> <span class="o">&gt;=</span> <span class="nx">total</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Completed processing all checkboxes.&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">checkbox</span> <span class="o">=</span> <span class="nx">checkboxes</span><span class="p">[</span><span class="nx">index</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">scrollToElement</span><span class="p">(</span><span class="nx">checkbox</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">checked</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">log</span><span class="p">(</span><span class="sb">`Unchecking checkbox </span><span class="si">${</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">total</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">checkbox</span><span class="p">.</span><span class="nx">click</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// Wait for any potential dynamic updates
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;aria-checked&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="s1">&#39;false&#39;</span> <span class="o">||</span> <span class="o">!</span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">checked</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">log</span><span class="p">(</span><span class="sb">`Successfully unchecked checkbox </span><span class="si">${</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">total</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">index</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">delay</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span> <span class="c1">// Reset the delay after successful uncheck
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">log</span><span class="p">(</span><span class="sb">`Failed to uncheck checkbox </span><span class="si">${</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">total</span><span class="si">}</span><span class="sb">. Retrying...`</span><span class="p">,</span> <span class="s1">&#39;error&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">delay</span> <span class="o">+=</span> <span class="mi">500</span><span class="p">;</span> <span class="c1">// Increase the delay before retrying
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">uncheckCheckbox</span><span class="p">,</span> <span class="nx">delay</span><span class="p">);</span> <span class="c1">// Move to next checkbox
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="p">},</span> <span class="nx">delay</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">log</span><span class="p">(</span><span class="sb">`Checkbox </span><span class="si">${</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">total</span><span class="si">}</span><span class="sb"> is already unchecked.`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">index</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">uncheckCheckbox</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// Move to next checkbox
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Listen for 503 requests from Twitter
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;fetch&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">url</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;twitter.com&#39;</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="mi">503</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">log</span><span class="p">(</span><span class="s1">&#39;503 error detected from Twitter. Retrying...&#39;</span><span class="p">,</span> <span class="s1">&#39;error&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">delay</span> <span class="o">+=</span> <span class="mi">500</span><span class="p">;</span> <span class="c1">// Increase the delay before retrying
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">type</span> <span class="o">=</span> <span class="s1">&#39;log&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">console</span><span class="p">[</span><span class="nx">type</span><span class="p">](</span><span class="sb">`[TwitterCleanup] </span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">uncheckCheckbox</span><span class="p">();</span> <span class="c1">// Start the process
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">})();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Considering I don&rsquo;t want to spend the time to dive into javascript, I love how it gives options to quickly knock out automation I wouldn&rsquo;t make the time to do manually.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Easiest Way to Run Local Ai
+    </title>
+    <link>
+        https://www.sheldonhull.com/easiest-way-to-run-local-ai/
+    </link>
+    <pubDate>
+        Fri, 01 Dec 2023 12:57:42 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/easiest-way-to-run-local-ai/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p><a href="https://ollama.ai/" target="_blank" rel="noopener noreferrer">Ollama</a> makes this really easy.
+I&rsquo;ve tried a few options to have local code generation tooling available, and this took the cake for wrapping up localized model running.</p>
+<p>I&rsquo;ve got 64gb of ram on my M2 Max Macbook, so I can just run <code>ollama run llama2:13b</code> and get a local model up and ready to use.</p>
+<p>If you are like most of humanity and want less resources taken up, try just <code>ollama run llama2</code>.</p>
+<p>Connect this to <a href="https://continue.dev" target="_blank" rel="noopener noreferrer">Continue</a> and you&rsquo;ve got a local coding assistant.
+It&rsquo;s click and go to add the model to your continue extension.</p>
+<p>My initial impressions were less polished that <code>gpt-4</code>, but to quickly iterate on some reasonable code generation or minor refactoring work it&rsquo;s great to have a local option that wont use any data.
+I&rsquo;m on the go right now and being able to work offline for periods of time is great, but frustrating once I&rsquo;ve experienced the handy transformation and simple fixes an AI integrated into the editor provides.</p>
+<p>I&rsquo;ve got more docs on this topic if you search for ai or sample <a href="/notes/development/ai/chat/" rel="">chat</a>.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

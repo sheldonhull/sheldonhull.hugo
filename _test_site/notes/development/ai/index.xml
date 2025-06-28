@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI on sheldonhull.com</title>
+    <link>https://www.sheldonhull.com/notes/development/ai/</link>
+    <description>Recent content in AI on sheldonhull.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <atom:link href="https://www.sheldonhull.com/notes/development/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>chat</title>
+      <link>https://www.sheldonhull.com/notes/development/ai/chat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.sheldonhull.com/notes/development/ai/chat/</guid>
+      <description>Examples Where ChatGPT Failed Help Me With Using Goldmark For Markdown Parsing This failed repeatedly. The code examples were promising but invoked quite a few methods and approaches that were non-existent in the actual code base and had no corresponding code examples in the repo. Goldmark doesn&amp;rsquo;t have as many use examples compared to many projects, so I think the quality of the suggestions degraded with a broader question.</description>
+    </item>
+    <item>
+      <title>copilot</title>
+      <link>https://www.sheldonhull.com/notes/development/ai/copilot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.sheldonhull.com/notes/development/ai/copilot/</guid>
+      <description>Examples of Where Copilot Failed Examples of Where Copilot Excelled ASCII color codes in bash scripts This has always been a challenge for me, and I spend a significant amount of time trying to figure out the pattern for &amp;ldquo;background is blue with white text and bold&amp;rdquo; to add a touch of polish. Copilot nailed this in a comment in a .envrc file stating: # variable for setting terminal output with light yellow background and black text that is bold resulting in an ideal match.</description>
+    </item>
+  </channel>
+</rss>

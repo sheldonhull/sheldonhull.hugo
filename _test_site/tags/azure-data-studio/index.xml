@@ -1,0 +1,84 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Azure-Data-Studio - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/azure-data-studio/</link>
+        <description>Azure-Data-Studio - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 24 Jun 2020 11:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/azure-data-studio/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Azure Data Studio SQL Notebook for Diagnostic Queries
+    </title>
+    <link>
+        https://www.sheldonhull.com/azure-data-studio-sql-notebook-for-diagnostic-queries/
+    </link>
+    <pubDate>
+        Wed, 24 Jun 2020 11:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/azure-data-studio-sql-notebook-for-diagnostic-queries/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="diagnostic-queries" class="headerLink">
+    <a href="#diagnostic-queries" class="header-mark"></a>Diagnostic Queries</h2><p>Glenn Berry has long been known for producing the definitive diagnostic query set for various SQL Server versions. Between his amazing work and my favorite Brent Ozar First Responder Kit, you are pretty much set.</p>
+<p>One of the things that can be painful though about running diagnostic queries is that it&rsquo;s a lot of small individual queries that you want to run and ideally save the results for review.</p>
+<p>You can do this with dbatools and running queries individually, which is actually what I did a while back for a special support tool that dynamically split those queries into files and exported to xml for later import and review.</p>
+<h2 id="azure-data-studio" class="headerLink">
+    <a href="#azure-data-studio" class="header-mark"></a>Azure Data Studio</h2><p>I&rsquo;m a big fan of Azure Data Studio and as I&rsquo;m not primarily focused right now on SQL Server administration, the feature-set perfectly fits my needs for running queries, doing some basic server administration, and overall just having a lighter weight solution to SSMS. Since I migrated to macOS, this provides me a nice cross-platform tool that I can use on Windows or macOS.</p>
+<p>A great feature that has been continually improving is the Azure Data Studio notebooks. Not only can you run T-SQL notebooks now, but also PowerShell and python using whatever kernel you desire.</p>
+<p>As part of this, you get the benefits of a nice intuitive structure to ad-hoc queries you might want to provide to someone with details on what it means and more. Additionally, the results are cached as part of the JSON so if you save the file and come back later you can review all the results that were pulled (and as a plus they render in GitHub viewer too).</p>
+<h2 id="diagnostic-queries--azure-data-studio--dbatools--" class="headerLink">
+    <a href="#diagnostic-queries--azure-data-studio--dbatools--" class="header-mark"></a>Diagnostic Queries + Azure Data Studio + dbatools = 🎉</h2><p>To merge the power of all 3 technologies, you can use dbatools to export the diagnostic queries for a targeted SQL server version as an Azure Data Studio Notebook. Pretty freaking cool.</p>
+<p>To get started on this just make sure you have the latest dbatools: <code>Install-Module dbatools -confirm:$false</code></p>
+<p>Then generate a new Azure Data Studio Notebook like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c"># This will create the notebook in whatever location you currently are in</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$Version</span> <span class="p">=</span> <span class="mf">2017</span>
+</span></span><span class="line"><span class="cl"><span class="nb">New-DbaDiagnosticAdsNotebook</span> <span class="n">-Path</span> <span class="s2">&#34;DiagnosticNotebook</span><span class="nv">${Version}</span><span class="s2">.ipynb&#34;</span> <span class="n">-TargetVersion</span> <span class="nv">$Version</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Open up this new notebook and enjoy the result! To make reading easier, you can issue the command to &ldquo;collapse all cells&rdquo; and the queries will be minimized allowing you to read through all the query options.</p>
+<p>Note that even the description of the queries is provided in the notebook, providing insight on the purpose of the query.</p>
+<div
+    class="details admonition warning
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-exclamation-triangle fa-fw"
+      ></i>
+      Warning
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">As always, make sure you are careful before just running all queries by default against a production server.
+Some queries take heavy resources and might not be appropriate to run in the middle of a production workflow.</div>
+    </div>
+  </div>
+<p><figure><a class="lightgallery" href="/images/2020-06-23_13-23-07_azure_data_studio.png" title="Shows the diagnostic query view in Azure Data Studio" data-thumbnail="/images/2020-06-23_13-23-07_azure_data_studio.png" data-sub-html="<h2>Azure Data Studio Diagnostic Queries</h2><p>Shows the diagnostic query view in Azure Data Studio</p>">
+        
+    </a><figcaption class="image-caption">Azure Data Studio Diagnostic Queries</figcaption>
+    </figure></p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

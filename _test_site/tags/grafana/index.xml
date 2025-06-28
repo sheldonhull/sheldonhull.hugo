@@ -1,0 +1,44 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Grafana - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/grafana/</link>
+        <description>Grafana - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 08 Aug 2017 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/grafana/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Capturing Perfmon Counters With Telegraf
+    </title>
+    <link>
+        https://www.sheldonhull.com/capturing-perfmon-counters-with-telegraf/
+    </link>
+    <pubDate>
+        Tue, 08 Aug 2017 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/capturing-perfmon-counters-with-telegraf/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="setting-up-telegraf-to-capture-metrics" class="headerLink">
+    <a href="#setting-up-telegraf-to-capture-metrics" class="header-mark"></a>Setting up Telegraf to Capture Metrics</h2><p>I had a lot of issues with getting the GO enviroment setup in windows, this time and previous times. For using telegraf, I&rsquo;d honestly recommend just leveraging the compiled binary provided.</p>
+<p>Once downloaded, generate a new config file by running the first command and then the next to install as service. (I tried doing through NSSM originally and it failed to work with telegraf fyi)</p>
+<script src="https://gist.github.com/sheldonhull/583210cfb588d1958b5c2ba67515ec29.js"></script>
+
+<p>Once this service was setup and credentials entered, it&rsquo;s ready to run as a service in the background, sending whatever you&rsquo;ve configured to the destination of choice.</p>
+<p>In my test in Amazon Web Services, using EC2 with Windows Server 2016, I had no issues once EC2 issues were resolved to allow the services to start sending their metrics and show me the load being experienced across all in Grafana.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

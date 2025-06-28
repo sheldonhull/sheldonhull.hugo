@@ -1,0 +1,97 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Jekyll - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/jekyll/</link>
+        <description>Jekyll - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 18 Mar 2018 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/jekyll/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Migration To Jekyll
+    </title>
+    <link>
+        https://www.sheldonhull.com/migration-to-jekyll/
+    </link>
+    <pubDate>
+        Sun, 18 Mar 2018 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/migration-to-jekyll/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>I&rsquo;ve been in the process of migrating my site to it&rsquo;s final home (as far as my inner geek can be satisfied staying with one platform)&hellip; Jekyll.</p>
+<h2 id="jekyll" class="headerLink">
+    <a href="#jekyll" class="header-mark"></a>Jekyll</h2><p><a href="http://bit.ly/2FK4B7p" target="_blank" rel="noopener noreferrer">Jekyll</a> is a static website generator that takes plain markdown files and runs through through files that are basically templates for the end html content, allowing flexibility in content generation. The result ends up being a static website with beautifully generated typography, search, pagination, and other great features for a blogging engine. You also keep the benefit of writing in our beloved markdown, allowing easy source controlling of your blog.</p>
+<p>This site at this time basically is a github repo. Upon commit, Netlify provides an amazing free resource for developers to automatically launch a remote build, minify, ensure content is with their CDN and publishes the changes to your site upon successful build. Pretty amazing! They also have more flexibility than Github-Pages in that you can use other Ruby based plugins for Jekyll, while Github limits the plugins available, resulting in less features in Jekyll that are available.</p>
+<h2 id="worth-it" class="headerLink">
+    <a href="#worth-it" class="header-mark"></a>Worth It?</h2><p>This was a pretty exhaustive migration process, primarily because I worked on ensuring all links were correctly remapped, features like tag pages were in place, and all assets were migrated from Cloudinary and other locations. Overall it was a very time consuming affair but considering free hosting that will scale for any load required vs $144 at squarespace, I think it&rsquo;s a win. In addition, no MySQL databases to manage, Apache webservers to maintain, PHP editions to troubleshoot&hellip;. well that sold me.</p>
+<h2 id="using-fuzzy-string-matching-to-fix-urls" class="headerLink">
+    <a href="#using-fuzzy-string-matching-to-fix-urls" class="header-mark"></a>Using Fuzzy String Matching To Fix Urls</h2><h3 id="resources" class="headerLink">
+    <a href="#resources" class="header-mark"></a>resources</h3><ul>
+<li><a href="https://gist.github.com/sheldonhull/830be16d464d2205236f95c7615a4446" target="_blank" rel="noopener noreferrer">PowerShell: Check List of Urls and Retrieve Status Codes</a></li>
+<li><a href="https://gist.github.com/sheldonhull/fdc5c12fa10c806811cdc75b8955587f" target="_blank" rel="noopener noreferrer">PowerShell: Generate CSV from Sitemap.xml</a></li>
+</ul>
+<h3 id="matching-urls" class="headerLink">
+    <a href="#matching-urls" class="header-mark"></a>matching urls</h3><p>I noticed a lot of broken url&rsquo;s when migrating my site, so I got a list of url&rsquo;s and wanted to compare the old broken urls against a list of current url&rsquo;s and do a match to find the best resulting match. For instance, with the Jekyll title generating the link, I had issues with a url change like this:</p>
+<p>I generated a sitemap csv by using ConvertFrom-Sitemap, originally written by Michael Hompus at TechCenter.</p>
+<table>
+<thead>
+<tr>
+<th>Original</th>
+<th>New</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>https://www.sheldonhull.com/blog/syncovery-arq</code></td>
+<td><code>https://www.sheldonhull.com/blog/syncovery-&amp;-arq-syncing-&amp;-backup</code></td>
+</tr>
+</tbody>
+</table>
+<p>What I wanted was a way to do a fuzzy match on the url to give me the best guess match, even if a few characters were different&hellip; and I did not want to write this from scratch in the time I have.</p>
+<p>I found a reference to a great library called <a href="https://www.powershellgallery.com/packages/Communary.PASM" target="_blank" rel="noopener noreferrer">Communary.PASM</a> and in PowerShell ran the install command: <code>Install-Package Communary.PASM -scope currentuser</code></p>
+<p>The resulting adhoc script I created:</p>
+<script src="https://gist.github.com/sheldonhull/c57c51882e7102e6b9b383443c115409.js"></script>
+
+<p>The resulting matches were helpful in saving me a lot of time, finding partial matches when a few characters were off.</p>
+<table>
+<thead>
+<tr>
+<th>Original</th>
+<th>FuzzyMatched</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/blog/transaction-logging-recovery-101</td>
+<td>/blog/transaction-logging-&amp;-recovery-(101)</td>
+</tr>
+<tr>
+<td>/blog/transaction-logging-recovery-part-2</td>
+<td>/blog/transaction-logging-&amp;-recovery-(part-2)</td>
+</tr>
+<tr>
+<td>/blog/transaction-logging-&amp;-recovery-(part-3)</td>
+<td>/blog/transaction-logging-recovery-part-3</td>
+</tr>
+</tbody>
+</table>
+<p>I then tested out another several algorithms. I had come across references to the Levenshtein algorithm when reading about string matching on Stack Overflow. I added that logic into my script, and watched paint dry while it ran. It wasn&rsquo;t a good fit for my basic string matching. Learning more about string matching sounds interesting though as it seems to be a common occurrence in development, and I&rsquo;m all for anything that lets me write less regex :-)</p>
+<p>For my rough purposes the Fuzzy match was the best fit, as most of the title was the same, just typically missing the end, or slight variance in the delimiter.</p>
+<p>I had other manual cleanup to do, but still, it was an interesting experiment. Gave me an appreciation for a consistent url naming schema, as migration to a new engine can be made very painful by changes in the naming of the posts. After some more digging, I decided to not worry about older post urls and mostly just focused on migrating any comments. I think the most interesting part of this was learning a little about the various string matching algorithm&rsquo;s out there&hellip; It&rsquo;s got my inner data geek interested in learning more on this.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

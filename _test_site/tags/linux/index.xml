@@ -1,0 +1,40 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Linux - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/linux/</link>
+        <description>Linux - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 02 Jun 2020 17:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/linux/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        2020-06-02T17:53:51&#43;00:00
+    </title>
+    <link>
+        https://www.sheldonhull.com/2020-06-02t175351-0000/
+    </link>
+    <pubDate>
+        Tue, 02 Jun 2020 17:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/2020-06-02t175351-0000/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Quickly install <a href="https://github.com/git-town/git-town" target="_blank" rel="noopener noreferrer">Git Town</a> using bash in Ubuntu container with the following:</p>
+<script src="https://gist.github.com/sheldonhull/adeb27394527dbd9a27408c1ba79718d.js?file=install-git-town.sh"></script>
+
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

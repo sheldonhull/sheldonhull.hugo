@@ -1,0 +1,300 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>InfluxDb - Series - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/series/influxdb/</link>
+        <description>InfluxDb - Series - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 08 Aug 2017 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/series/influxdb/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Capturing Perfmon Counters With Telegraf
+    </title>
+    <link>
+        https://www.sheldonhull.com/capturing-perfmon-counters-with-telegraf/
+    </link>
+    <pubDate>
+        Tue, 08 Aug 2017 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/capturing-perfmon-counters-with-telegraf/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="setting-up-telegraf-to-capture-metrics" class="headerLink">
+    <a href="#setting-up-telegraf-to-capture-metrics" class="header-mark"></a>Setting up Telegraf to Capture Metrics</h2><p>I had a lot of issues with getting the GO enviroment setup in windows, this time and previous times. For using telegraf, I&rsquo;d honestly recommend just leveraging the compiled binary provided.</p>
+<p>Once downloaded, generate a new config file by running the first command and then the next to install as service. (I tried doing through NSSM originally and it failed to work with telegraf fyi)</p>
+<script src="https://gist.github.com/sheldonhull/583210cfb588d1958b5c2ba67515ec29.js"></script>
+
+<p>Once this service was setup and credentials entered, it&rsquo;s ready to run as a service in the background, sending whatever you&rsquo;ve configured to the destination of choice.</p>
+<p>In my test in Amazon Web Services, using EC2 with Windows Server 2016, I had no issues once EC2 issues were resolved to allow the services to start sending their metrics and show me the load being experienced across all in Grafana.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        InfluxDB and Annotations
+    </title>
+    <link>
+        https://www.sheldonhull.com/influx-db-and-annotations/
+    </link>
+    <pubDate>
+        Mon, 07 Aug 2017 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/influx-db-and-annotations/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <div
+    class="details admonition info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-info-circle fa-fw"
+      ></i>
+      Updated: 2020-04-29
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">broken image links removed</div>
+    </div>
+  </div>
+<p>This post assumes you&rsquo;ve already setup InfluxDB and have Grafana running.</p>
+<h2 id="inserting-annotations" class="headerLink">
+    <a href="#inserting-annotations" class="header-mark"></a>Inserting annotations</h2><p>Annotations are not a special type of resource, instead it&rsquo;s just another metric that you query with a feature in Grafana to display on other metrics. This means the same insert Line Protocol applies to the Annotation.</p>
+<p>This post on maxchadwick.xyz greatly helped me get started: <a href="http://bit.ly/2pgmwtH" target="_blank" rel="noopener noreferrer">Creating Grafana Annotations with InfluxDb Max Chadwick</a></p>
+<p>Per Max&rsquo;s original post it supports html as well, so you could link for example to a build, test result, or anything else you want to link to from your performance statistics.</p>
+<script src="https://gist.github.com/sheldonhull/e95ca6d909f741ebe80fa28c6da4de5b.js"></script>
+
+<p>This provides an annotation on your timeline in a nice format for browsing through the timeline. I can see usage cases for identifying specific activity or progress in tests, helping coorelate the performance metrics with known activity steps from a build, script, or other related tasks. You could have an type of activity trigger this powershell insert, providing a lot of flexibility to help relate useful metrics to your monitoring.</p>
+<p>My personal use case has been to ensure load testing start/end times and other significant points of time in a test are easily visible in the same timeline I&rsquo;m reviewing metrics on.</p>
+<p>Warning: I did experience performance degradation with Grafana and many annotations on a timeline. I found just disabling the annotations kept this from occurring, so you only pull them when youd them.</p>
+<h2 id="adding-annotations-to-grafana" class="headerLink">
+    <a href="#adding-annotations-to-grafana" class="header-mark"></a>Adding Annotations to Grafana</h2><p>Now that you have the results being inserted into InfluxDB, you can query these in Grafana as annonations to overlay your graphs.</p>
+<h2 id="potential-uses" class="headerLink">
+    <a href="#potential-uses" class="header-mark"></a>Potential Uses</h2><p>I could see a whole lot of uses for this!</p>
+<ul>
+<li>insert at build related activity</li>
+<li>Windows update</li>
+<li>Specific Database Related Maintenance like Ola Hallengren&rsquo;s index optimize or database integrity check</li>
+</ul>
+<p>Monitoring always loses it&rsquo;s value when you have a limited picture of what is happening. Triggering relevant details for stuff that might help analyze activity might be the key to immediately gaining an understanding on what is causing a spike of activity, or of better evaluating the timeline of a load test.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Running InfluxDB as a service in Windows
+    </title>
+    <link>
+        https://www.sheldonhull.com/running-influx-db-as-a-service-in-windows/
+    </link>
+    <pubDate>
+        Wed, 24 May 2017 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/running-influx-db-as-a-service-in-windows/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="run-as-a-service" class="headerLink">
+    <a href="#run-as-a-service" class="header-mark"></a>Run as a Service</h2><p>As part of the process to setup some metrics collections for sql-server based on perfmon counters I&rsquo;ve been utilizing InfluxDB. Part of getting started on this is ensuring InfluxDB runs as a service instead of requiring me to launch the exe manually. For more information on InfluxDb, see my other post: <a href="/running-influx-db-as-a-service-in-windows/" rel="">Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev</a></p>
+<p>This of course, did not go without it&rsquo;s share of investigation since I&rsquo;m working with a compiled executable that was originally built in <code>GO</code>. I had issues registering InfluxDB as a service. This is typically due to enviromental/path variables. In my powershell launch of <code>InfluxD.exe</code> I typically used a script like the following:</p>
+<script src="https://gist.github.com/sheldonhull/6f4e11d60244af00edac438cb9ae6ea5.js"></script>
+
+<p>I investigated running as a service and found a great reminder on using NSSM for this: <a href="http://bit.ly/2pDW65t" target="_blank" rel="noopener noreferrer">Running Go executables &hellip; as windows services &rsquo; Ricard Clau</a> I went and downloaded NSSM again and first setup and register of the service went without a hitch, unlike my attempt at running <code>New-service -name 'InfluxDB' -BinaryPathName 'C:\Influx\influxdb\InfluxD.exe' -DisplayName 'InfluxDB' -StartupType Automatic -Credential (get-credential)</code>. I&rsquo;m pretty sure the core issue was the <code>PATH</code> variables and other related enviromental paths were not setup with &ldquo;working directory&rdquo; being the InfluxDB which would be expected by it.</p>
+<h2 id="nssm---non-sucking-service-managerhttpbitly2pdtr25" class="headerLink">
+    <a href="#nssm---non-sucking-service-managerhttpbitly2pdtr25" class="header-mark"></a><a href="http://bit.ly/2pDTR25" target="_blank" rel="noopener noreferrer">NSSM - Non-Sucking Service Manager</a></h2><p>Using <code>nssm install</code> provided the GUI which I used in this case. Using the following command I was able to see the steps taken to install, which would allow reproducing the install from a .bat file very easily.</p>
+<pre><code>set-location C:\tools
+.\nssm.exe dump InfluxDB
+</code></pre>
+<p>This resulted in the following output:</p>
+<pre><code>C:\tools\nssm.exe install InfluxDB C:\Influx\influxdb\influxd.exe
+C:\tools\nssm.exe set InfluxDB AppDirectory C:\Influx\influxdb
+C:\tools\nssm.exe set InfluxDB AppExit Default Restart
+C:\tools\nssm.exe set InfluxDB AppEvents Start/Pre C:\Influx\influxdb\influx.exe
+C:\tools\nssm.exe set InfluxDB AppEvents Start/Post C:\Influx\influxdb\influx.exe
+C:\tools\nssm.exe set InfluxDB AppNoConsole 1
+C:\tools\nssm.exe set InfluxDB AppRestartDelay 60000
+C:\tools\nssm.exe set InfluxDB DisplayName InfluxDB
+C:\tools\nssm.exe set InfluxDB ObjectName SERVICENAME &quot;PASSWORD&quot;
+C:\tools\nssm.exe set InfluxDB Start SERVICE_AUTO_START
+C:\tools\nssm.exe set InfluxDB Type SERVICE_WIN32_OWN_PROCESS
+</code></pre>
+<p>Pretty awesome! It&rsquo;s a nice change to have something perfectly the first time with no issues.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev
+    </title>
+    <link>
+        https://www.sheldonhull.com/setting-up-influx-db-chronograf-and-grafana-for-the-sql-server-dev/
+    </link>
+    <pubDate>
+        Wed, 17 May 2017 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/setting-up-influx-db-chronograf-and-grafana-for-the-sql-server-dev/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <div
+    class="details admonition info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-info-circle fa-fw"
+      ></i>
+      Updated: 2020-04-29
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">broken image links removed</div>
+    </div>
+  </div>
+<p>There are some beautiful ways to visualize time series data with the tools I&rsquo;m going to go over. This post is purely focused on the initial setup and saving you some time there. In a future post, I&rsquo;ll show how some of these tools can help you visualize your server performance in a powerful way, including taking metrics from multiple types of servers that be working with SQL Server, and combining the metrics when appropriate to give a full picture of performance.</p>
+<p>A beautiful way to visualize performance across a variety of machines</p>
+<p>It&rsquo;s pretty epic to combine information across a variety of sources and be able to relate the metrics to the &ldquo;big picture&rdquo; that individual machine monitoring might fail to shed light on.</p>
+<h2 id="downloading" class="headerLink">
+    <a href="#downloading" class="header-mark"></a>Downloading</h2><p>I started by running this quick powershell script to download the stable toolkit.
+<script src="https://gist.github.com/sheldonhull/5fa33704e2599e3ddb46a8299ad3bafe.js"></script>
+</p>
+<p>Once extracted, I moved the influx extracted subfolder into the InfluxDB folder to keep it clean. Now all the binaries rested in <code>C:\Influx\InfluxDB</code> folder with no nesting folders.
+I referenced the documentation for getting started with InfluxDB.</p>
+<h2 id="setup-local-influxdb" class="headerLink">
+    <a href="#setup-local-influxdb" class="header-mark"></a>Setup Local InfluxDb</h2><p>Started up the local influxdb binary.</p>
+<script src="https://gist.github.com/sheldonhull/6f4e11d60244af00edac438cb9ae6ea5.js"></script>
+
+<p>Initializing the new database was simple as documented: <code>create database statty</code></p>
+<div
+    class="details admonition warning
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-exclamation-triangle fa-fw"
+      ></i>
+      Case Sensitivity
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">InfluxDB is case sensitive. Make sure to check your case if something isn&rsquo;t working, such as use &ldquo;DatabaseName&rdquo; instead of use &ldquo;databasename&rdquo;</div>
+    </div>
+  </div>
+<p>Also, if you get an error with access to the file, try running as admin.</p>
+<h2 id="more-enviromental-variable-fun" class="headerLink">
+    <a href="#more-enviromental-variable-fun" class="header-mark"></a>More Enviromental Variable Fun</h2><p>A simple fix to errors related to paths and the HOME variable these tools often need, per a Github issue, was to ensure the current path was available as a variable. I did this quickly with a simple batch file to launch the consoles as well as one option, as well as updated the Start-Process script to include a statement to set the env variable for the processes being started. This eliminated the issue. For more details see <a href="http://bit.ly/2nJib1P" target="_blank" rel="noopener noreferrer">github issues</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-batch" data-lang="batch"><span class="line"><span class="cl"><span class="k">SET</span> <span class="nv">HOME</span><span class="p">=</span><span class="nv">%~dp0</span>
+</span></span><span class="line"><span class="cl"><span class="k">start</span> influxd.exe
+</span></span><span class="line"><span class="cl"><span class="k">start</span> influx.exe
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>An additional snippet for launching the console version via a bat file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-batch" data-lang="batch"><span class="line"><span class="cl"><span class="k">set</span> <span class="nv">HOME</span><span class="p">=</span>C:\influx
+</span></span><span class="line"><span class="cl">cmd /k influx.exe -host <span class="s2">&#34;MyInfluxDbHost&#34;</span> -database <span class="s2">&#34;statty&#34;</span> -precision <span class="s2">&#34;s&#34;</span> -format column
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="quick-start-for-telegraf" class="headerLink">
+    <a href="#quick-start-for-telegraf" class="header-mark"></a>Quick Start for Telegraf</h2><p>Once you have this running you can take the telegraf binaries and run them on any other server to start capturing some default preset metrics. I launched with the following script and placed this in <code>C:\Influx</code> directory to make it easy to access for future runs.</p>
+<script src="https://gist.github.com/sheldonhull/1a9641ce607569dde912f996137debae.js"></script>
+
+<p>Edit the conf file to add some tags, change default sampling interval and more. I&rsquo;ll post another article about setting up telegraf to run as a service in the future so search for more info</p>
+<p>You can also apply the same bat file in the startup directory such as:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-batch" data-lang="batch"><span class="line"><span class="cl"><span class="p">@</span><span class="c1">REM alternative is using variable</span>
+</span></span><span class="line"><span class="cl"><span class="p">@</span><span class="c1">REM set TELEGRAF_CONFIG_PATH=C:\telegraf\telegraf.conf</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">start</span> <span class="nv">%~dp0</span>telegraf.exe -config <span class="nv">%~dp0</span>telegraf.conf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="run-chronograf" class="headerLink">
+    <a href="#run-chronograf" class="header-mark"></a>Run Chronograf</h2><p>One these metrics began to run, I ran Chronograf. This is Influx&rsquo;s alternative to Grafana, another more mature product.</p>
+<script src="https://gist.github.com/sheldonhull/958094675f6ab53897616755dd130144.js"></script>
+
+<p>Upon loading and opening up the instance monitor, I found immediately that I was able to get some metrics from the defaults.</p>
+<h2 id="get-grafana" class="headerLink">
+    <a href="#get-grafana" class="header-mark"></a>Get Grafana</h2><p>My preferred visualization tool, this was far more robust and well documented than Chronograf which has promise, but is a relatively new project.</p>
+<p>When starting Grafana, you can run the following script. It creates a copy of the default ini to copy for the user to edit if not already there.</p>
+<script src="https://gist.github.com/sheldonhull/3cff34cf9029bd99cd1e888e755c307c.js"></script>
+
+<p>Once you open the localhost page, if you don&rsquo;t see datasources in the left hand drop down, create an organization and ensure you are an admin, you&rsquo;ll then see the option to add datasources. I simple pointed the page to InfluxDB console running on the server I had setup previously.</p>
+<h2 id="summary" class="headerLink">
+    <a href="#summary" class="header-mark"></a>summary</h2><p>This is just a quick guide on getting started as I found a lot of little bumps in the road since the projects are written in <code>GO</code> and not an easily run .NET project. Getting through this will hopefully give you a way to get started. I&rsquo;ll blog a bit more soon on visualization of the metrics captured, some custom annotations to help make metrics come alive with real-time event notifications (like &ldquo;load test started&rdquo; and &ldquo;build ended&rdquo; etc). It&rsquo;s a really promising solution for those who want some really nice flexibility in using perfmon and related metrics to visualize Windows and SQL Server performance.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,350 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Coding - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/coding/</link>
+        <description>Coding - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 25 Jan 2016 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/coding/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Diff All Files - Reviewing Changesets Quickly
+    </title>
+    <link>
+        https://www.sheldonhull.com/diff-all-files-reviewing-changesets-quickly/
+    </link>
+    <pubDate>
+        Mon, 25 Jan 2016 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/diff-all-files-reviewing-changesets-quickly/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h1 id="diff-all-files" class="headerLink">
+    <a href="#diff-all-files" class="header-mark"></a>Diff all files</h1><div
+    class="details admonition info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-info-circle fa-fw"
+      ></i>
+      Updated: 2017-07-14
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">Still find this incredibly awesome! Developer just updated for Visual Studio 2017 after a lot of hard work. Github repo here for any issues. Big thanks to DeadlyDog for this great tool and putting in the effort to update for VS2017. <a href="https://github.com/deadlydog/VS.DiffAllFiles" target="_blank" rel="noopener noreferrer">deadlydog/VS.DiffAllFiles: Visual Studio Extension to make comparing files before and after committing them to Git and TFS faster and easier</a></div>
+    </div>
+  </div>
+<div
+    class="details admonition info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-info-circle fa-fw"
+      ></i>
+      Updated: 2016-01-25
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">I started using the option to compare a single file at a time, since it picks up the syntax highlighting then. The other way (merge files into one) can&rsquo;t handle syntax highlighting with the various files types all mixed into the same window. Diff All Files extension handles this beautifully with proceeding one by one and automatically opening the next file to compare or allowing you to hit next to close and reopen with the next file to compare. I still enjoy using this due to the &ldquo;context&rdquo; lines that reduce the noise to just the actual section being changed.</div>
+    </div>
+  </div>
+<p>If you need to do code comparison on a lot of files in Visual Studio, I ran across an extension <a href="http://bit.ly/29nXEbe" target="_blank" rel="noopener noreferrer">Diff All Files</a> that is really helpful for merging down the individual file changes into more consumable format.</p>
+<p>In the changeset view you can select diff all files and whatever settings you&rsquo;ve setup in the Tools &gt; Options &gt; Diff all Files settings will then feed through automatically.</p>
+<p><figure><a class="lightgallery" href="/images/2016-07-06_9-31-56_diff_all_files_setupoptions.png" title="2016-07-06_9-31-56_diff_all_files_setupoptions" data-thumbnail="/images/2016-07-06_9-31-56_diff_all_files_setupoptions.png">
+        
+    </a></figure></p>
+<p>You then click on diff all files in the changeset viewer</p>
+<p><figure><a class="lightgallery" href="/images/diff_all_files_animation.gif" title="diff_all_files_animation" data-thumbnail="/images/diff_all_files_animation.gif">
+        
+    </a></figure></p>
+<p>All the non-excluded items will then be merged into a single file, if this option was selected, or separate windows. Personally, I&rsquo;ve found the merged view really helpful to have one single pane to scroll through.</p>
+<p><figure><a class="lightgallery" href="/images/2016-07-06_9-32-02_diff_all_files_settings.png" title="2016-07-06_9-32-02_diff_all_files_settings" data-thumbnail="/images/2016-07-06_9-32-02_diff_all_files_settings.png">
+        
+    </a></figure></p>
+<h2 id="third-party-comparison-perks" class="headerLink">
+    <a href="#third-party-comparison-perks" class="header-mark"></a>Third Party Comparison Perks</h2><p>To go a step beyond this you could use a third party comparison tool. My preferred option is Araxis Merge (disclaimer: they provided me with a license for evaluation, which doesn&rsquo;t impact my assessment). I really like the fact it merges down similarities into a concise comparison. This tool gives you the option to provide only the different lines, with a X number of lines before and ahead for context. This could reduce thousands of lines of code to just a few hundred that have variances. Win! Highly recommend you check them out, as if you are doing open source they have a free license for that. If you do a lot of code comparisons, some of the additional functionality in their app might be worth it, otherwise the built in viewer in TFS is pretty good.</p>
+<p>In my test comparison, I reduced 3245 lines of code in the comparison window to 25 lines, which was the actual changes + 10 lines above/below for each change to have context. This resulted in only a few hundred lines to scroll through. Made my life easier!
+The only con for me with Araxis is no dark theme&hellip;. but I&rsquo;ll live.</p>
+<p><figure><a class="lightgallery" href="/images/2016-07-06_11-56-21_araxis_merge_gui.png" title="araxis_merge_gui" data-thumbnail="/images/2016-07-06_11-56-21_araxis_merge_gui.png">
+        
+    </a></figure></p>
+<h2 id="configuring-third-party-tools" class="headerLink">
+    <a href="#configuring-third-party-tools" class="header-mark"></a>configuring third party tools</h2><p><figure><a class="lightgallery" href="/images/2016-07-06_10-23-24_configure_external_diff_tool.png" title="configure_external_diff_tool" data-thumbnail="/images/2016-07-06_10-23-24_configure_external_diff_tool.png">
+        
+    </a></figure></p>
+<p>I saved this snippet from working through Araxis documentation for setting up their tool with Visual Studio.</p>
+<script src="https://gist.github.com/sheldonhull/8f46d34d2c3c83a4c18e5d70e92e5d3d.js"></script>
+
+<p>I also just ran across another site that had a nice resource list of configuration settings for different comparison tools.  <a href="http://bit.ly/29nX1yF" target="_blank" rel="noopener noreferrer">Diff All Tools - Visual Studio Extension</a></p>
+<h2 id="other-comparison-tools" class="headerLink">
+    <a href="#other-comparison-tools" class="header-mark"></a>Other comparison tools</h2><p>Third party tools can be great for some extra perks like File versioning, comparing folders, and more. You can get by without them, of course, but if you do a lot of change review consider some of the options. A few others I&rsquo;ve reviewed (if pro/paid they provided license for me to evaluate)</p>
+<ul>
+<li><a href="http://bit.ly/29nXlgM" target="_blank" rel="noopener noreferrer">Delta Walker (pro)</a>: Great UI, does image similarities comparison tool. Didn&rsquo;t seem to have a &ldquo;show only changed lines with context&rdquo; like Araxis at the time I reviewed. Mac app!</li>
+<li><a href="http://bit.ly/29nXQaq" target="_blank" rel="noopener noreferrer">Devart Code Compare (pro/free)</a>: I love most programs Devart puts out. This is a good comparison app. Wasn&rsquo;t my preferred option, and at times struggled with large files, but overall was good in comparison accuracy.</li>
+<li><a href="https://sourcegear.com/diffmerge/" target="_blank" rel="noopener noreferrer">DiffMerge</a>: Brief overview, solid tool, just didn&rsquo;t have specific improvements I needed (focused on changeset/sql comparison)</li>
+<li><a href="http://bit.ly/29nXj8G" target="_blank" rel="noopener noreferrer">Beyond Compare</a>: didn&rsquo;t dive into this extensively. They have a devoted following with a lot of loyalty, so check them out if you want to evaluate their software.</li>
+<li>Built in TFS diff - great for a built in tool, I just wanted to have some enhancements in what to ignore and summarize.</li>
+<li><a href="http://documentation.red-gate.com/display/SC11/Setting&#43;data&#43;sources#Settingdatasources-Selectingaversionfromsourcecontrol" target="_blank" rel="noopener noreferrer">SQL Compare</a>: my favorite for reviewing changsets that are directly in TFS. I wish they&rsquo;d add a module for just pulling up the diff view without having to open SQL Compare to setup a comparison though. Sounds like a good user voice feedback item :-)</li>
+</ul>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        chat
+    </title>
+    <link>
+        https://www.sheldonhull.com/notes/development/ai/chat/
+    </link>
+    <pubDate>
+        Mon, 01 Jan 0001 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/notes/development/ai/chat/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="examples-where-chatgpt-failed" class="headerLink">
+    <a href="#examples-where-chatgpt-failed" class="header-mark"></a>Examples Where ChatGPT Failed</h2><div
+    class="details admonition example"
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-list-ol fa-fw"
+      ></i>
+      Help Me With Using Goldmark For Markdown Parsing
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>This failed repeatedly.
+The code examples were promising but invoked quite a few methods and approaches that were non-existent in the actual code base and had no corresponding code examples in the repo.
+Goldmark doesn&rsquo;t have as many use examples compared to many projects, so I think the quality of the suggestions degraded with a broader question.</p>
+<p>It <em>looked</em> great, but with incorrect method signatures, it really suffered.</p>
+<p><figure><a class="lightgallery" href="/images/notes/ray-so-export-developement-ai-chat-goldmark.png" title="example image" data-thumbnail="/images/notes/ray-so-export-developement-ai-chat-goldmark.png" data-sub-html="<h2>Goldmark Fail</h2><p>example image</p>">
+        
+    </a><figcaption class="image-caption">Goldmark Fail</figcaption>
+    </figure></p>
+<p>I think for this to succeed I&rsquo;m going to have it focus on a specific code block and not a function in its entirety.</p>
+</div>
+    </div>
+  </div>
+<h2 id="examples-where-chatgpt-has-been-amazing" class="headerLink">
+    <a href="#examples-where-chatgpt-has-been-amazing" class="header-mark"></a>Examples Where ChatGPT Has Been Amazing</h2><p>👉 See <a href="../go/http.md#anonymous-server" rel="">anonymous server</a></p>
+<div
+    class="details admonition example"
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-list-ol fa-fw"
+      ></i>
+      Help Me Jump Start an API Server With TDD Support and Zerolog
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><blockquote>
+<p>What&rsquo;s a good bootstrap template for golang rest api server?
+I want to include TDD approach that abstracts the http server into a cmd file and allows me to mock http for tests.
+Use zerolog for logging with context.</p>
+</blockquote>
+<p>Key points I think it did well with:</p>
+<ol>
+<li>It structured it reasonably.</li>
+<li>It provided a jump start test file to do TDD with based on <code>httptest</code>.</li>
+<li>It was intelligent enough to add <code>zerolog</code> url handling logging using my preferred package.</li>
+</ol>
+<p>I could see how this could really help jump start intelligently templating out a project much better than just raw boilerplate.</p>
+<p>Instead of having to maintain cookie-cutter style templates, you might see the future allowing being very specific and generating customized code along with infra to support quicker iteration on development.
+Of course, everything should be vetted and scanned, but it&rsquo;s a pretty incredible experience worth using copilot/chatGPT to occasionally accelerate development.</p>
+<p>ChatGPT&rsquo;s answer:</p>
+<p>There are several good bootstrap templates available for Go REST API servers. One popular option is the Go kit template, which provides a clean architecture for building microservices in Go.
+Another option is the Gin Gonic template, which is a lightweight and fast HTTP web framework.
+For your specific requirements, I would recommend using the Gin Gonic template, which provides a simple and easy-to-use web framework. You can use the gin package to create an HTTP server and handle requests, and use the zerolog package to log requests and responses.</p>
+<p>Here&rsquo;s an example of how you can structure your project using the Gin Gonic template and implement TDD:</p>
+<ol start="4">
+<li>Start by creating a new project using the Gin Gonic template: <code>go get github.com/gin-gonic/gin</code></li>
+<li>Create a new cmd directory in your project root and create a main.go file inside it:</li>
+<li>This file sets up a basic HTTP server using the <code>api.NewServer</code> function, which we&rsquo;ll define in the next step.
+It also initializes a logger using the <code>logging.NewLogger</code> function.</li>
+<li>Create a new api directory and create a <code>server.go</code> file inside it.
+This file defines a Server struct that holds a reference to our logger.
+We&rsquo;ll use this struct to handle HTTP requests in the ServeHTTP method.</li>
+<li>Now you can implement your TDD approach by writing tests and mocking the HTTP server using the <code>httptest</code> package:</li>
+<li>This test creates a new instance of our Server and mocks an HTTP request using the <code>httptest</code> package.
+It then calls the <code>ServeHTTP</code> method and checks that the response status code is <code>200</code> OK.</li>
+<li>Finally, you can use the zerolog package to log requests and responses in the ServeHTTP method.</li>
+</ol>
+<p>=== &ldquo;cmd/main.go&rdquo;</p>
+<pre><code>```go title=&quot;cmd/main.go&quot;
+package main
+
+import (
+    &quot;net/http&quot;
+    &quot;os&quot;
+    &quot;your_project/api&quot;
+    &quot;your_project/logging&quot;
+)
+
+func main() {
+  logger := logging.NewLogger()
+  defer logger.Sync()
+
+  // Initialize the HTTP server
+  server := api.NewServer(logger)
+
+  // Start the server
+  port := os.Getenv(&quot;PORT&quot;)
+  if port == &quot;&quot; {
+      port = &quot;8080&quot;
+  }
+
+  logger.Info().Msgf(&quot;Starting server on port %s...&quot;, port)
+  if err := http.ListenAndServe(&quot;:&quot;+port, server); err != nil {
+      logger.Fatal().Err(err).Msg(&quot;Failed to start server&quot;)
+  }
+}
+```
+</code></pre>
+<p>=== &ldquo;api/server.go&rdquo;</p>
+<pre><code>```go title=&quot;api/server.go&quot;
+package api
+
+import (
+    &quot;net/http&quot;
+    &quot;your_project/logging&quot;
+)
+
+type Server struct {
+    logger *logging.Logger
+}
+
+func NewServer(logger *logging.Logger) *Server {
+    return &amp;Server{logger: logger}
+}
+
+func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+    // Handle the request
+}
+
+func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+    s.logger.Info().
+        Str(&quot;method&quot;, r.Method).
+        Str(&quot;path&quot;, r.URL.Path).
+}
+```
+</code></pre>
+<p>=== &ldquo;api/server_test.go&rdquo;</p>
+<pre><code>```go title=&quot;api/server_test.go&quot;
+package api_test
+
+import (
+    &quot;net/http/httptest&quot;
+    &quot;testing&quot;
+    &quot;your_project/api&quot;
+    &quot;your_project/logging&quot;
+)
+
+func TestServer_ServeHTTP(t *testing.T) {
+    logger := logging.NewLogger()
+    defer logger.Sync()
+
+    server := api.NewServer(logger)
+
+    req := httptest.NewRequest(&quot;GET&quot;, &quot;/&quot;, nil)
+    w := httptest.NewRecorder()
+
+    server.ServeHTTP(w, req)
+
+    resp := w.Result()
+    if resp.StatusCode != http.StatusOK {
+        t.Errorf(&quot;unexpected status code: %d&quot;, resp.StatusCode)
+    }
+}
+```
+</code></pre>
+</div>
+    </div>
+  </div>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        copilot
+    </title>
+    <link>
+        https://www.sheldonhull.com/notes/development/ai/copilot/
+    </link>
+    <pubDate>
+        Mon, 01 Jan 0001 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/notes/development/ai/copilot/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="examples-of-where-copilot-failed" class="headerLink">
+    <a href="#examples-of-where-copilot-failed" class="header-mark"></a>Examples of Where Copilot Failed</h2><h2 id="examples-of-where-copilot-excelled" class="headerLink">
+    <a href="#examples-of-where-copilot-excelled" class="header-mark"></a>Examples of Where Copilot Excelled</h2><div
+    class="details admonition example"
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-list-ol fa-fw"
+      ></i>
+      ASCII color codes in bash scripts
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>This has always been a challenge for me, and I spend a significant amount of time trying to figure out the pattern for &ldquo;background is blue with white text and bold&rdquo; to add a touch of polish.
+Copilot nailed this in a comment in a <code>.envrc</code> file stating: <code># variable for setting terminal output with light yellow background and black text that is bold</code> resulting in an ideal match.</p>
+<p><figure><a class="lightgallery" href="/images/notes/copilot-color-codes.png" title="copilot-helped-make-this-nice" data-thumbnail="/images/notes/copilot-color-codes.png" data-sub-html="<h2>copilot helped make this</h2><p>copilot-helped-make-this-nice</p>">
+        
+    </a><figcaption class="image-caption">copilot helped make this</figcaption>
+    </figure></p>
+</div>
+    </div>
+  </div>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

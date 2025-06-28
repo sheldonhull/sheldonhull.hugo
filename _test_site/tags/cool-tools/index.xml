@@ -1,0 +1,982 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Cool-Tools - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/cool-tools/</link>
+        <description>Cool-Tools - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 19 Apr 2023 17:02:03 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/cool-tools/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Refined Github
+    </title>
+    <link>
+        https://www.sheldonhull.com/refined-github/
+    </link>
+    <pubDate>
+        Wed, 19 Apr 2023 17:02:03 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/refined-github/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>After using this for a while, I figured I&rsquo;d add this to my my &ldquo;cool-tools&rdquo; list.</p>
+<p><a href="https://github.com/refined-github/refined-github" target="_blank" rel="noopener noreferrer"><figure><a class="lightgallery" href="https://gh-card.dev/repos/refined-github/refined-github.svg" title="refined-github/refined-github - GitHub" data-thumbnail="https://gh-card.dev/repos/refined-github/refined-github.svg">
+        
+    </a></figure></a></p>
+<p>The main features I&rsquo;ve found useful:</p>
+<ul>
+<li>Use keyboard to flip straight to code review with approve/reject focused.</li>
+<li>Highlight the code most recently changed in the browser.</li>
+</ul>
+<p>There&rsquo;s a whole list on the repo page of small usability tweaks for those living in GitHub, for example <a href="https://github.com/refined-github/refined-github#repositories" target="_blank" rel="noopener noreferrer">Repositories Tweaks</a>.</p>
+<p>Give it a try!</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Nativefier
+    </title>
+    <link>
+        https://www.sheldonhull.com/nativefier/
+    </link>
+    <pubDate>
+        Mon, 25 Jan 2021 22:19:41 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/nativefier/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p><div
+    class="details admonition Info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      Update 2021-09-20
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">Updated with improved handling using public docker image.</div>
+    </div>
+  </div>
+<div
+    class="details admonition Info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      Update 2021-05-10
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">Added additional context for setting <code>internal-urls</code> via command line.</div>
+    </div>
+  </div></p>
+<div
+    class="details admonition Info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      Update 2021-05-13
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">Added docker run commands to simplify local build and run without global install.</div>
+    </div>
+  </div>
+<p>Ran across this app, and thought was kinda cool.
+I&rsquo;ve had some issues with Chrome apps showing up correctly in certain macOS windows managers to switch context quickly.</p>
+<p>Using this tool, you can generate a standalone electron app bundle to run a webpage in as it&rsquo;s own dedicated window.</p>
+<p>It&rsquo;s cross-platform.</p>
+<p>If you are using an app like Azure Boards that doesn&rsquo;t offer a native app, then this can provide a slightly improved experience over Chrome shortcut apps.
+You can pin this to your tray and treat it like a native app.</p>
+<h2 id="docker-setup" class="headerLink">
+    <a href="#docker-setup" class="header-mark"></a>Docker Setup</h2><div
+    class="details admonition Note"
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      Optional - Build Locally
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>This step is no longer required per public docker image.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">cd </span><span class="p">~/</span><span class="n">git</span>
+</span></span><span class="line"><span class="cl"><span class="n">gh</span> <span class="n">repo</span> <span class="n">clone</span> <span class="n">nativefier</span><span class="p">/</span><span class="n">nativefier</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd </span><span class="n">nativefier</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">build</span> <span class="n">-t</span> <span class="n">local</span><span class="p">/</span><span class="n">nativefier</span> <span class="p">.</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+    </div>
+  </div>
+<h2 id="docker-build" class="headerLink">
+    <a href="#docker-build" class="header-mark"></a>Docker Build</h2><p>Highly recommend using docker for the build as it was by far the less complicated.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">run</span> <span class="p">-</span><span class="n">-rm</span> <span class="n">-v</span> <span class="p">~/</span><span class="nb">nativefier-apps</span><span class="err">:</span><span class="p">/</span><span class="n">target</span><span class="p">/</span> <span class="n">local</span><span class="p">/</span><span class="n">nativefier</span><span class="err">:</span><span class="n">latest</span> <span class="p">-</span><span class="n">-help</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$MYORG</span> <span class="p">=</span> <span class="s1">&#39;foo&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$MYPROJECT</span> <span class="p">=</span> <span class="s1">&#39;bar&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$AppName</span>      <span class="p">=</span> <span class="s1">&#39;myappname&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$Platform</span> <span class="p">=</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">switch</span> <span class="o">-Wildcard</span> <span class="p">([</span><span class="no">System.Environment</span><span class="p">]::</span><span class="n">OSVersion</span><span class="p">.</span><span class="n">Platform</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;Win32NT&#39;</span> <span class="p">{</span> <span class="nv">$Platform</span> <span class="p">=</span> <span class="s1">&#39;windows&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;Unix&#39;</span>    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="nv">$PSVersionTable</span><span class="p">.</span><span class="py">OS</span> <span class="o">-match</span> <span class="s1">&#39;Darwin&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nv">$Platform</span> <span class="p">=</span> <span class="s1">&#39;darwin&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nv">$DarkMode</span> <span class="p">=</span> <span class="s1">&#39;--darwin-dark-mode-support&#39;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span>
+</span></span><span class="line"><span class="cl">                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nv">$Platform</span> <span class="p">=</span> <span class="s1">&#39;linux&#39;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">default</span> <span class="p">{</span> <span class="nb">Write-Warning</span> <span class="s1">&#39;No match found in switch&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$InternalUrls</span> <span class="p">=</span> <span class="s1">&#39;(._?contacts\.google\.com._?|._?dev.azure.com_?|._?microsoft.com_?|._?login.microsoftonline.com_?|._?azure.com_?|._?vssps.visualstudio.com._?)&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$Url</span>          <span class="p">=</span> <span class="s2">&#34;https://dev.azure.com/</span><span class="nv">$MYORG</span><span class="s2">/</span><span class="nv">$MYPROJECT</span><span class="s2">/_sprints/directory?fullScreen=true/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$HomeDir</span> <span class="p">=</span> <span class="s2">&#34;</span><span class="nv">${ENV:HOME}${ENV:USERPROFILE}</span><span class="s2">&#34;</span> <span class="c"># cross platform support</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$PublishDirectory</span> <span class="p">=</span> <span class="nb">Join-Path</span> <span class="s2">&#34;</span><span class="nv">${ENV:HOME}${ENV:USERPROFILE}</span><span class="s2">&#34;</span> <span class="s1">&#39;nativefier-apps&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$PublishAppDirectory</span> <span class="p">=</span> <span class="nb">Join-Path</span> <span class="nv">$PublishDirectory</span> <span class="s2">&#34;</span><span class="nv">$AppName</span><span class="s2">-</span><span class="nv">$Platform</span><span class="s2">-x64&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">Remove-Item</span> <span class="n">-LiteralPath</span> <span class="nv">$PublishAppDirectory</span> <span class="n">-Recurse</span> <span class="n">-Force</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">run</span> <span class="p">-</span><span class="n">-rm</span> <span class="n">-v</span>  <span class="nv">$HomeDir</span><span class="p">/</span><span class="nb">nativefier-apps</span><span class="err">:</span><span class="p">/</span><span class="n">target</span><span class="p">/</span> <span class="n">nativefier</span><span class="p">/</span><span class="n">nativefier</span><span class="err">:</span><span class="n">latest</span> <span class="p">-</span><span class="n">-name</span> <span class="nv">$AppName</span> <span class="p">-</span><span class="n">-platform</span> <span class="nv">$Platform</span> <span class="nv">$DarkMode</span> <span class="p">-</span><span class="n">-internal-urls</span> <span class="nv">$InternalUrls</span> <span class="nv">$Url</span> <span class="p">/</span><span class="n">target</span><span class="p">/</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="running-the-cli" class="headerLink">
+    <a href="#running-the-cli" class="header-mark"></a>Running The CLI</h2><p>For a site like Azure DevOps, you can run:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$MYORG</span> <span class="p">=</span> <span class="s1">&#39;foo&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$MYPROJECT</span> <span class="p">=</span> <span class="s1">&#39;bar&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$BOARDNAME</span> <span class="p">=</span> <span class="s1">&#39;bored&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">nativefier</span> <span class="p">-</span><span class="n">-name</span> <span class="s1">&#39;board&#39;</span> <span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="n">dev</span><span class="p">.</span><span class="py">azure</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="nv">$MYORG</span><span class="p">/</span><span class="nv">$MYPROJECT</span><span class="p">/</span><span class="n">_boards</span><span class="p">/</span><span class="n">board</span><span class="p">/</span><span class="n">t</span><span class="p">/</span><span class="nv">$BOARDNAME</span><span class="p">/</span><span class="n">Backlog</span><span class="k">%</span><span class="n">20items</span><span class="p">/</span><span class="k">?</span><span class="n">fullScreen</span><span class="p">=</span><span class="n">true</span> <span class="p">~/</span><span class="nv">$BOARDNAME</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Here&rsquo;s another example using more custom options to enable internal url authentication and setup an app for a sprint board.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">nativefier</span> <span class="p">-</span><span class="n">-name</span> <span class="s2">&#34;sprint-board&#34;</span> <span class="p">-</span><span class="n">-darwin-dark-mode-support</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">  <span class="p">-</span><span class="n">-internal-urls</span> <span class="s1">&#39;(._?contacts.google.com._?|._?dev.azure.com_?|._?microsoft.com_?|._?login.microsoftonline.com_?|._?azure.com_?|._?vssps.visualstudio.com._?)&#39;</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;https://dev.azure.com/</span><span class="nv">$MYORG</span><span class="s2">/</span><span class="nv">$MYPROJECT</span><span class="s2">/_sprints/directory?fullScreen=true&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">`</span> <span class="p">~/</span><span class="nb">sprint-board</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>If redirects for permissions occur due to external links opening, you might have to open the application bundle and edit the url mapping. <a href="https://github.com/jiahaog/nativefier/issues/706" target="_blank" rel="noopener noreferrer">GitHub Issue #706</a>
+This can be done proactively in the <code>--internal-urls</code> command line argument shown earlier to bypass the need to do this later.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">/Users/$(whoami)/$BOARDNAME/APP-darwin-x64/$BOARDNAME.app/Contents/Resources/app/nativefier.json
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ensure your external urls match the redirect paths that you need such as below.
+I included the standard oauth redirect locations that Google, Azure DevOps, and Microsoft uses.
+Add your own such as github to this to have those links open inside the app and not in a new window that fails to recieve the postback.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;internalUrls&#34;</span><span class="err">:</span> <span class="s2">&#34;(._?contacts\.google\.com._?|._?dev.azure.com_?|._?microsoft.com_?|._?login.microsoftonline.com_?|._?azure.com_?|._?vssps.visualstudio.com._?)&#34;</span><span class="err">,</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Leave Me Alone
+    </title>
+    <link>
+        https://www.sheldonhull.com/leave-me-alone/
+    </link>
+    <pubDate>
+        Tue, 01 Dec 2020 12:31:14 -0600
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/leave-me-alone/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="free-means-you-are-the-product" class="headerLink">
+    <a href="#free-means-you-are-the-product" class="header-mark"></a>Free Means You Are the Product</h2><p>Over time, I&rsquo;ve begun to look at products that are free with more judgment.
+The saying is: &ldquo;If it&rsquo;s free, you are the product&rdquo;.
+This often means your data and privacy are compromised as the product.</p>
+<p>This has resulted in me looking more favorably at apps I would have dismissed in the past, such as <a href="https://leavemealone.app/" target="_blank" rel="noopener noreferrer">Leave Me Alone</a>.</p>
+<h2 id="leave-me-alone" class="headerLink">
+    <a href="#leave-me-alone" class="header-mark"></a>Leave Me Alone</h2><p>The notion of buying credits for something I could script, click, or do myself made me use sporadically last year.
+This year, I took the plunge and spent $10 and appreciate the concept and cost.</p>
+<p>If you have a lot of tech interaction, you&rsquo;ll have a slew of newsletter and marketing subscriptions coming your way.
+This noise can drown your email.</p>
+<p>I saw one Children&rsquo;s clothing place that got my email on a receipt generate an average of 64 emails a month!</p>
+<p>Leave Me Alone helps simplify the cleanup process by simplifying the summary of noisiest offenders, and one-click unsubscribes to any of these.</p>
+<p>You can use an automatically generated rating based on ranked value on mailing lists, read engagement, number of emails sent monthly, and more.</p>
+<p>Take a look, the free start is enough to figure out if you like it.</p>
+<h2 id="other-tools" class="headerLink">
+    <a href="#other-tools" class="header-mark"></a>Other Tools</h2><p>Combine this type of tool with:</p>
+<ul>
+<li><a href="https://kill-the-newsletter.com/" target="_blank" rel="noopener noreferrer">Kill The Newsletter</a></li>
+<li><a href="https://www.inoreader.com/" target="_blank" rel="noopener noreferrer">Inoreader (RSS Reader)</a></li>
+<li><a href="https://subscriptionscore.com/" target="_blank" rel="noopener noreferrer">Subscription Score</a>: a really promising tool made by the same folks, but haven&rsquo;t added at this time as price seems a bit high for this specific feature if I&rsquo;m already using their app. (at this time $49 a year). Be nice if this was a feature provided automatically to those who bought 250 credits or more since it&rsquo;s powered by the data mining of lists users unsubscribe from the most.</li>
+</ul>
+<p>You&rsquo;ll be more likely to keep up to date with this noise reduced.
+Last tip: Add GitHub Release notes like Terraform and others as a subscription in your RSS reader, and it might reduce the noise via email and slack on releases.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Consider the Benefits of Powershell for Developer Workflows
+    </title>
+    <link>
+        https://www.sheldonhull.com/consider-the-benefits-of-powershell-for-developer-workflows/
+    </link>
+    <pubDate>
+        Wed, 04 Nov 2020 07:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/consider-the-benefits-of-powershell-for-developer-workflows/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="who-am-i-talking-to" class="headerLink">
+    <a href="#who-am-i-talking-to" class="header-mark"></a>Who Am I Talking To</h2><ul>
+<li>You use bash or python.</li>
+<li>PowerShell seems wordy, extra verbose, and annoying.</li>
+<li>It&rsquo;s a windows thing, you say&hellip; why would I even look at it.</li>
+<li>Pry bash out of my fingers if yuo dare (probably not for you 😁)</li>
+</ul>
+<h2 id="what-powershell-is" class="headerLink">
+    <a href="#what-powershell-is" class="header-mark"></a>What PowerShell Is</h2><ul>
+<li>The best language for automating Windows&hellip; period.</li>
+<li>A great language for development tooling and productivity scripts.</li>
+<li>One of the best languages for automation with interactivity.
+Python is fantastic. The REPL isn&rsquo;t meant for the same interactivity you get with PowerShell.
+PowerShell prompt is sorta like mixing Python &amp; fish/bash in a happy marriage.</li>
+<li>A rich language (not just scripting) for interacting with AWS using AWS.Tools.</li>
+<li>A rich object-oriented pipeline that can handle very complex actions in one-liners based on object-oriented pipelines.</li>
+<li>Intuitive and consistent mostly for command discovery.
+<ul>
+<li>a common complaint from bash pros.</li>
+<li>The point of the verbosity <code>Verb-Noun</code> is discoverability. <code>tar</code> for example is a bit harder to figure out than <code>Expand-Archive -Path foo -DestinationPath foo</code></li>
+</ul>
+</li>
+<li>A language with a robust testing framework for unit, integration, infrastructure, or any other kinda testing you want! (Pester is awesome)</li>
+</ul>
+<h2 id="what-powershell-isnt" class="headerLink">
+    <a href="#what-powershell-isnt" class="header-mark"></a>What PowerShell Isn&rsquo;t</h2><ul>
+<li>Python 🤣</li>
+<li>Good at datascience.</li>
+<li>Succinct</li>
+<li>Meant for high-concurrency</li>
+<li>Good at GUI&rsquo;s&hellip; but come-on we&rsquo;re devs&hellip; guis make us weak 😜</li>
+<li>A good webserver</li>
+<li>Lots more.</li>
+</ul>
+<h2 id="the-right-tool-for-the-job" class="headerLink">
+    <a href="#the-right-tool-for-the-job" class="header-mark"></a>The Right Tool for the Job</h2><p>I&rsquo;m not trying to tell you never to use bash.
+It&rsquo;s what you know, great!</p>
+<p>However, I&rsquo;d try to say if you haven&rsquo;t explored it, once you get past some of the paradigm differences, there is a rich robust set of modules and features that can improve most folks workflow.</p>
+<h2 id="why-even-consider-powershell" class="headerLink">
+    <a href="#why-even-consider-powershell" class="header-mark"></a>Why Even Consider PowerShell</h2><p>As I&rsquo;ve interacted more and more with folks coming from a mostly Linux background, I can appreciate that considering PowerShell seems odd.
+It&rsquo;s only recently that it&rsquo;s cross platform in the lifecycle of things, so it&rsquo;s still a new thing to most.</p>
+<p>Having been immersed in the .NET world and now working on macOS and using Docker containers running Debian and Ubuntu (sometimes Alpine Linux), I completely get that&rsquo;s not even in most folks purview.</p>
+<p>Yet, I think it&rsquo;s worth considering for developer workflows that there is a lot of gain to be had with PowerShell for improving the more complex build and development workflows because of the access to .NET.</p>
+<p>No, it&rsquo;s not &ldquo;superior&rdquo;. It&rsquo;s different.
+Simple cli bash scripting is great for many things (thus prior article about Improving development workflow <code>Task</code> which uses shell syntax).</p>
+<p>The fundemental difference in bash vs PowerShell is really text vs object, in my opinion.
+This actually is where much of the value comes in for considering what to use.</p>
+<div
+    class="details admonition info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-info-circle fa-fw"
+      ></i>
+      Go For CLI Tools
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>Go provides a robust cross-platform single binary with autocomplete features and more.</p>
+<p>I&rsquo;d say that for things such as exporting pipelines to Excel, and other &ldquo;automation&rdquo; actions it&rsquo;s far more work in Go.</p>
+<p>Focus Go on tooling that makes the extra plumbing and stronger typing give benefit rather than just overhead.
+AWS SDK operations, serverless/lambda, apis, complex tools like Terraform, and more fit the bill perfectly and are a great use case.</p>
+</div>
+    </div>
+  </div>
+<h2 id="scenario-working-with-aws" class="headerLink">
+    <a href="#scenario-working-with-aws" class="header-mark"></a>Scenario: Working with AWS</h2><p>If you are working with the AWS SDK, you are working with objects.
+This is where the benefit comes in over cli usage.</p>
+<p>Instead of parsing json results and using tools like <code>jq</code> to choose arrays, instead, you can interact with the object by named properties very easily.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$Filters</span> <span class="p">=</span> <span class="vm">@</span><span class="p">([</span><span class="no">Amazon.EC2.Model.Filter</span><span class="p">]::</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;tag:is_managed_by&#39;</span><span class="p">,</span><span class="s1">&#39;muppets&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$InstanceCollection</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-EC2Instance</span> <span class="n">-Filter</span> <span class="nv">$Filters</span><span class="p">)).</span><span class="py">Instances</span> <span class="p">|</span> <span class="nb">Select-PSFObject</span> <span class="n">InstanceId</span><span class="p">,</span> <span class="n">PublicIpAddress</span><span class="p">,</span><span class="n">PrivateIpAddress</span><span class="p">,</span><span class="n">Tags</span><span class="p">,</span><span class="s1">&#39;State.Code as StateCode&#39;</span><span class="p">,</span> <span class="s1">&#39;State.Name as StateName&#39;</span>  <span class="n">-ScriptProperty</span> <span class="vm">@</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Name</span> <span class="p">=</span> <span class="vm">@</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">get</span>  <span class="p">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">$this</span><span class="p">.</span><span class="py">Tags</span><span class="p">.</span><span class="py">GetEnumerator</span><span class="p">().</span><span class="py">Where</span><span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="py">Key</span> <span class="o">-eq</span> <span class="s1">&#39;Name&#39;</span><span class="p">}.</span><span class="py">Value</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>With this <code>$InstanceCollection</code> variable, we now have access to an easily used object that can be used with named properties.</p>
+<ul>
+<li>Give me all the names of the EC2 instances: <code>$InstanceCollection.Name</code></li>
+<li>Sort those: <code>$InstanceCollection.Name | Sort-Object</code> (or use alias shorthand such as <code>sort</code>)</li>
+<li>For each of this results start the instances: <code>$InstanceCollection | Start-EC2Instance</code></li>
+</ul>
+<h2 id="practical-examples" class="headerLink">
+    <a href="#practical-examples" class="header-mark"></a>Practical Examples</h2><p>Beyond that, we can do many things with the rich eco-system of prebuilt modules.</p>
+<p>Here are some example of some rich one-liners using the power of the object based pipeline.</p>
+<ul>
+<li>Export To Json: <code>$InstanceCollection | ConvertTo-Json -Depth 10 | Out-File ./instance-collection.json</code></li>
+<li>Toast notification on results: <code>Send-OSNotification -Title 'Instance Collection Results' -Body &quot;Total results returned: $($InstanceCollection.Count)&quot;</code></li>
+<li>Export To Excel with Table:  <code>$InstanceCollection | Export-Excel -Path ./instance-collection.json -TableStyle Light8 -TableName 'FooBar'</code></li>
+<li>Send a rich pagerduty event to flag an issue: <code>Send-PagerDutyEvent -Trigger -ServiceKey foo -Description 'Issues with instance status list' -IncidentKey 'foo' -Details $HashObjectFromCollection</code></li>
+<li>Use a cli tool to flip to yaml (you can use native tooling often without much issue!): <code>$InstanceCollection | ConvertTo-Json -Depth 10 | cfn-flip | Out-File ./instance-collection.yml</code></li>
+</ul>
+<p>Now build a test (mock syntax), that passes or fails based on the status of the instances</p>
+<div
+    class="details admonition Note
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      Disclaimer
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>I&rsquo;m sure there&rsquo;s great tooling with <code>jq</code>, <code>yq</code>, excel clis and other libraries that can do similar work.</p>
+<p>My point is that it&rsquo;s pretty straight forward to explore this in PowerShell as object-based pipelines are a lot less work with complex objects than text based parsing.</p>
+</div>
+    </div>
+  </div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">Describe</span> <span class="s2">&#34;Instance Status Check&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Context</span> <span class="s2">&#34;Instances That Should Be Running&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">foreach</span><span class="p">(</span><span class="nv">$Instance</span> <span class="k">in</span> <span class="nv">$InstanceCollection</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">It</span> <span class="s2">&#34;should be running&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$Instance</span><span class="p">.</span><span class="py">StatusName</span> <span class="p">|</span> <span class="n">Should</span> <span class="n">-Be</span> <span class="s1">&#39;Running&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now you have a test framework that you could validate operational issues across hundreds of instances, or just unit test the output of a function.</p>
+<h2 id="exploring-the-object" class="headerLink">
+    <a href="#exploring-the-object" class="header-mark"></a>Exploring the Object</h2><p>I did this comparison once for a coworker, maybe you&rsquo;ll find it useful too!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="s2">&#34;Test Content&#34;</span> <span class="p">|</span> <span class="nb">Out-File</span> <span class="p">./</span><span class="n">foo</span><span class="p">.</span><span class="py">txt</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$Item</span> <span class="p">=</span> <span class="nb">Get-Item</span> <span class="p">./</span><span class="n">foo</span><span class="p">.</span><span class="py">txt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">## Examine all the properties and methods available. It&#39;s an object</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$Item</span> <span class="p">|</span> <span class="nb">Get-Member</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This gives you an example of the objects behind the scene.
+Even though your console will only return a small set of properties back, the actual object is a .NET object with all the associated methods and properties.</p>
+<p>This means that <code>Get-Item</code> has access to properties such as the base name, full path, directory name and more.</p>
+<p>You can access the actual <code>datetime</code> type of the <code>CreationTime</code>, allowing you to do something like:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">(</span><span class="nv">$item</span><span class="p">.</span><span class="py">LastAccessTime</span> <span class="p">-</span> <span class="nv">$Item</span><span class="p">.</span><span class="n">CreationTime</span><span class="p">).</span><span class="py">TotalDays</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This would use two date objects, and allow you to use the relevant <code>Duration</code> methods due to performing math on these.</p>
+<p>The methods available could be anything such as <code>$Item.Encrypt(); $Item.Delete; $Item.MoveTo</code> and more all provided by the .NET namespace <code>System.IO.FileInfo</code>.</p>
+<p>I know many of these things you can do in bash as well, but the object pipeline here I&rsquo;d wager provides a very solid experience for more complex operations based on the .NET framework types available.</p>
+<h2 id="wrap-up" class="headerLink">
+    <a href="#wrap-up" class="header-mark"></a>Wrap Up</h2><p>This was meant to give a fresh perspective on why some folks have benefited from PowerShell over using shell scripting.
+It&rsquo;s a robust language that for automation/build/cloud automation can give a rich reward if you invest some time to investigate.</p>
+<p>For me the basic &ldquo;right tool for the job&rdquo; would like like this:</p>
+<ul>
+<li>data: python</li>
+<li>serverless: go &amp; python (powershell can do it too, but prefer the others)</li>
+<li>web: go &amp; python</li>
+<li>basic cli stuff: shell (using <code>Task</code> which uses shell syntax)</li>
+<li>complex cli project tasks: powershell &amp; go</li>
+<li>automation/transformation: powershell &amp; python</li>
+<li>high concurrency, systems programming: go</li>
+</ul>
+<p>Maybe this provided a fresh perspective for why PowerShell might benefit even those diehard shell scripters of you out there and maybe help convince you to take the plunge and give it a shot.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Improving Local Development Workflow With Go Task
+    </title>
+    <link>
+        https://www.sheldonhull.com/improving-local-development-workflow-with-go-task/
+    </link>
+    <pubDate>
+        Tue, 03 Nov 2020 22:24:28 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/improving-local-development-workflow-with-go-task/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="workflow-tooling" class="headerLink">
+    <a href="#workflow-tooling" class="header-mark"></a>Workflow Tooling</h2><p>Development workflow, especially outside of a full-fledged IDE, is often a disjointed affair.
+DevOps oriented workflows that often combine cli tools such as terraform, PowerShell, bash, and more all provide more complexity to getting up to speed and productive.</p>
+<p>Currently, there is a variety of frameworks to solve this problem.
+The &ldquo;gold standard&rdquo; most are familiar with in the open-source community would be <a href="https://www.gnu.org/software/make/manual/make.html" target="_blank" rel="noopener noreferrer">Make</a>.</p>
+<h2 id="considering-cross-platform-tooling" class="headerLink">
+    <a href="#considering-cross-platform-tooling" class="header-mark"></a>Considering Cross-Platform Tooling</h2><p>This is not an exhaustive list, it&rsquo;s focused more on my journey, not saying that your workflow is wrong.</p>
+<p>I&rsquo;ve looked at a variety of tooling, and the challenge has typically that most are very unintuitive and difficult to remember.</p>
+<p>Make&hellip;it&rsquo;s everywhere. I&rsquo;m not going to argue the merits of each tool as I mentioned, but just bring up that while cMake is cross platform, I&rsquo;ve never considered Make a truly cross platform tool that is first class in both environments.</p>
+<h2 id="invokebuild--psake" class="headerLink">
+    <a href="#invokebuild--psake" class="header-mark"></a>InvokeBuild &amp; Psake</h2><p>In the Windows world, my preferred framework would be <a href="https://github.com/nightroman/Invoke-Build" target="_blank" rel="noopener noreferrer">InvokeBuild</a> or <a href="https://github.com/psake/psake" target="_blank" rel="noopener noreferrer">PSake</a>.</p>
+<p>The thing is, not every environment will always have PowerShell, so I&rsquo;ve wanted to experiment with minimalistic task framework for intuitive local usage in a project when the tooling doesn&rsquo;t need to be complex.
+While <code>InvokeBuild</code> is incredibly flexible and intuitive, there is an expectation of familarity with PowerShell to fully leverage.</p>
+<p>If you want a robust framework, I haven&rsquo;t found anything better.
+Highly recommend examining if you are comfortable with PowerShell.
+You can generate VSCode tasks from your defined scripts and more.</p>
+<p><code>InvokeBuild</code> &amp; <code>Psake</code> aren&rsquo;t great for beginners just needing to run some tooling quickly in my experience.
+The power comes with additional load for those not experienced in PowerShell.</p>
+<p>If you are needing to interact with AWS.Tools SDK, complete complex tasks such as generating objects from parsing AST (Abstract Syntax Trees) and other, then I&rsquo;d lead towards <code>InvokeBuild</code>.</p>
+<p>However, if you need to initialize some local dependencies, run a linting check, format your code, get the latest from main branch and rebase, and other tasks that are common what option do you have to get up and running more quickly on this?</p>
+<h2 id="task" class="headerLink">
+    <a href="#task" class="header-mark"></a>Task</h2><p><a href="https://taskfile.dev/#/" target="_blank" rel="noopener noreferrer">Go Task</a></p>
+<p>I&rsquo;ve been pleasantly surprised by this cross-platform tool based on a simple <code>yaml</code> schema.
+It&rsquo;s written in go, and as a result it&rsquo;s normally just a single line or two to immediately install in your system.</p>
+<p>Here&rsquo;s why you might find some value in examining this.</p>
+<ol>
+<li>Cross-platform syntax using this go interpreter <a href="https://github.com/mvdan/sh" target="_blank" rel="noopener noreferrer">sh</a></li>
+<li>Very simple <code>yaml</code> schema to learn.</li>
+<li>Some very nice features that make it easy to ignore already built assets, setup task dependencies (that run in parallel too!), and simple cli interactivity.</li>
+</ol>
+<p>My experience has been very positive as I&rsquo;ve found it very intuitive to build out basic commands as I work, rather than having to deal with more more complex schemas.</p>
+<h2 id="get-started" class="headerLink">
+    <a href="#get-started" class="header-mark"></a>Get Started</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">tasks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l">task --list</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">help</span><span class="p">:</span><span class="w"> </span><span class="l">task --list</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">fmt</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">desc</span><span class="p">:</span><span class="w"> </span><span class="l">Apply terraform formatting</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">terraform fmt -recursive=true</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>The <a href="https://taskfile.dev/#/usage" target="_blank" rel="noopener noreferrer">docs</a> are great for this project, so I&rsquo;m not going to try and educate you on how to use this, just point out some great features.</p>
+<p>First, with a quick VSCodee snippet, this provides you a quick way to bootstrap a new project with a common interface to run basic commands.</p>
+<p>Let&rsquo;s give you a scenario&hellip; assuming you aren&rsquo;t using an already built Docker workspace.</p>
+<ol>
+<li>I need to initialize my 2 terraform directories.</li>
+<li>I want to also ensure I get a few go dependencies for a project.</li>
+<li>Finally, I want to validate my syntax is valid among my various directories, without using pre-commit.</li>
+</ol>
+<p>This gets us started&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">tasks</span><span class="p">:</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Next, I threw together some examples here.</p>
+<ul>
+<li>Initialize commands for two separate directories.</li>
+<li>A <code>fmt</code> command to apply standardized formatting across all <code>tf</code> files.</li>
+<li>Finally, wrap up those commands with a <code>dep: []</code> value that will run the <code>init</code> commands in parallel, and once that is finished it will run <code>fmt</code> to ensure consistent formatting.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">TF_IN_AUTOMATION</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">tasks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">init-workspace-foo</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">dir</span><span class="p">:</span><span class="w"> </span><span class="l">terraform/foo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">terraform init</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">init-workspace-bar</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">dir</span><span class="p">:</span><span class="w"> </span><span class="l">terraform/bar</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">terraform init</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">fmt</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">desc</span><span class="p">:</span><span class="w"> </span><span class="l">Recursively apply terraform fmt to all directories in project.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">terraform fmt -recursive=true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">init</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">desc</span><span class="p">:</span><span class="w"> </span><span class="l">Initialize the terraform workspaces in each directory in parallel.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">deps</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">init-workspace-foo,init-workspace-bar]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l">fmt</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>You can even add a task in that would give you a structured git interaction, and not rely on git aliases.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sync</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">desc</span><span class="p">:</span><span class="w"> </span><span class="l">In GitHub flow, I should be getting lastest from main and rebasing on it so I don&#39;t fall behind</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">cmds</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">git town sync</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="why-not-just-run-manually" class="headerLink">
+    <a href="#why-not-just-run-manually" class="header-mark"></a>Why not just run manually</h2><p>I&rsquo;ve seen many folks online comments about why even bother?
+Can&rsquo;t the dev just run the commands in the directory when working through it and be done with it?</p>
+<p>I believe tasks like this should be thrown into a task runner from the start.
+Yes, it&rsquo;s very easy to just type <code>terraform fmt</code>, <code>go fmt</code>, or other simple commands&hellip; if you are the builder of that project.</p>
+<p>However:</p>
+<ul>
+<li>it increases the cognitive load for tedious tasks that no one should have to remember each time the project grows.</li>
+<li>It makes your project more accessible to new contributors/teammates.</li>
+<li>It allows you to simply moving to automation by wrapping up some of these automation actions in GitHub Actions or equivalent, but simply having the CICD tooling chosen run the same task you can run locally.</li>
+</ul>
+<p>Minimal effort to move it to automation from that point!</p>
+<p>I think wrapping up things with a good task runner tools considers the person behind you, and prioritizes thinking of others in the course of development.
+It&rsquo;s an act of consideration.</p>
+<h2 id="choose-the-right-tooling" class="headerLink">
+    <a href="#choose-the-right-tooling" class="header-mark"></a>Choose the Right Tooling</h2><p>Here&rsquo;s how I&rsquo;d look at the choices:</p>
+<ul>
+<li>Run as much in Docker as you can.</li>
+<li>If simple actions, driven easily on cli such as build, formatting, validation, and other then start with <code>Task</code> from the beginning and make your project more accessible.</li>
+<li>If requirements grow more complex, with interactions with AWS, custom builds for Lambda, combined with other more complex interactions that can&rsquo;t easily be wrapped up in a few lines of shell scripting&hellip; use <code>InvokeBuild</code> or equivalent. This gives you access to the power of <code>.NET</code> and the large module collection provided.</li>
+</ul>
+<p>Even if you don&rsquo;t really need it, think of the folks maintaining or enabling others to succeed with contributions more easily, and perhaps you&rsquo;ll find some positive wins there. 🎉</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Improve Your Cloudwatch Debugging Experience With Cw
+    </title>
+    <link>
+        https://www.sheldonhull.com/improve-your-cloudwatch-debugging-experience-with-cw/
+    </link>
+    <pubDate>
+        Wed, 16 Sep 2020 19:45:04 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/improve-your-cloudwatch-debugging-experience-with-cw/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>A quick fix to improve your debugging of remote commands in AWS is to install <a href="https://github.com/lucagrulla/cw" target="_blank" rel="noopener noreferrer">cw</a>.</p>
+<p>With a quick install, you can run a command like: <code>cw tail -f --profile=qa --region=eu-west-1 ssm/custom-automation-docs/my-custom-doc</code>.
+This will give you a real-time stream of what&rsquo;s running.</p>
+<p>You can also use the AWS Visual Studio Code extension, but I prefer having a terminal open streaming this as I don&rsquo;t have to go in and refresh any further tools to see what&rsquo;s happening.
+I tend to always start with a single instance/resource for debugging so this is a great way to remove the barrier to visibility a bit more.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Delta Improves the Git Diff Experience
+    </title>
+    <link>
+        https://www.sheldonhull.com/delta-improves-the-git-diff-experience/
+    </link>
+    <pubDate>
+        Tue, 15 Sep 2020 12:30:23 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/delta-improves-the-git-diff-experience/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Checkout <a href="https://github.com/dandavison/delta" target="_blank" rel="noopener noreferrer">delta</a> for a much-improved git diff experience.
+I typically use VSCode or a GUI based editor because I find the diff view pretty messy by default.</p>
+<p>This new diff view is a perfect example of a simple CLI tool that improves a development workflow by just fixing something I didn&rsquo;t know could easily be fixed. 😀</p>
+<p><figure><a class="lightgallery" href="/images/2020-09-15-git-delta.png" title="delta diff viewer" data-thumbnail="/images/2020-09-15-git-delta.png">
+        
+    </a></figure></p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Rebuild Dash Index Due to Corrupted Index
+    </title>
+    <link>
+        https://www.sheldonhull.com/rebuild-dash-index-due-to-corrupted-index/
+    </link>
+    <pubDate>
+        Tue, 01 Sep 2020 12:33:25 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/rebuild-dash-index-due-to-corrupted-index/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>I use <a href="https://bit.ly/3gWSLEJ" target="_blank" rel="noopener noreferrer">Dash</a> for improved doc access.
+Terraform updated recently to <code>0.13.x</code> and I began having odd issues with AWS provider results coming through.
+If you need to rollback, just go to the preferences and pick an older docset, in my case <code>0.13.0</code> worked correctly.
+Make sure to remove the problematic version (the uninstall refers to just the most recent, not any additional versions you selected under the dropdown)</p>
+<p>If the index doesn&rsquo;t rebuild, you can close the app, manually remove the index, and it will rebuild on open.
+I&rsquo;m pretty sure you don&rsquo;t need to do this if you use the uninstall option in the dialogue.</p>
+<p>On macOS 10.15, you can find the index at <code>~/Library/Application Support/Dash/Data/manIndex.dsidx</code> and delete this.
+Reopen Dash and it will rebuild the index.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Azure Data Studio SQL Notebook for Diagnostic Queries
+    </title>
+    <link>
+        https://www.sheldonhull.com/azure-data-studio-sql-notebook-for-diagnostic-queries/
+    </link>
+    <pubDate>
+        Wed, 24 Jun 2020 11:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/azure-data-studio-sql-notebook-for-diagnostic-queries/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="diagnostic-queries" class="headerLink">
+    <a href="#diagnostic-queries" class="header-mark"></a>Diagnostic Queries</h2><p>Glenn Berry has long been known for producing the definitive diagnostic query set for various SQL Server versions. Between his amazing work and my favorite Brent Ozar First Responder Kit, you are pretty much set.</p>
+<p>One of the things that can be painful though about running diagnostic queries is that it&rsquo;s a lot of small individual queries that you want to run and ideally save the results for review.</p>
+<p>You can do this with dbatools and running queries individually, which is actually what I did a while back for a special support tool that dynamically split those queries into files and exported to xml for later import and review.</p>
+<h2 id="azure-data-studio" class="headerLink">
+    <a href="#azure-data-studio" class="header-mark"></a>Azure Data Studio</h2><p>I&rsquo;m a big fan of Azure Data Studio and as I&rsquo;m not primarily focused right now on SQL Server administration, the feature-set perfectly fits my needs for running queries, doing some basic server administration, and overall just having a lighter weight solution to SSMS. Since I migrated to macOS, this provides me a nice cross-platform tool that I can use on Windows or macOS.</p>
+<p>A great feature that has been continually improving is the Azure Data Studio notebooks. Not only can you run T-SQL notebooks now, but also PowerShell and python using whatever kernel you desire.</p>
+<p>As part of this, you get the benefits of a nice intuitive structure to ad-hoc queries you might want to provide to someone with details on what it means and more. Additionally, the results are cached as part of the JSON so if you save the file and come back later you can review all the results that were pulled (and as a plus they render in GitHub viewer too).</p>
+<h2 id="diagnostic-queries--azure-data-studio--dbatools--" class="headerLink">
+    <a href="#diagnostic-queries--azure-data-studio--dbatools--" class="header-mark"></a>Diagnostic Queries + Azure Data Studio + dbatools = 🎉</h2><p>To merge the power of all 3 technologies, you can use dbatools to export the diagnostic queries for a targeted SQL server version as an Azure Data Studio Notebook. Pretty freaking cool.</p>
+<p>To get started on this just make sure you have the latest dbatools: <code>Install-Module dbatools -confirm:$false</code></p>
+<p>Then generate a new Azure Data Studio Notebook like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c"># This will create the notebook in whatever location you currently are in</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$Version</span> <span class="p">=</span> <span class="mf">2017</span>
+</span></span><span class="line"><span class="cl"><span class="nb">New-DbaDiagnosticAdsNotebook</span> <span class="n">-Path</span> <span class="s2">&#34;DiagnosticNotebook</span><span class="nv">${Version}</span><span class="s2">.ipynb&#34;</span> <span class="n">-TargetVersion</span> <span class="nv">$Version</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Open up this new notebook and enjoy the result! To make reading easier, you can issue the command to &ldquo;collapse all cells&rdquo; and the queries will be minimized allowing you to read through all the query options.</p>
+<p>Note that even the description of the queries is provided in the notebook, providing insight on the purpose of the query.</p>
+<div
+    class="details admonition warning
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-exclamation-triangle fa-fw"
+      ></i>
+      Warning
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">As always, make sure you are careful before just running all queries by default against a production server.
+Some queries take heavy resources and might not be appropriate to run in the middle of a production workflow.</div>
+    </div>
+  </div>
+<p><figure><a class="lightgallery" href="/images/2020-06-23_13-23-07_azure_data_studio.png" title="Shows the diagnostic query view in Azure Data Studio" data-thumbnail="/images/2020-06-23_13-23-07_azure_data_studio.png" data-sub-html="<h2>Azure Data Studio Diagnostic Queries</h2><p>Shows the diagnostic query view in Azure Data Studio</p>">
+        
+    </a><figcaption class="image-caption">Azure Data Studio Diagnostic Queries</figcaption>
+    </figure></p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        2020-06-05T20:06:36&#43;00:00
+    </title>
+    <link>
+        https://www.sheldonhull.com/2020-06-05t200636-0000/
+    </link>
+    <pubDate>
+        Fri, 05 Jun 2020 20:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/2020-06-05t200636-0000/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p><code>brew install micro</code> resulted in my finding what I think will be my new go to cli editor. Very impressed so far. I&rsquo;ve got too many things to learn to be fluent in vim, and this cross platform cli tool might be my new best friend for more command line-fu. <a href="https://github.com/zyedidia/micro" title="Micro" target="_blank" rel="noopener noreferrer">Micro</a></p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

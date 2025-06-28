@@ -1,0 +1,612 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Development - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/development/</link>
+        <description>Development - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 19 Jun 2024 19:10:06 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/development/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Automate the Boring Stuff With Ai Like Twitter Annoyances
+    </title>
+    <link>
+        https://www.sheldonhull.com/automate-the-boring-stuff-with-ai-like-twitter-annoyances/
+    </link>
+    <pubDate>
+        Wed, 19 Jun 2024 19:10:06 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/automate-the-boring-stuff-with-ai-like-twitter-annoyances/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>I wanted to remove all the clutter in my Twitter profile, and found the interests section.
+A massive number of detected interests are there, and most aren&rsquo;t actually anything I care about. (Yahoo, eCommerce Technology, and more)</p>
+<p>Each click sends an API request to remove, and there&rsquo;s no way I was going to go through years of content to click.
+I pasted in the div from inspect element and with a few additional prompts to improve it, generated a snippet to past in the Chrome developer console that:</p>
+<ul>
+<li>Clicks each item for me, with some graceful cooldown logic since API throttling nearly immediately occurred.</li>
+<li>Logs the total items to process at the start.</li>
+<li>Logs the start of each request with the format Starting request x/y.</li>
+<li>Logs a successful uncheck with a ✔ emoji and the format ✔ Successfully unchecked x/y.</li>
+<li>Logs if an item is already unchecked.</li>
+<li>Estimates the remaining time to complete the process and logs it after each action.</li>
+<li>At the end of the process, logs that all items have been processed.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">checkboxes</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;input[type=&#34;checkbox&#34;]&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">total</span> <span class="o">=</span> <span class="nx">checkboxes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">delay</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span> <span class="c1">// Delay between uncheck actions to allow for UI updates and not to trigger rate limits
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Total checkboxes to process: </span><span class="si">${</span><span class="nx">total</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">scrollToElement</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">element</span><span class="p">.</span><span class="nx">scrollIntoView</span><span class="p">({</span> <span class="nx">behavior</span><span class="o">:</span> <span class="s1">&#39;smooth&#39;</span><span class="p">,</span> <span class="nx">block</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">uncheckCheckbox</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">index</span> <span class="o">&gt;=</span> <span class="nx">total</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Completed processing all checkboxes.&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">checkbox</span> <span class="o">=</span> <span class="nx">checkboxes</span><span class="p">[</span><span class="nx">index</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">scrollToElement</span><span class="p">(</span><span class="nx">checkbox</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">checked</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">log</span><span class="p">(</span><span class="sb">`Unchecking checkbox </span><span class="si">${</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">total</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">checkbox</span><span class="p">.</span><span class="nx">click</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="c1">// Wait for any potential dynamic updates
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;aria-checked&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="s1">&#39;false&#39;</span> <span class="o">||</span> <span class="o">!</span><span class="nx">checkbox</span><span class="p">.</span><span class="nx">checked</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">log</span><span class="p">(</span><span class="sb">`Successfully unchecked checkbox </span><span class="si">${</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">total</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">index</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">delay</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span> <span class="c1">// Reset the delay after successful uncheck
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">log</span><span class="p">(</span><span class="sb">`Failed to uncheck checkbox </span><span class="si">${</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">total</span><span class="si">}</span><span class="sb">. Retrying...`</span><span class="p">,</span> <span class="s1">&#39;error&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">delay</span> <span class="o">+=</span> <span class="mi">500</span><span class="p">;</span> <span class="c1">// Increase the delay before retrying
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">uncheckCheckbox</span><span class="p">,</span> <span class="nx">delay</span><span class="p">);</span> <span class="c1">// Move to next checkbox
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="p">},</span> <span class="nx">delay</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">log</span><span class="p">(</span><span class="sb">`Checkbox </span><span class="si">${</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">total</span><span class="si">}</span><span class="sb"> is already unchecked.`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">index</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">uncheckCheckbox</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">// Move to next checkbox
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Listen for 503 requests from Twitter
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;fetch&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">url</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;twitter.com&#39;</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">===</span> <span class="mi">503</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">log</span><span class="p">(</span><span class="s1">&#39;503 error detected from Twitter. Retrying...&#39;</span><span class="p">,</span> <span class="s1">&#39;error&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">delay</span> <span class="o">+=</span> <span class="mi">500</span><span class="p">;</span> <span class="c1">// Increase the delay before retrying
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">type</span> <span class="o">=</span> <span class="s1">&#39;log&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">console</span><span class="p">[</span><span class="nx">type</span><span class="p">](</span><span class="sb">`[TwitterCleanup] </span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">uncheckCheckbox</span><span class="p">();</span> <span class="c1">// Start the process
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">})();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Considering I don&rsquo;t want to spend the time to dive into javascript, I love how it gives options to quickly knock out automation I wouldn&rsquo;t make the time to do manually.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        The Technology We Take for Granted Is Pretty Amazing
+    </title>
+    <link>
+        https://www.sheldonhull.com/the-technology-we-take-for-granted-is-pretty-amazing/
+    </link>
+    <pubDate>
+        Fri, 17 May 2024 17:17:21 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/the-technology-we-take-for-granted-is-pretty-amazing/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>We had some intense rapid storms hit last night that caused power failure for roughly 30-40% of Greater Houston area.</p>
+<p>Time to test some of my flexible DR developer setup 💪.</p>
+<p>I&rsquo;m sitting the middle row of a nice minivan posting this (thanks Dad for the killer deal! 😁)&hellip; and it got me thinking of the &ldquo;simple&rdquo; tech we take for granted.</p>
+<ul>
+<li>I&rsquo;m charging with a 100w AC port in the minivan.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></li>
+<li>I&rsquo;m connected to the internet by merely connecting my iphone via usb to the mac, no extra configuration or steps required.</li>
+<li>I&rsquo;m then able to push code, deploy to <del>production</del> ahem, development environments.</li>
+<li>Get code completions from a LLM directly inline my editor while driving and even generate new code projects via copilot with workspace.</li>
+</ul>
+<p>There&rsquo;s so much incredible engineering behind the simple act of connecting a phone to my computer and then having access to all this, it&rsquo;s incredible.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>As someone who grew up on Windows, it was very confusing that this internet sharing happens automatically when iPhone is plugged in. I searched throughout all settings to find it &ldquo;just works&rdquo;.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Improve Language Matching in Vscode
+    </title>
+    <link>
+        https://www.sheldonhull.com/improve-language-matching-in-vscode/
+    </link>
+    <pubDate>
+        Thu, 29 Feb 2024 20:15:36 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/improve-language-matching-in-vscode/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Let&rsquo;s say you have the Red Hat YAML extension.
+This does a great job with formatting and validation.</p>
+<p>However, other directories contain files for Azure DevOps Pipelines that are also <code>yaml</code>.
+You can tweak the matching logic based on common paths you&rsquo;d use and get those to default to a different language.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="s2">&#34;files.associations&#34;</span><span class="err">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&#34;*.json5&#34;</span><span class="p">:</span> <span class="s2">&#34;json5&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&#34;CODEOWNERS&#34;</span><span class="p">:</span> <span class="s2">&#34;plaintext&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&#34;*.aliases&#34;</span><span class="p">:</span> <span class="s2">&#34;gitconfig&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&#34;{**/tasks/*.y*ml,**/jobs/*.y*ml,**/variables/*.y*ml,**/stages/*.y*ml,**/pipelines/*.y*ml,**/ci/*.y*ml,**/build/*.y*ml,**/templates/*.y*ml}&#34;</span><span class="p">:</span> <span class="s2">&#34;azure-pipelines&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="err">,</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>You can see the icon in the explorer switch to the new type as well to have a quick visual validation.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Easiest Way to Run Local Ai
+    </title>
+    <link>
+        https://www.sheldonhull.com/easiest-way-to-run-local-ai/
+    </link>
+    <pubDate>
+        Fri, 01 Dec 2023 12:57:42 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/easiest-way-to-run-local-ai/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p><a href="https://ollama.ai/" target="_blank" rel="noopener noreferrer">Ollama</a> makes this really easy.
+I&rsquo;ve tried a few options to have local code generation tooling available, and this took the cake for wrapping up localized model running.</p>
+<p>I&rsquo;ve got 64gb of ram on my M2 Max Macbook, so I can just run <code>ollama run llama2:13b</code> and get a local model up and ready to use.</p>
+<p>If you are like most of humanity and want less resources taken up, try just <code>ollama run llama2</code>.</p>
+<p>Connect this to <a href="https://continue.dev" target="_blank" rel="noopener noreferrer">Continue</a> and you&rsquo;ve got a local coding assistant.
+It&rsquo;s click and go to add the model to your continue extension.</p>
+<p>My initial impressions were less polished that <code>gpt-4</code>, but to quickly iterate on some reasonable code generation or minor refactoring work it&rsquo;s great to have a local option that wont use any data.
+I&rsquo;m on the go right now and being able to work offline for periods of time is great, but frustrating once I&rsquo;ve experienced the handy transformation and simple fixes an AI integrated into the editor provides.</p>
+<p>I&rsquo;ve got more docs on this topic if you search for ai or sample <a href="/notes/development/ai/chat/" rel="">chat</a>.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Region &amp; Language Defaults
+    </title>
+    <link>
+        https://www.sheldonhull.com/region-and-language-defaults/
+    </link>
+    <pubDate>
+        Mon, 06 Nov 2023 13:56:58 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/region-and-language-defaults/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Language defaults seem to be an interesting mix when it comes to websites.
+The results that show up for a different search region can also be different based on Google&rsquo;s docs <a href="https://support.google.com/websearch/answer/873?hl=en&amp;co=GENIE.Platform%3DDesktop&amp;sjid=15123736862072240189-EU" target="_blank" rel="noopener noreferrer">Search Region</a></p>
+<p>One video streaming site refused to show me subtitles in English without me using a VPN to appear as a US member.
+My quick search through some posts on reddit and the like show this can be a really inconsistent mess depending on the site.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        How Many Commits Did You Make in Last Month
+    </title>
+    <link>
+        https://www.sheldonhull.com/how-many-commits-did-you-make-in-last-month/
+    </link>
+    <pubDate>
+        Wed, 03 May 2023 18:07:04 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/how-many-commits-did-you-make-in-last-month/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Been playing with <a href="https://github.com/di-sukharev/opencommit" target="_blank" rel="noopener noreferrer">opencommit</a> and wanted to assess how much using it on every single commit I still could track locally might cost me.</p>
+<p>This script loops through all the <code>${HOME}/git</code> directories and totals the commits made in last month.</p>
+<p>Looks like using OpenAI&rsquo;s api would cost me about $4-$5 if I&rsquo;d used on every single commit and the size of the commits was smaller.</p>
+<p>Not as bad as I&rsquo;d thought it would be.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1"># Use https://github.com/sharkdp/fd</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> -e
+</span></span><span class="line"><span class="cl"><span class="c1"># Initialize variables</span>
+</span></span><span class="line"><span class="cl"><span class="nv">total_commits</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="nv">username</span><span class="o">=</span><span class="k">$(</span>whoami<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Capture the directories found by fd to a variable</span>
+</span></span><span class="line"><span class="cl"><span class="nv">directories</span><span class="o">=</span><span class="k">$(</span>fd -H --max-depth <span class="m">6</span> <span class="s2">&#34;^\.git</span>$<span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/git&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Loop through each directory</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> directory in <span class="nv">$directories</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Change to the git directory</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">printf</span> <span class="s2">&#34;...⚙️ </span><span class="k">$(</span>dirname <span class="nv">$directory</span><span class="k">)</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">pushd</span> <span class="s2">&#34;</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="nv">$directory</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Get the repo name</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">repo</span><span class="o">=</span><span class="k">$(</span>basename <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">&#34;</span><span class="k">)</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Get the count of commits made by a user with the partial name match of &#34;username&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">commits</span><span class="o">=</span><span class="k">$(</span>git log <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                --branches <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                --author<span class="o">=</span><span class="s2">&#34;.*</span><span class="si">${</span><span class="nv">username</span><span class="si">}</span><span class="s2">.*&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                --since<span class="o">=</span><span class="s2">&#34;1 month ago&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                --no-merges <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                --format<span class="o">=</span><span class="s2">&#34;%H&#34;</span> <span class="p">|</span> wc -l <span class="p">|</span> awk <span class="s2">&#34;{print \$1}&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">)</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Output the repo name and count of commits</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">printf</span> <span class="s2">&#34;\t%-50s %-50s \n&#34;</span> <span class="s2">&#34;</span><span class="nv">$repo</span><span class="s2">&#34;</span>, <span class="s2">&#34;</span><span class="nv">$commits</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Add to the total count of commits</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">total_commits</span><span class="o">=</span><span class="k">$((</span>total_commits <span class="o">+</span> commits<span class="k">))</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">popd</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Output the total count of commits</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Total commits: </span><span class="nv">$total_commits</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Refined Github
+    </title>
+    <link>
+        https://www.sheldonhull.com/refined-github/
+    </link>
+    <pubDate>
+        Wed, 19 Apr 2023 17:02:03 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/refined-github/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>After using this for a while, I figured I&rsquo;d add this to my my &ldquo;cool-tools&rdquo; list.</p>
+<p><a href="https://github.com/refined-github/refined-github" target="_blank" rel="noopener noreferrer"><figure><a class="lightgallery" href="https://gh-card.dev/repos/refined-github/refined-github.svg" title="refined-github/refined-github - GitHub" data-thumbnail="https://gh-card.dev/repos/refined-github/refined-github.svg">
+        
+    </a></figure></a></p>
+<p>The main features I&rsquo;ve found useful:</p>
+<ul>
+<li>Use keyboard to flip straight to code review with approve/reject focused.</li>
+<li>Highlight the code most recently changed in the browser.</li>
+</ul>
+<p>There&rsquo;s a whole list on the repo page of small usability tweaks for those living in GitHub, for example <a href="https://github.com/refined-github/refined-github#repositories" target="_blank" rel="noopener noreferrer">Repositories Tweaks</a>.</p>
+<p>Give it a try!</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        O&#39;Reilly
+    </title>
+    <link>
+        https://www.sheldonhull.com/oreilly/
+    </link>
+    <pubDate>
+        Wed, 19 Apr 2023 16:48:59 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/oreilly/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Creating a new chrome alias so my typo doesn&rsquo;t keep annoying me.
+I&rsquo;m lucky enough to have access to O&rsquo;Reilly Books through <code>$work</code>.</p>
+<p>Problem is everytime I google it I keep letting my autocomplete show me O&rsquo;Reilly Auto. 😄</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Digital Garden Released
+    </title>
+    <link>
+        https://www.sheldonhull.com/digital-garden-released/
+    </link>
+    <pubDate>
+        Sun, 12 Mar 2023 23:28:22 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/digital-garden-released/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Split my blog into <a href="https://notes.sheldonhull.com" target="_blank" rel="noopener noreferrer">notes.sheldonhull.com</a> for evergreen note taking and reference content.
+I&rsquo;ll still maintain this blog for posts.</p>
+<p>Mkdocs allows a minimal friction to publishing and previewing.
+The directory structure is built automatically from directories.</p>
+<p>While I love Hugo, it&rsquo;s more work to maintain small reference pages so I&rsquo;m going to split up my notes more like a &ldquo;digital garden&rdquo; approach.</p>
+<ul>
+<li>Free hosting through GitHub.</li>
+<li>60 seconds from push to page refresh.</li>
+</ul>
+<p>In comparison, Obsidian Publish and others can run $100+ a year.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        To Get a Cup of Coffee
+    </title>
+    <link>
+        https://www.sheldonhull.com/to-get-a-cup-of-coffee/
+    </link>
+    <pubDate>
+        Mon, 24 Oct 2022 20:55:20 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/to-get-a-cup-of-coffee/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <ul>
+<li>Take the car into shop to get state inspection that&rsquo;s overdue, since I don&rsquo;t drive it much.</li>
+<li>Find out a check engine light fails the test.</li>
+<li>Drive towards grocery store near house, and hit a long line of traffic.</li>
+<li>Decide to be a dilligent budgeter and pick up milk instead of buying coffee.</li>
+<li>Train decides to park at road I have to cross.</li>
+<li>Go to gas station, grab milk.</li>
+<li>Arrive home.</li>
+<li>Make coffee.</li>
+</ul>
+<p>Sometimes working from an office has it&rsquo;s advantages, especially those fancy places with free lattes (looking at you LinkedIn!)</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

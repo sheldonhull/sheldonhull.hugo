@@ -1,0 +1,519 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Goroutines - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/goroutines/</link>
+        <description>Goroutines - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 07 Sep 2021 16:59:10 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/goroutines/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Go R1 Day 70
+    </title>
+    <link>
+        https://www.sheldonhull.com/go-r1-day-70/
+    </link>
+    <pubDate>
+        Tue, 07 Sep 2021 16:59:10 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/go-r1-day-70/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="progress" class="headerLink">
+    <a href="#progress" class="header-mark"></a>progress</h2><ul>
+<li>Concurrency section wrap-up with Learn Go With Tests.</li>
+<li>Reviewed material learned from: <a href="/go-r1-day-60/" title="Go R1 Day 61" rel="">Go R1 Day 61</a></li>
+<li>Read material, but didn&rsquo;t do a lot of tests on this, per mostly concept oriented.
+Used concurrent progressbar example from <code>uiprogress</code> project to test concurrent UI updates.</li>
+<li>My last concurrency test case was to launch many concurrent processes for a load test.
+This didn&rsquo;t leverage goroutinues as typically used, since it was calling to an executable on the host machine.
+However, this provided a great use case for something I&rsquo;ve done before with DevOps oriented work and showed how to use concurrency as a blocking operation.
+Once the user was done with the test, <code>ctrl+c</code> was used to kill the active requests and the program exited.</li>
+<li>I need more practice with channels.
+I was only wanting error stdout content, and so didn&rsquo;t have any need for receiving channel output back in a structured way.
+This is probably an atypical usage of concurrency, fitting for an external load test, but not internal Go code.</li>
+<li>Still found it pretty cool that I could spin up 500 processes at once, with far less overhead than doing in PowerShell.</li>
+</ul>
+<div
+    class="details admonition Note
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      Example Of Doing In PowerShell
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>Doing this in PowerShell is far more compact, but not as performant.</p>
+<p>This is a good example of the different in using Go for adhoc tasks.
+It will require more code, error handling care, but pays off in something that is likely more stable and easier to run across multiple systems with a single binary.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c">#!/usr/bin/env pwsh</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$Server</span> <span class="p">=</span> <span class="s1">&#39;IPADDRESS&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$ServerPort</span> <span class="p">=</span> <span class="s1">&#39;3000&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s1">&#39;Load Test Start&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$RandomPort</span> <span class="p">=</span> <span class="s1">&#39;4000&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$j</span> <span class="p">=</span> <span class="vm">@</span><span class="p">(</span><span class="mf">4000</span><span class="p">.</span><span class="mf">.4100</span><span class="p">)|</span> <span class="nb">ForEach-Object</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$c</span> <span class="p">=</span> <span class="nv">$_</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Start-ThreadJob</span> <span class="n">-ThrottleLimit</span> <span class="mf">1000</span> <span class="n">-StreamingHost</span> <span class="nv">$Host</span> <span class="n">-InputObject</span> <span class="nv">$c</span> <span class="n">-ScriptBlock</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$RandomPort</span> <span class="p">=</span> <span class="nv">$input</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&amp;</span><span class="n">mybinary</span> <span class="n">serve</span> <span class="p">-</span><span class="n">-max-retry-count</span> <span class="mf">5</span> <span class="p">-</span><span class="n">-header</span> <span class="s2">&#34;user-id: </span><span class="p">$(</span><span class="n">petname</span><span class="p">)</span><span class="s2">&#34;</span> <span class="p">-</span><span class="n">-header</span> <span class="s2">&#34;session-id: </span><span class="p">$(</span><span class="n">uuidgen</span><span class="p">)</span><span class="s2">&#34;</span> <span class="s2">&#34;${using:Server}:${using:ServerPort}&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$j</span> <span class="p">|</span> <span class="nb">Wait-Job</span> <span class="p">|</span> <span class="nb">Receive-Job</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$j</span> <span class="p">|</span> <span class="nb">Stop-Job</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I didn&rsquo;t benchmark total load difference between this and Go, but I&rsquo;m sure the pwsh threads were a bit more costly, though for this test case might not have been a large enough value to make much difference.</p>
+</div>
+    </div>
+  </div>
+<h2 id="code-examples" class="headerLink">
+    <a href="#code-examples" class="header-mark"></a>Code Examples</h2><p>This first section is the startup.
+Key points:</p>
+<ul>
+<li>main() is the entry point for the program, but doesn&rsquo;t contain the main logic flow.
+Inspired by Matt Ryer&rsquo;s posts, I now try to ensure main is as minimal as possible to encourage easier automation in testing.
+Since <code>run</code> contains the main logic flow, the actual CLI itself can be called via integration test by flipping to <code>Run()</code> and calling from <code>testing</code> file using a blackbox testing approach.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;bytes&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;errors&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;flag&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;io&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;math&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;os&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;os/exec&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;strings&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;sync&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;time&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">shellescape</span> <span class="s">&#34;github.com/alessio/shellescape&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">petname</span> <span class="s">&#34;github.com/dustinkirkland/golang-petname&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/google/uuid&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/pterm/pterm&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/rs/zerolog&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;github.com/rs/zerolog/log&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">const</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// exitFail is the exit code if the program
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// fails.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">exitFail</span> <span class="p">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// desiredPort is the port that the app forwards traffic to.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">desiredPort</span> <span class="p">=</span> <span class="mi">22</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// petnameLength is the length of the petname in words to generate.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">petNameLength</span> <span class="p">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// startingPort is the starting port for a new connection, and will increment up from there so each connection is unique.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">startingPort</span> <span class="p">=</span> <span class="mi">4000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="c1">// maxRetryCount is the number of times to retry a connection.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">maxRetryCount</span> <span class="p">=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nf">run</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span> <span class="s">&#34;%s\n&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">os</span><span class="p">.</span><span class="nf">Exit</span><span class="p">(</span><span class="nx">exitFail</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Next <code>run</code> contains the main logic flow.
+The goal is that all main program logic for exiting and terminating is handled in this single location.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Run handles the arguments being passed in from main, and allows us to run tests against the loading of the code much more easily than embedding all the startup logic in main().
+</span></span></span><span class="line"><span class="cl"><span class="c1">// This is based on Matt Ryers post: https://pace.dev/blog/2020/02/12/why-you-shouldnt-use-func-main-in-golang-by-mat-ryer.html
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">run</span><span class="p">(</span><span class="nx">args</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">stdout</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;no arguments&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nf">InitLogger</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">zerolog</span><span class="p">.</span><span class="nf">SetGlobalLevel</span><span class="p">(</span><span class="nx">zerolog</span><span class="p">.</span><span class="nx">InfoLevel</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">debug</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">Bool</span><span class="p">(</span><span class="s">&#34;debug&#34;</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s">&#34;sets log level to debug&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Count</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">Int</span><span class="p">(</span><span class="s">&#34;count&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#34;number of processes to open&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">delaySec</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">Int</span><span class="p">(</span><span class="s">&#34;delay&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#34;delay between process creation. Default is 0&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">batchSize</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">Int</span><span class="p">(</span><span class="s">&#34;batch&#34;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#34;number of processes to create in each batch. Default is 0 to create all at once&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">Server</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">String</span><span class="p">(</span><span class="s">&#34;server&#34;</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="s">&#34;server IP address&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">ServerPort</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nf">Int</span><span class="p">(</span><span class="s">&#34;port&#34;</span><span class="p">,</span> <span class="mi">3000</span><span class="p">,</span> <span class="s">&#34;server port&#34;</span><span class="p">)</span> <span class="c1">//nolint:gomnd
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">	<span class="nx">flag</span><span class="p">.</span><span class="nf">Parse</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">log</span><span class="p">.</span><span class="nx">Logger</span><span class="p">.</span><span class="nf">Info</span><span class="p">().</span><span class="nf">Int</span><span class="p">(</span><span class="s">&#34;Count&#34;</span><span class="p">,</span> <span class="o">*</span><span class="nx">Count</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Int</span><span class="p">(</span><span class="s">&#34;delaySec&#34;</span><span class="p">,</span> <span class="o">*</span><span class="nx">delaySec</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Int</span><span class="p">(</span><span class="s">&#34;batchSize&#34;</span><span class="p">,</span> <span class="o">*</span><span class="nx">batchSize</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Str</span><span class="p">(</span><span class="s">&#34;Server&#34;</span><span class="p">,</span> <span class="o">*</span><span class="nx">Server</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Msg</span><span class="p">(</span><span class="s">&#34;input parsed&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">log</span><span class="p">.</span><span class="nx">Logger</span><span class="p">.</span><span class="nf">Info</span><span class="p">().</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Int</span><span class="p">(</span><span class="s">&#34;desiredPort&#34;</span><span class="p">,</span> <span class="nx">desiredPort</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Int</span><span class="p">(</span><span class="s">&#34;petNameLength&#34;</span><span class="p">,</span> <span class="nx">petNameLength</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Int</span><span class="p">(</span><span class="s">&#34;startingPort&#34;</span><span class="p">,</span> <span class="nx">startingPort</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Msg</span><span class="p">(</span><span class="s">&#34;default constants&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="o">*</span><span class="nx">debug</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">zerolog</span><span class="p">.</span><span class="nf">SetGlobalLevel</span><span class="p">(</span><span class="nx">zerolog</span><span class="p">.</span><span class="nx">DebugLevel</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nf">RunTest</span><span class="p">(</span><span class="o">*</span><span class="nx">Count</span><span class="p">,</span> <span class="o">*</span><span class="nx">delaySec</span><span class="p">,</span> <span class="o">*</span><span class="nx">batchSize</span><span class="p">,</span> <span class="o">*</span><span class="nx">Server</span><span class="p">,</span> <span class="o">*</span><span class="nx">ServerPort</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Next, <code>InitLogger</code> is used to initialize the logger for zerolog.
+I don&rsquo;t need multiple configurations right now so this is just stdout.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// InitLogger sets up the logger magic
+</span></span></span><span class="line"><span class="cl"><span class="c1">// By default this is only configured to do pretty console output.
+</span></span></span><span class="line"><span class="cl"><span class="c1">// JSON structured logs are also possible, but not in my default template layout at this time.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">InitLogger</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">output</span> <span class="o">:=</span> <span class="nx">zerolog</span><span class="p">.</span><span class="nx">ConsoleWriter</span><span class="p">{</span><span class="nx">Out</span><span class="p">:</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span> <span class="nx">TimeFormat</span><span class="p">:</span> <span class="nx">time</span><span class="p">.</span><span class="nx">RFC3339</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">log</span><span class="p">.</span><span class="nx">Logger</span> <span class="p">=</span> <span class="nx">log</span><span class="p">.</span><span class="nf">With</span><span class="p">().</span><span class="nf">Caller</span><span class="p">().</span><span class="nf">Logger</span><span class="p">().</span><span class="nf">Output</span><span class="p">(</span><span class="nx">zerolog</span><span class="p">.</span><span class="nx">ConsoleWriter</span><span class="p">{</span><span class="nx">Out</span><span class="p">:</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">output</span><span class="p">.</span><span class="nx">FormatLevel</span> <span class="p">=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">i</span> <span class="kd">interface</span><span class="p">{})</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">ToUpper</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;| %-6s|&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">output</span><span class="p">.</span><span class="nx">FormatMessage</span> <span class="p">=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">i</span> <span class="kd">interface</span><span class="p">{})</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">output</span><span class="p">.</span><span class="nx">FormatFieldName</span> <span class="p">=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">i</span> <span class="kd">interface</span><span class="p">{})</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s:&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">output</span><span class="p">.</span><span class="nx">FormatFieldValue</span> <span class="p">=</span> <span class="kd">func</span><span class="p">(</span><span class="nx">i</span> <span class="kd">interface</span><span class="p">{})</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="nx">strings</span><span class="p">.</span><span class="nf">ToUpper</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">log</span><span class="p">.</span><span class="nf">Info</span><span class="p">().</span><span class="nf">Msg</span><span class="p">(</span><span class="s">&#34;logger initialized&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Test the existence of the binary being run in a load test, and exit if it doesn&rsquo;t exist.
+This should more likely be handled in the run fuction, but I just did it here for simplicity in this adhoc tool.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// TestBinaryExists checks to see if the binary is found in PATH and exits with failure if can&#39;t find it.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">TestBinaryExists</span><span class="p">(</span><span class="nx">binary</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">p</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nf">LookPath</span><span class="p">(</span><span class="nx">binary</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">log</span><span class="p">.</span><span class="nx">Logger</span><span class="p">.</span><span class="nf">Error</span><span class="p">().</span><span class="nf">Err</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nf">Str</span><span class="p">(</span><span class="s">&#34;binary&#34;</span><span class="p">,</span><span class="nx">binary</span><span class="p">).</span><span class="nf">Msg</span><span class="p">(</span><span class="s">&#34;binary not found&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">os</span><span class="p">.</span><span class="nf">Exit</span><span class="p">(</span><span class="nx">exitFail</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">p</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Next, <code>buildCLIArgs</code> handles the argument string slice construction.
+I learned from this to keep each line and argument independent as escaping has some strange behavior if you try to combine too much in a single statement, especially with spaces.
+Best practice is to keep this very simple.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// buildCliArgs is an example function of building arguments via string slices
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">buildCliArgs</span><span class="p">(</span><span class="nx">Server</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">ServerPort</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">port</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">command</span> <span class="p">[]</span><span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">command</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">command</span><span class="p">,</span> <span class="s">&#34;server&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">command</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">command</span><span class="p">,</span> <span class="s">&#34;--header&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">command</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">command</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">`user-id: %s`</span><span class="p">,</span> <span class="nx">petname</span><span class="p">.</span><span class="nf">Generate</span><span class="p">(</span><span class="nx">petNameLength</span><span class="p">,</span> <span class="s">&#34;-&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">command</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">command</span><span class="p">,</span> <span class="s">&#34;--header&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">command</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">command</span><span class="p">,</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">`session-id: %s`</span><span class="p">,</span> <span class="nx">uuid</span><span class="p">.</span><span class="nf">Must</span><span class="p">(</span><span class="nx">uuid</span><span class="p">.</span><span class="nf">NewRandom</span><span class="p">()).</span><span class="nf">String</span><span class="p">()))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">command</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">command</span><span class="p">,</span> <span class="s">&#34;--max-retry-count&#34;</span><span class="p">,</span> <span class="s">&#34;5&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">command</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">command</span><span class="p">,</span> <span class="nx">Server</span><span class="o">+</span><span class="s">&#34;:&#34;</span><span class="o">+</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="nx">ServerPort</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="nx">command</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Finally, a function that run the tests with some pretty output using pterm.
+This would be probably better to break-up for testing, but again, adhoc project, so this ended up working decently as I was learning concurrency.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// RunTest is the main test function that calculates the batch size and then launches the  creation using a routinue.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">func</span> <span class="nf">RunTest</span><span class="p">(</span><span class="nx">Count</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">delaySec</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">batchSize</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">Server</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">ServerPort</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">log</span><span class="p">.</span><span class="nx">Logger</span><span class="p">.</span><span class="nf">Info</span><span class="p">().</span><span class="nf">Msg</span><span class="p">(</span><span class="s">&#34;RunTest startings&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">totalBatches</span> <span class="o">:=</span> <span class="nx">math</span><span class="p">.</span><span class="nf">Ceil</span><span class="p">(</span><span class="nb">float64</span><span class="p">(</span><span class="nx">Count</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float64</span><span class="p">(</span><span class="nx">batchSize</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">log</span><span class="p">.</span><span class="nx">Logger</span><span class="p">.</span><span class="nf">Info</span><span class="p">().</span><span class="nf">Float64</span><span class="p">(</span><span class="s">&#34;totalBatches&#34;</span><span class="p">,</span> <span class="nx">totalBatches</span><span class="p">).</span><span class="nf">Msg</span><span class="p">(</span><span class="s">&#34;batches to run&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">myBinary</span> <span class="o">:=</span> <span class="nf">TestBinaryExists</span><span class="p">(</span><span class="s">&#34;binaryname&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">port</span> <span class="o">:=</span> <span class="nx">startingPort</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">wg</span> <span class="nx">sync</span><span class="p">.</span><span class="nx">WaitGroup</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">totals</span> <span class="o">:=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">p</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">pterm</span><span class="p">.</span><span class="nx">DefaultProgressbar</span><span class="p">.</span><span class="nf">WithTotal</span><span class="p">(</span><span class="nx">Count</span><span class="p">).</span><span class="nf">WithTitle</span><span class="p">(</span><span class="s">&#34;run s&#34;</span><span class="p">).</span><span class="nf">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">int</span><span class="p">(</span><span class="nx">totalBatches</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">log</span><span class="p">.</span><span class="nf">Debug</span><span class="p">().</span><span class="nf">Int</span><span class="p">(</span><span class="s">&#34;i&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">).</span><span class="nf">Int</span><span class="p">(</span><span class="s">&#34;port&#34;</span><span class="p">,</span> <span class="nx">port</span><span class="p">).</span><span class="nf">Msg</span><span class="p">(</span><span class="s">&#34;batch number&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		<span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nx">batchSize</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="k">if</span> <span class="nx">totals</span> <span class="o">==</span> <span class="nx">Count</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">log</span><span class="p">.</span><span class="nf">Debug</span><span class="p">().</span><span class="nf">Msg</span><span class="p">(</span><span class="s">&#34;totals == Count, breaking out of loop&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">				<span class="k">break</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="nx">totals</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">log</span><span class="p">.</span><span class="nf">Debug</span><span class="p">().</span><span class="nf">Int</span><span class="p">(</span><span class="s">&#34;i&#34;</span><span class="p">,</span> <span class="nx">i</span><span class="p">).</span><span class="nf">Int</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">totals</span><span class="p">).</span><span class="nf">Msg</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">cmdargs</span> <span class="o">:=</span> <span class="nf">buildCliArgs</span><span class="p">(</span><span class="nx">Server</span><span class="p">,</span> <span class="nx">ServerPort</span><span class="p">,</span> <span class="nx">port</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">wg</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="k">defer</span> <span class="nx">wg</span><span class="p">.</span><span class="nf">Done</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">buf</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">bytes</span><span class="p">.</span><span class="nx">Buffer</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">cmd</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nf">Command</span><span class="p">(,</span> <span class="nx">cmdargs</span><span class="o">...</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">cmd</span><span class="p">.</span><span class="nx">Stdout</span> <span class="p">=</span> <span class="nx">buf</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">cmd</span><span class="p">.</span><span class="nx">Stderr</span> <span class="p">=</span> <span class="nx">buf</span>
+</span></span><span class="line"><span class="cl">				<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">cmd</span><span class="p">.</span><span class="nf">Run</span><span class="p">();</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">log</span><span class="p">.</span><span class="nx">Logger</span><span class="p">.</span><span class="nf">Error</span><span class="p">().</span><span class="nf">Err</span><span class="p">(</span><span class="nx">err</span><span class="p">).</span><span class="nf">Bytes</span><span class="p">(</span><span class="s">&#34;output&#34;</span><span class="p">,</span> <span class="nx">buf</span><span class="p">.</span><span class="nf">Bytes</span><span class="p">()).</span><span class="nf">Msg</span><span class="p">(</span><span class="s">&#34; failed&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">					<span class="nx">os</span><span class="p">.</span><span class="nf">Exit</span><span class="p">(</span><span class="nx">exitFail</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">log</span><span class="p">.</span><span class="nx">Logger</span><span class="p">.</span><span class="nf">Debug</span><span class="p">().</span><span class="nf">Msgf</span><span class="p">(</span><span class="s">&#34; %v&#34;</span><span class="p">,</span> <span class="nx">shellescape</span><span class="p">.</span><span class="nf">QuoteCommand</span><span class="p">(</span><span class="nx">cmdargs</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">				<span class="nx">log</span><span class="p">.</span><span class="nx">Logger</span><span class="p">.</span><span class="nf">Debug</span><span class="p">().</span><span class="nf">Bytes</span><span class="p">(</span><span class="s">&#34;output&#34;</span><span class="p">,</span> <span class="nx">buf</span><span class="p">.</span><span class="nf">Bytes</span><span class="p">()).</span><span class="nf">Msg</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">			<span class="nx">p</span><span class="p">.</span><span class="nx">Title</span> <span class="p">=</span> <span class="s">&#34;port: &#34;</span> <span class="o">+</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="nx">port</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">p</span><span class="p">.</span><span class="nf">Increment</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">port</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Duration</span><span class="p">(</span><span class="nx">delaySec</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">p</span><span class="p">.</span><span class="nx">Title</span> <span class="p">=</span> <span class="s">&#34;s finished&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">_</span><span class="p">,</span> <span class="nx">_</span> <span class="p">=</span> <span class="nx">p</span><span class="p">.</span><span class="nf">Stop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">wg</span><span class="p">.</span><span class="nf">Wait</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="links" class="headerLink">
+    <a href="#links" class="header-mark"></a>links</h2><ul>
+<li><a href="https://github.com/gosuri/uiprogress" target="_blank" rel="noopener noreferrer">GitHub - gosuri/uiprogress: A go library to render progress bars in terminal applications</a></li>
+</ul>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

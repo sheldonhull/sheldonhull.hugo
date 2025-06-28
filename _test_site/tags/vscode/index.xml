@@ -1,0 +1,238 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Vscode - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/vscode/</link>
+        <description>Vscode - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 13 Jul 2021 19:10:50 -0500</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/vscode/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        My First Vscode Extension Pack for Go
+    </title>
+    <link>
+        https://www.sheldonhull.com/my-first-vscode-extension-pack-for-go/
+    </link>
+    <pubDate>
+        Tue, 13 Jul 2021 19:10:50 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/my-first-vscode-extension-pack-for-go/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Took a swing at creating my own extension pack for Go.</p>
+<blockquote>
+<p><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>  <a href="https://github.com/sheldonhull/extension-pack-go" target="_blank" rel="noopener noreferrer">sheldonhull/extension-pack-go - GitHub</a></p>
+</blockquote>
+<p>This was a good chance to familarize myself with the eco-system and simplify sharing a preset group of extensions.</p>
+<p>Setup the repo with a <code>Taskfile.yml</code> to simplify running in the future.
+If frequent updates needed to happen, it would be easy to plug this into GitHub actions with a dispatch event and run on demand or per merge to main.</p>
+<p>Here&rsquo;s the marketplace link if you want to see what it looks like: <a href="https://marketplace.visualstudio.com/items?itemName=sheldon-hull.extension-pack-go" target="_blank" rel="noopener noreferrer">Marketplace - extension-pack-go</a></p>
+<p>I could see this process being improved in the future with GitHub only requirements.
+At this time, it required me to use my personal Azure DevOps org to configure access and publishing.</p>
+<h2 id="resources" class="headerLink">
+    <a href="#resources" class="header-mark"></a>Resources</h2><p><a href="https://code.visualstudio.com/api/working-with-extensions/publishing-extension" target="_blank" rel="noopener noreferrer">Publishing Extensions</a></p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Highlight Problem Characters in Code
+    </title>
+    <link>
+        https://www.sheldonhull.com/highlight-problem-characters-in-code/
+    </link>
+    <pubDate>
+        Mon, 31 May 2021 11:43:46 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/highlight-problem-characters-in-code/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Use <a href="https://github.com/nhoizey/vscode-gremlins" target="_blank" rel="noopener noreferrer">Vscode Gremlins</a> to help flag characters that shouldn&rsquo;t be in your code.</p>
+<h2 id="specifying-a-range-of-invalid-characters" class="headerLink">
+    <a href="#specifying-a-range-of-invalid-characters" class="header-mark"></a>Specifying a Range of Invalid Characters</h2><p>You can give a range to flag multiple characters with a single rule.</p>
+<p>For example, if using macOS and the option key is set to a modifier, it&rsquo;s easy to accidentally include a <a href="https://unicode-table.com/en/blocks/latin-1-supplement/" target="_blank" rel="noopener noreferrer">Latin-1 Supplemental Character</a> that can be difficult to notice in your code.</p>
+<p>To catch the entire range, the Latin-1-Supplement link provided shows a unicode range of: <code>0080—00FF</code></p>
+<p>Configure a rule like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;gremlins.characters&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;0080-00FF&#34;: {
+</span></span><span class="line"><span class="cl">        &#34;level&#34;: &#34;error&#34;,
+</span></span><span class="line"><span class="cl">        &#34;zeroWidth&#34;: false,
+</span></span><span class="line"><span class="cl">        &#34;description&#34;: &#34;Latin-1 Supplement character identified&#34;,
+</span></span><span class="line"><span class="cl">        &#34;overviewRulerColor&#34;: &#34;rgba(255,127,80,1)&#34;,
+</span></span><span class="line"><span class="cl">    },
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I submitted this as a <a href="https://github.com/nhoizey/vscode-gremlins/pull/185" target="_blank" rel="noopener noreferrer">PR</a> to project repo but figured I&rsquo;d document here as well in case it takes a while to get merged.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Make Vscode Annoy Me When I Make a Typo
+    </title>
+    <link>
+        https://www.sheldonhull.com/make-vscode-annoy-me-when-i-make-a-typo/
+    </link>
+    <pubDate>
+        Wed, 19 May 2021 15:28:58 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/make-vscode-annoy-me-when-i-make-a-typo/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Not sure why, but I&rsquo;ve had 2 typos that keep plauging me.</p>
+<ul>
+<li><code>ngnix</code> should be <code>nginx</code></li>
+<li><code>chocolatey</code> should be <code>chocolatey</code></li>
+</ul>
+<p>With Go, I get compile errors with typos, so no problem.
+With PowerShell or Bash, this can be really annoying and waste time in debugging.</p>
+<p>You can configure many autocorrect tools on a system level, but I wanted a quick solution for making it super obvious in my code as I typed without any new spelling extensions.</p>
+<p>Install Highlight: <code>fabiospampinato.vscode-highlight</code> <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>Configure a rule like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;highlight.regexes&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;(ngnix)&#34;: [
+</span></span><span class="line"><span class="cl">            {
+</span></span><span class="line"><span class="cl">                &#34;overviewRulerColor&#34;: &#34;#ff0000&#34;,
+</span></span><span class="line"><span class="cl">                &#34;backgroundColor&#34;: &#34;#ff0000&#34;,
+</span></span><span class="line"><span class="cl">                &#34;color&#34;: &#34;#1f1f1f&#34;,
+</span></span><span class="line"><span class="cl">                &#34;fontWeight&#34;: &#34;bold&#34;
+</span></span><span class="line"><span class="cl">            },
+</span></span><span class="line"><span class="cl">            {
+</span></span><span class="line"><span class="cl">                &#34;backgroundColor&#34;: &#34;#d90000&#34;,
+</span></span><span class="line"><span class="cl">                &#34;color&#34;: &#34;#1f1f1f&#34;
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">        ],
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://github.com/fabiospampinato/vscode-highlight" target="_blank" rel="noopener noreferrer">vscode-highlight</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        External Tool VSCODE called from SQL Management Studio
+    </title>
+    <link>
+        https://www.sheldonhull.com/edit-in-vscode/
+    </link>
+    <pubDate>
+        Mon, 26 Jun 2017 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/edit-in-vscode/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Previous Related Post:
+<a href="/split-personality-text-eiting-in-ssms-with-sublime-text-3/" rel="">Split personality text editing in SSMS with Sublime Text 3</a></p>
+<p>In this prior post I wrote about how to call Sublime Text 3 from SSMS to allow improved text manipulation to be quickly called from an active query window in SQL Management Studio. Vscode is a newer editor from Microsoft, and the argument calls took a little work to get working. Here is what I found for having your SQL file open in vscode via call from SSMS (I imagine also works in Visual Studio 2017 this way as well).</p>
+<h3 id="external-tools-setup-for-vscode" class="headerLink">
+    <a href="#external-tools-setup-for-vscode" class="header-mark"></a>External Tools Setup for Vscode</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Title:  &#34;Edit In VSCODE&#34;
+</span></span><span class="line"><span class="cl">Command C:\Program Files (x86)\Microsoft VS Code\Code.exe
+</span></span><span class="line"><span class="cl">Arguments: --reuse-window --goto $(ItemPath):$(CurLine):$(CurCol)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Please note unsaved files such as &ldquo;SQLQuery11.sql&rdquo; that haven&rsquo;t been explictly saved are not accessible to this, so it will just open an empty file. I have not found any workaround for that, as I believe the tmp files are cached in one of the .DAT files. I&rsquo;ve not had luck finding the Autorecover or temp files with the actual contents until saved.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

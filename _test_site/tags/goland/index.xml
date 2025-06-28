@@ -1,0 +1,196 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Goland - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/goland/</link>
+        <description>Goland - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 04 Nov 2021 17:30:31 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/goland/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Keyboard Remapping in Goland
+    </title>
+    <link>
+        https://www.sheldonhull.com/keyboard-remapping-in-goland/
+    </link>
+    <pubDate>
+        Thu, 04 Nov 2021 17:30:31 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/keyboard-remapping-in-goland/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>This is a continuation of my evaluation using Goland.</p>
+<p>I tend to be a VSCode user primarily, but am working on adopting Goland incrementally to leverage some of it&rsquo;s features that work a bit more consistently (like refactoring).</p>
+<p>Losing keyboard shortcuts is painful.</p>
+<p>VSCode lets you assign keyboard shortcuts in command pallette by clicking on the gear icon in the command you hover over.
+For a while I couldn&rsquo;t find this in Goland.
+I see now I can assign any action defined from the quick open menu by pressing <code>Cmd+.</code>.</p>
+<p>This should expedite keyboard shortcut customization to align to my muscle memory a bit easier.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        My Goland Log
+    </title>
+    <link>
+        https://www.sheldonhull.com/my-goland-log/
+    </link>
+    <pubDate>
+        Mon, 19 Jul 2021 17:23:30 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/my-goland-log/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="purpose" class="headerLink">
+    <a href="#purpose" class="header-mark"></a>Purpose</h2><p>This is a log of my second journey in using Goland from Jetbrains for Go development.</p>
+<p>I&rsquo;ve got VSCode in a great state.
+It&rsquo;s flexible, powerful, and I&rsquo;ve highly customized it to my workflow.</p>
+<p>However, doing Go development, I&rsquo;d like to better explore Jetbrains Goland and see if the experience proves positive.</p>
+<p>I&rsquo;ll log updates and issues here as I work through it in the hope that it might provide you better information if you are considering Goland as well.</p>
+<table>
+<thead>
+<tr>
+<th>Emoji</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🔴</td>
+<td>Not solved yet</td>
+</tr>
+<tr>
+<td>🟠</td>
+<td>Issue or behavior unclear</td>
+</tr>
+<tr>
+<td>🚩</td>
+<td>It&rsquo;s an issue I believe I understand but don&rsquo;t like the answer to</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>Understand and no issues with behavior</td>
+</tr>
+</tbody>
+</table>
+<h2 id="goland-log" class="headerLink">
+    <a href="#goland-log" class="header-mark"></a>Goland Log</h2><div
+    class="details admonition Question"
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      {{&lt; fa-icon solid  vials &gt;}} Testing
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>🔴 Not certain yet how to run multi-module repo based tests through project (VSCode supports with experimental flag).</p>
+<p>✅ Run individual directory test.
+This also generates a run configuration (ephemeral) that can be persisted as a test configuration for the project.</p>
+<p><figure><a class="lightgallery" href="/images/2021-07-19-goland-test-coverage.png" title="test output" data-thumbnail="/images/2021-07-19-goland-test-coverage.png" data-sub-html="<h2>Test output view is very polished</h2><p>test output</p>">
+        
+    </a><figcaption class="image-caption">Test output view is very polished</figcaption>
+    </figure></p>
+<p><figure><a class="lightgallery" href="/images/2021-07-19-goland-test-coverage-explorer.png" title="test coverage on file list" data-thumbnail="/images/2021-07-19-goland-test-coverage-explorer.png" data-sub-html="<h2>Test Coverage on file list</h2><p>test coverage on file list</p>">
+        
+    </a><figcaption class="image-caption">Test Coverage on file list</figcaption>
+    </figure></p>
+<p>✅ Toggle auto-run for testing is possible, so upon save, it will run after a 1 second delay.
+The built in test renderer is better than VSCode&rsquo;s Go test output.
+Not only does it render the test with color[^vscode-go-testoutput] but also organizes into a nice test explorer view.</p>
+<p>Overall, the test output is polished, able to be undocked and run in a separate window.
+Works well for a TDD workflow.</p>
+<p><figure><a class="lightgallery" href="/images/2021-07-19-goland-test-coverage.png" title="Goland Test Coverage" data-thumbnail="/images/2021-07-19-goland-test-coverage.png" data-sub-html="<h2>test coverage</h2><p>Goland Test Coverage</p>">
+        
+    </a><figcaption class="image-caption">test coverage</figcaption>
+    </figure></p>
+<p>@s0xzwasd provided some great insight on the different approach in the comments on this page.
+Compound configurations work well to run multiple sets of test when using multiple modules in the same repo.
+I tried this, and while tedious to click through the first time, It&rsquo;s easier to configure from a UI standpoint than trying to work through the VSCode <code>tasks.json</code> schema and build tasks by hand.</p>
+<p><figure><a class="lightgallery" href="/images/2021-07-21-18.16.07-goland-run-all-tests.png" title="Goland Compound Test Coverage Explorer Output" data-thumbnail="/images/2021-07-21-18.16.07-goland-run-all-tests.png" data-sub-html="<h2>Compound test coverage</h2><p>Goland Compound Test Coverage Explorer Output</p>">
+        
+    </a><figcaption class="image-caption">Compound test coverage</figcaption>
+    </figure></p>
+</div>
+    </div>
+  </div>
+<div
+    class="details admonition Question"
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      {{&lt; fa-icon solid  running &gt;}} Run Configurations
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>🔴 Not able to set dynamic <code>$FileDir$</code> in the run configurations it seems.</p>
+<p>🟠 Project configuration resolves path to relative once saved, but displays with absolute.
+This is confusing.</p>
+<p>✅ Can include configuration in project so anyone that opens in Goland can run the same prebuilt tasks.</p>
+</div>
+    </div>
+  </div>
+<div
+    class="details admonition Question"
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      {{&lt; fa-icon solid  search &gt;}} Linting
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">🟠 Working on <code>golangci-lint</code> integration.
+There is an extension and I&rsquo;ve also configured the FileWatcher to run on save, but neither is working as seamlessly as VSCode setting as the <code>gopls</code> linter tool.</div>
+    </div>
+  </div>
+<div
+    class="details admonition Question"
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      {{&lt; fa-icon solid  fas fa-tools &gt;}} Refactoring &amp; Fixes
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">🟠 Can&rsquo;t find a way to assign intentions to a keyboard shortcut.
+For example, <code>Add a Go Comment header</code> requires a click on a lightbulb icon, and can&rsquo;t find a way to allow this to be triggered by a keyboard shortcut.</div>
+    </div>
+  </div>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,73 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Http - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/http/</link>
+        <description>Http - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://www.sheldonhull.com/tags/http/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        HTTP
+    </title>
+    <link>
+        https://www.sheldonhull.com/notes/development/go/http/
+    </link>
+    <pubDate>
+        Mon, 01 Jan 0001 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/notes/development/go/http/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="anonymous-server" class="headerLink">
+    <a href="#anonymous-server" class="header-mark"></a>Anonymous Server</h2><p>MacOS will throw firewall alerts to allow connectivity every time a binary is run that doesn&rsquo;t provide the server address.</p>
+<ul>
+<li>❌ What throws the error: <code>http.ListenAndServe(&quot;:&quot;+port, nil)</code></li>
+<li>✔️ What doesn&rsquo;t throw an error: <code>http.ListenAndServe(&quot;127.0.0.1:&quot;+port, nil)</code></li>
+</ul>
+<p>While this might be problematic to iron out as a variable if running inside a Docker container needing to talk to the host, it works well for running the binary locally without much change.
+If you are running inside Docker and need 127.0.0.1 to resolve to the host directly, then you&rsquo;ll need to handle that differently.
+See <a href="https://docs.docker.com/desktop/networking/#i-want-to-connect-from-a-container-to-a-service-on-the-host" target="_blank" rel="noopener noreferrer">I want to connect from a container to a service on the host</a>.</p>
+<p>I ran this problem through chatGPT and it provided a nice explanation.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<div
+    class="details admonition note"
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      chatgpt answers: macOS and anonymous server for local testing
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>The reason why you are seeing a pop-up alert on macOS when using http.ListenAndServe(&quot;:&quot;+port, nil) is that when you use a port number without specifying an IP address, the Go HTTP server listens on all available network interfaces on the local machine, including the loopback address (127.0.0.1), which is used for communication within the same machine.</p>
+<p>When a process listens on a network interface, it is bound to that interface and can receive incoming connections from other machines on the network. In the case of the loopback interface, however, it can only receive connections originating from the same machine, and macOS security policies require user approval before allowing incoming connections to loopback addresses.</p>
+<p>When you specify an IP address like 127.0.0.1 explicitly, you are telling the server to only listen on that specific network interface, which macOS recognizes as a safe and expected behavior and does not generate an alert.</p>
+<p>To avoid the pop-up alert when using http.ListenAndServe(&quot;:&quot;+port, nil), you can add your application to the list of trusted applications in the macOS Firewall settings, or use http.ListenAndServe(&ldquo;127.0.0.1:&quot;+port, nil) to explicitly listen on the loopback interface.</p>
+</div>
+    </div>
+  </div>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>This is an incredible example of it jump-starting debugging efforts. The level of effort to get a quick answer was much faster than Google. While it may &ldquo;hallucinate&rdquo;, this is a good example of quick information that can help and let you move on.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

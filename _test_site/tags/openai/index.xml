@@ -1,0 +1,117 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Openai - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/openai/</link>
+        <description>Openai - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 03 May 2023 18:07:04 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/openai/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        How Many Commits Did You Make in Last Month
+    </title>
+    <link>
+        https://www.sheldonhull.com/how-many-commits-did-you-make-in-last-month/
+    </link>
+    <pubDate>
+        Wed, 03 May 2023 18:07:04 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/how-many-commits-did-you-make-in-last-month/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Been playing with <a href="https://github.com/di-sukharev/opencommit" target="_blank" rel="noopener noreferrer">opencommit</a> and wanted to assess how much using it on every single commit I still could track locally might cost me.</p>
+<p>This script loops through all the <code>${HOME}/git</code> directories and totals the commits made in last month.</p>
+<p>Looks like using OpenAI&rsquo;s api would cost me about $4-$5 if I&rsquo;d used on every single commit and the size of the commits was smaller.</p>
+<p>Not as bad as I&rsquo;d thought it would be.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1"># Use https://github.com/sharkdp/fd</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> -e
+</span></span><span class="line"><span class="cl"><span class="c1"># Initialize variables</span>
+</span></span><span class="line"><span class="cl"><span class="nv">total_commits</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="nv">username</span><span class="o">=</span><span class="k">$(</span>whoami<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Capture the directories found by fd to a variable</span>
+</span></span><span class="line"><span class="cl"><span class="nv">directories</span><span class="o">=</span><span class="k">$(</span>fd -H --max-depth <span class="m">6</span> <span class="s2">&#34;^\.git</span>$<span class="s2">&#34;</span> <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/git&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Loop through each directory</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> directory in <span class="nv">$directories</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Change to the git directory</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">printf</span> <span class="s2">&#34;...⚙️ </span><span class="k">$(</span>dirname <span class="nv">$directory</span><span class="k">)</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">pushd</span> <span class="s2">&#34;</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="nv">$directory</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Get the repo name</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">repo</span><span class="o">=</span><span class="k">$(</span>basename <span class="s2">&#34;</span><span class="nv">$PWD</span><span class="s2">&#34;</span><span class="k">)</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Get the count of commits made by a user with the partial name match of &#34;username&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">commits</span><span class="o">=</span><span class="k">$(</span>git log <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                --branches <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                --author<span class="o">=</span><span class="s2">&#34;.*</span><span class="si">${</span><span class="nv">username</span><span class="si">}</span><span class="s2">.*&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                --since<span class="o">=</span><span class="s2">&#34;1 month ago&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                --no-merges <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>                --format<span class="o">=</span><span class="s2">&#34;%H&#34;</span> <span class="p">|</span> wc -l <span class="p">|</span> awk <span class="s2">&#34;{print \$1}&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">)</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Output the repo name and count of commits</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">printf</span> <span class="s2">&#34;\t%-50s %-50s \n&#34;</span> <span class="s2">&#34;</span><span class="nv">$repo</span><span class="s2">&#34;</span>, <span class="s2">&#34;</span><span class="nv">$commits</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Add to the total count of commits</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">total_commits</span><span class="o">=</span><span class="k">$((</span>total_commits <span class="o">+</span> commits<span class="k">))</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">popd</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Output the total count of commits</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Total commits: </span><span class="nv">$total_commits</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

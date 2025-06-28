@@ -1,0 +1,54 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Text-Manipulation - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/text-manipulation/</link>
+        <description>Text-Manipulation - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 26 Jun 2017 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/text-manipulation/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        External Tool VSCODE called from SQL Management Studio
+    </title>
+    <link>
+        https://www.sheldonhull.com/edit-in-vscode/
+    </link>
+    <pubDate>
+        Mon, 26 Jun 2017 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/edit-in-vscode/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Previous Related Post:
+<a href="/split-personality-text-eiting-in-ssms-with-sublime-text-3/" rel="">Split personality text editing in SSMS with Sublime Text 3</a></p>
+<p>In this prior post I wrote about how to call Sublime Text 3 from SSMS to allow improved text manipulation to be quickly called from an active query window in SQL Management Studio. Vscode is a newer editor from Microsoft, and the argument calls took a little work to get working. Here is what I found for having your SQL file open in vscode via call from SSMS (I imagine also works in Visual Studio 2017 this way as well).</p>
+<h3 id="external-tools-setup-for-vscode" class="headerLink">
+    <a href="#external-tools-setup-for-vscode" class="header-mark"></a>External Tools Setup for Vscode</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Title:  &#34;Edit In VSCODE&#34;
+</span></span><span class="line"><span class="cl">Command C:\Program Files (x86)\Microsoft VS Code\Code.exe
+</span></span><span class="line"><span class="cl">Arguments: --reuse-window --goto $(ItemPath):$(CurLine):$(CurCol)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Please note unsaved files such as &ldquo;SQLQuery11.sql&rdquo; that haven&rsquo;t been explictly saved are not accessible to this, so it will just open an empty file. I have not found any workaround for that, as I believe the tmp files are cached in one of the .DAT files. I&rsquo;ve not had luck finding the Autorecover or temp files with the actual contents until saved.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

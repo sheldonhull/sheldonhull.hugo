@@ -1,0 +1,78 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Visual-Studio-Code - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/visual-studio-code/</link>
+        <description>Visual-Studio-Code - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 02 Oct 2020 14:23:31 -0500</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/visual-studio-code/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Ways to Improve Codespaces Local Docker Experience
+    </title>
+    <link>
+        https://www.sheldonhull.com/ways-to-improve-codespaces-local-docker-experience/
+    </link>
+    <pubDate>
+        Fri, 02 Oct 2020 14:23:31 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/ways-to-improve-codespaces-local-docker-experience/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>I&rsquo;ve been enjoying Codespaces local development workflow with Docker containers.</p>
+<p>I&rsquo;m using macOS and on Docker experimental release.
+Here are some ideas to get started on improving the development experience.</p>
+<ul>
+<li>Clone the repository in the virtual volume (supported by the extension) to eliminate the binding between host and container.
+This would entail working exclusively inside the container.</li>
+<li>Increased Docker allowed ram to 8GB from the default of 2GB.</li>
+</ul>
+<p>Any other ideas? Add a comment (powered by GitHub issues, so it&rsquo;s just a GitHub issue in the backend)</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        2020-06-29T18:29:03&#43;00:00
+    </title>
+    <link>
+        https://www.sheldonhull.com/2020-06-29t182903-0000/
+    </link>
+    <pubDate>
+        Mon, 29 Jun 2020 18:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/2020-06-29t182903-0000/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Visual Studio Code has a pretty great way to browse through themes by just selecting installed themes and using arrow keys to preview without apply. However, browsing those themes isn&rsquo;t quite so good, as you need to install to see the changes.</p>
+<p>Ran across [Vscode Themes](<a href="https://vscodethemes.com/" target="_blank" rel="noopener noreferrer">https://vscodethemes.com/</a> <a href="https://bit.ly/2NHNsMW" target="_blank" rel="noopener noreferrer">https://bit.ly/2NHNsMW</a> &ldquo;Vscode Themes&rdquo;) which provides a really nice experience if you feel like changing things up on your editor.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

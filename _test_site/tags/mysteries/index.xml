@@ -1,0 +1,51 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Mysteries - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/mysteries/</link>
+        <description>Mysteries - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 17 Oct 2016 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/mysteries/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Cannot Generate SSPI Context
+    </title>
+    <link>
+        https://www.sheldonhull.com/cannot-generate-sspi-context/
+    </link>
+    <pubDate>
+        Mon, 17 Oct 2016 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/cannot-generate-sspi-context/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="troubleshooting" class="headerLink">
+    <a href="#troubleshooting" class="header-mark"></a>Troubleshooting</h2><p>I ran into an error: The target principal name is incorrect.  Cannot generate SSPI context. (Microsoft SQL Server, Error: 0)</p>
+<p>I evaluated the sql server configuration manager protocols for sql server and saw that named pipes was disabled. I tried ensuring that this wasn&rsquo;t causing the issue, but enabling but it didn&rsquo;t fix. Thankfully, Andrew on StackOverflow had the answer here:</p>
+<blockquote>
+<p>First thing you should do is go into the logs (Management\SQL Server Logs) and see if SQL Server successfully registered the Service Principal Name (SPN). If you see some sort of error (The SQL Server Network Interface library could not register the Service Principal Name (SPN) for the SQL Server service) then you know where to start.
+We saw this happen when we changed the account SQL Server was running under. Resetting it to Local System Account solved the problem. Microsoft also has a guide on manually configuring the SPN.
+<a href="http://stackoverflow.com/a/22505719/68698" target="_blank" rel="noopener noreferrer">Andrew 3/19/2014</a></p>
+</blockquote>
+<p>When I went into the configuration manager I changed the format from the DOMAIN\USER to searching with advanced and matching the user. The username was applied as <a href="mailto:USER@DOMAIN.COM" rel="">USER@DOMAIN.COM</a> instead. When I applied, and restarted the sql service, this still didn&rsquo;t fix.</p>
+<p>I read some help documentation on this on <a href="http://bit.ly/2dZG6p7" target="_blank" rel="noopener noreferrer">smatskas.com</a> but it didn&rsquo;t resolve my issue as I had the correct permissions, and I verified no duplicate SPN by running the command setspn -x
+I ran gupdate /force to ensure was properly in sync with the policies and it did get the time updated. However, the problem persisted. I went back to checking for a specific conflict by running</p>
+<p>Still no luck&hellip;.</p>
+<p>Finally, I switched the account to use LocalSystem (this was in a dev environment) following the <a href="http://dba.stackexchange.com/a/150447/7682" target="_blank" rel="noopener noreferrer">directions by Bob Sullentrup </a> and this allowed it to successfully register the SPN.</p>
+<p>I&rsquo;ll update my blog post when I have a better understanding on exactly why this occurs, but for now, at least I was able to proceed.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

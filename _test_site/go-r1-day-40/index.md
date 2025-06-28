@@ -1,0 +1,19 @@
+# Go R1 Day 40
+
+
+## progress
+
+- Learned a bit more modules vs packages, including internal package special behavior.
+- Configured Azure DevOps remote module source with package level imports.
+- Successfully migrated a utility logger for setup of Zerolog into a seperate remote module for importing.
+- Setup 50% test coverage for logger using `gotest` test generator.
+- Used [Is](https://github.com/matryer/is) for test setup. (this would be a cool use of gotest templates test generation)
+- Modified sharedbrain forked repo to generate yaml front matter with dashes.
+
+## links
+
+- [GitHub - cweill/gotests: Automatically generate Go test boilerplate from your source code.](https://github.com/cweill/gotests)
+- [GitHub - matryer/is: Professional lightweight testing mini-framework for Go.](https://github.com/matryer/is)
+- [GitHub - sheldonhull/sharedbrain](https://github.com/sheldonhull/sharedbrain)
+- [GitHub - dangoor/sharedbrain](https://github.com/dangoor/sharedbrain)
+

@@ -1,0 +1,1185 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Dbatools - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/dbatools/</link>
+        <description>Dbatools - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 24 Jun 2020 11:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/dbatools/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Azure Data Studio SQL Notebook for Diagnostic Queries
+    </title>
+    <link>
+        https://www.sheldonhull.com/azure-data-studio-sql-notebook-for-diagnostic-queries/
+    </link>
+    <pubDate>
+        Wed, 24 Jun 2020 11:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/azure-data-studio-sql-notebook-for-diagnostic-queries/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="diagnostic-queries" class="headerLink">
+    <a href="#diagnostic-queries" class="header-mark"></a>Diagnostic Queries</h2><p>Glenn Berry has long been known for producing the definitive diagnostic query set for various SQL Server versions. Between his amazing work and my favorite Brent Ozar First Responder Kit, you are pretty much set.</p>
+<p>One of the things that can be painful though about running diagnostic queries is that it&rsquo;s a lot of small individual queries that you want to run and ideally save the results for review.</p>
+<p>You can do this with dbatools and running queries individually, which is actually what I did a while back for a special support tool that dynamically split those queries into files and exported to xml for later import and review.</p>
+<h2 id="azure-data-studio" class="headerLink">
+    <a href="#azure-data-studio" class="header-mark"></a>Azure Data Studio</h2><p>I&rsquo;m a big fan of Azure Data Studio and as I&rsquo;m not primarily focused right now on SQL Server administration, the feature-set perfectly fits my needs for running queries, doing some basic server administration, and overall just having a lighter weight solution to SSMS. Since I migrated to macOS, this provides me a nice cross-platform tool that I can use on Windows or macOS.</p>
+<p>A great feature that has been continually improving is the Azure Data Studio notebooks. Not only can you run T-SQL notebooks now, but also PowerShell and python using whatever kernel you desire.</p>
+<p>As part of this, you get the benefits of a nice intuitive structure to ad-hoc queries you might want to provide to someone with details on what it means and more. Additionally, the results are cached as part of the JSON so if you save the file and come back later you can review all the results that were pulled (and as a plus they render in GitHub viewer too).</p>
+<h2 id="diagnostic-queries--azure-data-studio--dbatools--" class="headerLink">
+    <a href="#diagnostic-queries--azure-data-studio--dbatools--" class="header-mark"></a>Diagnostic Queries + Azure Data Studio + dbatools = 🎉</h2><p>To merge the power of all 3 technologies, you can use dbatools to export the diagnostic queries for a targeted SQL server version as an Azure Data Studio Notebook. Pretty freaking cool.</p>
+<p>To get started on this just make sure you have the latest dbatools: <code>Install-Module dbatools -confirm:$false</code></p>
+<p>Then generate a new Azure Data Studio Notebook like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c"># This will create the notebook in whatever location you currently are in</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$Version</span> <span class="p">=</span> <span class="mf">2017</span>
+</span></span><span class="line"><span class="cl"><span class="nb">New-DbaDiagnosticAdsNotebook</span> <span class="n">-Path</span> <span class="s2">&#34;DiagnosticNotebook</span><span class="nv">${Version}</span><span class="s2">.ipynb&#34;</span> <span class="n">-TargetVersion</span> <span class="nv">$Version</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Open up this new notebook and enjoy the result! To make reading easier, you can issue the command to &ldquo;collapse all cells&rdquo; and the queries will be minimized allowing you to read through all the query options.</p>
+<p>Note that even the description of the queries is provided in the notebook, providing insight on the purpose of the query.</p>
+<div
+    class="details admonition warning
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-exclamation-triangle fa-fw"
+      ></i>
+      Warning
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">As always, make sure you are careful before just running all queries by default against a production server.
+Some queries take heavy resources and might not be appropriate to run in the middle of a production workflow.</div>
+    </div>
+  </div>
+<p><figure><a class="lightgallery" href="/images/2020-06-23_13-23-07_azure_data_studio.png" title="Shows the diagnostic query view in Azure Data Studio" data-thumbnail="/images/2020-06-23_13-23-07_azure_data_studio.png" data-sub-html="<h2>Azure Data Studio Diagnostic Queries</h2><p>Shows the diagnostic query view in Azure Data Studio</p>">
+        
+    </a><figcaption class="image-caption">Azure Data Studio Diagnostic Queries</figcaption>
+    </figure></p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Running SQL Server in Docker
+    </title>
+    <link>
+        https://www.sheldonhull.com/running-sql-server-in-docker/
+    </link>
+    <pubDate>
+        Thu, 16 Jan 2020 13:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/running-sql-server-in-docker/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <div
+    class="details admonition info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-info-circle fa-fw"
+      ></i>
+      Updated 2020-05-05
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>I&rsquo;ve had lots of challenges in getting docker for sql-server working because I&rsquo;ve wanted to ensure for my dev use case that there was no need for virtual volume management and copying files into and out of this. Instead, I&rsquo;ve wanted to bind to local windows paths and have it drop all the mdf/ldf right there, so even on container destruction everything is good to go.</p>
+<p>After working through the changes in SQL 2019 that require running as non-root, I&rsquo;ve gotten it work again. No install of sql-server needed. Easy disposable development instance through docker! I&rsquo;ll update my docker compose content when I can, but in the meantime, this should get you running even more quickly with SQL Server 2019.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">run</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="p">-</span><span class="n">-name</span> <span class="n">SQL19</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-p</span> <span class="mf">1433</span><span class="err">:</span><span class="mf">1433</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-e</span> <span class="s2">&#34;ACCEPT_EULA=Y&#34;</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-e</span> <span class="s2">&#34;MSSQL_SA_PASSWORD=ThisIsNotARealPassword@!1}&#34;</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-v</span> <span class="n">C:</span><span class="p">\</span><span class="n">mssql</span><span class="p">\</span><span class="n">SQL19</span><span class="err">:</span><span class="p">/</span><span class="n">sql</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-d</span> <span class="n">mcr</span><span class="p">.</span><span class="py">microsoft</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">mssql</span><span class="p">/</span><span class="n">server</span><span class="err">:</span><span class="mf">2019</span><span class="n">-latest</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">run</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="p">-</span><span class="n">-name</span> <span class="n">SQL19WithSpaces</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-p</span> <span class="mf">1434</span><span class="err">:</span><span class="mf">1433</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-e</span> <span class="s2">&#34;ACCEPT_EULA=Y&#34;</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-e</span> <span class="s2">&#34;MSSQL_SA_PASSWORD=ThisIsNotARealPassword@!1}&#34;</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-v</span> <span class="n">C:</span><span class="p">\</span><span class="n">mssql</span><span class="p">\</span><span class="n">SQL19WithSpaces</span><span class="err">:</span><span class="p">/</span><span class="n">sql</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-d</span> <span class="n">mcr</span><span class="p">.</span><span class="py">microsoft</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">mssql</span><span class="p">/</span><span class="n">server</span><span class="err">:</span><span class="mf">2019</span><span class="n">-latest</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+    </div>
+  </div>
+<h2 id="why-use-docker-for-mssql" class="headerLink">
+    <a href="#why-use-docker-for-mssql" class="header-mark"></a>Why Use Docker for MSSQL</h2><p>Say you have an onboarding and need to get a new developer up to speed. Have you gone through the setup process for SQL Server on Windows? It&rsquo;s a bit tedious and even with running scripts to install (or in my case I wrapped up with Chocolatey), it&rsquo;s still a lot of things you need, including possibly a reboot if missing some .net dependencies.</p>
+<p>The normal solution is to leverage more localdb for quickly deploying and isolating the database.</p>
+<p>This has its own set of challenges that personally I like to avoid. Localdb is more isolated, but it&rsquo;s not truly like running a local SQL Server standard edition, and debugging permissions, sharing, and other things can with its own set of steps to work through. I&rsquo;ve seen it common for many devs to just avoid these issues and run a local SQL Server installation to just simplify and work with SQL Server as it&rsquo;s expected to be.</p>
+<p>I&rsquo;d explored Docker SQL Server containers in the past, but one big issue for adoption to me was the issues I had mounting the local Windows folders to the Linux based container. ❓ Why is this important? Ease of usage for a developer. If I proposed this would save effort to many developers working with SQL Server, I&rsquo;m pretty sure telling them that they&rsquo;d have to copy a backup or database file in via CLI to a virtual mounted drive that they can&rsquo;t easily manage would be a deal-breaker. I basically wanted to ensure if they spun up SQL Server in a container, the database backups, mdf and ldf files, and any other created files would be able to persist outside of that instance, ensuring easy development workflow.</p>
+<p>I&rsquo;m happy to say I finally have it working to my satisfaction, resolving most of those concerns.</p>
+<h2 id="scenarios-this-is-good-for" class="headerLink">
+    <a href="#scenarios-this-is-good-for" class="header-mark"></a>Scenarios This is Good For</h2><p>If you&rsquo;ve desired to do the following, then using Docker might end up saving you some effort.</p>
+<ul>
+<li>simplify the setup of a new SQL Server instance</li>
+<li>be able to reset your SQL Server instance to allow testing some setup in isolation</li>
+<li>be able to switch SQL Server editions to match a new requirement</li>
+<li>be able to upgrade or patch to a later version of SQL Server with minimal effort</li>
+</ul>
+<p>This is not for production. There&rsquo;s more effort and debate that goes on to using SQL Server in containers, Kubernetes (even more complex!), and other containerization approaches that are far outside the scope of what I&rsquo;m looking at. This is first and foremost focused on ensuring a development workflow that reduces complexity for a developer and increases the ease at which SQL Server testing can be implemented by making the SQL Server instance easily disposed of and recreated.</p>
+<p>If this also means I spread some 🐧 Linux magic to some Windows stack developers&hellip; then count it as a sneaky win. 😏</p>
+<h2 id="sql-server-on-linux-or-windows-containers" class="headerLink">
+    <a href="#sql-server-on-linux-or-windows-containers" class="header-mark"></a>SQL Server on Linux or Windows containers</h2><p>The following example is done with SQL Server on Linux. As I&rsquo;m already comfortable with SQL Server on Windows, I wanted to be try this on Linux based container. I also wanted to continue using Linux based containers for tooling, and not have to switch back to Windows containers for the sole purpose of running SQL Server. At the time I began this testing, I found it was exclusive. You either ran Linux or Windows-based containers. This is changing with the advent of new features in Docker that are there to allow side by side Windows + Linux based containers.</p>
+<p>Release notes indicate:</p>
+<blockquote>
+<p>Experimental feature: LCOW containers can now be run next to Windows containers (on Windows RS3 build 16299 and later). Use &ndash;platform=linux in Windows container mode to run Linux Containers On Windows. Note that LCOW is experimental; it requires the daemon experimental option. <a href="https://docs.docker.com/docker-for-windows/release-notes/" target="_blank" rel="noopener noreferrer">Docker Community Edition 18.03.0-ce-win59 2018-03-26</a></p>
+</blockquote>
+<p>The main difference in your local development process will be Windows Authentication vs SQL Authentication. Use SQL Authentication with Linux based SQL Server</p>
+<h2 id="docker-compose-example" class="headerLink">
+    <a href="#docker-compose-example" class="header-mark"></a>Docker Compose Example</h2><p>The following is the result of a lot of trial and error over a year. Thanks to <a href="https://wsmelton.github.io/" target="_blank" rel="noopener noreferrer">Shawn Melton</a> 👏 also for providing me with support doing my troubleshooting as part of the SQL Server community in Slack. You can find Shawn&rsquo;s example I used as a starting point for my 🧪testing in <a href="https://gist.github.com/wsmelton/7cce0f6930bb3e60c2dfacc7cf174ccf" target="_blank" rel="noopener noreferrer">this gist.</a></p>
+<p>A few helpful tips:</p>
+<ol>
+<li>Remove <code>-d</code> for detached and you can see the SQL Server console output in the console.</li>
+<li>See the persisted databases (system and user!) in the artifacts directory after docker-compose begins running.</li>
+</ol>
+<script src="https://gist.github.com/sheldonhull/a70a3a731b329b67f47a331c64c72ab5.js"></script>
+
+<h2 id="improving-code-tests" class="headerLink">
+    <a href="#improving-code-tests" class="header-mark"></a>Improving Code Tests</h2><p>Another reason I&rsquo;m really excited about is the ability to better support testing through tools like Pester. Yes, it&rsquo;s a geek thing, but I love a solid written test 🧪that maintains my code and helps me ensure quality with changes. Better TDD is a goal of mine for sure.</p>
+<p>🔨 This supports implementation of better tests by providing the potential for spinning up a local SQL Instance, restoring a test database, and running a sequence of actions against it with pass or fail without the additional infrastructure requirements to have this done on another server. Making your tests that are not full integration testing as minimally dependent on external factors is a fantastic step to saving you a lot of work.</p>
+<p>A simple pester (PowerShell) might frame the start of a test like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">Before</span> <span class="n">All</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">docker-compose</span> <span class="n">up</span> <span class="n">-d</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Import-Module</span> <span class="n">Dbatools</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># Wait Until dbatools confirms connectivity through something like test-dbaconnection, then proceed with tests</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># Test-DbaConnection ....</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># Restore-DbaDatabase ...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">After</span> <span class="n">All</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">docker-compose</span> <span class="n">down</span> <span class="p">-</span><span class="n">-volume</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Describe</span> <span class="s2">&#34;DescribeName&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Context</span> <span class="s2">&#34;ContextName&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">It</span> <span class="s2">&#34;ItName&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Assertion</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="wrap-up" class="headerLink">
+    <a href="#wrap-up" class="header-mark"></a>Wrap Up</h2><p>Hope this helps someone. I spent at least a year coming back over time to this hoping to actually get it working in a way that felt like a first-class citizen and reduced complexity for development work.</p>
+<p>I&rsquo;m pretty happy with the results. 😁</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Getting Started With Python For Data Exploration
+    </title>
+    <link>
+        https://www.sheldonhull.com/getting-starting-with-python-for-data-exploration/
+    </link>
+    <pubDate>
+        Tue, 19 Nov 2019 16:51:08 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/getting-starting-with-python-for-data-exploration/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="intro" class="headerLink">
+    <a href="#intro" class="header-mark"></a>Intro</h2><p>To get started with running python queries with SQL Server is actually pretty easy. I waited far too long to tackle this, thinking it was much harder than it turned out to be. Hopefully, this can be a good starting point for you as well.</p>
+<h2 id="why-would-i-want-to-do-this" class="headerLink">
+    <a href="#why-would-i-want-to-do-this" class="header-mark"></a>Why would I want to do this?</h2><p>When you use great tools like dbatools with PowerShell, you come to think that PowerShell is a first class citizen for working with SQL Server. This is true in regards to administration and general usage. However, data exploration is a different beast.</p>
+<h2 id="powershell--net-are-not-designed-for-adhoc-data-exploration" class="headerLink">
+    <a href="#powershell--net-are-not-designed-for-adhoc-data-exploration" class="header-mark"></a>PowerShell &amp; .NET Are Not Designed for Adhoc Data Exploration</h2><p>First, can they? Yes. But just because there is a library someone created to give you some of these features, are the languages themselves first class data exploration languages, especially for adhoc and exploratory work. I think most would agree: <em>no</em>.</p>
+<p>To be very clear, I know there are possibilities, such as the newer Azure Data Studio powershell notebook feature, and likely other modules that can help with exploration. What I&rsquo;m trying to be clear about is that those are all exceptions to the rule, whereas exploration in Python is a first class citizen from the start. (coming from a dedicated PowerShell addict &#x1f601;)</p>
+<p>Traditionally, I&rsquo;ve used Azure Data Studio or SQL Management Studio and run individually queries in a large sql script to explore and manipulate the data. However, once you start wanting to pivot, aggregate, sum, and do various other experimental actions, T-SQL can be over complicated to do this for that adhoc work. Just because you can do unpivot doesn&rsquo;t mean it&rsquo;s a smarter use of time than using a pivot table in Excel for adhoc work (as much as it pains me to say).</p>
+<div
+    class="details admonition info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-info-circle fa-fw"
+      ></i>
+      Azure Data Studio
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">Azure data studio is making great progress with SQL Server based notebooks, which I highly recommend checking out. It&rsquo;s still in its infancy. So while it&rsquo;s pretty useful for basics, if you want to stick with a scripted approach to explore, python will be superior. Just recently PowerShell based code cells are available too, I believe.</div>
+    </div>
+  </div>
+<p>However, even better than playing around with data in an Excel sheet, what if you wanted to stay in your programmatic script and start slicing and dicing the data coming back, molding into &ldquo;tidy data&rdquo; for what you want to analyze?</p>
+<p>PowerShell and .NET don&rsquo;t have the intuitive and experimental data exploration capabilities that have existed for a long time in the Python libraries. They can easily manipulate, group, mold and visualize the data with minimal effort. This is the forte of Python&rsquo;s libraries, and has much more maturity than doing some homegrown solution work around.</p>
+<h2 id="jupyter-notebooks" class="headerLink">
+    <a href="#jupyter-notebooks" class="header-mark"></a>Jupyter Notebooks</h2><p>I&rsquo;m sticking with Visual Studio Code, so install the python extension <code>ms-python.python</code> and then create a new notebook directly from the command pallet. Once you open this up you can start writing some markdown notes and then running queries and visualizing the results in one place.</p>
+<h2 id="python-plotly-library" class="headerLink">
+    <a href="#python-plotly-library" class="header-mark"></a>Python Plotly Library</h2><p>The standard libraries are pretty good. I wanted something that also created graphs that I&rsquo;d consider pleasing to the eye. The default <code>matplotlib</code> wasn&rsquo;t really what I was looking for, so I used <code>plotly</code>. This fantastic library has an express edition that gets you up and running in minutes playing with data, and can even convert your visualizations into a nice web app dashboard with <code>Dash</code> (also a plotly product).</p>
+<h2 id="pandas" class="headerLink">
+    <a href="#pandas" class="header-mark"></a>Pandas</h2><p>In addition to working with <code>plotly</code> I leveraged <code>pandas</code>. I think from my initial working with it, that this library will be a staple for my adhoc data work for a long time. It basically provides a nice easy way to work with <code>Dataframes</code>, which is kinda of like working with a .NET <code>datatable</code>, albeit, many extensibility, exporting, and other features built into it. I found it intuitive and pretty easy to work with.</p>
+<h2 id="installing-pyodbc" class="headerLink">
+    <a href="#installing-pyodbc" class="header-mark"></a>Installing pyodbc</h2><div
+    class="details admonition info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-info-circle fa-fw"
+      ></i>
+      platform
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>This guide is written for someone using a Windows based development environment. The setup requirements for running in Linux/Mac will be different for drivers</p>
+<p>For running in AWS Lambda in python runtime, there are more complex issues requiring the driver to be compiled and uploaded to a Lambda layer for use. Windows dev machine doesn&rsquo;t have this requirement and should just work after running ODBC driver install and pyodbc. &#x1f389;</p>
+</div>
+    </div>
+  </div>
+<ol>
+<li><a href="https://docs.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server" title="SQL Server ODBC Drivers" target="_blank" rel="noopener noreferrer">Link for SQL Server ODBC Drivers</a></li>
+<li><code>pip3 install pyodbc</code></li>
+</ol>
+<h2 id="generate-connection-file" class="headerLink">
+    <a href="#generate-connection-file" class="header-mark"></a>Generate Connection File</h2><p>If you are constantly changing the SQL Server instance you are connecting to, then you may just want provide variables for your script. In my test case, I wanted to create a default connection file that I could use in several scripts to avoid having to set in each module file.</p>
+<p>I found some great examples online and cobbled this together from several.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">configparser</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">keyring</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">xlsxwriter</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">service_account</span> <span class="o">=</span> <span class="s2">&#34;DomainOfTheTaco</span><span class="se">\\</span><span class="s2">TacoEater&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">sql_login_name</span> <span class="o">=</span> <span class="s2">&#34;TACO-HIGH-PRIEST&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">sql_instance</span> <span class="o">=</span> <span class="s2">&#34;TACO-SERVER-01&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">driver_name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">pyodbc</span><span class="o">.</span><span class="n">drivers</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39; for SQL Server&#39;</span><span class="p">)]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;The following ODBC drivers were identified on your system&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">driver_names</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">driver_names</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">driver_name</span> <span class="o">=</span> <span class="n">driver_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">driver_name</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">config</span> <span class="o">=</span> <span class="n">configparser</span><span class="o">.</span><span class="n">ConfigParser</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">config</span><span class="p">[</span><span class="s1">&#39;SQL_SERVER&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                            <span class="s1">&#39;DRIVER&#39;</span><span class="p">:</span> <span class="n">driver_name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                            <span class="s1">&#39;SERVER&#39;</span><span class="p">:</span> <span class="n">sql_instance</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                            <span class="s1">&#39;DATABASE&#39;</span><span class="p">:</span> <span class="s2">&#34;master&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                            <span class="s1">&#39;Trusted_Connection&#39;</span><span class="p">:</span> <span class="s1">&#39;yes&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                            <span class="s2">&#34;APP&#34;</span><span class="p">:</span> <span class="s2">&#34;PythonTamer&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                            <span class="s2">&#34;UID&#34;</span><span class="p">:</span> <span class="n">sql_login_name</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                            <span class="s2">&#34;PWD&#34;</span><span class="p">:</span> <span class="n">keyring</span><span class="o">.</span><span class="n">get_password</span><span class="p">(</span><span class="n">service_account</span><span class="p">,</span><span class="n">service_account</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;db_connect.ini&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">configfile</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">config</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">configfile</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(No suitable driver found. Cannot connect.)&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Since I had 2 versions of ODBC drivers available, this is what came up:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">The following ODBC drivers were identified on your system
+</span></span><span class="line"><span class="cl">[&#39;ODBC Driver 13 for SQL Server&#39;, &#39;ODBC Driver 17 for SQL Server&#39;]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This generated a connection file I could use in other py files I wanted. The file generated in my user directory <code>$ENV:USERPROFILE</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[SQL_SERVER]
+</span></span><span class="line"><span class="cl">driver = ODBC Driver 17 for SQL Server
+</span></span><span class="line"><span class="cl">server = TACO-SERVER-01
+</span></span><span class="line"><span class="cl">database = master
+</span></span><span class="line"><span class="cl">trusted_connection = yes
+</span></span><span class="line"><span class="cl">app = PythonTamer
+</span></span><span class="line"><span class="cl">uid = TACO-HIGH-PRIEST
+</span></span><span class="line"><span class="cl">pwd = redactedtacos
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This could then be used in python files like below</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">configparser</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pyodbc</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">config</span> <span class="o">=</span> <span class="n">configparser</span><span class="o">.</span><span class="n">ConfigParser</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;db_connect.ini&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">constr</span> <span class="o">=</span> <span class="s1">&#39;DRIVER={{</span><span class="si">{drv}</span><span class="s1">}};SERVER=</span><span class="si">{srv}</span><span class="s1">;DATABASE=</span><span class="si">{db}</span><span class="s1">;Trusted_Connection=</span><span class="si">{tc}</span><span class="s1">;APP=</span><span class="si">{app}</span><span class="s1">;UID=</span><span class="si">{uid}</span><span class="s1">;PWD=</span><span class="si">{pwd}</span><span class="s1">&#39;</span>\
+</span></span><span class="line"><span class="cl">              <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">drv</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SQL_SERVER&#39;</span><span class="p">][</span><span class="s1">&#39;DRIVER&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                      <span class="n">srv</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SQL_SERVER&#39;</span><span class="p">][</span><span class="s1">&#39;SERVER&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                      <span class="n">db</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SQL_SERVER&#39;</span><span class="p">][</span><span class="s1">&#39;DATABASE&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                      <span class="n">tc</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SQL_SERVER&#39;</span><span class="p">][</span><span class="s1">&#39;Trusted_Connection&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                      <span class="n">app</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SQL_SERVER&#39;</span><span class="p">][</span><span class="s1">&#39;APP&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                      <span class="n">uid</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SQL_SERVER&#39;</span><span class="p">][</span><span class="s1">&#39;UID&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                      <span class="n">pwd</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SQL_SERVER&#39;</span><span class="p">][</span><span class="s1">&#39;PWD&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                      <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">cnxn</span> <span class="o">=</span> <span class="n">pyodbc</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">constr</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This connection object then would allow running queries similar to executing <code>ADO.NET</code> queries.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">out_xlsx</span> <span class="o">=</span> <span class="s2">&#34;C://temp//python-sql-export.xlsx&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">cnxn</span> <span class="o">=</span> <span class="n">pyodbc</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">constr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">select
+</span></span></span><span class="line"><span class="cl"><span class="s2">    name
+</span></span></span><span class="line"><span class="cl"><span class="s2">from
+</span></span></span><span class="line"><span class="cl"><span class="s2">    sys.databases
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span><span class="p">,</span><span class="n">cnxn</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Exporting to </span><span class="si">{</span><span class="n">out_xlsx</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_frame</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">out_xlsx</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;finished query&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>To sample in your notebook a few random entries, try this</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">data_frame</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>You should have an excel workbook exported after this. This was even more succinct than using <code>ImportExcel</code> PowerShell module which is my normal go to.</p>
+<h2 id="group-results-into-ranges" class="headerLink">
+    <a href="#group-results-into-ranges" class="header-mark"></a>Group Results Into Ranges</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># How many results are being returned?</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_frame</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># These are the buckets I want to return results in</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Ie, how many of my results fit into the 0-250 range, and how many 500. These are not fixed ranges.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Histograms do this type of work as well, I&#39;m showing the grouping overriden at specific ranges with a dataframe in Pandas.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">ranges</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="mi">3000</span><span class="p">,</span><span class="mi">4000</span><span class="p">,</span><span class="mi">5000</span><span class="p">,</span><span class="mi">6000</span><span class="p">,</span><span class="mi">7000</span><span class="p">,</span><span class="mi">10000</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">groupby</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">data_frame</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">ranges</span><span class="p">))</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">groupby</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Plotly express visualization</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">data_frame</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&#34;time&#34;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&#34;value&#34;</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;MyFancyTitle&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">               time  metric  value
+</span></span><span class="line"><span class="cl">value
+</span></span><span class="line"><span class="cl">(0, 250]       1652    1652   1652
+</span></span><span class="line"><span class="cl">(250, 500]       22      22     22
+</span></span><span class="line"><span class="cl">(500, 1000]      10      10     10
+</span></span><span class="line"><span class="cl">(1000, 2000]      9       9      9
+</span></span><span class="line"><span class="cl">(2000, 3000]      2       2      2
+</span></span><span class="line"><span class="cl">(3000, 4000]      1       1      1
+</span></span><span class="line"><span class="cl">(4000, 5000]      5       5      5
+</span></span><span class="line"><span class="cl">(5000, 6000]      9       9      9
+</span></span><span class="line"><span class="cl">(6000, 7000]      2       2      2
+</span></span><span class="line"><span class="cl">(7000, 10000]     1       1      1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This is pretty cool, as while you can do this with windowing functions in SQL Server, for adhoc work, I was able to do this in 2 lines. This could save a lot of time and debugging over more complex T-SQL procs.</p>
+<h2 id="scatterchart" class="headerLink">
+    <a href="#scatterchart" class="header-mark"></a>Scatterchart</h2><p>Never having really used scattercharts, I&rsquo;m seeing in data exploration they can be a tremendously valuable tool.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data_frame</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data_frame</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&#34;metric&#34;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&#34;value&#34;</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;MyFancyTitle&#39;</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="s2">&#34;value&#34;</span><span class="p">,</span><span class="n">render_mode</span><span class="o">=</span><span class="s2">&#34;auto&#34;</span><span class="p">,</span><span class="n">marginal_y</span><span class="o">=</span><span class="s2">&#34;rug&#34;</span><span class="p">,</span><span class="n">marginal_x</span><span class="o">=</span><span class="s2">&#34;histogram&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="quick-example" class="headerLink">
+    <a href="#quick-example" class="header-mark"></a>Quick Example</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">pip3</span> <span class="n">install</span> <span class="n">pydataset</span> <span class="c">#optional for more than iris data</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pydataset</span> <span class="kn">import</span> <span class="n">data</span>
+</span></span><span class="line"><span class="cl"><span class="n">titanic</span> <span class="o">=</span> <span class="n">data</span><span class="p">(</span><span class="s1">&#39;titanic&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">titanic</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This results in output like the image below</p>
+<p><figure><a class="lightgallery" href="/images/2019-11-05_20-50-29-notebook1.jpg" title="Notebook Output Sample for Titanic" data-thumbnail="/images/2019-11-05_20-50-29-notebook1.jpg">
+        
+    </a></figure></p>
+<p>To generate a more advanced visualization, you can run something to visualize with <code>plotly</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pydataset</span> <span class="kn">import</span> <span class="n">data</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="p">(</span><span class="s1">&#39;iris&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&#34;Petal.Width&#34;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&#34;Sepal.Width&#34;</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Iris Data Example&#39;</span><span class="p">,</span><span class="n">render_mode</span><span class="o">=</span><span class="s2">&#34;auto&#34;</span><span class="p">,</span><span class="n">marginal_y</span><span class="o">=</span><span class="s2">&#34;rug&#34;</span><span class="p">,</span><span class="n">marginal_x</span><span class="o">=</span><span class="s2">&#34;histogram&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/images/2019-11-05_21-23-36-notebook2.jpg" title="Scatter Chart" data-thumbnail="/images/2019-11-05_21-23-36-notebook2.jpg">
+        
+    </a></figure></p>
+<h2 id="wrap-up" class="headerLink">
+    <a href="#wrap-up" class="header-mark"></a>Wrap Up</h2><p>Lots of great options to visualize data with Python &#x1f600; . I&rsquo;ll definitely be spending more time learning how to manipulate and query datasets with Python, and eventually give Dash by Plotly a try as well. I&rsquo;ve enjoyed Grafana, but it&rsquo;s really meant for time series monitoring, not for the flexible data visualization options that can be done so easily in Python.</p>
+<p>Hopefully, this gave you a good start on some of the benefits and ease of use of Python if you, like me, are coming from a PowerShell and SQL Server heavy background, and have wanted to know more about Python. &#x1f32e;</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        SQL Server Database Experimentation Assistant - How to Run a Capture
+    </title>
+    <link>
+        https://www.sheldonhull.com/sql-server-database-experimentation-assistance-how-to-run-a-capture/
+    </link>
+    <pubDate>
+        Thu, 07 Feb 2019 00:07:21 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/sql-server-database-experimentation-assistance-how-to-run-a-capture/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h1 id="dea" class="headerLink">
+    <a href="#dea" class="header-mark"></a>DEA</h1><p>Very basic look at the setup as I couldn&rsquo;t find much documentation on this when I last tried this out in 2018. Maybe it will help you get started a little more quickly. I&rsquo;ve not had a chance to leverage the actual comparisons across a large workload. When I originally wrote up the basics on this last year I found my needs required more customized load testing approaches.</p>
+<h2 id="adding-the-feature" class="headerLink">
+    <a href="#adding-the-feature" class="header-mark"></a>Adding The Feature</h2><p>Added the DRCReplay.exe and the controller services by pulling up the feature setup and adding existing features to existing SQL instance installed.</p>
+<p><figure><a class="lightgallery" href="/images/1516994454775.png" title="Add Feature" data-thumbnail="/images/1516994454775.png">
+        
+    </a></figure></p>
+<p>Pointed the controller directory to a new directory I created</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">[</span><span class="no">io.directory</span><span class="p">]::</span><span class="n">CreateDirectory</span><span class="p">(</span><span class="s1">&#39;X:\Microsoft SQL Server\DReplayClient\WorkingDir&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="no">io.directory</span><span class="p">]::</span><span class="n">CreateDirectory</span><span class="p">(</span><span class="s1">&#39;X:\Microsoft SQL Server\DReplayClient\ResultDir&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="initializing-test" class="headerLink">
+    <a href="#initializing-test" class="header-mark"></a>Initializing Test</h2><p>Started with backup of the database before executing the activity I wanted to trace.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">dbatools</span><span class="p">\</span><span class="nb">backup-dbadatabase</span> <span class="n">-sqlinstance</span> <span class="n">localhost</span> <span class="n">-database</span> <span class="nv">$Dbname</span> <span class="n">-CopyOnly</span> <span class="n">-CompressBackup</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Initialized application application activity, and then recorded in DEA. The result was now in the capture section.</p>
+<p><figure><a class="lightgallery" href="/images/1516995207757.png" title="DEA Captures" data-thumbnail="/images/1516995207757.png">
+        
+    </a></figure></p>
+<p>Restoring after trace was recorded in DEA was simple with the following command from Dbatools</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">restore-dbadatabase</span> <span class="n">-SqlInstance</span> <span class="n">localhost</span> <span class="n">-Path</span> <span class="s2">&#34;&lt;BackupFilePath&gt;&#34;</span> <span class="n">-DatabaseName</span> <span class="n">SMALL</span> <span class="n">-WithReplace</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After this restore, initiating the replay was achieved by going to the replay tab.</p>
+<p><figure><a class="lightgallery" href="/images/1516995297608.png" title="DEA Replay" data-thumbnail="/images/1516995297608.png">
+        
+    </a></figure></p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Exploring SQL Server With Powershell And SMO Basics
+    </title>
+    <link>
+        https://www.sheldonhull.com/exploring-sql-server-with-powershell-and-smo-basics/
+    </link>
+    <pubDate>
+        Wed, 09 Aug 2017 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/exploring-sql-server-with-powershell-and-smo-basics/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h1 id="sqlserver-powershell-cmdlets-2017---initialize-look" class="headerLink">
+    <a href="#sqlserver-powershell-cmdlets-2017---initialize-look" class="header-mark"></a>SqlServer Powershell Cmdlets 2017 - Initialize Look</h1><p>Diving into the Sql Server Management Objects library can be a pretty interesting process.
+You get to work with database objects as in a new way, and begin manipulating and execute code in a much different approach than purely using T-SQL.
+Powershell offers a unique way to interact with prebuilt cmdlets, and you can explore leveraging .NET in powershell as well to have a powerful toolkit of options.
+This post is a not focused on a full walk-through, but instead to communicate some of the exploration I&rsquo;ve done, to help if you are beginning to explore more database automation and management.
+I plan on doing some basic walk-throughs for the powershell newbie in the future, so if you are confused about anything powershell related feel free to post a comment and I&rsquo;ll add it to my list of stuff to walk through.</p>
+<h2 id="cmdlets-vs-net-approach" class="headerLink">
+    <a href="#cmdlets-vs-net-approach" class="header-mark"></a>cmdlets vs .NET approach</h2><p>What I&rsquo;ve found interesting is there are really 2 main approaches to interacting with SQL Server.
+You can directly invoke the SMO dlls and access the methods, properties, and extensibility this offers.
+This requires more .NET knowledge as you would be directly working with the SMO namespace, in a way that is almost the same as what you code in C#. The other approach is to leverage cmdlets.
+The cmdlets try to abstract away a lot of the complexities that working directly with the SMO namespace for ease of use and automation, and to simplify the process for those not as comfortable with coding in C# or directly leverage the SMO namespace in C#</p>
+<p>If purely focused on automation and little experience working with .NET then <strong>cmdlet&rsquo;s</strong> will be by far the way to go.
+There is a serious learning curve in working with .NET directly vs prebuilt cmdlets.
+If desiring to expand your .NET knowledge, as well find that the prebuilt cmdlets don&rsquo;t offer the behavior you are trying to achieve, then exploring the SMO namespace for directly invoking the methods and accessing properties can be valuable.
+The learning curve is more intense, so just be prepared for that if you are new to working with .NET directly in Powershell.</p>
+<h2 id="dbatoolsio--other-sources" class="headerLink">
+    <a href="#dbatoolsio--other-sources" class="header-mark"></a>dbatools.io &amp; other sources</h2><p>When possible, I personally am going to recommend to leverage a package like dbatools instead of rolling your own.
+Dbatools.io is a powerful project that I&rsquo;ve recently begun to explore more.
+This well rounded package gives you a powerful powershell set of commands that can help you set server properties, obtain default paths, backup, restore, migrate entire sets of databases to a new location and more.
+To code all of this from scratch would be a massive project.
+I&rsquo;d recommend considering dbatools.io and just getting involved in that project if you have something to contribute.
+I found it really helpful to quickly setup some default server options without having to configure manually myself.</p>
+<h2 id="exploring-sql-path-provider" class="headerLink">
+    <a href="#exploring-sql-path-provider" class="header-mark"></a>Exploring SQL Path Provider</h2><p>Trying to find the path initially can be challenging.
+However, by opening SSMS up, right clicking, and launching the powershell window you&rsquo;ll be able to easily find the correct path to get the server level object.
+This allows you to leverage default methods in powershell like Get-ChildItem for iterating through objects.
+It treats the navigated SQL server path basically as a &ldquo;file structure&rdquo; allowing some interesting actions to be performed.
+One of these is a different approach to killing connections to a particular database.
+I found this great pointer by reading <a href="http://www.midnightdba.com/DBARant/killing-spids-in-powershell/" target="_blank" rel="noopener noreferrer">Killing SPIDS in Powershell</a> from MidnightDBA</p>
+<p>Review that article for scripts focused on the termination of running spids.
+For an adhoc purpose the scripts MidnightDba provided are excellent and would allow quickly executing a kill script on connections from ssms &gt; powershell prompt.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">import-module</span> <span class="n">-name</span> <span class="n">sqlserver</span> <span class="n">-disablenamechecking</span> <span class="n">-verbose:</span><span class="vm">$false</span> <span class="n">-debug:</span><span class="vm">$false</span>
+</span></span><span class="line"><span class="cl"><span class="nb">CD </span><span class="n">SQLSERVER</span><span class="err">:</span><span class="p">\</span><span class="n">SQL</span><span class="p">\</span><span class="nv">$ServerName</span> <span class="n">-Verbose:</span><span class="vm">$false</span> <span class="n">-Debug:</span><span class="vm">$false</span>
+</span></span><span class="line"><span class="cl"><span class="nb">dir </span><span class="s1">&#39; ?{$_.Name -eq &#34;$DatabaseName&#34;} &#39;</span> <span class="p">%{</span><span class="nv">$_</span><span class="p">.</span><span class="py">KillAllProcesses</span><span class="p">(</span><span class="nv">$DatabaseName</span><span class="p">)}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I approach this with a different method in one final script using just the SMO server method KillAllProcesses.
+For some tasks I&rsquo;ve found it really helpful to have a simple 1 line kill statement thanks to MidnightDba&rsquo;s pointer with the statements similar to the one above.
+Using Microsoft&rsquo;s documented method shows another example of how to use to restart the service.
+This was one modified approach I took.
+I prefer not to use this type of approach as working with <code>get-childitem</code> with server objects to me as a little unintuitive.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="cm">&lt;#
+</span></span></span><span class="line"><span class="cl"><span class="cm">        .LINK https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services#PowerShellProcedure
+</span></span></span><span class="line"><span class="cl"><span class="cm">#&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$ErrorActionPreference</span> <span class="p">=</span> <span class="s1">&#39;continue&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="o">-not</span> <span class="p">(</span><span class="nb">Get-InstalledModule</span> <span class="n">SqlServer</span><span class="p">))</span> <span class="p">{</span> <span class="nb">install-package</span> <span class="n">SqlServer</span> <span class="n">-scope</span> <span class="n">CurrentUser</span> <span class="n">-verbose:</span><span class="vm">$false</span> <span class="n">-Force</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="no">datetime</span><span class="p">]</span><span class="nv">$StepTimer</span> <span class="p">=</span> <span class="p">[</span><span class="no">datetime</span><span class="p">]::</span><span class="n">Now</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$private:ServerName</span> <span class="p">=</span> <span class="nv">$env:ServerName</span>
+</span></span><span class="line"><span class="cl"><span class="nb">import-module</span> <span class="n">-name</span> <span class="n">sqlserver</span> <span class="n">-disablenamechecking</span> <span class="n">-verbose:</span><span class="vm">$false</span> <span class="n">-debug:</span><span class="vm">$false</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Get a reference to the ManagedComputer class.</span>
+</span></span><span class="line"><span class="cl"><span class="nb">CD </span><span class="n">SQLSERVER</span><span class="err">:</span><span class="p">\</span><span class="n">SQL</span><span class="p">\</span><span class="nv">$private:ServerName</span> <span class="n">-Verbose:</span><span class="vm">$false</span> <span class="n">-Debug:</span><span class="vm">$false</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$Wmi</span> <span class="p">=</span> <span class="p">(</span><span class="nb">get-item</span> <span class="n">-debug:</span><span class="vm">$false</span> <span class="n">-verbose:</span><span class="vm">$false</span> <span class="p">.).</span><span class="py">ManagedComputer</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$DfltInstance</span> <span class="p">=</span> <span class="nv">$Wmi</span><span class="p">.</span><span class="n">Services</span><span class="p">[</span><span class="s1">&#39;MSSQLSERVER&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#Display the state of the service.</span>
+</span></span><span class="line"><span class="cl"><span class="nb">write-host</span> <span class="s2">&#34;Stopping Instance: </span><span class="p">$(</span><span class="nv">$DfltInstance</span><span class="p">.</span><span class="py">ServiceState</span><span class="p">.</span><span class="n">value__</span><span class="p">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$DfltInstance</span><span class="p">.</span><span class="py">Stop</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span><span class="p">(</span><span class="nv">$DfltInstance</span><span class="p">.</span><span class="py">ServiceState</span><span class="p">.</span><span class="py">value__</span> <span class="o">-ne</span> <span class="mf">1</span><span class="p">)</span> <span class="c">#1 stopped</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Start-Sleep</span> <span class="n">-seconds</span> <span class="mf">5</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$DfltInstance</span><span class="p">.</span><span class="py">Refresh</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">write-host</span> <span class="s2">&#34;... state: </span><span class="p">$(</span><span class="nv">$DfltInstance</span><span class="p">.</span><span class="n">ServiceState</span><span class="p">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c">## Start the service.</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$DfltInstance</span><span class="p">.</span><span class="py">Refresh</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">write-host</span> <span class="s2">&#34;Current Service State: </span><span class="p">$(</span><span class="nv">$DfltInstance</span><span class="p">.</span><span class="n">ServiceState</span><span class="p">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">write-host</span> <span class="s2">&#34;Initiating Service Start&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$DfltInstance</span><span class="p">.</span><span class="py">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">while</span><span class="p">(</span><span class="nv">$DfltInstance</span><span class="p">.</span><span class="py">ServiceState</span><span class="p">.</span><span class="py">value__</span> <span class="o">-ne</span> <span class="mf">4</span><span class="p">)</span> <span class="c">#4 running</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Start-Sleep</span> <span class="n">-seconds</span> <span class="mf">5</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$DfltInstance</span><span class="p">.</span><span class="py">Start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$DfltInstance</span><span class="p">.</span><span class="py">Refresh</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">write-host</span> <span class="s2">&#34;... state: </span><span class="p">$(</span><span class="nv">$DfltInstance</span><span class="p">.</span><span class="n">ServiceState</span><span class="p">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">write-host</span><span class="p">(</span> <span class="s2">&#34;{0:hh\:mm\:ss\.fff} {1}: finished&#34;</span> <span class="o">-f</span> <span class="p">[</span><span class="no">timespan</span><span class="p">]::</span><span class="n">FromMilliseconds</span><span class="p">(((</span><span class="nb">Get-Date</span><span class="p">)-</span><span class="nv">$StepTimer</span><span class="p">).</span><span class="n">TotalMilliseconds</span><span class="p">),</span><span class="s1">&#39;SQL Service Restart&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="database-as-an-object" class="headerLink">
+    <a href="#database-as-an-object" class="header-mark"></a>Database as an Object</h2><p>Getting the database as an object proved to be easy though, if a little confusing to navigate initially.
+$s = SqlServer\Get-SqlDatabase -ServerInstance $ServerInstance -Verbose</p>
+<p>Once the object is obtained, you can begin scripting objects, change database properties and more very easily.
+I found this method an interesting alternative to invoking using .NET accelerators as it was a quick way to easily get a database level object to work with.
+However, some of the limitations of not having the server level object immediately available made me end up preferring the .NET accelerator version which could look like this.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="k">param</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$ServerName</span> <span class="p">=</span> <span class="s1">&#39;localhost&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">,</span><span class="nv">$DatabaseName</span> <span class="p">=</span> <span class="s1">&#39;tempdb&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$s</span> <span class="p">=</span> <span class="p">[</span><span class="no">Microsoft.SqlServer.Management.Smo.Server</span><span class="p">]::</span><span class="n">New</span><span class="p">(</span><span class="nv">$ServerName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$d</span> <span class="p">=</span> <span class="p">[</span><span class="no">Microsoft.SqlServer.Management.Smo.Database</span><span class="p">]::</span><span class="n">New</span><span class="p">(</span><span class="nv">$s</span><span class="p">,</span> <span class="nv">$DatabaseName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$s</span><span class="p">.</span><span class="py">EnumProcesses</span><span class="p">()</span> <span class="s1">&#39; format-table -AutoSize
+</span></span></span><span class="line"><span class="cl"><span class="s1">$d.EnumObjects() &#39;</span> <span class="nb">Out-GridView</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Interestingly, to actually access the many of the database properties you actually would call it via reference to the server object with SMO calls instead of the cmdlet.
+Trying $d.PrimaryFilePath doesn&rsquo;t work as I believe it&rsquo;s initiating the instance of a new database object for creation instead of referencing the initialization of a new object to an existing database.
+I found documentation a bit challenging to immediately sift through to get an answer, so YMMV.
+Someone coming from a .NET focused background might find the process a little more clear, but for me it did take some work to correctly identify the behavior.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c">#doesn&#39;t work.</span>
+</span></span><span class="line"><span class="cl"><span class="n">Probably</span> <span class="n">trying</span> <span class="n">to</span> <span class="n">initialize</span> <span class="n">new</span> <span class="n">object</span> <span class="k">for</span> <span class="n">creating</span> <span class="n">a</span> <span class="n">db</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$d</span> <span class="p">=</span> <span class="p">[</span><span class="no">Microsoft.SqlServer.Management.Smo.Database</span><span class="p">]::</span><span class="n">New</span><span class="p">(</span><span class="nv">$s</span><span class="p">,</span> <span class="nv">$db</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$d</span><span class="p">.</span><span class="py">PrimaryFilePath</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#works to access current existing object</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$s</span><span class="p">.</span><span class="n">Databases</span><span class="p">[</span><span class="nv">$db</span><span class="p">].</span><span class="py">PrimaryFilePath</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="exploring-properties" class="headerLink">
+    <a href="#exploring-properties" class="header-mark"></a>Exploring Properties</h3><p>If you want to explore properties of an object, try using the ever faithful get-member</p>
+<p>Depending on the type of object, you can additionally explore them with GetEnumerator, GetProperties, etc.
+You&rsquo;ll find intellisense helpful as you explore more.
+For instance, here&rsquo;s a walkthrough on the various ways you might explore the object and find you need to dig into it to get the full detail of what you have access to.
+<script src="https://gist.github.com/sheldonhull/e3ed8534b1565c67d6d59163b0921d59.js"></script>
+</p>
+<h2 id="comparing-restoring-a-database-with-cmdlet-vs-smo" class="headerLink">
+    <a href="#comparing-restoring-a-database-with-cmdlet-vs-smo" class="header-mark"></a>Comparing Restoring a Database with Cmdlet vs SMO</h2><h3 id="using-dbatools-cmdlet" class="headerLink">
+    <a href="#using-dbatools-cmdlet" class="header-mark"></a>using dbatools cmdlet</h3><p>An example of how simple using dbatools cmdlet can make restoring a database copy</p>
+<script src="https://gist.github.com/sheldonhull/7314ffa3fc830f36a2eda8ee7e27f7c4.js"></script>
+
+<h3 id="rolling-your-own-wheel" class="headerLink">
+    <a href="#rolling-your-own-wheel" class="header-mark"></a>rolling your own wheel</h3><p>Now compare this to the complexity of running your own invocation of the SMO namespace and requires a lot more coding.
+Since dbatools wraps up a lot of the functionality, I&rsquo;ve actually migrated to leveraging this toolkit for these dba related tasks instead of trying to reinvent the wheel.
+<script src="https://gist.github.com/sheldonhull/08fe28dd236a239f25821378268ef8e5.js"></script>
+</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Powershell Module Improvements for SQL Server in 2017
+    </title>
+    <link>
+        https://www.sheldonhull.com/powershell-module-improvements-for-sql-server-in-2017/
+    </link>
+    <pubDate>
+        Wed, 31 May 2017 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/powershell-module-improvements-for-sql-server-in-2017/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <div
+    class="details admonition info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-info-circle fa-fw"
+      ></i>
+      Updated: 2018-03-19
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">I don&rsquo;t use these much, if any now. Check out dbatools which is a much better module with a full range of features to save you a ton of time.</div>
+    </div>
+  </div>
+<h1 id="simple-setup" class="headerLink">
+    <a href="#simple-setup" class="header-mark"></a>simple setup</h1><p>A major improvement that seems to have quietly slipped into the sql developers world is an improved SQLServer powershell module. The improved module is finally available in the powershell gallery, allowing a super quick setup on a server. No more installing SSMS to get them!</p>
+<p>This is very promising, and great if you want to leverage some of the functionality on various build servers, or other machines that might not have SSMS installed.</p>
+<p><a href="http://bit.ly/2pOwVtj" target="_blank" rel="noopener noreferrer">Powershell Gallery - SqlServer</a></p>
+<h1 id="new-cmdlets" class="headerLink">
+    <a href="#new-cmdlets" class="header-mark"></a>new cmdlets</h1><p>In reviewing, I ran across a few new cmdlet&rsquo;s as well. For instance, you could easily right click on a table and output the results into a powershell object, json, csv, gridview, or anything else you want. This is great flexibility.</p>
+<p><figure><a class="lightgallery" href="/images/exploring-sql-path-provider.png" title="exploring-sql-path-provider" data-thumbnail="/images/exploring-sql-path-provider.png">
+        
+    </a></figure></p>
+<p>In versions of SQL Server (as of 2012 or earlier) I believe the version SQL Server was utilizing was out of date with the installed version. For instance, on Windows Server 2012 with Powershell ISE reporting PsVersion of 4.0, Sql Server reported version 2.0 being utilized.</p>
+<p>In 2014 instances I had, the powershell invoked from SSMS shows the matching up to date version, which gives much better capability and functionality.</p>
+<h1 id="simple-benefits-for-the-inquiring-mind" class="headerLink">
+    <a href="#simple-benefits-for-the-inquiring-mind" class="header-mark"></a>simple benefits for the inquiring mind</h1><p>If you are not familar with the potentional benefits from being able to quickly invoke a powershell prompt and use SQL server cmdlets (prebuilt functionality that is easily called), I can give you a few use cases.</p>
+<p>If you were asked to run a query, then export the results to a spreadsheet, it would be relatively simple as a cut and paste. However, if you needed to loop through every table in the database, and put each one to it&rsquo;s own excel workbook, powershell would allow you to quickly loop, convert the datatable returned into an excel worksheet, and either append into new worksheets, or create completely seperate new files. For automation possibilities, you&rsquo;ve got a tremendous amount of potentional time savings if you can get comfortable with powershell.</p>
+<p>In my case, I&rsquo;ve found Powershell to be a great tool to help me understand more of the .NET framework as I use various cmdlets or .NET accelerators.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Easy SQL Maintenance with Minionware
+    </title>
+    <link>
+        https://www.sheldonhull.com/easy-sql-maintenance-with-minionware/
+    </link>
+    <pubDate>
+        Tue, 18 Oct 2016 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/easy-sql-maintenance-with-minionware/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <div
+    class="details admonition info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-info-circle fa-fw"
+      ></i>
+      Updated 2020-07-06
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>After a great chat with Sean today (creator), I did see some pretty cool benefits that for those looking for more scalability, will find pretty interesting.</p>
+<ul>
+<li>Backup tuning: based on the size or specific database, use striped backups to enhance performance of backup jobs</li>
+<li>Enterprise edition, centrally manage and report on all backups across all servers.</li>
+<li>Override defaults by just including additional sql files in the InitialLoad configuration. Review the docs for the specifics. This means no need to loop and override like I did below now. Just deploy and your final steps can be setting up your default configuration options.</li>
+</ul>
+<p>Overall, great conversation and found out some really cool things about postcode commands that could be PowerShell driven. Definitely worth a further look if you want an alternative to the commonly used Ola Hallengren solution, and especially if you are wanting more table driven configuration options over the need to customize the commands in the agent steps.</p>
+</div>
+    </div>
+  </div>
+<div
+    class="details admonition info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-info-circle fa-fw"
+      ></i>
+      Updated 2017-01-25
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">While I think the minionware solution is pretty awesome, I think it takes more work for the value, and can be a bit confusing to correctly setup, vs the Ola Hallengren solution, esp since you can install this quickly with dbatools now.
+I&rsquo;d lean towards Ola Hallengren for simple implementations, and consider MinionWare&rsquo;s option if you are looking at their flexibility in the table based configuration.
+The learning curve seems higher to me, but more for those looking to tweak options a lot. Both are great solutions, just be aware MinionWare will require a little more digging to leverage it fully.</div>
+    </div>
+  </div>
+<p>Here&rsquo;s my personal tweaked settings for deploying <a href="http://bit.ly/2e8aE8g" target="_blank" rel="noopener noreferrer">Minionware&rsquo;s fantastic Reindex &amp; Backup jobs.</a> In the development environment, I wanted to have some scheduled jobs running to provide a safety net, as well ensure updated statistics, but there were a few default settings I wanted to adjust.
+In particular, I tweaked the default fill factor back to 0/100. I also installed all the objects to a new &ldquo;minion&rdquo; database instead of in master, as I&rsquo;m beginning to be a fan of isolating these type of maintenance jobs with logging to their own isolated database to easy portability.
+I also adjusted the default retain days on backups to 30.</p>
+<p><figure><a class="lightgallery" href="/images/2016-10-10_10-02-32.png" title="powershell setup of backup" data-thumbnail="/images/2016-10-10_10-02-32.png">
+        
+    </a></figure></p>
+<p>You can use this template as a guide to help you adjust the default backup settings to fit your environment a little better.
+There has been various forms of discussion on the adjustments of Fill Factor for example on the defaults.
+For more detailed explanation, see Brentozar.com post <a href="http://bit.ly/2e8c2rq" target="_blank" rel="noopener noreferrer">An Introduction to Fillfactor in SQL Server</a>.
+For my usage, I wanted to leave the fill factors as default, so the install scripts flips these back to my desired settings.
+I also run the sp_config command to ensure backup compression is enabled to save some space.</p>
+<p>Maybe this will help you get up to speed if you want to try out this great solution, but tweak a few defaults.
+The ease of installation across multiple instances makes this my current favorite solution, followed by the <a href="http://bit.ly/2e8d9qW" target="_blank" rel="noopener noreferrer">fantastic Ola Hallengren solution</a>.</p>
+<script src="https://gist.github.com/sheldonhull/2fee8ab97c0210918e8fb10719fca3f5.js"></script>
+
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        dbatools
+    </title>
+    <link>
+        https://www.sheldonhull.com/notes/development/powershell/dbatools/
+    </link>
+    <pubDate>
+        Mon, 01 Jan 0001 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/notes/development/powershell/dbatools/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <div
+    class="details admonition info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-info-circle fa-fw"
+      ></i>
+      Requests or Suggestions
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">If you have any requests or suggestions for this content, please comment below. It will open a GitHub issue to chat further.
+I&rsquo;d be glad to help with any additional quick tips and in general, I&rsquo;d like to know if anything here was particularly helpful to anyone.
+Cheers! 👍</div>
+    </div>
+  </div>
+<h2 id="setup" class="headerLink">
+    <a href="#setup" class="header-mark"></a>Setup</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">install-module</span> <span class="s1">&#39;dbatools&#39;</span> <span class="n">-Scope</span> <span class="n">CurrentUser</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="database-corruption" class="headerLink">
+    <a href="#database-corruption" class="header-mark"></a>Database Corruption</h2><script src="https://gist.github.com/sheldonhull/92fb73704acfd0c7c1e67308e2dca1f4.js"></script>
+<h2 id="configure-the-database-default-path" class="headerLink">
+    <a href="#configure-the-database-default-path" class="header-mark"></a>Configure the Database Default Path</h2><script src="https://gist.github.com/sheldonhull/c1869e4a67e5721f6e9807e94cc727da.js"></script>
+<h2 id="install-dbatools-and-restore-a-directory-of-backups" class="headerLink">
+    <a href="#install-dbatools-and-restore-a-directory-of-backups" class="header-mark"></a>Install Dbatools And Restore A Directory of Backups</h2><script src="https://gist.github.com/sheldonhull/f9972f12d4348d754d2659921ffc9b5b.js"></script>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

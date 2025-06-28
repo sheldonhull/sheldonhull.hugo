@@ -1,0 +1,501 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>100DaysOfCode - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/100daysofcode/</link>
+        <description>100DaysOfCode - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 10 Dec 2021 19:57:29 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/100daysofcode/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Go R1 Day 86 - Wrap Up!
+    </title>
+    <link>
+        https://www.sheldonhull.com/go-r1-day-86/
+    </link>
+    <pubDate>
+        Fri, 10 Dec 2021 19:57:29 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/go-r1-day-86/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="finished" class="headerLink">
+    <a href="#finished" class="header-mark"></a>Finished!</h2><p>Done!
+I&rsquo;ve pretty much done above and beyond 100 days, but finding the blogging format to take a lot more effort to keep up when I&rsquo;m doing a mix of puzzles, courses, and work.</p>
+<p>Since my full-time job has Go development as a part of it now, I&rsquo;ve exceeded this and going to track any future training goals in a lower overhead way, such as GitHub issues or such.</p>
+<h2 id="was-it-worth-it" class="headerLink">
+    <a href="#was-it-worth-it" class="header-mark"></a>Was It Worth It?</h2><p>Yes, it was worth it.
+It helped me break down a large amount of learning back into a daily rythm of dedicated study.
+For me, doing full time development, I found it was hard since I do code a big chunk of the day to document all the time.</p>
+<h2 id="what-would-i-do-differently" class="headerLink">
+    <a href="#what-would-i-do-differently" class="header-mark"></a>What would I do differently?</h2><p>Probably would minimize the effort of documenting the process itself.
+While it&rsquo;s great to save notes and articulate things, I feel either saving the notes as part of the git log or algorithm style repo would be less trouble.
+Also, some of the work is in various platforms like Leetcode, which aren&rsquo;t easy to straight extract.
+Reduce the overhead and focus on documenting core principles or concepts that would be useful in a wiki style format, but not log as much.</p>
+<p>Using Github Issues might work really well too, because you could post them to a log later in bulk, but otherwise the cli driven creation and kanban board approach would minimize the overhead.
+That would be cool too cause you could have bots run todos, stale items, and other cool things for you.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Go R1 Day 85
+    </title>
+    <link>
+        https://www.sheldonhull.com/go-r1-day-85/
+    </link>
+    <pubDate>
+        Thu, 18 Nov 2021 03:00:32 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/go-r1-day-85/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="progress" class="headerLink">
+    <a href="#progress" class="header-mark"></a>progress</h2><p>🎉Finished Ultimate Syntax course.</p>
+<p>Worked on Enumerators concept using <code>iota</code>.</p>
+<p>I still find this very confusing in general.</p>
+<p>Here&rsquo;s the gist I created.</p>
+<script src="https://gist.github.com/sheldonhull/39a05ac30c1dc4eb740f1a74761c9eae.js"></script>
+
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Go R1 Day 84
+    </title>
+    <link>
+        https://www.sheldonhull.com/go-r1-day-84/
+    </link>
+    <pubDate>
+        Tue, 16 Nov 2021 00:58:38 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/go-r1-day-84/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="progress" class="headerLink">
+    <a href="#progress" class="header-mark"></a>progress</h2><p>Ultimate Syntax (Ardan Labs - Bill Kennedy) and went back through various topics such as:</p>
+<ul>
+<li>Pointers: One thing mentioned that resonated with me was the confusion regarding pointers in parameter declarations.
+I also find the usage strange that the deference operator is used to denote a pointer value being dereferences in the parameter.
+I&rsquo;d expect a pointer value to pass clearly with <code>func (mypointer &amp;int)</code> and not <code>func (mypointer int)</code> with a pointer call.</li>
+<li>Literal Structs: Great points on avoiding &ldquo;type exhaustion&rdquo; by using literal structs whenever the struct is not reused in multiple locations.</li>
+<li>Constants: Knowing that there is a parallel typing system for constants with &ldquo;kind&rdquo; vs &ldquo;type&rdquo; being significant helped me wrap my head around why constants often don&rsquo;t have explicit type definitions in their declaration.</li>
+</ul>
+<h3 id="iota" class="headerLink">
+    <a href="#iota" class="header-mark"></a>Iota</h3><p>This is one of the most confusing types I&rsquo;ve used.</p>
+<ul>
+<li>Iota only works in a block declaration.</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">const</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">a</span> <span class="p">=</span> <span class="kc">iota</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1">// Starts at 0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">b</span>             <span class="c1">// Starts at 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">c</span>             <span class="c1">// Starts at 2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Also showed using <code>&lt;&lt; iota</code> to do bit shifting.
+This is common in log packages (I&rsquo;ll have to look in the future, as bit shifting is something I&rsquo;ve never really done).</p>
+<p>Become of kind system, you can&rsquo;t really make enumerators with constants.</p>
+<h2 id="best-practices" class="headerLink">
+    <a href="#best-practices" class="header-mark"></a>Best Practices</h2><p>Don&rsquo;t use aliases for types like <code>type handle int</code> in an effort.
+While it seems promising, it doesn&rsquo;t offer the protection thought, because of &ldquo;kind&rdquo; protection.</p>
+<p>This is because &ldquo;kind promotion&rdquo;, it destroys the ability to truly have enumerations in Go by aliasing types.</p>
+<p>I&rsquo;ve seen <code>stringer</code> used in some articles as well, but not certain yet if it&rsquo;s considered idiomatic to approach enum like generation this way.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Go R1 Day 83
+    </title>
+    <link>
+        https://www.sheldonhull.com/go-r1-day-83/
+    </link>
+    <pubDate>
+        Mon, 15 Nov 2021 00:55:59 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/go-r1-day-83/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="progress" class="headerLink">
+    <a href="#progress" class="header-mark"></a>progress</h2><p>Revisited Ultimate Syntax (Ardan Labs - Bill Kennedy) and went back through various topics such as:</p>
+<ul>
+<li>Variables: When to use var vs walrus operator for readability and zero value initialization.</li>
+<li>Type Conversions: How identical named types aren&rsquo;t the same in Go&rsquo;s eyes when named.</li>
+<li>Pointers: General overview. Mostly stuff I knew, but good basic overview again.</li>
+</ul>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Go R1 Day 82
+    </title>
+    <link>
+        https://www.sheldonhull.com/go-r1-day-82/
+    </link>
+    <pubDate>
+        Fri, 12 Nov 2021 03:56:26 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/go-r1-day-82/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="progress" class="headerLink">
+    <a href="#progress" class="header-mark"></a>progress</h2><ul>
+<li>A few small things like Binary search.</li>
+<li>More listening on hexagonal architecture design.</li>
+</ul>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Go R1 Day 81
+    </title>
+    <link>
+        https://www.sheldonhull.com/go-r1-day-81/
+    </link>
+    <pubDate>
+        Thu, 11 Nov 2021 04:52:11 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/go-r1-day-81/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="progress" class="headerLink">
+    <a href="#progress" class="header-mark"></a>progress</h2><ul>
+<li>Simple string parsing, using replaceall, regexp, and more</li>
+<li>Listened to a talk on Hexagonal Architecture, which really helped answer some package questions I&rsquo;d unclear on.</li>
+</ul>
+<h2 id="links" class="headerLink">
+    <a href="#links" class="header-mark"></a>links</h2><ul>
+<li><a href="https://exercism.org/tracks/go/exercises/welcome-to-tech-palace/solutions/sheldonhull" target="_blank" rel="noopener noreferrer">Exercism - Tech Palace</a></li>
+</ul>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Go R1 Day 80
+    </title>
+    <link>
+        https://www.sheldonhull.com/go-r1-day-80/
+    </link>
+    <pubDate>
+        Mon, 01 Nov 2021 21:54:50 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/go-r1-day-80/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="progress" class="headerLink">
+    <a href="#progress" class="header-mark"></a>progress</h2><p>Built a Mage task to handle creation of Azure DevOps pull requests.
+Since the tooling out there is primarily around Github, this was useful to help standardize PR creation with autocomplete, conventional commit naming, and other properties that typically require manual changes.
+I found a great little TUI components library that simplified using Bubbletea components: <a href="https://github.com/erikgeiser/promptkit" target="_blank" rel="noopener noreferrer">Promptkit</a>.</p>
+<p>In addition, noticed some new linting help from golangci-lint for <code>varnamelen</code>.</p>
+<p>This was useful as it analyzes the brevity of variable names and if the variable name is too short, say 1-3 characters, but the usage extends 20 lines away, it will flag it.
+This is good as short variable names are designed for local context, while longer descriptive names provide better readability further away in the code.</p>
+<p><a href="https://dave.cheney.net/practical-go/presentations/qcon-china.html#_identifier_length" target="_blank" rel="noopener noreferrer">Practical Go: Real world advice for writing maintainable Go programs - Identifier Length</a></p>
+<p>Golangci-lint tool includes this linter: <a href="https://github.com/blizzy78/varnamelen" target="_blank" rel="noopener noreferrer">Varnamelen</a></p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Go R1 Day 79
+    </title>
+    <link>
+        https://www.sheldonhull.com/go-r1-day-79/
+    </link>
+    <pubDate>
+        Fri, 29 Oct 2021 23:49:09 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/go-r1-day-79/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="progress" class="headerLink">
+    <a href="#progress" class="header-mark"></a>progress</h2><p>Felt like revisiting Exercism since the great updates and wanting a break from the more deep concept dives on mechnical sympathy and optimization in the Ultimate Go course (which is stellar).</p>
+<p>Completed the following to continue on syllabus.
+It&rsquo;s taking me back to basics, but stuff I can knock out pretty quick.</p>
+<ul>
+<li><a href="https://exercism.org/tracks/go/exercises/weather-forecast/solutions/sheldonhull" target="_blank" rel="noopener noreferrer">Weather Forcast</a> code commenting concepts.</li>
+<li><a href="https://exercism.org/tracks/go/exercises/cars-assemble/solutions/sheldonhull" target="_blank" rel="noopener noreferrer">Cars Assemble</a> covering basic if statements&hellip; yawn.
+Used switch statement for kicks</li>
+<li><a href="https://exercism.org/tracks/go/exercises/annalyns-infiltration/solutions/sheldonhull" target="_blank" rel="noopener noreferrer">Annalyn&rsquo;s Infiltration</a> boolean concepts.</li>
+</ul>
+<p>From this I determined that I&rsquo;m great at writing chained boolean statements.</p>
+<pre><code>if goodAtBool &amp;&amp; coderIsMe {
+    fmt.Println(&quot;I'm a good coder&quot;)
+} else if goodAtBool &amp;&amp; !coderIsMe {
+    fmt.Println(&quot;I'm a good coder&quot;)
+} else if !goodAtBool &amp;&amp; coderIsMe {
+    fmt.Println(&quot;I'm a bad coder&quot;)
+} else {
+    fmt.Println(&quot;I'm a bad coder&quot;)
+}
+</code></pre>
+<p>Thank you GitHub Copilot for the codeblock above.
+I claim no responsibility to the results of what AI generated madness was created.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Go R1 Day 78
+    </title>
+    <link>
+        https://www.sheldonhull.com/go-r1-day-78/
+    </link>
+    <pubDate>
+        Mon, 25 Oct 2021 22:05:16 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/go-r1-day-78/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="progress" class="headerLink">
+    <a href="#progress" class="header-mark"></a>progress</h2><h3 id="ultimate-go-234---pointers-part-4-stack-growth" class="headerLink">
+    <a href="#ultimate-go-234---pointers-part-4-stack-growth" class="header-mark"></a>Ultimate Go: 2.3.4 - Pointers-Part 4 (Stack Growth)</h3><p>Scenario:</p>
+<ul>
+<li>2k stack for each goroutine.</li>
+<li>50,000 goroutines.</li>
+<li>Eventually, you&rsquo;ll want to make the function call and you&rsquo;ll want to grow the stack if the current stack limit is hit.</li>
+<li>We&rsquo;ll want to use contigous stacks.</li>
+<li>The new stack will be a new contigous allocated block of memory.</li>
+<li>The stack growth requires all the prior values to be moved over to the new doubled stack.</li>
+</ul>
+<p>A goroutine can only share values from the heap.
+This prevents the issues occuring from shared values in different stacks.</p>
+<h3 id="ultimate-go-235---pointers-part-5-gc" class="headerLink">
+    <a href="#ultimate-go-235---pointers-part-5-gc" class="header-mark"></a>Ultimate Go: 2.3.5 - Pointers-Part 5 (GC)</h3><p>Mark and sweep collector.</p>
+<p>We don&rsquo;t need to worry about the implementation.</p>
+<p>However, this topic is useful to ensure we write code that is &ldquo;sympathetic&rdquo; to the GC.</p>
+<p>At this point, I opted to come back to GC details and focus on some testing and package design principles.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Go R1 Day 77
+    </title>
+    <link>
+        https://www.sheldonhull.com/go-r1-day-77/
+    </link>
+    <pubDate>
+        Fri, 22 Oct 2021 20:06:43 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/go-r1-day-77/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="progress" class="headerLink">
+    <a href="#progress" class="header-mark"></a>progress</h2><h3 id="more-fun-with-golangci-lint" class="headerLink">
+    <a href="#more-fun-with-golangci-lint" class="header-mark"></a>More Fun With Golangci-lint</h3><p>Been doing a ton the last month with <code>golangci-lint</code> tooling.
+I think this has been one of the most educational tools for learning Go I&rsquo;ve come across.
+It has forced me to evaluate why issues are flagged, if they are opinionated preferences or best practices.</p>
+<p>For example, wsl ensures that statements are not cuddled.
+This follows Dave Cheney&rsquo;s writing about having an empty line seperate phrases of thought.</p>
+<p>It&rsquo;s a bit annoying to implement as a linter though, and can&rsquo;t be applied programaticaly so I&rsquo;m not using that.</p>
+<h2 id="linting---shadowing-package-names" class="headerLink">
+    <a href="#linting---shadowing-package-names" class="header-mark"></a>Linting - Shadowing Package Names</h2><p>Another one that I caught from Goland linting today, that <code>golangci-lint</code> didn&rsquo;t seem to catch, was the shadowing of a package name.</p>
+<p>In this scenario I found code where:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">taco</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">taco</span> <span class="o">:=</span> <span class="nx">taco</span><span class="p">.</span><span class="nf">Method</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>While this is legal, it&rsquo;s a confusing practice, and thereafter prohibits the usage of the <code>taco</code> package as it&rsquo;s been overshadowed by the variable.</p>
+<p>To me this is a clear violation of Go&rsquo;s preference for &ldquo;no magic&rdquo; and readability.</p>
+<p>In this scenario, the fix is simple.
+Change the variable name used or alias the package (my preference).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">pkgtaco</span> <span class="s">&#34;taco&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">taco</span> <span class="o">:=</span> <span class="nx">pkgtaco</span><span class="p">.</span><span class="nf">Method</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="linting---handling-errors" class="headerLink">
+    <a href="#linting---handling-errors" class="header-mark"></a>Linting - Handling Errors</h2><p>Also did some investigation on <code>errcheck</code> and flagging of handling file close and response body closing for http.
+This is one of those areas that linters flag and it&rsquo;s a &ldquo;it depends&rdquo; and not very consistent.</p>
+<p>Basically the gist is ignore, except if file writing is occuring then it&rsquo;s probably needing an explicit handle.</p>
+<h2 id="links" class="headerLink">
+    <a href="#links" class="header-mark"></a>links</h2><ul>
+<li><a href="https://stackoverflow.com/q/69683758/68698" target="_blank" rel="noopener noreferrer">go - Should shadowing Package Namespace with Local Variables be strictly avoided? - Stack Overflow</a></li>
+</ul>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,42 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Alfred - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/alfred/</link>
+        <description>Alfred - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 24 Jun 2020 16:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/alfred/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        2020-06-24T16:03:49&#43;00:00
+    </title>
+    <link>
+        https://www.sheldonhull.com/2020-06-24t160349-0000/
+    </link>
+    <pubDate>
+        Wed, 24 Jun 2020 16:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/2020-06-24t160349-0000/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>After using Windows versions of launchers that tried to emulate <a href="https://bit.ly/2A3J08c" title="Alfred" target="_blank" rel="noopener noreferrer">Alfred</a>, I finally took the plunge and bought Alfred&rsquo;s Powerpack. The buyer remorse of paying &gt; $60 on a &ldquo;shortcut&rdquo; app hasn&rsquo;t really set in as I&rsquo;m seeing such a wealth of great features that I think the gains as a developer and shortcut aficionado will be well worth the cost in my workflow. So far, highly recommend. The best part for me is the easy plugging in of bash/pwsh scripts to execute on demand for quick productivity tasks without having to navigate and open it up in the terminal.</p>
+<p><figure><a class="lightgallery" href="/images/2020-06-24_11-30-04_alfred_workflows.png" title="Alfred Workflows" data-thumbnail="/images/2020-06-24_11-30-04_alfred_workflows.png" data-sub-html="<h2>Image of Alfred Workflow</h2><p>Alfred Workflows</p>">
+        
+    </a><figcaption class="image-caption">Image of Alfred Workflow</figcaption>
+    </figure></p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

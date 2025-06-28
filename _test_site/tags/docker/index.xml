@@ -1,0 +1,639 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Docker - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/docker/</link>
+        <description>Docker - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 23 Nov 2021 23:59:49 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/docker/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Docker Healthchecks for Spinning Up Local Stacks
+    </title>
+    <link>
+        https://www.sheldonhull.com/docker-healthchecks-for-spinning-up-local-stacks/
+    </link>
+    <pubDate>
+        Tue, 23 Nov 2021 23:59:49 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/docker-healthchecks-for-spinning-up-local-stacks/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>I&rsquo;ve used a few approaches in the past with &ldquo;wait-for-it&rdquo; style containers.</p>
+<p>Realized there&rsquo;s some great features with healthchecks in Docker compose so I decided to try it out and it worked perfectly for Docker compose setup.</p>
+<p>This can be a great way to add some container health checks in Docker Compose files, or directly in the Dockerfile itself.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">backend</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">database</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">mysql-data</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">redis</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">redis</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">6379</span><span class="p">:</span><span class="m">6379</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;CMD&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;redis-cli&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;ping&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l">1s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l">3s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">mysql</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">mysql:5.8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">env_file</span><span class="p">:</span><span class="w"> </span><span class="l">../env/.env</span><span class="w"> </span><span class="c"># or use another path</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">mysq-data:/var/lib/mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># This is the initialization path on first create</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Anything under the directory will be run in order (so use sorted naming like 01_init.sql, 02_data.sql, etc)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">../db/myql/schema/:/docker-entrypoint-initdb.d</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">3306</span><span class="p">:</span><span class="m">3306</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">database</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c">#test: &#34;/etc/init.d/mysql status&#34;  &gt; didn&#39;t work</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># The environment variable here is loaded from the .env file in env_file</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l">mysqladmin ping -h 127.0.0.1 -u root --password=$$MYSQL_ROOT_PASSWORD</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l">1s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l">3s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="m">120</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c">### example api service that now depends on both redis and mysql to be healthy before proceeding</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">api</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">api:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">env_file</span><span class="p">:</span><span class="w"> </span><span class="l">../env/.env</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">3000</span><span class="p">:</span><span class="m">3000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">backend</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">database</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">mysql</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l">service_healthy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">redis</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l">service_healthy</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        GitPod User Feedback
+    </title>
+    <link>
+        https://www.sheldonhull.com/gitpod-user-feedback/
+    </link>
+    <pubDate>
+        Fri, 11 Jun 2021 11:58:51 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/gitpod-user-feedback/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <ol>
+<li>Thank you GitPod for integrating with VSCode. 🎉</li>
+<li>Upcoming ssh support, so freaking cool! Are you using Chisel in the backend per the GitHub issues I found discussing workaround?
+As a Go dev, I&rsquo;m interested ⚡ I believe Jetbrains + VSCode users will now both be able to leverage the same backend.</li>
+<li>GitHub took over the codespace arena with Visual Studio Codespaces being abandoned.
+Enterprise customers using Azure Repos can&rsquo;t benefit from any of this new flexibility 💔.
+Is it in the roadmap to support this enterprise arena with Azure Repos (Part of Azure DevOps suite)?
+With the pull request experience in Azure Repos, I&rsquo;d love to leverage pre-built GitPod workspaces, even if it required the self-hosted component.</li>
+<li>Feature Request: Consider 1-3 private workspaces for the free tier, with maybe 1 active at a time like the Codespaces beta as a good route towards adopting for private projects and testing.
+A limited private count would help adoption for those wanting to experiment with it for small private projects.
+I&rsquo;d guess it might help make the jump to paid easier as it would allow the adoption of workflow in private and public projects.</li>
+<li>Lastly, beautiful job on the website changelog, and thank you @mikenikles for the <a href="https://github.com/gitpod-io/website/pull/395" target="_blank" rel="noopener noreferrer">RSS implementation</a>.
+Your website design is beautiful.</li>
+</ol>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        docker
+    </title>
+    <link>
+        https://www.sheldonhull.com/notes/development/tooling/docker/
+    </link>
+    <pubDate>
+        Tue, 01 Jun 2021 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/notes/development/tooling/docker/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="buildx" class="headerLink">
+    <a href="#buildx" class="header-mark"></a>Buildx</h2><blockquote>
+<p>Docker Buildx is a CLI plugin that extends the Docker command with the full support of the features provided by the Moby BuildKit builder toolkit. It provides the same user experience as docker build with many new features like creating scoped builder instances and building against multiple nodes concurrently. [^docker-buildx]</p>
+</blockquote>
+<p>Enable:</p>
+<pre><code>DOCKER_BUILDKIT=1
+</code></pre>
+<p><a href="https://docs.docker.com/buildx/working-with-buildx/#set-buildx-as-the-default-builder" target="_blank" rel="noopener noreferrer">Set as default builder</a></p>
+<h2 id="resources" class="headerLink">
+    <a href="#resources" class="header-mark"></a>Resources</h2><p>&hellip;
+The majority of the code examples apply to a base image of Ubuntu &amp; Debian.</p>
+<p>Since this image has GCC prebaked in, it&rsquo;s much easier to use with dotnet tools and other apps that require it.</p>
+<h2 id="arguments" class="headerLink">
+    <a href="#arguments" class="header-mark"></a>Arguments</h2><p><a href="https://docs.docker.com/engine/reference/builder/#understand-how-arg-and-from-interact" target="_blank" rel="noopener noreferrer">Understand how ARG and FROM interact.</a></p>
+<p>The manual triggering of build can be done via the command below, replacing <code>codespace</code> with whatever tagged image name is desired.</p>
+<pre><code>docker build --pull --rm -f &quot;.devcontainer/Dockerfile&quot; -t codespace:latest &quot;.devcontainer&quot;```
+</code></pre>
+<h2 id="installation-scripts" class="headerLink">
+    <a href="#installation-scripts" class="header-mark"></a>Installation Scripts</h2><p>Clone the <code>microsoft/vscode-dev-containers</code> repo and then copy the <code>script-library</code> directory to <code>${ProjectDirectory}/.devcontainer/script-library</code>.</p>
+<h2 id="syntax-tips" class="headerLink">
+    <a href="#syntax-tips" class="header-mark"></a>Syntax Tips</h2><p>&hellip;</p>
+<h2 id="user-configuration" class="headerLink">
+    <a href="#user-configuration" class="header-mark"></a>User Configuration</h2><p>Using dotfiles with Chezmoi, manually trigger using a command such as:</p>
+<pre><code>curl -sfL https://git.io/chezmoi | sh
+echo &quot;Enter GitHub username for Chezmoi repo&quot;
+./bin/chezmoi init --apply --verbose https://github.com/$(read)/chezmoi.git
+</code></pre>
+<h2 id="environment-variables" class="headerLink">
+    <a href="#environment-variables" class="header-mark"></a>Environment Variables</h2><h2 id="homebrew" class="headerLink">
+    <a href="#homebrew" class="header-mark"></a>Homebrew</h2><p>You can install Homebrew for Linux in two different ways, using a multi-stage build, or the vscode install script <a href="https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/homebrew-debian.sh" target="_blank" rel="noopener noreferrer">homebrew-debian.sh</a></p>
+<p>A multistage would do this:</p>
+<p>&hellip;</p>
+<h2 id="go-task" class="headerLink">
+    <a href="#go-task" class="header-mark"></a>Go-Task</h2><pre><code>version: '3'
+silent: true
+output: prefixed
+vars:
+</code></pre>
+<p>&hellip;</p>
+<h2 id="full-dockerfile-examples" class="headerLink">
+    <a href="#full-dockerfile-examples" class="header-mark"></a>Full Dockerfile Examples</h2><h3 id="codespaces---ubuntu-general-development-build" class="headerLink">
+    <a href="#codespaces---ubuntu-general-development-build" class="header-mark"></a>Codespaces - Ubuntu General Development Build</h3><p>This is a general-purpose dev container for dev tooling such as Python3, Go, PowerShell, pre-commit, and other useful tools.</p>
+<p>&hellip;</p>
+<p>The end goal is to provide mounting of AWS local credentials into the container, use volumes for high IO package/artifact directories, and improve the drive performance by marking the container as the primary and the host directory as mounted. The version should be okay to lag a bit.</p>
+<pre><code>  &quot;workspaceMount&quot;: &quot;source=${localWorkspaceFolder},target=/home/codespace/workspace,type=bind,consistency=delegated&quot;,
+  &quot;mounts&quot;: [
+    &quot;source=vscodeextensions,target=/root/.vscode-server/extensions,type=volume&quot;,
+    &quot;source=artifacts,target=${containerWorkspaceFolder}/artifacts,type=volume&quot;,
+    &quot;source=packages,target=${containerWorkspaceFolder}/packages,type=volume&quot;,
+    &quot;source=tools,target=${containerWorkspaceFolder}/tools,type=volume&quot;,
+    &quot;source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws/credentials,target=/home/codespace/.aws/credentials,type=bind,consistency=delegated&quot;,
+  ],
+  &quot;postCreateCommand&quot;: [
+    &quot;uname -a&quot;,
+    &quot;pre-commit install&quot;
+  ],
+// Set *default* container specific settings.json values on container create.
+  &quot;settings&quot;: {
+</code></pre>
+<p>&hellip;</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Ways to Improve Codespaces Local Docker Experience
+    </title>
+    <link>
+        https://www.sheldonhull.com/ways-to-improve-codespaces-local-docker-experience/
+    </link>
+    <pubDate>
+        Fri, 02 Oct 2020 14:23:31 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/ways-to-improve-codespaces-local-docker-experience/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>I&rsquo;ve been enjoying Codespaces local development workflow with Docker containers.</p>
+<p>I&rsquo;m using macOS and on Docker experimental release.
+Here are some ideas to get started on improving the development experience.</p>
+<ul>
+<li>Clone the repository in the virtual volume (supported by the extension) to eliminate the binding between host and container.
+This would entail working exclusively inside the container.</li>
+<li>Increased Docker allowed ram to 8GB from the default of 2GB.</li>
+</ul>
+<p>Any other ideas? Add a comment (powered by GitHub issues, so it&rsquo;s just a GitHub issue in the backend)</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Incredible setup experience with gitpod
+    </title>
+    <link>
+        https://www.sheldonhull.com/incredible-setup-experience-with-gitpod/
+    </link>
+    <pubDate>
+        Thu, 27 Aug 2020 20:00:00 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/incredible-setup-experience-with-gitpod/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>What a polished setup experience from gitpod. Super impressed as I&rsquo;ve never seen an interactive terraform setup asking for user input.</p>
+<p>This basically generated an entire setup for GitPod, and persisted the Terraform plan for the entire stack it created in a directory for management and adjustments as desired.</p>
+<p>I&rsquo;m seriously impressed.</p>
+<p>Check this out at: <a href="https://bit.ly/2YGACVe" target="_blank" rel="noopener noreferrer">Install on AWS</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c"># Setup Gitpod with self-setup docker installer</span>
+</span></span><span class="line"><span class="cl"><span class="c"># https://www.gitpod.io/docs/self-hosted/latest/install/install-on-aws-script/</span>
+</span></span><span class="line"><span class="cl"><span class="c"># Set-Location ./terraform/gitpod</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">Import-Module</span> <span class="n">aws</span><span class="p">.</span><span class="py">tools</span><span class="p">.</span><span class="n">common</span><span class="p">,</span> <span class="n">aws</span><span class="p">.</span><span class="py">tools</span><span class="p">.</span><span class="py">SecurityToken</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">Set-AWSCredential</span> <span class="n">-ProfileName</span> <span class="s1">&#39;MyProfileName&#39;</span> <span class="n">-Scope</span> <span class="n">Global</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$ENV:AWS_ACCESS_KEY_ID</span> <span class="p">=</span> <span class="nv">$cred</span><span class="p">.</span><span class="py">GetCredentials</span><span class="p">().</span><span class="py">AccessKey</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$ENV:AWS_SECRET_ACCESS_KEY</span> <span class="p">=</span> <span class="nv">$cred</span><span class="p">.</span><span class="py">GetCredentials</span><span class="p">().</span><span class="py">SecretKey</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$ENV:AWS_DEFAULT_REGION</span> <span class="p">=</span> <span class="s1">&#39;eu-west-1&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># can&#39;t use STS temporary credentials to create iam resources, so use normal iam credentials</span>
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">run</span> <span class="p">-</span><span class="n">-rm</span> <span class="n">-it</span> <span class="n">-e</span> <span class="n">AWS_ACCESS_KEY_ID</span><span class="p">=</span><span class="nv">$ENV:AWS_ACCESS_KEY_ID</span> <span class="n">-e</span> <span class="n">AWS_SECRET_ACCESS_KEY</span><span class="p">=</span><span class="nv">$ENV:AWS_SECRET_ACCESS_KEY</span> <span class="n">-e</span> <span class="n">AWS_DEFAULT_REGION</span><span class="p">=</span><span class="nv">$ENV:AWS_DEFAULT_REGION</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl"><span class="n">-v</span> <span class="p">${</span><span class="n">PWD</span><span class="p">}/</span><span class="n">awsinstall</span><span class="err">:</span><span class="p">/</span><span class="n">workspace</span> <span class="n">eu</span><span class="p">.</span><span class="py">gcr</span><span class="p">.</span><span class="n">io</span><span class="p">/</span><span class="nb">gitpod-io</span><span class="p">/</span><span class="nb">self-hosted</span><span class="p">/</span><span class="n">installer</span><span class="err">:</span><span class="n">latest</span> <span class="n">aws</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        2020-06-10T22:43:37&#43;00:00
+    </title>
+    <link>
+        https://www.sheldonhull.com/2020-06-10t224337-0000/
+    </link>
+    <pubDate>
+        Wed, 10 Jun 2020 22:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/2020-06-10t224337-0000/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Set an environment variable <code>export DOCKER_BUILDKIT=1</code> to enable a much cleaner Dockerfile output when you don&rsquo;t need verbose debug level information.  Reference: <a href="https://docs.docker.com/develop/develop-images/build_enhancements/#to-enable-buildkit-builds" title="Buildkit" target="_blank" rel="noopener noreferrer">Buildkit</a></p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        2020-06-04T22:15:21&#43;00:00
+    </title>
+    <link>
+        https://www.sheldonhull.com/2020-06-04t221521-0000/
+    </link>
+    <pubDate>
+        Thu, 04 Jun 2020 22:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/2020-06-04t221521-0000/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <ul>
+<li>add dev container configuration for Go project in Visual Studio code</li>
+<li>Added docker compose file</li>
+<li>Add SQL Server to compose as another service.</li>
+<li><code>docker-compose up -d</code></li>
+<li>Attach to running container in VSCode</li>
+<li>Magic ⚡</li>
+</ul>
+<p>Now I can open Visual Studio Code and run a go project against SQL Server, and tear it all down as I want. Gonna definitely blog on this, as it&rsquo;s super cool to see this work so well.</p>
+<p>While Docker has a steep learning curve, being able to have a full clean dev test environment with SQL Server in a local container and another Ubuntu container to run Go projects in absolutely amazing, not to mention working &ldquo;inside it&rdquo; with Remote Workspaces extension from Microsoft.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Running SQL Server in Docker
+    </title>
+    <link>
+        https://www.sheldonhull.com/running-sql-server-in-docker/
+    </link>
+    <pubDate>
+        Thu, 16 Jan 2020 13:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/running-sql-server-in-docker/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <div
+    class="details admonition info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-info-circle fa-fw"
+      ></i>
+      Updated 2020-05-05
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>I&rsquo;ve had lots of challenges in getting docker for sql-server working because I&rsquo;ve wanted to ensure for my dev use case that there was no need for virtual volume management and copying files into and out of this. Instead, I&rsquo;ve wanted to bind to local windows paths and have it drop all the mdf/ldf right there, so even on container destruction everything is good to go.</p>
+<p>After working through the changes in SQL 2019 that require running as non-root, I&rsquo;ve gotten it work again. No install of sql-server needed. Easy disposable development instance through docker! I&rsquo;ll update my docker compose content when I can, but in the meantime, this should get you running even more quickly with SQL Server 2019.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">run</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="p">-</span><span class="n">-name</span> <span class="n">SQL19</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-p</span> <span class="mf">1433</span><span class="err">:</span><span class="mf">1433</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-e</span> <span class="s2">&#34;ACCEPT_EULA=Y&#34;</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-e</span> <span class="s2">&#34;MSSQL_SA_PASSWORD=ThisIsNotARealPassword@!1}&#34;</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-v</span> <span class="n">C:</span><span class="p">\</span><span class="n">mssql</span><span class="p">\</span><span class="n">SQL19</span><span class="err">:</span><span class="p">/</span><span class="n">sql</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-d</span> <span class="n">mcr</span><span class="p">.</span><span class="py">microsoft</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">mssql</span><span class="p">/</span><span class="n">server</span><span class="err">:</span><span class="mf">2019</span><span class="n">-latest</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">docker</span> <span class="n">run</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="p">-</span><span class="n">-name</span> <span class="n">SQL19WithSpaces</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-p</span> <span class="mf">1434</span><span class="err">:</span><span class="mf">1433</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-e</span> <span class="s2">&#34;ACCEPT_EULA=Y&#34;</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-e</span> <span class="s2">&#34;MSSQL_SA_PASSWORD=ThisIsNotARealPassword@!1}&#34;</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-v</span> <span class="n">C:</span><span class="p">\</span><span class="n">mssql</span><span class="p">\</span><span class="n">SQL19WithSpaces</span><span class="err">:</span><span class="p">/</span><span class="n">sql</span> <span class="p">`</span>
+</span></span><span class="line"><span class="cl">    <span class="n">-d</span> <span class="n">mcr</span><span class="p">.</span><span class="py">microsoft</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">mssql</span><span class="p">/</span><span class="n">server</span><span class="err">:</span><span class="mf">2019</span><span class="n">-latest</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+    </div>
+  </div>
+<h2 id="why-use-docker-for-mssql" class="headerLink">
+    <a href="#why-use-docker-for-mssql" class="header-mark"></a>Why Use Docker for MSSQL</h2><p>Say you have an onboarding and need to get a new developer up to speed. Have you gone through the setup process for SQL Server on Windows? It&rsquo;s a bit tedious and even with running scripts to install (or in my case I wrapped up with Chocolatey), it&rsquo;s still a lot of things you need, including possibly a reboot if missing some .net dependencies.</p>
+<p>The normal solution is to leverage more localdb for quickly deploying and isolating the database.</p>
+<p>This has its own set of challenges that personally I like to avoid. Localdb is more isolated, but it&rsquo;s not truly like running a local SQL Server standard edition, and debugging permissions, sharing, and other things can with its own set of steps to work through. I&rsquo;ve seen it common for many devs to just avoid these issues and run a local SQL Server installation to just simplify and work with SQL Server as it&rsquo;s expected to be.</p>
+<p>I&rsquo;d explored Docker SQL Server containers in the past, but one big issue for adoption to me was the issues I had mounting the local Windows folders to the Linux based container. ❓ Why is this important? Ease of usage for a developer. If I proposed this would save effort to many developers working with SQL Server, I&rsquo;m pretty sure telling them that they&rsquo;d have to copy a backup or database file in via CLI to a virtual mounted drive that they can&rsquo;t easily manage would be a deal-breaker. I basically wanted to ensure if they spun up SQL Server in a container, the database backups, mdf and ldf files, and any other created files would be able to persist outside of that instance, ensuring easy development workflow.</p>
+<p>I&rsquo;m happy to say I finally have it working to my satisfaction, resolving most of those concerns.</p>
+<h2 id="scenarios-this-is-good-for" class="headerLink">
+    <a href="#scenarios-this-is-good-for" class="header-mark"></a>Scenarios This is Good For</h2><p>If you&rsquo;ve desired to do the following, then using Docker might end up saving you some effort.</p>
+<ul>
+<li>simplify the setup of a new SQL Server instance</li>
+<li>be able to reset your SQL Server instance to allow testing some setup in isolation</li>
+<li>be able to switch SQL Server editions to match a new requirement</li>
+<li>be able to upgrade or patch to a later version of SQL Server with minimal effort</li>
+</ul>
+<p>This is not for production. There&rsquo;s more effort and debate that goes on to using SQL Server in containers, Kubernetes (even more complex!), and other containerization approaches that are far outside the scope of what I&rsquo;m looking at. This is first and foremost focused on ensuring a development workflow that reduces complexity for a developer and increases the ease at which SQL Server testing can be implemented by making the SQL Server instance easily disposed of and recreated.</p>
+<p>If this also means I spread some 🐧 Linux magic to some Windows stack developers&hellip; then count it as a sneaky win. 😏</p>
+<h2 id="sql-server-on-linux-or-windows-containers" class="headerLink">
+    <a href="#sql-server-on-linux-or-windows-containers" class="header-mark"></a>SQL Server on Linux or Windows containers</h2><p>The following example is done with SQL Server on Linux. As I&rsquo;m already comfortable with SQL Server on Windows, I wanted to be try this on Linux based container. I also wanted to continue using Linux based containers for tooling, and not have to switch back to Windows containers for the sole purpose of running SQL Server. At the time I began this testing, I found it was exclusive. You either ran Linux or Windows-based containers. This is changing with the advent of new features in Docker that are there to allow side by side Windows + Linux based containers.</p>
+<p>Release notes indicate:</p>
+<blockquote>
+<p>Experimental feature: LCOW containers can now be run next to Windows containers (on Windows RS3 build 16299 and later). Use &ndash;platform=linux in Windows container mode to run Linux Containers On Windows. Note that LCOW is experimental; it requires the daemon experimental option. <a href="https://docs.docker.com/docker-for-windows/release-notes/" target="_blank" rel="noopener noreferrer">Docker Community Edition 18.03.0-ce-win59 2018-03-26</a></p>
+</blockquote>
+<p>The main difference in your local development process will be Windows Authentication vs SQL Authentication. Use SQL Authentication with Linux based SQL Server</p>
+<h2 id="docker-compose-example" class="headerLink">
+    <a href="#docker-compose-example" class="header-mark"></a>Docker Compose Example</h2><p>The following is the result of a lot of trial and error over a year. Thanks to <a href="https://wsmelton.github.io/" target="_blank" rel="noopener noreferrer">Shawn Melton</a> 👏 also for providing me with support doing my troubleshooting as part of the SQL Server community in Slack. You can find Shawn&rsquo;s example I used as a starting point for my 🧪testing in <a href="https://gist.github.com/wsmelton/7cce0f6930bb3e60c2dfacc7cf174ccf" target="_blank" rel="noopener noreferrer">this gist.</a></p>
+<p>A few helpful tips:</p>
+<ol>
+<li>Remove <code>-d</code> for detached and you can see the SQL Server console output in the console.</li>
+<li>See the persisted databases (system and user!) in the artifacts directory after docker-compose begins running.</li>
+</ol>
+<script src="https://gist.github.com/sheldonhull/a70a3a731b329b67f47a331c64c72ab5.js"></script>
+
+<h2 id="improving-code-tests" class="headerLink">
+    <a href="#improving-code-tests" class="header-mark"></a>Improving Code Tests</h2><p>Another reason I&rsquo;m really excited about is the ability to better support testing through tools like Pester. Yes, it&rsquo;s a geek thing, but I love a solid written test 🧪that maintains my code and helps me ensure quality with changes. Better TDD is a goal of mine for sure.</p>
+<p>🔨 This supports implementation of better tests by providing the potential for spinning up a local SQL Instance, restoring a test database, and running a sequence of actions against it with pass or fail without the additional infrastructure requirements to have this done on another server. Making your tests that are not full integration testing as minimally dependent on external factors is a fantastic step to saving you a lot of work.</p>
+<p>A simple pester (PowerShell) might frame the start of a test like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">Before</span> <span class="n">All</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">docker-compose</span> <span class="n">up</span> <span class="n">-d</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Import-Module</span> <span class="n">Dbatools</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># Wait Until dbatools confirms connectivity through something like test-dbaconnection, then proceed with tests</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># Test-DbaConnection ....</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># Restore-DbaDatabase ...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">After</span> <span class="n">All</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">docker-compose</span> <span class="n">down</span> <span class="p">-</span><span class="n">-volume</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Describe</span> <span class="s2">&#34;DescribeName&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Context</span> <span class="s2">&#34;ContextName&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">It</span> <span class="s2">&#34;ItName&#34;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Assertion</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="wrap-up" class="headerLink">
+    <a href="#wrap-up" class="header-mark"></a>Wrap Up</h2><p>Hope this helps someone. I spent at least a year coming back over time to this hoping to actually get it working in a way that felt like a first-class citizen and reduced complexity for development work.</p>
+<p>I&rsquo;m pretty happy with the results. 😁</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

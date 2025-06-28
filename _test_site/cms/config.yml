@@ -1,0 +1,374 @@
+---
+#reference
+#dateformat uses moment.js
+#TAGS ANCHOR:
+
+###########################
+# anchors to avoid repeat #
+###########################
+
+###############
+# MAIN CONFIG #
+###############
+# when using the default proxy server port
+local_backend: true
+
+backend:
+  name: git-gateway
+  branch: master # Branch to update (master by default). It will use the publish command to push to this branch
+  squash_merges: true
+  commit_messages:
+    create: 'feat: {{collection}} {{slug}}'
+    update: 'refactor: {{collection}} {{slug}}'
+    delete: '!refactor(delete): {{collection}} {{slug}} [skip ci]'
+    uploadMedia: 'feat(media): {{path}} [skip ci]'
+    deleteMedia: '!refactor(media): {{path}} [skip ci]'
+    openAuthoring: '{{message}}'
+
+display_url: https://www.sheldonhull.com
+media_folder: static/images # Folder where user uploaded files should go
+public_folder: /images
+logo_url: https://www.sheldonhull.com/images/sheldon-avatar.jpg
+editor:
+  preview: false
+publish_mode: editorial_workflow
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: '-'
+collections:
+  # A list of collections the CMS should be able to edit
+  # - name: microblog # Used in routes, ie.: /admin/collections/:slug/edit
+  #   label: micro.blog # Used in the UI, ie.: "New Post"
+  #   folder: content/microblog # The path to the folder where the documents are stored
+  #   format: yaml-frontmatter
+  #   extension: md
+  #   create: true # Allow users to create new documents in this collection
+  #   slug: '{{slug}}'
+  #   sortableFields: ['commit_date', 'title', 'commit_author', 'date']
+  #   #summary: "{{body}}"
+  #   preview_path: microblog/{{slug}}
+  #   identifier_field: title
+  #   fields: # The fields each document in this collection have
+  #     # MAIN AUTHORING AREA
+  #     # MomentJS Token Reference: https://momentjscom.readthedocs.io/en/latest/moment/01-parsing/03-string-format/
+  #     - label: title
+  #       name: title
+  #       widget: string
+  #       required: true
+  #     - label: Publish Date
+  #       name: date
+  #       widget: datetime
+  #       format: YYYY-MM-DDTHH:00:00Z
+  #       required: true
+  #     # - label: slug
+  #     #   name: slug
+  #     #   widget: string
+  #     #   tagname: h1
+  #     #   required: true
+  #     #   default: '{{slug}}'
+  #     - label: Body
+  #       name: body
+  #       widget: markdown
+  #       required: true
+  #     - label: Tags
+  #       name: tags
+  #       widget: list
+  #       default: ['tech', 'development', 'microblog']
+  #       multiple: true
+  #       required: true
+  #       allow_add: true
+  #       options:
+  #         - 'til'
+  #         - 'development'
+  #         - 'sql-server'
+  #         - 'tech'
+  #         - 'ramblings'
+  #         - 'powershell'
+  #         - 'cool-tools'
+  #         - 'performance-tuning'
+  #         - 'deep-dive'
+  #         - 'aws'
+  #         - 'devops'
+  #         - 'photography'
+  #         - 'music'
+  #         - 'follower-of-Jesus'
+  #         - 'worship'
+  #         - 'videography'
+  #         - 'azure'
+  #   # - label: "Post Author"
+  #   #   name: "author"
+  #   #   widget: "relation"
+  #   #   collection: "authors"
+  #   #   searchFields: ["name", "twitterHandle"]
+  #   #   valueField: "name"
+  #   #   displayFields: ["twitterHandle", "followerCount"]
+  - name: blog # Used in routes, ie.: /admin/collections/:slug/edit
+    label: blog # Used in the UI, ie.: "New Post"
+    folder: content/blog # The path to the folder where the documents are stored
+    format: yaml-frontmatter
+    frontmatter_delimiter: '---'
+    identifier_field: title
+    extension: md
+    create: true # Allow users to create new documents in this collection
+    slug: '{{slug}}'
+    sortableFields: [commit_date, title, commit_author, date]
+    #summary: '{{title}}'
+    preview_path: blog/{{slug}}
+    view_filters:
+      - label: Posts published in 2020
+        field: date
+        pattern: '2020'
+      - label: Posts published in 2019
+        field: date
+        pattern: '2019'
+      - label: Drafts
+        field: draft
+        pattern: true
+    #identifier_field: slug
+    fields: # The fields each document in this collection have
+      - label: Title
+        name: title
+        widget: string
+        tagname: h1
+        required: true
+      - label: Publish Date
+        name: date
+        widget: date
+        format: YYYY-MM-DDTHH:00:00Z
+        required: true
+      - label: Body
+        name: body
+        widget: markdown
+        required: true
+      # Additional string fields to set manually in YAML
+      # - label: toc
+      #   name: toc
+      #   widget: boolean
+      #   default: true
+      # - label: Summary
+      #   name: Summary
+      #   widget: string
+      #   required: true
+      - label: Cover Image
+        name: images
+        widget: image
+        required: false
+        tagname:
+      - label: Tags
+        name: tags
+        widget: list
+        default: [tech, development]
+        multiple: true
+        required: true
+        allow_add: true
+        options:
+          - til
+          - development
+          - go
+          - 100DaysOfCode
+          - sql-server
+          - tech
+          - ramblings
+          - powershell
+          - cool-tools
+          - performance-tuning
+          - deep-dive
+          - aws
+          - devops
+          - photography
+          - music
+          - follower-of-Jesus
+          - worship
+          - videography
+          - azure
+  - name: docs # Used in routes, ie.: /admin/collections/:slug/edit
+    label: docs # Used in the UI, ie.: "New Post"
+    folder: content/docs # The path to the folder where the documents are stored
+    format: yaml-frontmatter
+    extension: md
+    create: true # Allow users to create new documents in this collection
+    slug: '{{slug}}'
+    preview_path: docs/{{slug}}
+    #identifier_field: slug
+    fields: # The fields each document in this collection have
+      - label: Title
+        name: title
+        widget: string
+        tagname: h1
+        required: true
+      #       - label: slug
+      #         name: slug
+      #         widget: string
+      #         tagname: h1
+      #         required: true
+      #         default: '{{slug}}'
+
+      - label: Publish Date
+        name: date
+        widget: date
+        format: YYYY-MM-DDTHH:00:00Z
+        required: true
+      # - label: Last Modified Date
+      #   name: last_modified_at
+      #   widget: date
+      #   format: YYYY-MM-DD
+      #   required: true
+      # MAIN AUTHORING ARE
+      - label: Body
+        name: body
+        widget: markdown
+        required: true
+        modes: [raw, rich_text]
+      # Additional string fields to set manually in YAML
+      - label: toc
+        name: toc
+        widget: boolean
+        default: true
+      - label: Summary
+        name: Summary
+        widget: string
+        required: true
+      - label: Cover Image
+        name: image
+        widget: image
+        required: false
+      - label: Tags
+        name: tags
+        widget: list
+        default: [tech, development]
+        multiple: true
+        required: true
+        allow_add: true
+        options:
+          - til
+          - development
+          - sql-server
+          - tech
+          - ramblings
+          - powershell
+          - cool-tools
+          - performance-tuning
+          - deep-dive
+          - aws
+          - devops
+          - photography
+          - music
+          - follower-of-Jesus
+          - worship
+          - videography
+          - azure
+
+  - name: 100DaysOfCode # Used in routes, ie.: /admin/collections/:slug/edit
+    label: 100DaysOfCode # Used in the UI, ie.: "New Post"
+    folder: content/microblog # The path to the folder where the documents are stored
+    preview_path: microblog/{{slug}}
+    format: yaml-frontmatter
+    extension: md
+    create: true # Allow users to create new documents in this collection
+    slug: '{{area}}-r{{round}}-day-{{day_counter}}'
+    sortableFields:
+      [commit_date, title, commit_author, date, area, round, day_counter]
+    summary: '{{area}}-r{{round}}-d{{day_counter}}'
+    identifier_field: title
+    view_filters:
+      - label: 100DaysOfCode
+        field: tags
+        pattern: 100DaysOfCode
+    fields: # The fields each document in this collection have
+      # MAIN AUTHORING AREA
+      # MomentJS Token Reference: https://momentjscom.readthedocs.io/en/latest/moment/01-parsing/03-string-format/
+      - label: title
+        name: title
+        widget: string
+        required: true
+        default: go-R1-D001
+      - label: Publish Date
+        name: date
+        widget: datetime
+        format: YYYY-MM-DDTHH:00:00Z
+        required: true
+      - label: Cover Image
+        name: images
+        widget: image
+        required: false
+        tagname:
+      # - label: slug
+      #   name: slug
+      #   widget: hidden
+      #   tagname: h1
+      #   required: true
+      #   default: '{{year}}-{{month}}-{{day}}-{{area}}-R{{round}}-D{{day_counter}}'
+      - label: area
+        name: area
+        widget: string
+        default: go
+        required: true
+      - label: round
+        name: round
+        widget: number
+        valueType: int
+        default: 1
+        min: 1
+        max: 5
+        step: 1
+      - label: day_counter
+        name: day_counter
+        widget: number
+        valueType: int
+        min: 1
+        max: 100
+        step: 1
+      - label: Body
+        name: body
+        widget: markdown
+        minimal: true
+        required: true
+        modes: [raw, rich_text]
+        default: |
+          ## Day {{day}} of 100
+
+          ## progress
+
+          - note
+          - note
+          - note
+
+          ## links
+
+          - [link](github.com)
+          - [link](github.com)
+          - [link](github.com)
+      - label: Tags
+        name: tags
+        widget: list
+        default: [microblog, tech, development, 100DaysOfCode, golang]
+        multiple: true
+        required: true
+        allow_add: true
+        options:
+          - til
+          - development
+          - sql-server
+          - tech
+          - ramblings
+          - powershell
+          - cool-tools
+          - performance-tuning
+          - deep-dive
+          - aws
+          - devops
+          - photography
+          - music
+          - follower-of-Jesus
+          - worship
+          - videography
+          - azure
+          - go
+    # - label: "Post Author"
+    #   name: "author"
+    #   widget: "relation"
+    #   collection: "authors"
+    #   searchFields: ["name", "twitterHandle"]
+    #   valueField: "name"
+    #   displayFields: ["twitterHandle", "followerCount"]

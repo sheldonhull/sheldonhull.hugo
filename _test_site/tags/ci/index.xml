@@ -1,0 +1,284 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Ci - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/ci/</link>
+        <description>Ci - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 14 Jun 2022 09:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/ci/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Check Azure Devops Pr for Conventional Commit Title
+    </title>
+    <link>
+        https://www.sheldonhull.com/check-azure-devops-pr-for-conventional-commit-title/
+    </link>
+    <pubDate>
+        Tue, 14 Jun 2022 09:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/check-azure-devops-pr-for-conventional-commit-title/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="conventional-commit" class="headerLink">
+    <a href="#conventional-commit" class="header-mark"></a>Conventional Commit</h2><ul>
+<li>Is it needed&hellip; No.</li>
+<li>Is it the only way&hellip; No.</li>
+<li>Is consistency better than inconsistentcy, mostly yes.</li>
+</ul>
+<p>I&rsquo;ve used conventional commit most of my career and it&rsquo;s a fine basic standard, even if sometimes it feels strange as you get used to it.
+I think it&rsquo;s far better than inconsistency and is common enough with tooling you can do some nice release, changelog, and versioning with it.</p>
+<p>However, getting folks used to it can be tricky.
+I&rsquo;m a big believer in don&rsquo;t ask folks to remember a bunch of &ldquo;conventions&rdquo; and just codify with linters, pre-commit, and CI checks.
+This eliminates policing and changing a standard just becomes a PR with proposed changes.</p>
+<p>GitHub has a lot of actions that help check and prompt for fixes on this, but Azure DevOps doesn&rsquo;t.</p>
+<p>I created an Azure Pipeline task with a little adhoc powershell that works well and helps prompt for more consistency in the creation of consistent titles.</p>
+<h2 id="powershell-code" class="headerLink">
+    <a href="#powershell-code" class="header-mark"></a>PowerShell code</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">try</span> <span class="p">{</span> <span class="p">&amp;</span><span class="n">commitlint</span> <span class="p">-</span><span class="n">-version</span> <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span> <span class="n">npm</span> <span class="n">install</span> <span class="n">commitlint</span> <span class="n">-g</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;Validating PR Title matches what&#39;s acceptable in project (should have a .commitlintrc.yml in your project to use this)...&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$result</span> <span class="p">=</span> <span class="vm">$</span><span class="p">(</span><span class="nv">$ENV:PR_TITLE</span> <span class="p">|</span> <span class="n">commitlint</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nv">$LASTEXITCODE</span> <span class="o">-eq</span> <span class="mf">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$result</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-Skip</span> <span class="mf">1</span> <span class="p">|</span>  <span class="nb">ForEach-Object</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nv">$_</span> <span class="o">-match</span> <span class="s1">&#39;✖&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">Write-Host</span> <span class="s2">&#34;##vso[task.logissue type=error]</span><span class="nv">$_</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">Write-Host</span> <span class="s2">&#34;##[info]</span><span class="nv">$_</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">Write-Host</span> <span class="s2">&#34;##vso[task.logissue type=error]Topic should be in the form of &#39;type(scope): lower case title &lt; 120 characters&#39; (please note colon after scope has no spaces)&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">exit</span> <span class="mf">1</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">Write-Host</span> <span class="s2">&#34;✅ PR Title looks good. Nice work! 👍&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Plug this into a template in an dedicated azure pipelines template repository for easy reuse in many repos.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="l">checkconventionalcommitprtitle</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l">check-conventional-commit-pr-title</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">timeoutInMinutes</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cancelTimeoutInMinutes</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">checkout</span><span class="p">:</span><span class="w"> </span><span class="l">self</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">fetchDepth</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="c"># Shallow fetch to optimize performance if template repo gets larger</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">bash</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          PR_TITLE=&#34;$(curl --silent -u azdo:$SYSTEM_ACCESSTOKEN \
+</span></span></span><span class="line"><span class="cl"><span class="sd">          $(System.CollectionUri)_apis/git/repositories/$(Build.Repository.ID)/pullRequests/$(System.PullRequest.PullRequestId)?api-version=5.1 \
+</span></span></span><span class="line"><span class="cl"><span class="sd">          | jq -r .title)&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#34;##vso[task.setvariable variable=Pr.Title]$PR_TITLE&#34;</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">SYSTEM_ACCESSTOKEN</span><span class="p">:</span><span class="w"> </span><span class="l">$(System.AccessToken)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l">get-pull-request-title</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l">and(succeeded(), eq(variables[&#39;Build.Reason&#39;], &#39;PullRequest&#39;))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">pwsh</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          &lt;PUT THE POWERSHELL CODE HERE&gt;</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l">check-conventional-commit-pr-title</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">failOnStderr</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">ignoreLASTEXITCODE</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>To require this on a PR, you can setup a policy on merges to your trunk.
+I normally manage this with terraform, so here&rsquo;s a hint to get you started.
+Managing your Azure DevOps configuration, builds, and pipelines with Terraform or Pulumi is a far nicer way to keep things maintainable and scale up as more are added.</p>
+<p>This sets up your base configuration.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">terraform</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">required_providers</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    azuredevops</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      source</span>  <span class="o">=</span> <span class="s2">&#34;microsoft/azuredevops&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      version</span> <span class="o">=</span> <span class="s2">&#34;0.2.1&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl"><span class="k">data</span> <span class="s2">&#34;azuredevops_project&#34; &#34;projname&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span> <span class="o">=</span> <span class="s2">&#34;MyProjectName&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">data</span> <span class="s2">&#34;azuredevops_git_repository&#34; &#34;myrepo&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  project_id</span> <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">azuredevops_project</span><span class="p">.</span><span class="k">projname</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl"><span class="n">  name</span>       <span class="o">=</span> <span class="s2">&#34;MyRepoName&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Next, you&rsquo;ll want to register the pipeline as a valid pipeline to show up linked to the yaml.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;azuredevops_build_definition&#34; &#34;ci-projname-check-pr-title&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  project_id</span> <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">azuredevops_project</span><span class="p">.</span><span class="k">projname</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl"><span class="n">  name</span>       <span class="o">=</span> <span class="s2">&#34;ci-projname-check-pr-title&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  path</span>       <span class="o">=</span> <span class="s2">&#34;\\pull-request-checks&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">ci_trigger</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    use_yaml</span> <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">repository</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    repo_type</span>   <span class="o">=</span> <span class="s2">&#34;TfsGit&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    repo_id</span>     <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">azuredevops_git_repository</span><span class="p">.</span><span class="k">myrepo</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl"><span class="n">    branch_name</span> <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">azuredevops_git_repository</span><span class="p">.</span><span class="k">myrepo</span><span class="p">.</span><span class="k">default_branch</span>
+</span></span><span class="line"><span class="cl"><span class="n">    yml_path</span>    <span class="o">=</span> <span class="s2">&#34;pathto/azure-pipelines.checks.prtitle.yml&#34;</span><span class="c1"> # Match this to whatever you call your template
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Finally, you&rsquo;ll link your pipeline to a policy that requires the run of this to be successful to merge.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;azuredevops_branch_policy_build_validation&#34; &#34;projname-check-pr-title&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  project_id</span> <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">azuredevops_project</span><span class="p">.</span><span class="k">projname</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  enabled</span>  <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl"><span class="n">  blocking</span> <span class="o">=</span> <span class="kt">true</span><span class="c1"> # This means to bypass you&#39;d have to have permissions and document the override.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="k">settings</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    display_name</span>        <span class="o">=</span> <span class="s2">&#34;🧪 PR Title Adheres to Conventional commit&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    build_definition_id</span> <span class="o">=</span> <span class="k">azuredevops_build_definition</span><span class="p">.</span><span class="k">ci</span><span class="err">-</span><span class="k">projname</span><span class="err">-</span><span class="k">check</span><span class="err">-</span><span class="k">pr</span><span class="err">-</span><span class="k">title</span><span class="p">.</span><span class="k">id</span><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">    # Set to however long before it has to be rerun. This is fine to be at a high duration as title shouldn&#39;t be changing constantly after it passes
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">    valid_duration</span>      <span class="o">=</span> <span class="m">720</span>
+</span></span><span class="line"><span class="cl"><span class="n">    filename_patterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;*&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">scope</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      repository_id</span>  <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">azuredevops_git_repository</span><span class="p">.</span><span class="k">myrepo</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl"><span class="n">      repository_ref</span> <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">azuredevops_git_repository</span><span class="p">.</span><span class="k">myrepo</span><span class="p">.</span><span class="k">default_branch</span>
+</span></span><span class="line"><span class="cl"><span class="n">      match_type</span>     <span class="o">=</span> <span class="s2">&#34;Exact&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Definitely a bit more work than GitHub actions, but you can still get around some of this by using this approach for any PR merge validations you want.
+There&rsquo;s also PR Status policies, but they are a bit more involved, and often involve running some Azure Functions or other things to post back a status.</p>
+<p>In my opinion, that is worth investing in as you scale, but initially it&rsquo;s just too much plumbing so I just stick with fast small pipelines like this.</p>
+<p>Good luck! 👍</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

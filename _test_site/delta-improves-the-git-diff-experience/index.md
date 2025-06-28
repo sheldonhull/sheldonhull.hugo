@@ -1,0 +1,10 @@
+# Delta Improves the Git Diff Experience
+
+
+Checkout [delta](https://github.com/dandavison/delta) for a much-improved git diff experience.
+I typically use VSCode or a GUI based editor because I find the diff view pretty messy by default.
+
+This new diff view is a perfect example of a simple CLI tool that improves a development workflow by just fixing something I didn&#39;t know could easily be fixed. 😀
+
+![delta diff viewer](/images/2020-09-15-git-delta.png)
+

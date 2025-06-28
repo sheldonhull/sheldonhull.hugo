@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>powershell on sheldonhull.com</title>
+    <link>https://www.sheldonhull.com/notes/development/powershell/</link>
+    <description>Recent content in powershell on sheldonhull.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sat, 28 Jun 2025 13:45:36 -0500</lastBuildDate>
+    <atom:link href="https://www.sheldonhull.com/notes/development/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>dbatools</title>
+      <link>https://www.sheldonhull.com/notes/development/powershell/dbatools/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.sheldonhull.com/notes/development/powershell/dbatools/</guid>
+      <description>A cheatsheet and quick start reference for working with dbatools</description>
+    </item>
+    <item>
+      <title>Pester</title>
+      <link>https://www.sheldonhull.com/notes/development/powershell/pester/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.sheldonhull.com/notes/development/powershell/pester/</guid>
+      <description>PesterMany changes have occurred after version 5. This provides a few examples on how to leverage Pester for data-driven tests with this new format.&#xA;BeforeAll And BeforeDiscoveryOne significant change was the addition of two scopes. Read the Pester docs for more details.&#xA;The basic idea is that BeforeAll is in the &amp;ldquo;run&amp;rdquo; scope, while the test generation is BeforeDiscovery. While older versions of Pester would allow more foreach type loops, they should be in the discovery phase now, and then -Foreach (aka -TestCases) hashtable can be used to iterate effortlessly through the result sets.</description>
+    </item>
+  </channel>
+</rss>

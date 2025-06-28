@@ -1,0 +1,2201 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Devops - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/devops/</link>
+        <description>Devops - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 14 Jun 2022 09:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/devops/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Check Azure Devops Pr for Conventional Commit Title
+    </title>
+    <link>
+        https://www.sheldonhull.com/check-azure-devops-pr-for-conventional-commit-title/
+    </link>
+    <pubDate>
+        Tue, 14 Jun 2022 09:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/check-azure-devops-pr-for-conventional-commit-title/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="conventional-commit" class="headerLink">
+    <a href="#conventional-commit" class="header-mark"></a>Conventional Commit</h2><ul>
+<li>Is it needed&hellip; No.</li>
+<li>Is it the only way&hellip; No.</li>
+<li>Is consistency better than inconsistentcy, mostly yes.</li>
+</ul>
+<p>I&rsquo;ve used conventional commit most of my career and it&rsquo;s a fine basic standard, even if sometimes it feels strange as you get used to it.
+I think it&rsquo;s far better than inconsistency and is common enough with tooling you can do some nice release, changelog, and versioning with it.</p>
+<p>However, getting folks used to it can be tricky.
+I&rsquo;m a big believer in don&rsquo;t ask folks to remember a bunch of &ldquo;conventions&rdquo; and just codify with linters, pre-commit, and CI checks.
+This eliminates policing and changing a standard just becomes a PR with proposed changes.</p>
+<p>GitHub has a lot of actions that help check and prompt for fixes on this, but Azure DevOps doesn&rsquo;t.</p>
+<p>I created an Azure Pipeline task with a little adhoc powershell that works well and helps prompt for more consistency in the creation of consistent titles.</p>
+<h2 id="powershell-code" class="headerLink">
+    <a href="#powershell-code" class="header-mark"></a>PowerShell code</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">try</span> <span class="p">{</span> <span class="p">&amp;</span><span class="n">commitlint</span> <span class="p">-</span><span class="n">-version</span> <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span> <span class="n">npm</span> <span class="n">install</span> <span class="n">commitlint</span> <span class="n">-g</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;Validating PR Title matches what&#39;s acceptable in project (should have a .commitlintrc.yml in your project to use this)...&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$result</span> <span class="p">=</span> <span class="vm">$</span><span class="p">(</span><span class="nv">$ENV:PR_TITLE</span> <span class="p">|</span> <span class="n">commitlint</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nv">$LASTEXITCODE</span> <span class="o">-eq</span> <span class="mf">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$result</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-Skip</span> <span class="mf">1</span> <span class="p">|</span>  <span class="nb">ForEach-Object</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nv">$_</span> <span class="o">-match</span> <span class="s1">&#39;✖&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">Write-Host</span> <span class="s2">&#34;##vso[task.logissue type=error]</span><span class="nv">$_</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">Write-Host</span> <span class="s2">&#34;##[info]</span><span class="nv">$_</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">Write-Host</span> <span class="s2">&#34;##vso[task.logissue type=error]Topic should be in the form of &#39;type(scope): lower case title &lt; 120 characters&#39; (please note colon after scope has no spaces)&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">exit</span> <span class="mf">1</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">Write-Host</span> <span class="s2">&#34;✅ PR Title looks good. Nice work! 👍&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Plug this into a template in an dedicated azure pipelines template repository for easy reuse in many repos.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="l">checkconventionalcommitprtitle</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l">check-conventional-commit-pr-title</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">timeoutInMinutes</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cancelTimeoutInMinutes</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">checkout</span><span class="p">:</span><span class="w"> </span><span class="l">self</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">fetchDepth</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="c"># Shallow fetch to optimize performance if template repo gets larger</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">bash</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          PR_TITLE=&#34;$(curl --silent -u azdo:$SYSTEM_ACCESSTOKEN \
+</span></span></span><span class="line"><span class="cl"><span class="sd">          $(System.CollectionUri)_apis/git/repositories/$(Build.Repository.ID)/pullRequests/$(System.PullRequest.PullRequestId)?api-version=5.1 \
+</span></span></span><span class="line"><span class="cl"><span class="sd">          | jq -r .title)&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#34;##vso[task.setvariable variable=Pr.Title]$PR_TITLE&#34;</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">SYSTEM_ACCESSTOKEN</span><span class="p">:</span><span class="w"> </span><span class="l">$(System.AccessToken)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l">get-pull-request-title</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l">and(succeeded(), eq(variables[&#39;Build.Reason&#39;], &#39;PullRequest&#39;))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">pwsh</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          &lt;PUT THE POWERSHELL CODE HERE&gt;</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l">check-conventional-commit-pr-title</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">failOnStderr</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">ignoreLASTEXITCODE</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>To require this on a PR, you can setup a policy on merges to your trunk.
+I normally manage this with terraform, so here&rsquo;s a hint to get you started.
+Managing your Azure DevOps configuration, builds, and pipelines with Terraform or Pulumi is a far nicer way to keep things maintainable and scale up as more are added.</p>
+<p>This sets up your base configuration.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">terraform</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">required_providers</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    azuredevops</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      source</span>  <span class="o">=</span> <span class="s2">&#34;microsoft/azuredevops&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      version</span> <span class="o">=</span> <span class="s2">&#34;0.2.1&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl"><span class="k">data</span> <span class="s2">&#34;azuredevops_project&#34; &#34;projname&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span> <span class="o">=</span> <span class="s2">&#34;MyProjectName&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">data</span> <span class="s2">&#34;azuredevops_git_repository&#34; &#34;myrepo&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  project_id</span> <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">azuredevops_project</span><span class="p">.</span><span class="k">projname</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl"><span class="n">  name</span>       <span class="o">=</span> <span class="s2">&#34;MyRepoName&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Next, you&rsquo;ll want to register the pipeline as a valid pipeline to show up linked to the yaml.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;azuredevops_build_definition&#34; &#34;ci-projname-check-pr-title&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  project_id</span> <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">azuredevops_project</span><span class="p">.</span><span class="k">projname</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl"><span class="n">  name</span>       <span class="o">=</span> <span class="s2">&#34;ci-projname-check-pr-title&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  path</span>       <span class="o">=</span> <span class="s2">&#34;\\pull-request-checks&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">ci_trigger</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    use_yaml</span> <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">repository</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    repo_type</span>   <span class="o">=</span> <span class="s2">&#34;TfsGit&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    repo_id</span>     <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">azuredevops_git_repository</span><span class="p">.</span><span class="k">myrepo</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl"><span class="n">    branch_name</span> <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">azuredevops_git_repository</span><span class="p">.</span><span class="k">myrepo</span><span class="p">.</span><span class="k">default_branch</span>
+</span></span><span class="line"><span class="cl"><span class="n">    yml_path</span>    <span class="o">=</span> <span class="s2">&#34;pathto/azure-pipelines.checks.prtitle.yml&#34;</span><span class="c1"> # Match this to whatever you call your template
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Finally, you&rsquo;ll link your pipeline to a policy that requires the run of this to be successful to merge.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;azuredevops_branch_policy_build_validation&#34; &#34;projname-check-pr-title&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  project_id</span> <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">azuredevops_project</span><span class="p">.</span><span class="k">projname</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  enabled</span>  <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl"><span class="n">  blocking</span> <span class="o">=</span> <span class="kt">true</span><span class="c1"> # This means to bypass you&#39;d have to have permissions and document the override.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="k">settings</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    display_name</span>        <span class="o">=</span> <span class="s2">&#34;🧪 PR Title Adheres to Conventional commit&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    build_definition_id</span> <span class="o">=</span> <span class="k">azuredevops_build_definition</span><span class="p">.</span><span class="k">ci</span><span class="err">-</span><span class="k">projname</span><span class="err">-</span><span class="k">check</span><span class="err">-</span><span class="k">pr</span><span class="err">-</span><span class="k">title</span><span class="p">.</span><span class="k">id</span><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">    # Set to however long before it has to be rerun. This is fine to be at a high duration as title shouldn&#39;t be changing constantly after it passes
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">    valid_duration</span>      <span class="o">=</span> <span class="m">720</span>
+</span></span><span class="line"><span class="cl"><span class="n">    filename_patterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;*&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">scope</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      repository_id</span>  <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">azuredevops_git_repository</span><span class="p">.</span><span class="k">myrepo</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl"><span class="n">      repository_ref</span> <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">azuredevops_git_repository</span><span class="p">.</span><span class="k">myrepo</span><span class="p">.</span><span class="k">default_branch</span>
+</span></span><span class="line"><span class="cl"><span class="n">      match_type</span>     <span class="o">=</span> <span class="s2">&#34;Exact&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Definitely a bit more work than GitHub actions, but you can still get around some of this by using this approach for any PR merge validations you want.
+There&rsquo;s also PR Status policies, but they are a bit more involved, and often involve running some Azure Functions or other things to post back a status.</p>
+<p>In my opinion, that is worth investing in as you scale, but initially it&rsquo;s just too much plumbing so I just stick with fast small pipelines like this.</p>
+<p>Good luck! 👍</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Simplify Aws Developer Security With Leapp
+    </title>
+    <link>
+        https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/
+    </link>
+    <pubDate>
+        Mon, 28 Jun 2021 14:57:32 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/simplify-aws-developer-security-with-leapp/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="security-is-necessary-work" class="headerLink">
+    <a href="#security-is-necessary-work" class="header-mark"></a>Security Is Necessary Work</h2><p>Security can add overhead, get in the way, complicate development, generally can cause challenges to development efforts.
+The balance of security and usability is one that all development organizations have to deal with.</p>
+<p>I could be ultra-secure by requiring carrier pigeon multi-factor authentication for my team, but I&rsquo;m not sure that would be well received.</p>
+<p><figure><a class="lightgallery" href="/images/2021-06-28-1615-diagram-security-steps.png" title="security steps" data-thumbnail="/images/2021-06-28-1615-diagram-security-steps.png" data-sub-html="<h2>security steps can be painful</h2><p>security steps</p>">
+        
+    </a><figcaption class="image-caption">security steps can be painful</figcaption>
+    </figure></p>
+<p>It&rsquo;s also critical and the responsibility of each developer, not just the security team.</p>
+<p>Let&rsquo;s take a few simple examples where a local developer can compromise security in AWS by simply taking an easy path.</p>
+<ul>
+<li>Builds a docker container and uploads to Docker Hub, for a generic tool, but includes embedded AWS credentials for a linter in it.</li>
+<li>Uses IAM long-lived keys to use a tool to generate infrastructure as code and commits these to the repository due to not excluding the <code>.env</code> file in the <code>.gitignore</code>.</li>
+<li>Uses IAM access keys that are highly privileged as the easy path (over narrowing permission scope), puts these in a vendor site that integrates with AWS, and forgets about it.
+Vendor has data compromised and the AWS keys are exposed.</li>
+</ul>
+<p>There are so many ways that using long-lived IAM credentials can be abused.</p>
+<h2 id="assume-roles" class="headerLink">
+    <a href="#assume-roles" class="header-mark"></a>Assume Roles</h2><p>It&rsquo;s recommended to use Role Assumption instead of IAM Access keys when possible.</p>
+<p>This means all the tooling will leverage AWS Security Token Service and use short-lived ephemeral scoped credentials.</p>
+<p>This limits both the blast radius and time of any compromise.</p>
+<h2 id="security-as-the-path-of-least-resistance" class="headerLink">
+    <a href="#security-as-the-path-of-least-resistance" class="header-mark"></a>Security As The Path Of Least Resistance</h2><p>The problem with this path, is one of effort.</p>
+<ul>
+<li>If using AWS SSO: You&rsquo;d have to
+<ul>
+<li>login to your portal</li>
+<li>open target account section</li>
+<li>get programmatic credentials for the account</li>
+<li>paste them into your <code>~/.aws/credentials</code> file</li>
+</ul>
+</li>
+<li>If not using SSO, you&rsquo;d have to use the CLI or appropriate sdk to generate your credentials on demand and then set.</li>
+</ul>
+<p>The key is that all of these approaches aren&rsquo;t easy as the default.</p>
+<p>It&rsquo;s easier to just use an IAM key and move on rather than battle with cli, sdks, and other options.</p>
+<p>Tools like <a href="https://github.com/99designs/aws-vault" target="_blank" rel="noopener noreferrer">aws-vault</a> are fantastic in helping with this, but aren&rsquo;t intuitive, work the same way in different platforms, and overall still provide a barrier to making it the easiest path.</p>
+<h2 id="leapp" class="headerLink">
+    <a href="#leapp" class="header-mark"></a>Leapp</h2><blockquote>
+<p>🚀 <a href="https://bit.ly/3A8hosQ" target="_blank" rel="noopener noreferrer">Leapp - One step away from your Cloud</a></p>
+</blockquote>
+<p><figure><a class="lightgallery" href="/images/2021-06-28-14.50.53-Leapp.png" title="leapp ui" data-thumbnail="/images/2021-06-28-14.50.53-Leapp.png" data-sub-html="<h2>leapp ui</h2><p>leapp ui</p>">
+        
+    </a><figcaption class="image-caption">leapp ui</figcaption>
+    </figure></p>
+<p>I came across this app by chance back in March when I was just starting at my new job at <code>$Work</code> and was looking for a tool to help simplify things over <code>aws-vault</code>.
+Since I was benefiting from AWS SSO, I was looking for a way to simplify switching roles with SSO, while still maintaining compatibility with the lowest common denominator of the lowly <code>~/.aws/credentials</code> file that I knew worked with Terraform, PowerShell, and other tools equally.</p>
+<p>The result? Shipped code on day 3!</p>
+<h2 id="what-it-provides" class="headerLink">
+    <a href="#what-it-provides" class="header-mark"></a>What It Provides</h2><p>Leapp allows the path of least resistance to best practices with AWS Credentials (as well as Azure).
+With AWS SSO, you get the benefit of the portal accounts automatically populated as well. Role assumption becomes the easy path.</p>
+<h2 id="how-it-works" class="headerLink">
+    <a href="#how-it-works" class="header-mark"></a>How It Works</h2><p>In my scenario, using AWS SSO provides a more complicated route that demonstrates the ease of use.</p>
+<ul>
+<li>Open App</li>
+<li>Click on Account &amp; Role I want to assume, say &ldquo;Dev Account - AWS Admininstrator&rdquo;</li>
+<li>Pop-up for SSO process using whatever SSO process is setup</li>
+<li>Enter name and password</li>
+<li>Enter MFA</li>
+<li>Auth dialogue proceeds to confirmation screen of signing in CLI</li>
+</ul>
+<p><figure><a class="lightgallery" href="/images/2021-06-28-15.42.50-Leapp-sso-cli.png" title="aws ccli sso confirmation" data-thumbnail="/images/2021-06-28-15.42.50-Leapp-sso-cli.png" data-sub-html="<h2>aws-cli-sso-confirmation</h2><p>aws ccli sso confirmation</p>">
+        
+    </a><figcaption class="image-caption">aws-cli-sso-confirmation</figcaption>
+    </figure></p>
+<ul>
+<li>Done!</li>
+</ul>
+<p>The result:</p>
+<p><code>~/.aws/credentials</code> has the <code>[default]</code> profile containing my STS credentials. This token rotates every <code>n</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> minutes producing ephemeral credentials.</p>
+<p><figure><a class="lightgallery" href="/images/2021-06-28-15.44.09-Code.png" title="credentials file changed" data-thumbnail="/images/2021-06-28-15.44.09-Code.png" data-sub-html="<h2>credentials file changed</h2><p>credentials file changed</p>">
+        
+    </a><figcaption class="image-caption">credentials file changed</figcaption>
+    </figure></p>
+<h2 id="enhancements" class="headerLink">
+    <a href="#enhancements" class="header-mark"></a>Enhancements</h2><h3 id="named-profiles" class="headerLink">
+    <a href="#named-profiles" class="header-mark"></a>Named Profiles</h3><p>The <code>0.6.0</code> release that should be out by Jun 30th (I&rsquo;m using pre-release preview) contained some nice enhancements to this.</p>
+<p>In prior versions, <code>[default]</code> profile was just replaced with whatever account you selected.</p>
+<p>Now, named profiles are supported as well, so you could have multiple assumed roles open at the same time for calling with named profiles.</p>
+<h3 id="ssm-sesssion-launcher" class="headerLink">
+    <a href="#ssm-sesssion-launcher" class="header-mark"></a>SSM Sesssion Launcher</h3><p>There&rsquo;s a built-in session launcher, allowing searching of EC2 instances and the instance terminal launch of an <code>aws ssm start-session</code> command against the target.</p>
+<p><figure><a class="lightgallery" href="/images/2021-06-28-15.49.14-Leapp-ssm-launcher.png" title="leapp AWS ssm launcher" data-thumbnail="/images/2021-06-28-15.49.14-Leapp-ssm-launcher.png" data-sub-html="<h2>leapp aws ssm launcher</h2><p>leapp AWS ssm launcher</p>">
+        
+    </a><figcaption class="image-caption">leapp aws ssm launcher</figcaption>
+    </figure></p>
+<h2 id="future" class="headerLink">
+    <a href="#future" class="header-mark"></a>Future</h2><p>The future for Leapp is an interesting question.</p>
+<p>They are active in engaging for feedback, so this is built with actual user feedback, not in a bubble.
+I had an hour call with one of the developers talking about authentication approaches that helped me appreciate how much they want to engage their uses in a true Agile development pattern.
+Not only did I learn a bunch, but ended up being able to provide a few ideas for future consideration.
+Great discussion with @andreacavagna01.
+Give Andrea a follow on <svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg> <a href="https://twitter.com/a_cava94" target="_blank" rel="noopener noreferrer">twitter</a> and <svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg> <a href="https://github.com/andreacavagna01" target="_blank" rel="noopener noreferrer">GitHub</a>!</p>
+<p>I can see a larger market than developers if a company rolled it out to users, as it would simplify access by analysts, developers, security team members, and others.</p>
+<p>It&rsquo;s not:</p>
+<ul>
+<li>An &ldquo;essential&rdquo; service</li>
+<li>&ldquo;Necessary&rdquo; in a strict sense, because things work fine without this tool.</li>
+</ul>
+<p>Instead it offers:</p>
+<ul>
+<li>A usability improvement to developers authentication workflow.</li>
+<li>The easy path is a secure path</li>
+</ul>
+<p>For this reason, I&rsquo;m interested to see how adoption by enterprises and organizations will occur.
+I&rsquo;ve observed that solving painpoints can both incentive a company if painful enough to adopt new approaches, but also bypass improvements as they aren&rsquo;t &ldquo;essential&rdquo; and things already work, albeit unoptimally.</p>
+<p>For me, I&rsquo;m adding it to my AWS essentials, since now I can just focus on work without and improve my credentials handling without it intruding.
+I&rsquo;ll continue recommending this to folks, and keep up with what improvements continue to be released from this team.</p>
+<p>Keep up with the Leapp roadmap here: <a href="https://github.com/Noovolari/leapp/projects" target="_blank" rel="noopener noreferrer">GitHub Leapp Roadmap</a></p>
+<h2 id="resources" class="headerLink">
+    <a href="#resources" class="header-mark"></a>Resources</h2><table>
+<thead>
+<tr>
+<th>Resource</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html" target="_blank" rel="noopener noreferrer">Access management for AWS resources - AWS Identity and Access Management</a></td>
+</tr>
+<tr>
+<td><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/resources.html#resources-general-security" target="_blank" rel="noopener noreferrer">Resources to learn more about IAM - AWS Identity and Access Managemen</a></td>
+</tr>
+<tr>
+<td><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html" target="_blank" rel="noopener noreferrer">Using IAM roles - AWS Identity and Access Management</a></td>
+</tr>
+</tbody>
+</table>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>I believe 10-20 right now&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        precommit
+    </title>
+    <link>
+        https://www.sheldonhull.com/notes/development/tooling/precommit/
+    </link>
+    <pubDate>
+        Wed, 16 Jun 2021 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/notes/development/tooling/precommit/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>A cheatsheet for various pre-commit hooks and things that help with linting, formatting, code scans and more. These all help &ldquo;shift left&rdquo; the review to eliminate more issues in the development workflow, rather than providing feedback only once the CI system is involved.</p>
+<h2 id="the-frameworks" class="headerLink">
+    <a href="#the-frameworks" class="header-mark"></a>The Frameworks</h2><ul>
+<li><a href="https://github.com/evilmartians/lefthook/" target="_blank" rel="noopener noreferrer">GitHub - evilmartians/lefthook: Fast and powerful Git hooks manager for any type of projects.</a> is a newer project based in Go.</li>
+<li><a href="https://pre-commit.com/" target="_blank" rel="noopener noreferrer">pre-commit</a> is python-based, very mature and supported.</li>
+</ul>
+<h2 id="precommit" class="headerLink">
+    <a href="#precommit" class="header-mark"></a>Precommit</h2><h3 id="install-precommit" class="headerLink">
+    <a href="#install-precommit" class="header-mark"></a>Install Precommit</h3><p>A bit more complicated, depending on the Docker image used and the python tooling installed.
+Assuming you have pip installed, then run <code>pip install pre-commit --user</code></p>
+<p>Here are some examples to get you started.</p>
+<h2 id="skipping-a-precommit-hook" class="headerLink">
+    <a href="#skipping-a-precommit-hook" class="header-mark"></a>Skipping A Precommit Hook</h2><p>The pre-commit tasks can be overridden on a case-by-case basis.</p>
+<p>The syntax for skipping is simple, just run the task with the name of the hook excluded like this:</p>
+<pre><code>  Don't commit to main.....................................................Passed
+  check json5..........................................(no files to check)Skipped
+  go-fmt...................................................................Passed
+  golangci-lint...........................................................Skipped
+  go-test-all..............................................................Failed
+  - hook id: gotest 👈👈👈👈👈👈👈👈  # Use the hook id, not the text of the title
+  - duration: 8.9s
+  - exit code: 2
+</code></pre>
+<ul>
+<li>To skip the example above: <code>SKIP='gotest' git commit -am&quot;feat(fancy): my title&quot; -m&quot;- My Message Body&quot; &amp;&amp; git pull --rebase &amp;&amp; git push</code>.</li>
+<li>To skip multiple: <code>SKIP='gotest,go-fmt' git myaction</code>.</li>
+</ul>
+<h2 id="filtering--triggering-tricks" class="headerLink">
+    <a href="#filtering--triggering-tricks" class="header-mark"></a>Filtering &amp; Triggering Tricks</h2><p>Let&rsquo;s say you have a document directory and want to trigger a report or doc generation if anything in that changes.</p>
+<p>You can do this pretty elegantly with pre-commit.</p>
+<p>For example, let&rsquo;s add a mage task to generate docs when something in the package directory for go is updated.</p>
+<pre><code>repos:
+  # for specific updates that should result in an update to matched directories or files.
+  - repo: local
+    hooks:
+      - id: docs:generate
+        name: docs:generate
+        entry: mage docs:generate
+        language: system
+        files: ^pkg/
+        types: [file, go]
+</code></pre>
+<p>The types are pretty useful, not just to try and match on file names.</p>
+<p>Use <code>identify-cli</code> which is a python cli and package included when you install pre-commit.</p>
+<p>Run it against a directory or file and you&rsquo;ll get the outputs that pre-commit will accept.</p>
+<p>For example, against a markdown file: <code>identify-cli README.md</code> and you should get: <code>[&quot;file&quot;, &quot;markdown&quot;, &quot;non-executable&quot;, &quot;text&quot;]</code>. Any of these (or all) can be used to filter when the hook runs.</p>
+<p>Against a Go file: <code>[&quot;file&quot;, &quot;go&quot;, &quot;non-executable&quot;, &quot;text&quot;]</code>.</p>
+<div
+    class="details admonition info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-info-circle fa-fw"
+      ></i>
+      LeftHook
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">Using pre-commit framework heavily, and no longer relying on Lefthook.</div>
+    </div>
+  </div>
+<h2 id="lefthook" class="headerLink">
+    <a href="#lefthook" class="header-mark"></a>Lefthook</h2><p>A great tool, but requires more work and is not as fully featured as pre-commit.
+In most cases, I&rsquo;d recommend pre-commit tooling over Lefthook.</p>
+<p>If you are just starting out, this requires more hands-on work but can result in faster checks and commits.</p>
+<p>My advice would be to start with pre-commit if you want plug and play, and lefthook if you want to control the pre-commits explicitly and optimize for performance.</p>
+<p>As long as you have the Go SDK installed, just run <code>go install github.com/evilmartians/lefthook@master</code>.</p>
+<p>This framework is a little &ldquo;rougher&rdquo; and less supported than pre-commit framework, but for simple self-maintained hooks, I&rsquo;ve preferred this as it is much faster, and so I end up using it more.</p>
+<p>Other installation methods are located at the installation guide <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<h3 id="lefhook-tips" class="headerLink">
+    <a href="#lefhook-tips" class="header-mark"></a>Lefhook Tips</h3><ul>
+<li>Originally, I broke out lefthook into multiple files so I could drop them into a directory, but now I stick with one.
+Since it still requires editing the main file to extend and point to another file, I&rsquo;ve found a single file simpler to maintain.</li>
+<li>Disable parallel operation for anything formatting files or possibly not thread safe.
+While parallel operation seems great, most of the pre-commit tasks should run quickly, and formatting and linting files at the same time could lead to conflicts or problems.
+Use parallel operation for separate language test runs perhaps, like running Python tests and Go tests since those shouldn&rsquo;t conflict.</li>
+<li><code>piped: true</code> is useful but hides the underlying tasks in the summary, so I suggest avoid unless you have tasks that really should feed into each other step by step.
+In this case, maybe you should have this just be part of your task run, such as <code>mage lint fmt</code> rather than two separate pre-commit hooks.</li>
+</ul>
+<h3 id="using-lefthook" class="headerLink">
+    <a href="#using-lefthook" class="header-mark"></a>Using Lefthook</h3><p>Here are some updated configurations I&rsquo;ve started using.</p>
+<h4 id="output" class="headerLink">
+    <a href="#output" class="header-mark"></a>Output</h4><p>Reduce the noise:</p>
+<pre><code>skip_output:
+  - meta
+  - success
+# - summary
+skip:
+  - merge
+  - rebase
+</code></pre>
+<h4 id="pre-commit-checks" class="headerLink">
+    <a href="#pre-commit-checks" class="header-mark"></a>Pre-commit Checks</h4><p>These are basic quick checks for markdown (docs as code).
+This illustrates one of the challenges in pre-commit framework tooling.</p>
+<p>Ideally, you want the pre-commit checks to only touch the files that changed to make things quick, but this requires some workarounds, since not all tools support a comma-delimited list of files passed in.</p>
+<p>One big improvement to lefthook would be supporting a <code>for_each</code> operator, so that cross-platform looping on matched files could be run, instead of having to parse inside the script here.
+I&rsquo;m pretty sure that this would be more compatible with various platforms as well, since this I believe uses your native shell, so you&rsquo;d have to be in WSL2 in Windows, for example, for the bash-like syntax to work.</p>
+<p>See <a href="https://github.com/sheldonhull/ci-configuration-files/.markdownlint-cli2.yaml" target="_blank" rel="noopener noreferrer">ci-configuration-files</a> for markdown lint config examples.</p>
+<p>Install <code>gojq</code> or replace with <code>jq</code> if you have it.</p>
+<pre><code>pre-commit:
+  tags: markdown fmt
+  parallel: false
+  commands:
+    markdownlintfix:
+      files: git diff-index --name-only HEAD
+      exclude: '.licenses/*'
+      glob: '*{.md}'
+      run: |
+        echo &quot;⚡ markdownlint on: {files}&quot;
+        for file in {files}
+        do
+          echo &quot;🔨 markdownlint: $file&quot;
+          docker run --rm -v ${PWD}:/workdir --entrypoint=&quot;markdownlint-cli2-fix&quot; davidanson/markdownlint-cli2:latest &quot;$file&quot;
+        done
+    markdownlintcheck:
+      files: git diff-index --name-only HEAD
+      exclude: '_licenses/*'
+      glob: '*{.md}'
+      run: |
+        echo &quot;⚡ markdownlint on: {files}&quot;
+        for file in {files}
+        do
+          echo &quot;🔨 markdownlint: $file&quot;
+          docker run --rm -v ${PWD}:/workdir --entrypoint=&quot;markdownlint-cli2&quot; davidanson/markdownlint-cli2:latest &quot;$file&quot;
+        done
+    shellcheck:
+      tags: gotool gojq
+      name: shellcheck
+      files: git diff-index --name-only HEAD
+      exclude: '.licenses/*'
+      glob: '*.sh'
+      run: docker run --rm -v ${PWD}:/mnt koalaman/shellcheck:stable --format=json {files}  | gojq
+    # REQUIREMENTS: npm install --global prettier
+    yamlfmt:
+      files: git diff-index --name-only HEAD
+      glob: '*.yaml|*.yml'
+      exclude: '.licenses/*'
+      skip_empty: false
+      run: prettier --loglevel warn --no-error-on-unmatched-pattern --write &quot;{.yaml,.yml}&quot;
+    # REQUIREMENTS: go install go.atrox.dev/sync-dotenv@latest
+    # used to sync default dotenv files to an example file to avoid commits on main .env
+    envfile:
+      name: update env.example file
+      files: '*.env'
+      exclude: '.licenses/*'
+      run: |
+        cd env
+        touch .env
+        sync-dotenv
+    # REQUIREMENTS: Mage Tasks Built (See github.com/sheldonhull/magetools)
+    # CI=1 helps reduce formatting output to minimal
+    # MAGEFILE_HASHFAST improves speed of calling mage by assuming your tasks haven't changed
+    go:
+      piped: true
+      tags: go lint fmt
+      files: git diff-index --name-only HEAD
+      exclude: '.licenses/*'
+      glob: '*.{go,mod,sum}'
+      commands:
+        fmt:
+          run: CI=1 MAGEFILE_HASHFAST=1 mage fmt
+        lint:
+          run: CI=1 MAGEFILE_HASHFAST=1 mage lint
+</code></pre>
+<h4 id="pre-push-checks" class="headerLink">
+    <a href="#pre-push-checks" class="header-mark"></a>Pre-Push Checks</h4><p>Most of these Mage-oriented tasks are from my magetools repo.</p>
+<p>Note that while they filter based on the files being Go-related, they run against the entire repo.</p>
+<pre><code>pre-push:
+  parallel: false
+  commands:
+    fmt:
+      files: git diff-index --name-only HEAD
+      exclude: '.licenses/*'
+      glob: '*.{go,mod,sum}'
+      run: CI=1 MAGEFILE_HASHFAST=1 mage go:wrap
+    lint:
+      files: git diff-index --name-only HEAD
+      exclude: '.licenses/*'
+      glob: '*.{go,mod,sum}'
+      run: CI=1 MAGEFILE_HASHFAST=1 mage lint
+    test:
+      files: git diff-index --name-only HEAD
+      exclude: '.licenses/*'
+      glob: '*.{go,mod,sum}'
+      run: CI=1 MAGEFILE_HASHFAST=1 mage go:test
+    gitleaks:
+      tags: security gotool linux macos nowindows
+      run: CI=1 MAGEFILE_HASHFAST=1 mage secrets:check
+</code></pre>
+<!-- links -->
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md#installation" target="_blank" rel="noopener noreferrer">lefthook/full_guide.md at master · evilmartians/lefthook · GitHub</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Using Azure DevOps for Private Go Modules
+    </title>
+    <link>
+        https://www.sheldonhull.com/using-azure-devops-for-private-go-modules/
+    </link>
+    <pubDate>
+        Fri, 11 Jun 2021 16:35:44 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/using-azure-devops-for-private-go-modules/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <div
+    class="details admonition Note
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      2022-12-14
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">Provided an example of how to handle private go modules in Azure Pipeline compatible method.</div>
+    </div>
+  </div>
+<h2 id="tldr" class="headerLink">
+    <a href="#tldr" class="header-mark"></a>TL;DR</h2><p>This took a few hours of work to iron out, so figured maybe I&rsquo;d save someone time.</p>
+<p>&#x26a1; Just keep it simple and use SSH</p>
+<p>&#x26a1; Use <code>dev.azure.com</code> even if using older <code>project.visualstudio.com</code> to keep things simple.</p>
+<h2 id="modules-support" class="headerLink">
+    <a href="#modules-support" class="header-mark"></a>Modules Support</h2><p>Unlike GitHub, Azure DevOps has some quirks to deal with, specifically in the odd path handling.</p>
+<p>My original goal was to set the default handling to be <code>https</code> support, with the SSH override in git config allowing me to use SSH.</p>
+<p>This didn&rsquo;t work.</p>
+<ul>
+<li>HTTPS requires <code>_git</code>  in the path.</li>
+<li>SSH will not work with that, and also trims out the org name in the url when git config set based on instructions from Microsoft<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</li>
+</ul>
+<blockquote>
+<p>There is a long-running issue with go get imports of Azure DevOps repositories due to the fact that the HTTPS URL contains a <code>_git</code> segment:
+<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+</blockquote>
+<p>Compare the path.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTTPS</td>
+<td><code>go get dev.azure.com/&lt;organization&gt;/&lt;project&gt;/_git/&lt;repo&gt;</code></td>
+</tr>
+<tr>
+<td>&#x26a1; What I used with SSH</td>
+<td><code>go get dev.azure.com/&lt;project&gt;/_git/&lt;repo&gt;</code></td>
+</tr>
+<tr>
+<td>SSH</td>
+<td><code>go get dev.azure.com/&lt;organization&gt;/&lt;project&gt;/&lt;repo&gt;.git</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="git-config" class="headerLink">
+    <a href="#git-config" class="header-mark"></a>Git Config</h2><p>Set this in your <code>.profile, .bashrc, or $PROFILE</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">GOPRIVATE</span><span class="o">=</span>dev.azure.com
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>There are two approaches you can take.</p>
+<p>One seems focused on allowing other <code>dev.azure.com</code> public projects to be used.
+I&rsquo;ve never had that need, so I&rsquo;m ok with my <code>dev.azure.com</code> references being resolved only to my own organization.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Command</th>
+<th>GitConfig</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Support All Azure DevOps (Public)</td>
+<td><code>git config --global url.&quot;git@ssh.dev.azure.com:v3/&lt;organization&gt;/&quot;.insteadOf &quot;https://dev.azure.com/&lt;organization&gt;&quot;</code></td>
+<td><code>[url &quot;git@ssh.dev.azure.com:v3&quot;]&lt;br/&gt;</code><br><br><code>insteadOf = https://dev.azure.com</code></td>
+</tr>
+<tr>
+<td>&#x26a1; What I Used for  Private Org</td>
+<td><code>git config --global url.&quot;git@ssh.dev.azure.com:v3/&lt;organization&gt;/&quot;.insteadOf &quot;https://dev.azure.com/</code></td>
+<td><code>[url &quot;git@ssh.dev.azure.com:v3/&lt;organization&gt;/&quot;]</code><br><br><code>insteadOf = https://dev.azure.com/</code></td>
+</tr>
+</tbody>
+</table>
+<div
+    class="details admonition Info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      Organization in Dependency Path
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">This changes the path for dependencies to not require the organization in the dependency path.
+Instead, the import path will look like this: <code>import &quot;dev.azure.com/&lt;project&gt;/repo.git/subdirectory&quot;</code></div>
+    </div>
+  </div>
+<h2 id="https" class="headerLink">
+    <a href="#https" class="header-mark"></a>HTTPS</h2><p>If you don&rsquo;t have restrictions on this, then you can do https with the following command to add the token in or use a more complex credential manager based process.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global url.<span class="s2">&#34;https://anythinggoeshere:</span><span class="nv">$AZURE_DEVOPS_TOKEN</span><span class="s2">@dev.azure.com&#34;</span>.insteadOf <span class="s2">&#34;https://dev.azure.com&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="azure-pipelines" class="headerLink">
+    <a href="#azure-pipelines" class="header-mark"></a>Azure Pipelines</h2><p>If you run into timeout issues with <code>go get</code>, I found this solution worked well.</p>
+<p>I provided <code>ORGANIZATION</code> as a value if you are on the legacy url scheme, it&rsquo;s easier to just set this as variable and not worry about parsing out the org name itself from the url to place it in there.
+I got stuck on this recently and was pointed to the answer in this great article <a href="https://seb-nyberg.medium.com/using-go-modules-with-private-azure-devops-repositories-4664b621f782" target="_blank" rel="noopener noreferrer">Using Go Modules With Private Azure Devops Repositories</a>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">parameters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">workingDirectory</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">string</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l">$(Pipeline.Workspace)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">variables</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ORGANIZATION</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l">myorg</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">checkout</span><span class="p">:</span><span class="w"> </span><span class="l">self</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">fetchDepth</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">path: $(Build.Repository.Name) # Note</span><span class="p">:</span><span class="w"> </span><span class="l">you&#39;ll want to provide workingdirectory inputs for tasks if you have multi-repo checkout going on.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">pwsh</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">    git clone &#34;https://$(ORGANIZATION):$(System.AccessToken)@dev.azure.com/$(ORGANIZATION)/$(System.TeamProject)/_git/$(Build.Repository.Name)&#34;</span><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l">git-checkout-with-pat</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># internal modules with go-get might fail without this.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">pwsh</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">    git config --global url.&#34;https://$(ORGANIZATION):$(System.AccessToken)@dev.azure.com&#34;.insteadOf &#34;https://dev.azure.com&#34;</span><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l">ensure-system-token-used-for-other-internal-repos</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">pwsh</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">    Write-Host &#34;example, with working directory set&#34;</span><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l">exampleTask</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">workingDirectory</span><span class="p">:</span><span class="w"> </span><span class="l">${{ parameters.workingDirectory }}/$(Build.Repository.Name)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="other-references" class="headerLink">
+    <a href="#other-references" class="header-mark"></a>Other References</h2><ul>
+<li>SSH key usage in Azure Pipelines<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>.</li>
+<li>Using with docker<sup id="fnref1:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://docs.microsoft.com/en-us/azure/devops/repos/git/go-get" target="_blank" rel="noopener noreferrer">Go get command support in Azure Repos Git</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://seb-nyberg.medium.com/using-go-modules-with-private-azure-devops-repositories-4664b621f782" target="_blank" rel="noopener noreferrer">Private Go Modules on Azure DevOps</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/install-ssh-key" target="_blank" rel="noopener noreferrer">Install SSH Key task - Azure Pipelines | Microsoft Docs</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        The Open Guide to Amazon Web Services
+    </title>
+    <link>
+        https://www.sheldonhull.com/the-open-guide-to-amazon-web-services/
+    </link>
+    <pubDate>
+        Fri, 21 May 2021 11:21:42 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/the-open-guide-to-amazon-web-services/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>The guide you didn&rsquo;t know you needed for AWS.
+Came across this when Corey Quinn <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> mentioned this on a podcast.</p>
+<p>This is a resource I wish I&rsquo;d known about earlier. It covers the core essentials on services, and cuts through the confusion of the AWS Docs pretty well.</p>
+<p>For example, I noticed the ELB references for ALB docs and this caused me some confusion.</p>
+<p>Right front and center on Load Balancer Basics <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>:</p>
+<blockquote>
+<p>Before the introduction of ALBs, &ldquo;Classic Load Balancers&rdquo; were known as &ldquo;Elastic Load Balancers&rdquo; (ELBs), so older documentation, tooling, and blog posts may still reference &ldquo;ELBs&rdquo;.</p>
+</blockquote>
+<p>I&rsquo;m going to make this a first stop when getting familar with new AWS concepts.</p>
+<div
+    class="details admonition Tip
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      macOS lifehack
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">If you have <a href="https://kapeli.com/dash" target="_blank" rel="noopener noreferrer">Dash</a> installed, set the repo as a GitHub datasouce, and you can have the entire handbook cached offline as an offline documentation library.</div>
+    </div>
+  </div>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://twitter.com/QuinnyPig" target="_blank" rel="noopener noreferrer">Corey Quinn</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://github.com/open-guides/og-aws#load-balancer-basics" target="_blank" rel="noopener noreferrer">og-aws-loadbalancers</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Azure Devops PR Automation Requires Generic Contribute
+    </title>
+    <link>
+        https://www.sheldonhull.com/azure-devops-pr-automation-requires-generic-contribute/
+    </link>
+    <pubDate>
+        Wed, 12 May 2021 13:10:02 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/azure-devops-pr-automation-requires-generic-contribute/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Big fan of renovate for terraform dependency management.</p>
+<p>Ran into some complications with restarting an onboarding with Whitesource Renovate in Azure DevOps Repos and the Azure Pipeline automation.
+I&rsquo;ve run into this before, so logging this for my sanity.</p>
+<ul>
+<li>If you failed to onboard with Azure DevOps, you can&rsquo;t rename the PR like in GitHub to simplify restarting the onboarding process.</li>
+<li>Instead, delete the <code>renovate.json</code> file and commit to your default branch.</li>
+<li>Then re-add and get the <code>renovate.json</code> committed back to your default branch.</li>
+<li>Run your Azure DevOps Pipeline to trigger the dependency assessment.</li>
+<li>If you didn&rsquo;t add the project build service account to your repo with <code>Contribute</code>, <code>Contribute to Pull Requests</code>, <code>Force Push</code> (to allow force update of branches it creates), and <code>Create Tag</code>.</li>
+</ul>
+<div
+    class="details admonition Tip
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      Where do you add the permissions for build?
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>Go to your repository security settings (in this case I&rsquo;m adding to all to simplify, but you can do on a repo by repo basis if you enjoy tedium):</p>
+<p><code>https://dev.azure.com/MYORG/MYPROJECT/_settings/repositories?_a=permissions</code></p>
+<p>Then in the search type your project name and you should see a <code>PROJECTNAME\Build Service (PROJECTNAME)</code> show up.</p>
+<p>If you are using a custom service account with on-premise agents instead of hosted, then adjust your approach accordingly.</p>
+</div>
+    </div>
+  </div>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Diagrams as Code
+    </title>
+    <link>
+        https://www.sheldonhull.com/diagrams-as-code/
+    </link>
+    <pubDate>
+        Tue, 04 May 2021 07:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/diagrams-as-code/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="why" class="headerLink">
+    <a href="#why" class="header-mark"></a>Why</h2><p>It&rsquo;s not for everyone.</p>
+<p>I prefer to write diagrams out logically and then let the visual aspect be generated.</p>
+<p>This helps me by making the visual presentation an artifact of what is basically a written outline.</p>
+<h2 id="presentation-matters" class="headerLink">
+    <a href="#presentation-matters" class="header-mark"></a>Presentation Matters</h2><p>I&rsquo;ve learned that communicating flows of information can often be better presented visually than trying to write them out, especially once it involves more than a few &ldquo;nodes&rdquo; of responsibility. Visualizing a complicated process can be done more easily in a visual way, as well as help expose some possible issues when ownership is transfered between lanes too many times.</p>
+<h2 id="options" class="headerLink">
+    <a href="#options" class="header-mark"></a>Options</h2><p>LucidChart, Draw.io and other tools are great for a quick solution.</p>
+<p>Mermaid also provides a nice simple text based diagramming tool that is integrated with many markdown tools.</p>
+<p>For me, this just never fit. I like a bit of polish and beauty in a visual presentation and most of these are very utilitarian in their output.</p>
+<p>I came across diagrams<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> and found it a perfect fit for intuitive and beautiful diagram rendering of cloud architecture, and figured it would be worth a blog post to share this.</p>
+<h2 id="getting-started" class="headerLink">
+    <a href="#getting-started" class="header-mark"></a>Getting Started</h2><div
+    class="details admonition Warning
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      Name Of Project
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>Do not create a project named the same thing as your dependency, ie project name = diagrams for example.</p>
+<p>This will error out and send you down a search in github issues to discover this issue.</p>
+</div>
+    </div>
+  </div>
+<p>Install Poetry<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> and create a new poetry project in your directory using <code>poetry init</code>.</p>
+<p>Once it gets to the package additions add <code>diagrams</code> to your poetry file.</p>
+<p>Run <code>poetry install</code></p>
+<p>Finally, create a new file called <code>diagram.py</code> in your directory.</p>
+<p>Once you populate this file, you can run your diagram using the virtual env it manages by calling <code>poetry run python diagram.py</code>.</p>
+<p>Additionally, any command line arguments you want to pass would just go through like <code>poetry run python diagram.py --outdirectory foobar</code></p>
+<h2 id="diagrams" class="headerLink">
+    <a href="#diagrams" class="header-mark"></a>Diagrams</h2><p>The documentation is pretty thorough, but detailed examples and shortcuts are very hard to find. You&rsquo;ll have to dig through the repo issues on occasion if you find yourself wanting to do something that isn&rsquo;t obvious. This project seems to be a wrapper around graphviz, so a lot of the documentation for parameters and customizations will be in it&rsquo;s documentation, not in this project.</p>
+<p>To find available nodes and shapes, you&rsquo;ll need to look at the diagram docs<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+<h2 id="simple-example" class="headerLink">
+    <a href="#simple-example" class="header-mark"></a>Simple Example</h2><p>Using defaults you can create a simple diagram such as this:</p>
+<p><figure><a class="lightgallery" href="/images/diagrams-as-code-01-diagram-vpc-example.png" title="vpc-diagram-simple" data-thumbnail="/images/diagrams-as-code-01-diagram-vpc-example.png">
+        
+    </a></figure></p>
+<script src="https://gist.github.com/sheldonhull/cc8abcb86c9463b0c74bb9e4d82ffac9.js?file=01-diagram-vpc-example.py"></script>
+
+<h2 id="add-some-helpers" class="headerLink">
+    <a href="#add-some-helpers" class="header-mark"></a>Add Some Helpers</h2><p>From the github issues and my own customizations, I added a few additions to make the edge (ie, lines) flow easier to work with.</p>
+<p><figure><a class="lightgallery" href="/images/diagrams-as-code-02-aws-vpc-example-with-helper.png" title="vpc-diagram-simple-with-helpers" data-thumbnail="/images/diagrams-as-code-02-aws-vpc-example-with-helper.png">
+        
+    </a></figure></p>
+<script src="https://gist.github.com/sheldonhull/cc8abcb86c9463b0c74bb9e4d82ffac9.js?file=02.helpers.py"></script>
+
+<h2 id="a-more-complex-example" class="headerLink">
+    <a href="#a-more-complex-example" class="header-mark"></a>A More Complex Example</h2><p>I went through the AWS Reference Architecture Diagrams <sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> and used this to provide a more complex example.</p>
+<p>Take a look at the AWS PDF<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup> and compare.</p>
+<p><figure><a class="lightgallery" href="/images/diagrams-as-code-03-complex.png" title="complex-example" data-thumbnail="/images/diagrams-as-code-03-complex.png">
+        
+    </a></figure></p>
+<script src="https://gist.github.com/sheldonhull/cc8abcb86c9463b0c74bb9e4d82ffac9.js?file=03-diagram-complex.py"></script>
+
+<h2 id="reference" class="headerLink">
+    <a href="#reference" class="header-mark"></a>Reference</h2><table>
+<thead>
+<tr>
+<th>Graphviz Reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.graphviz.org/doc/info/attrs.html#d:color" target="_blank" rel="noopener noreferrer">Colors</a></td>
+</tr>
+<tr>
+<td><a href="https://diagrams.mingrammer.com/docs/nodes/aws" target="_blank" rel="noopener noreferrer">Available Nodes</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/mingrammer/diagrams/issues/202" target="_blank" rel="noopener noreferrer">Individual Node Edits</a></td>
+</tr>
+<tr>
+<td><a href="https://www.graphviz.org/doc/info/attrs.html" target="_blank" rel="noopener noreferrer">Reference for Graph Attributes</a></td>
+</tr>
+</tbody>
+</table>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://bit.ly/3e4t2Mf" target="_blank" rel="noopener noreferrer">Diagram GitHub Project</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://bit.ly/2PDy9tj" target="_blank" rel="noopener noreferrer">Introduction | Documentation | Poetry - Python dependency management and packaging made easy.</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://bit.ly/3vzbuhe" target="_blank" rel="noopener noreferrer">Diagram Project - AWS Diagram Node List</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://amzn.to/3nBhSSc" target="_blank" rel="noopener noreferrer">AWS Reference Architecture Diagrams</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p><a href="https://bit.ly/3e6YrxD" target="_blank" rel="noopener noreferrer">Pull Request Continuous Integration Reference Architecture</a>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Azure Pipelines Template Iteration
+    </title>
+    <link>
+        https://www.sheldonhull.com/azure-pipelines-template-iteration/
+    </link>
+    <pubDate>
+        Fri, 05 Mar 2021 06:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/azure-pipelines-template-iteration/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="templates" class="headerLink">
+    <a href="#templates" class="header-mark"></a>Templates</h2><p>This isn&rsquo;t meant to be an exhaustive template overview.
+I&rsquo;m just going to give an example of what I found useful as I&rsquo;ve been meaning to leverage templates for a while and finally got around to having a great use for it.</p>
+<h2 id="my-use-case" class="headerLink">
+    <a href="#my-use-case" class="header-mark"></a>My Use Case</h2><p>I am a heavy user of <a href="https://bit.ly/3be6EP8" target="_blank" rel="noopener noreferrer">InvokeBuild</a>.
+It&rsquo;s a very robust task runner tool that I&rsquo;ve used to coordinate many project oriented actions, similar to Make, but also DevOps oriented work like AWS SSM tasks and more.</p>
+<p>In this scenario, I needed to run a query across: multiple queries -&gt; across multiple servers -&gt; across hundreds of databases &ndash;&gt; and finally produce a single jsonl artifact<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>Originally, I did this in a single Invoke-Build task, but what I discovered was with a long running job I wanted to have a bit more granular view of the progress and percentage complete.
+This also helped me visualize a bit more what specific queries cost the most in time.</p>
+<h2 id="azure-pipeline-construction" class="headerLink">
+    <a href="#azure-pipeline-construction" class="header-mark"></a>Azure Pipeline Construction</h2><p>I&rsquo;ve extracted out the key essential pieces here to explain the core concepts.</p>
+<h3 id="build-number" class="headerLink">
+    <a href="#build-number" class="header-mark"></a>Build Number</h3><p>Build name is dynamically generated.
+This is my standard format for most pipelines, but you can adjust the naming with parameters (which are a compile time, before runtime) as well to add other descriptive values.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">$(BuildDefinitionName).$(Configuration).$(Build.QueuedBy).$(DayOfYear)$(Rev:.r)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div
+    class="details admonition Info
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      Parameters
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>Parameters are evaluated at compile time, rather than during the build run phase.</p>
+<p>This means you can use something like the example below to update the queued build name on run.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">$(BuildDefinitionName).$(Configuration).$(Build.QueuedBy).${{ parameters.SELECTED_VALUE }}.$(DayOfYear)$(Rev:.r)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Using a build variable might require updating the build name if the build variable isn&rsquo;t set on queue, as it won&rsquo;t pick it up without this command.</p>
+</div>
+    </div>
+  </div>
+<h3 id="trigger" class="headerLink">
+    <a href="#trigger" class="header-mark"></a>Trigger</h3><p>Setting the following values ensures this is a manual pipeline.
+Otherwise, once the pipeline is linked it would automatically trigger on PR and main branch commits.</p>
+<p>There&rsquo;s other customization in terms of filtering triggers based on the path of the changed file, branch names, batching changes with multiple commits, and more in the docs.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">trigger: none
+</span></span><span class="line"><span class="cl">pr: none
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="parameters" class="headerLink">
+    <a href="#parameters" class="header-mark"></a>Parameters</h3><p>Designed for user input, the parameters provide a good experience in customizing runs easily at queue time.</p>
+<p>This can be a full yaml defined object, but my examples here are the simple ones.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">parameters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">string</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l">qa</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">values</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">qa</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">prod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">QUERY_NAME</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">string</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;no-override&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l">If no-override, then run everything, else specify a specific query to run.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">SERVER_LIST</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">string</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;tcp:123.123.123.1;tcp:123.123.123.2&#39;</span><span class="w"> </span><span class="c">#split this in the task code</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l">Example Input that InvokeBuild would split to array</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="variables" class="headerLink">
+    <a href="#variables" class="header-mark"></a>Variables</h3><p>Parameters won&rsquo;t be set in the environment variables, so if you want these exposed to the next tasks, you have to set the variable from the parameter.</p>
+<p>This command will now mean the tasks run will have a <code>$ENV:CONFIGURATION</code> set automatically.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">variables</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">CONFIGURATION</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l">${{ parameters.Configuration }}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="job" class="headerLink">
+    <a href="#job" class="header-mark"></a>Job</h3><p>The pipelines allow you to only put the level of complexity you need in your runbook.</p>
+<p>This means if you just have tasks, you can put those, but if you have a deployment job then you can include tasks in the appropriate child section.</p>
+<p>For my default template here I like control of multi-stage yaml builds, so I use the following format.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">deployment</span><span class="p">:</span><span class="w"> </span><span class="l">my-query-runbook</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l">Run Query in ${{ parameters.Configuration }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">timeoutInMinutes</span><span class="p">:</span><span class="w"> </span><span class="m">480</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">continueOnError</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;my-environment-${{ parameters.Configuration }}&#39;</span><span class="w">  </span><span class="c">#could setup approval requirements for environments by specifying a name like `my-environment-prod` requires manual approval or is limited to specific folks</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">pool</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-own-internal-agent </span><span class="w"> </span><span class="c"># OR use hosted container config if you want</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">demands</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">agent.os -equals Windows_NT </span><span class="w"> </span><span class="c"># OR use Ubuntu if you have linux container. This is customizable to help you filter to desired agent if working with private subnets etc.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">env -equals ${{ parameters.Configuration }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">strategy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">runOnce</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">deploy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="nt">checkout</span><span class="p">:</span><span class="w"> </span><span class="l">self</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">persistCredentials</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">fetchDepth</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">  </span><span class="c"># Unlimited in case you need more history</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">clean</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l">printAllVariables@1</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="using-the-template" class="headerLink">
+    <a href="#using-the-template" class="header-mark"></a>Using the Template</h3><p>At the same level as the task, the template can be called.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">            </span>- <span class="nt">template</span><span class="p">:</span><span class="w"> </span><span class="l">templates/run-query.yml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">parameters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nt">SERVER_LIST</span><span class="p">:</span><span class="w"> </span><span class="l">${{ parameters.QUERY_NAME}}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">${{ if ne(parameters.QUERY_NAME,&#39;no-override&#39;) }}:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                  </span><span class="nt">querynames</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span>- <span class="s1">&#39;${{ parameters.QUERY_NAME }}&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="l">${{ if eq(parameters.QUERY_NAME,&#39;no-override&#39;) }}:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                  </span><span class="nt">querynames</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span>- <span class="s1">&#39;Query1&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span>- <span class="s1">&#39;Query2&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span>- <span class="s1">&#39;Query3&#39;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>A few concepts to unpack:</p>
+<ul>
+<li>Parameters must be passed into the template, as any build variables automatically in scope.</li>
+<li>Variable reuse <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> has it&rsquo;s own set of quirks with templates.</li>
+</ul>
+<blockquote>
+<p>Within a template expression, you have access to the parameters context that contains the values of parameters passed in. Additionally, you have access to the variables context that contains all the variables specified in the YAML file plus many of the predefined variables (noted on each variable in that topic). Importantly, it doesn&rsquo;t have runtime variables such as those stored on the pipeline or given when you start a run. Template expansion happens very early in the run, so those variables aren&rsquo;t available. <sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></p>
+</blockquote>
+<ul>
+<li>Expressions allow some conditional evaluation and change in behavior of the pipeline.<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></li>
+</ul>
+<h3 id="template-structure" class="headerLink">
+    <a href="#template-structure" class="header-mark"></a>Template Structure</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">parameters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;QUERY_NAME&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">object</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span>{}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;CONFIGURATION&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">string</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;SERVER_LIST&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">string</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now that we have the parameters defined, we can use a steps block and loop on the <code>QUERY_NAME</code> parameter that could be a single or multiple entry input.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">${{ each query in parameters.QUERY_NAME }}:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l">PowerShell@2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l">Query ${{ query }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">inputs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">targetType</span><span class="p">:</span><span class="w"> </span><span class="l">inline</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">            &amp;./build.ps1 -Tasks &#39;run-my-query&#39; -Configuration &#39;${{ parameters.CONFIGURATION }}&#39; -QueryName &#39;${{ query }}&#39;</span><span class="w">            
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">errorActionPreference</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Stop&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">pwsh</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">failOnStderr</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">workingDirectory</span><span class="p">:</span><span class="w"> </span><span class="l">$(Build.SourcesDirectory)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">OPTIONAL_ENV_VARS</span><span class="p">:</span><span class="w"> </span><span class="l">${{ parameters.EXAMPLE }}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>This could also be slightly altered if you don&rsquo;t want inline scripts to use the following.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">filePath</span><span class="p">:</span><span class="w"> </span><span class="l">build.ps1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">argumentList</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;-Tasks &#39;run-my-query&#39; -Configuration &#39;${{ parameters.CONFIGURATION }}&#39; -QueryName &#39;${{ query }}&#39;&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="reporting-progress" class="headerLink">
+    <a href="#reporting-progress" class="header-mark"></a>Reporting Progress</h2><p>As the task runs, you can output percent complete so that your task shows how far along it is.
+I find this great for long running tasks, helping me check on them and know it&rsquo;s not stuck.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">Write-Host &#34;##vso[task.setprogress value=$PercentComplete;]MyTask&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="final-result" class="headerLink">
+    <a href="#final-result" class="header-mark"></a>Final Result</h2><p>This allows the job to set dynamically the individual tasks to run, report progress on each, and log the timing.</p>
+<p>While it could be run as a single task, I prefer this type of approach because a long running job is now much more easily tracked as it progresses.</p>
+<p><figure><a class="lightgallery" href="/images/2021-03-04-13.38.45-pipelines-example.png" title="image-of-individual-tasks-in-pipeline" data-thumbnail="/images/2021-03-04-13.38.45-pipelines-example.png">
+        
+    </a></figure></p>
+<h2 id="further-features" class="headerLink">
+    <a href="#further-features" class="header-mark"></a>Further Features</h2><p>Templates allow for a wide range of usage and flexibility that I&rsquo;ve barely touched.
+Selecting entire sets of tasks at runtime, variable sets, and more are all available.</p>
+<p>This was a first round usage of them, as I really want to leverage the potentional for DRY with pipelines more, and templates offer a really flexible option to reusing core code across multiple pipelines without having to version each individually and try to keep them up to date.</p>
+<h2 id="more-resources" class="headerLink">
+    <a href="#more-resources" class="header-mark"></a>More Resources</h2><ul>
+<li><a href="https://bit.ly/3ruO5vT" target="_blank" rel="noopener noreferrer">Azure DevOps Tips: “Each” Loops. Applying DRY principle in CI/CD — Using… | by Jordan Lee | Medium</a></li>
+<li>YAML schema - Azure Pipelines | Microsoft Docs <sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup></li>
+<li>Predefined variables - Azure Pipelines | Microsoft Docs <sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup></li>
+<li>Expressions <sup id="fnref1:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a href="https://bit.ly/3bgkTmi" target="_blank" rel="noopener noreferrer">A standard for jsonl</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://bit.ly/2OqEreJ" target="_blank" rel="noopener noreferrer">Variable reuse</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://bit.ly/2OoAXK0" target="_blank" rel="noopener noreferrer">Azure DevOps Template Context</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://bit.ly/30bDR7g" target="_blank" rel="noopener noreferrer">Expressions - Azure Pipelines | Microsoft Docs</a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a>&#160;<a href="#fnref1:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p><a href="https://bit.ly/3rhAgRd" target="_blank" rel="noopener noreferrer">YAML schema - Azure Pipelines | Microsoft Docs</a>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p><a href="https://bit.ly/30a1du6" target="_blank" rel="noopener noreferrer">Predefined variables - Azure Pipelines | Microsoft Docs</a>&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Git Workflow With Git Town
+    </title>
+    <link>
+        https://www.sheldonhull.com/git-workflow-with-git-town/
+    </link>
+    <pubDate>
+        Tue, 23 Feb 2021 22:23:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/git-workflow-with-git-town/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="resources" class="headerLink">
+    <a href="#resources" class="header-mark"></a>Resources</h2><p><a href="https://bit.ly/2OR6zIf" target="_blank" rel="noopener noreferrer">Git-Town</a></p>
+<h2 id="painful-but-powerful" class="headerLink">
+    <a href="#painful-but-powerful" class="header-mark"></a>Painful But Powerful</h2><p>Let&rsquo;s get this out of the way.</p>
+<p>Git isn&rsquo;t intuitive.</p>
+<p>It has quite a bit of a learning curve.</p>
+<p>However, with this flexibility comes great flexibility.
+This tool has powered so much of modern open-source development.</p>
+<h2 id="optimize-for-the-pain" class="headerLink">
+    <a href="#optimize-for-the-pain" class="header-mark"></a>Optimize for the Pain</h2><p>To improve the development experience some tools can help provide structure.</p>
+<p>This won&rsquo;t be an attempt to compare every git GUI, or push any specific tooling.
+It&rsquo;s more sharing my experience and what I&rsquo;ve found helps accelerate my usage.</p>
+<h2 id="tools-ive-relied-on" class="headerLink">
+    <a href="#tools-ive-relied-on" class="header-mark"></a>Tools I&rsquo;ve Relied On</h2><ul>
+<li><a href="https://bit.ly/2OR6zIf" target="_blank" rel="noopener noreferrer">Git-Town</a></li>
+<li><a href="https://bit.ly/37F8vu1" target="_blank" rel="noopener noreferrer">Bit</a></li>
+<li><a href="https://bit.ly/3boywik" target="_blank" rel="noopener noreferrer">GitHub CLI</a></li>
+<li><a href="https://bit.ly/3pEu8AJ" target="_blank" rel="noopener noreferrer">Git Graph</a></li>
+<li><a href="https://bit.ly/3dBaUcZ" target="_blank" rel="noopener noreferrer">Git Lens</a></li>
+</ul>
+<p>I&rsquo;m not going to go into full detail on each, but check these out to help expedite your workflow.</p>
+<h2 id="the-challenge-in-keeping-up-to-date-with-main" class="headerLink">
+    <a href="#the-challenge-in-keeping-up-to-date-with-main" class="header-mark"></a>The Challenge In Keeping Up To Date With Main</h2><p>I use what&rsquo;s normally called <code>trunk-based</code> development.
+This entails regularly moving commits from branches into the main branch, often rebasing while maintaining it in a functional state.</p>
+<p>I&rsquo;ll create a feature branch, bug fix, or refactor branch and then merge this to <code>main</code> as soon as functional.</p>
+<p>I prefer a rebase approach on my branches, and when many ci/fix type commits, to squash this into a single unit of work as the results of the PR.
+This can result in &ldquo;merge hell&rdquo; as you try rebase on a busy repo.</p>
+<h2 id="enter-git-town" class="headerLink">
+    <a href="#enter-git-town" class="header-mark"></a>Enter Git Town</h2><p>This tool solves so many of the basic workflow issues, that it&rsquo;s become one of the most impactful tools to my daily work.</p>
+<div
+    class="details admonition Tip
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      Enable Aliases
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">The examples that follow use <code>git sync</code>, <code>git hack feat/new-feature</code>, etc as examples because I&rsquo;ve run the command <code>git-town alias true</code> which enables the alias configuration for git town, reducing verbosity.
+Instead of <code>git town sync</code>, you can run <code>git sync</code>.</div>
+    </div>
+  </div>
+<h3 id="example-1-create-a-branch-for-a-new-unit-of-work-while-you-are-already-on-another-branch" class="headerLink">
+    <a href="#example-1-create-a-branch-for-a-new-unit-of-work-while-you-are-already-on-another-branch" class="header-mark"></a>Example 1: Create a Branch for a New Unit of Work While You Are Already On Another Branch</h3><p>Normally this would require:</p>
+<ol>
+<li>Stash/Push current work</li>
+<li>Checkout master</li>
+<li>Fetch latest and pull with rebase</li>
+<li>Resolve any conflicts from rebase</li>
+<li>Create the new branch from main</li>
+<li>Switch to the new branch</li>
+</ol>
+<p>With Git Town</p>
+<ol>
+<li><code>git hack feat/new-feature</code></li>
+</ol>
+<h3 id="example-2-sync-main" class="headerLink">
+    <a href="#example-2-sync-main" class="header-mark"></a>Example 2: Sync Main</h3><p>The following steps would be performed by: <code>git sync</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[master] git fetch --prune --tags
+</span></span><span class="line"><span class="cl">[master] git add -A
+</span></span><span class="line"><span class="cl">[master] git stash
+</span></span><span class="line"><span class="cl">[master] git rebase origin/master
+</span></span><span class="line"><span class="cl">[master] git push --tags
+</span></span><span class="line"><span class="cl">[master] git stash pop
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="example-3-new-branch-from-main" class="headerLink">
+    <a href="#example-3-new-branch-from-main" class="header-mark"></a>Example 3: New Branch From Main</h3><p>Easy to quickly ensure you are up to date with remote and generate a new branch with your current uncommitted changes.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">town</span> <span class="n">hack</span> <span class="n">fix</span><span class="p">/</span><span class="nb">quick-fix</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[master] git fetch --prune --tags
+</span></span><span class="line"><span class="cl">[master] git add -A
+</span></span><span class="line"><span class="cl">[master] git stash
+</span></span><span class="line"><span class="cl">[master] git rebase origin/master
+</span></span><span class="line"><span class="cl">[master] git branch feat/demo-feature master
+</span></span><span class="line"><span class="cl">[master] git checkout feat/demo-feature
+</span></span><span class="line"><span class="cl">[feat/demo-feature] git stash pop
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="example-4-quickly-create-a-pr-while-on-a-branch-for-seperate-set-of-changes" class="headerLink">
+    <a href="#example-4-quickly-create-a-pr-while-on-a-branch-for-seperate-set-of-changes" class="header-mark"></a>Example 4: Quickly Create a PR While On A Branch for Seperate Set of Changes</h3><p>This workflow is far too tedious to do without tooling like this.</p>
+<p>Let&rsquo;s say I&rsquo;m on a branch doing some work, and then I recognize that another bug, doc improvements, or other change unrelated to my current work would be good to submit.</p>
+<p>With git town, it&rsquo;s as simple as:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">town</span> <span class="n">hack</span> <span class="n">feat</span><span class="p">/</span><span class="nb">improve-docs</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>I can stage individual lines using VSCode for this fix if I want to, and then after committing:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[feat/demo-feature] git fetch --prune --tags
+</span></span><span class="line"><span class="cl">[feat/demo-feature] git add -A
+</span></span><span class="line"><span class="cl">[feat/demo-feature] git stash
+</span></span><span class="line"><span class="cl">[feat/demo-feature] git checkout master
+</span></span><span class="line"><span class="cl">[master] git rebase origin/master
+</span></span><span class="line"><span class="cl">[master] git branch feat/demo-feature-2 master
+</span></span><span class="line"><span class="cl">[master] git checkout feat/demo-feature-2
+</span></span><span class="line"><span class="cl">[feat/demo-feature-2] git stash pop
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">town</span> <span class="nb">new-pull</span><span class="n">-request</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="example-5-ship-it" class="headerLink">
+    <a href="#example-5-ship-it" class="header-mark"></a>Example 5: Ship It</h3><p>When not using a PR-driven workflow, such as solo projects, then you can still branch and get your work over to main to keep a cleaner history with:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">town</span> <span class="n">ship</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This command ensures all the sync features are run, while then initiating a squash of your branch, allow you to edit the squash message, rebase merge this onto main, and finally clean-up the stale branch.</p>
+<h3 id="more-examples" class="headerLink">
+    <a href="#more-examples" class="header-mark"></a>More Examples</h3><p>Check out the documentation from the creators: <a href="https://bit.ly/3kjgsKy" target="_blank" rel="noopener noreferrer">Git Town Tutorials</a></p>
+<h2 id="other-cool-features" class="headerLink">
+    <a href="#other-cool-features" class="header-mark"></a>Other Cool Features</h2><ul>
+<li>Automatically prune stale branches after PR merge when syncing</li>
+<li>Handles perennial branches if you are using Git Flow methodology.</li>
+<li>Extensible for other git providers.</li>
+<li>Rename a local branch + remote branch in a single command</li>
+<li>Handles a lot of edge cases and failures</li>
+</ul>
+<h2 id="wrap-up" class="headerLink">
+    <a href="#wrap-up" class="header-mark"></a>Wrap-Up</h2><p>When using git, leveraging some tooling like this can accelerate your workflow.
+I don&rsquo;t think you need to be an expert in git to use this, as it helps simplify many workflows that are just too tedious to be diligent on when running manually.</p>
+<p>You can also do much of this with git aliases, but Git Town has a pretty robust feature-set with a testing framework in place, edge condition handling, and it&rsquo;s fast.
+Consider using it you&rsquo;d like to improve your git workflow while simplifying all the effort to do it right.</p>
+<h2 id="backlinks" class="headerLink">
+    <a href="#backlinks" class="header-mark"></a>Backlinks</h2><ul>
+<li><a href="./2021-06-18-git-hub-desktop-quick-look/" rel="">Git Hub Desktop Quick Look</a>
+<ul>
+<li>Update from <code>main</code> already built in.
+This is fantastic, and I can see how this provides a UI to do something similar to <a href="https://www.git-town.com/" target="_blank" rel="noopener noreferrer">Git Town</a> which I blogged on earlier here: <a href="./2021-02-23-git-workflow-with-git-town/" rel="">2021-02-23-git-workflow-with-git-town</a></li>
+</ul>
+</li>
+</ul>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Working With Powershell Objects to Create Yaml
+    </title>
+    <link>
+        https://www.sheldonhull.com/working-with-powershell-objects-to-create-yaml/
+    </link>
+    <pubDate>
+        Tue, 09 Feb 2021 05:30:39 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/working-with-powershell-objects-to-create-yaml/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="who-this-might-be-for" class="headerLink">
+    <a href="#who-this-might-be-for" class="header-mark"></a>Who This Might Be For</h2><ul>
+<li>PowerShellers wanting to know how to create json and yaml dynamically via <code>pscustomobject</code>.</li>
+<li>Anyone wanting to create configs like Datadog or other tools dynamically without the benefit of a configuration management tool.</li>
+<li>Anyone else wanting to fall asleep more quickly. (I can think of better material such as the Go spec docs, but hey, I can&rsquo;t argue with your good taste 😄)</li>
+</ul>
+<h2 id="yaml" class="headerLink">
+    <a href="#yaml" class="header-mark"></a>YAML</h2><p>It&rsquo;s readable.</p>
+<p>It&rsquo;s probably cost all of us hours when debugging yaml that&rsquo;s nested several layers and an errant whitespace got in.</p>
+<p>It&rsquo;s here to stay.</p>
+<p>I prefer it over JSON for readability, but I prefer JSON for programmability.</p>
+<p>Sometimes though, tooling uses yaml, and we need to be able to flip between both.</p>
+<p>Historically I&rsquo;ve used <code>cfn-flip</code> which is pretty great.</p>
+<h2 id="enter-yq" class="headerLink">
+    <a href="#enter-yq" class="header-mark"></a>Enter yq</h2><p>The problem I have with using <code>cfn-flip</code> is dependencies.
+It&rsquo;s a bit crazy to setup a docker image and then need to install a bunch of python setup tools to just get this one tool when it&rsquo;s all I need.</p>
+<p>I thought about building a quick <code>Go</code> app to do this and give me the benefit of a single binary, as there is a pretty useful <code>yaml</code> package already.
+Instead, I found a robust package that is cross-platform called <code>yq</code> and it&rsquo;s my new go to. 🎉</p>
+<h2 id="just-plain-works" class="headerLink">
+    <a href="#just-plain-works" class="header-mark"></a>Just plain works</h2><p><a href="http://bit.ly/3pphpTb" target="_blank" rel="noopener noreferrer">The docs are great</a></p>
+<p>Reading <code>STDIN</code> is a bit clunky, but not too bad, though I wish it would take more of a pipeline input approach natively.
+Instead of passing in <code>{&quot;string&quot;:&quot;value&quot;} | yq</code> it requires you to specify <code>stringinput | yq eval - --prettyPrint</code> .
+Note the single hyphen after eval. This is what signifies that the input is <code>STDIN</code>.</p>
+<h2 id="dynamically-generate-some-configs" class="headerLink">
+    <a href="#dynamically-generate-some-configs" class="header-mark"></a>Dynamically Generate Some Configs</h2><p>I was working on some Datadog config generation for SQL Server, and found this tooling useful, especially on older Windows instances that didn&rsquo;t have the capability to run the nice module <a href="http://bit.ly/3j4D94J" target="_blank" rel="noopener noreferrer">powershell-yaml</a>.</p>
+<p>Here&rsquo;s how to use PowerShell objects to help generate a yaml configuration file on demand.</p>
+<h3 id="install" class="headerLink">
+    <a href="#install" class="header-mark"></a>Install</h3><p>See install directions for linux/mac, as it&rsquo;s pretty straightforward.</p>
+<p>For windows, the chocolatey package was outdated as of the time of the article using the version 3.x.</p>
+<p>I used a PowerShell 4.0 compatible syntax here that should work on any instances with access to the web.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">[</span><span class="no">Net.ServicePointManager</span><span class="p">]::</span><span class="n">SecurityProtocol</span> <span class="p">=</span> <span class="p">[</span><span class="no">Net.SecurityProtocolType</span><span class="p">]::</span><span class="n">Tls12</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">-not</span> <span class="p">(</span><span class="nb">Test-Path</span> <span class="s1">&#39;C:\tools\yq.exe&#39;</span> <span class="n">-PathType</span> <span class="n">Leaf</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nv">$ProgressPreference</span> <span class="p">=</span> <span class="s1">&#39;SilentlyContinue&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">New-Item</span> <span class="s1">&#39;C:\tools&#39;</span> <span class="n">-ItemType</span> <span class="n">Directory</span> <span class="n">-Force</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">Invoke-WebRequest</span> <span class="s1">&#39;https://github.com/mikefarah/yq/releases/download/v4.4.1/yq_windows_amd64.exe&#39;</span> <span class="n">-OutFile</span> <span class="s1">&#39;C:\tools\yq.exe&#39;</span> <span class="n">-UseBasicParsing</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">Unblock-File</span> <span class="s1">&#39;C:\tools\yq.exe&#39;</span> <span class="n">-Confirm:</span><span class="vm">$false</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Once this was downloaded, you could either make sure <code>C:\tools</code> was in <code>PATH</code> or just use the fully qualified path for our simple use case.</p>
+<h3 id="get-aws-metadata" class="headerLink">
+    <a href="#get-aws-metadata" class="header-mark"></a>Get AWS Metadata</h3><p>In AWS, I parsed the metadata for the AccountID and InstanceID to generate a query to pull the Name tag dynamically.</p>
+<div
+    class="details admonition Tip
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      Permissions Check
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content">You must have the required permissions for the instance profile for this to work.
+This is not an instance level permission, so you&rsquo;ll want to add the required DescribeTags and ListInstances permissions for using a command such as <code>Get-EC2Tag</code></div>
+    </div>
+  </div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Import-Module</span> <span class="n">AWSPowershell</span> <span class="n">-Verbose:</span><span class="vm">$false</span> <span class="p">*&gt;</span> <span class="vm">$null</span>
+</span></span><span class="line"><span class="cl"><span class="c"># AWSPowerShell is the legacy module, but is provided already on most AWS instances</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$response</span> <span class="p">=</span> <span class="nb">Invoke-RestMethod</span> <span class="n">-Uri</span> <span class="s1">&#39;http://169.254.169.254/latest/dynamic/instance-identity/document&#39;</span> <span class="n">-TimeoutSec</span> <span class="mf">5</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$AccountId</span> <span class="p">=</span> <span class="nv">$response</span><span class="p">.</span><span class="py">AccountId</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="pull-back-ec2-tags" class="headerLink">
+    <a href="#pull-back-ec2-tags" class="header-mark"></a>Pull Back EC2 Tags</h3><p>Now we can pull back the tag using an EC2 instance filter object.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$filters</span> <span class="p">=</span> <span class="vm">@</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="p">[</span><span class="no">Amazon.EC2.Model.Filter</span><span class="p">]::</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;resource-id&#39;</span><span class="p">,</span> <span class="nv">$response</span><span class="p">.</span><span class="n">InstanceId</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$tags</span> <span class="p">=</span> <span class="nb">Get-EC2Tag</span> <span class="n">-Filters</span> <span class="nv">$filters</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$tagcollection</span> <span class="p">=</span> <span class="nv">$tags</span><span class="p">.</span><span class="k">ForEach</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">$t</span> <span class="p">=</span> <span class="nv">$_</span>
+</span></span><span class="line"><span class="cl">      <span class="p">[</span><span class="no">pscustomobject</span><span class="p">]</span><span class="vm">@</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">Name</span>  <span class="p">=</span> <span class="nv">$t</span><span class="p">.</span><span class="py">name</span>
+</span></span><span class="line"><span class="cl">          <span class="n">Value</span> <span class="p">=</span> <span class="nv">$t</span><span class="p">.</span><span class="py">value</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">Write-Host</span> <span class="s2">&#34;Tags For Instance: </span><span class="p">$(</span><span class="nv">$tagcollection</span> <span class="p">|</span> <span class="nb">Format-Table</span> <span class="n">-AutoSize</span> <span class="n">-Wrap</span> <span class="p">|</span> <span class="nb">Out-String</span><span class="p">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$HostName</span> <span class="p">=</span> <span class="nv">$Tags</span><span class="p">.</span><span class="py">GetEnumerator</span><span class="p">().</span><span class="py">Where</span><span class="p">{</span> <span class="nv">$_</span><span class="p">.</span><span class="py">Key</span> <span class="o">-eq</span> <span class="s1">&#39;Name&#39;</span> <span class="p">}.</span><span class="n">Value</span><span class="p">.</span><span class="py">ToLower</span><span class="p">().</span><span class="py">Trim</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">$SqlInstance</span> <span class="p">=</span> <span class="nv">$HostName</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="switch-things-up-with-a-switch" class="headerLink">
+    <a href="#switch-things-up-with-a-switch" class="header-mark"></a>Switch Things Up With A Switch</h3><p>The next step was to alias the instance.</p>
+<p>The better way to do this would be to use a tag that it reads, but for my quick ad-hoc use, this just let me specific an explicit alias to generate as a tag in the yaml. Again, try to use the Datadog tagging feature to do this automatically if possible.</p>
+<div
+    class="details admonition Tip
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      Switch Statements
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>If you aren&rsquo;t familiar with PowerShell&rsquo;s switch statement, it&rsquo;s a nice little feature for making this evaluation easy to read.</p>
+<p>For the breadth of what this cool language feature can do, check this article out:</p>
+<p><a href="http://bit.ly/3pwnei0" target="_blank" rel="noopener noreferrer">Everything you ever wanted to know about the switch statement</a></p>
+</div>
+    </div>
+  </div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="k">switch</span> <span class="p">(</span><span class="nv">$AccountId</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;12345&#39;</span> <span class="p">{</span> <span class="nv">$AWSAccountAlias</span>  <span class="p">=</span> <span class="s1">&#39;mydevenv&#39;</span> <span class="p">;</span> <span class="nv">$stage</span> <span class="p">=</span> <span class="s1">&#39;qa&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;12345&#39;</span> <span class="p">{</span> <span class="nv">$AWSAccountAlias</span>  <span class="p">=</span> <span class="s1">&#39;myprodenv&#39;</span> <span class="p">;</span> <span class="nv">$stage</span> <span class="p">=</span> <span class="s1">&#39;prod&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">default</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">throw</span> <span class="s2">&#34;Couldn&#39;t match a valid account number to give this an alias&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now, preview the results of this Frankenstein.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="n">-ForegroundColor</span> <span class="n">Green</span> <span class="p">(</span><span class="s2">&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2"></span><span class="se">`$</span><span class="s2">HostName        = </span><span class="nv">$HostName</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2"></span><span class="se">`$</span><span class="s2">SqlInstance     = </span><span class="nv">$SqlInstance</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2"></span><span class="se">`$</span><span class="s2">AWSAccountAlias = </span><span class="nv">$AWSAccountAlias</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2"></span><span class="se">`$</span><span class="s2">stage           = </span><span class="nv">$stage</span><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2"> &#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="ready-to-generate-some-yaml-magic" class="headerLink">
+    <a href="#ready-to-generate-some-yaml-magic" class="header-mark"></a>Ready To Generate Some Yaml Magic</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$TargetConfig</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Join-Path</span> <span class="nv">$ENV:ProgramData</span> <span class="s1">&#39;Datadog/conf.d/windows_service.d/conf.yaml&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$Services</span> <span class="p">=</span> <span class="p">[</span><span class="no">pscustomobject</span><span class="p">]</span><span class="vm">@</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;instances&#39;</span> <span class="p">=</span> <span class="vm">@</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="no">ordered</span><span class="p">]</span><span class="vm">@</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;services&#39;</span>                   <span class="p">=</span>  <span class="vm">@</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;SQLSERVERAGENT&#39;</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;MSSQLSERVER&#39;</span>
+</span></span><span class="line"><span class="cl">                <span class="s1">&#39;SQLSERVERAGENT&#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;disable_legacy_service_tag&#39;</span> <span class="p">=</span> <span class="vm">$true</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;tags&#39;</span>                       <span class="p">=</span> <span class="vm">@</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;aws_account_alias:</span><span class="nv">$AWSAccountAlias</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;sql_instance:</span><span class="nv">$SqlInstance</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;stage:</span><span class="nv">$stage</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">$Services</span> <span class="p">|</span> <span class="nb">ConvertTo-Json</span> <span class="n">-Depth</span> <span class="mf">100</span> <span class="p">|</span> <span class="p">&amp;</span><span class="s1">&#39;C:\tools\yq.exe&#39;</span> <span class="n">eval</span> <span class="p">-</span> <span class="p">-</span><span class="n">-prettyPrint</span> <span class="p">|</span> <span class="nb">Out-File</span> <span class="nv">$TargetConfig</span> <span class="n">-Encoding</span> <span class="n">UTF8</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This would produce a nice json output like this</p>
+<p><figure><a class="lightgallery" href="/images/2021-02-08-yaml-config-example.png" title="Example config image" data-thumbnail="/images/2021-02-08-yaml-config-example.png">
+        
+    </a></figure></p>
+<h3 id="one-more-complex-example" class="headerLink">
+    <a href="#one-more-complex-example" class="header-mark"></a>One More Complex Example</h3><p>Start with creating an empty array and some variables to work with.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$UserName</span> <span class="p">=</span> <span class="s1">&#39;TacoBear&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$Password</span> <span class="p">=</span> <span class="s1">&#39;YouReallyThinkI&#39;&#39;dPostThis?Funny&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$TargetConfig</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Join-Path</span> <span class="nv">$ENV:ProgramData</span> <span class="s1">&#39;Datadog/conf.d/sqlserver.d/conf.yaml&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$Queries</span> <span class="p">=</span> <span class="vm">@</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Next include the generic Datadog collector definition.</p>
+<p>This is straight outta their <a href="http://bit.ly/3cisxgY" target="_blank" rel="noopener noreferrer">Github repo</a> with the benefit of some tagging.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$Queries</span> <span class="p">+=</span> <span class="p">[</span><span class="no">ordered</span><span class="p">]</span><span class="vm">@</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;host&#39;</span>      <span class="p">=</span><span class="s1">&#39;tcp:localhost,1433&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;username&#39;</span>  <span class="p">=</span><span class="nv">$UserName</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;password&#39;</span>  <span class="p">=</span> <span class="nv">$Password</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;connector&#39;</span> <span class="p">=</span><span class="s1">&#39;adodbapi&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;driver&#39;</span>    <span class="p">=</span> <span class="s1">&#39;SQL Server&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;database&#39;</span>  <span class="p">=</span> <span class="s1">&#39;master&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;tags&#39;</span>      <span class="p">=</span> <span class="vm">@</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;aws_account_alias:</span><span class="nv">$AWSAccountAlias</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;sql_instance:</span><span class="nv">$SqlInstance</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;stage:</span><span class="nv">$stage</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div
+    class="details admonition Tip
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      Using &#43;= for Collections
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>Using <code>+=</code> is a bit of an anti-pattern for high performance PowerShell, but it works great for something like this that&rsquo;s ad-hoc and needs to be simple.
+For high performance needs, try using something like <code>$list = [Systems.Collections.Generic.List[pscustomobject]]:new()</code> for example.
+This can then allow you to use the <code>$list.Add([pscustomobject]@{}</code> to add items.</p>
+<p>A bit more complex, but very powerful and performance, with the benefit of stronger data typing.</p>
+</div>
+    </div>
+  </div>
+<p>This one is a good example of the custom query format that Datadog supports, but honestly I found pretty confusing in their docs until I bumbled my way through a few iterations.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$Queries</span> <span class="p">+=</span>    <span class="p">[</span><span class="no">ordered</span><span class="p">]</span><span class="vm">@</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># description: Not Used by Datadog, but helpful to reading the yaml, be kind to those folks!</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;description&#39;</span>             <span class="p">=</span> <span class="s1">&#39;Get Count of Databases on Server&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;host&#39;</span>                    <span class="p">=</span><span class="s1">&#39;tcp:localhost,1433&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;username&#39;</span>                <span class="p">=</span> <span class="nv">$UserName</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;database&#39;</span>                <span class="p">=</span> <span class="s1">&#39;master&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;password&#39;</span>                <span class="p">=</span> <span class="nv">$Password</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;connector&#39;</span>               <span class="p">=</span><span class="s1">&#39;adodbapi&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;driver&#39;</span>                  <span class="p">=</span> <span class="s1">&#39;SQL Server&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;min_collection_interval&#39;</span> <span class="p">=</span> <span class="p">[</span><span class="no">timespan</span><span class="p">]::</span><span class="n">FromHours</span><span class="p">(</span><span class="mf">1</span><span class="p">).</span><span class="py">TotalSeconds</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;command_timeout&#39;</span>         <span class="p">=</span> <span class="mf">120</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;custom_queries&#39;</span>          <span class="p">=</span> <span class="vm">@</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="p">[</span><span class="no">ordered</span><span class="p">]</span><span class="vm">@</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;query&#39;</span>   <span class="p">=</span> <span class="s2">&#34;select count(name) from sys.databases as d where d.Name not in (&#39;master&#39;, &#39;msdb&#39;, &#39;model&#39;, &#39;tempdb&#39;)&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;columns&#39;</span> <span class="p">=</span> <span class="vm">@</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="p">[</span><span class="no">ordered</span><span class="p">]</span><span class="vm">@</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;name&#39;</span> <span class="p">=</span> <span class="s1">&#39;instance.database_count&#39;</span>
+</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;type&#39;</span> <span class="p">=</span> <span class="s1">&#39;gauge&#39;</span>
+</span></span><span class="line"><span class="cl">                    <span class="s1">&#39;tags&#39;</span> <span class="p">=</span> <span class="vm">@</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                        <span class="s2">&#34;aws_account_alias:</span><span class="nv">$AWSAccountAlias</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                        <span class="s2">&#34;sql_instance:</span><span class="nv">$SqlInstance</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                        <span class="s2">&#34;stage:</span><span class="nv">$stage</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Let me do a quick breakdown, in case you aren&rsquo;t as familiar with this type of syntax in PowerShell.</p>
+<ol>
+<li><code>$Queries +=</code> takes whatever existing object we have and replaces it with the current object + the new object. This is why it&rsquo;s not performant for large scale work as it&rsquo;s basically creating a whole new copy of the collection with your new addition.</li>
+<li>Next, I&rsquo;m using <code>[ordered]</code> instead of <code>[pscustomobject]</code> which in effect does the same thing, but ensures I&rsquo;m not having all my properties randomly sorted each time. Makes things a little easier to review. This is a shorthand syntax for what would be a much longer tedious process using <code>New-Object</code> and <code>Add-Member</code>.</li>
+<li>Custom queries is a list, so I cast it with <code>@()</code> format, which tells PowerShell to expect a list. This helps json/yaml conversion be correct even if you have just a single entry. You can be more explicit if you want, like <code>[pscustomobject[]]@()</code> but since PowerShell ignores you mostly on trying to be type specific, it&rsquo;s not worth it. Don&rsquo;t try to make PowerShell be Go or C#. 😁</li>
+</ol>
+<h3 id="flip-to-yaml" class="headerLink">
+    <a href="#flip-to-yaml" class="header-mark"></a>Flip To Yaml</h3><p>Ok, we have an object list, now we need to flip this to yaml.</p>
+<p>It&rsquo;s not as easy as <code>$Queries | yq</code> because of the difference in paradigm with .NET.</p>
+<p>We are working with a structured object.</p>
+<p>Just look at <code>$Queries | Get-Member</code> and you&rsquo;ll probably get: <code>TypeName: System.Collections.Specialized.OrderedDictionary.</code> The difference is that Go/Linux paradigm is focused on text, not objects. With <code>powershell-yaml</code> module you can run <code>ConvertTo-Yaml $Queries</code> and it will work as it will handle the object transformation.</p>
+<p>However, we can actually get there with PowerShell, just need to think of a text focused paradigm instead. This is actually pretty easy using <code>Converto-Json</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$SqlConfig</span> <span class="p">=</span> <span class="p">[</span><span class="no">ordered</span><span class="p">]</span><span class="vm">@</span><span class="p">{</span><span class="s1">&#39;instances&#39;</span> <span class="p">=</span> <span class="nv">$Queries</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$SqlConfig</span> <span class="p">|</span> <span class="nb">ConvertTo-Json</span> <span class="n">-Depth</span> <span class="mf">100</span> <span class="p">|</span> <span class="p">&amp;</span><span class="s1">&#39;C:\tools\yq.exe&#39;</span> <span class="n">eval</span> <span class="p">-</span> <span class="p">-</span><span class="n">-prettyPrint</span> <span class="p">|</span> <span class="nb">Out-File</span> <span class="nv">$TargetConfig</span> <span class="n">-Encoding</span> <span class="n">UTF8</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This takes the object, converts to json uses the provided cmdlet from PowerShell that knows how to properly take the object and all the nested properties and magically split to <code>JSON</code>.  Pass this into the <code>yq</code> executable, and behold, the magic is done.</p>
+<p>You should have a nicely formatted yaml configuration file for Datadog.</p>
+<p>If not, the dog will yip and complain with a bunch of red text in the log.</p>
+<h3 id="debug-helper" class="headerLink">
+    <a href="#debug-helper" class="header-mark"></a>Debug Helper</h3><p>Use this on the remote instance to simplify some debugging, or even connect via SSM directly.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">&amp;</span> <span class="s2">&#34;</span><span class="nv">$env:ProgramFiles</span><span class="s2">\Datadog\Datadog Agent\bin\agent.exe&#34;</span> <span class="n">stopservice</span>
+</span></span><span class="line"><span class="cl"><span class="p">&amp;</span> <span class="s2">&#34;</span><span class="nv">$env:ProgramFiles</span><span class="s2">\Datadog\Datadog Agent\bin\agent.exe&#34;</span> <span class="nb">start-service</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">#Stream Logs without gui if remote session using:</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Get-Content</span> <span class="s1">&#39;C:\ProgramData\Datadog\logs\agent.log&#39;</span> <span class="n">-Tail</span> <span class="mf">5</span> <span class="n">-Wait</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># interactive debugging and viewing of console</span>
+</span></span><span class="line"><span class="cl"><span class="c"># &amp; &#34;$env:ProgramFiles\Datadog\Datadog Agent\bin\agent.exe&#34; launch-gui</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="wrap-up" class="headerLink">
+    <a href="#wrap-up" class="header-mark"></a>Wrap Up</h2><p>Ideally, use Chef, Ansible, Saltstack, DSC, or another tool to do this. However, sometimes you just need some flexible options for generating this type of content dynamically. Hopefully, you&rsquo;ll find this useful in your PowerShell magician journey and save some time.</p>
+<p>I&rsquo;ve already found it useful in flipping json content for various tools back and forth. 🎉</p>
+<p>A few scenarios that tooling like yq might prove useful could be:</p>
+<ul>
+<li>convert simple query results from json to yaml and store in git as config</li>
+<li>Flip an SSM Json doc to yaml</li>
+<li>Review a complex json doc by flipping to yaml for more readable syntax</li>
+<li>Confusing co-workers by flipping all their cloudformation from yaml to json or yaml from json. (If you take random advice like this and apply, you probably deserve the aftermath this would bring 🤣.)</li>
+</ul>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,59 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Copilot - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/copilot/</link>
+        <description>Copilot - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://www.sheldonhull.com/tags/copilot/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        copilot
+    </title>
+    <link>
+        https://www.sheldonhull.com/notes/development/ai/copilot/
+    </link>
+    <pubDate>
+        Mon, 01 Jan 0001 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/notes/development/ai/copilot/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="examples-of-where-copilot-failed" class="headerLink">
+    <a href="#examples-of-where-copilot-failed" class="header-mark"></a>Examples of Where Copilot Failed</h2><h2 id="examples-of-where-copilot-excelled" class="headerLink">
+    <a href="#examples-of-where-copilot-excelled" class="header-mark"></a>Examples of Where Copilot Excelled</h2><div
+    class="details admonition example"
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-list-ol fa-fw"
+      ></i>
+      ASCII color codes in bash scripts
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>This has always been a challenge for me, and I spend a significant amount of time trying to figure out the pattern for &ldquo;background is blue with white text and bold&rdquo; to add a touch of polish.
+Copilot nailed this in a comment in a <code>.envrc</code> file stating: <code># variable for setting terminal output with light yellow background and black text that is bold</code> resulting in an ideal match.</p>
+<p><figure><a class="lightgallery" href="/images/notes/copilot-color-codes.png" title="copilot-helped-make-this-nice" data-thumbnail="/images/notes/copilot-color-codes.png" data-sub-html="<h2>copilot helped make this</h2><p>copilot-helped-make-this-nice</p>">
+        
+    </a><figcaption class="image-caption">copilot helped make this</figcaption>
+    </figure></p>
+</div>
+    </div>
+  </div>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

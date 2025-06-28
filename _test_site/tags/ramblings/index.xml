@@ -1,0 +1,461 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Ramblings - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/ramblings/</link>
+        <description>Ramblings - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 02 Mar 2022 23:26:10 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/ramblings/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        My Job
+    </title>
+    <link>
+        https://www.sheldonhull.com/my-job/
+    </link>
+    <pubDate>
+        Wed, 02 Mar 2022 23:26:10 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/my-job/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Acted like I wasn&rsquo;t going to go to work today with my 4 year old daughter.
+She looked over at me and told me I don&rsquo;t have to go somewhere, I just walk up the stairs.
+&ldquo;Your boss will want you to go to work today&rdquo;.
+Very astitute, I observed.</p>
+<p>But what do I do when I go to work?
+Do I fix cars, construction, or other things?</p>
+<p>She looked at at me and said I put on my headset and talk to people about important stuff.</p>
+<p>No cool computer hacker cred for me today.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Luminar AI
+    </title>
+    <link>
+        https://www.sheldonhull.com/luminar-ai/
+    </link>
+    <pubDate>
+        Mon, 05 Jul 2021 07:00:00 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/luminar-ai/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <div
+    class="details admonition Note
+      open
+    "
+  >
+    <div class="details-summary admonition-title">
+      <i
+        class="icon fas fa-pencil-alt fa-fw"
+      ></i>
+      Update
+      <i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>Customer service bumped my older version of Luminar 3 to 4.
+The issues with distortion on the preview screen aren&rsquo;t there with version 4.</p>
+<p>The new AI enhancements aren&rsquo;t there, so it&rsquo;s missing some of the new features.
+For now I&rsquo;m going to try and use this as my daily driver for images and see how it goes.</p>
+<p>Positive experience so far, though I still miss the fluid experience of Lightroom&rsquo;s preview modes.</p>
+</div>
+    </div>
+  </div>
+<h2 id="my-credentials" class="headerLink">
+    <a href="#my-credentials" class="header-mark"></a>My Credentials</h2><p>None. 😀</p>
+<p>I&rsquo;m a software engineer working with AWS mostly.</p>
+<p>I&rsquo;d be considered a &ldquo;prosumer&rdquo; with video and photography, in that I use high quality gear when possible, have comfort with professional video editing software, and have used Photoshop, Lightroom, Gimp, and other tools of a similar nature.</p>
+<p>This is a quick review from someone who found Lightroom to overall a freeing experiencing in photography workflow.</p>
+<p>For my occasional usage, I&rsquo;m not excited to pay the subscription fee, so my Lightroom 6 standalone license is all I&rsquo;ve continued with.</p>
+<h2 id="scope" class="headerLink">
+    <a href="#scope" class="header-mark"></a>Scope</h2><ul>
+<li>
+<p>Casual impressions only.</p>
+</li>
+<li>
+<p>This is not in-depth review from a photography specialist.</p>
+</li>
+<li>
+<p>My focus is:</p>
+<ul>
+<li>user experience</li>
+<li>application stability</li>
+<li>lock-in</li>
+<li>library management (the one thing Lightroom seems to do better than any other app I&rsquo;ve tried)</li>
+</ul>
+</li>
+</ul>
+<h2 id="first-look" class="headerLink">
+    <a href="#first-look" class="header-mark"></a>First Look</h2><p>The very first look of the library view was pretty bad.</p>
+<p>I&rsquo;m not certain what&rsquo;s going on, but the raw file previews in the library view loaded in a way that made my daughter look like she was being viewed through one of those warping mirrors.</p>
+<p><figure><a class="lightgallery" href="/images/2021-05-24-16.46.05-luminar-ai.png" title="2021-05-24-16.46.05-Luminar AI" data-thumbnail="/images/2021-05-24-16.46.05-luminar-ai.png" data-sub-html="<h2>library preview distorted in AI edition</h2><p>2021-05-24-16.46.05-Luminar AI</p>">
+        
+    </a><figcaption class="image-caption">library preview distorted in AI edition</figcaption>
+    </figure></p>
+<p>The library management workflow was pretty snappy, so I was overall happy with that.</p>
+<p>I do miss Lightroom Survey view, but no other app has had that kind of compare interface that I&rsquo;ve discovered so far.</p>
+<h2 id="templates" class="headerLink">
+    <a href="#templates" class="header-mark"></a>Templates</h2><p>The template presets for portrait did well out of the gate.</p>
+<p>I was even able to enhance the eyes and change the color of the eyes completely with a few clicks.</p>
+<p>A few preset adjustments such as &ldquo;Face AI&rdquo; allowed editing the light on the face to help brighten just the face without any need to mask.</p>
+<h2 id="editing" class="headerLink">
+    <a href="#editing" class="header-mark"></a>Editing</h2><p>🔳 Many of the AI powered tools were gimmicky to me.</p>
+<p>🔳 Mystical, Glow, Dramatic, all tended to be pretty over the top when max, though perhaps a little touch of each might work.</p>
+<p>✅ The composition auto leveler was nice.</p>
+<p>✅ Enhance tool was subtle and tasteful</p>
+<p>✅ The ability to apply a preset then jump tweaking the presets applied changes was intuitive and well done.</p>
+<p>✅ The erase tool did great at removing a sign from a brick wall with seconds of effort.</p>
+<h2 id="overall-verdict" class="headerLink">
+    <a href="#overall-verdict" class="header-mark"></a>Overall Verdict</h2><p>Overall good quick intuitive workflow.</p>
+<p>Value propisition is more difficult to determine.</p>
+<p>I had Luminar 2018 and Luminar 3. Both weren&rsquo;t a great experience on the PC and never really got much value from them.</p>
+<p>I could see this being a viable raw editing workflow for me though, considering the overall license cost would be significantly less than many other competitors.</p>
+<p><figure><a class="lightgallery" href="/images/2021-05-24-18.20.37-luminar-ai.png" title="2021-05-24-18.20.37-Luminar AI" data-thumbnail="/images/2021-05-24-18.20.37-luminar-ai.png" data-sub-html="<h2>All Photos View</h2><p>2021-05-24-18.20.37-Luminar AI</p>">
+        
+    </a><figcaption class="image-caption">All Photos View</figcaption>
+    </figure></p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Value Local Art
+    </title>
+    <link>
+        https://www.sheldonhull.com/value-local-art/
+    </link>
+    <pubDate>
+        Mon, 24 May 2021 17:55:12 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/value-local-art/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Our culture is driven on some much virtual comsumption of media and performances.
+It&rsquo;s important to remember just how critical it is to support local art and performance.</p>
+<p>In a YouTube culture, it&rsquo;s easy to default to virtualized arts.
+I think it&rsquo;s easy to lose the appreciation for the disciplined effort creating music, dance, art requires when it&rsquo;s all just something on a screen.</p>
+<p>It also gives an unrealistic expectation for live performances if our only consumption is the polished and santized version of someone&rsquo;s best take.
+Seems to be a similar problem to the fake reality Instagram and Facebook can give if you expect the true state of a person&rsquo;s life is represented in their social media posts.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/waRss-9jVis" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>As far as flaws go, this beautiful improv session shows in the comments just how much viewers appreciated the honesty of leaving flaws in instead.
+I&rsquo;d like to see more of this from artists.
+We all crave authenticity.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Dance Time
+    </title>
+    <link>
+        https://www.sheldonhull.com/dance-time/
+    </link>
+    <pubDate>
+        Sun, 23 May 2021 18:03:15 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/dance-time/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Uploaded a few to my gallery from time I had with my daughter watching her live performance this weekend.
+Take a peek.</p>
+<p>I need to catch-up on a few posts with the family with all the great stuff they&rsquo;ve been doing lately. (My son just got his black belt in Taekwondo 👏)</p>
+<p><a href="../../../creative/dance-time-for-karis" rel="">Dance Time</a></p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Five
+    </title>
+    <link>
+        https://www.sheldonhull.com/five/
+    </link>
+    <pubDate>
+        Thu, 03 Dec 2020 15:27:45 -0600
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/five/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>I asked my daughter (3) how much she loved me.
+She held up her hands and said: &ldquo;Five&rdquo;.</p>
+<p>I&rsquo;ll take that as a win considering that&rsquo;s all the fingers on that hand. 😂</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Deadcells
+    </title>
+    <link>
+        https://www.sheldonhull.com/deadcells/
+    </link>
+    <pubDate>
+        Thu, 24 Sep 2020 00:09:57 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/deadcells/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Beat Deadcells with 3 cells active.
+Uninstalled.
+There is no way I&rsquo;d find any pleasure in life trying to do more.
+This game is an endless pit of &ldquo;git gud&rdquo;.</p>
+<p>Now to go do something productive 😄</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        2019-04-18T10:23:31-06:00
+    </title>
+    <link>
+        https://www.sheldonhull.com/2019-04-18t102331-0600/
+    </link>
+    <pubDate>
+        Thu, 18 Apr 2019 10:23:31 -0600
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/2019-04-18t102331-0600/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>This infernal keyboard lag is killing me. I&rsquo;m guessing it&rsquo;s due to some OS corruption as my disk is going bad and bad sector warnings keep increasing. Blah! &#x1f62c;</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Dedupe Google Drive with RClone
+    </title>
+    <link>
+        https://www.sheldonhull.com/dedupe-google-drive-with-rclone/
+    </link>
+    <pubDate>
+        Sun, 19 Aug 2018 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/dedupe-google-drive-with-rclone/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="an-issue-with-duplicates" class="headerLink">
+    <a href="#an-issue-with-duplicates" class="header-mark"></a>An issue with duplicates</h2><p>I migrated from Amazon Cloud Drive to a paid Google Drive account. To facilate this move, I used a paid service called MultCloud. For me, Comcast prevents unlimited data, so it would have been challenging to manage 1.5TB of video and photography files movement by downloading then reuploading to Google Drive.</p>
+<p>I ran into issues due to hitting rate limiting with Multcloud. As a result, I had to work through their awkard user interface to relaunch those jobs, which still had failures. I basically was left at the point of not really trusting all my files had successfully transferred.</p>
+<p>What&rsquo;s worse is that I found that the programmatic access by MultCloud seemed to be creating duplicates in the drive. Apparently Google Drive will allow you have to files side by side with the same name, as it doesn&rsquo;t operate like Windows in this manner, instead each file is considered unique. Same with folders.</p>
+<p><figure><a class="lightgallery" href="/images/2018-08-20_00-09-09.png" title="Duplicate Images" data-thumbnail="/images/2018-08-20_00-09-09.png">
+        
+    </a></figure></p>
+<h2 id="rclone" class="headerLink">
+    <a href="#rclone" class="header-mark"></a>RClone</h2><p>I ran across RClone a while ago, and had passed over it only to arrive back at the documentation regarding Google Drive realizing they have specific functionality for this: <a href="https://rclone.org/commands/rclone_dedupe" target="_blank" rel="noopener noreferrer">dedupe</a>. After working through some initial issues, my situation seems to have improved, and once again Google Drive is usable. In fact, it&rsquo;s time for some house cleaning.</p>
+<h2 id="successfully-running" class="headerLink">
+    <a href="#successfully-running" class="header-mark"></a>Successfully Running</h2><p>I suggest you make sure to find the <a href="https://console.developers.google.com/apis/api/drive.googleapis.com/" target="_blank" rel="noopener noreferrer">developer api section</a> and create an api access key. If you don&rsquo;t do this and just use Oauth2, you are going to get the dreaded message: <code>Error 403: Rate Limit Exceeded</code> and likely end up spending 30+ mins trying to track down what to do about this.
+<figure><a class="lightgallery" href="/images/TailBlazer_2018-08-19_18-06-22.png" title="403 Rate Limit Messages" data-thumbnail="/images/TailBlazer_2018-08-19_18-06-22.png">
+        
+    </a></figure></p>
+<p>You&rsquo;ll see activity start to show up in the developer console and see how you are doing against your rate limits.
+<figure><a class="lightgallery" href="/images/chrome_2018-08-19_23-45-28.png" title="Developer Console" data-thumbnail="/images/chrome_2018-08-19_23-45-28.png">
+        
+    </a></figure></p>
+<h2 id="start-simple-and-work-up-from-there" class="headerLink">
+    <a href="#start-simple-and-work-up-from-there" class="header-mark"></a>Start Simple and Work Up From There</h2><p>To avoid big mistakes, and confirm the behavior is doing what you expect, start small. In my script at the bottom, I walked through what I did.</p>
+<p><figure><a class="lightgallery" href="/images/TailBlazer_2018-08-19_21-14-28.png" title="Magic As It Works" data-thumbnail="/images/TailBlazer_2018-08-19_21-14-28.png">
+        
+    </a></figure></p>
+<h2 id="other-cool-uses-for-rclone" class="headerLink">
+    <a href="#other-cool-uses-for-rclone" class="header-mark"></a>Other Cool Uses for RClone</h2><h3 id="merging" class="headerLink">
+    <a href="#merging" class="header-mark"></a>Merging</h3><p>While I think the <code>dedupe</code> command in RClone is specific to Google Drive, you can leverage it&rsquo;s logic for merging folders in other systems, as well as issue remote commands that are server side and don&rsquo;t require download locally before proceeding.</p>
+<h3 id="server-side-operations" class="headerLink">
+    <a href="#server-side-operations" class="header-mark"></a>Server Side Operations</h3><p>This means, basically I could have saved the money over MultCloud, and instead used Rclone to achieve a copy from Amazon Cloud Drive to Google Drive, all remotely with server side execution, and no local downloads to achieve this. This has some great applications for data migration.</p>
+<p>For an update list of what support they have for server side operations, take a look at this page: <a href="https://rclone.org/overview/#optional-features" target="_blank" rel="noopener noreferrer">Server Side Operations</a></p>
+<h3 id="aws" class="headerLink">
+    <a href="#aws" class="header-mark"></a>AWS</h3><p>This includes quite a few nifty S3 operations. Even though I&rsquo;m more experienced with the AWSPowershell functionality, this might offer some great alternatives to syncing to an s3 bucket</p>
+<h3 id="mounting-remote-storage-as-local" class="headerLink">
+    <a href="#mounting-remote-storage-as-local" class="header-mark"></a>Mounting Remote Storage As Local</h3><p>Buried in there was also mention of the ability to mount <strong>any</strong> of the storage systems as local drives in Windows. See <a href="https://rclone.org/commands/rclone_mount/" target="_blank" rel="noopener noreferrer">RClount Mount documentation.</a>. This means you could mount an S3 bucket as a local drive with RClone. I&rsquo;ll try and post an update on that after I try it out. It&rsquo;s pretty promising.</p>
+<script src="https://gist.github.com/sheldonhull/e286bd05ff154b47c8a1f8ecf2bdc22b.js"></script>
+
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Time With Family - Thanksgiving
+    </title>
+    <link>
+        https://www.sheldonhull.com/time-with-family-thanksgiving/
+    </link>
+    <pubDate>
+        Sun, 31 Dec 2017 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/time-with-family-thanksgiving/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>I&rsquo;ve made it my personal quest as a creative who has a passion for videography to try and capture simple moments during my life with family. There are plenty of epic indie films, and I can&rsquo;t commit this type of time with a day job, family, and other interests. I think this is a good start. Thanks to Robert &amp; Steph for their hospitality and making this a special thanksgiving. Was a wonderful time with family</p>
+<iframe src="https://www.youtube.com/embed/BAj2xx1_sTg?wmode=opaque&enablejsapi=1" height="480" width="854" scrolling="no" frameborder="0" allowfullscreen="yes">
+</iframe>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+
+
+<item>
+    <title>
+        Delight in the Little Moments
+    </title>
+    <link>
+        https://www.sheldonhull.com/delight-in-the-little-moments/
+    </link>
+    <pubDate>
+        Fri, 10 Nov 2017 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/delight-in-the-little-moments/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>This last Easter I had some fun with the kids at their grandparents. Remember the days of spinning until you were nauseous? Was fun to watch the kids enjoying this so I took a few clips, nothing fancy, just a snapshot of enjoying the little moments in life.</p>
+<p>Thinking I&rsquo;ll try this approach for a while. Small 2 minute videos that aren&rsquo;t refined a lot are easy for me to produce. I typically only do a couple a year because I tend to work on them extensively, but maybe just like blogging, consistency and simplicity can be the key to keeping the momentum going.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube-nocookie.com/embed/H6hf6rna6gk" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

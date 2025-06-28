@@ -1,0 +1,137 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Dotnet - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/dotnet/</link>
+        <description>Dotnet - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 07 Sep 2020 07:00:00 -0500</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/dotnet/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Reflections on Being a New Gopher With A Dotnet Background
+    </title>
+    <link>
+        https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/
+    </link>
+    <pubDate>
+        Mon, 07 Sep 2020 07:00:00 -0500
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/reflections-on-being-a-new-gopher-with-a-dotnet-background/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="disclaimer" class="headerLink">
+    <a href="#disclaimer" class="header-mark"></a>Disclaimer</h2><p>Newbie Gopher.
+Much of what I observe is likely to be half right.
+I&rsquo;ll probably look back at the end of the year and shake my head, but gotta start the journey somewhere, right? 😁</p>
+<h2 id="my-background" class="headerLink">
+    <a href="#my-background" class="header-mark"></a>My Background</h2><p>I&rsquo;ve learned my development skills primarily in the dotnet world.
+Coming from SQL Server performance, schema, and development, I transitioned into learning PowerShell and some C#.
+I found for the most part the &ldquo;DevOps&rdquo; nature of what I was doing wasn&rsquo;t a good fit for focusing on C# and so have done the majority of my development in PowerShell.</p>
+<p>For those unfamilar with PowerShell, I highly recommend it as a fantastic shell experience and as a great ecosystem for automation oriented programming.</p>
+<p>With everything as an &ldquo;object&rdquo; in PowerShell, not only does the manipulation of those objects tend to be pretty flexible, but built in methods, properties, and deep diving into object collections in objection collections provide powerful control of working with things like AWS.Tool.SDK and Windows.</p>
+<h2 id="why-i-started-with-go" class="headerLink">
+    <a href="#why-i-started-with-go" class="header-mark"></a>Why I Started With Go</h2><p>I wanted to focus on Python, as I think it&rsquo;s a beautiful language and I&rsquo;d probably be more productive quickly in it.
+However, as I started my Python journey I discovered that I was basically substituting PowerShell (my goto) with a language that in many ways was very similar.</p>
+<p>Python provides a &ldquo;glue&rdquo; language that can do many things, in many varying domains with a vast ecosystem of user built modules.</p>
+<p>So why Go?</p>
+<p>Primarily, I wanted 2 main things from my next step:</p>
+<ul>
+<li>Expand my horizons with a language that approached things differently than what I&rsquo;m used to, forcing me to solve problems in a new way, not just a simple syntax shift.</li>
+<li>Try something that was more strictly typed and opinionated to help align my next development to be less &ldquo;adhoc&rdquo; but more robust.</li>
+</ul>
+<p>Some additional perks would be: choosing a language that made me more competitive in the market (so choosing low adoption languages), immersed me more in Linux while still supporting cross platform work, and additionally supported quick adhoc tooling to be able to deliver small portable tooling to help support a DevOps culture.</p>
+<h2 id="is-it-better-than-x" class="headerLink">
+    <a href="#is-it-better-than-x" class="header-mark"></a>Is it better than x</h2><p>No. It&rsquo;s not &ldquo;better&rdquo; than PowerShell, C#, Python, or even Bash.</p>
+<p>That&rsquo;s an incomplete way to consider this, just like saying your hammer is better than a screwdriver or replaces the need for a table saw. 😁</p>
+<h2 id="how-its-helping-me-think-differently" class="headerLink">
+    <a href="#how-its-helping-me-think-differently" class="header-mark"></a>How It&rsquo;s Helping Me Think Differently</h2><p>What I find myself observing is it is accomplishing one of my primary objectives of thinking differently.</p>
+<h2 id="interfaces" class="headerLink">
+    <a href="#interfaces" class="header-mark"></a>Interfaces</h2><p>Interfaces are something I&rsquo;ve rarely used, as I&rsquo;m not doing much C#, but when I had used this it seemed to be extra work for the the sack of good design and abstraction of implementation.
+Since, most of my development was automation oriented, I had little case for regularly using them.</p>
+<h2 id="bytes" class="headerLink">
+    <a href="#bytes" class="header-mark"></a>Bytes</h2><p>Bytes are something I&rsquo;ve rarely had to work with, as it&rsquo;s abstracted in PowerShell.
+However, in Go, bytes seem to be a universal medium.</p>
+<p>Let&rsquo;s say I need to run a web request for gathering some results in json and manipulating then.
+With PowerShell a simple rest call with <code>ConvertFrom-Json</code> is all that is required.
+With Go, you have to convert the bytes and use <code>json.Unmarshal</code> as one way to take the response and place the response into a predefined struct (or empty struct is possible as well I believe)</p>
+<p>Want to deal with images, files, web requests, and more&hellip; bytes.
+Endless streams of bytes.</p>
+<h2 id="dotnet-types" class="headerLink">
+    <a href="#dotnet-types" class="header-mark"></a>Dotnet Types</h2><p>Say, I want to work with a semver version number.
+This is provided in the standard System library in C#, and also accessible via a type accelerator in PowerShell.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$ver</span> <span class="p">=</span> <span class="p">[</span><span class="no">System.Version</span><span class="p">]::</span><span class="n">new</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="no">System.Version</span><span class="p">]::</span><span class="n">TryParse</span><span class="p">(</span><span class="nv">$ParseMe</span><span class="p">,[</span><span class="no">ref</span><span class="p">]</span><span class="nv">$ver</span><span class="p">)</span> <span class="c"># Returned bool success/fail</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="nv">$ParseMe</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>In Go, this wouldn&rsquo;t be part of the standard library (at least from what I&rsquo;ve found).
+Instead, you&rsquo;d get the same essential functionality by finding a package like: <a href="https://bit.ly/2F1XSX7" target="_blank" rel="noopener noreferrer">go-version</a> and using it.</p>
+<p>Instead of a class object being returned, such as shown about with PowerShell, you&rsquo;d have structs returned.</p>
+<p>Where <code>[pscustomobject]@{}| Get-Member</code> would report back the .NET type of <code>System.Management.Automation.PSCustomObject</code>, running reflection against something go.</p>
+<p>From <a href="https://github.com/hashicorp/go-version/blob/59da58cfd357de719a4d16dac30481391a56c002/version.go#L33" target="_blank" rel="noopener noreferrer">go-version</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="c1">// Version represents a single version.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">type</span> <span class="nx">Version</span> <span class="kd">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">metadata</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">pre</span>      <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">segments</span> <span class="p">[]</span><span class="kt">int64</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">si</span>       <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">original</span> <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This would be basically the new Type that I&rsquo;d expect to see in Go.</p>
+<h2 id="last-thoughts" class="headerLink">
+    <a href="#last-thoughts" class="header-mark"></a>Last Thoughts</h2><p>I&rsquo;m really enjoying the experience of looking at things from a new perspective and doing my best to keep an open mind to learn Go without prejudice to force it to my way of thinking.</p>
+<p>So far it has been interesting and probably harder initially because my paradigm has come from the dotnet ecosystem.
+Removing dotnet from the equation, it&rsquo;s interesting to see how much I take for granted.</p>
+<p>I think if I had been immersed in Python from the beginning, transitioning to Go would be more intuitive to me.
+When I was juggling C# and PowerShell, I found it very intuitive as most of the basics were just syntax differences, until you added in more complex things like Linq/Delegates, abstract classes, interfaces, and other things that don&rsquo;t have quite the place in the PowerShell world.</p>
+<p>The generalization of &ldquo;everything is an object&rdquo; in Windows vs in Linux &ldquo;everything is a file/text&rdquo; rings true in the approach I think I&rsquo;ve observed underlying the way the languages function.</p>
+<h2 id="give-something-new-a-shot" class="headerLink">
+    <a href="#give-something-new-a-shot" class="header-mark"></a>Give Something New A Shot</h2><p>If you are from a Linux background, I&rsquo;d suggest you give PowerShell a shot (its cross platform now) and try this experience of learning a new paradigm.
+Using something like <code>InvokeBuild</code> will give you a much richer experience than <code>Make</code> files.
+If from Windows, then Python or Go would be a great choice to help challenge you.</p>
+<h2 id="give-yourself-time-to-be-terrible-at-it" class="headerLink">
+    <a href="#give-yourself-time-to-be-terrible-at-it" class="header-mark"></a>Give Yourself Time To Be Terrible At It</h2><p>I read recently from <a href="https://bit.ly/35bbXMy" target="_blank" rel="noopener noreferrer">@Duffney</a>:</p>
+<blockquote>
+<p>My biggest challenge with using the 20 hours rule to learn new things is becoming comfortable being &ldquo;unproductive&rdquo;</p>
+</blockquote>
+<p>I think that was a very freeing concept, as I&rsquo;ve wrestled with this.
+Being pretty experienced in PowerShell, being ok writing non-idiomatic Go code with rough project structure, limited tests, and more has been mentally inhibiting.</p>
+<p>It&rsquo;s always better to get momentum on something and once competence is growing, challenge yourself to excel with more idomatic, tested, and well designed solutions.
+Build and ship some stuff so you can even get to the place where you wince at your old work in the first place 😆</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

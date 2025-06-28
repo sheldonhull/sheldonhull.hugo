@@ -1,0 +1,43 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Ssrs - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/ssrs/</link>
+        <description>Ssrs - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 18 Mar 2016 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/ssrs/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Previewing the new SSRS 2016 portal
+    </title>
+    <link>
+        https://www.sheldonhull.com/previewing-the-new-ssrs-2016-portal/
+    </link>
+    <pubDate>
+        Fri, 18 Mar 2016 00:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/previewing-the-new-ssrs-2016-portal/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <p>Ran into an issue with the &ldquo;Preview New Reporting Portal&rdquo; link on a fresh install of 2016 giving me a not found error.</p>
+<p><figure><a class="lightgallery" href="/images/SNAG-0031_kxyjti.png" title="SNAG-0031" data-thumbnail="/images/SNAG-0031_kxyjti.png">
+        
+    </a></figure></p>
+<p>Changing the virtual directory in the Report URL tab for SSRS configuration fixed this invalid link. In my case, I changed /Report to /Reporting.
+Thanks to <a href="http://stackoverflow.com/questions/34410218/access-ssrs-2016-new-reporting-portal" target="_blank" rel="noopener noreferrer">Adam on Stack Overflow</a> for providing the solution and saving me a lot of time!</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

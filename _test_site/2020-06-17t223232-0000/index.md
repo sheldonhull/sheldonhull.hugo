@@ -1,0 +1,29 @@
+# 2020-06-17T22:32:32&#43;00:00
+
+Here&#39;s a cool way to visualize runspaces and how they work asynchronously.
+
+```powershell
+$IndentLevel = 2
+Get-Random; @(1..100) | ForEach-Object -Parallel {
+    $i = $_
+    Start-Sleep -Milliseconds (Get-Random -Minimum 100 -Maximum 1500)
+    &#34;{0,$($i * $using:IndentLevel)}&#34; -f $i | Write-Host
+}
+```
+
+The random delay can help show how some tasks finish out of order.
+For example, running that might result in this in the console:
+
+```text
+       4
+ 1
+     3
+   2
+             7
+         5
+                 9
+           6
+                  10
+               8
+```
+

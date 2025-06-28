@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Build &amp; Release Engineering on sheldonhull.com</title>
+    <link>https://www.sheldonhull.com/notes/development/build-release-engineering/</link>
+    <description>Recent content in Build &amp; Release Engineering on sheldonhull.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <atom:link href="https://www.sheldonhull.com/notes/development/build-release-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Azure Pipelines</title>
+      <link>https://www.sheldonhull.com/notes/development/build-release-engineering/azure-pipelines/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.sheldonhull.com/notes/development/build-release-engineering/azure-pipelines/</guid>
+      <description>Azure Pipelines Tips Dynamic Link to a Pipeline RunCreate a link to a pipeline for your chatops.&#xA;1 $button = &amp;#34;${ENV:SYSTEM_TEAMFOUNDATIONCOLLECTIONURI}${ENV:SYSTEM_TEAMPROJECT}/_build/results?buildId=$($ENV:BUILD_BUILDID)&amp;amp;view=logs&amp;#34; Helper Function for Reporting Progress on TaskThis is an ugly function, but hopefully useful as a jump start when in a hurry. 😁&#xA;This primarily allows you to quickly report:&#xA;ETA Percent complete on a task Log output on current task Needs more refinement and probably should just be an invoke build function, but for now it&amp;rsquo;s semi-useful for some long-running tasks</description>
+    </item>
+    <item>
+      <title>renovate</title>
+      <link>https://www.sheldonhull.com/notes/development/build-release-engineering/renovate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.sheldonhull.com/notes/development/build-release-engineering/renovate/</guid>
+      <description>Run Locally Via Docker For Azure DevOps Git Safe Directory This doesn&amp;rsquo;t mount to the host /tmp, unlike examples in GitHub, because it asserts the directory as owned by the Docker user (likely root), leading to Git&amp;rsquo;s safe directory feature blocking it.&#xA;For this scenario, it&amp;rsquo;s easier to disable mounting to the host because git config --global --add safe.directory /tmp/renovate/repos/* didn&amp;rsquo;t work as expected.&#xA;Set the environment variables: export AZURE_DEVOPS_ORG=foo, AZURE_DEVOPS_EXT_PAT, and replace PROJECTNAME/REPO as required.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,43 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <channel>
+        <title>Azuredevops - Tag - sheldonhull.com</title>
+        <link>https://www.sheldonhull.com/tags/azuredevops/</link>
+        <description>Azuredevops - Tag - sheldonhull.com</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 17 Jun 2019 14:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.sheldonhull.com/tags/azuredevops/" rel="self" type="application/rss+xml" />
+
+<item>
+    <title>
+        Bump nuspec file version with powershell
+    </title>
+    <link>
+        https://www.sheldonhull.com/bump-nuspec-file-version-with-powershell/
+    </link>
+    <pubDate>
+        Mon, 17 Jun 2019 14:00:00 &#43;0000
+    </pubDate>
+    
+    
+    <guid>
+        https://www.sheldonhull.com/bump-nuspec-file-version-with-powershell/
+    </guid>
+    <description>
+        <![CDATA[
+        
+        
+        
+            
+        
+        <h2 id="bump-nuspec-version" class="headerLink">
+    <a href="#bump-nuspec-version" class="header-mark"></a>Bump Nuspec Version</h2><p>Bumping the version of the nuspec file requires a little tweaking and I got some help from the slack powershell community to ensure I handled the xml parsing correctly. This was the result. If you are running a chocolatey package build or equivalent nuspec build via an agent and want a way to ensure the latest build updates the build version incrementally this should help.</p>
+<p>This snippet should help give you a way to bump a nuspec file version programmatically.</p>
+<script src="https://gist.github.com/sheldonhull/f0c2bd47e18e5d074c5e2b9943f79dfc.js"></script>
+
+<p>I modified the logic to support <code>-WhatIf</code> since I&rsquo;m a fan of being able to run stuff like this without actually breaking things first.</p>
+
+        ]]>
+    <a href="https://brid.gy/publish/twitter"></a>
+    <data class="p-bridgy-omit-link" value="false"></data>
+    </description>
+</item>
+</channel>
+</rss>

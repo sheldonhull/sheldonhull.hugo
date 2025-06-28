@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tooling on sheldonhull.com</title>
+    <link>https://www.sheldonhull.com/notes/development/tooling/</link>
+    <description>Recent content in tooling on sheldonhull.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <atom:link href="https://www.sheldonhull.com/notes/development/tooling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>precommit</title>
+      <link>https://www.sheldonhull.com/notes/development/tooling/precommit/</link>
+      <pubDate>Wed, 16 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.sheldonhull.com/notes/development/tooling/precommit/</guid>
+      <description>A cheatsheet for various pre-commit hooks and things that help with linting, formatting, code scans and more. These all help &amp;ldquo;shift left&amp;rdquo; the review to eliminate more issues in the development workflow, rather than providing feedback only once the CI system is involved.</description>
+    </item>
+    <item>
+      <title>docker</title>
+      <link>https://www.sheldonhull.com/notes/development/tooling/docker/</link>
+      <pubDate>Tue, 01 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.sheldonhull.com/notes/development/tooling/docker/</guid>
+      <description>A cheatsheet for some docker container magic. Docker has its own quirks, so this is a way for me to remember and reuse some of this without trying to formalize it into a standardized repo.</description>
+    </item>
+    <item>
+      <title>git</title>
+      <link>https://www.sheldonhull.com/notes/development/tooling/git/</link>
+      <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.sheldonhull.com/notes/development/tooling/git/</guid>
+      <description>A cheatsheet for some git workflow oriented commands, things I often forget, useful shortcuts and more.</description>
+    </item>
+    <item>
+      <title>task</title>
+      <link>https://www.sheldonhull.com/notes/development/tooling/task/</link>
+      <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.sheldonhull.com/notes/development/tooling/task/</guid>
+      <description>A cheatsheet with snippets for Task, a cross-platform task runner alternative to Make.</description>
+    </item>
+    <item>
+      <title>aqua</title>
+      <link>https://www.sheldonhull.com/notes/development/tooling/aqua/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.sheldonhull.com/notes/development/tooling/aqua/</guid>
+      <description>Aqua OverviewA CLI version manager for the discriminating CLI connoisseur, this tool is great to install binaries both at a global level and a project level. If you are using asdf, I highly recommend this as an alternative, with the caveat of it not managing python, ruby, or other runtimes. It&amp;rsquo;s focused on CLI development tools, and providing a global or project-level version configuration that automatically installs on demand.</description>
+    </item>
+    <item>
+      <title>direnv</title>
+      <link>https://www.sheldonhull.com/notes/development/tooling/direnv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.sheldonhull.com/notes/development/tooling/direnv/</guid>
+      <description>Example Direnv Load .envrc from your home directory. Check for aqua tool for the project and warn if not found, to allow tooling to be installed. Ensure $GOPATH/bin is available in path so that Go tooling can be resolved. Put it at the end of PATH so that aqua-based tooling takes precedence. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 source_env &amp;#34;$HOME&amp;#34; export DIRENV_WARN_TIMEOUT=&amp;#39;10s&amp;#39; # OPTIONAL: export PATH=&amp;#34;${PATH}:${GOPATH}/bin&amp;#34; export MAGEFILE_ENABLE_COLOR=1 INFO_COLOR=&amp;#34;\033[1;30;40m&amp;#34; RESET_COLOR=&amp;#34;\033[0m&amp;#34; WARNING_COLOR=&amp;#34;\033[33m&amp;#34; END_WARNING_COLOR=&amp;#34;\033[0m&amp;#34; WORKING_COLOR=&amp;#34;\033[94m&amp;#34; BACKGROUND_GREEN=&amp;#34;\033[94m&amp;#34; RESET_BACKGROUND=&amp;#34;\033[0;49m&amp;#34; BACKGROUND_LIGHT_GREEN=&amp;#34;\033[1;102;30m&amp;#34; BACKGROUND_BLUE=&amp;#34;\033[44;30m&amp;#34; BACKGROUND_LIGHT_YELLOW=&amp;#34;\033[1;103;30m&amp;#34; if command -v aqua &amp;gt;/dev/null 2&amp;gt;&amp;amp;1; then printf &amp;#34;${INFO_COLOR}✔️ aqua detected${RESET_COLOR}\n&amp;#34; else printf &amp;#34;❌ ${WARNING_COLOR}aqua command not recognized${RESET_COLOR}\n&amp;#34; printf &amp;#34;\t${WORKING_COLOR}👉 Please install aqua to automatically set up all dev tools for the project:${RESET_COLOR}${BACKGROUND_GREEN}https://aquaproj.</description>
+    </item>
+  </channel>
+</rss>
