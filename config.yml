@@ -372,7 +372,6 @@ params:
         - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
       js:
         - /js/sidebar.js
-        - /js/webmentions.js
         # - <script src="/js/jquery.timeago.js" async></script>
         # - <script src="/javascript/app.js" async></script>
         - <script src="/js/mailbrew-html-embed-script.js" async></script>

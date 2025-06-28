@@ -67,7 +67,7 @@
                             {{- end -}}
                           </span>
                         {{- end -}}
-                        {{ partial "webmention-counts.small.html" . }}
+
                         <span class="post-meta-line archive-item-date" style="float:right; width:auto;">
                           {{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
                           <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;

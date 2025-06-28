@@ -42,8 +42,6 @@ At this time, it required me to use my personal Azure DevOps org to configure ac
     <a href="#resources" class="header-mark"></a>Resources</h2><p><a href="https://code.visualstudio.com/api/working-with-extensions/publishing-extension" target="_blank" rel="noopener noreferrer">Publishing Extensions</a></p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -101,8 +99,6 @@ At this time, it required me to use my personal Azure DevOps org to configure ac
 </div><p>I submitted this as a <a href="https://github.com/nhoizey/vscode-gremlins/pull/185" target="_blank" rel="noopener noreferrer">PR</a> to project repo but figured I&rsquo;d document here as well in case it takes a while to get merged.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -183,8 +179,6 @@ With PowerShell or Bash, this can be really annoying and waste time in debugging
 </div>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -230,8 +224,6 @@ With PowerShell or Bash, this can be really annoying and waste time in debugging
 </div><p>Please note unsaved files such as &ldquo;SQLQuery11.sql&rdquo; that haven&rsquo;t been explictly saved are not accessible to this, so it will just open an empty file. I have not found any workaround for that, as I believe the tmp files are cached in one of the .DAT files. I&rsquo;ve not had luck finding the Autorecover or temp files with the actual contents until saved.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 </channel>

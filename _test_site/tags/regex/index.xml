@@ -52,8 +52,6 @@ For better work on parsing of strings, there are detailed postings out there by 
 In the case of string parsing for complex patterns that are difficult to match with LIKE pattern matching, this might be a good resource to help someone write a few SQL statements to parse out some log files, adhoc ETL text manipulation, or other text querying on their machine without having to add additional work on importing and setup.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 </channel>

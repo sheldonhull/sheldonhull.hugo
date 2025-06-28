@@ -11,5 +11,4 @@ registries:
 packages:
   - registry: local # allow all packages in the Registry
   - registry: standard
-  - name: nekr0z/webmention.io-backup
     version: semver("1.5.0") # specific version since I want to audit any upsteam upgrades explicitly

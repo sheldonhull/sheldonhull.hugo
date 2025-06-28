@@ -115,8 +115,6 @@ I&#39;ve been part of both AD managed environments and ones where I did everythi
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -168,8 +166,6 @@ I&#39;ve been part of both AD managed environments and ones where I did everythi
 </ul>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -245,8 +241,6 @@ Some queries take heavy resources and might not be appropriate to run in the mid
     </figure></p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -285,8 +279,6 @@ Some queries take heavy resources and might not be appropriate to run in the mid
 <p>While Docker has a steep learning curve, being able to have a full clean dev test environment with SQL Server in a local container and another Ubuntu container to run Go projects in absolutely amazing, not to mention working &ldquo;inside it&rdquo; with Remote Workspaces extension from Microsoft.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -339,8 +331,6 @@ Some queries take heavy resources and might not be appropriate to run in the mid
 Maybe I should have run in my Azure Data Studio session before trying serverless 😀</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -506,8 +496,6 @@ Maybe I should have run in my Azure Data Studio session before trying serverless
 <p>I&rsquo;m pretty happy with the results. 😁</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -922,8 +910,6 @@ Maybe I should have run in my Azure Data Studio session before trying serverless
 <p>Hopefully, this gave you a good start on some of the benefits and ease of use of Python if you, like me, are coming from a PowerShell and SQL Server heavy background, and have wanted to know more about Python. &#x1f32e;</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -997,8 +983,6 @@ Maybe I should have run in my Azure Data Studio session before trying serverless
     </a></figure></p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -1060,8 +1044,6 @@ OR</li>
 
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -1158,8 +1140,6 @@ OR</li>
 <p>Packing this up in an internal chocolately package would be a helpful way to fix for any developers needing the help of their local dba wizard, and might even earn you some dev karma.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 </channel>

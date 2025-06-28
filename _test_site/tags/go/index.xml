@@ -258,8 +258,6 @@ You use this service account for limited scope permissions for deployments only,
 </ul>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -322,8 +320,6 @@ You use this service account for limited scope permissions for deployments only,
 </div>
 </div>
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -545,8 +541,6 @@ I&rsquo;d like to just call: <code>pulumi.Log.Info().Str(&quot;myval&quot;,strva
 </div>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -906,8 +900,6 @@ The output goes to the standard <code>.artifacts</code> directory, which is typi
   </div>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -1050,8 +1042,6 @@ I prefer to run these types of actions with a buffered channel to throttle the r
 </div>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -1094,8 +1084,6 @@ Comment out any duplicates that do not apply.</li>
 <p>Periodically, you can run <code>pre-commit autoupdate</code> to ensure that the latest version of the pre-commit hooks is upgraded.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 </channel>

@@ -61,8 +61,6 @@ This snippet generates a <a href="https://driftctl.com/html-reports/" target="_b
 </ul>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -173,8 +171,6 @@ Terraform Cloud should have this backed up automatically if it&rsquo;s your back
   </div>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -239,8 +235,6 @@ Consider removing that if you aren&rsquo;t really leveraging it.</p>
 </ul>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -316,8 +310,6 @@ That is, you can specify configuration like this <code>~/.terraform.d/providerca
 </div><p>After this <code>terraform init</code> worked.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -351,8 +343,6 @@ Instead, Terraform elegantly handled the module change.</p>
 <p>I imagine this has to do with the resource name mapping being the same, but regardless it&rsquo;s another great example of how agile Terraform can be.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -389,8 +379,6 @@ I&rsquo;m pretty sure you don&rsquo;t need to do this if you use the uninstall o
 Reopen Dash and it will rebuild the index.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -459,8 +447,6 @@ Reopen Dash and it will rebuild the index.</p>
 </div>
 </div>
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -601,8 +587,6 @@ From this stack overflow answer, I experimented and finally got my expression to
 </div><p>This results in a simple yaml object list being correctly turned into something Terraform can work with, as it defines the unique key in the expression.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -649,8 +633,6 @@ This works well for a single resource as well as collections if you provide the 
 </div>
 </div>
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -1053,8 +1035,6 @@ Build the provider by running <code>goreleaser build --snapshot</code>.</p>
 </div><p>Once I added the <code>.terraformignore</code> the apparent conflict with uploading a local tfstate on the plugins was resolved and the plan succeeded.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 </channel>

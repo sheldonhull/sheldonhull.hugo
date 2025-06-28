@@ -30,8 +30,6 @@
         <p><a href="https://unix.stackexchange.com/a/123653/394334" target="_blank" rel="noopener noreferrer">TIL</a>: What I&rsquo;ve been calling the backtick 👉 ```` 👈 for years, is technically the grave accent.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -62,8 +60,6 @@
 <p>Ran across [Vscode Themes](<a href="https://vscodethemes.com/" target="_blank" rel="noopener noreferrer">https://vscodethemes.com/</a> <a href="https://bit.ly/2NHNsMW" target="_blank" rel="noopener noreferrer">https://bit.ly/2NHNsMW</a> &ldquo;Vscode Themes&rdquo;) which provides a really nice experience if you feel like changing things up on your editor.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -93,8 +89,6 @@
         <p>Set an environment variable <code>export DOCKER_BUILDKIT=1</code> to enable a much cleaner Dockerfile output when you don&rsquo;t need verbose debug level information.  Reference: <a href="https://docs.docker.com/develop/develop-images/build_enhancements/#to-enable-buildkit-builds" title="Buildkit" target="_blank" rel="noopener noreferrer">Buildkit</a></p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -124,8 +118,6 @@
         <p><code>brew install micro</code> resulted in my finding what I think will be my new go to cli editor. Very impressed so far. I&rsquo;ve got too many things to learn to be fluent in vim, and this cross platform cli tool might be my new best friend for more command line-fu. <a href="https://github.com/zyedidia/micro" title="Micro" target="_blank" rel="noopener noreferrer">Micro</a></p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -164,8 +156,6 @@
 <p>While Docker has a steep learning curve, being able to have a full clean dev test environment with SQL Server in a local container and another Ubuntu container to run Go projects in absolutely amazing, not to mention working &ldquo;inside it&rdquo; with Remote Workspaces extension from Microsoft.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -196,8 +186,6 @@
 <p>Mind blown. 🤯</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -229,8 +217,6 @@
 
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -261,8 +247,6 @@
 <p>The fact that I can now spin up with a couple text files a full development test environment, with SQL Server in Docker, a configured development environment with linting and more, and then rebuild this in a few minutes on any machine is pretty incredible.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -293,8 +277,6 @@
 <p>You can also many of your keyboard settings straight from vscode into Azure Data Studio so you don&rsquo;t have to remap all those keys. The beauty of json configuration files &#x1f604;</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -324,8 +306,6 @@
         <p>Today I learned how to create a microblog / microblogs section in my hugo layout by frakensteining together some styling tweaks to part of <a href="https://jnjosh.com/microblogs/" target="_blank" rel="noopener noreferrer">jnjosh.com</a> hugo theme. &#x1f32e;</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 </channel>

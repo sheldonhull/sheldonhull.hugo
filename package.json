@@ -11,7 +11,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "algolia": "atomic-algolia",
     "lunr": "hugo-lunr -i \"content\\blog\\**\" -o \"static\\index.json",
-    "dev:wmFetch": "node -r dotenv/config assets/js/webmentions.js",
     "commit": "yarn dlx git-cz"
   },
   "repository": {

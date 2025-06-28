@@ -142,8 +142,6 @@ This also provides direct links to their ApiExplorer which allows testing and co
 However, some of the filter syntax and links were helpful to get me jump started on this and hopefully they&rsquo;ll be useful to anyone trying to get up and running like I had too.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -215,8 +213,6 @@ However, some of the filter syntax and links were helpful to get me jump started
     <a href="#wrap-up" class="header-mark"></a>Wrap-up</h2><p>Take a look at this if you need a simple way to grab some data from one provider and leverage in another and you might want to save yourself some time on learning provider specific api calls. I&rsquo;ve found tools like this, Terraform, and others that help abstract the api calls can be a great resource as you can leverage one syntax to work with two completely different providers and eliminate a lot of effort in coding.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -245,8 +241,6 @@ However, some of the filter syntax and links were helpful to get me jump started
         
         
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -488,8 +482,6 @@ Makes sense to do this via the CLI for basic usage as it&rsquo;s a chicken or th
 </div>
 </div>
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 </channel>

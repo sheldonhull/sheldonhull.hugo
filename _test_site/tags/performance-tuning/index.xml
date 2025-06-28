@@ -74,8 +74,6 @@
     </a></figure></p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -170,8 +168,6 @@
 <!-- ![Image courtesy of Gratisography.com CC0](/images/xevents-vs-profiler.jpg) Image courtesy of Gratisography.com CC0 -->
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -305,8 +301,6 @@ I referenced the documentation for getting started with InfluxDB.</p>
     <a href="#summary" class="header-mark"></a>summary</h2><p>This is just a quick guide on getting started as I found a lot of little bumps in the road since the projects are written in <code>GO</code> and not an easily run .NET project. Getting through this will hopefully give you a way to get started. I&rsquo;ll blog a bit more soon on visualization of the metrics captured, some custom annotations to help make metrics come alive with real-time event notifications (like &ldquo;load test started&rdquo; and &ldquo;build ended&rdquo; etc). It&rsquo;s a really promising solution for those who want some really nice flexibility in using perfmon and related metrics to visualize Windows and SQL Server performance.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -383,8 +377,6 @@ I referenced the documentation for getting started with InfluxDB.</p>
     </a></figure></p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 </channel>

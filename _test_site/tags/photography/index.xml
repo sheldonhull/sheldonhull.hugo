@@ -780,8 +780,6 @@ $(window).on('load', function () {
 </div>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -1033,8 +1031,6 @@ Now for some sleep&hellip; or not ;-)</p>
 
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -1086,8 +1082,6 @@ Enjoy!</p>
     </a></figure></p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 </channel>

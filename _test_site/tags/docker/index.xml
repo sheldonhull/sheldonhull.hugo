@@ -150,8 +150,6 @@
 </div>
 </div>
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -194,8 +192,6 @@ Your website design is beautiful.</li>
 </ol>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -284,8 +280,6 @@ vars:
 <p>&hellip;</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -323,8 +317,6 @@ This would entail working exclusively inside the container.</li>
 <p>Any other ideas? Add a comment (powered by GitHub issues, so it&rsquo;s just a GitHub issue in the backend)</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -393,8 +385,6 @@ This would entail working exclusively inside the container.</li>
 </div>
 </div>
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -424,8 +414,6 @@ This would entail working exclusively inside the container.</li>
         <p>Set an environment variable <code>export DOCKER_BUILDKIT=1</code> to enable a much cleaner Dockerfile output when you don&rsquo;t need verbose debug level information.  Reference: <a href="https://docs.docker.com/develop/develop-images/build_enhancements/#to-enable-buildkit-builds" title="Buildkit" target="_blank" rel="noopener noreferrer">Buildkit</a></p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -464,8 +452,6 @@ This would entail working exclusively inside the container.</li>
 <p>While Docker has a steep learning curve, being able to have a full clean dev test environment with SQL Server in a local container and another Ubuntu container to run Go projects in absolutely amazing, not to mention working &ldquo;inside it&rdquo; with Remote Workspaces extension from Microsoft.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -631,8 +617,6 @@ This would entail working exclusively inside the container.</li>
 <p>I&rsquo;m pretty happy with the results. 😁</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 </channel>

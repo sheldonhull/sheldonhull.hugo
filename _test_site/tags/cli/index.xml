@@ -233,8 +233,6 @@
   </div>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -601,8 +599,6 @@ This still uses <code>pwsh</code> on the ubuntu agent to avoid me having to rewo
 </div>
 </div>
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 </channel>

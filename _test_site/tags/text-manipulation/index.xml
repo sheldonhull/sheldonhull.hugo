@@ -46,8 +46,6 @@
 </div><p>Please note unsaved files such as &ldquo;SQLQuery11.sql&rdquo; that haven&rsquo;t been explictly saved are not accessible to this, so it will just open an empty file. I have not found any workaround for that, as I believe the tmp files are cached in one of the .DAT files. I&rsquo;ve not had luck finding the Autorecover or temp files with the actual contents until saved.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 </channel>

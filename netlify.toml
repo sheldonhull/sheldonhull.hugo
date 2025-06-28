@@ -176,13 +176,3 @@ force = true
 ##   # Inline generated font subsets into their respective @font-face blocks
 ##   # When set to `false` external font files will be created
 ##   inlineFonts = false
-[[plugins]]
-package = "netlify-plugin-webmentions"
-
-[plugins.inputs]
-# The base url of your site (optional, default: main URL set in Netlify)
-baseUrl = "https://www.sheldonhull.com"
-# Path to the feed URL (optional, default: /feed.xml)
-feedPath = "index.xml"
-# Maximum number of feed entries to check for mentions (optional, default: 1)
-limit = 5

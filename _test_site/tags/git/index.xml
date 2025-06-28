@@ -236,8 +236,6 @@ Comments are welcome with any corrections or suggestions.</div>
 </div>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -454,8 +452,6 @@ This is fantastic, and I can see how this provides a UI to do something similar 
 </ul>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -490,8 +486,6 @@ I typically use VSCode or a GUI based editor because I find the diff view pretty
     </a></figure></p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -527,8 +521,6 @@ I typically use VSCode or a GUI based editor because I find the diff view pretty
 <p>For example, on a branch and need to start a new bit of work to keep your commits atomic? <code>switch to master &gt; stash pending work &gt; pull latest with rebase &gt; create new branch &gt; push branch</code> to remote OR <code>git town hack feat/tacos</code>. Need to squash commits and ship to master? <code>git town ship</code> What about prune all those remote branches that have been merged? <code>git town prune-branches</code> This is one of my favorite git productivity tools (and it&rsquo;s written in Go 👍  so cross platform and fast)</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -582,8 +574,6 @@ I typically use VSCode or a GUI based editor because I find the diff view pretty
     </a></figure></p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -650,8 +640,6 @@ If this helped you or have any feedback, drop a comment below and let me know!
 The comments are powered by Utterances which will open a Github issue to discuss further. 👍</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -749,8 +737,6 @@ However, other than basic commit/pull, I&rsquo;ve found myself relying on GitKra
 <p><em>Disclaimer: I like to review developer software from time to time, and occcasionally recieve a copy to continue using. This does not impact my reviews whatsoever, as I only use the stuff I find helpful that might be worth sharing. Good software makes the world go round!</em></p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 </channel>

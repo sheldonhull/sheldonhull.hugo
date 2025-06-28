@@ -276,8 +276,6 @@ There&rsquo;s also PR Status policies, but they are a bit more involved, and oft
 <p>Good luck! 👍</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -636,8 +634,6 @@ Selecting entire sets of tasks at runtime, variable sets, and more are all avail
 </div>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -1098,8 +1094,6 @@ This can then allow you to use the <code>$list.Add([pscustomobject]@{}</code> to
 </ul>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -1143,8 +1137,6 @@ Instead, ensure you create the entire object as shown in the example, and then y
 
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -1442,8 +1434,6 @@ This is because whenever I pass the slice it is a pass by reference already, unl
 <p>If you have any insights, feel free to drop a comment here (it&rsquo;s just a GitHub powered comment system, no new account required).</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -1502,8 +1492,6 @@ Hopefully, I&rsquo;ll add more detail to leveraging this once I get things irone
 <p>Leave a comment if this helped you out or if anything was confusing so I can make sure to improve a quick start like this for others. 🌮</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -1537,8 +1525,6 @@ If you are working with PowerShell and needing to do some quick measurement of o
 
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -1614,8 +1600,6 @@ Some queries take heavy resources and might not be appropriate to run in the mid
     </figure></p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -1691,8 +1675,6 @@ For example, running that might result in this in the console:</p>
 </div>
 </div>
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -1746,8 +1728,6 @@ For example, running that might result in this in the console:</p>
     </a></figure></p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 </channel>

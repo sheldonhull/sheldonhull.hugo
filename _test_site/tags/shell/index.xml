@@ -109,8 +109,6 @@
 </div>
 </div>
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -929,8 +927,6 @@ See <a href="#check-for-and-install-tooling" rel="">setup directions</a>.</p>
 </div>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -1303,8 +1299,6 @@ For instance, without wrapping with a <code>pwsh -c</code> command, you might ge
 <p>This will give flexibility to ensure tooling like Lefthook or others aren&rsquo;t installed by a CI build.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -1336,8 +1330,6 @@ For instance, without wrapping with a <code>pwsh -c</code> command, you might ge
 
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 </channel>

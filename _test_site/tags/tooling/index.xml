@@ -367,8 +367,6 @@ This still uses <code>pwsh</code> on the ubuntu agent to avoid me having to rewo
 </div>
 </div>
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -458,8 +456,6 @@ Put it at the end of PATH so that aqua-based tooling takes precedence.</li>
 </div>
 </div>
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 </channel>

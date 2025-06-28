@@ -308,8 +308,6 @@ I&rsquo;m really appreciating the value of having access to a full fledged progr
 </ul>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -353,8 +351,6 @@ Reduce the overhead and focus on documenting core principles or concepts that wo
 That would be cool too cause you could have bots run todos, stale items, and other cool things for you.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -465,8 +461,6 @@ sourcegraph -endpoint=$sourcegraph_host lsif upload
 </div>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -502,8 +496,6 @@ sourcegraph -endpoint=$sourcegraph_host lsif upload
 
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -570,8 +562,6 @@ While it seems promising, it doesn&rsquo;t offer the protection thought, because
 <p>I&rsquo;ve seen <code>stringer</code> used in some articles as well, but not certain yet if it&rsquo;s considered idiomatic to approach enum like generation this way.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -607,8 +597,6 @@ While it seems promising, it doesn&rsquo;t offer the protection thought, because
 </ul>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -642,8 +630,6 @@ While it seems promising, it doesn&rsquo;t offer the protection thought, because
 </ul>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -681,8 +667,6 @@ While it seems promising, it doesn&rsquo;t offer the protection thought, because
 </ul>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -718,8 +702,6 @@ I see now I can assign any action defined from the quick open menu by pressing <
 <p>This should expedite keyboard shortcut customization to align to my muscle memory a bit easier.</p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 
@@ -757,8 +739,6 @@ This is good as short variable names are designed for local context, while longe
 <p>Golangci-lint tool includes this linter: <a href="https://github.com/blizzy78/varnamelen" target="_blank" rel="noopener noreferrer">Varnamelen</a></p>
 
         ]]>
-    <a href="https://brid.gy/publish/twitter"></a>
-    <data class="p-bridgy-omit-link" value="false"></data>
     </description>
 </item>
 </channel>
