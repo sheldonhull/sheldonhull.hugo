@@ -1,8 +1,8 @@
 {
   extends: [
     'github>sheldonhull/renovate:renovate.json5',
-    'github>aquaproj/aqua-renovate-config:installer-script#2.8.0(scripts/.*\\.sh)',
-    'github>aquaproj/aqua-renovate-config:aqua-renovate-config#2.8.0(default\\.json)',
+    'github>aquaproj/aqua-renovate-config:installer-script#2.8.0(netlify\\.toml)',
+    'github>aquaproj/aqua-renovate-config:aqua-renovate-config#2.8.0(renovate\\.json5)',
   ],
   packageRules: [
     {
