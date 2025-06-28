@@ -224,6 +224,32 @@
         "showReuseMessage": false
       },
       "detail": "variable output"
+    },
+    {
+      "label": "dagger-build",
+      "type": "shell",
+      "command": "mage:dagger:build",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false,
+        "clear": true,
+        "revealProblems": "onProblem"
+      },
+      "detail": "Run Dagger build pipeline using Mage"
+    },
+    {
+      "label": "hugo-build-problems",
+      "type": "shell",
+      "command": "hugo build -b http://127.0.0.1:1313 --logLevel info --enableGitInfo -d _site --buildFuture --buildDrafts",
+      "problemMatcher": "$msCompile",
+      "presentation": {
+        "echo": false,
+        "showReuseMessage": false,
+        "clear": true,
+        "revealProblems": "onProblem"
+      },
+      "detail": "Run Hugo build and report problems"
     }
   ]
 }

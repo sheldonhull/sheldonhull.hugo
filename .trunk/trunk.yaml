@@ -15,7 +15,7 @@ runtimes:
     - python@3.10.8
     - go@1.19 # make sure this matches what's in go.mod for this to work correctly.
 cli:
-  version: 1.19.0
+  version: 1.24.0
 lint:
   enabled:
     - bandit@1.7.7
@@ -102,5 +102,5 @@ lint:
 plugins:
   sources:
     - id: trunk
-      ref: v1.4.2
+      ref: v1.7.1
       uri: https://github.com/trunk-io/plugins
