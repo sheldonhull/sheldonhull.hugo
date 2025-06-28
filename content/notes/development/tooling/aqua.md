@@ -199,13 +199,13 @@ This still uses `pwsh` on the ubuntu agent to avoid me having to rework logic fo
 - bash: |
     echo "##vso[task.prependpath]${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin"
     export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
-    curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v2.3.0/aqua-installer | bash -s
+    curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.1.2/aqua-installer | bash -s
   displayName: install-aqua
 ```
 
 ```yaml
 - pwsh: |
-    &curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v2.1.1/aqua-installer | bash -s -- -v v2.3.6
+    &curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.1.2/aqua-installer | bash -s -- -v v2.3.6
     try {
       $ENV:PATH = ([io.path]::Combine($HOME,'.local','share','aquaproj-aqua', 'bin')), $ENV:PATH -join [IO.Path]::PathSeparator
     }
