@@ -1,11 +1,11 @@
 ---
 title: Yarn
-date: 2023-03-08 13:49
+date: 2023-03-08T13:49:00
 tags:
   - front-end
   - yarn
   - package-management
-lastmod: 2023-03-08 13:58
+lastmod: 2023-03-08T13:58:00
 ---
 
 ## Setup

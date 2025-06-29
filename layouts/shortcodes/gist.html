@@ -1,0 +1,27 @@
+{{- /*
+  Custom gist shortcode to replace the deprecated built-in gist shortcode.
+  Usage: {{< gist username gist_id >}}
+  Usage: {{< gist username gist_id filename >}}
+*/ -}}
+
+{{- $user := .Get 0 -}}
+{{- $gistId := .Get 1 -}}
+{{- $filename := .Get 2 -}}
+
+{{- $gistUrl := printf "https://gist.github.com/%s/%s" $user $gistId -}}
+
+{{- if $filename -}}
+  {{- $gistUrl = printf "%s#file-%s" $gistUrl $filename -}}
+{{- end -}}
+
+{{- $embedUrl := printf "https://gist.github.com/%s/%s.js" $user $gistId -}}
+{{- if $filename -}}
+  {{- $embedUrl = printf "%s?file=%s" $embedUrl $filename -}}
+{{- end -}}
+
+<div class="gist">
+  <script src="{{ $embedUrl }}"></script>
+  <noscript>
+    <a href="{{ $gistUrl }}" target="_blank" rel="noopener noreferrer">View this gist on GitHub</a>
+  </noscript>
+</div>

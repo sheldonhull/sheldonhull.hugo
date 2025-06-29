@@ -2,7 +2,7 @@
 title: Pre-Commit
 tags:
   - go
-date: 2023-03-06 14:49
+date: 2023-03-06T14:49:00
 ---
 
 ## Using Pre-Commit Tooling

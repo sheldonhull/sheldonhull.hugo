@@ -1,7 +1,7 @@
 ---
 title: VSCode Configuration for Go
 slug: vscode-configuration-for-go
-date: 2023-03-06 14:49
+date: 2023-03-06T14:49:00
 ---
 
 ## VSCode

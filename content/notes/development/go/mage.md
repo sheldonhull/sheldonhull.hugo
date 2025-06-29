@@ -1,6 +1,6 @@
 ---
 title: Mage
-date: 2023-03-06 14:49
+date: 2023-03-06T14:49:00
 menu: development
 ---
 

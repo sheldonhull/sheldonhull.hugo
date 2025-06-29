@@ -3,7 +3,7 @@ title: chat
 tags:
   - chatgpt
   - coding
-lastmod: 2023-03-21 19:14
+lastmod: 2023-03-21T19:14:00
 ---
 
 ## Examples Where ChatGPT Failed
