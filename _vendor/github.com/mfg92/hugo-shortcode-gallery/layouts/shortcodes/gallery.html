@@ -1,8 +1,15 @@
 {{ $currentPage := . }}
 
-{{ $images := (.Page.Resources.ByType "image") }}
-{{ if .Get "match"}}
-	{{ $images = (.Page.Resources.Match (.Get "match")) }}
+{{ $images := slice }}
+{{ $globalMatch := .Get "globalMatch" }}
+{{ $localMatch := .Get "match" }}
+
+{{ if $localMatch }}
+	{{ $images = (.Page.Resources.Match $localMatch )}}
+{{ else if $globalMatch }}
+	{{ $images = (resources.Match (.Get "globalMatch")) }}
+{{ else }}
+	{{ $images = (.Page.Resources.ByType "image") }}
 {{ end }}
 
 {{ $filterOptions := .Get "filterOptions" | default (.Site.Params.galleryFilterOptions | default "[]") }}
@@ -28,6 +35,8 @@
 
 {{ $showExif := .Get "showExif" | default (.Site.Params.galleryShowExif | default false) }}
 
+{{ $swipeboxParameters := .Get "swipeboxParameters" | default (.Site.Params.gallerySwipeboxParameters | default "") }}
+
 {{ $justifiedGalleryParameters := .Get "justifiedGalleryParameters" | default (.Site.Params.galleryJustifiedGalleryParameters | default "") }}
 
 {{ $previewType := .Get "previewType" | default (.Site.Params.galleryPreviewType | default "blur") }}
@@ -44,13 +53,13 @@
 
 <!-- Load jquery, jquery-lazy, swipebox and justified_gallery only once per page -->
 {{ if not (.Page.Scratch.Get "galleryLoaded") }}
-  	{{ .Page.Scratch.Set "galleryLoaded" true }}
+	{{ .Page.Scratch.Set "galleryLoaded" true }}
 	<!-- Use relURL to support hugo projects that run in a subdirectory (bug #18) -->
 
 	{{ if $loadJQuery }}
 		<script src="{{ "shortcode-gallery/jquery-3.7.1.min.js" | relURL }}"></script>
 	{{ end }}
-	
+
 	{{ if not (eq $previewType "none") }}
 		<script src="{{ "shortcode-gallery/lazy/jquery.lazy.min.js" | relURL }}"></script>
 	{{ end }}
@@ -90,10 +99,17 @@ Ordinal: {{ .Ordinal}}
 <div id="{{ $galleryId }}" class="justified-gallery">
 	{{ range $original := sort $images "Name" $sortOrder}}
 		{{ if eq $original.ResourceType "image" }}
-		
-			{{/* Get metadata from sidecar file, if present. Else an empty dictionary is used. */}}	
+
+			{{/* Get metadata from sidecar file, if present. Else an empty dictionary is used. */}}
 			{{ $metaFileName := print $original.Name ".meta"}}
-			{{ $metadata := $currentPage.Page.Resources.GetMatch ($metaFileName) }}
+
+			{{ $metadata := slice }}
+			{{ if and $globalMatch (not $localMatch) }}
+				{{ $metadata = resources.GetMatch ($metaFileName) }}
+			{{ else }}
+				{{ $metadata = $currentPage.Page.Resources.GetMatch ($metaFileName) }}
+			{{ end }}
+
 			{{ if $metadata }}
 				{{ $metadata = $metadata.Content }}
 				{{ $metadata = $metadata | unmarshal }}
@@ -102,7 +118,7 @@ Ordinal: {{ .Ordinal}}
 			{{ end }}
 
 			{{/* If the image has EXIF informations, those are merged together with the metadata from the file */}}
-			{{ if in "jpg jpeg tiff" $original.MediaType.SubType }}
+			{{ if in "jpeg png tiff webp" $original.MediaType.SubType }}
 				{{ with $original.Exif }}
 					{{ $metadata = merge .Tags $metadata }}
 				{{ end }}
@@ -113,10 +129,6 @@ Ordinal: {{ .Ordinal}}
 				 if the EXIF informations contains an orientation value. See issue #22. */}}
 			{{ $rotated := $original.Filter images.AutoOrient }}
 
-			{{/* Create thumbnail, rotate it if needed */}}
-			{{ $thumbnail := ($rotated.Fit $thumbnailResizeOptions) }}
-
-
 			<div>
 				{{ $full := "" }}
 				{{ if $imageResizeOptions }}
@@ -126,7 +138,20 @@ Ordinal: {{ .Ordinal}}
 					{{/* No need to use the rotated here, the browser will handle care of EXIF orientation */}}
 					{{ $full = $original }}
 				{{ end }}
-				<a href="{{ $full.RelPermalink }}" 
+
+				{{ $thumbnail := "" }}
+				{{ if eq $thumbnailResizeOptions "original" }}
+					{{/* If thumbnailResizeOptions is set to 'original', use the original (unmodified) image for the thumbnail */}}
+					{{ $thumbnail = $original }}
+				{{ else if eq $thumbnailResizeOptions "full" }}
+					{{/* If thumbnailResizeOptions is set to 'full', use the same image as the lightbox for the thumbnail */}}
+					{{ $thumbnail = $full }}
+				{{ else }}
+					{{/* Create thumbnail, rotate it if needed */}}
+					{{ $thumbnail = ($rotated.Fit $thumbnailResizeOptions) }}
+				{{ end }}
+
+				<a href="{{ $full.RelPermalink }}"
 					class="galleryImg"
 					{{ with $metadata }}
 						{{ if .Title }}
@@ -136,16 +161,16 @@ Ordinal: {{ .Ordinal}}
 						{{ end }}
 
 						{{ if $showExif }}
-							data-description="{{ .Model }}{{ if and .Model .LensModel }} + {{ end }}{{ .LensModel }}<br/>{{ if .FocalLength }}{{ .FocalLength }}mm {{ end }}{{ if .FNumber }}f/{{ .FNumber }} {{ end }}{{ if .ExposureTime }}{{ .ExposureTime }}sec {{ end }} {{ if .ISOSpeedRatings }}ISO {{ .ISOSpeedRatings }}{{ end }}"
+							data-description="{{ .Model }}{{ if and .Model .LensModel }} + {{ end }}{{ .LensModel }}<br/>{{ if .FocalLength }}{{ .FocalLength }}mm {{ end }}{{ if .FNumber }}f/{{ printf "%.1f" .FNumber.Float64 }} {{ end }}{{ if .ExposureTime }}{{ .ExposureTime }}sec {{ end }} {{ if .ISO }}ISO {{ .ISO }}{{ end }}"
 						{{ end }}
 
-						{{ if not (eq $filterOptions "[]")  }}
+						{{ if not (eq $filterOptions "[]") }}
 							{{/* only include fields that are currently supported by the filter mechanism (in JS at the end of the file) */}}
-							data-meta="{{ (dict "Tags" $metadata.Tags "Rating" $metadata.Rating "ColorLabels" $metadata.ColorLabels "ImageDescription" $metadata.ImageDescription) | jsonify }}"
+							data-meta="{{ (dict "Tags" .Tags "Rating" .Rating "ColorLabels" .ColorLabels "ImageDescription" .ImageDescription) | jsonify }}"
 						{{ end }}
 					{{ end }}
 					>
-					<img			
+					<img
 						width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}"
 
 						{{ if (eq $previewType "blur") }}
@@ -174,7 +199,7 @@ Ordinal: {{ .Ordinal}}
 						{{ with $metadata }}
 							{{ if .ImageDescription }}
 								alt="{{ .ImageDescription }}"
-					     		{{ else }}
+							{{ else }}
 								{{ if .Title}}
 									alt="{{ .Title }}"
 								{{ end }}
@@ -226,28 +251,31 @@ Ordinal: {{ .Ordinal}}
 
 				swipeboxInstance = $('.galleryImg').swipebox(
 					$.extend({},
-						{ {{ $justifiedGalleryParameters | safeJS }} }
+						{ {{ $swipeboxParameters | safeJS }} }
 					)
 				);
 			});
 
 			// initialize the justified gallery
-			gallery.justifiedGallery({
-				rowHeight : {{ $rowHeight }},
-				margins : {{ $margins }},
-				border : 0,
-				randomize : {{ $randomize }},
-				waitThumbnailsLoad : false,
-				lastRow : {{ $lastRowJustification }},
-				captions : false,
-				// if there is at least one filter option
-				{{ if not (eq $filterOptions "[]") }}
-					// we first show no images at all
-					// till the code way below selects a filter and applies it 
-					// this prevent creating the layout twice
-					filter : () => false
-				{{ end }}
-			});
+			gallery.justifiedGallery($.extend(
+				{
+					rowHeight : {{ $rowHeight }},
+					margins : {{ $margins }},
+					border : 0,
+					randomize : {{ $randomize }},
+					waitThumbnailsLoad : false,
+					lastRow : {{ $lastRowJustification }},
+					captions : false,
+					// if there is at least one filter option
+					{{ if not (eq $filterOptions "[]") }}
+						// we first show no images at all
+						// till the code way below selects a filter and applies it
+						// this prevent creating the layout twice
+						filter : () => false
+					{{ end }}
+				},
+				{ {{ $justifiedGalleryParameters | safeJS }} }
+			));
 
 			// only include JS code for filter options if there at least one filter option
 			{{ if not (eq $filterOptions "[]") }}
@@ -258,7 +286,7 @@ Ordinal: {{ .Ordinal}}
 					return (entry, index, array) => {
 						let meta = $(entry).find("a").attr("data-meta");
 						meta = meta ? JSON.parse(meta) : {};
-						
+
 						let include = filterFunction(meta);
 
 						// only those images visible in justified gallery should be displayed
@@ -312,9 +340,9 @@ Ordinal: {{ .Ordinal}}
 					});
 				};
 
-				
+
 				const filterOptions = {{ $filterOptions | safeJS }};
-				
+
 				// insert a div for inserting filter buttons before the gallery
 				const filterBar = $("<div class='justified-gallery-filterbar'/>");
 				gallery.before(filterBar);
@@ -360,7 +388,7 @@ Ordinal: {{ .Ordinal}}
 					filterBar.find('.selected').removeClass('selected');
 					filterButton.addClass("selected");
 				};
-		
+
 				// check if the url contains an instruction to apply a specific filter
 				// eg. example.com/images/#gallery-filter=Birds
 				const params = new URLSearchParams(location.hash.replace(/^\#/,""));
@@ -370,9 +398,9 @@ Ordinal: {{ .Ordinal}}
 					activeFilter = filterOptions[0].label;
 				}
 
-				// create a button for each filter entry 
+				// create a button for each filter entry
 				filterOptions.forEach(filterConfig => {
-					let filter; // create a filter function based on the available attributes of filterConfig
+					let filter;  // create a filter function based on the available attributes of filterConfig
 					if(filterConfig.tags) {
 						filter = createTagFilter(filterConfig.tags);
 					} else if(filterConfig.rating){

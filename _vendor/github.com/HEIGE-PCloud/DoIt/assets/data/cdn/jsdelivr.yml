@@ -5,15 +5,11 @@ prefix:
 libFiles:
   # algoliasearch@4.11.0 https://github.com/algolia/algoliasearch-client-javascript
   algoliasearchJS: algoliasearch@4.11.0/dist/algoliasearch.umd.min.js
-  # animate.css@4.1.1 https://github.com/daneden/animate.css
-  animateCSS: animate.css@4.1.1/animate.min.css
   # aplayer@1.10.1 https://github.com/MoePlayer/APlayer
   aplayerCSS: aplayer@1.10.1/dist/APlayer.min.css
   aplayerJS: aplayer@1.10.1/dist/APlayer.min.js
   # autocomplete.js@0.38.0 https://github.com/algolia/autocomplete.js
   autocompleteJS: autocomplete.js@0.38.0/dist/autocomplete.min.js
-  # clipboard.js@2.0.8 https://github.com/zenorocha/clipboard.js
-  clipboardJS: clipboard@2.0.8/dist/clipboard.min.js
   # cookieconsent@3.1.1 https://github.com/osano/cookieconsent
   cookieconsentCSS: cookieconsent@3.1.1/build/cookieconsent.min.css
   cookieconsentJS: cookieconsent@3.1.1/build/cookieconsent.min.js
@@ -46,8 +42,6 @@ libFiles:
   mermaidJS: mermaid@8.13.3/dist/mermaid.min.js
   # meting@2.0.1 https://github.com/metowolf/MetingJS
   metingJS: meting@2.0.1/dist/Meting.min.js
-  # object-fit-images@3.2.4 https://github.com/fregante/object-fit-images
-  objectFitImagesJS: object-fit-images@3.2.4/dist/ofi.min.js
   # sharer.js@0.4.2 https://github.com/ellisonleao/sharer.js
   sharerJS: sharer.js@0.4.2/sharer.min.js
   # twemoji@13.1.0 https://github.com/twitter/twemoji
@@ -81,3 +75,8 @@ libFiles:
   artalkLiteCSS: "artalk@2.5.5/dist/ArtalkLite.css"
   artalkPluginKaTeXJS: "@artalk/plugin-katex@0.1.5/dist/artalk-plugin-katex.js"
   artalkPluginLightboxJS: "@artalk/plugin-lightbox@0.1.1/dist/artalk-plugin-lightbox.js"
+  # plantuml-encoder@1.4.0
+  plantumlEncoderJS: plantuml-encoder@1.4.0/dist/plantuml-encoder.min.js
+  # wavedrom@3.5.0 only default skin would be loaded!
+  wavedromJS: wavedrom@3.5.0/dist/wavedrom.min.js
+  wavedromDefaultSkinJS: wavedrom@3.5.0/skins/default.js

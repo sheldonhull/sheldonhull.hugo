@@ -3,10 +3,11 @@
 @import "_variables";
 @import "_override";
 
+@import "themes/_themes";
+
 @import "_mixin/index";
 
 @import "_core/base";
-@import "_core/layout";
 
 @import "_page/index";
 

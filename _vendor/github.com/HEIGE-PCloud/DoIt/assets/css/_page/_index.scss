@@ -3,13 +3,7 @@
   max-width: 800px;
   width: 60%;
   margin: 0 auto;
-  [header-desktop] & {
-    padding-top: $header-height;
-  }
-
-  [header-desktop=normal] & {
-    padding-top: 0;
-  }
+  padding-top: $header-height;
 
   @include blur;
 }
@@ -18,5 +12,4 @@
 @import "_special";
 @import "_archive";
 @import "_home";
-@import "_404";
 @import "_taxonomy";

@@ -2,23 +2,9 @@
   .cc-btn {
     color: $global-font-color;
 
-    &:hover, &:focus {
-      background-color: #ccc;
-    }
-
-    [theme=dark] & {
-      color: $global-font-color;
-
-      &:hover, &:focus {
-        background-color: #fff;
-      }
-    }
-    [theme=black] & {
-      color: $global-font-color;
-
-      &:hover, &:focus {
-        background-color: #fff;
-      }
+    &:hover,
+    &:focus {
+      background-color: $cookie-background-color;
     }
   }
 }

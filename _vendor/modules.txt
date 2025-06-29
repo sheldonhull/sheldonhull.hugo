@@ -1,4 +1,4 @@
-# github.com/HEIGE-PCloud/DoIt v0.4.1-0.20240422144504-a3970ec1af30
-# github.com/mfg92/hugo-shortcode-gallery v1.1.1
+# github.com/HEIGE-PCloud/DoIt v0.4.2
+# github.com/mfg92/hugo-shortcode-gallery v1.3.0
 # github.com/gohugoio/hugo-mod-jslibs/turbo/v7 v7.20300.20000
 # github.com/bep/turbo/v7 v7.20300.20000
