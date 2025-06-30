@@ -1,5 +1,6 @@
 Copyright (c) 2016 Sheldon Hull
 
+
 ## Blog Infrastructure / Customizations / Etc
 
 ```text
