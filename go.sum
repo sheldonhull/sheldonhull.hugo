@@ -1,0 +1,8 @@
+github.com/HEIGE-PCloud/DoIt v0.4.2 h1:XlaBBpxq+sJ6BNzwZtrhxA5CRAt3KBAeIrVVf/08eYg=
+github.com/HEIGE-PCloud/DoIt v0.4.2/go.mod h1:gC0tjEUJLRfQJ7k1sq49V5gm4sRm0c2AUgPkcfZrPKQ=
+github.com/bep/turbo/v7 v7.20300.20000 h1:omrI4cPRwnLufr8S7jCo9JG95FVTM8hIEvJCtgbnhuc=
+github.com/bep/turbo/v7 v7.20300.20000/go.mod h1:CIoAv+QVJtkr+kXn2ZmfJ/V4r3TPLR6CNMGvWjWqdSc=
+github.com/gohugoio/hugo-mod-jslibs/turbo/v7 v7.20300.20000 h1:A1O4fBEbGDuP6tJt4P7UHCfzOMqsA3ZdfHp3HFBzn7c=
+github.com/gohugoio/hugo-mod-jslibs/turbo/v7 v7.20300.20000/go.mod h1:/SsloeYAzaYNJdMTWvDcg1LtpRfPCFZoqGGwbSJM84c=
+github.com/mfg92/hugo-shortcode-gallery v1.3.0 h1:7wiUUu7adN3JbcshZfZ+Q0ZLDilPoGkquoor0ZcdJVU=
+github.com/mfg92/hugo-shortcode-gallery v1.3.0/go.mod h1:SEdbeBGSMX2lP+4nCqqy9AyTWWktUMWXYnR3r1l01Rw=

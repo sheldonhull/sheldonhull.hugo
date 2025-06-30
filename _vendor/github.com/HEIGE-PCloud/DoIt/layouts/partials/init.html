@@ -2,7 +2,7 @@
 
 {{- /* DoIt theme version detection */ -}}
 {{/*  {{- $VERSION := "0.3.X" -}}
-{{- if eq .Site .Sites.First -}}
+{{- if eq .Site .Sites.Default -}}
     {{- if not .Site.Params.version -}}
         {{- errorf "Configuration Error 配置文件错误\n\nYou haven't configured the DoIt version param correctly yet. See https://hugodoit.pages.dev/theme-documentation-basics/#basic-configuration\n你还没有正确配置 DoIt 的版本参数. 参考 https://hugodoit.pages.dev/zh-cn/theme-documentation-basics/#basic-configuration\n\n" -}}
     {{- else if ne .Site.Params.version $VERSION -}}
@@ -49,7 +49,7 @@
     {{- else if eq .Params.comment false -}}
         {{- .Scratch.Set "comment" dict -}}
     {{- end -}}
-{{- else if eq .Site .Sites.First -}}
+{{- else if eq .Site .Sites.Default -}}
     {{- warnf "\n\nCurrent environment is \"development\". The \"comment system\", \"PWA\", \"CDN\" and \"fingerprint\" will be disabled.\n当前运行环境是 \"development\". \"评论系统\", \"PWA\", \"CDN\" 和 \"fingerprint\" 不会启用.\n\n" -}}
 {{- end -}}
 
