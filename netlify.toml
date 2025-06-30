@@ -2,33 +2,39 @@
 # PUBLISH/PUBLIC
 ###############################
 [build]
-command = "npm run build"
+command = "npm ci && npm run build"
 publish = "public"
 
 [build.environment]
 NODE_VERSION = "22"
 NPM_VERSION = "10.9.2"
+# Force npm to ignore engine warnings during builds
+NPM_FLAGS = "--force"
 ###############################
 # DEPLOY PREVIEWS
 ###############################
 [context.deploy-preview]
-command = "npm run build"
+command = "npm ci && npm run build"
 publish = "public"
 
 [context.deploy-preview.environment]
 NODE_VERSION = "22"
 NPM_VERSION = "10.9.2"
+# Force npm to ignore engine warnings during builds
+NPM_FLAGS = "--force"
 
 ###############################
 # BRANCH
 ###############################
 [context.branch-deploy]
 publish = "public"
-command = "npm run build"
+command = "npm ci && npm run build"
 
 [context.branch-deploy.environment]
 NODE_VERSION = "22"
 NPM_VERSION = "10.9.2"
+# Force npm to ignore engine warnings during builds
+NPM_FLAGS = "--force"
 
 # Redirects to keep jekyll based urls that some use like:
 #xmlUrl="https://www.sheldonhull.com/tags/tech/feed.xml"  should still be working, since hugo generates with index.xml
