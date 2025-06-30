@@ -2,70 +2,33 @@
 # PUBLISH/PUBLIC
 ###############################
 [build]
-#command = "git status --porcelain &&  git submodule update --init --recursive && GIT_COMMIT_SHA='git rev-parse --verify HEAD' && GIT_COMMIT_SHA_SHORT='git rev-parse --short HEAD' && hugo"
-command = '''
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.1.2/aqua-installer | bash -s -- -v v2.43.1
-export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:${PATH}"
-aqua policy allow .aqua/aqua-policy.yaml
-aqua install --tags first
-aqua install --tags ci
-mage init hugo:buildpublic algolia
-'''
+command = "npm run build"
 publish = "public"
 
-
 [build.environment]
-HUGO_ENABLEGITINFO = "true"
-HUGO_BASEURL = "https://www.sheldonhull.com/"
-HUGO_MINIFY = "true"
-HUGO_DESTINATION = "public"
-YARN_VERSION = "3.2.3"
-YARN_ENABLE_IMMUTABLE_INSTALLS = "false"
-NODE_VERSION = "18"
-NETLIFY_USE_YARN = "true"
-GO_VERSION = "1.22.1"                         # not having this installed can cause compilation conflicts
-AQUA_LOG_LEVEL = "info"                       # "debug"
-
-# HUGO_VERSION
+NODE_VERSION = "22"
+NPM_VERSION = "10.9.2"
 ###############################
 # DEPLOY PREVIEWS
 ###############################
 [context.deploy-preview]
-command = '''
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.1.2/aqua-installer | bash -s -- -v v2.43.1
-export PATH="$(aqua root-dir)/bin:$PATH"
-aqua policy allow .aqua/aqua-policy.yaml
-aqua install --tags first
-aqua install --tags ci
-mage init build
-'''
-publish = "preview"
+command = "npm run build"
+publish = "public"
 
 [context.deploy-preview.environment]
-HUGO_GOOGLEANALYTICS = "dev"
-HUGO_BASEURL = "/"
-HUGO_ENABLEGITINFO = "true"
-HUGO_DESTINATION = "preview"
+NODE_VERSION = "22"
+NPM_VERSION = "10.9.2"
 
 ###############################
 # BRANCH
 ###############################
 [context.branch-deploy]
-publish = "branch"
-command = '''
-curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.1.2/aqua-installer | bash -s -- -v v2.43.1
-export PATH="$(aqua root-dir)/bin:$PATH"
-aqua policy allow .aqua/aqua-policy.yaml
-aqua install --tags first
-aqua install --tags ci
-mage init build
-'''
+publish = "public"
+command = "npm run build"
 
 [context.branch-deploy.environment]
-HUGO_GOOGLEANALYTICS = "dev"
-HUGO_BASEURL = "/"
-HUGO_ENABLEGITINFO = "true"
-HUGO_DESTINATION = "branch"
+NODE_VERSION = "22"
+NPM_VERSION = "10.9.2"
 
 # Redirects to keep jekyll based urls that some use like:
 #xmlUrl="https://www.sheldonhull.com/tags/tech/feed.xml"  should still be working, since hugo generates with index.xml
