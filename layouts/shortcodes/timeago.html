@@ -1,3 +1,0 @@
-{{- $date := .Get "date" -}}
-<span class="relativetime" datetime="{{  dateFormat " 2006-01-02T15:04:05" $date }}" title="{{ dateFormat " January 2,2006" $date }}">{{ dateFormat "January 2,2006" $date }}</span>
-<script type="module">timeago.render(document.querySelectorAll('.relativetime'));</script>

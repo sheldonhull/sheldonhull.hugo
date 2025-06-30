@@ -1,5 +1,0 @@
-:3100 {
-  encode zstd gzip
-  root * _site
-  file_server
-}
