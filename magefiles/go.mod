@@ -2,15 +2,15 @@ module mage.local
 
 go 1.21
 
-toolchain go1.22.1
+toolchain go1.24.4
 
 require (
-	dagger.io/dagger v0.9.8
-	github.com/alessio/shellescape v1.4.2
-	github.com/gobeam/stringy v0.0.6
+	dagger.io/dagger v0.18.12
+	github.com/alessio/shellescape v1.6.0
+	github.com/gobeam/stringy v0.0.7
 	github.com/magefile/mage v1.15.0
 	github.com/manifoldco/promptui v0.9.0
-	github.com/pelletier/go-toml/v2 v2.1.1
+	github.com/pelletier/go-toml/v2 v2.2.4
 	github.com/pterm/pterm v0.12.80
 	github.com/sheldonhull/magetools v1.0.2
 )
