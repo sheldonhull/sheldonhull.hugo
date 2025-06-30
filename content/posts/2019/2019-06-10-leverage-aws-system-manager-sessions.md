@@ -40,7 +40,7 @@ I use Cmder for my main terminal, with all other terminals normally running in V
 
 ### Install on Windows
 
-{{< gist sheldonhull  d2c4b009e7da1845081327121a61a05c >}}
+[Gist](https://gist.github.com/sheldonhull/d2c4b009e7da1845081327121a61a05c)
 
 Ensure your AWS Credentials are setup, and use the session manager plugin after installation by running:
 

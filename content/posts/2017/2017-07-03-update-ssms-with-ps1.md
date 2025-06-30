@@ -26,4 +26,4 @@ The bat file is a simple way for someone to execute as admin.
 
 Hope this saves you some time. I found it helpful to keep a bunch of developers up to date with minimal effort on their part, since SSMS doesn't have auto updating capability, and thus seems to never get touched by many devs. :-) Better yet adapt to drop the SSMS Installer into a shared drive and have it check that version, so you just download from a central location.
 
-{{< gist sheldonhull  8f2bbd2455fe2f2ba8d41af33525464e >}}
+[Gist](https://gist.github.com/sheldonhull/8f2bbd2455fe2f2ba8d41af33525464e)

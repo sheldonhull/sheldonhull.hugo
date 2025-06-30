@@ -14,11 +14,11 @@ Additionally, I was told I was the deadlock victim when attempting to set the us
 
 Going forward I looked at several articles from Stack Overflow and various other blogs, and followed the recommended steps such as
 
-{{< gist sheldonhull  97c73c8ef61c84e6adbb >}}
+[Gist](https://gist.github.com/sheldonhull/97c73c8ef61c84e6adbb)
 
 I even added a step to kill the connections to it by using this statement, helpfully posted by [Matthew Haugen](http://stackoverflow.com/questions/7197574/script-to-kill-all-connections-to-a-database-more-than-restricted-user-rollback)
 
-{{< gist sheldonhull  252ca75b8e8ab4fe64fa >}}
+[Gist](https://gist.github.com/sheldonhull/252ca75b8e8ab4fe64fa)
  Finally went through and removed all my connections from master based on an additional post. No luck. Stopped my monitoring tools, no luck. At this point, it felt like a Monday for sure.
 
 Since I was working in a development environment, I went all gung ho and killed every session with my login name, as there seemed to be quite a few , except for the spid executing. Apparently, the blocking process was executing from master, probably the incomplete restore that didn't successfully rollback. I'll have to improve my transaction handling on this, as I just ran it straight with no error checks.
@@ -28,4 +28,4 @@ What a waste of time, but at least I know to watch out next time, ensure my acti
 I'm going to just blame it on the darn SSMS GUI. Seems like a convenient scapegoat this time.
 
 Successful pushed out my changes with the following script:
-{{< gist sheldonhull  a3db2c337d8e5d4f67a7 >}}
+[Gist](https://gist.github.com/sheldonhull/a3db2c337d8e5d4f67a7)

@@ -19,7 +19,7 @@ Tech changes quick. Reading google postings from something in 2009 is not my fir
 ![Enter new search option](/images/2016-04-27_10-56-16.png).
 Here is the snippet that sets the new default.
 
-{{< gist sheldonhull  200fb5c17e0d7455699bd07830942704 >}}
+[Gist](https://gist.github.com/sheldonhull/200fb5c17e0d7455699bd07830942704)
 
 
 4.  Set the entry as default

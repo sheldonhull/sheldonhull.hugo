@@ -154,7 +154,7 @@ If you want to explore properties of an object, try using the ever faithful get-
 Depending on the type of object, you can additionally explore them with GetEnumerator, GetProperties, etc.
 You'll find intellisense helpful as you explore more.
 For instance, here's a walkthrough on the various ways you might explore the object and find you need to dig into it to get the full detail of what you have access to.
-{{< gist sheldonhull  e3ed8534b1565c67d6d59163b0921d59 >}}
+[Gist](https://gist.github.com/sheldonhull/e3ed8534b1565c67d6d59163b0921d59)
 
 ## Comparing Restoring a Database with Cmdlet vs SMO
 
@@ -162,10 +162,10 @@ For instance, here's a walkthrough on the various ways you might explore the obj
 
 An example of how simple using dbatools cmdlet can make restoring a database copy
 
-{{< gist sheldonhull  7314ffa3fc830f36a2eda8ee7e27f7c4 >}}
+[Gist](https://gist.github.com/sheldonhull/7314ffa3fc830f36a2eda8ee7e27f7c4)
 
 ### rolling your own wheel
 
 Now compare this to the complexity of running your own invocation of the SMO namespace and requires a lot more coding.
 Since dbatools wraps up a lot of the functionality, I've actually migrated to leveraging this toolkit for these dba related tasks instead of trying to reinvent the wheel.
-{{< gist sheldonhull  08fe28dd236a239f25821378268ef8e5 >}}
+[Gist](https://gist.github.com/sheldonhull/08fe28dd236a239f25821378268ef8e5)

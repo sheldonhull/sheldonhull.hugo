@@ -405,7 +405,8 @@ You can do a lot with `yq`.
 
 Using jq, you can parse out secrets from base64 encoded values for some quick scripting.
 
-> NOTE: This uses [sttr](https://github.com/abhimanyu003/sttr) but you can modify to whatever your platform provides (zsh `base64 -decode` or pwsh `[System.Convert]::FromBase64String($Base64String)`))
+> [!note]
+> This uses [sttr](https://github.com/abhimanyu003/sttr) but you can modify to whatever your platform provides (zsh `base64 -decode` or pwsh `[System.Convert]::FromBase64String($Base64String)`))
 > If you have Go installed then run `go install github.com/abhimanyu003/sttr@latest`.
 
 This example parses an encoded JSON string to help registry an Azure Container Registry from a Kubernetes stored secret.

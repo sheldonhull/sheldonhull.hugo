@@ -17,4 +17,4 @@ I'll post up one for views and synonyms later, as my time was limited to post th
 
 This script might help save you some time!
 
-{{< gist sheldonhull  fd2e49f4f69202cd2da6 >}}
+[Gist](https://gist.github.com/sheldonhull/fd2e49f4f69202cd2da6)

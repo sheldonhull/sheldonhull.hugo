@@ -15,4 +15,4 @@ For the nested error handling I found a great example of handling the error outp
 
 If you want to see some great example on powershell scripting restores with progress complete and more I recommend taking a look at this post which had a very detailed powershell script example. [SharePoint Script - Restoring a Content Database](http://bit.ly/2fZQGJX)
 
-{{< gist sheldonhull  fe14ed313d1259f0aab7b73c7ce39f6f >}}
+[Gist](https://gist.github.com/sheldonhull/fe14ed313d1259f0aab7b73c7ce39f6f)

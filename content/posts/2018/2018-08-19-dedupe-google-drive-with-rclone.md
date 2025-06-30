@@ -59,4 +59,4 @@ This includes quite a few nifty S3 operations. Even though I'm more experienced 
 
 Buried in there was also mention of the ability to mount **any** of the storage systems as local drives in Windows. See [RClount Mount documentation.](https://rclone.org/commands/rclone_mount/). This means you could mount an S3 bucket as a local drive with RClone. I'll try and post an update on that after I try it out. It's pretty promising.
 
-{{< gist sheldonhull  e286bd05ff154b47c8a1f8ecf2bdc22b >}}
+[Gist](https://gist.github.com/sheldonhull/e286bd05ff154b47c8a1f8ecf2bdc22b)

@@ -41,4 +41,4 @@ I also run the sp_config command to ensure backup compression is enabled to save
 Maybe this will help you get up to speed if you want to try out this great solution, but tweak a few defaults.
 The ease of installation across multiple instances makes this my current favorite solution, followed by the [fantastic Ola Hallengren solution](http://bit.ly/2e8d9qW).
 
-{{< gist sheldonhull  2fee8ab97c0210918e8fb10719fca3f5 >}}
+[Gist](https://gist.github.com/sheldonhull/2fee8ab97c0210918e8fb10719fca3f5)

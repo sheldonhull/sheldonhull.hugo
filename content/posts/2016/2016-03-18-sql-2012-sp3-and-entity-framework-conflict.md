@@ -17,7 +17,7 @@ An issue with SQL Server 2012 SP3 was identified that impacted EF4/5 due to addi
 
 To easily identify the available dll versions of sql server, I ran a quick adhoc bat file.
 
-{{< gist sheldonhull  88ff6ce9caa927a27804 >}}
+[Gist](https://gist.github.com/sheldonhull/88ff6ce9caa927a27804)
  The output returns a simple text file like this:
 
 ![](/images/SNAG-0035_pucmdd.jpg)

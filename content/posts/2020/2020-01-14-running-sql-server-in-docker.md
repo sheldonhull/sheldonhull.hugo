@@ -83,7 +83,7 @@ A few helpful tips:
 1. Remove `-d` for detached and you can see the SQL Server console output in the console.
 2. See the persisted databases (system and user!) in the artifacts directory after docker-compose begins running.
 
-{{< gist sheldonhull  a70a3a731b329b67f47a331c64c72ab5 >}}
+[Gist](https://gist.github.com/sheldonhull/a70a3a731b329b67f47a331c64c72ab5)
 
 ## Improving Code Tests
 

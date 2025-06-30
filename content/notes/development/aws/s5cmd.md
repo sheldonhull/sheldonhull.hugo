@@ -27,7 +27,8 @@ $cred = Get-STSSessionToken -DurationInSeconds ([timespan]::FromHours(8).TotalSe
 
 You can copy that string into your remote session to get the access tokens recognized by the s5cmd tool and allow you to grab files from another AWS account's S3 bucket.
 
-> NOTE: To sync a full "directory" in S3, you need to leave the asterisks at the end of the key as demonstrated.
+> [!note]
+> To sync a full "directory" in S3, you need to leave the asterisks at the end of the key as demonstrated.
 
 ### Windows
 
