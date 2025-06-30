@@ -2,8 +2,6 @@
 date: 2020-12-16T00:06:20.000Z
 title: SQL Server Meets AWS Systems Manager
 slug: sql-server-meets-aws-systems-manager
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

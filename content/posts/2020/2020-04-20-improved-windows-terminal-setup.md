@@ -3,8 +3,6 @@ date: 2020-04-20T07:00:00-05:00
 title: Improved Windows Terminal Setup
 slug: improved-windows-terminal-setup
 summary: Quickly get some nice defaults going for latest Windows Terminal
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - cool-tools
 - development

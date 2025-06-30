@@ -1,7 +1,5 @@
 ---
 date: "2013-04-23T00:00:00Z"
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "snippet designate a certain time of the day in getdate()"

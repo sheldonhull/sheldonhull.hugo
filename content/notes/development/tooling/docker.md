@@ -7,8 +7,6 @@ comments: true
 tags:
   - development
   - docker
-typora-root-url: ../../static
-typora-copy-images-to: ../../static/images
 ---
 
 ## Buildx

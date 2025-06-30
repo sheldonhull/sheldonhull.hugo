@@ -9,8 +9,6 @@ tags:
 - microblog
 - golang
 images: [/images/2021-12-02-16.53.00-cloned-repos.png]
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 
 ---
 

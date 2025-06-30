@@ -15,8 +15,6 @@ tags:
 - golang
 draft: true
 toc: true
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 
 # images: [/images/]
 

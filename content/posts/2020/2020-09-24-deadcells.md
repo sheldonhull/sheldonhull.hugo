@@ -2,8 +2,6 @@
 date: 2020-09-24T00:09:57-05:00
 title: Deadcells
 slug: deadcells
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
     - gaming
     - ramblings

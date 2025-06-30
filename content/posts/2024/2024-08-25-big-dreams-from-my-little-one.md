@@ -5,8 +5,6 @@ slug: big-dreams-from-little-ones
 tags:
 - dadlife
 - family
-typora-root-url: ../../../static
-typora-copy-images-to: ../../../static/images
 ---
 
 My 6 year old:

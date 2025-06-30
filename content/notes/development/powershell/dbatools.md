@@ -11,8 +11,6 @@ tags:
   - powershell
   - dbatools
 comments: true
-typora-root-url: ../../static
-typora-copy-images-to: ../../static/images
 ---
 
 {{< admonition type="info" title="Requests or Suggestions" open=true >}}

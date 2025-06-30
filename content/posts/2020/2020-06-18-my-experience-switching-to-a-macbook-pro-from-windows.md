@@ -5,8 +5,6 @@ slug: my-experience-switching-to-a-macbook-pro-from-windows
 summary: >-
   Having used Windows mostly for my entire life, this is what it was like
   switching to a Mac for professional use
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - devops
   - tech

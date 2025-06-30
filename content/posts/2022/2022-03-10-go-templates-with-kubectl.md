@@ -12,9 +12,6 @@ tags:
 - kubernetes
 
 # images: [/images/]
-
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 An alternative to using jsonpath with kubectl is go templates!

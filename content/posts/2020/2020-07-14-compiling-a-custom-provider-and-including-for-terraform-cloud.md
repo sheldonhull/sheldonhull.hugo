@@ -6,8 +6,6 @@ toc: true
 summary: If you need to include a custom provider with Terraform Cloud, you
   currently need to perform some special work to package everything together
   properly. Here's how I did it to give you a jump start
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

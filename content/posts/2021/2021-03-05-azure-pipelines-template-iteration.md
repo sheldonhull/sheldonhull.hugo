@@ -4,8 +4,6 @@ title: Azure Pipelines Template Iteration
 slug: azure-pipelines-template-iteration
 summary:
   First time using templates for iteration loops and found it very handy!
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

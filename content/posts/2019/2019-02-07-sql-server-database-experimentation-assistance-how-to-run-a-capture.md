@@ -3,8 +3,6 @@ date: "2019-02-07T00:07:21Z"
 summary: Just a quick look at the very beginning of setting up SQL Server Database
   Experimentation Assistant
 last_modified_at: "2019-02-08 00:07:21"
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 - tech
@@ -13,8 +11,6 @@ tags:
 title: "SQL Server Database Experimentation Assistant - How to Run a Capture"
 slug: "sql-server-database-experimentation-assistance-how-to-run-a-capture"
 toc: false
-typora-copy-images-to: ..\assets\img
-typora-root-url: ..\assets\img
 ---
 
 # DEA

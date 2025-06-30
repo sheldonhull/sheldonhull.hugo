@@ -8,8 +8,6 @@ tags:
 - development
 - microblog
 - ai
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 I wanted to remove all the clutter in my Twitter profile, and found the interests section.

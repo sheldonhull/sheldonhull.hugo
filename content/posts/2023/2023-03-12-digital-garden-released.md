@@ -8,8 +8,6 @@ tags:
 - tech
 - development
 - microblog
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 Split my blog into [notes.sheldonhull.com](https://notes.sheldonhull.com) for evergreen note taking and reference content.

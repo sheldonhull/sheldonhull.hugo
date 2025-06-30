@@ -8,8 +8,6 @@ tags:
 - microblog
 - terraform
 - infrastructure-as-code
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 Use [Driftctl](https://github.com/cloudskiff/driftctl) to detect drift in your your infrastructure.

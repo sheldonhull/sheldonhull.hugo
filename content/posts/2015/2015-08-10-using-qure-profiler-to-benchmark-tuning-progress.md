@@ -1,8 +1,6 @@
 ---
 date: "2015-08-10T00:00:00Z"
 last_modified_at: "2018-03-24"
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Using Qure Profiler To Benchmark Tuning Progress"

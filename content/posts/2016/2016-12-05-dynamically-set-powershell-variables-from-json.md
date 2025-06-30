@@ -1,8 +1,6 @@
 ---
 date: "2016-12-05T00:00:00Z"
 excerpt_separator: <!--more-->
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - powershell
 - tech

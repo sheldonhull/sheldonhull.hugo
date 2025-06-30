@@ -2,8 +2,6 @@
 date: 2020-12-01T12:31:14-06:00
 title: Leave Me Alone
 slug: leave-me-alone
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
     - tech
     - cool-tools

@@ -8,8 +8,6 @@ tags:
 - development
 - microblog
 - infrastructure-as-code
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 series:
 - pulumi
 ---

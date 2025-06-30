@@ -7,8 +7,6 @@ summary: Leverage more software development testing principles for operational t
 comments: true
 toc: true
 images:
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - tech
 - devops

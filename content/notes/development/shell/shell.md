@@ -11,8 +11,6 @@ comments: true
 tags:
   - development
   - shell
-typora-root-url: ../../static
-typora-copy-images-to: ../../static/images
 ---
 
 This is a mix of shell, linux, and macOS commands.
@@ -264,6 +262,7 @@ Some good info on this from [Shebang](https://bash.cyberciti.biz/guide/Shebang#.
 - For a system boot script, use `/bin/sh`
 - The `/usr/bin/env` run a program such as a bash in a modified environment. It makes your bash script portable. The advantage of #!/usr/bin/env bash is that it will use whatever bash executable appears first in the running user's `$PATH` variable.
 
+
 ## SSH
 
 Setup your permissions for `~/.ssh`
@@ -279,19 +278,19 @@ chmod 0600 ~/.ssh/id_rsa
 
 For why 0600 see footnote.[^why-0600]
 
-{{< admonition type="tip" title="Troubleshooting macOS permissions" open=true >}}
 
-I've had issues with macOS adding an `@` with ACL issues on the ssh key's when downloaded.
+> [!tip] Troubleshooting macOS permissions
+>
+> I've had issues with macOS adding an `@` with ACL issues on the ssh key's when downloaded.
+>
+> To resolve this, just copy the contents of the ssh key to a new file and remove the original.
+>
+> ```shell
+> cat original_key.pem > key.pem
+> ```
+>
+> [How To List Users In Linux](https://linuxize.com/post/how-to-list-users-in-linux/)
 
-To resolve this, just copy the contents of the ssh key to a new file and remove the original.
-
-```shell
-cat original_key.pem > key.pem
-```
-
-[How To List Users In Linux](https://linuxize.com/post/how-to-list-users-in-linux/)
-
-{{< /admonition >}}
 
 [^why-0600]: [Why are ssh keys 600 and not 400 by default? authorized_keys immutable? : linux4noobs](https://www.reddit.com/r/linux4noobs/comments/bjpbnl/why_are_ssh_keys_600_and_not_400_by_default/)
 
@@ -305,21 +304,22 @@ In this example, I'm searching for a text string in a PowerShell file that VSCod
 rg -l -c "Start-ThreadJob" *.ps1
 ```
 
-{{< admonition type="note" title="Benchmark" open=true >}}
 
-I ran a quick test to see how ripgrep performed compared to normal grep search.
-Grep wasn't optimized, and by default is single threaded.
-Ripgrep is multithreaded, automatically honors gitignore and more.
+> [!note] Benchmark
+>
+> I ran a quick test to see how ripgrep performed compared to normal grep search.
+> Grep wasn't optimized, and by default is single threaded.
+> Ripgrep is multithreaded, automatically honors gitignore and more.
+>
+> ```shell
+> grep -rnw $HOME -e 'Start-ThreadJob'
+> ```
+>
+> | Tool      | Time     |
+> | --------- | ----     |
+> | `ripgrep` | 5m6s     |
+> | `grep`    | 1h+      |
 
-```shell
-grep -rnw $HOME -e 'Start-ThreadJob'
-```
-
-| Tool      | Time     |
-| --------- | ----     |
-| `ripgrep` | 5m6s     |
-| `grep`    | 1h+      |
-{{< /admonition >}}
 
 ## Using yq to edit yaml files for Datadog service
 

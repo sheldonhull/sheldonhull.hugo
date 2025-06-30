@@ -12,8 +12,6 @@ tags:
 - devops
 title: Git Workflow With Git Town
 toc: true
-typora-copy-images-to: ../../../static/images
-typora-root-url: ../../../static
 ---
 
 ## Resources

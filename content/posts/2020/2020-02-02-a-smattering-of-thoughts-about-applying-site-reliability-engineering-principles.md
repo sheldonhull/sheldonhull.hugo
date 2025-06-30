@@ -3,8 +3,6 @@ date: 2020-04-05T16:45:00.000+00:00
 title: A Smattering of Thoughts About Applying Site Reliability Engineering principles
 slug: a-smattering-of-thoughts-about-applying-site-reliability-engineering-principles
 summary: Applying more SRE principles in your DevOps culture can help equip you with more concrete steps.
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - agile
 - working-smart

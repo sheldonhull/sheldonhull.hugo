@@ -9,8 +9,6 @@ tags:
 - development
 toc: true
 images: [/images/2021-06-04-12.28.36-Slack.png]
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 lightgallery: true
 ---
 

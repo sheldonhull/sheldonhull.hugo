@@ -2,8 +2,6 @@
 date: 2021-05-18T13:28:03-05:00
 title: Cool Way to Compare Features in Note Apps
 slug: cool-way-to-compare-features-in-note-apps
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - microblog

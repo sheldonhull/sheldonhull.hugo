@@ -9,8 +9,6 @@ tags:
 - aws
 - golang
 images: [/images/2021-07-16-the-power-of-the-steampipe.jpeg]
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 ## Up And Running In Minutes

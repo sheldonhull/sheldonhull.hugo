@@ -7,8 +7,6 @@ tags:
   - development
   - blog
 # images: [/images/]
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 [Drunk Post: Things I've learned as a Sr Engineer](https://www.reddit.com/r/ExperiencedDevs/comments/nmodyl/drunk_post_things_ive_learned_as_a_sr_engineer/) has trending with some fantastic discussion on Twitter & Reddit.

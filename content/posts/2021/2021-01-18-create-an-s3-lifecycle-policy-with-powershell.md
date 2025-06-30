@@ -4,8 +4,6 @@ date: 2021-01-18T18:00:00-06:00
 toc: false
 summary: Deploy a lifecycle policy for s3 using PowerShell SDK
 images: [/images/2021-01-15_18-10-06-big-bucket.png]
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

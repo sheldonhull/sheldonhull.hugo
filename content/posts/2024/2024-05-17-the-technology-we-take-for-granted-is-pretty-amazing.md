@@ -12,8 +12,6 @@ tags:
 
 # images: [/images/]
 
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 We had some intense rapid storms hit last night that caused power failure for roughly 30-40% of Greater Houston area.

@@ -8,12 +8,13 @@ toc: true
 layout: wide
 ---
 
-{{< admonition type="info" title="Requirements" >}}
 
-- Azure CLI
-- [gum](https://github.com/charmbracelet/gum)
+> [!info] Requirements
+>
+> - Azure CLI
+> - [gum](https://github.com/charmbracelet/gum)
 
-{{< /admonition >}}
+
 
 ## Azure CLI
 

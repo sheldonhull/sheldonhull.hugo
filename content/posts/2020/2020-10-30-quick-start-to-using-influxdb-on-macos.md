@@ -4,8 +4,6 @@ title: Quick Start to Using Influxdb on Macos
 slug: quick-start-to-using-influxdb-on-macos
 summary:
   Took me a few minutes to get started on the newer InfluxDB 2.0 so let me save you a few minutes, running telegraf + docker based InfluxDB.
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - development
   - influxdb

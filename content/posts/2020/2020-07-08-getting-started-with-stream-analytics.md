@@ -6,8 +6,6 @@ toc: true
 summary: If you are a newbie to the world of streaming analytics and need to get
   moving  on parsing some Application Insights this is for you.
 images: [/images/2019-02-08_18-04-50-stream-analytics-project.png]
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

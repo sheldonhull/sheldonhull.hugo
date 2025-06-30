@@ -7,8 +7,6 @@ tags:
   - development
   - microblog
 # images: [/images/]
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 I'm a fan of architectural decision records.

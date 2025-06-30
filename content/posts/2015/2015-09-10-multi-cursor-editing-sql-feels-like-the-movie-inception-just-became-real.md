@@ -1,7 +1,5 @@
 ---
 date: "2015-09-10T00:00:00Z"
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Multi-Cursor Editing SQL feels like the movie Inception just became real"

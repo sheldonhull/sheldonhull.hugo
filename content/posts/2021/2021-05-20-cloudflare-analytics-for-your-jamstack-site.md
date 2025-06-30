@@ -2,8 +2,6 @@
 date: 2021-05-20T10:29:17-05:00
 title: Cloudflare Analytics for Your Jamstack Site
 slug: cloudflare-analytics-for-your-jamstack-site
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

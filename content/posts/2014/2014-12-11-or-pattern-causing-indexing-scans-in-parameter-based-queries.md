@@ -1,7 +1,5 @@
 ---
 date: "2014-12-11T00:00:00Z"
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "OR pattern causing indexing scans in parameter based queries"

@@ -2,8 +2,6 @@
 date: "2017-05-08T00:00:00Z"
 gallery:
 last_modified_at: "2018-03-30"
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
     - tech
 title: "Programming Fonts For The Newb"

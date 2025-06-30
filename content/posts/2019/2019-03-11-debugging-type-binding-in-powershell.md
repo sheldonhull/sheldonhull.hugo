@@ -3,16 +3,12 @@ date: "2019-03-11T00:00:00Z"
 summary: What is the best way to debug more complicated parameter binding and type
   casting scenarios in PowerShell.
 last_modified_at: "2019-03-12"
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - powershell
 - deep-dive
 title: "Debugging Type Binding in PowerShell"
 slug: "debugging-type-binding-in-powershell"
 toc: false
-typora-copy-images-to: ..\assets\img
-typora-root-url: ..\assets\img
 ---
 
 Some effort I spent in researching Type Binding in Stack Overflow to help answer a question by [Chris Oldwood](https://stackoverflow.com/users/106119/chris-oldwood) helped me solidify my understanding of the best way to debug more  complicated scenarios such as this in PowerShell.

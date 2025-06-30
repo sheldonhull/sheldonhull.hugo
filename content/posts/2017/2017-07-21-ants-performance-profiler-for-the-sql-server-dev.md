@@ -1,8 +1,6 @@
 ---
 date: "2017-07-21T00:00:00Z"
 last_modified_at: "2019-11-10"
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 - cool-tools

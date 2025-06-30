@@ -2,8 +2,6 @@
 categories:
 - family
 date: "2017-11-10T00:00:00Z"
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - ramblings
 - videography

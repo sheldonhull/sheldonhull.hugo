@@ -12,9 +12,6 @@ tags:
 - golang
 
 # images: [/images/]
-
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 series: ["pulumi"]
 ---
 

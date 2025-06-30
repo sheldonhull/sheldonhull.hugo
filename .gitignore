@@ -197,4 +197,10 @@ mage_output_file.go
 .artifacts
 .localhistory
 # not sure how i made aqua do this, but excluding
-.local
+
+
+# quartz
+**/*.quartz-cache
+
+# from local testing with direnv which triggered add for some reason
+.local/

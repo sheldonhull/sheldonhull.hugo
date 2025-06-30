@@ -7,8 +7,6 @@ tags:
   - microblog
   - docker
 images: [/images/2021-06-11-12.42.15-gitpod.png]
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 

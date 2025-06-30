@@ -4,8 +4,6 @@ title: Asciidoc Distributed Docs as Code
 slug: asciidoc-distributed-docs-as-code
 summary:
   Approach documentation with a developer's mindset and use a 'docs-as-code' mentality. This is how you can get started.
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - devops
   - docs-as-code

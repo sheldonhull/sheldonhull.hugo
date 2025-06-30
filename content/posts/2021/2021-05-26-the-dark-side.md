@@ -2,8 +2,6 @@
 date: 2021-05-26T23:37:43-05:00
 title: The Dark Side
 slug: the-dark-side
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

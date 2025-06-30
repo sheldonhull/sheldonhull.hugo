@@ -10,8 +10,6 @@ tags:
 - vscode
 - golang
 images: [/images/2021-07-13-19.05.49-vscode-extension-pack.png]
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 Took a swing at creating my own extension pack for Go.

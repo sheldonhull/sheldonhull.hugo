@@ -5,16 +5,12 @@ slug: luminar-ai
 summary: >-
   Let's take a look at Luminar AI from a prior Lightroom owner and get some
   first impressions.
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - software
   - ramblings
   - photograophy
 toc: true
 lightgallery: true
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 {{< admonition type="Note" title="Update" open="true">}}

@@ -2,8 +2,6 @@
 date: 2021-01-25T22:19:41Z
 title: Nativefier
 slug: nativefier
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - tech
 - development

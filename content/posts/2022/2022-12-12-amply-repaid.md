@@ -5,8 +5,6 @@ slug: amply-repaid
 tags:
 - children
 - microblog
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 > That's how children reward you for having them.

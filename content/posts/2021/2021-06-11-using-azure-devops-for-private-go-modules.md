@@ -6,8 +6,6 @@ slug: using-azure-devops-for-private-go-modules
 summary: How to use Azure DevOps for private Go modules
 tags: [azure-devops, golang, devops]
 toc: true
-typora-root-url: ../../../static
-typora-copy-images-to: ../../../static/images
 modified: 2021-06-18T22:24:51-05:00
 ---
 

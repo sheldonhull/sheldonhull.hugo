@@ -1,7 +1,5 @@
 ---
 date: "2016-05-15T00:00:00Z"
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "The Mysterious Black Box of R - For the SQL Server Guy"

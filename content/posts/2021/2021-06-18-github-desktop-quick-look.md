@@ -9,8 +9,6 @@ tags:
 - git
 draft: true
 title: GitHub Desktop Quick Look
-typora-copy-images-to: ../../../static/images
-typora-root-url: ../../../static
 ---
 
 GitHub desktop has come a long way to helping new users with a GitHub Flow development workflow.

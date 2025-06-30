@@ -1,7 +1,5 @@
 ---
 date: "2013-05-30T00:00:00Z"
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "A moment of void in the cranium reveals a recursive computed column with an"

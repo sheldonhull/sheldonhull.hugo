@@ -2,8 +2,6 @@
 date: "2017-08-29T00:00:00Z"
 summary: What a crazy weekend. Choose to evacuate the family as water was slowly creeping
   up closer to the house.
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - ramblings
 - family

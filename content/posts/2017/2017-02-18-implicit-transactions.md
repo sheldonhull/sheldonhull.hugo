@@ -1,8 +1,6 @@
 ---
 date: "2017-02-18T00:00:00Z"
 draft: true
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Implicit Transactions"

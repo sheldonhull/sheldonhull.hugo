@@ -12,8 +12,6 @@ tags:
   - development
   - git
   - tech
-typora-root-url: ../../static
-typora-copy-images-to: ../../static/images
 ---
 
 {{< admonition type="note" title="Note" open=true >}}

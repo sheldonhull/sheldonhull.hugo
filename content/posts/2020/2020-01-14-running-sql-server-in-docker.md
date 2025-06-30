@@ -4,8 +4,6 @@ title: Running SQL Server in Docker
 slug: running-sql-server-in-docker
 summary: For development work, it can be freeing to leverage Docker to simplify spinning
   up a test SQL Server instance for your work
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - devops
 - docker

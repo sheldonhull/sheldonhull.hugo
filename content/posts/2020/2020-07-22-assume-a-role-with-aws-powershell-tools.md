@@ -5,8 +5,6 @@ date: 2020-07-21T20:00:00-05:00
 toc: true
 summary: However, as I've wanted to run some scripts across multiple accounts,
   the need to simplify by assuming a role has been more important.
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

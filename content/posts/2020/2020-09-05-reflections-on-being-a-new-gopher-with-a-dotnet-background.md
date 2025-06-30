@@ -4,8 +4,6 @@ title: Reflections on Being a New Gopher With A Dotnet Background
 slug: reflections-on-being-a-new-gopher-with-a-dotnet-background
 summary:
   Quick reflections on being a new gopher with a dotnet background.
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

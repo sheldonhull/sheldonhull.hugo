@@ -7,8 +7,6 @@ summary: While iterating through a map has been the main way I've handled this,
   I finally ironed out how to use expressions with Terraform to allow an object
   list to be the source of a for_each operation. This makes feeding Terraform
   plans from yaml or other collection input much easier to work with.
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

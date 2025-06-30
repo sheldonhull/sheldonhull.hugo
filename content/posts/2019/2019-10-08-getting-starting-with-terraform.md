@@ -7,8 +7,6 @@ summary: Getting started with using Terraform for infrastructure can be a bit
   daunting if you've not dived into this stuff before. I put this together as a
   write up for those looking to get their feet wet and have a better idea of
   where to go for getting going
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - infrastructure-as-code

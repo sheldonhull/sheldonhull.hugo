@@ -12,8 +12,6 @@ tags:
 - security
 toc: true
 images: [/images/2021-06-25-1658-sql-login-database-architecture-dark.png]
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 ## Confusing

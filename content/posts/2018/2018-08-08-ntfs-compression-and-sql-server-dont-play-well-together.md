@@ -5,8 +5,6 @@ summary: accidentally copying a database to a ntfs compressed volume can result 
   be completed due to a file system limitation you are probably at the right place.
 last_modified_at: "2019-02-21"
 draft: false
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - tech
 - sql-server

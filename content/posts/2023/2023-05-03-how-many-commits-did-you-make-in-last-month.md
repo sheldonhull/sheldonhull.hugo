@@ -11,9 +11,6 @@ tags:
 - shell
 
 images: [/images/2023-05-03-how-many-commits-did-you-make-in-last-month.png]
-
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 Been playing with [opencommit](https://github.com/di-sukharev/opencommit) and wanted to assess how much using it on every single commit I still could track locally might cost me.

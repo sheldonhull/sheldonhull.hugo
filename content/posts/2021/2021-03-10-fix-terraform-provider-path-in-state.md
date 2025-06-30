@@ -2,8 +2,6 @@
 date: 2021-03-10T21:01:09Z
 title: Fix Terraform Provider Path in State
 slug: fix-terraform-provider-path-in-state
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - tech
   - development

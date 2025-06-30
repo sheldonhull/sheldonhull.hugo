@@ -2,8 +2,6 @@
 date: 2020-10-14T11:37:27-05:00
 title: Set Theory Basics in the Eyes of 10 Year Old
 slug: set-theory-basics-in-the-eyes-of-10-year-old
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
     - tech
     - development

@@ -1,8 +1,6 @@
 ---
 date: "2013-05-22T00:00:00Z"
 summary: On using SSMSBoost to improve your SSMS workflow
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 - cool-tools

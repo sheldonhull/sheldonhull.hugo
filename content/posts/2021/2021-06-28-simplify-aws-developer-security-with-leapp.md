@@ -12,8 +12,6 @@ tags:
 - devops
 toc: true
 images: [/images/2021-06-28-14.50.53-Leapp.png]
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 ## Security Is Necessary Work

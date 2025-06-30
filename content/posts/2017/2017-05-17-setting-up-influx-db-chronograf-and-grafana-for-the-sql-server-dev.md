@@ -1,8 +1,6 @@
 ---
 date: "2017-05-17T00:00:00Z"
 last_modified_at: "2019-02-21"
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 - influxdb

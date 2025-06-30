@@ -8,8 +8,6 @@ tags:
 - development
 - microblog
 - travel
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 series: ['Digital Nomad Observations', 'Trip to Europe']
 ---
 

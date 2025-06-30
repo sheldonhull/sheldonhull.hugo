@@ -8,8 +8,6 @@ tags:
 - microblog
 - ai
 # images: [/images/]
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 Testing a new setup with Fossi Audio BT20A-PRO paired with my old Polk RTI-A1 bookshelf speakers.

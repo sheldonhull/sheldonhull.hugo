@@ -3,8 +3,6 @@ date: "2017-07-03T00:00:00Z"
 summary: Installing and Updating SSMS with a simple PowerShell script can be a nice
   little timesaver...
 last_modified_at: "2019-02-21"
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 - powershell

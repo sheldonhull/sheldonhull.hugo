@@ -4,8 +4,6 @@ summary: Can't delete a directory due to some edge case in naming errors... like
   trailing space. Here's the fix!
 last_modified_at: "2019-03-18"
 draft: false
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - tech
 - powershell

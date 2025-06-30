@@ -2,8 +2,6 @@
 title: "Dev Tools: XYplorer (review 1) - Catalog"
 slug: "dev-tools-x-yplorer-(review-1)-catalog"
 date: "2014-12-24T00:00:00Z"
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - cool-tools
 - ramblings

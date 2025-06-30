@@ -4,8 +4,6 @@ summary: Trouble with duplicate files in Google Drive? Want to fix a mess? Found
   tool to do it!
 last_modified_at: "2019-02-21"
 draft: false
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - tech
 - ramblings

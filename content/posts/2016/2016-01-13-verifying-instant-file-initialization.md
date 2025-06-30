@@ -1,7 +1,5 @@
 ---
 date: "2016-01-13T00:00:00Z"
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - sql-server
 title: "Verifying Instant File Initialization"

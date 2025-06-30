@@ -1,8 +1,6 @@
 ---
 date: "2016-04-27T00:00:00Z"
 summary: simplify your ssms install
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - automation
 - cool-tools

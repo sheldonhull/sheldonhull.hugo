@@ -12,9 +12,6 @@ tags:
 draft: true
 
 # images: [/images/]
-
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 Kubernetes is complex, but some things as user new to k8s just seem freaking magical.

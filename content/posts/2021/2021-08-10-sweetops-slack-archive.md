@@ -10,9 +10,6 @@ tags:
 - microblog
 
 # images: [/images/]
-
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 Just wanted to give props to the Cloudposse team lead by Erik Osterman [@eosterman](https://twitter.com/eosterman).

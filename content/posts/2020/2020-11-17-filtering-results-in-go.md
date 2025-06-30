@@ -4,8 +4,6 @@ title: Filtering Results in Go
 slug: filtering-results-in-go
 summary:
   Comparing the basic filtering from PowerShell to syntax in Go
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
   - development
   - golang

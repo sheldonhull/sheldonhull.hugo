@@ -4,8 +4,6 @@ summary: Migrating from hipchat to slack can be a little painful if you have som
   issues similar to mine to cleanup. Maybe this will help save you some time.
 last_modified_at: "2019-02-07 23:55:00"
 draft: false
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - tech
 - powershell
@@ -13,8 +11,6 @@ tags:
 title: "Migrating From Hipchat To Slack"
 slug: "migrating-from-hipchat-to-slack"
 toc: true
-typora-copy-images-to: ..\assets\img
-typora-root-url: ..\assets\img
 ---
 
 # Last Minute Migration?

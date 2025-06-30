@@ -7,8 +7,6 @@ tags:
 - travel
 series: ['Trip to Europe']
 # images: [/images/]
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 ## Chunnel Me More Train Time

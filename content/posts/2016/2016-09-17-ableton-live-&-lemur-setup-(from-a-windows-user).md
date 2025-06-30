@@ -1,7 +1,5 @@
 ---
 date: "2016-09-17T00:00:00Z"
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 tags:
 - music
 - ramblings

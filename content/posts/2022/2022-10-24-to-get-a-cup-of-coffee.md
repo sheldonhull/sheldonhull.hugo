@@ -7,8 +7,6 @@ tags:
 - tech
 - development
 - working-from-home
-typora-root-url: ../../../static
-typora-copy-images-to:  ../../../static/images
 ---
 
 - Take the car into shop to get state inspection that's overdue, since I don't drive it much.
