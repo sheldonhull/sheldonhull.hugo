@@ -2,7 +2,7 @@
 # PUBLISH/PUBLIC
 ###############################
 [build]
-command = "npm ci && npm run build"
+command = "curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.0.1/aqua-installer | bash && export PATH=\"${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:${PATH}\" && aqua install --all && npm ci && npm run build"
 publish = "public"
 
 [build.environment]
@@ -14,7 +14,7 @@ NPM_FLAGS = "--force"
 # DEPLOY PREVIEWS
 ###############################
 [context.deploy-preview]
-command = "npm ci && npm run build"
+command = "curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.0.1/aqua-installer | bash && export PATH=\"${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:${PATH}\" && aqua install --all && npm ci && npm run build"
 publish = "public"
 
 [context.deploy-preview.environment]
@@ -28,7 +28,7 @@ NPM_FLAGS = "--force"
 ###############################
 [context.branch-deploy]
 publish = "public"
-command = "npm ci && npm run build"
+command = "curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.0.1/aqua-installer | bash && export PATH=\"${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:${PATH}\" && aqua install --all && npm ci && npm run build"
 
 [context.branch-deploy.environment]
 NODE_VERSION = "22"
