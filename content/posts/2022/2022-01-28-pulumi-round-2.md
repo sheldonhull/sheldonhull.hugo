@@ -51,7 +51,8 @@ I tried this:
 
     pulumi --cwd pulumi/myproject --stack=myorg/myproject/dev config set --secret --path 'kubernetes:kubeconfig' "$(cat /workspaces/myproject/.cached/.kube/tmp.kube.config)"
 
-> NOTE: Optionally use without `--path`.
+> [!note]
+> Optionally use without `--path`.
 
 This temporary configuration I generated via the kubectl commands for setup.
 
@@ -94,7 +95,7 @@ To me this points towards the `KUBECONFIG` correctly being used when passed into
 
 I probably need to trim this code, but to support KUBECONFIG explicitly being provided I did something like this:
 
-{{< gist sheldonhull 764d2702bf9e783fca0263bbabd598a7 >}}
+[Pulumi Kubeconfig Setup](https://gist.github.com/sheldonhull/764d2702bf9e783fca0263bbabd598a7)
 
 ## Challenge: Handle config values that change
 

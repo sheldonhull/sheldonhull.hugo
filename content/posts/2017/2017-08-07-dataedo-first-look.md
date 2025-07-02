@@ -9,16 +9,15 @@ title: "Dataedo - First Look"
 slug: "dataedo-first-look"
 ---
 
-{{< admonition type="info" title="update 2019-02-22" >}}
-Image links broken. Since their product is continually improving, I'm going to just link to their product here instead so you can review their latest demo content there. [Dataedo](http://bit.ly/2U1OkgV).
-
-Overall, I've enjoyed the product and think it has been improved over time. There are SQL scripts for bulk updating certain values on their website that can help improve building a project for an existing database as well.
-{{< /admonition >}}
+> [!info] update 2019-02-22+
+> Image links broken. Since their product is continually improving, I'm going to just link to their product here instead so you can review their latest demo content there. [Dataedo](http://bit.ly/2U1OkgV).
+>
+> Overall, I've enjoyed the product and think it has been improved over time. There are SQL scripts for bulk updating certain values on their website that can help improve building a project for an existing database as well.
 
 
 ## Diagramming and Documentation
 
-Previously, I've [written up on database diagramming]({{< relref "2015-12-09-documenting-your-database-with-diagrams.md" >}})for visualization of database structures. Check that out for more detailed review on what I've used.
+Previously, I've [written up on database diagramming]([[2015-12-09-documenting-your-database-with-diagrams]])for visualization of database structures. Check that out for more detailed review on what I've used.
 
 I've recently taken a swing at this newer tool and found it very promising as a database documentation tool that bridged the gap of usability and flexibility.
 

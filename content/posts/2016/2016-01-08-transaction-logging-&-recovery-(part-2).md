@@ -14,11 +14,11 @@ Continuation of some notes regarding the excellent content by Paul Randal in [Pl
 
 * The initial size of the log file is the larger of 0.58 MB or 25% of the total data files specified in the create database statement. For example, if you create a database with 4 separate files, it would increase the initial size the log file is set to.
 * This would be different if you've changed MODEL database to set the default log and database size.
-* The log file physically created must be zero initialized. Note that the benefits of instant file initialization apply to the data file, but the log file still has to be fully zero initialized, so a large log file creation doesn't benefit from instant file initialization. [Previous Post on Enabling File Initialization]({{< relref "2015-05-22-enabling-instant-file-initialization.md" >}})
+* The log file physically created must be zero initialized. Note that the benefits of instant file initialization apply to the data file, but the log file still has to be fully zero initialized, so a large log file creation doesn't benefit from instant file initialization. [Previous Post on Enabling File Initialization]([[2015-05-22-enabling-instant-file-initialization]])
 --- Examine the errorlog (after you've enabled trace flag 3605,3004) EXEC xp_readerrorlog; GO
 * When examining the results, you can see the zeroing of the log file, but not the datafile if you have instant file initialization enabled.
 
-![transaction-log-file_daxina](/images/transaction-log-file_daxina.png)
+![transaction-log-file_daxina](images/transaction-log-file_daxina.png)
 
 ## Virtual Log Files
 

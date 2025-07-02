@@ -9,9 +9,8 @@ slug: "manictime-timetracking-automation-done-right"
 toc: true
 ---
 
-{{< admonition type="info" title="Updated: 2020-04-29" >}}
-broken image links removed
-{{< /admonition >}}
+> [!info] Updated: 2020-04-29+
+> broken image links removed
 
 Tracking time is always a beast. With the amount of context switching many developers do, it can be tough to remember how much time went to each project. With companies looking to track effort on sprints, hours on a client project, or (as in my case) just a dev wanting to better evaluate the productive use of time, this app fills some gaps that others don't.For instance, I've tried tools such as Toggl, and similar. I found them useful, but requiring a lot of diligence to work with. There is very little "automatic" categorization of time. Many of those tools are focused on a timer based approach that requires you to start and stop the timer.
 [ManicTime](http://bit.ly/2e9tsDZ) approaches this differently. It has the typical stop watch, countdown, Pomodoro type functionality a time tracking tool might offer, but in addition to this it provides a captured timeline of activity with various forms of meta data to easily review and parse for categorization.
@@ -36,7 +35,7 @@ I've used this application over the last year and found a lot of value in it, fi
 
 ### Time Categories
 
-![Time Categories](/images/time-categories.png)
+![Time Categories](images/time-categories.png)
 
 ### Overview of Day's Activities
 
@@ -55,13 +54,13 @@ Autotagging is where this tool gets powerful. Basically, the concept is to allow
 I've yet to figure out the [dynamic tags based on regex parsing](http://bit.ly/2dLECP9) as it doesn't seem to give you a preview to test and refine results. Once I figure this out, or the app improves the ability to use this I think the additional timelines will be very handy as you could have one timeline focused on dynamic parsing and grouping of projects based on doc/chrome titles that doesn't interfer with the categorization that the other timeline might use.
 This is a usability issue that I hope to see improved in the future. It has a lot of potential.
 
-![Regex Parsing](/images/regex-parsing.png)
+![Regex Parsing](images/regex-parsing.png)
 
 ### Multiple Autotag Timelines
 
 This is someone I've recently been exploring as it provides the capability to create an automatic tagging of apps, but for different purposes. For instance, you might setup one rule for parsing project numbers and send to a AutoProject timeline that aggregates the totals, but another timeline for categorization of the apps/websites. Another use might be a timeline focused on categorizing web usage, while another focuses on app usage.
 
-![Multiple Autotag Timelines](/images/multiple-autotag-timelines.png)
+![Multiple Autotag Timelines](images/multiple-autotag-timelines.png)
 
 ## Tagging
 
@@ -69,19 +68,19 @@ This is someone I've recently been exploring as it provides the capability to cr
 
 You can have ManicTime prompt you when you return from your computer, or when a timer has detected minutes of idle on your system. This can help ensure that if you are gone to a meeting, or away from your PC you are still tracking the time you used.
 
-![Away Time Tagging](/images/away-time-tagging.png)
+![Away Time Tagging](images/away-time-tagging.png)
 
 ### Narrow down untagged time quickly
 
 There is a variety of ways to filter down the timeline to only untagged activities as the selected, or untagged as what's actually shown. This can help identify gaps in what you've reviewed.
 
-![Narrow down untagged time quickly](/images/narrow-down-untagged-time-quickly.png)
+![Narrow down untagged time quickly](images/narrow-down-untagged-time-quickly.png)
 
 ## Statistics & Reports
 
 ### Generate Timesheet Report
 
-![Generate Timesheet Report](/images/generate-timesheet-report.png)
+![Generate Timesheet Report](images/generate-timesheet-report.png)
 
 ### Some Nice Visual Statistics Available
 
@@ -89,7 +88,7 @@ There is a variety of ways to filter down the timeline to only untagged activiti
 
 These are listed based on the selected groups, tags and more.
 
-![Other Statistics Available](/images/other-statistics-available.png)
+![Other Statistics Available](images/other-statistics-available.png)
 
 ## Manic Time Server
 

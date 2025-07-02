@@ -23,11 +23,8 @@ Right front and center on Load Balancer Basics [^loadbalancers]:
 
 I'm going to make this a first stop when getting familar with new AWS concepts.
 
-{{< admonition type="Tip" title="macOS lifehack" open="true">}}
-
-If you have [Dash](https://kapeli.com/dash) installed, set the repo as a GitHub datasouce, and you can have the entire handbook cached offline as an offline documentation library.
-
-{{< /admonition >}}
+> [!tip] macOS lifehack+
+> If you have [Dash](https://kapeli.com/dash) installed, set the repo as a GitHub datasouce, and you can have the entire handbook cached offline as an offline documentation library.
 
 [^loadbalancers]: [og-aws-loadbalancers](https://github.com/open-guides/og-aws#load-balancer-basics)
 [^QuinnyPig]: [Corey Quinn](https://twitter.com/QuinnyPig)

@@ -15,7 +15,7 @@ toc: false
 
 Comments on this site are welcome on any topic, or open a general discussision on: [Discussions](https://github.com/sheldonhull/sheldonhull.hugo/discussions)
 
-{{< fa-icon brands  twitter fa-fw >}} <a href="https://twitter.com/messages/compose?recipient_id=247477081&text=connecting%20from%20your%20site..."
+<a href="https://twitter.com/messages/compose?recipient_id=247477081&text=connecting%20from%20your%20site..."
   class="twitter-dm-button" data-screen-name="@sheldon_hull">
 Direct Message Me</a>
 
@@ -35,7 +35,7 @@ I ♥ code. Right now Go is my primary focus.
 
 I also think the world needs more emojis and tacos 🌮🌮🌮 to lighten things up.
 
-If you are bored and want to see my brag sheet, here you go: [brag sheet]({{< relref "brag.md" >}})
+If you are bored and want to see my brag sheet, here you go: [brag sheet]([[brag]])
 
 It's a :construction: wip that I plan on adding some accomplishments to over time.
 
@@ -50,6 +50,6 @@ I'm a sucker for good post-rock music, which I think is the best type of music f
 
 If you want to check out some new music, this is my up to date "on deck" playlist of music I rock out to.
 
-{{< rawhtml >}}
+
 <iframe src="https://open.spotify.com/embed/playlist/6iTEfldMfbgbuUwzSdib4X" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-{{< /rawhtml >}}
+

@@ -176,7 +176,7 @@ This provided solid intellisense all the way through it and made it really easy 
 
 ## Disclaimer
 
-I'm a fan of role based access like AWS Role assumption, using limited generated access tokens, etc (see [article on Leapp for a great example for local dev workflows]({{< relref "2021-06-28-simplify-aws-developer-security-with-leapp.md" >}} "simplify-aws-developer-security-with-leapp"))
+I'm a fan of role based access like AWS Role assumption, using limited generated access tokens, etc (see [article on Leapp for a great example for local dev workflows]([[2021-06-28-simplify-aws-developer-security-with-leapp]] "simplify-aws-developer-security-with-leapp"))
 
 However, practically, you might have services or apps that you need to manage that the cost of setting all that up is very high, for example you do the majority of your work in AWS, but you have a development Kubernetes cluster and want to setup a limited service account to do some Gitpod stuff.
 You use this service account for limited scope permissions for deployments only, and this might be a great case of just embedding the kubeconfig directly into a Pulumi plan.

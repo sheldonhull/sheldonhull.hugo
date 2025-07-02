@@ -24,7 +24,7 @@ This is how I used to feel about Virtual Log Files. Folks were saying things lik
 Finding clarification on VLF (Virtual Log Files) can be difficult, as what is considered a high count for some may be contradicted by another with another "target VLF count" claim.
 Paul Randal unpacks this excellently in his class, providing some great transparency.
 
-![jackalopes-are-real-so-are-virtual-log-files_ibbrwc](/images/jackalopes-are-real-so-are-virtual-log-files_ibbrwc.png)
+![jackalopes-are-real-so-are-virtual-log-files_ibbrwc](images/jackalopes-are-real-so-are-virtual-log-files_ibbrwc.png)
 
 ## Why Should I Care About VLFs?
 

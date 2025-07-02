@@ -17,10 +17,10 @@ An issue with SQL Server 2012 SP3 was identified that impacted EF4/5 due to addi
 
 To easily identify the available dll versions of sql server, I ran a quick adhoc bat file.
 
-{{< gist sheldonhull  88ff6ce9caa927a27804 >}}
+[Gist](https://gist.github.com/sheldonhull/88ff6ce9caa927a27804)
  The output returns a simple text file like this:
 
-![](/images/SNAG-0035_pucmdd.jpg)
+![](images/SNAG-0035_pucmdd.jpg)
 A post in technet mentioned that the DLL shipped with SP3 could cause these conflicts and if the uninstall didn't clean up the GAC correctly, problems could occur with Entity Framework calls.
 
 > Can confirm in my case it was due to dll shipped in SQL Server SP3.  I had to uninstall the patch but the newer dll was still in the gac so I had to overwrite with the older version using gacutil. ( [Edited by snowcow Thursday, January 14, 2016 12:41 PM](https://social.technet.microsoft.com/Forums/appvirtualization/en-US/72d07fcb-e3cb-45f1-bff5-abeb13adc5f8/entity-framework-cant-make-updates-in-db-missing-entry-point-setclrfeatureswitchmap-in?forum=sqldataaccess) )

@@ -19,9 +19,9 @@ To get Lemur talking to Ableton Live (9.6), this is pretty much what worked for 
 3.  Copy Live Control Template onto ipad (you can drag the file directly to the app in Itunes and hit sync)
 4.  Install [LoopBe](http://bit.ly/2cyHGLt). Note I tried rptMidi as well as LoopMidi, and this is the only one that worked without issue for me on Windows 10.
 5.  Setup Lemur Daemon service as shown in screenshot.
-![midi port configuration](/images/2016-09-17_13-49-45.png)
+![midi port configuration](images/2016-09-17_13-49-45.png)
 6.  In ableton I setup as the following:
-![2016-09-17_13-54-06](/images/2016-09-17_13-54-06.png)
+![2016-09-17_13-54-06](images/2016-09-17_13-54-06.png)
 7.  If you drag a drum track into a channel and activate for recording, you can tap in the "play" tab and change "key" to "drum". Then you can find the appropriate drum machine field by scrolling up or down.
 This got the initial setup going so I was able to drop a drum track in, and tap out a rhythm. I think I'm going to have invest more time into it to get what I want, so the jury is out for me as a casual user whether or not I'll be able to leverage this vs TouchOSC or touchable. It's pretty powerful, just pretty complex!
 As a person primarily focused with Live for DAW and home recording/experimentation, I'm probably not going to leverage fully at this time like others would. If I gain some more traction with it, I'll try and post some more useful updates. Both TouchOSC and Lemur are designed for customization. If you want to get going with limited setup, look at Touchable, Conductr, or another similar to that.

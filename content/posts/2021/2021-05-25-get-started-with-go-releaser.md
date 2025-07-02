@@ -30,12 +30,9 @@ The key things for this to work:
 - Use versioning such as GitVersion[^gitversion] or svu[^svu] to allow automatic metadata parsing
 - Use tools like GoReleaser[^goreleaser]
 
-{{< admonition type="Tip" title="Semver Versioning" open="true">}}
-
-Protip: This can be passed to tools such as Datadog for comparison in APM tools.
-You'd set the build flags to pass in this build time value and then your binary would contain version metadata.
-
-{{< /admonition >}}
+> [!tip] Semver Versioning+
+> Protip: This can be passed to tools such as Datadog for comparison in APM tools.
+> You'd set the build flags to pass in this build time value and then your binary would contain version metadata.
 
 [^goreleaser]: [GoReleaser](https://goreleaser.com/)
 [^gitversion]: [GitVersion](https://github.com/GitTools/GitVersion)
@@ -55,14 +52,11 @@ Look at the website for a list of plugins.
 - Publish this tagged image to AWS ECR or Docker.
 - Zip up the artifact and copy to S3 for distribution (including with a little effort automatic github download and install scripts)
 
-{{< admonition type="Info" title="GoReleaser Vs Tasks" open="true">}}
-
-Be aware GoReleaser is focused on Go.
-If you need to build some Docker images with no Go binaries involved, then you will have some minor effort to add this as a seperate task.
-
-As of now, I've not gotten docker images unassociated with Go binaries to build and publish.
-
-{{< /admonition >}}
+> [!info] GoReleaser Vs Tasks+
+> Be aware GoReleaser is focused on Go.
+> If you need to build some Docker images with no Go binaries involved, then you will have some minor effort to add this as a seperate task.
+>
+> As of now, I've not gotten docker images unassociated with Go binaries to build and publish.
 
 ## Basic Start
 

@@ -131,11 +131,8 @@ func animalString() string {
 
 Now, once you load a configuration into the struct using the Pulumi configuration package, you can obtain a randomized petname on demand, that will be repeatable and only change if the cluster name is different.
 
-{{< admonition type="Tip" title="If your uniqueness requirements change..." open=true >}}
-
-If your business requirements for uniqueness change, such as a combination of `resource+cluster` now needing to be deployed in duplication across another namespace (for example for provisioning development environments on demand)... you can just change the input seed from cluster to a combination of other values and you'll generate new unique seeds from there.
-
-{{< /admonition >}}
+> [!tip] If your uniqueness requirements change...+
+> If your business requirements for uniqueness change, such as a combination of `resource+cluster` now needing to be deployed in duplication across another namespace (for example for provisioning development environments on demand)... you can just change the input seed from cluster to a combination of other values and you'll generate new unique seeds from there.
 
 ```go
 // PetName returns a unique petname for logical resources to be uniquely named in the Pulumi state file.

@@ -98,13 +98,13 @@ In comparison, I found the Louvre's sculptures more impactful than the palace's 
 
 ## Level-Up & Bucket List Item
 
-{{< fa-icon solid  check fa-fw >}} Drive a BMW on European back roads with classical music[^2]
+Drive a BMW on European back roads with classical music[^2]
 
 ## Achievement Unlocked
 
-{{< fa-icon solid  award fa-fw >}} Parallel parked on an insanely busy road in a very tight parking space the first time.
+Parallel parked on an insanely busy road in a very tight parking space the first time.
 
-{{< fa-icon solid  award fa-fw >}} Drove in foreign country without being able to understand the language.
+Drove in foreign country without being able to understand the language.
 
 ## Karsten's Post
 
@@ -135,7 +135,7 @@ And that's where we are now.
 
 Please like and subscribe.[^1]
 
-{{< gallery match="images/*" >}}
+
 
 [^1]: This kid...
 [^2]: Only was missing driving gloves to feel like Jason Stathom in the Transporter movie 😁. I think this was a dream since I remember my dad doing this in Germany on the autobahn in a BMW. Always wanted to do this myself. Finally did!

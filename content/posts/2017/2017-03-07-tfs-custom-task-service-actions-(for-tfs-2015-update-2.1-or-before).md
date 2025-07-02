@@ -10,9 +10,8 @@ slug: tfs-custom-task-service-actions-(for-tfs-2015-update-21-or-before)
 
 ---
 
-{{< admonition type="info" title="Updated: 2020-04-29" >}}
-broken image links removed
-{{< /admonition >}}
+> [!info] Updated: 2020-04-29+
+> broken image links removed
 
 Apparently, boolean values for custom VSTS tasks for versions prior to TFS 2015 Update 3) require some special handling as they don't pass the checkbox values as actual powershell `$true` or `$false`. Instead the task passes this information along as `true` or `false`. To properly handle this you'll need to pass in the value as a `string` then convert to `boolean`.
 
@@ -68,4 +67,4 @@ once you have the parameters, use .NET convert functionality to
 
 Below I've included a custom TFS Task for basic start/stop/restart/change credentials with a custom tfs task. It's not super refined, but it's a good start to get you on your way.
 
-{{< gist sheldonhull  622ee7b3da8423b689c9a266816103aa >}}
+[Gist](https://gist.github.com/sheldonhull/622ee7b3da8423b689c9a266816103aa)

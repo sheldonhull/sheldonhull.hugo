@@ -15,7 +15,7 @@ images: [/images/2021-07-16-the-power-of-the-steampipe.jpeg]
 
 I tried [Steampipe](https://steampipe.io/) out for the first time today.
 
-> {{< fa-icon brands  twitter fa-fw >}} [Follow Steampipe On Twitter](https://twitter.com/steampipeio)
+> [Follow Steampipe On Twitter](https://twitter.com/steampipeio)
 
 I'm seriously impressed.
 

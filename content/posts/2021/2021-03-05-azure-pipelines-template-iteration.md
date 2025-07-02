@@ -41,19 +41,16 @@ This is my standard format for most pipelines, but you can adjust the naming wit
 name: $(BuildDefinitionName).$(Configuration).$(Build.QueuedBy).$(DayOfYear)$(Rev:.r)
 ```
 
-{{< admonition type="Info" title="Parameters" open="false">}}
-
-Parameters are evaluated at compile time, rather than during the build run phase.
-
-This means you can use something like the example below to update the queued build name on run.
-
-```yaml
-name: $(BuildDefinitionName).$(Configuration).$(Build.QueuedBy).${{ parameters.SELECTED_VALUE }}.$(DayOfYear)$(Rev:.r)
-```
-
-Using a build variable might require updating the build name if the build variable isn't set on queue, as it won't pick it up without this command.
-
-{{< /admonition >}}
+> [!info] Parameters+
+> Parameters are evaluated at compile time, rather than during the build run phase.
+>
+> This means you can use something like the example below to update the queued build name on run.
+>
+> ```yaml
+> name: $(BuildDefinitionName).$(Configuration).$(Build.QueuedBy).${{ parameters.SELECTED_VALUE }}.$(DayOfYear)$(Rev:.r)
+> ```
+>
+> Using a build variable might require updating the build name if the build variable isn't set on queue, as it won't pick it up without this command.
 
 ### Trigger
 
@@ -220,7 +217,7 @@ This allows the job to set dynamically the individual tasks to run, report progr
 
 While it could be run as a single task, I prefer this type of approach because a long running job is now much more easily tracked as it progresses.
 
-![image-of-individual-tasks-in-pipeline](/images/2021-03-04-13.38.45-pipelines-example.png)
+![image-of-individual-tasks-in-pipeline](images/2021-03-04-13.38.45-pipelines-example.png)
 
 ## Further Features
 

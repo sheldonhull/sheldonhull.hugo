@@ -78,10 +78,9 @@ Once this was downloaded, you could either make sure `C:\tools` was in `PATH` or
 
 In AWS, I parsed the metadata for the AccountID and InstanceID to generate a query to pull the Name tag dynamically.
 
-{{< admonition type="Tip" title="Permissions Check" >}}
-You must have the required permissions for the instance profile for this to work.
-This is not an instance level permission, so you'll want to add the required DescribeTags and ListInstances permissions for using a command such as `Get-EC2Tag`
-{{< /admonition >}}
+> [!tip] Permissions Check+
+> You must have the required permissions for the instance profile for this to work.
+> This is not an instance level permission, so you'll want to add the required DescribeTags and ListInstances permissions for using a command such as `Get-EC2Tag`
 
 ```powershell
 Import-Module AWSPowershell -Verbose:$false *> $null
@@ -117,13 +116,12 @@ The next step was to alias the instance.
 
 The better way to do this would be to use a tag that it reads, but for my quick ad-hoc use, this just let me specific an explicit alias to generate as a tag in the yaml. Again, try to use the Datadog tagging feature to do this automatically if possible.
 
-{{< admonition type="Tip" title="Switch Statements" >}}
-If you aren't familiar with PowerShell's switch statement, it's a nice little feature for making this evaluation easy to read.
-
-For the breadth of what this cool language feature can do, check this article out:
-
-[Everything you ever wanted to know about the switch statement](http://bit.ly/3pwnei0)
-{{< /admonition >}}
+> [!tip] Switch Statements+
+> If you aren't familiar with PowerShell's switch statement, it's a nice little feature for making this evaluation easy to read.
+>
+> For the breadth of what this cool language feature can do, check this article out:
+>
+> [Everything you ever wanted to know about the switch statement](http://bit.ly/3pwnei0)
 
 
 ```powershell
@@ -176,7 +174,7 @@ $Services | ConvertTo-Json -Depth 100 | &'C:\tools\yq.exe' eval - --prettyPrint 
 
 This would produce a nice json output like this
 
-![Example config image](/images/2021-02-08-yaml-config-example.png)
+![Example config image](images/2021-02-08-yaml-config-example.png)
 
 ### One More Complex Example
 
@@ -209,13 +207,12 @@ $Queries += [ordered]@{
 }
 ```
 
-{{< admonition type="Tip" title="Using += for Collections" >}}
-Using `+=` is a bit of an anti-pattern for high performance PowerShell, but it works great for something like this that's ad-hoc and needs to be simple.
-For high performance needs, try using something like `$list = [Systems.Collections.Generic.List[pscustomobject]]:new()` for example.
-This can then allow you to use the `$list.Add([pscustomobject]@{}` to add items.
-
-A bit more complex, but very powerful and performance, with the benefit of stronger data typing.
-{{< /admonition >}}
+> [!tip] Using += for Collections+
+> Using `+=` is a bit of an anti-pattern for high performance PowerShell, but it works great for something like this that's ad-hoc and needs to be simple.
+> For high performance needs, try using something like `$list = [Systems.Collections.Generic.List[pscustomobject]]:new()` for example.
+> This can then allow you to use the `$list.Add([pscustomobject]@{}` to add items.
+>
+> A bit more complex, but very powerful and performance, with the benefit of stronger data typing.
 
 This one is a good example of the custom query format that Datadog supports, but honestly I found pretty confusing in their docs until I bumbled my way through a few iterations.
 

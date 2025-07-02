@@ -11,27 +11,25 @@ toc: true
 
 # Diff all files
 
-{{< admonition type="info" title="Updated: 2017-07-14" >}}
-Still find this incredibly awesome! Developer just updated for Visual Studio 2017 after a lot of hard work. Github repo here for any issues. Big thanks to DeadlyDog for this great tool and putting in the effort to update for VS2017. [deadlydog/VS.DiffAllFiles: Visual Studio Extension to make comparing files before and after committing them to Git and TFS faster and easier](https://github.com/deadlydog/VS.DiffAllFiles)
-{{< /admonition >}}
+> [!info] Updated: 2017-07-14+
+> Still find this incredibly awesome! Developer just updated for Visual Studio 2017 after a lot of hard work. Github repo here for any issues. Big thanks to DeadlyDog for this great tool and putting in the effort to update for VS2017. [deadlydog/VS.DiffAllFiles: Visual Studio Extension to make comparing files before and after committing them to Git and TFS faster and easier](https://github.com/deadlydog/VS.DiffAllFiles)
 
-{{< admonition type="info" title="Updated: 2016-01-25" >}}
-I started using the option to compare a single file at a time, since it picks up the syntax highlighting then. The other way (merge files into one) can't handle syntax highlighting with the various files types all mixed into the same window. Diff All Files extension handles this beautifully with proceeding one by one and automatically opening the next file to compare or allowing you to hit next to close and reopen with the next file to compare. I still enjoy using this due to the "context" lines that reduce the noise to just the actual section being changed.
-{{< /admonition >}}
+> [!info] Updated: 2016-01-25+
+> I started using the option to compare a single file at a time, since it picks up the syntax highlighting then. The other way (merge files into one) can't handle syntax highlighting with the various files types all mixed into the same window. Diff All Files extension handles this beautifully with proceeding one by one and automatically opening the next file to compare or allowing you to hit next to close and reopen with the next file to compare. I still enjoy using this due to the "context" lines that reduce the noise to just the actual section being changed.
 
 If you need to do code comparison on a lot of files in Visual Studio, I ran across an extension [Diff All Files](http://bit.ly/29nXEbe) that is really helpful for merging down the individual file changes into more consumable format.
 
 In the changeset view you can select diff all files and whatever settings you've setup in the Tools > Options > Diff all Files settings will then feed through automatically.
 
-![2016-07-06_9-31-56_diff_all_files_setupoptions](/images/2016-07-06_9-31-56_diff_all_files_setupoptions.png)
+![2016-07-06_9-31-56_diff_all_files_setupoptions](images/2016-07-06_9-31-56_diff_all_files_setupoptions.png)
 
 You then click on diff all files in the changeset viewer
 
-![diff_all_files_animation](/images/diff_all_files_animation.gif)
+![diff_all_files_animation](images/diff_all_files_animation.gif)
 
 All the non-excluded items will then be merged into a single file, if this option was selected, or separate windows. Personally, I've found the merged view really helpful to have one single pane to scroll through.
 
-![2016-07-06_9-32-02_diff_all_files_settings](/images/2016-07-06_9-32-02_diff_all_files_settings.png)
+![2016-07-06_9-32-02_diff_all_files_settings](images/2016-07-06_9-32-02_diff_all_files_settings.png)
 
 ## Third Party Comparison Perks
 
@@ -40,15 +38,15 @@ To go a step beyond this you could use a third party comparison tool. My preferr
 In my test comparison, I reduced 3245 lines of code in the comparison window to 25 lines, which was the actual changes + 10 lines above/below for each change to have context. This resulted in only a few hundred lines to scroll through. Made my life easier!
 The only con for me with Araxis is no dark theme.... but I'll live.
 
-![araxis_merge_gui](/images/2016-07-06_11-56-21_araxis_merge_gui.png)
+![araxis_merge_gui](images/2016-07-06_11-56-21_araxis_merge_gui.png)
 
 ## configuring third party tools
 
-![configure_external_diff_tool](/images/2016-07-06_10-23-24_configure_external_diff_tool.png)
+![configure_external_diff_tool](images/2016-07-06_10-23-24_configure_external_diff_tool.png)
 
 I saved this snippet from working through Araxis documentation for setting up their tool with Visual Studio.
 
-{{< gist sheldonhull  8f46d34d2c3c83a4c18e5d70e92e5d3d >}}
+[Gist](https://gist.github.com/sheldonhull/8f46d34d2c3c83a4c18e5d70e92e5d3d)
 
 
 I also just ran across another site that had a nice resource list of configuration settings for different comparison tools.  [Diff All Tools - Visual Studio Extension](http://bit.ly/29nX1yF)

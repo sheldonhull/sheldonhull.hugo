@@ -59,7 +59,7 @@ Warning... I discovered that the SDK is pretty noisy and probably makes things a
 
 If you want to learn pointers and derefrencing with Go... you'll be a pro by the time you are done with it 😂
 
-![Everyone Gets a Pointers According to SpongeBob](/images/12-03-10-19-40-pointers-for-everyone.png)
+![Everyone Gets a Pointers According to SpongeBob](images/12-03-10-19-40-pointers-for-everyone.png)
 
 ## Why This Could Be Useful In Learning More Go
 
@@ -181,7 +181,7 @@ Using this provided some nice readable console feedback, along with values that 
 
 ### Performance In Searching
 
-From my prior blog post [Filtering Results In Go]({{< relref "2020-11-17-filtering-results-in-go.md" >}} "Filtering Results In Go") I also talked about this.
+From my prior blog post [Filtering Results In Go]([[2020-11-17-filtering-results-in-go]] "Filtering Results In Go") I also talked about this.
 
 The lack of syntactic sugar in Go means this seemed much more verbose than I was expecting.
 

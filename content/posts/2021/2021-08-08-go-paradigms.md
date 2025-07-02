@@ -28,7 +28,7 @@ While, not a perfect reflection of this, you can see the pipeline expression in 
 (Get-ChildItem -Filter '*.txt').Where{$_.Fullname -match 'taco'}.ForEach{ $_ | Copy-Item}
 ```
 
-This was something I first noticed with Go and even blogged about in [Filtering Results in Go]({{< relref "2020-11-17-filtering-results-in-go.md" >}} "Filtering Results in Go").
+This was something I first noticed with Go and even blogged about in [Filtering Results in Go]([[2020-11-17-filtering-results-in-go]] "Filtering Results in Go").
 
 > Is there any library used by many to do this type of filtering, or is my .NET background coloring my perspective with dreams of Linq?
 

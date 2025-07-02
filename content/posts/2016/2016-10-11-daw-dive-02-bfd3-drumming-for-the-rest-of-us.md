@@ -20,34 +20,34 @@ I was using this in Presonus Studio One. I created a drum track and then started
 
 One thing that was really easy to do with BFD3 was modify the kit configuration. I liked the sound of Pork Pie Kick for this song, so I just played a groove, and then switched it over with the checkbox (on hover).
 
-![Modifying Existing Kit](/images/modifying-existing-kit.png)
+![Modifying Existing Kit](images/modifying-existing-kit.png)
 
 #Grooves
 The Grooves section provides a preset set of associated rhythms to allow you to easily prepare a song based on related rhythms. This is ideal for helping you create a song quickly by finding associated rhythms.
 
-![BFD3 Groove Page](/images/bfd3-home.png)
+![BFD3 Groove Page](images/bfd3-home.png)
 
-![](/images/01_DragFromBFD3GrooveToTimeline.gif)
+![](images/01_DragFromBFD3GrooveToTimeline.gif)
 
 ###Copy and Replicate a Groove to Tweak
 
-![](/images/02_CopyAndEditGrooves.gif)
+![](images/02_CopyAndEditGrooves.gif)
 
 ### Change Velocity for Realism
 
 This is really important to a natural sounding drum part. You definitely do not want everything at the same velocity as no real drummer would do this. There are some easy ways to adjust the velocity as well as the humanization of the rhythm in both Presonus Studio One 3 and BFD3 plugin. In this example, I adjust it in BFD3 directly.
 
-![](/images/02_ChangingVelocityForRealism.gif)
+![](images/02_ChangingVelocityForRealism.gif)
 
 ### Humanization of Rhythm
 
-![](/images/04_HumanizeQuickly.gif)
+![](images/04_HumanizeQuickly.gif)
 
 ### Practice Your Rudiments
 
 One other cool feature for quickly pumping out some grooves is the ability to "paint" the rudiment you've selected. This means you could easily pick some drag paradiddles on the snare without having to click each point in time. I found this incredible helpful for creating some interesting grooves.
 
-![](/images/05_PaintRudiments.gif)
+![](images/05_PaintRudiments.gif)
 
 # Quick Note on Versions
 

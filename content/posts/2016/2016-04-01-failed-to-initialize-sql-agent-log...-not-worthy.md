@@ -15,7 +15,7 @@ Failed to initialize SQL Agent log (reason: Access is denied).
 I was creating a sql template when this came about. SQL Server Agent wouldn't start back up despite all the system databases having very little issues with my somewhat brilliant sql commands.
 I had moved all my databases to the new drive location, and changed the advanced startup parameters for sql server and SQL Agent... or so I thought.
 
-![Logging location not the same](/images/2016-04-01_18-20-41.png)
+![Logging location not the same](images/2016-04-01_18-20-41.png)
 
 I apparently missed the order of operations with SQL Server Agent, and so it was unable to start. MSDN actually says to go into the SQL agent in SSMS to change this, and I thought I was smarter than msdn....
 
@@ -30,7 +30,7 @@ I apparently missed the order of operations with SQL Server Agent, and so it was
 > <instance_name data-preserve-html-node="true">\MSSQL\Log.
 > Found the registry entry and changed here... all fixed!</instance_name></version>
 
-![Fixing in the registry](/images/2016-04-01_18-16-31.png)
+![Fixing in the registry](images/2016-04-01_18-16-31.png)
 I also updated the WorkDirectoryEntry to ensure it matched new paths.
 
 Thanks to this [article](https://blogs.msdn.microsoft.com/sqlserverfaq/2009/06/12/unable-to-start-sql-server-agent/) I was saved some headache. I also learned to read directions more carefully :-)

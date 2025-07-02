@@ -103,18 +103,7 @@ We jumped on the subway and enjoyed the ride home.
 It was a bit packed and sweltering for a bit due to train issues, even in some cases the train doors not opening, but we finally made it back as Karis collapsed with joy to play a little bit of Minecraft.
 Overall, I figure that was a successful outing for an unplanned, spontaneous Paris adventure.
 
-{{<
-gallery match="images/*"
-sortOrder="desc"
-rowHeight="150"
-margins="5"
-thumbnailResizeOptions="600x600 q90 Lanczos" showExif=true
-previewType="blur"
-embedPreview=true
-loadJQuery=true
-thumbnailHoverEffect="enlarge"
-lastRow="justify"
->}}
+
 
 ## Tech Note
 

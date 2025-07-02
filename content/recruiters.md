@@ -16,23 +16,20 @@ To ensure I'm on the same page, I've summarized a few roles I'm typically gettin
 
 There is a large difference in expectations for different roles so let me see if I can help make sure I'm a good fit.
 
-{{< admonition type="Question" title="Any feedback?" open=true >}}
-
-The goal of this page was to simplify assessing if I'm a match through all the jargon you have to deal with.
-
-I'd appreciate any feedback on this having been useful, or if it wasn't what I could do to improve it.
-
-- Add a comment to this page (public)
-- Or [↗ Ask me Anything](https://github.com/sheldonhull/sheldonhull.hugo/discussions/new?category=ama) (public)
-- [LinkedIn](https://www.linkedin.com/in/sheldonhull) (private DM's enabled)
-
-{{< /admonition >}}
+> [!note] Any feedback?+
+> The goal of this page was to simplify assessing if I'm a match through all the jargon you have to deal with.
+>
+> I'd appreciate any feedback on this having been useful, or if it wasn't what I could do to improve it.
+>
+> - Add a comment to this page (public)
+> - Or [↗ Ask me Anything](https://github.com/sheldonhull/sheldonhull.hugo/discussions/new?category=ama) (public)
+> - [LinkedIn](https://www.linkedin.com/in/sheldonhull) (private DM's enabled)
 
 ## TL;DR[^tldr]
 
 Since I respect that you even took time to check this out.... here's the gist of it:
 
-- I started my journey in development {{< timeago date="2011-06-01T00:00:00" >}}
+- I started my journey in development 
 - I'm in UTC-5 (Texas).
 - I've got a background in cloud operations, database administration & architecture, development (Go, .NET), and have touched a lot of tech.
 - I'm a continual learner and always looking to challenge myself, with an above average ability to adapt to change and new technology.
@@ -44,7 +41,7 @@ Since I respect that you even took time to check this out.... here's the gist of
 
 ## Brag Page
 
-More project and experience related information: [Brag]({{< relref "brag.md" >}} "brag")
+More project and experience related information: [[brag|Brag]]
 
 ## Types of Roles I'm Open To
 
@@ -91,104 +88,86 @@ I assess companies based on the [Pragmatic Engineer Checklist](https://blog.prag
 
 ## Roles You Might Be Trying to Fill
 
-{{< admonition type="Info" title="Senior/Staff Software Engineer" open=false >}}
+> [!info] Senior/Staff Software Engineer-
+> ### Senior & Staff Software Engineer
+>
+> This is the role I'm normally matched against.
+>
+> This is about as specific as saying "A developer", so it depends on the role.
+>
+> See Skills section at the bottom if you want to assess if I'm a possible fit.
+>
+> I do believe in leadership and mentoring, so prefer a role that gives room for this to growth.
 
-### Senior & Staff Software Engineer
+> [!info] Senior Site Reliability Engineer-
+> ### Senior Site Reliability Engineer
+>
+> **I'd be a good fit for the less common SRE roles that want SRE SWE, aka Site Reliability Engineers with Software Engineering skills[^sreswefocus].**
+>
+> #### About This Role - Site Reliability Engineer
+>
+> The industry has diluted the terminology and in the vast majority of SRE postings, they are looking for a "DevOps Engineer" style role or Systems Administration with a cloud Focus.
+>
+> > SREs are often generalists, as the desire to learn breadth-first instead of depth-first lends itself well to understanding the bigger picture (and there are few pictures bigger than the intricate inner workings of modern technical infrastructure). These engineers often have strong coding and software development skills, but may not have the traditional SWE experience of being part of a product team or having to think about customer feature requests. [^sreswe]
+>
+> I'm interested in building & running systems, but want to ensure I'm involved in the entire lifecycle.
+>
+> [^sreswefocus]: Unlike more traditional system administration operational roles, the SRE SWE solves infrastructure problems with software engineering, coding, building, extending, and doing regular development, but a more platform level. They are not focused purely on operational tasks, but devote at least 50% of the their time towards proactively resolving and improving the reliability of services.
+> [^sreswe]: [Software Engineering for SREs](https://sre.google/sre-book/software-engineering-in-sre/)
 
-This is the role I'm normally matched against.
+> [!info] Senior Systems Engineer-
+> This can be a great fit if looking for a software engineering role to solve system problems.
+> This is what AWS titles someone doing a mix of Development and Operational work, expecting a strong software engineer with skills in cloud development & operations. Platform Engineering/Dev Experience is also right up this area and a passion of mine.
 
-This is about as specific as saying "A developer", so it depends on the role.
+> [!info] Cloud/Platform Engineer-
+> ### Cloud Engineer
+>
+> This can often be 2 types of roles.
+>
+> - Developer with a strong focus on cloud services and core service building and expectation to be working mostly in a langage like Go.
+> - Or basically another term for DevOps Engineer.
+>
+> **If the role is focused on building services, expects strong coding in Go, and overall is developer focused, this might be a good fit.**
+>
+> If the role is purely focused on infrastructure development using tools such as Terraform, and doesn't involve any other services or development, it's probably not the right fit.
+>
+> I believe in a development team owning the majority of the core stack, including infrastructure for the application.
+> This would be part of the standard development planning as services were built.
+>
+> Platform Engineering is something I'm passionate about and believe is a good fit for my skillsets.
 
-See Skills section at the bottom if you want to assess if I'm a possible fit.
+> [!info] Full Stack Engineer-
+> ### Full Stack Engineer
+>
+> I'm primarily focused on backend and cloud engineering work, so **this role might not be the right fit.**
+>
+> I am up for picking up React/Angular as a new hard skill, though I won't have high levels of experience with front-end development on starting the role.
+>
+> That said, quick hard skill acquisition is the key to a good engineer, so I'm always willing to take on new challenges.
+>
+> #### About This Role - Full STack
+>
+> Some folks have touched front-end through backend code, and are valued in a small team where many hats are worn.
+>
+> There still tends to be a specialization of frontend or backend, due to the complexity and pace of technology.
 
-I do believe in leadership and mentoring, so prefer a role that gives room for this to growth.
-
-{{< /admonition >}}
-
-{{< admonition type="Info" title="Senior Site Reliability Engineer" open=false >}}
-
-### Senior Site Reliability Engineer
-
-**I'd be a good fit for the less common SRE roles that want SRE SWE, aka Site Reliability Engineers with Software Engineering skills[^sreswefocus].**
-
-#### About This Role - Site Reliability Engineer
-
-The industry has diluted the terminology and in the vast majority of SRE postings, they are looking for a "DevOps Engineer" style role or Systems Administration with a cloud Focus.
-
-> SREs are often generalists, as the desire to learn breadth-first instead of depth-first lends itself well to understanding the bigger picture (and there are few pictures bigger than the intricate inner workings of modern technical infrastructure). These engineers often have strong coding and software development skills, but may not have the traditional SWE experience of being part of a product team or having to think about customer feature requests. [^sreswe]
-
-I'm interested in building & running systems, but want to ensure I'm involved in the entire lifecycle.
-
-[^sreswefocus]: Unlike more traditional system administration operational roles, the SRE SWE solves infrastructure problems with software engineering, coding, building, extending, and doing regular development, but a more platform level. They are not focused purely on operational tasks, but devote at least 50% of the their time towards proactively resolving and improving the reliability of services.
-[^sreswe]: [Software Engineering for SREs](https://sre.google/sre-book/software-engineering-in-sre/)
-
-{{< /admonition >}}
-
-{{< admonition type="Info" title="Senior Systems Engineer" open=false >}}
-
-This can be a great fit if looking for a software engineering role to solve system problems.
-This is what AWS titles someone doing a mix of Development and Operational work, expecting a strong software engineer with skills in cloud development & operations. Platform Engineering/Dev Experience is also right up this area and a passion of mine.
-
-{{< /admonition >}}
-
-{{< admonition type="Info" title="Cloud/Platform Engineer" open=false >}}
-
-### Cloud Engineer
-
-This can often be 2 types of roles.
-
-- Developer with a strong focus on cloud services and core service building and expectation to be working mostly in a langage like Go.
-- Or basically another term for DevOps Engineer.
-
-**If the role is focused on building services, expects strong coding in Go, and overall is developer focused, this might be a good fit.**
-
-If the role is purely focused on infrastructure development using tools such as Terraform, and doesn't involve any other services or development, it's probably not the right fit.
-
-I believe in a development team owning the majority of the core stack, including infrastructure for the application.
-This would be part of the standard development planning as services were built.
-
-Platform Engineering is something I'm passionate about and believe is a good fit for my skillsets.
-
-{{< /admonition >}}
-
-{{< admonition type="Info" title="Full Stack Engineer" open=false >}}
-
-### Full Stack Engineer
-
-I'm primarily focused on backend and cloud engineering work, so **this role might not be the right fit.**
-
-I am up for picking up React/Angular as a new hard skill, though I won't have high levels of experience with front-end development on starting the role.
-
-That said, quick hard skill acquisition is the key to a good engineer, so I'm always willing to take on new challenges.
-
-#### About This Role - Full STack
-
-Some folks have touched front-end through backend code, and are valued in a small team where many hats are worn.
-
-There still tends to be a specialization of frontend or backend, due to the complexity and pace of technology.
-
-{{< /admonition >}}
-
-{{< admonition type="Info" title="Senior DevOps Engineer" open=false >}}
-
-### Senior DevOps Engineer
-
-**If the role involves a large amount of application or systems development (eg 60%+), expects coding in Go for backend services/serverless solutions, and focuses on more than build & release automation, then this might be a good fit, despite the title.**
-
-The reason I put more detail here is I've demonstrated strong aptitude in my roles for what most companies want to term a DevOps Engineer.
-
-While I do have a passion for SRE/DevOps principles[^devopsprinciples] I want to be engaged in a development team that implements these principles as development occurs, and not in another silo apart from development.
-
-Having been part of teams where the "DevOps" person wasn't involved directly in development, I've determined that for my long-term effectiveness, growth as an engineer, and overall satisfaction, that I'm not looking for dedicated DevOps Engineer titled roles.
-
-{{< admonition type="Note" title="There are rare exceptions" open=true >}}
-
-That said, in a rare few cases, a DevOps Engineer role is used by HR/Recruiting to find folks with cross-functional soft and hard skills, while still doing active development.
-For example, at LinkedIn, DevOps Engineering roles are very technically demanding with code, core services and internal apps being built and more.
-
-In my experience, that's a unicorn role, that rarely exists though. 😀
-
-{{< /admonition >}}
+> [!info] Senior DevOps Engineer-
+> ### Senior DevOps Engineer
+>
+> **If the role involves a large amount of application or systems development (eg 60%+), expects coding in Go for backend services/serverless solutions, and focuses on more than build & release automation, then this might be a good fit, despite the title.**
+>
+> The reason I put more detail here is I've demonstrated strong aptitude in my roles for what most companies want to term a DevOps Engineer.
+>
+> While I do have a passion for SRE/DevOps principles[^devopsprinciples] I want to be engaged in a development team that implements these principles as development occurs, and not in another silo apart from development.
+>
+> Having been part of teams where the "DevOps" person wasn't involved directly in development, I've determined that for my long-term effectiveness, growth as an engineer, and overall satisfaction, that I'm not looking for dedicated DevOps Engineer titled roles.
+>
+> 
+>
+> That said, in a rare few cases, a DevOps Engineer role is used by HR/Recruiting to find folks with cross-functional soft and hard skills, while still doing active development.
+> For example, at LinkedIn, DevOps Engineering roles are very technically demanding with code, core services and internal apps being built and more.
+>
+> In my experience, that's a unicorn role, that rarely exists though. 😀
 
 #### About This Role - DevOps Engineer
 
@@ -211,45 +190,34 @@ See [Anti-Type E: Rebranded SysAdmin](https://web.devopstopologies.com/#anti-typ
 This means that specialization is still needed in both, but the goal is ensure clear pathways for communication.
 
 [^devopsprinciples]: I've implemented a lot of things such as implementing Trunk Based Development workflows, automating CI locally and at server, releases, runbooks, and a lot more.
-{{< /admonition >}}
+
 
 ## Skills You Might Be Looking For
 
-{{< admonition type="Info" title="Go" open=false >}}
+> [!info] Go-
+> 💯 Count me in!
 
-💯 Count me in!
+> [!info] Terraform/Infrastructure As Code-
+> I have a lot of experience with Terraform, but end the end it's just a tool to help give value from services.
+>
+> I have no problem using Pulumi, Terraform, CDK, or other tooling as a part of a role, just am not looking to do infrastructure as code work only as a full-time role.
+> See DevOps Engineer section for this.
 
-{{< /admonition >}}
+> [!info] Microsoft SQL Server-
+> While I have a background strong in Microsoft SQL Server (MSSQL) and .NET, I'm not interested in focusing my efforts on .NET.
+> I have a strong background in SQL Server (MSSQL) development and production database administration.
+> However, I've transitioned my focus to backend engineering.
+>
+> In the scope of a role such as a Senior Site Reliability Engineer, I'm up for bringing this experience to bear.
+>
+> However, I'm not looking for a database administration role at this time.
 
-{{< admonition type="Info" title="Terraform/Infrastructure As Code" open=false >}}
+> [!info] .NET-
+> I'm primarily focusing my efforts on Go, AWS, Kubernetes, serverless and similar cloud-native development efforts.
+>
+> I enjoy .NET work, but I'm not looking for a .NET focused role at this time as it is a different ecosystem than the Linux focused development I've been diving into with Go.
 
-I have a lot of experience with Terraform, but end the end it's just a tool to help give value from services.
-
-I have no problem using Pulumi, Terraform, CDK, or other tooling as a part of a role, just am not looking to do infrastructure as code work only as a full-time role.
-See DevOps Engineer section for this.
-
-{{< /admonition >}}
-
-{{< admonition type="Info" title="Microsoft SQL Server" open=false >}}
-
-While I have a background strong in Microsoft SQL Server (MSSQL) and .NET, I'm not interested in focusing my efforts on .NET.
-I have a strong background in SQL Server (MSSQL) development and production database administration.
-However, I've transitioned my focus to backend engineering.
-
-In the scope of a role such as a Senior Site Reliability Engineer, I'm up for bringing this experience to bear.
-
-However, I'm not looking for a database administration role at this time.
-
-{{< /admonition >}}
-
-{{< admonition type="Info" title=".NET" open=false >}}
-I'm primarily focusing my efforts on Go, AWS, Kubernetes, serverless and similar cloud-native development efforts.
-
-I enjoy .NET work, but I'm not looking for a .NET focused role at this time as it is a different ecosystem than the Linux focused development I've been diving into with Go.
-{{< /admonition >}}
-
-{{< admonition type="Info" title="Python" open=false >}}
-Python is great, I've used for various automation tasks and I'm a fan.
-
-However, my efforts are focused on Go right now, so a full-time Python dedicated role is not a good fit for where I'm focusing my efforts.
-{{< /admonition >}}
+> [!info] Python-
+> Python is great, I've used for various automation tasks and I'm a fan.
+>
+> However, my efforts are focused on Go right now, so a full-time Python dedicated role is not a good fit for where I'm focusing my efforts.

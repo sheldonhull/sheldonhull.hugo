@@ -18,7 +18,7 @@ I think it's easy to lose the appreciation for the disciplined effort creating m
 It also gives an unrealistic expectation for live performances if our only consumption is the polished and santized version of someone's best take.
 Seems to be a similar problem to the fake reality Instagram and Facebook can give if you expect the true state of a person's life is represented in their social media posts.
 
-{{< youtube "waRss-9jVis" >}}
+[YouTube Video](https://youtube.com/watch?v="waRss-9jVis" )
 
 As far as flaws go, this beautiful improv session shows in the comments just how much viewers appreciated the honesty of leaving flaws in instead.
 I'd like to see more of this from artists.

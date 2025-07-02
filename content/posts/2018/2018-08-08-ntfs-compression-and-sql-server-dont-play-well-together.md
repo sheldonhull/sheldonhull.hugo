@@ -47,8 +47,8 @@ Since I wasn't able to fix this large of a file by toggling the file (it was 100
 
 Here's a helpful script to get you on your way in case it takes a while. Use at your own risk, and please... always have backups! #DontBlameMeIfYouDidntBackThingsUp #CowsayChangedMyLife
 
-{{< gist sheldonhull  c13eec8bbd570f762fd3834b19464465 >}}
+[Gist](https://gist.github.com/sheldonhull/c13eec8bbd570f762fd3834b19464465)
 
 and finally to remount the database after copying it back to your drive ...
 
-{{< gist sheldonhull  274861a17a7db002bddd55861b781719 >}}
+[Gist](https://gist.github.com/sheldonhull/274861a17a7db002bddd55861b781719)

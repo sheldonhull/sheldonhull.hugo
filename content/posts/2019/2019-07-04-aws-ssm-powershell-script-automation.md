@@ -117,7 +117,7 @@ Wait-SSM -Result $result
 Note that you can also pass in an instance list.
 To do this, I'd recommend first filtering down based on tags, then also filtering down to available to SSM for running the command to avoid running on instances that are not going to succed, such as instances that are off, or ssm is not running on.
 
-To stream results from cloudwatch, try looking at my post: [Post on Using Cw for Cloudwatch Log Stream In Terminal]({{< relref "2020-09-16-improve-your-cloudwatch-debugging-experience-with-cw.md" >}} "Post on Using Cw for Cloudwatch Log Stream In Terminal")
+To stream results from cloudwatch, try looking at my post: [Post on Using Cw for Cloudwatch Log Stream In Terminal]([[2020-09-16-improve-your-cloudwatch-debugging-experience-with-cw]] "Post on Using Cw for Cloudwatch Log Stream In Terminal")
 
 ```powershell
 cw tail -f --profile=my-profile --region=eu-west-1 'ssm/manual/my-command'

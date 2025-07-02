@@ -15,11 +15,11 @@ series: ["InfluxDb"]
 
 ## Run as a Service
 
-As part of the process to setup some metrics collections for sql-server based on perfmon counters I've been utilizing InfluxDB. Part of getting started on this is ensuring InfluxDB runs as a service instead of requiring me to launch the exe manually. For more information on InfluxDb, see my other post: [Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev]({{< relref "2017-05-24-running-influx-db-as-a-service-in-windows.md" >}})
+As part of the process to setup some metrics collections for sql-server based on perfmon counters I've been utilizing InfluxDB. Part of getting started on this is ensuring InfluxDB runs as a service instead of requiring me to launch the exe manually. For more information on InfluxDb, see my other post: [Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev]([[2017-05-24-running-influx-db-as-a-service-in-windows]])
 
 This of course, did not go without it's share of investigation since I'm working with a compiled executable that was originally built in `GO`. I had issues registering InfluxDB as a service. This is typically due to enviromental/path variables. In my powershell launch of `InfluxD.exe` I typically used a script like the following:
 
-{{< gist sheldonhull  6f4e11d60244af00edac438cb9ae6ea5 >}}
+[Gist](https://gist.github.com/sheldonhull/6f4e11d60244af00edac438cb9ae6ea5)
 
 I investigated running as a service and found a great reminder on using NSSM for this: [Running Go executables ... as windows services ' Ricard Clau](http://bit.ly/2pDW65t) I went and downloaded NSSM again and first setup and register of the service went without a hitch, unlike my attempt at running `New-service -name 'InfluxDB' -BinaryPathName 'C:\Influx\influxdb\InfluxD.exe' -DisplayName 'InfluxDB' -StartupType Automatic -Credential (get-credential)`. I'm pretty sure the core issue was the `PATH` variables and other related enviromental paths were not setup with "working directory" being the InfluxDB which would be expected by it.
 

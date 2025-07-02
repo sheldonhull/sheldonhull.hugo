@@ -13,4 +13,4 @@ When using varchar/nvarchar it should be explicitly defined. This can be a very 
 
 Here's an short example script that demonstrates the behavior.
 
-{{< gist sheldonhull  ab043077045ed9d5f26b4bbf6b326f45 >}}
+[Gist](https://gist.github.com/sheldonhull/ab043077045ed9d5f26b4bbf6b326f45)

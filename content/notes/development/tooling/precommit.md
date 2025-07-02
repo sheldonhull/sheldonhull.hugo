@@ -79,11 +79,8 @@ For example, against a markdown file: `identify-cli README.md` and you should ge
 
 Against a Go file: `["file", "go", "non-executable", "text"]`.
 
-{{< admonition type="info" title="LeftHook" open=true >}}
-
-Using pre-commit framework heavily, and no longer relying on Lefthook.
-
-{{< /admonition >}}
+> [!info] LeftHook+
+> Using pre-commit framework heavily, and no longer relying on Lefthook.
 
 ## Lefthook
 

@@ -15,4 +15,4 @@ It's limited to 128 characters, and if you pass in greater than 128 characters w
 Yep... you could be trying to track down that error for a null string somewhere in your concatenation for a while... only to find out this silent error is occurring.
 I'd like to thank [NoSqlSolution](http://nosqlsolution.blogspot.com/2012/07/problems-with-quotename.html) for mentioning this and helping me go back to the other window I had open and rereading it.... I guess sometimes it pays to read the darn BOL.
 
-![not-quite-fineprint-but-sure-feels-like-it-_w3xtwg](/images/not-quite-fineprint-but-sure-feels-like-it-_w3xtwg.png)
+![not-quite-fineprint-but-sure-feels-like-it-_w3xtwg](images/not-quite-fineprint-but-sure-feels-like-it-_w3xtwg.png)

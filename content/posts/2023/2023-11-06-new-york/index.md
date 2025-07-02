@@ -49,6 +49,6 @@ The value I have to a slightly slower pace, more space, and legroom just don't g
 **Sarah**: She had her hands and mind full so no details to add right now here.
 We wouldn't have this trip without her incredible effort, so gotta give her a break here 😁.
 
-{{< gallery >}}
+
 
 [^1]: He had no complaints when eating delicious pizza for the record.

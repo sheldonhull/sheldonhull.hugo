@@ -26,4 +26,4 @@ It's click and go to add the model to your continue extension.
 My initial impressions were less polished that `gpt-4`, but to quickly iterate on some reasonable code generation or minor refactoring work it's great to have a local option that wont use any data.
 I'm on the go right now and being able to work offline for periods of time is great, but frustrating once I've experienced the handy transformation and simple fixes an AI integrated into the editor provides.
 
-I've got more docs on this topic if you search for ai or sample [chat]({{< relref "chat.md" >}}).
+I've got more docs on this topic if you search for ai or sample [chat]([[chat]]).

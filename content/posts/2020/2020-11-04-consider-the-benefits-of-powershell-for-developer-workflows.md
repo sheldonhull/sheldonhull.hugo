@@ -67,14 +67,13 @@ Simple cli bash scripting is great for many things (thus prior article about Imp
 The fundemental difference in bash vs PowerShell is really text vs object, in my opinion.
 This actually is where much of the value comes in for considering what to use.
 
-{{< admonition type="info" title="Go For CLI Tools" >}}
-Go provides a robust cross-platform single binary with autocomplete features and more.
-
-I'd say that for things such as exporting pipelines to Excel, and other "automation" actions it's far more work in Go.
-
-Focus Go on tooling that makes the extra plumbing and stronger typing give benefit rather than just overhead.
-AWS SDK operations, serverless/lambda, apis, complex tools like Terraform, and more fit the bill perfectly and are a great use case.
-{{< /admonition >}}
+> [!info] Go For CLI Tools+
+> Go provides a robust cross-platform single binary with autocomplete features and more.
+>
+> I'd say that for things such as exporting pipelines to Excel, and other "automation" actions it's far more work in Go.
+>
+> Focus Go on tooling that makes the extra plumbing and stronger typing give benefit rather than just overhead.
+> AWS SDK operations, serverless/lambda, apis, complex tools like Terraform, and more fit the bill perfectly and are a great use case.
 
 ## Scenario: Working with AWS
 
@@ -114,13 +113,10 @@ Here are some example of some rich one-liners using the power of the object base
 
 Now build a test (mock syntax), that passes or fails based on the status of the instances
 
-{{< admonition type="Note" title="Disclaimer" open=true >}}
-
-I'm sure there's great tooling with `jq`, `yq`, excel clis and other libraries that can do similar work.
-
-My point is that it's pretty straight forward to explore this in PowerShell as object-based pipelines are a lot less work with complex objects than text based parsing.
-
-{{< /admonition >}}
+> [!note] Disclaimer+
+> I'm sure there's great tooling with `jq`, `yq`, excel clis and other libraries that can do similar work.
+>
+> My point is that it's pretty straight forward to explore this in PowerShell as object-based pipelines are a lot less work with complex objects than text based parsing.
 
 ```powershell
 Describe "Instance Status Check" {

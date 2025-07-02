@@ -13,7 +13,7 @@ slug: "deleting-a-directory-that-has-a-trailing-space-shouldn-t-be-this-hard"
 
 It shouldn't be this hard. This is a consumate #windowsmoment
 
-![Removing Folder Fails](/images/ConEmu64_2018-07-23_11-42-59 - Copy.png)
+![Removing Folder Fails](images/ConEmu64_2018-07-23_11-42-59 - Copy.png)
 
 If you occasionally use something like Robocopy, or other command line tool, it can be possible to create a directory with a trailing slash. For instance
 

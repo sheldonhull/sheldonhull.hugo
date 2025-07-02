@@ -8,16 +8,13 @@ tags:
 - microblog
 - cool-tools
 ---
-{{< admonition type="Info" title="Update 2021-09-20" open="true">}}
-Updated with improved handling using public docker image.
-{{< /admonition >}}
-{{< admonition type="Info" title="Update 2021-05-10" open="true">}}
-Added additional context for setting `internal-urls` via command line.
-{{< /admonition >}}
+> [!info] Update 2021-09-20+
+> Updated with improved handling using public docker image.
+> [!info] Update 2021-05-10+
+> Added additional context for setting `internal-urls` via command line.
 
-{{< admonition type="Info" title="Update 2021-05-13" open="true">}}
-Added docker run commands to simplify local build and run without global install.
-{{< /admonition >}}
+> [!info] Update 2021-05-13+
+> Added docker run commands to simplify local build and run without global install.
 
 Ran across this app, and thought was kinda cool.
 I've had some issues with Chrome apps showing up correctly in certain macOS windows managers to switch context quickly.
@@ -31,17 +28,15 @@ You can pin this to your tray and treat it like a native app.
 
 ## Docker Setup
 
-{{< admonition type="Note" title="Optional - Build Locally" open=false >}}
-This step is no longer required per public docker image.
-
-```powershell
-cd ~/git
-gh repo clone nativefier/nativefier
-cd nativefier
-docker build -t local/nativefier .
-```
-
-{{< /admonition >}}
+> [!note] Optional - Build Locally-
+> This step is no longer required per public docker image.
+>
+> ```powershell
+> cd ~/git
+> gh repo clone nativefier/nativefier
+> cd nativefier
+> docker build -t local/nativefier .
+> ```
 
 ## Docker Build
 
