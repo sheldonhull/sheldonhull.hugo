@@ -13,31 +13,28 @@ tags:
 toc: true
 
 ---
-{{< admonition type="info" title="Updated 2020-05-05" >}}
-
-I've had lots of challenges in getting docker for sql-server working because I've wanted to ensure for my dev use case that there was no need for virtual volume management and copying files into and out of this. Instead, I've wanted to bind to local windows paths and have it drop all the mdf/ldf right there, so even on container destruction everything is good to go.
-
-After working through the changes in SQL 2019 that require running as non-root, I've gotten it work again. No install of sql-server needed. Easy disposable development instance through docker! I'll update my docker compose content when I can, but in the meantime, this should get you running even more quickly with SQL Server 2019.
-
-```powershell
-docker run `
-    --name SQL19 `
-    -p 1433:1433 `
-    -e "ACCEPT_EULA=Y" `
-    -e "MSSQL_SA_PASSWORD=ThisIsNotARealPassword@!1}" `
-    -v C:\mssql\SQL19:/sql `
-    -d mcr.microsoft.com/mssql/server:2019-latest
-
-docker run `
-    --name SQL19WithSpaces `
-    -p 1434:1433 `
-    -e "ACCEPT_EULA=Y" `
-    -e "MSSQL_SA_PASSWORD=ThisIsNotARealPassword@!1}" `
-    -v C:\mssql\SQL19WithSpaces:/sql `
-    -d mcr.microsoft.com/mssql/server:2019-latest
-```
-
-{{< /admonition >}}
+> [!info] Updated 2020-05-05+
+> I've had lots of challenges in getting docker for sql-server working because I've wanted to ensure for my dev use case that there was no need for virtual volume management and copying files into and out of this. Instead, I've wanted to bind to local windows paths and have it drop all the mdf/ldf right there, so even on container destruction everything is good to go.
+>
+> After working through the changes in SQL 2019 that require running as non-root, I've gotten it work again. No install of sql-server needed. Easy disposable development instance through docker! I'll update my docker compose content when I can, but in the meantime, this should get you running even more quickly with SQL Server 2019.
+>
+> ```powershell
+> docker run `
+>     --name SQL19 `
+>     -p 1433:1433 `
+>     -e "ACCEPT_EULA=Y" `
+>     -e "MSSQL_SA_PASSWORD=ThisIsNotARealPassword@!1}" `
+>     -v C:\mssql\SQL19:/sql `
+>     -d mcr.microsoft.com/mssql/server:2019-latest
+>
+> docker run `
+>     --name SQL19WithSpaces `
+>     -p 1434:1433 `
+>     -e "ACCEPT_EULA=Y" `
+>     -e "MSSQL_SA_PASSWORD=ThisIsNotARealPassword@!1}" `
+>     -v C:\mssql\SQL19WithSpaces:/sql `
+>     -d mcr.microsoft.com/mssql/server:2019-latest
+> ```
 
 ## Why Use Docker for MSSQL
 

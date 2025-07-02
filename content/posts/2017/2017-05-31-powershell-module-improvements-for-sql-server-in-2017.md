@@ -9,9 +9,8 @@ title: "Powershell Module Improvements for SQL Server in 2017"
 slug: "powershell-module-improvements-for-sql-server-in-2017"
 ---
 
-{{< admonition type="info" title="Updated: 2018-03-19" >}}
-I don't use these much, if any now. Check out dbatools which is a much better module with a full range of features to save you a ton of time.
-{{< /admonition >}}
+> [!info] Updated: 2018-03-19+
+> I don't use these much, if any now. Check out dbatools which is a much better module with a full range of features to save you a ton of time.
 
 # simple setup
 

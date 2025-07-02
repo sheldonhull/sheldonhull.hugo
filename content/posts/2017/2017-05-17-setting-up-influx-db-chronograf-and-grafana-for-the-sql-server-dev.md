@@ -14,9 +14,8 @@ toc: true
 series: ["InfluxDb"]
 ---
 
-{{< admonition type="info" title="Updated: 2020-04-29" >}}
-broken image links removed
-{{< /admonition >}}
+> [!info] Updated: 2020-04-29+
+> broken image links removed
 
 There are some beautiful ways to visualize time series data with the tools I'm going to go over. This post is purely focused on the initial setup and saving you some time there. In a future post, I'll show how some of these tools can help you visualize your server performance in a powerful way, including taking metrics from multiple types of servers that be working with SQL Server, and combining the metrics when appropriate to give a full picture of performance.
 
@@ -40,9 +39,8 @@ Started up the local influxdb binary.
 
 Initializing the new database was simple as documented: `create database statty`
 
-{{< admonition type="warning" title="Case Sensitivity" >}}
-InfluxDB is case sensitive. Make sure to check your case if something isn't working, such as use "DatabaseName" instead of use "databasename"
-{{< /admonition >}}
+> [!warning] Case Sensitivity+
+> InfluxDB is case sensitive. Make sure to check your case if something isn't working, such as use "DatabaseName" instead of use "databasename"
 
 Also, if you get an error with access to the file, try running as admin.
 

@@ -11,14 +11,11 @@ tags:
 series: ["renovate"]
 ---
 
-{{< admonition type="Note" title="Update 2021-06-30" open="true">}}
-
-Added example from renovate documentation with some notes on the Azure DevOps Pipeline to leverage their free renovate service.
-GitHub users benefit from the Renovate app, but Azure Pipelines should use an Azure Pipeline definition.
-
-Follow the instructions from the `Renovate Me` task linked in resources, and ensure the appropriate rights are granted for the build service to manage branches and pull requests.
-
-{{< /admonition >}}
+> [!note] Update 2021-06-30+
+> Added example from renovate documentation with some notes on the Azure DevOps Pipeline to leverage their free renovate service.
+> GitHub users benefit from the Renovate app, but Azure Pipelines should use an Azure Pipeline definition.
+>
+> Follow the instructions from the `Renovate Me` task linked in resources, and ensure the appropriate rights are granted for the build service to manage branches and pull requests.
 
 Renovate is a great tool to know about.
 For Go, you can keep modules updated automatically, but still leverage a pull request review process to allow automated checks to run before allowing the update.
@@ -38,7 +35,7 @@ Note that you'd want to install the auto-approver app they document in the marke
 In addition, if you use `CODEOWNERS` file, this will still block automerge.
 Consider removing that if you aren't really leveraging it.
 
-{{< gist sheldonhull  "f36ea328a2167e93a7015906beb08bbe" >}}
+
 
 ## Resources
 

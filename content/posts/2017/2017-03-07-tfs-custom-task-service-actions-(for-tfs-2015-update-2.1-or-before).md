@@ -10,9 +10,8 @@ slug: tfs-custom-task-service-actions-(for-tfs-2015-update-21-or-before)
 
 ---
 
-{{< admonition type="info" title="Updated: 2020-04-29" >}}
-broken image links removed
-{{< /admonition >}}
+> [!info] Updated: 2020-04-29+
+> broken image links removed
 
 Apparently, boolean values for custom VSTS tasks for versions prior to TFS 2015 Update 3) require some special handling as they don't pass the checkbox values as actual powershell `$true` or `$false`. Instead the task passes this information along as `true` or `false`. To properly handle this you'll need to pass in the value as a `string` then convert to `boolean`.
 

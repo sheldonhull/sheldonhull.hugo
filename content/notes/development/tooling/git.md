@@ -14,12 +14,9 @@ tags:
   - tech
 ---
 
-{{< admonition type="note" title="Note" open=true >}}
-
-This is a mix of git, github, azure devops repos, and other workflow tips that help me work more quickly.
-Comments are welcome with any corrections or suggestions.
-
-{{< /admonition >}}
+> [!note] Note+
+> This is a mix of git, github, azure devops repos, and other workflow tips that help me work more quickly.
+> Comments are welcome with any corrections or suggestions.
 
 ## Install Homebrew
 

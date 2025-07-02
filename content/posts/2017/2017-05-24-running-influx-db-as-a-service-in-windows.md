@@ -15,7 +15,7 @@ series: ["InfluxDb"]
 
 ## Run as a Service
 
-As part of the process to setup some metrics collections for sql-server based on perfmon counters I've been utilizing InfluxDB. Part of getting started on this is ensuring InfluxDB runs as a service instead of requiring me to launch the exe manually. For more information on InfluxDb, see my other post: [Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev]({{< relref "2017-05-24-running-influx-db-as-a-service-in-windows.md" >}})
+As part of the process to setup some metrics collections for sql-server based on perfmon counters I've been utilizing InfluxDB. Part of getting started on this is ensuring InfluxDB runs as a service instead of requiring me to launch the exe manually. For more information on InfluxDb, see my other post: [Setting Up InfluxDb, Chronograf, and Grafana for the SqlServer Dev]([[2017-05-24-running-influx-db-as-a-service-in-windows]])
 
 This of course, did not go without it's share of investigation since I'm working with a compiled executable that was originally built in `GO`. I had issues registering InfluxDB as a service. This is typically due to enviromental/path variables. In my powershell launch of `InfluxD.exe` I typically used a script like the following:
 

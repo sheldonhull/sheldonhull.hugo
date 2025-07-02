@@ -15,4 +15,4 @@ If you've ever debated light vs dark themes, you might find this as funny as I d
 
 Nearly choked on my dinner.
 
-{{< youtube XlgqZeeoOtI >}}
+[YouTube Video](https://youtube.com/watch?v=XlgqZeeoOtI )

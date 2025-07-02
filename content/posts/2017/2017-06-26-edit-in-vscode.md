@@ -12,7 +12,7 @@ slug: "edit-in-vscode"
 ---
 
 Previous Related Post:
-[Split personality text editing in SSMS with Sublime Text 3]({{< relref "2015-09-14-split-personality-text-eiting-in-ssms-with-sublime-text-3.md" >}})
+[Split personality text editing in SSMS with Sublime Text 3]([[2015-09-14-split-personality-text-eiting-in-ssms-with-sublime-text-3]])
 
 In this prior post I wrote about how to call Sublime Text 3 from SSMS to allow improved text manipulation to be quickly called from an active query window in SQL Management Studio. Vscode is a newer editor from Microsoft, and the argument calls took a little work to get working. Here is what I found for having your SQL file open in vscode via call from SSMS (I imagine also works in Visual Studio 2017 this way as well).
 

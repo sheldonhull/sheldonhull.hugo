@@ -22,14 +22,11 @@ I've run into this before, so logging this for my sanity.
 - Run your Azure DevOps Pipeline to trigger the dependency assessment.
 - If you didn't add the project build service account to your repo with `Contribute`, `Contribute to Pull Requests`, `Force Push` (to allow force update of branches it creates), and `Create Tag`.
 
-{{< admonition type="Tip" title="Where do you add the permissions for build?" open="true">}}
-
-Go to your repository security settings (in this case I'm adding to all to simplify, but you can do on a repo by repo basis if you enjoy tedium):
-
-`https://dev.azure.com/MYORG/MYPROJECT/_settings/repositories?_a=permissions`
-
-Then in the search type your project name and you should see a `PROJECTNAME\Build Service (PROJECTNAME)` show up.
-
-If you are using a custom service account with on-premise agents instead of hosted, then adjust your approach accordingly.
-
-{{< /admonition >}}
+> [!tip] Where do you add the permissions for build?+
+> Go to your repository security settings (in this case I'm adding to all to simplify, but you can do on a repo by repo basis if you enjoy tedium):
+>
+> `https://dev.azure.com/MYORG/MYPROJECT/_settings/repositories?_a=permissions`
+>
+> Then in the search type your project name and you should see a `PROJECTNAME\Build Service (PROJECTNAME)` show up.
+>
+> If you are using a custom service account with on-premise agents instead of hosted, then adjust your approach accordingly.

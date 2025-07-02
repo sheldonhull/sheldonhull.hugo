@@ -40,6 +40,5 @@ There's a lesson in there for us adults dealing with coworkers and friends.
 Let's remember to keep believing the best for each other, and give a bit of grace in flaws and mistakes.
 I'm sure we all could use a bit more of that.
 
-{{< youtube XqQcOURRFiw >}}
+[YouTube Video](https://youtube.com/watch?v=XqQcOURRFiw )
 
-{{< fancybox-srcset galleryname="dance" >}}

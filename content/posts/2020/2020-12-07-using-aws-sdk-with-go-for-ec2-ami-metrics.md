@@ -181,7 +181,7 @@ Using this provided some nice readable console feedback, along with values that 
 
 ### Performance In Searching
 
-From my prior blog post [Filtering Results In Go]({{< relref "2020-11-17-filtering-results-in-go.md" >}} "Filtering Results In Go") I also talked about this.
+From my prior blog post [Filtering Results In Go]([[2020-11-17-filtering-results-in-go]] "Filtering Results In Go") I also talked about this.
 
 The lack of syntactic sugar in Go means this seemed much more verbose than I was expecting.
 

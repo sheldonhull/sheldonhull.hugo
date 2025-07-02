@@ -12,9 +12,8 @@ I hadn't seen much talk on doing data comparisons on temporal tables, as they ar
 
 ## SSMS 2016 View Of Temporal Table
 
-{{< admonition type="info" title="Updated: 2020-04-29" >}}
-broken image links removed
-{{< /admonition >}}
+> [!info] Updated: 2020-04-29+
+> broken image links removed
 
 
 With the latest version of SSMS, you can see the temporal tables labeled and expanded underneath the source table.

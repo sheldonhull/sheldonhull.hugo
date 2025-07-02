@@ -15,4 +15,3 @@ library:
 ---
 
 
-{{< fancybox-srcset galleryname="origami" >}}

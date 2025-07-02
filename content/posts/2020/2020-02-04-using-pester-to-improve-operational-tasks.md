@@ -29,7 +29,7 @@ _This is a critical thing to communicate to any teams struggling with reactive w
 
 A classic example of unclear acceptance criteria and the wasteful impact of work is from a youtube clip here.
 
-{{< youtube BTTdHW8Z668 >}}
+[YouTube Video](https://youtube.com/watch?v=BTTdHW8Z668 )
 
 How many times have you started work on a project and found yourself in a similar situation?
 
@@ -55,9 +55,8 @@ For our example, let's say we are deploying a monitoring agent on some servers.
 
 Gherkin is the syntax used to describe the tests.
 
-{{< admonition type="info" title="Pester Syntax" >}}
-You can write Pester tests with PowerShell in a different format, but I'm going to use Gherkin here because of its sentences and far less of a confusing DSL for our example.
-{{< /admonition >}}
+> [!info] Pester Syntax+
+> You can write Pester tests with PowerShell in a different format, but I'm going to use Gherkin here because of its sentences and far less of a confusing DSL for our example.
 
 My understanding would be to compare Cucumber "spoken word", and Gherkin as the "language" chosen to communicate.
 When you write the feature files to work with Cucumber, you write them in Gherkin.
@@ -158,11 +157,8 @@ So all that writing...what benefit? Is it going to save time?
 
 With PowerShell, I'd write something similar to match a called step to a code block here.
 
-{{< admonition type="warning" title="Warning" >}}
-
-Case sensitive name as of 2019-04-16 for keywords. Therefore to match steps, use `Before` not `before` or it won't match.
-
-{{< /admonition >}}
+> [!warning] Warning+
+> Case sensitive name as of 2019-04-16 for keywords. Therefore to match steps, use `Before` not `before` or it won't match.
 
 ```powershell
 

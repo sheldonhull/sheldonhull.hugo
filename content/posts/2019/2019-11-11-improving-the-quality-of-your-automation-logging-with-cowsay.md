@@ -134,8 +134,5 @@ sudo apt install cmatrix
 * [Dadjokes-cli](https://pypi.org/project/dadjokes-cli/)
 * [Cownet](https://pypi.org/project/Cownet/)
 
-{{< admonition type="warning" title="disclaimer" >}}
-
-:warning: There are a couple ascii layouts that are a little inappropriate, so if doing a live demo or something more visible don't use random mode if you don't want something showing up that might embarass you :grin:
-
-{{< /admonition >}}
+> [!warning] disclaimer+
+> :warning: There are a couple ascii layouts that are a little inappropriate, so if doing a live demo or something more visible don't use random mode if you don't want something showing up that might embarass you :grin:

@@ -12,9 +12,8 @@ title: "ANTS Performance Profiler for the SQL Server Dev"
 slug: "ants-performance-profiler-for-the-sql-server-dev"
 ---
 
-{{< admonition type="info" title="2019-11-10" >}}
-Image links are gone due and due to age of post, unable to recover
-{{< /admonition >}}
+> [!info] 2019-11-10+
+> Image links are gone due and due to age of post, unable to recover
 
 There are a few .NET tools that until recently I haven't had the chance to work with as much, specifically ANTS Memory Profiler and ANTS Performance Profiler. The memory profiler is more useful for someone focused on memory leaks which a SQL Dev isn't as focused on for performance tuning. However, there are major benefits for diving into SQL Performance tuning with ANTS Performance profiler. I think I'd say this tool makes the _epic_ category of my #cooltools kit.
 

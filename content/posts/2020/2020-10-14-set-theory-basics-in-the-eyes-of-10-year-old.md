@@ -16,4 +16,4 @@ Kids are the best. Tech is fun. What job would have me spin up with `docker-comp
 
 Followed it up with a half-hearted lie that my day is comprised of `cmatrix` 😂  which he didn't believe for more than a couple seconds.
 
-{{< asciinema id="DnQ0MCgZekv11MggByfjqRNNT" >}}
+

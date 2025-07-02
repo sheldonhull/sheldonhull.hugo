@@ -60,10 +60,9 @@ This can result in "merge hell" as you try rebase on a busy repo.
 
 This tool solves so many of the basic workflow issues, that it's become one of the most impactful tools to my daily work.
 
-{{< admonition type="Tip" title="Enable Aliases" closed=false >}}
-The examples that follow use `git sync`, `git hack feat/new-feature`, etc as examples because I've run the command `git-town alias true` which enables the alias configuration for git town, reducing verbosity.
-Instead of `git town sync`, you can run `git sync`.
-{{< /admonition >}}
+> [!tip] Enable Aliases+
+> The examples that follow use `git sync`, `git hack feat/new-feature`, etc as examples because I've run the command `git-town alias true` which enables the alias configuration for git town, reducing verbosity.
+> Instead of `git town sync`, you can run `git sync`.
 
 ### Example 1: Create a Branch for a New Unit of Work While You Are Already On Another Branch
 

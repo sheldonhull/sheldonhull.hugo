@@ -68,11 +68,8 @@ Change `darwin` to `linux` to use the linux version.
     sudo curl -L https://sourcegraph.com/.api/src-cli/src_darwin_amd64 -o /usr/local/bin/sourcegraph
     sudo chmod +x /usr/local/bin/sourcegraph
 
-{{< admonition type="Tip" title="Docker" open=true >}}
-
-    docker pull sourcegraph/lsif-go:v1.2.0
-
-{{< /admonition >}}
+> [!tip] Docker+
+> docker pull sourcegraph/lsif-go:v1.2.0
 
 Now index code in repo
 

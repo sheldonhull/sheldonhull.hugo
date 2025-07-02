@@ -18,7 +18,7 @@ It's a bit more personal, and I hope it helps you get a better sense of who I am
 
 ## Recruiter?
 
-If you are recruiter, then this might be useful: [Recruiters]({{< relref "recruiters.md" >}} "recruiters")
+If you are recruiter, then this might be useful: [[recruiters|Recruiters]]
 
 ## Touching Base
 
@@ -58,24 +58,21 @@ I'd like to dive deeper into areas such as distributed systems, application scal
 - A role where I can impact and ship.
 - Linux as the primary OS for production, not Windows.[^1]
 
-{{< admonition type="Example" title="How I Tend To Think Through Systems" open=false >}}
-
-Someone might look at deploying a webservice and spin up an EC2 linux webserver and call it done.
-
-What would go through my head:
-
-- Can I host this using a managed service such as ECS Fargate to avoid the operational toil of managing my own instance?
-- Can I benefit from a service like this with autoscaling to ensure a failed task can automatically recover or allocate work to a new node?
-- Did the web service add the instrumentation libraries for opentracing or the appropriate library?
-- Are structured logs being used to ensure automatic parsing by the logging provider?
-- Is the service being deployed via a CICD provider instead of manually?
-- Are unit tests being run on developer machines with hooks and also by CI system?
-- Are integration tests being run prior to deployment?
-- Are service level objectives defined and tracked if required to ensure service isn't over-engineered, but also allocated appropriate time for new work if problems occur that would impact customer satisfaction?
-- Is the core infrastructure defined via code?
-- Is the application configured to pull its configuration from environment variables or cloud configuration provider rather than requiring manual changes?
-
-{{< /admonition >}}
+> [!example] How I Tend To Think Through Systems-
+> Someone might look at deploying a webservice and spin up an EC2 linux webserver and call it done.
+>
+> What would go through my head:
+>
+> - Can I host this using a managed service such as ECS Fargate to avoid the operational toil of managing my own instance?
+> - Can I benefit from a service like this with autoscaling to ensure a failed task can automatically recover or allocate work to a new node?
+> - Did the web service add the instrumentation libraries for opentracing or the appropriate library?
+> - Are structured logs being used to ensure automatic parsing by the logging provider?
+> - Is the service being deployed via a CICD provider instead of manually?
+> - Are unit tests being run on developer machines with hooks and also by CI system?
+> - Are integration tests being run prior to deployment?
+> - Are service level objectives defined and tracked if required to ensure service isn't over-engineered, but also allocated appropriate time for new work if problems occur that would impact customer satisfaction?
+> - Is the core infrastructure defined via code?
+> - Is the application configured to pull its configuration from environment variables or cloud configuration provider rather than requiring manual changes?
 
 ## Skill Highlight
 
@@ -101,31 +98,31 @@ h2 {
 <div class="column"><h2>Things I'd Love to Work More On</h2></div>
 <div class="row">
   <div class="column">
-  {{< fa-icon solid  angle-right >}} Azure & AWS<br>
-  {{< fa-icon solid  angle-right >}} Go<br>
-  {{< fa-icon solid  angle-right >}} Linux<br>
-  {{< fa-icon solid  angle-right >}} Infra As Code (pulumi, terraform, etc)<br>
-  {{< fa-icon solid  angle-right >}} Kubernetes/Docker<br>
-  {{< fa-icon solid  angle-right >}} GitHub/Actions/CI/Azure Pipelines<br>
-  {{< fa-icon solid  angle-right >}} Technical Docs<br>
-  {{< fa-icon solid  angle-right >}} CI/CD/Automation (Dagger, Mage/Go, Pwsh, Bash) <br>
-  {{< fa-icon solid  angle-right >}} Observability (Datadog, Sumologic, etc)<br>
-  {{< fa-icon solid  angle-right >}} SQL (Dev, Design & Operations)<br>
-  {{< fa-icon solid  angle-right >}} PowerShell (CrossPlatform), .NET Framework<br>
+  Azure & AWS<br>
+  Go<br>
+  Linux<br>
+  Infra As Code (pulumi, terraform, etc)<br>
+  Kubernetes/Docker<br>
+  GitHub/Actions/CI/Azure Pipelines<br>
+  Technical Docs<br>
+  CI/CD/Automation (Dagger, Mage/Go, Pwsh, Bash) <br>
+  Observability (Datadog, Sumologic, etc)<br>
+  SQL (Dev, Design & Operations)<br>
+  PowerShell (CrossPlatform), .NET Framework<br>
   </div>
   <div class="column">
-  {{< fa-icon solid  angle-right >}} C#/.NET<br>
-  {{< fa-icon solid  angle-right >}} Serverless<br>
-  {{< fa-icon solid  angle-right >}} Python<br>
+  C#/.NET<br>
+  Serverless<br>
+  Python<br>
   </div>
   <div class="column">
-  {{< fa-icon solid  angle-right >}} Go<br>
-  {{< fa-icon solid  angle-right >}} Linux<br>
-  {{< fa-icon solid  angle-right >}} Serverless<br>
-  {{< fa-icon solid  angle-right >}} Microservices<br>
-  {{< fa-icon solid  angle-right >}} Distributed Systems & Data<br>
-  {{< fa-icon solid  angle-right >}} Developer Tooling<br>
-  {{< fa-icon solid  angle-right >}} Containerization<br>
+  Go<br>
+  Linux<br>
+  Serverless<br>
+  Microservices<br>
+  Distributed Systems & Data<br>
+  Developer Tooling<br>
+  Containerization<br>
   </div>
 </div>
 
@@ -133,134 +130,120 @@ h2 {
 
 ### Roles
 
-{{< admonition type="info" title="Current // Staff Software Engineer" open=true >}}
+> [!info] Current // Staff Software Engineer+
+> April 2024 - Current Delinea Staff Software Engineer - Developer Experience Team
+>
+> ⚡ Recieved stellar ratings & recognization from management, resulting in a promotion to Staff Engineer.<br>
+> ⚡ Joined the Developer Experience Team, a small team focused on solving developer pain points and improving the developer experience as the company continued to grow in both staffing, and platform complexity.<br>
+> ⚡ This role has a larger scope impact for work, including presentations for engineering on various topics.<br>
+> ⚡ Began with effort to consolidate and improve the scattered docs into a solid devex site, improve onboarding and guidance for supply chain security tooling, and other initiatives to improve the developer experience.<br>
+>
+> #### Public Artifacts
+>
+> This role didn't have the work in public GitHub repos, unlike prior teams, so not able to provide much examples, other than blog posts.
 
-{{< fa-icon solid  calendar-alt >}} April 2024 - Current {{< fa-icon solid grip-lines-vertical >}} {{< fa-icon regular lightbulb >}} Delinea {{< fa-icon solid grip-lines-vertical >}} Staff Software Engineer - Developer Experience Team
+> [!info] 2021-2024 Senior Developer-
+> March 2021 - April 2024 Delinea Senior Software Engineer (AWS/Go)
+>
+> ⚡ Built Helm and Pulumi stack for Kubernetes to provide continuous deployment, resulting in < 15 mins from PR merge to app live in Kubernetes.<br>
+> ⚡ Wrote Go task automation for team automating developer tooling setup (1 command to bootstrap), automatic updates of dependencies, security checks, configuration, go builds, container publishing and more.<br>
+> ⚡ Improved SLDC applying DevOps practices towards trunk based development and infra-as-code.<br>
+> ⚡ Did the majority of monorepo migration work and tooling to support single repository workflow for Angular & Go developers to simplify collaboration and development work.<br>
+> ⚡ Supported PR Reviews and oversight of code from offshore team programming primarily in Go.<br>
+> ⚡ Go: added structured logging, APM integration to support observability, and codified health monitors and synthethic checks with Pulumi Datadog SDK<br>
+> ⚡ AWS Architecture redesign for ECS Fargate container driven support
+> of Go services, as well as supporting Docker configuration.<br>
+> ⚡ Go & Task tooling to support developer workflow improvements for pre-commit, building, and other tooling.<br>
+> ⚡ Investigative work for Kubernetes and usage of microservices using Dapr.<br>
+>
+> _Things I Used_
+>
+> Go, AWS/Azure, Pulumi, Kubernetes, Terraform, Terragrunt, Bash, Kubernetes, Dapr (Distributed Application Runtime) for Microservices. Datadog
+>
+> _Public Artifacts_
+>
+> Work under NDA.
+> Public related blog posts on general technology topics where posted on blog as well as some general studies on applying Go with TDD and algorithm studies are listed here.
+>
+> [Magetools](https://github.com/sheldonhull/magetools)<br>
+> [100DaysOfCode for Go](https://www.sheldonhull.com/tags/100daysofcode/)<br/>
+> [Learn Go With Tests - Applied](https://github.com/sheldonhull/learn-go-with-tests-applied)<br>
 
-⚡ Recieved stellar ratings & recognization from management, resulting in a promotion to Staff Engineer.<br>
-⚡ Joined the Developer Experience Team, a small team focused on solving developer pain points and improving the developer experience as the company continued to grow in both staffing, and platform complexity.<br>
-⚡ This role has a larger scope impact for work, including presentations for engineering on various topics.<br>
-⚡ Began with effort to consolidate and improve the scattered docs into a solid devex site, improve onboarding and guidance for supply chain security tooling, and other initiatives to improve the developer experience.<br>
+> [!info] 2014 - 2021 Senior Developer-
+> 2014 - 2021 Altus Group Senior Developer (Database & Dev Operations)
+>
+> ### Some Highlights
+>
+> Senior Individual Contributor with cross-team impact functioning as Database/Site Reliability Engineer
+>
+> Started with focus on SQL Server development, architecture, and performance tuning.
+> Migrated to Development operations team during tenure and operated on development through operations.
+> Heavy focus on production reliability for data tier.
+> Additional focus on automation for non-release tasks, such as Terraform deployments, AWS SSM management, automated runbook creation and more.
+> Functioned in part as Site Reliability Engineer with mixed cross-functional impact.
+>
+> ⚡ Part of transformation of on-premise to Cloud based
+> product<br>
+> ⚡ Designed AWS Lambda serverless solution for providing KPI insight<br>
+> ⚡ Improved velocity of infrastructure deployments by using Terraform
+> Cloud, deployed a PaaS based AWS RDS product.<br>
+> ⚡ Built very detailed runbook and documentation library supporting detailed insight on databases, team processes, incident response, and more. Inspired by GitLab's concept of "handbook first", I promoted collaborative codification of knowledge among my team<br>
+> ⚡ Designed and built the primary systems management and configuration used to rapidly bootstrap hundreds of instances and allow quickly pushing updates out.
+> solutions.<br>
+> ⚡ Built robust AMI pipelines combining Azure Pipelines & Packer, including automated tests, matrix builds, and detailed documentation.<br>
+> ⚡ Promoted stronger code based pull request driven workflows with
+> "Gitops" focus, code reviews, and mentoring of other junior team
+> members.<br>
+> ⚡ Database Performance tuning, architectural design, and development.
+> ⚡ Initial observability tooling advocate.
+>
+> #### Things I Used
+>
+> MSSQL Server, PowerShell, AWS, AWS SDK, Terraform, Lambda, S3,
+> Athena, Chatops w/Slack, ECS, Docker, Datadog, Grafana, InfluxDB,
+> Telegraf. Python, C#, Excel when I absolutely no other choice, ...and a lot
+> more.
+>
+> #### Public Artifacts
+>
+> Product related work under NDA
+>
+> Blog posts on various general concepts related to Databases, DevOps, PowerShell, AWS, and technology
+>
+> [Implementation Guide](https://d34bfwpm2i2eri.cloudfront.net)
+> This was a major effort in migrating content from an outdated large word doc to static generated website with analytics. Load testing, sizing guides, and more were improved. All docs for SQL Server and load test summaries were due to my efforts. CI driven via markdown file updates made this a quick process to keep things up to date. 👍
 
-#### Public Artifacts
+> [!info] 2011-2014 SQL Server Developer-
+> 2011-2014 Selene Finance SQL Developer
+>
+> Initially rehired for Asset Analyst work, was recruited into development team after learning SQL.
+> Continued with full SQL Server development
+>
+> ⚡ Relational database design performance, development, and
+> production support<br>
+> ⚡ Performed work on business analyst, qa, and developer for the work assigned.
 
-This role didn't have the work in public GitHub repos, unlike prior teams, so not able to provide much examples, other than blog posts.
-
-{{< /admonition >}}
-
-{{< admonition type="info" title="2021-2024 Senior Developer" open=false >}}
-
-{{< fa-icon solid  calendar-alt >}} March 2021 - April 2024 {{< fa-icon solid grip-lines-vertical >}} {{< fa-icon regular lightbulb >}} Delinea {{< fa-icon solid grip-lines-vertical >}} Senior Software Engineer (AWS/Go)
-
-⚡ Built Helm and Pulumi stack for Kubernetes to provide continuous deployment, resulting in < 15 mins from PR merge to app live in Kubernetes.<br>
-⚡ Wrote Go task automation for team automating developer tooling setup (1 command to bootstrap), automatic updates of dependencies, security checks, configuration, go builds, container publishing and more.<br>
-⚡ Improved SLDC applying DevOps practices towards trunk based development and infra-as-code.<br>
-⚡ Did the majority of monorepo migration work and tooling to support single repository workflow for Angular & Go developers to simplify collaboration and development work.<br>
-⚡ Supported PR Reviews and oversight of code from offshore team programming primarily in Go.<br>
-⚡ Go: added structured logging, APM integration to support observability, and codified health monitors and synthethic checks with Pulumi Datadog SDK<br>
-⚡ AWS Architecture redesign for ECS Fargate container driven support
-of Go services, as well as supporting Docker configuration.<br>
-⚡ Go & Task tooling to support developer workflow improvements for pre-commit, building, and other tooling.<br>
-⚡ Investigative work for Kubernetes and usage of microservices using Dapr.<br>
-
-_Things I Used_
-
-Go, AWS/Azure, Pulumi, Kubernetes, Terraform, Terragrunt, Bash, Kubernetes, Dapr (Distributed Application Runtime) for Microservices. Datadog
-
-_Public Artifacts_
-
-Work under NDA.
-Public related blog posts on general technology topics where posted on blog as well as some general studies on applying Go with TDD and algorithm studies are listed here.
-
-{{< fa-icon solid  code-branch >}} [Magetools](https://github.com/sheldonhull/magetools)<br>
-{{< fa-icon solid  code-branch >}} [100DaysOfCode for Go](https://www.sheldonhull.com/tags/100daysofcode/)<br/>
-{{< fa-icon solid  code-branch >}} [Learn Go With Tests - Applied](https://github.com/sheldonhull/learn-go-with-tests-applied)<br>
-
-{{< /admonition >}}
-
-{{< admonition type="info" title="2014 - 2021 Senior Developer" open=false >}}
-
-{{< fa-icon solid  calendar-alt >}} 2014 - 2021 {{< fa-icon solid grip-lines-vertical >}} {{< fa-icon regular lightbulb >}} Altus Group {{< fa-icon solid grip-lines-vertical >}} Senior Developer (Database & Dev Operations)
-
-### Some Highlights
-
-{{< fa-icon solid  info-circle >}} Senior Individual Contributor with cross-team impact functioning as Database/Site Reliability Engineer
-
-{{< fa-icon solid  info-circle >}} Started with focus on SQL Server development, architecture, and performance tuning.
-Migrated to Development operations team during tenure and operated on development through operations.
-Heavy focus on production reliability for data tier.
-Additional focus on automation for non-release tasks, such as Terraform deployments, AWS SSM management, automated runbook creation and more.
-Functioned in part as Site Reliability Engineer with mixed cross-functional impact.
-
-⚡ Part of transformation of on-premise to Cloud based
-product<br>
-⚡ Designed AWS Lambda serverless solution for providing KPI insight<br>
-⚡ Improved velocity of infrastructure deployments by using Terraform
-Cloud, deployed a PaaS based AWS RDS product.<br>
-⚡ Built very detailed runbook and documentation library supporting detailed insight on databases, team processes, incident response, and more. Inspired by GitLab's concept of "handbook first", I promoted collaborative codification of knowledge among my team<br>
-⚡ Designed and built the primary systems management and configuration used to rapidly bootstrap hundreds of instances and allow quickly pushing updates out.
-solutions.<br>
-⚡ Built robust AMI pipelines combining Azure Pipelines & Packer, including automated tests, matrix builds, and detailed documentation.<br>
-⚡ Promoted stronger code based pull request driven workflows with
-"Gitops" focus, code reviews, and mentoring of other junior team
-members.<br>
-⚡ Database Performance tuning, architectural design, and development.
-⚡ Initial observability tooling advocate.
-
-#### Things I Used
-
-MSSQL Server, PowerShell, AWS, AWS SDK, Terraform, Lambda, S3,
-Athena, Chatops w/Slack, ECS, Docker, Datadog, Grafana, InfluxDB,
-Telegraf. Python, C#, Excel when I absolutely no other choice, ...and a lot
-more.
-
-#### Public Artifacts
-
-{{< fa-icon solid  user-secret >}} Product related work under NDA
-
-{{< fa-icon solid  rss >}} Blog posts on various general concepts related to Databases, DevOps, PowerShell, AWS, and technology
-
-{{< fa-icon solid  file-alt >}} [Implementation Guide](https://d34bfwpm2i2eri.cloudfront.net)
-This was a major effort in migrating content from an outdated large word doc to static generated website with analytics. Load testing, sizing guides, and more were improved. All docs for SQL Server and load test summaries were due to my efforts. CI driven via markdown file updates made this a quick process to keep things up to date. 👍
-
-{{< /admonition >}}
-
-{{< admonition type="info" title="2011-2014 SQL Server Developer" open=false >}}
-
-{{< fa-icon solid  calendar-alt >}} 2011-2014 {{< fa-icon solid grip-lines-vertical >}} {{< fa-icon regular lightbulb >}} Selene Finance {{< fa-icon solid grip-lines-vertical >}} SQL Developer
-
-{{< fa-icon solid  info-circle >}} Initially rehired for Asset Analyst work, was recruited into development team after learning SQL.
-Continued with full SQL Server development
-
-⚡ Relational database design performance, development, and
-production support<br>
-⚡ Performed work on business analyst, qa, and developer for the work assigned.
-{{< /admonition >}}
-
-{{< admonition type="info" title="Other Boring Stuff" open=false >}}
-
-In case you are bored, I've done this as well:
-
-{{< fa-icon solid  info-circle >}} Freddie Mac: Loss Mitigation during mortgage crisis<br>
-{{< fa-icon solid  info-circle >}} Litton Loan Servicing: Loss Mitigation during mortgage crisis<br>
-{{< fa-icon solid  info-circle >}} Greentree Servicing: Mortgage Collections <br>
-{{< fa-icon solid  info-circle >}} Synergetic Communications: Mortgage Collections<br>
-{{< fa-icon solid  info-circle >}} Vanderbilt Mortgage: Mortgage Collections<br>
-{{< fa-icon solid  info-circle >}} Worked at a private school teaching<br>
-{{< fa-icon solid  info-circle >}} Worked at a Library & Migrated an entire small military base library from one building the other. The darn dewy decimal system is what I blame for my eyes now. :grin:<br>
-
-I'm really glad I'm not working in the mortgage industry & collections oriented roles anymore.
-
-It did teach me to handle high stress situations and do pretty decent at negotation and grow stronger in my communication skills, so there's some positive to that part of the journey! :wink:
-
-{{< /admonition >}}
+> [!info] Other Boring Stuff-
+> In case you are bored, I've done this as well:
+>
+> Freddie Mac: Loss Mitigation during mortgage crisis<br>
+> Litton Loan Servicing: Loss Mitigation during mortgage crisis<br>
+> Greentree Servicing: Mortgage Collections <br>
+> Synergetic Communications: Mortgage Collections<br>
+> Vanderbilt Mortgage: Mortgage Collections<br>
+> Worked at a private school teaching<br>
+> Worked at a Library & Migrated an entire small military base library from one building the other. The darn dewy decimal system is what I blame for my eyes now. :grin:<br>
+>
+> I'm really glad I'm not working in the mortgage industry & collections oriented roles anymore.
+>
+> It did teach me to handle high stress situations and do pretty decent at negotation and grow stronger in my communication skills, so there's some positive to that part of the journey! :wink:
 
 ### Trivia
 
-{{< fa-icon solid  info-circle >}} First Programming Language: vba :laughing:<br>
-{{< fa-icon solid  info-circle >}} Dark Or Light: join the dark side<br>
-{{< fa-icon solid  info-circle >}} Preferred OS: any. Right now using macOS for development<br>
-{{< fa-icon solid  info-circle >}} Terminal: Warp & zsh
+First Programming Language: vba :laughing:<br>
+Dark Or Light: join the dark side<br>
+Preferred OS: any. Right now using macOS for development<br>
+Terminal: Warp & zsh
 
 ### Projects
 

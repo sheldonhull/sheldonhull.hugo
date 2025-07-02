@@ -37,11 +37,10 @@ I came across diagrams[^diagrams] and found it a perfect fit for intuitive and b
 
 ## Getting Started
 
-{{< admonition type="Warning" title="Name Of Project" open="true">}} Do not create a project named the same thing as your dependency, ie project name = diagrams for example.
-
-This will error out and send you down a search in github issues to discover this issue.
-
-{{< /admonition >}}
+> [!warning] Name Of Project+
+> Do not create a project named the same thing as your dependency, ie project name = diagrams for example.
+>
+> This will error out and send you down a search in github issues to discover this issue.
 
 Install Poetry[^poetry] and create a new poetry project in your directory using `poetry init`.
 
@@ -67,7 +66,7 @@ Using defaults you can create a simple diagram such as this:
 
 ![vpc-diagram-simple](/images/diagrams-as-code-01-diagram-vpc-example.png)
 
-{{< gist sheldonhull "cc8abcb86c9463b0c74bb9e4d82ffac9" "01-diagram-vpc-example.py">}}
+
 
 ## Add Some Helpers
 
@@ -75,7 +74,7 @@ From the github issues and my own customizations, I added a few additions to mak
 
 ![vpc-diagram-simple-with-helpers](/images/diagrams-as-code-02-aws-vpc-example-with-helper.png)
 
-{{< gist sheldonhull "cc8abcb86c9463b0c74bb9e4d82ffac9" "02.helpers.py">}}
+
 
 ## A More Complex Example
 
@@ -85,7 +84,7 @@ Take a look at the AWS PDF[^pull-request-continuous-integration-reference-archit
 
 ![complex-example](/images/diagrams-as-code-03-complex.png)
 
-{{< gist sheldonhull "cc8abcb86c9463b0c74bb9e4d82ffac9" "03-diagram-complex.py">}}
+
 
 ## Reference
 

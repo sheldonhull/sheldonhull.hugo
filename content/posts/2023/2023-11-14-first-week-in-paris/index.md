@@ -101,12 +101,12 @@ Those good folks told me that yes, it's the opposite and it does take a bit of g
 I told Sarah later that I wish I'd been witty enough to reverse the "Dumb and Dumber" joke about mixing up Austria and Australia and asked them if they made the best Vienna sausage in their country.
 Yeah, I know it's stupid, but I can't help what goes this this brain sometimes.
 
-{{< youtube "2hOLm_k6eCs" >}}
+[YouTube Video](https://youtube.com/watch?v="2hOLm_k6eCs" )
 
 Fun fact, they did know about one of my favorite Australians, Tim Minchin.
 I said, he's a comedy singer, can't remember his name at the moment, but reminds me of Johnny Depp, and they got it immediately. 🤣
 
-{{< youtube "5Ju8Wxmrk3s" >}}
+[YouTube Video](https://youtube.com/watch?v="5Ju8Wxmrk3s" )
 
 ## Photos
 
@@ -114,4 +114,4 @@ Here's a mix from the first week.
 
 I'll do some video later as I get the time (the internet is painfully slow at this location).
 
-{{< gallery >}}
+

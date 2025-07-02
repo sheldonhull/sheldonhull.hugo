@@ -13,17 +13,14 @@ toc: true
 lightgallery: true
 ---
 
-{{< admonition type="Note" title="Update" open="true">}}
-
-Customer service bumped my older version of Luminar 3 to 4.
-The issues with distortion on the preview screen aren't there with version 4.
-
-The new AI enhancements aren't there, so it's missing some of the new features.
-For now I'm going to try and use this as my daily driver for images and see how it goes.
-
-Positive experience so far, though I still miss the fluid experience of Lightroom's preview modes.
-
-{{< /admonition >}}
+> [!note] Update+
+> Customer service bumped my older version of Luminar 3 to 4.
+> The issues with distortion on the preview screen aren't there with version 4.
+>
+> The new AI enhancements aren't there, so it's missing some of the new features.
+> For now I'm going to try and use this as my daily driver for images and see how it goes.
+>
+> Positive experience so far, though I still miss the fluid experience of Lightroom's preview modes.
 
 ## My Credentials
 

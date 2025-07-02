@@ -14,12 +14,11 @@ slug: git-cracking
 toc: true
 
 ---
-{{< admonition type="info" title="Resources" >}}
-- [GitKraken](http://bit.ly/2J6a4mW)
-- [Source Tree](http://bit.ly/2pPQeUU)
-- [Posh-Git](http://bit.ly/2pOPLm6)
-- [Cmder](http://bit.ly/2GnxzpH)
-{{< /admonition >}}
+> [!info] Resources+
+> - [GitKraken](http://bit.ly/2J6a4mW)
+> - [Source Tree](http://bit.ly/2pPQeUU)
+> - [Posh-Git](http://bit.ly/2pOPLm6)
+> - [Cmder](http://bit.ly/2GnxzpH)
 
 ## Git Some Pain
 
@@ -67,7 +66,7 @@ I'm a Powershell prompt addict. I prefer command line when possible.
 However, I think GitKraken helped make this process a bit easier for me.
 I was using `posh-git` and Cmder initially, then Vscode with GitLens.
 However, other than basic commit/pull, I've found myself relying on GitKraken a lot more, as it's just fast, intuitive and easier to understand with my addled brain.
-*I'd rather leave energy for figuring out how to get [Query Optimization Through Minification]({{< relref "2017-01-23-bad-idea-jeans-query-optimization-through-minification.md" >}})*
+*I'd rather leave energy for figuring out how to get [Query Optimization Through Minification]([[2017-01-23-bad-idea-jeans-query-optimization-through-minification]])*
 
 ###  Timeline
 To be honest, their timeline view and the navigation and staging of the changes seemed pretty intuitive to me compared to what I'd seen in other tools. Overall, I found it easier to wrap my head around the concepts of Git with it, and less fear of merging changes from remote as I was able to easily review and accept changes through it's built in merging tool.

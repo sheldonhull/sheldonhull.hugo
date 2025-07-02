@@ -30,19 +30,16 @@ However, you require a few things to do this.
     export PATH="${GOBIN}:${PATH}"
     ```
 
-{{< admonition type="example" title="windows" open=false >}}
-
-```pwsh title="windows"
-  if ($PSVersionTable.PSEdition -ne 'Core') {
-    Write-Warning "Please use PowerShell Core 7+ for this to work"
-    return
-  }
-  # If using private, then you can set something like this: [Environment]::SetEnvironmentVariable('GOPRIVATE', 'dev.azure.com', 'Machine')
-  [Environment]::SetEnvironmentVariable('GOPATH', (Join-Path $Home 'go'), 'Machine')
-  [Environment]::SetEnvironmentVariable('GOBIN', (Join-Path $Home 'go' 'bin'), 'Machine')
-  [Environment]::SetEnvironmentVariable('PATH', ((Join-Path $Home 'go' 'bin'), $ENV:PATH -join [IO.Path]::PathSeparator), 'Machine')
-  New-Item -Path (Join-Path $Home 'go') -ItemType Directory -Force -EA 0
-  Write-Host "Shutdown Terminal and reopen for this to take effect 🙏" -ForegroundColor Green
-```
-
-{{< /admonition >}}
+> [!example] windows-
+> ```pwsh title="windows"
+>   if ($PSVersionTable.PSEdition -ne 'Core') {
+>     Write-Warning "Please use PowerShell Core 7+ for this to work"
+>     return
+>   }
+>   # If using private, then you can set something like this: [Environment]::SetEnvironmentVariable('GOPRIVATE', 'dev.azure.com', 'Machine')
+>   [Environment]::SetEnvironmentVariable('GOPATH', (Join-Path $Home 'go'), 'Machine')
+>   [Environment]::SetEnvironmentVariable('GOBIN', (Join-Path $Home 'go' 'bin'), 'Machine')
+>   [Environment]::SetEnvironmentVariable('PATH', ((Join-Path $Home 'go' 'bin'), $ENV:PATH -join [IO.Path]::PathSeparator), 'Machine')
+>   New-Item -Path (Join-Path $Home 'go') -ItemType Directory -Force -EA 0
+>   Write-Host "Shutdown Terminal and reopen for this to take effect 🙏" -ForegroundColor Green
+> ```

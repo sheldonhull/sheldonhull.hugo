@@ -41,19 +41,16 @@ This is my standard format for most pipelines, but you can adjust the naming wit
 name: $(BuildDefinitionName).$(Configuration).$(Build.QueuedBy).$(DayOfYear)$(Rev:.r)
 ```
 
-{{< admonition type="Info" title="Parameters" open="false">}}
-
-Parameters are evaluated at compile time, rather than during the build run phase.
-
-This means you can use something like the example below to update the queued build name on run.
-
-```yaml
-name: $(BuildDefinitionName).$(Configuration).$(Build.QueuedBy).${{ parameters.SELECTED_VALUE }}.$(DayOfYear)$(Rev:.r)
-```
-
-Using a build variable might require updating the build name if the build variable isn't set on queue, as it won't pick it up without this command.
-
-{{< /admonition >}}
+> [!info] Parameters+
+> Parameters are evaluated at compile time, rather than during the build run phase.
+>
+> This means you can use something like the example below to update the queued build name on run.
+>
+> ```yaml
+> name: $(BuildDefinitionName).$(Configuration).$(Build.QueuedBy).${{ parameters.SELECTED_VALUE }}.$(DayOfYear)$(Rev:.r)
+> ```
+>
+> Using a build variable might require updating the build name if the build variable isn't set on queue, as it won't pick it up without this command.
 
 ### Trigger
 

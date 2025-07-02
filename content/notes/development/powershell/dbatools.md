@@ -13,13 +13,10 @@ tags:
 comments: true
 ---
 
-{{< admonition type="info" title="Requests or Suggestions" open=true >}}
-
-If you have any requests or suggestions for this content, please comment below. It will open a GitHub issue to chat further.
-I'd be glad to help with any additional quick tips and in general, I'd like to know if anything here was particularly helpful to anyone.
-Cheers! 👍
-
-{{< /admonition >}}
+> [!info] Requests or Suggestions+
+> If you have any requests or suggestions for this content, please comment below. It will open a GitHub issue to chat further.
+> I'd be glad to help with any additional quick tips and in general, I'd like to know if anything here was particularly helpful to anyone.
+> Cheers! 👍
 
 ## Setup
 

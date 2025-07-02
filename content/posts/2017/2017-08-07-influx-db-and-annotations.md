@@ -14,9 +14,8 @@ toc: true
 series: ["InfluxDb"]
 ---
 
-{{< admonition type="info" title="Updated: 2020-04-29" >}}
-broken image links removed
-{{< /admonition >}}
+> [!info] Updated: 2020-04-29+
+> broken image links removed
 
 
 This post assumes you've already setup InfluxDB and have Grafana running.

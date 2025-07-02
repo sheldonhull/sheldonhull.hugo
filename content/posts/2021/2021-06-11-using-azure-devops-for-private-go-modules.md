@@ -9,11 +9,8 @@ toc: true
 modified: 2021-06-18T22:24:51-05:00
 ---
 
-{{< admonition type="Note" title="2022-12-14" open=true >}}
-
-Provided an example of how to handle private go modules in Azure Pipeline compatible method.
-
-{{< /admonition >}}
+> [!note] 2022-12-14+
+> Provided an example of how to handle private go modules in Azure Pipeline compatible method.
 
 ## TL;DR
 
@@ -63,12 +60,9 @@ I've never had that need, so I'm ok with my `dev.azure.com` references being res
 | Support All Azure DevOps (Public) | `git config --global url."git@ssh.dev.azure.com:v3/<organization>/".insteadOf "https://dev.azure.com/<organization>"` | `[url "git@ssh.dev.azure.com:v3"]<br/>`<br><br>`insteadOf = https://dev.azure.com`            |
 | :zap: What I Used for  Private Org    | `git config --global url."git@ssh.dev.azure.com:v3/<organization>/".insteadOf "https://dev.azure.com/`                | `[url "git@ssh.dev.azure.com:v3/<organization>/"]`<br><br>`insteadOf = https://dev.azure.com/` |
 
-{{< admonition type="Info" title="Organization in Dependency Path" open="true">}}
-
-This changes the path for dependencies to not require the organization in the dependency path.
-Instead, the import path will look like this: `import "dev.azure.com/<project>/repo.git/subdirectory"`
-
-{{< /admonition >}}
+> [!info] Organization in Dependency Path+
+> This changes the path for dependencies to not require the organization in the dependency path.
+> Instead, the import path will look like this: `import "dev.azure.com/<project>/repo.git/subdirectory"`
 
 ## HTTPS
 

@@ -7,11 +7,10 @@ title: "A Not-So Waterlogged Texan - Tuesday"
 slug: "a-not-so-waterlogged-texan-tuesday"
 ---
 
-{{< admonition type="warning" title="Updated: 2017-08 1:30pm Wednesday" >}}
-Better than expected, we are looking to be back in our house Thursday. Apparently some SUV's are just starting to gain access. Don't want to risk it so giving it a little extra time. That's much better than I expected at beginning of this whole situation!
-
-Relief efforts mentioned at bottom are underway at nwvineyard.com so if you are looking to help the Tomball/Northwest Houston area that's one place to help or find out how to help.
-{{< /admonition >}}
+> [!warning] Updated: 2017-08 1:30pm Wednesday+
+> Better than expected, we are looking to be back in our house Thursday. Apparently some SUV's are just starting to gain access. Don't want to risk it so giving it a little extra time. That's much better than I expected at beginning of this whole situation!
+>
+> Relief efforts mentioned at bottom are underway at nwvineyard.com so if you are looking to help the Tomball/Northwest Houston area that's one place to help or find out how to help.
 
 # Original Post
 

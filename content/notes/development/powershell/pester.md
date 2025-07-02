@@ -35,11 +35,8 @@ $pc = New-PesterContainer -Path (Join-Path $BuildRoot 'tests\configuration.tests
 
 Now, you'd add this `PesterContainer` object to the `PesterConfiguration`.
 
-{{< admonition type="tip" title="Explore PesterConfiguration" open=true >}}
-
-If you want to explore the Pester configuration, try navigating through it with:`[PesterConfiguration]::Default` and then explore sub-properties with actions like: `[PesterConfiguration]::Default.Run | Get-Member`.
-
-{{< /admonition >}}
+> [!tip] Explore PesterConfiguration+
+> If you want to explore the Pester configuration, try navigating through it with:`[PesterConfiguration]::Default` and then explore sub-properties with actions like: `[PesterConfiguration]::Default.Run | Get-Member`.
 
 ```powershell
 

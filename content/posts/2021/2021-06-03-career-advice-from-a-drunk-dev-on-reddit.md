@@ -13,15 +13,12 @@ tags:
 
 What makes it so interesting is the raw and unfiltered message, mixed in with some great humor.
 
-{{< admonition type="Note" title="My Background" open="true">}}
-
-The author of that post comes from a Data Engineer side.
-
-I've been a Database Developer, Production DBA, Cloud Engineer, and other odd hats.
-
-Some of my perspectives is different from the roles I've been involved in.
-
-{{< /admonition >}}
+> [!note] My Background+
+> The author of that post comes from a Data Engineer side.
+>
+> I've been a Database Developer, Production DBA, Cloud Engineer, and other odd hats.
+>
+> Some of my perspectives is different from the roles I've been involved in.
 
 ## Agree 👍
 
