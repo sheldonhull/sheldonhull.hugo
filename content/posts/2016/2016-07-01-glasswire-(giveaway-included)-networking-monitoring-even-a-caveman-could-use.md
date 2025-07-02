@@ -23,21 +23,21 @@ Sounds boring, but Glasswire changed my perspective on this. I always want to kn
 
 I found this great as a simple way to compare two SQL server monitor tools traffic against each other. I wanted to know the network traffic load they were generating, and this was a great way to get some quick transparency on the network impact. In this example, the test wasn't perfect as they had slightly different detail level tracking configuration, so just take this as an example.
 
-![Comparing timeline](/images/comparing-timeline.png)
+![Comparing timeline](images/comparing-timeline.png)
 
 ## Comparing Usage Metrics
 
-![Comparing Usage Metrics](/images/comparing-usage-metrics.png)
+![Comparing Usage Metrics](images/comparing-usage-metrics.png)
 
 ## See activity
 
 I really like the transparency of seeing what network activity is occurring on my system. I've found myself evaluating why apps would need to connect rather than just allowing everything through.
 
-![See activity](/images/see-activity.png)
+![See activity](images/see-activity.png)
 
 ## Easiest firewall tweaking I've seen
 
-![Easiest firewall tweaking I](/images/easiest-firewall-tweaking-i-ve-seen.png)
+![Easiest firewall tweaking I](images/easiest-firewall-tweaking-i-ve-seen.png)
 
 ## Would I recommend
 

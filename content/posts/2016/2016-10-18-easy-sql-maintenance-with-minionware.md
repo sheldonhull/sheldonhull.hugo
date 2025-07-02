@@ -28,7 +28,7 @@ Here's my personal tweaked settings for deploying [Minionware's fantastic Reinde
 In particular, I tweaked the default fill factor back to 0/100. I also installed all the objects to a new "minion" database instead of in master, as I'm beginning to be a fan of isolating these type of maintenance jobs with logging to their own isolated database to easy portability.
 I also adjusted the default retain days on backups to 30.
 
-![powershell setup of backup](/images/2016-10-10_10-02-32.png)
+![powershell setup of backup](images/2016-10-10_10-02-32.png)
 
 You can use this template as a guide to help you adjust the default backup settings to fit your environment a little better.
 There has been various forms of discussion on the adjustments of Fill Factor for example on the defaults.

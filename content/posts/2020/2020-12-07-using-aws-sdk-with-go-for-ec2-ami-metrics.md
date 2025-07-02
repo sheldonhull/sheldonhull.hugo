@@ -59,7 +59,7 @@ Warning... I discovered that the SDK is pretty noisy and probably makes things a
 
 If you want to learn pointers and derefrencing with Go... you'll be a pro by the time you are done with it 😂
 
-![Everyone Gets a Pointers According to SpongeBob](/images/12-03-10-19-40-pointers-for-everyone.png)
+![Everyone Gets a Pointers According to SpongeBob](images/12-03-10-19-40-pointers-for-everyone.png)
 
 ## Why This Could Be Useful In Learning More Go
 

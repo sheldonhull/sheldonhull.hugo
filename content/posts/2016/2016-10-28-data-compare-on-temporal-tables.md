@@ -18,7 +18,7 @@ I hadn't seen much talk on doing data comparisons on temporal tables, as they ar
 
 With the latest version of SSMS, you can see the temporal tables labeled and expanded underneath the source table.
 
-![SSMS 2016 View Of Temporal Table](/images/ssms-2016-view-of-temporal-table.png)
+![SSMS 2016 View Of Temporal Table](images/ssms-2016-view-of-temporal-table.png)
 
 ## Red Gate SQL Data Compare 12
 
@@ -32,25 +32,25 @@ To remap the Customers to Customers_Archive, we need to select this in the table
 
 Go into the comparison settings on the table now and designate the key as the value to compare against. For the purpose of this example, I'm just doing key, you can change this however you see fit for your comparison scenario.
 
-![Setup Compare Key](/images/setup-compare-key.png)
+![Setup Compare Key](images/setup-compare-key.png)
 
 ### Remove any columns from comparison desired
 
 In this example, I'm removing the datetime2 columns being used, to instead focus on the other columns.
 
-![Remove any columns from comparison desired](/images/remove-any-columns-from-comparison-desired.png)
+![Remove any columns from comparison desired](images/remove-any-columns-from-comparison-desired.png)
 
 ### Compare results
 
 If you run into no results coming back, look to turn off the setting in compare options for Checksum comparison, which helps improve the initial compare performance. With this on, I had no results coming back, but once I turned off, the comparison results came back correctly.
 
-![Compare results](/images/compare-results.png)
+![Compare results](images/compare-results.png)
 
 ### Conflict Row
 
 This entry was matched in DbForge SQL Data Compare as a conflict due to matching the key in a non-unique manner. The approach the two tools take is a little different. In RG Data Compare
 
-![Conflict Row](/images/conflict-row.png)
+![Conflict Row](images/conflict-row.png)
 
 ### Conflict Entry Only In Destination
 
@@ -65,13 +65,13 @@ Both tools report differences. RG's tool has focused on the diff report being si
 Going into the mapping, you can see support for Customers and Customers_Archive, which is the temporal history table for this.
 In this case, I mapped the current table against the temporal table to compare the current against the change history.
 
-![Devart SQL Data Compare](/images/devart-sql-data-compare.png)
+![Devart SQL Data Compare](images/devart-sql-data-compare.png)
 
 ### Choose the key column to compare against
 
 As a simple example, I just provided the primary key. You could get creative with this though if you wanted to compare specific sets of changes.
 
-![Choose the key column to compare against](/images/choose-the-key-column-to-compare-against.png)
+![Choose the key column to compare against](images/choose-the-key-column-to-compare-against.png)
 
 ### Handling Conflicts differently
 
@@ -83,12 +83,12 @@ Appears only if there are conflict records (records, having non-unique values of
 
 The diff reports provided by DbForge Data Compare are very well designed, and have some fantastic output options for allowing review/audit of the rows.
 
-![Diff Report](/images/diff-report.png)
+![Diff Report](images/diff-report.png)
 
 ### Diff Report Details
 
 Here is a sample of a detail provided on the diff report. One feature I found incredibly helpful was the bold highlighting on the columns that had diffs detected. You can trim down the report output to only include the diff columns if you wish to further trim the information in the report.
 
-![Diff Report Details](/images/diff-report-details.png)
+![Diff Report Details](images/diff-report-details.png)
 
 Overall, good experience with both, and they both support a lot of flexibility with more specialized comparisons.

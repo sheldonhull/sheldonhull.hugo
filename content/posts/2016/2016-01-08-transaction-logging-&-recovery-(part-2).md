@@ -18,7 +18,7 @@ Continuation of some notes regarding the excellent content by Paul Randal in [Pl
 --- Examine the errorlog (after you've enabled trace flag 3605,3004) EXEC xp_readerrorlog; GO
 * When examining the results, you can see the zeroing of the log file, but not the datafile if you have instant file initialization enabled.
 
-![transaction-log-file_daxina](/images/transaction-log-file_daxina.png)
+![transaction-log-file_daxina](images/transaction-log-file_daxina.png)
 
 ## Virtual Log Files
 

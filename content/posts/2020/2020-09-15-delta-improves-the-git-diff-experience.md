@@ -15,4 +15,4 @@ I typically use VSCode or a GUI based editor because I find the diff view pretty
 
 This new diff view is a perfect example of a simple CLI tool that improves a development workflow by just fixing something I didn't know could easily be fixed. 😀
 
-![delta diff viewer](/images/2020-09-15-git-delta.png)
+![delta diff viewer](images/2020-09-15-git-delta.png)

@@ -217,7 +217,7 @@ This allows the job to set dynamically the individual tasks to run, report progr
 
 While it could be run as a single task, I prefer this type of approach because a long running job is now much more easily tracked as it progresses.
 
-![image-of-individual-tasks-in-pipeline](/images/2021-03-04-13.38.45-pipelines-example.png)
+![image-of-individual-tasks-in-pipeline](images/2021-03-04-13.38.45-pipelines-example.png)
 
 ## Further Features
 

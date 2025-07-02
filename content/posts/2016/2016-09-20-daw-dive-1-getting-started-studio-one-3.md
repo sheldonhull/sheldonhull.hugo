@@ -32,30 +32,30 @@ So far, very intuitive interface. I'm not a DAW expert by any means, so I've bee
 Setting up a midi device has been a learning experience. Working with Studio One required a bit of experimentation, as it wasn't preset, but I finally got it to work. It would be nice if they offered more presets, but at least I got it working! Not all the controls seemed to be mapped, but Launchkey has "InControl" functionality, so I plan on evaluating this soon.
 To find the midi port a device is working on with Windows, go to device manager, and you can see the midi port displayed so you know what to configure.
 
-![2016-09-12_22-21-43](/images/2016-09-12_22-21-43.png)
+![2016-09-12_22-21-43](images/2016-09-12_22-21-43.png)
 
-![2016-09-12_22-23-11](/images/2016-09-12_22-23-11.png)
+![2016-09-12_22-23-11](images/2016-09-12_22-23-11.png)
 
 # Clean interface
 
 The interface is clean, designed to be a single screen view without a lot of navigation required. The context menu options are kept organized and clean. For me, Reaper was a great DAW, had a lot of functionality for the price, but was very context menu driven and this was a lot to get used to. I think Presonus has done an admirable job of organizing the many options to keep things from getting too messy.
 
-![2016-09-12_21-29-17](/images/2016-09-12_21-29-17.png)
+![2016-09-12_21-29-17](images/2016-09-12_21-29-17.png)
 One thing I liked was the focus on "songs", as it offered the creation of a new "song" instead of "Files/projects". This felt like such a great design decision as it focused on the creation aspect of new songs.
 
-![2016-09-12_21-26-46](/images/2016-09-12_21-26-46.png)
+![2016-09-12_21-26-46](images/2016-09-12_21-26-46.png)
 
 # Presence XT and Virtual Instruments
 
 A package of instruments are included in Studio One. I enjoyed the Cello and Pizzicato string sections in particular. I'll probably post more on this later as I discuss Melodyne integration.
 
-![2016-09-12_23-22-02](/images/2016-09-12_23-22-02.png)
+![2016-09-12_23-22-02](images/2016-09-12_23-22-02.png)
 
 # VST configuration
 
 Nice and easy to find. No problems here. Was happy to see it supports 32, 64, VST3 and more. Ableton Lite didn't support 32bit, so I had a lot of VST's downloaded that I couldn't use.
 
-![2016-09-12_21-36-23](/images/2016-09-12_21-36-23.png)
+![2016-09-12_21-36-23](images/2016-09-12_21-36-23.png)
 
 # other stuff for the future
 

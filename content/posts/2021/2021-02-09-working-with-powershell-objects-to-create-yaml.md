@@ -174,7 +174,7 @@ $Services | ConvertTo-Json -Depth 100 | &'C:\tools\yq.exe' eval - --prettyPrint 
 
 This would produce a nice json output like this
 
-![Example config image](/images/2021-02-08-yaml-config-example.png)
+![Example config image](images/2021-02-08-yaml-config-example.png)
 
 ### One More Complex Example
 

@@ -15,7 +15,7 @@ First, get the terraform providers from state using: `terraform providers`
 
 The output should look similar to this:
 
-![image-of-providers](/images/2021-03-10-microblog-provider-list-01.png)
+![image-of-providers](images/2021-03-10-microblog-provider-list-01.png)
 
 To fix these, try running the commands to fix state.
 Please adjust to the required providers your state uses, and make sure your tooling has a backup of the state file in case something goes wrong.
@@ -30,7 +30,7 @@ terraform state replace-provider -- registry.terraform.io/-/azuredevops registry
 
 The resulting changes can be seen when running `terraform providers` and seeing the dash is now gone.
 
-![image-of-providers-changed](/images/2021-03-10-microblog-provider-list-02.png)
+![image-of-providers-changed](images/2021-03-10-microblog-provider-list-02.png)
 
 [Upgrading to Terraform v0.13 - Terraform by HashiCorp](http://bit.ly/3rvFPvr)
 

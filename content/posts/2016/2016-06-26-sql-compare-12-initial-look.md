@@ -14,23 +14,23 @@ I know there have been a few other folks going into more detail on SQL Compare 1
 
 Very clean. Not too drastic of a change to mess with current workflows. Still, nice to see some clean design like this.
 
-![Some GUI Improvements](/images/some-gui-improvements.png)
+![Some GUI Improvements](images/some-gui-improvements.png)
 
 ## Options dialogue
 
 Same options, just slightly different navigation/ui design to get there.
 
-![Options dialogue](/images/options-dialogue.png)
+![Options dialogue](images/options-dialogue.png)
 
 ## Comparing databases
 
 Comparing running... saving me a massive amount of work in not creating scripts by hand :-)
 
-![Comparing databases](/images/comparing-databases.png)
+![Comparing databases](images/comparing-databases.png)
 
 ## Comparison matches
 
-![Comparison matches](/images/comparison-matches.png)
+![Comparison matches](images/comparison-matches.png)
 
 ## Final thoughts
 

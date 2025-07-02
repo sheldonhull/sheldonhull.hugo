@@ -43,7 +43,7 @@ Most of the new features included in 2016 have been tested in the cloud. They ar
 
 `column encryption setting=enabled`
 
-![encryption](/images/encryption.png)
+![encryption](images/encryption.png)
 
 ## stretch
 

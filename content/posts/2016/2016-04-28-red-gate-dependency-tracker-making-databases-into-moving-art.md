@@ -26,10 +26,10 @@ This is the architecture of the application I work on everyday. I inherited care
 The interesting part about the visual dependency view is you can often see orphaned objects that aren't correctly linked to their parent objects, so it can serve as a useful tool to help improve existing designs. My previous article about tools I've use for this is here...[Documenting Your Database with Diagrams]([[2015-12-09-documenting-your-database-with-diagrams]])
 Enjoy!
 
-![circular](/images/2016-04-27_17-27-07_circular.jpg)
+![circular](images/2016-04-27_17-27-07_circular.jpg)
 
-![balloontree](/images/2016-04-27_17-28-52_balloontree.jpg)
+![balloontree](images/2016-04-27_17-28-52_balloontree.jpg)
 
-![smartorganic](/images/2016-04-27_17-28-32_smartorganic.jpg)
+![smartorganic](images/2016-04-27_17-28-32_smartorganic.jpg)
 
-![hierarchic](/images/2016-04-27_17-26-45_hierarchic.jpg)
+![hierarchic](images/2016-04-27_17-26-45_hierarchic.jpg)

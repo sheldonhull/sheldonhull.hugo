@@ -27,13 +27,13 @@ There is a free version that is less powerful, but a still a good upgrade from t
 
 Having to deal with a lot of remote machines, especially ones that change IP addresses periodically can be annoying for a DBA trying to remotely connect again. Devolutions Remote Desktop Manager (RDM) has some really cool functionality that can help automate refreshing these lists from a variety of sources.
 
-![Synchronizer... some potentially powerful automation here for managing connections to remote machines](/images/synchronizer-some-potentially-powerful-automation-here-for-managing-connections-to-remote-machines.png)
+![Synchronizer... some potentially powerful automation here for managing connections to remote machines](images/synchronizer-some-potentially-powerful-automation-here-for-managing-connections-to-remote-machines.png)
 
 ## Synchronized Session Listing
 
 You can setup a synchronized session listing based on csv, activedirectory, spiceworks, and more. Eventually, I believe they'll have an amazon ec2 synchronizer as well. In the meantime, with some powershell magic we can create a synchronized listing of remote machines to work with, no longer having to update ip's manually in a Amazon EC2 system.
 
-![Synchronized Session Listing](/images/synchronized-session-listing.png)
+![Synchronized Session Listing](images/synchronized-session-listing.png)
 
 ## Output Results from Powershell into CSV Source
 
@@ -43,20 +43,20 @@ I found pieces of the needed code from various sources and modified to work for 
 [Gist](https://gist.github.com/sheldonhull/f38807512bbbc14a5aab0680dccd4fba)
 
 
-![Output Results from Powershell into CSV Source](/images/output-results-from-powershell-into-csv-source.png)
+![Output Results from Powershell into CSV Source](images/output-results-from-powershell-into-csv-source.png)
 
 ## Automatically keeping things up to date
 
 Synchronizing automatically gives us the flexibility to have a scheduled script to run the powershell command to get a new list of machines, and have the synchronized list run automatically maintain the latest connection information. In my case, I setup the powershell script to run every X hours so my connection information was always up to date.
 
-![Automatically keeping things up to date](/images/automatically-keeping-things-up-to-date.png)
+![Automatically keeping things up to date](images/automatically-keeping-things-up-to-date.png)
 
 ## organized results
 
 Thanks to the synchronizer, I know have two folders with separated instances for production and QA, allowing me to quickly access with minimal effort!
 This would allow me to set credentials as well, to reduce the effort in logging in for each of the sets of instances
 
-![organized results](/images/organized-results.png)
+![organized results](images/organized-results.png)
 
 ## Other Cool Stuff
 
@@ -64,19 +64,19 @@ This would allow me to set credentials as well, to reduce the effort in logging 
 
 Microsoft remote desktop connections have support for multiple monitors by spanning display. I tested this out with an unconventional setup. I have 3 24inch monitors, with 1 landscape in the middle surrounded by 2 in portrait mode. It had some problems with this as it's trying to create a spanned clone, however, if I had a typical setup, I think this would work fine, (such as a dual screen setup with the same orientation).
 
-![Multiple Monitor Support](/images/multiple-monitor-support.png)
+![Multiple Monitor Support](images/multiple-monitor-support.png)
 
 ### Continual Updates
 
 I'm continually getting updates on this product. In any inquiries on their forum, I've seen helpful responses from staff within the day, with great support help (such as powershell tips on accomplishing what I needed with synchronizers)
 
-![Continual Updates](/images/continual-updates.png)
+![Continual Updates](images/continual-updates.png)
 
 ### Better Local Password Management
 
 I'm a big fan of Lastpass, but as I use it for personal password management, I wanted to keep my work related passwords entirely separate. Devolutions RDM offers some nice password management options and credential inheritance setup.
 
-![Better Local Password Management](/images/better-local-password-management.png)
+![Better Local Password Management](images/better-local-password-management.png)
 
 ### Jump
 
@@ -87,7 +87,7 @@ If you have a scenario where you need to remote into one machine and then remote
 *   Handles a breadth of different types of remote connections, such as Chrome remote desktop manager, Hyper V, remote command line, powershell sessions, Amazon S3, Amazon AWS console, Citrix ICA/HDX, and more.
 *   Can wrap up the trick of running SSMS (Sql Management Studio) with "RunAs" as a different domain and user, allowing locally run SSMS to be connected to AWS, or other environments.
 
-![Handles Remote Desktop Connections + The Kitchen Sink](/images/handles-remote-desktop-connections---the-kitchen-sink.png)
+![Handles Remote Desktop Connections + The Kitchen Sink](images/handles-remote-desktop-connections---the-kitchen-sink.png)
 
 ### Other Odds and Ends
 
@@ -98,7 +98,7 @@ Lots of features, so I'm just covering some of the highlights that are of intere
 *   List services
 *   Run powershell script remotely with RDM-Agent (executes the script as if running locally, and could do this in parallel with other instances)
 
-![Other Odds and Ends](/images/other-odds-and-ends.png)
+![Other Odds and Ends](images/other-odds-and-ends.png)
 
 ## Summary
 

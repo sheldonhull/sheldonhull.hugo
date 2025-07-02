@@ -100,14 +100,14 @@ Cons
 *   Keyboard shortcuts are lacking
 *   Could _really_ use with an extension of functionality to just capture single screenshots and annotate like snagit. As it stands, the tool is focused more on the documentation aspect, but with some enhancements it would work as a screenshot annotation tool. Sort of like a single step in their documentation tool, without all the rest.
 
-![](/images/clarify-2_drr3ji.jpg)
+![](images/clarify-2_drr3ji.jpg)
 
 ### Clarify 2 Image Annotation Editing
 
 This image shows some of the useful annotation powers that clarify offers.
 The canvas that images are placed on can easily be re-sized with a mouse drag and images pasted.
 
-![](/images/clarify-2-image-annotation-editing_vggay5.jpg)
+![](images/clarify-2-image-annotation-editing_vggay5.jpg)
 
 ### Snagit
 
@@ -126,19 +126,19 @@ I avoided this product for a while as I honestly thought it was so mainstream th
 *   Some of the effects/annotations seems a little cheesy to me, but there are plenty of ways to find a good fit that formats in the style I like.
 *   No rounded corner presets for the image canvas if you want that. There are workarounds, but nothing built in.
 
-![](/images/snagit_ypjwas.jpg)
+![](images/snagit_ypjwas.jpg)
 
 ### Snagit Extensibility with output
 
 A wealth of export functionality is in Snagit, along with the additional plugins you can pull in.
 
-![](/images/snagit-extensibility-with-output_mrhbv1.jpg)
+![](images/snagit-extensibility-with-output_mrhbv1.jpg)
 
 ### Snagit Profile Extensibility with scripted profiles
 
 Along with keyboard shortcuts and powerful export options, I found you could create capture profiles, letting you with setup a shortcut (keyboard or just menu driven) to capture and save as a special format, basically scripting several steps you'd manually repeat together.
 
-![](/images/snagit-profile-extensibility-with-scripted-profiles_ntnue0.jpg)
+![](images/snagit-profile-extensibility-with-scripted-profiles_ntnue0.jpg)
 
 ### Snagit Annotations
 
@@ -146,7 +146,7 @@ Annotations are pretty comprehensive with some functionality to splice out the m
 
 I did like the ability to "curve" an arrow on the annotations, as it let you smoothly draw an annotation that could curve around content without obfuscating it.
 
-![](/images/snagit-annotations_wc3utj.jpg)
+![](images/snagit-annotations_wc3utj.jpg)
 
 ### Camtasia
 

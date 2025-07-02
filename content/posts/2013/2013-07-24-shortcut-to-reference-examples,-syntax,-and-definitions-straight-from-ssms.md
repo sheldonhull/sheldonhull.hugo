@@ -11,6 +11,6 @@ I've never really used the F1 key for help files with most applications. I was s
 If you have a keyword selected and want to view details, definition, and examples on it, you can highlight the phrase or select the word, press F1, and SSMS will pull up the appropriate MSDN article. The only issue I ran into was that it pulls up the most recent article, so if you aren't running SQL Server 2012, make sure you select the
 < 2012 documentation to be sure it is accurate.
 
-![f1_shortcut_query](/images/f1_shortcut_query_kfowoy.png)
+![f1_shortcut_query](images/f1_shortcut_query_kfowoy.png)
 
-![f1_shortcut_results](/images/f1_shortcut_results_cayikt.png)
+![f1_shortcut_results](images/f1_shortcut_results_cayikt.png)

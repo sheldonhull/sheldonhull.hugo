@@ -23,7 +23,7 @@ WITH NO ADBLOCKING
 11.3 MB for a single webpage load
 Finish Time 1.1min
 
-![Site With Ads](/images/site-with-ads.png)
+![Site With Ads](images/site-with-ads.png)
 
 ## Site With Less Ads
 
@@ -33,7 +33,7 @@ WITH ADGUARD
 Finish Time 7.23sec
 This was loaded with the mobile emulator. If you are paying for data (for instance I'm on Project Fi), this could be a huge difference in your browsing bandwidth.
 
-![Site With Less Ads](/images/site-with-less-ads.png)
+![Site With Less Ads](images/site-with-less-ads.png)
 
 ## Side by Side
 
@@ -41,7 +41,7 @@ This blew my mind. According to Adguard metrics it had saved me over 2GB. Now, e
 Adguard android has some additional functionality that provides the ability to create a local VPN and filter apps as well, so if you are using some app that has a annoying banner add right near the menu, this will most likely eliminate it.
 This is a pretty big image, and I blurred out text/ads to avoid any issues. Any guess at which one was the one with Adguard running?
 
-![2016-10-10_12-07-24](/images/2016-10-10_12-07-24.png)
+![2016-10-10_12-07-24](images/2016-10-10_12-07-24.png)
 
 ## Final Thoughts
 

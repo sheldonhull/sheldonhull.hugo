@@ -16,9 +16,9 @@ In addition to the other great features that SSMSBoost offers (which I'll write 
 
 1. **Executed Statement** Logging This feature saves all your executed statements (ie, when you hit execute) as a .sql file for future reference.  As of today, there is no GUI for managing this. Never fear, I have a great solution for you.
 2. **Editor History Logging** This feature saves the current contents of your open query windows at predefined intervals, by default set to 60 seconds. According to their documentation, if no changes have been made to file, it will not save a new version. It will only add a new version once changes are detected to a file.
-![ssmsBoost_findInHistory](/images/ssmsBoost_findInHistory_wl9xgr.jpg)
+![ssmsBoost_findInHistory](images/ssmsBoost_findInHistory_wl9xgr.jpg)
 3.**Tab History Logging** If you crash SSMS, close SSMS without saving tabs, or have some unsavory Windows behavior that requires SSMS to be restarted, don't fear... your tabs are saved. When restarting you can select restore tabs and begin work again. I've found this feature to be a lifesaver!
-![ssmsBoostRecentTabs](/images/ssmsBoostRecentTabs_bndhth.jpg)
+![ssmsBoostRecentTabs](images/ssmsBoostRecentTabs_bndhth.jpg)
 
 ## Searching Your Executed and Editor History
 
@@ -30,13 +30,13 @@ Instructions I recommend for setup and searching your entire sql history nearly 
 4. Run Preview Handler > Find .SQL > Preview as plain text
 5. Run SSMS > Open Settings in SSMSBoost
 6. Configure settings as you see fit. I personally move my Editor History and Executed statement's location to my SSMS Folder, so that I can use something like Create Synchronicity to backup all my work daily.
-![SSMSBoost_settings](/images/SSMSBoost_settings_kzsbzr.jpg)
+![SSMSBoost_settings](images/SSMSBoost_settings_kzsbzr.jpg)
 7. Restart SSMS for settings to take effect.
 8. Start DocFetcher, go to settings in the top right hand corner.
-![DocFetcher_1_startup](/images/DocFetcher_1_startup_irjelx.jpg)
+![DocFetcher_1_startup](images/DocFetcher_1_startup_irjelx.jpg)
 
 Basic Settings I choose (If you aren't using [Bitstream](http://ftp.gnome.org/pub/GNOME/sources/ttf-bitstream-vera/1.10/)font... you are missing out)
-![DocFetcher_2_basicSettings](/images/DocFetcher_2_basicSettings_unugtr.jpg)
+![DocFetcher_2_basicSettings](images/DocFetcher_2_basicSettings_unugtr.jpg)
 
 ## Docfetcher Advance settings tweaks Change
 
@@ -49,9 +49,9 @@ Basic Settings I choose (If you aren't using [Bitstream](http://ftp.gnome.org/pu
 * Setup your custom indexes. I setup separate indexes for executed statements and editor history so I could filter down what I cared about and eliminate near duplicate matches for the most part. Right click in blank space to create index.
 
 I setup as follows:
-![DocFetcher_createIndex1](/images/DocFetcher_createIndex1_t0qhl5.jpg)
+![DocFetcher_createIndex1](images/DocFetcher_createIndex1_t0qhl5.jpg)
 <br>
-![DocFetcher_createIndex2](/images/DocFetcher_createIndex2_i121sx.jpg)
+![DocFetcher_createIndex2](images/DocFetcher_createIndex2_i121sx.jpg)
 
 1. Now the DocFetcher daemon will run in the background, if you copied my settings, and update your indexes.  Searching requires no complex regex, and can be done easily with statements. I'd caution on putting exact phrases in quotes, as it does detect wildcards.
-![DocFetcher_previewSearch](/images/DocFetcher_previewSearch_m2g07n.jpg)
+![DocFetcher_previewSearch](images/DocFetcher_previewSearch_m2g07n.jpg)

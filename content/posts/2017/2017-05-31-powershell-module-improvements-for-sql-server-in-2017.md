@@ -24,7 +24,7 @@ This is very promising, and great if you want to leverage some of the functional
 
 In reviewing, I ran across a few new cmdlet's as well. For instance, you could easily right click on a table and output the results into a powershell object, json, csv, gridview, or anything else you want. This is great flexibility.
 
-![exploring-sql-path-provider](/images/exploring-sql-path-provider.png)
+![exploring-sql-path-provider](images/exploring-sql-path-provider.png)
 
 
 In versions of SQL Server (as of 2012 or earlier) I believe the version SQL Server was utilizing was out of date with the installed version. For instance, on Windows Server 2012 with Powershell ISE reporting PsVersion of 4.0, Sql Server reported version 2.0 being utilized.

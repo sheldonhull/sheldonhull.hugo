@@ -71,7 +71,7 @@ However, other than basic commit/pull, I've found myself relying on GitKraken a 
 ###  Timeline
 To be honest, their timeline view and the navigation and staging of the changes seemed pretty intuitive to me compared to what I'd seen in other tools. Overall, I found it easier to wrap my head around the concepts of Git with it, and less fear of merging changes from remote as I was able to easily review and accept changes through it's built in merging tool.
 
-![GitKraken](/images/2018-03-26_9-08-39-GitKrakenTimeline.png)
+![GitKraken](images/2018-03-26_9-08-39-GitKrakenTimeline.png)
 
 ### Overall Impression
 

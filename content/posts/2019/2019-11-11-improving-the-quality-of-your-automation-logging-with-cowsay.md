@@ -126,7 +126,7 @@ sudo apt update
 sudo apt install cmatrix
 ```
 
-![cmatrix](/images/cmatrix.webp)
+![cmatrix](images/cmatrix.webp)
 
 ## Resources
 
