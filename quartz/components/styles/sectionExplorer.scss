@@ -1,0 +1,41 @@
+@use "../../styles/variables.scss" as *;
+
+.section-explorer {
+  display: flex;
+  flex-direction: column;
+  min-height: 1.2rem;
+  flex: 0 1 auto;
+
+  & > h3 {
+    margin: 0.5rem 0 0 0;
+    font-size: 1rem;
+  }
+
+  & > ul.section-ul {
+    list-style: none;
+    margin-top: 0.5rem;
+    padding-left: 0;
+
+    & > li {
+      margin: 0.25rem 0;
+
+      & > a {
+        color: var(--dark);
+        text-decoration: none;
+        padding: 0.25rem 0.5rem;
+        border-radius: 5px;
+        display: block;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: var(--lightgray);
+        }
+      }
+    }
+  }
+
+  @media all and ($mobile) {
+    order: -1;
+    flex: 0 1 auto;
+  }
+}
