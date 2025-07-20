@@ -38,7 +38,22 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.SectionAwareExplorer(),
+    Component.ConditionalRender({
+      component: Component.Explorer(),
+      condition: (page) => {
+        const pathSegments = (page.fileData.slug || "").split("/").filter(Boolean)
+        const currentSection = pathSegments[0] || "index"
+        return ["notes", "posts"].includes(currentSection)
+      },
+    }),
+    Component.ConditionalRender({
+      component: Component.SectionAwareExplorer(),
+      condition: (page) => {
+        const pathSegments = (page.fileData.slug || "").split("/").filter(Boolean)
+        const currentSection = pathSegments[0] || "index"
+        return !["notes", "posts"].includes(currentSection)
+      },
+    }),
     Component.SectionAwareRecentNotes(),
   ],
   right: [
@@ -63,7 +78,22 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.SectionAwareExplorer(),
+    Component.ConditionalRender({
+      component: Component.Explorer(),
+      condition: (page) => {
+        const pathSegments = (page.fileData.slug || "").split("/").filter(Boolean)
+        const currentSection = pathSegments[0] || "index"
+        return ["notes", "posts"].includes(currentSection)
+      },
+    }),
+    Component.ConditionalRender({
+      component: Component.SectionAwareExplorer(),
+      condition: (page) => {
+        const pathSegments = (page.fileData.slug || "").split("/").filter(Boolean)
+        const currentSection = pathSegments[0] || "index"
+        return !["notes", "posts"].includes(currentSection)
+      },
+    }),
     Component.SectionAwareRecentNotes(),
   ],
   right: [],

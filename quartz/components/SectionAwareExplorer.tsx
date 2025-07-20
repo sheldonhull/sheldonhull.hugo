@@ -19,52 +19,33 @@ const defaultOptions: SectionAwareExplorerOptions = {
 export default ((userOpts?: SectionAwareExplorerOptions) => {
   const opts = { ...defaultOptions, ...userOpts }
   
-  // Create Explorer component with default options, let Explorer handle its own defaults
-  const ExplorerComponent = Explorer()
-  
   const SectionAwareExplorer: QuartzComponent = ({ fileData, ...props }: QuartzComponentProps) => {
-    // Get the current section from the slug
-    const currentSlug = fileData.slug || ""
-    const pathSegments = currentSlug.split("/").filter(Boolean)
-    const currentSection = pathSegments[0] || "index"
-    
-    // Check if we should show the full explorer
-    const shouldShowFullExplorer = opts.showOnlyInSections?.includes(currentSection)
-    
-    if (shouldShowFullExplorer) {
-      return <ExplorerComponent fileData={fileData} {...props} />
-    }
-    
-    // Show basic navigation for non-section pages
-    if (opts.showBasicNavigation) {
-      return (
-        <div class={classNames(props.displayClass, "section-nav")}>
-          <h3>Sections</h3>
-          <ul class="section-list">
-            <li>
-              <a href="/about" class="internal section-link">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="/notes" class="internal section-link">
-                Notes
-              </a>
-            </li>
-            <li>
-              <a href="/posts" class="internal section-link">
-                Posts
-              </a>
-            </li>
-          </ul>
-        </div>
-      )
-    }
-    
-    return null
+    // This component only shows basic navigation for non-section pages
+    return (
+      <div class={classNames(props.displayClass, "section-nav")}>
+        <h3>Sections</h3>
+        <ul class="section-list">
+          <li>
+            <a href="/about" class="internal section-link">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="/notes" class="internal section-link">
+              Notes
+            </a>
+          </li>
+          <li>
+            <a href="/posts" class="internal section-link">
+              Posts
+            </a>
+          </li>
+        </ul>
+      </div>
+    )
   }
 
-  SectionAwareExplorer.css = ExplorerComponent.css + `
+  SectionAwareExplorer.css = `
 .section-nav {
   display: flex;
   flex-direction: column;
@@ -100,8 +81,6 @@ export default ((userOpts?: SectionAwareExplorerOptions) => {
   background-color: var(--lightgray);
 }
 `
-  
-  SectionAwareExplorer.afterDOMLoaded = ExplorerComponent.afterDOMLoaded
   
   return SectionAwareExplorer
 }) satisfies QuartzComponentConstructor
