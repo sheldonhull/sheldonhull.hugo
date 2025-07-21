@@ -25,11 +25,10 @@ const defaultOptions = (cfg: GlobalConfiguration): SectionAwareRecentNotesOption
   showTags: true,
   filter: () => true,
   sort: byDateAndAlphabetical(cfg),
-  showForSections: ["notes", "posts", "index"],
+  showForSections: ["notes", "posts"],
   sectionSpecificTitles: {
     notes: "Recent Notes",
-    posts: "Recent Posts",
-    index: "Recent Updates"
+    posts: "Recent Posts"
   }
 })
 
