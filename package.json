@@ -40,7 +40,7 @@
     "@myriaddreamin/rehype-typst": "0.6.0",
     "@napi-rs/simple-git": "0.1.19",
     "@tweenjs/tween.js": "25.0.0",
-    "@webgpu/types": "0.1.63",
+    "@webgpu/types": "0.1.64",
     "ansi-truncate": "1.2.0",
     "async-mutex": "0.5.0",
     "chokidar": "4.0.3",
@@ -62,7 +62,7 @@
     "mdast-util-to-string": "4.0.0",
     "micromorph": "0.4.5",
     "minimatch": "10.0.3",
-    "pixi.js": "8.10.2",
+    "pixi.js": "8.11.0",
     "preact": "10.26.9",
     "preact-render-to-string": "6.5.13",
     "pretty-bytes": "7.0.0",
@@ -84,10 +84,10 @@
     "remark-rehype": "11.1.2",
     "remark-smartypants": "3.0.2",
     "rfdc": "1.4.1",
-    "satori": "0.13.2",
+    "satori": "0.15.2",
     "serve-handler": "6.1.6",
-    "sharp": "0.34.2",
-    "shiki": "3.7.0",
+    "sharp": "0.34.3",
+    "shiki": "3.8.0",
     "source-map-support": "0.5.21",
     "to-vfile": "8.0.0",
     "toml": "3.0.0",
@@ -113,6 +113,6 @@
     "typescript": "5.8.3"
   },
   "volta": {
-    "node": "22.17.0"
+    "node": "v22.17.1"
   }
 }
