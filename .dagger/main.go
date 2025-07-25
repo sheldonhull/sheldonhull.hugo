@@ -1,27 +1,16 @@
 package main
 
-import (
-	"context"
-	"dagger.io/dagger"
-)
+import "context"
 
 type Site struct{}
-
-// dag is the global Dagger client, initialized by the Dagger runtime
-var dag *dagger.Client
-
-func main() {
-	// This main function is for build verification only
-	// Dagger handles the actual execution
-}
 
 // Build the site using Quartz
 func (m *Site) Build(
 	ctx context.Context,
 	// +optional
 	// +default="."
-	source *dagger.Directory,
-) *dagger.Directory {
+	source *Directory,
+) *Directory {
 	return dag.Container().
 		From("node:22").
 		WithWorkdir("/app").
@@ -36,8 +25,8 @@ func (m *Site) Serve(
 	ctx context.Context,
 	// +optional
 	// +default="."
-	source *dagger.Directory,
-) *dagger.Service {
+	source *Directory,
+) *Service {
 	return dag.Container().
 		From("node:22").
 		WithWorkdir("/app").
@@ -53,8 +42,8 @@ func (m *Site) Check(
 	ctx context.Context,
 	// +optional
 	// +default="."
-	source *dagger.Directory,
-) *dagger.Container {
+	source *Directory,
+) *Container {
 	return dag.Container().
 		From("node:22").
 		WithWorkdir("/app").
@@ -69,8 +58,8 @@ func (m *Site) Format(
 	ctx context.Context,
 	// +optional
 	// +default="."
-	source *dagger.Directory,
-) *dagger.Directory {
+	source *Directory,
+) *Directory {
 	return dag.Container().
 		From("node:22").
 		WithWorkdir("/app").
