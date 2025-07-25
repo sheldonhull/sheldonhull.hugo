@@ -1,0 +1,6 @@
+{
+  "name": "site",
+  "sdk": "go",
+  "source": ".dagger",
+  "engineVersion": "0.18.14"
+}
