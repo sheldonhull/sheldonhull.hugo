@@ -22,16 +22,19 @@ Why?
 
 ## install
 
-- Open in codespaces or in local docker container and then run `task init` to ensure all tooling and submodules are initialized
-- ✨ *NEW 2021-07*: `go run mage.go init` and then `mage` to see a list of available tasks.
+- Open in codespaces or in local docker container and then run `npm ci` to ensure all tooling is initialized
+- ✨ *NEW 2025-01*: Use Dagger for build automation. Run `dagger call build` to build the site or `dagger call serve` to preview.
 
 ## Building & Tooling
 
-- Uses Netlify for builds
-- The core logic for building, updating algolia index, and previews is all handled via [Go Task](https://taskfile.dev/#/)
-- This allows the build system to call the same tasks I can run locally now. (eg `task build-public`)
+- Uses Netlify for builds with Quartz static site generator
+- The core logic for building and previews is handled via [Dagger](https://dagger.io/) functions in `.dagger/main.go`
+- Available Dagger functions:
+  - `dagger call build` - Build the static site
+  - `dagger call serve` - Serve the site for preview
+  - `dagger call check` - Check TypeScript and formatting
+  - `dagger call format` - Format code with Prettier
 - Codespaces supported natively, so all the required tooling is ready to run in cloud for editing.
-- Other actions are done via [Invoke-Build](https://github.com/nightroman/Invoke-Build), such as `ib hugo-new-blog` or `ib hugo-new-100-days-of-code` which uses Hugo archetypes and then replaces certain contents dynamically to help make it faster to blog/microblog.
 - Secrets for Algolia Admin key are in Github Secrets with repo and loaded as well via devcontainer. Set this variable in your local environment if running only locally. See the `Taskfile.yml` for naming/details.
 - Automatic PR update of dependencies via renovate
 - Automatic PR via ImgBot PR for image optimization

@@ -86,9 +86,7 @@ linters-settings:
         local_replace_directives: false # Set to true to raise lint issues for packages that are loaded from a local path via replace directive
 
   wrapcheck:
-    ignorePackageGlobs:
-      - github.com/sheldonhull/magetools/*
-      - github.com/DelineaXPM/magefiles/*
+    ignorePackageGlobs: []
 
   # Configuration can be customized: https://github.com/ldez/tagliatelle
   # This establishes consistency in the json naming, so that all json tagging uses the same approach.
@@ -206,7 +204,7 @@ linters:
   #   - megacheck
   #   - govet
   exclude-use-default: false # Some key checks that will be missing if the default of 'true' is kept. (comments on exported and other will be missing!)
-  enable-all: true # disabling to provide control on mage and project tooling. pass --enable-all on the cli calls to run all.
+  enable-all: true # disabling to provide control on dagger and project tooling. pass --enable-all on the cli calls to run all.
   disable:
     - scopelint
     - paralleltest
@@ -252,9 +250,8 @@ run:
     - _tools
     - vendor
     - vendor$
-  # lint magefile, but ignore tools.go
+  # lint dagger functions, but ignore tools.go
   build-tags:
-    - mage
     - tools
     - integration
     - codeanalysis
@@ -273,19 +270,19 @@ issues:
     - linters:
         - goerr113
       text: do not define dynamic errors
-    - path: magefiles/
+    - path: \.dagger/
       linters:
         - goerr113
         - wrapcheck
-        - funlen # a lot of these are a longer automation tasks and not worth breaking down
-        - gocyclo # a lot of these are a longer automation tasks and not worth breaking down
-        - cyclop # a lot of these are a longer automation tasks and not worth breaking down
-        - gocognit # a lot of these are a longer automation tasks and not worth breaking down
-        - maintidx # a lot of these are a longer automation tasks and not worth breaking down
-        - deadcode # not appliable to standalone tasks
+        - funlen # dagger functions can be longer automation tasks
+        - gocyclo # dagger functions can be longer automation tasks
+        - cyclop # dagger functions can be longer automation tasks
+        - gocognit # dagger functions can be longer automation tasks
+        - maintidx # dagger functions can be longer automation tasks
+        - deadcode # not applicable to standalone tasks
     - linters:
         - goerr113
-      text: magefiles don't need to worry about wrapping in the same way
+      text: dagger functions don't need to worry about wrapping in the same way
     - linters:
         - govet
         - revive
