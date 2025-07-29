@@ -20,7 +20,7 @@
     "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1"
   },
   "engines": {
-    "npm": "11.4.2",
+    "npm": "11.5.0",
     "node": "v24.3.0"
   },
   "keywords": [
@@ -38,7 +38,7 @@
     "@clack/prompts": "0.11.0",
     "@floating-ui/dom": "1.7.2",
     "@myriaddreamin/rehype-typst": "0.6.0",
-    "@napi-rs/simple-git": "0.1.19",
+    "@napi-rs/simple-git": "0.1.21",
     "@tweenjs/tween.js": "25.0.0",
     "@webgpu/types": "0.1.64",
     "ansi-truncate": "1.2.0",
@@ -84,10 +84,10 @@
     "remark-rehype": "11.1.2",
     "remark-smartypants": "3.0.2",
     "rfdc": "1.4.1",
-    "satori": "0.15.2",
+    "satori": "0.16.1",
     "serve-handler": "6.1.6",
     "sharp": "0.34.3",
-    "shiki": "3.8.0",
+    "shiki": "3.8.1",
     "source-map-support": "0.5.21",
     "to-vfile": "8.0.0",
     "toml": "3.0.0",
