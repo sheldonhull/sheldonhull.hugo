@@ -17,4 +17,17 @@ justifyContent: true
 
 Here you'll find mostly tech talk and musings, with other topics periodically.
 
+## Explore
+
+### 📝 [Notes](notes)
+My digital garden - frequently updated notes and thoughts that are unrefined and in progress.
+
+### 📖 [Posts](posts)
+Blog posts and longer form content organized by year.
+
+### 👋 [About](about)
+Learn more about me, my values, and interests.
+
+---
+
 Lately, I update my [notes](notes) section more than blog posts. 👍🏻
