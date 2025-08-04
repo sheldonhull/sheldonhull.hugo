@@ -204,3 +204,8 @@ mage_output_file.go
 
 # from local testing with direnv which triggered add for some reason
 .local/
+
+# Dagger generated files
+.dagger/internal/
+.dagger/dagger.gen.go
+.dagger/go.sum
