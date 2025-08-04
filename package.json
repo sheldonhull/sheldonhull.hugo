@@ -20,7 +20,7 @@
     "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1"
   },
   "engines": {
-    "npm": "11.5.0",
+    "npm": "11.5.1",
     "node": "v24.3.0"
   },
   "keywords": [
@@ -63,7 +63,7 @@
     "micromorph": "0.4.5",
     "minimatch": "10.0.3",
     "pixi.js": "8.11.0",
-    "preact": "10.26.9",
+    "preact": "10.27.0",
     "preact-render-to-string": "6.5.13",
     "pretty-bytes": "7.0.0",
     "pretty-time": "1.1.0",
@@ -84,7 +84,7 @@
     "remark-rehype": "11.1.2",
     "remark-smartypants": "3.0.2",
     "rfdc": "1.4.1",
-    "satori": "0.16.1",
+    "satori": "0.16.2",
     "serve-handler": "6.1.6",
     "sharp": "0.34.3",
     "shiki": "3.8.1",
@@ -113,6 +113,6 @@
     "typescript": "5.8.3"
   },
   "volta": {
-    "node": "v22.17.1"
+    "node": "v22.18.0"
   }
 }
